@@ -1,0 +1,17 @@
+cancer,gene,evidence_class,n,positive,current_balanced_accuracy,current_q,current_tier
+THYM,GTF2I,atlas-nominated; absent from prespecified crosswalk,121,59,0.876161837069437,0.01,A
+READ,APC,atlas-nominated; absent from prespecified crosswalk,156,65,0.860439560439561,0.01,A
+READ,TP53,atlas-nominated; absent from prespecified crosswalk,156,66,0.846969696969697,0.01,A
+LGG,TP53,previously reported and recovered,490,232,0.830025394279604,0.0216666666666667,A
+THCA,BRAF,previously reported and recovered,505,289,0.827678457003717,0.01,A
+COAD,APC,atlas-nominated; absent from prespecified crosswalk,433,196,0.792323258417291,0.0433333333333333,A
+LGG,ATRX,atlas-nominated; absent from prespecified crosswalk,490,181,0.783734735110587,0.0216666666666667,A
+COAD,TP53,atlas-nominated; absent from prespecified crosswalk,433,161,0.777082572159299,0.0433333333333333,A
+LGG,IDH1,previously reported and recovered,490,375,0.771652173913044,0.0216666666666667,A
+LGG,CIC,atlas-nominated; absent from prespecified crosswalk,490,105,0.77012987012987,0.0216666666666667,A
+SKCM,BRAF,atlas-nominated; absent from prespecified crosswalk,292,52,0.765224358974359,0.01,A
+COAD,KRAS,atlas-nominated; absent from prespecified crosswalk,433,126,0.702859211002534,0.0433333333333333,A
+THCA,NRAS,atlas-nominated; absent from prespecified crosswalk,505,39,0.670848464839881,0.01,B
+LGG,EGFR,atlas-nominated; absent from prespecified crosswalk,490,34,0.654540763673891,0.0216666666666667,B
+LGG,PTEN,atlas-nominated; absent from prespecified crosswalk,490,23,0.637184619681594,0.0216666666666667,B
+READ,KRAS,atlas-nominated; absent from prespecified crosswalk,156,30,0.615873015873016,0.01,B

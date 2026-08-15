@@ -28,9 +28,10 @@ representations?** The pipeline evaluates:
 - aneuploidy score, amplification/deletion burdens and genome doubling;
 - fusion burden, any called fusion and eligible recurrent fusion pairs.
 
-PLS1 versus PLS2 is a secondary, matched comparison. Mutation and other
-binary endpoints use PLS latent variables followed by LDA; continuous and
-multivariate inflammatory endpoints use PLS regression.
+Mutation and other binary endpoints use PLS latent variables followed by LDA;
+continuous endpoints use PLS1 regression. The matched PLS1-versus-PLS2
+comparison for coherent inflammatory blocks is secondary and is reported in
+the supplementary material.
 
 ## Multiple slides per patient
 
@@ -82,6 +83,13 @@ predictions.
 Every exported RDS object includes the exact 768-column feature order, slide
 aggregation rule, cancer type, endpoint, selected component count, class counts
 where applicable, fastPLS version and research-only intended-use statement.
+
+PLS and PLS–LDA are parametric models: external prediction needs the learned
+preprocessing values, latent weights, coefficients and classification
+parameters, but not the patient-level training embeddings or outcomes. This is
+a practical data-minimisation advantage over reference-set methods such as
+k-nearest neighbours, whose inference requires stored training examples. It is
+not a guarantee of privacy, transportability or redistribution permission.
 
 Fitted objects are generated under `models/` but are not committed by
 default. TITAN's upstream terms describe models trained on TITAN outputs as

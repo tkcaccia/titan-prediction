@@ -42,6 +42,12 @@ retain `p_permutation=1`; they remain in the multiplicity denominator.
   complete-case patients and folds;
 - `prior_mutation_literature_crosswalk.csv`: study-level prior claims joined to
   the current mutation atlas;
+- `prior_mutation_accuracy_comparison.csv`: report-level prior AUROC and current
+  balanced accuracy shown side by side; the metrics are not directly
+  subtractable;
+- `supported_mutation_novelty.csv`: every current Tier-A/B mutation pair
+  classified as previously reported/recovered or atlas-nominated because it was
+  absent from the prespecified exact-pair crosswalk;
 - `source_manifest.csv`: source paths/URLs, sizes and SHA-256 digests.
 
 ## Model registry

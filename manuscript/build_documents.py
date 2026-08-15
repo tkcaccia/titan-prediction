@@ -129,6 +129,8 @@ pool_c = rows("continuous_slide_pooling_sensitivity.csv")
 pool_b = rows("binary_slide_pooling_sensitivity.csv")
 pls2 = rows("pls1_vs_pls2_inflammation_summary.csv")
 lit = rows("prior_mutation_literature_pair_summary.csv")
+lit_accuracy = rows("prior_mutation_accuracy_comparison.csv")
+mutation_novelty = rows("supported_mutation_novelty.csv")
 
 def tier_counts(data):
     ans = defaultdict(Counter)
@@ -177,9 +179,22 @@ for fam in sorted(set(r["family"] for r in continuous + binary)):
                              counts["A"], counts["B"], counts["C"]))
 
 
-def examples(data, metric, n=8):
+def examples(data, metric, n=8, include_family=False):
     ordered = sorted(data, key=lambda r: float(r[metric]), reverse=True)[:n]
-    return "; ".join(f'{r["tumor_type"]}–{r["endpoint"]} ({fnum(r[metric])})' for r in ordered)
+    labels = {
+        "driver_mutation": "mutation",
+        "oncogenic_pathway": "pathway",
+        "fusion": "fusion",
+        "aneuploidy": "aneuploidy",
+        "microsatellite_instability": "MSI",
+        "microsatellite_instability_sensitivity": "strict MSI",
+    }
+    return "; ".join(
+        f'{r["tumor_type"]}–{r["endpoint"]}'
+        f'{" [" + labels.get(r["family"], r["family"]) + "]" if include_family else ""}'
+        f' ({fnum(r[metric])})'
+        for r in ordered
+    )
 
 
 def median(values):
@@ -192,6 +207,37 @@ def median(values):
 site_deltas = [r["delta"] for r in site_c + site_b if r.get("feasible") == "TRUE" and r.get("delta")]
 pool_deltas = [r["delta_first_minus_mean"] for r in pool_c + pool_b if r.get("delta_first_minus_mean")]
 lit_counts = Counter(r["current_status"] for r in lit)
+recovered_reports = [r for r in lit_accuracy if r["current_status"].startswith("recovered_tier_")]
+atlas_nominated = [r for r in mutation_novelty if r["evidence_class"].startswith("atlas-nominated")]
+
+
+def prior_current_text(records):
+    return "; ".join(
+        f'{r["cancer"]}–{r["gene"]}: prior {r["prior_metric"]}, '
+        f'current balanced accuracy {fnum(r["current_balanced_accuracy"])} '
+        f'(q={fnum(r["current_q"])})'
+        for r in records
+    )
+
+
+def selected_prior_records(keys):
+    selected = []
+    for cancer, gene, study in keys:
+        match = next((
+            r for r in lit_accuracy
+            if r["cancer"] == cancer and r["gene"] == gene and r["study"] == study
+        ), None)
+        if match:
+            selected.append(match)
+    return selected
+
+
+previously_reported_not_supported = selected_prior_records([
+    ("BRCA", "TP53", "Kather2020"),
+    ("UCEC", "TP53", "Loeffler2022"),
+    ("LIHC", "CTNNB1", "Kather2020"),
+    ("PAAD", "KRAS", "Kather2020"),
+])
 
 
 doc = setup(Document(), "Patient-level TITAN molecular and immune atlas")
@@ -208,15 +254,16 @@ p.add_run("Research article — Molecular Pathology | Journal of Translational M
 
 doc.add_heading("Abstract", level=1)
 add_labelled(doc, "Background.", "Histology can encode molecular and microenvironmental phenotypes, but conventional convolutional-neural-network workflows require repeated task-specific training. We evaluated whether reusable TITAN whole-slide embeddings enable rapid, cancer-specific screening of individual molecular, genomic-instability and immune endpoints.")
-add_labelled(doc, "Methods.", f"We mean-pooled {n_slides:,} primary diagnostic slide embeddings into {n_patients:,} patient vectors across {n_cancers} TCGA cancers; {n_multi:,} patients contributed multiple slides. We tested {len(continuous):,} continuous and {len(binary):,} binary cancer–endpoint pairs. PLS1 regression was used for continuous targets; binary targets used PLS latent scores with LDA. Patient-level nested 5×5 cross-validation selected 1–10 components. Effect-eligible models underwent up to 99 permutations with Benjamini–Hochberg control within cancer and endpoint family; a global-across-cancers q-value was retained as sensitivity. PLS2 was a secondary matched analysis of coherent inflammatory blocks.")
-add_labelled(doc, "Results.", f"Across all families, {len(supported_c):,} continuous and {len(supported_b):,} binary pairs met Tier A/B criteria. Leading continuous results included {examples(top_c, 'q2', 4)}. Leading binary results included {examples(top_b, 'balanced_accuracy', 4)}. Site-grouped and first-slide sensitivity quantified centre and slide-selection dependence. PLS2 effect magnitudes were evaluated at the cancer level rather than by endpoint win counts.")
+add_labelled(doc, "Methods.", f"We mean-pooled {n_slides:,} primary diagnostic slide embeddings into {n_patients:,} patient vectors across {n_cancers} TCGA cancers; {n_multi:,} patients contributed multiple slides. We tested {len(continuous):,} continuous and {len(binary):,} binary cancer–endpoint pairs. PLS1 regression was used for continuous targets; binary targets used PLS latent scores with LDA. Patient-level nested 5×5 cross-validation selected 1–10 components. Effect-eligible models underwent up to 99 permutations with Benjamini–Hochberg control within cancer and endpoint family; a global-across-cancers q-value was retained as sensitivity.")
+add_labelled(doc, "Results.", f"Across all families, {len(supported_c):,} continuous and {len(supported_b):,} binary pairs met Tier A/B criteria. Leading continuous results included {examples(top_c, 'q2', 4)}. Leading binary results included {examples(top_b, 'balanced_accuracy', 4, include_family=True)}. Site-grouped and first-slide sensitivity quantified centre and slide-selection dependence.")
 add_labelled(doc, "Conclusions.", "Frozen TITAN features provide a fast hypothesis-generation layer for selected cancer-specific immune and molecular phenotypes, but predictability is heterogeneous and does not replace molecular assays. The internally validated models and negative results require independent external validation before clinical interpretation.")
 doc.add_paragraph("Keywords: computational pathology; whole-slide imaging; foundation model; mutation; inflammation; microsatellite instability; gene fusion; aneuploidy; partial least squares; linear discriminant analysis")
 
 doc.add_heading("Background", level=1)
 doc.add_paragraph("Routine haematoxylin-and-eosin sections reflect phenotypic consequences of tumour genotype and the immune microenvironment. Coudray and colleagues trained an Inception-v3 convolutional neural network (CNN) to predict six recurrently mutated genes in lung adenocarcinoma, and subsequent pan-cancer studies expanded image-derived inference to mutations, molecular biomarkers and expression programmes [1–5]. These studies established biological plausibility, but their tile extraction, annotation and target-specific optimization make exhaustive updating expensive.")
 doc.add_paragraph("TITAN is a multimodal whole-slide foundation model pretrained on 335,645 slides using visual self-supervision and vision–language alignment [6]. Its frozen 768-dimensional slide representation can be reused without back-propagation through millions of tiles. PLS is computationally light and well suited to correlated, high-dimensional predictors [7,8]. The advantage tested here is therefore speed and reuse after TITAN extraction—not an assumption that PLS is intrinsically more accurate than a task-optimized CNN.")
-doc.add_paragraph("The primary question was cancer-specific: which individual mutations, inflammatory measurements, oncogenic pathways, MSI phenotypes, aneuploidy measures and fusions are predictable within each cancer? Molecular subtype association was not analysed. PLS1 versus PLS2 was secondary; PLS2 was considered most biologically plausible for correlated inflammatory panels, while PLS–LDA was preferred for individual binary molecular endpoints.")
+doc.add_paragraph("A second practical advantage is model portability. A fitted PLS or PLS–LDA predictor can be distributed as a compact set of preprocessing parameters, latent-variable weights, regression coefficients and LDA parameters. Prediction therefore does not require release of the patient-level training embeddings or outcomes. This differs from reference-set methods such as k-nearest neighbours, which require access to stored training examples at inference [19]. Model sharing remains subject to upstream licences, governance and external validation.")
+doc.add_paragraph("The primary question was cancer-specific: which individual mutations, inflammatory measurements, oncogenic pathways, MSI phenotypes, aneuploidy measures and fusions are predictable within each cancer? Molecular subtype association was not analysed. PLS–LDA was preferred for individual binary molecular endpoints. The methodological PLS1–PLS2 comparison for correlated inflammatory panels is reported in the Supplementary Material.")
 
 doc.add_heading("Methods", level=1)
 doc.add_heading("Study design, slides and patient unit", level=2)
@@ -232,9 +279,9 @@ doc.add_heading("PLS1 regression and PLS–LDA classification", level=2)
 doc.add_paragraph("For each cancer–endpoint pair, five outer folds estimated performance and five inner folds selected 1–10 PLS components. Scaling and component selection were learned from training patients only. Continuous performance was out-of-fold Q², with RMSE and Spearman correlation secondary. Binary models supplied PLS latent scores to ridge-stabilised LDA; balanced accuracy was primary and AUROC from continuous LDA scores was secondary in repeated validation.")
 doc.add_paragraph("Nested performance was first checkpointed for the complete atlas. Only models capable of Tier B (Q²≥0.20 or chance-corrected balanced accuracy≥0.20) received up to 99 patient-label permutations. Evaluation stopped conservatively after five exceedances because raw p<0.05 was then impossible even if every remaining null statistic were less extreme; stopped endpoints were assigned p=1. Regression extremeness used lower RMSD, whereas classification used higher balanced accuracy. Completed finite p values were (b+1)/(B+1). Because each disease defines a separate prediction and intended-use population, Benjamini–Hochberg FDR was controlled within cancer and prespecified endpoint family; an across-cancer family q-value was retained as a stricter sensitivity. Tier A required primary q<0.05 and effect≥0.40; Tier B required primary q<0.05 and effect 0.20–0.39. An optional 999-permutation extension is implemented in the public code but was not required for primary tiering.")
 
-doc.add_heading("Robustness, saved models and PLS2 sensitivity", level=2)
+doc.add_heading("Robustness and saved models", level=2)
 doc.add_paragraph("Supported models were repeated under five independently seeded nested-CV partitions. Site-grouped folds kept two-character TCGA tissue-source-site codes out of both training and test partitions. A first-slide sensitivity replaced the primary mean-pooled vector while preserving patients and seeds. Full-data research models were tuned by ten-fold CV, saved with feature order, aggregation rule, class counts, software version and intended-use metadata, and tested through a public inference example that mean-pools user slides.")
-doc.add_paragraph("The secondary PLS2 analysis jointly modelled three prespecified inflammatory blocks: infiltration/signatures, immune repertoire and inferred immune-cell fractions. PLS1 and PLS2 used identical complete-case patients and outer folds, training-fold outcome scaling, separately selected component counts and three independent nested-CV repeats. Changes in Q² were aggregated by cancer with cancer-bootstrap intervals; endpoint win counts were not treated as inferential evidence.")
+doc.add_paragraph("The fitted PLS and PLS–LDA objects contain the learned transformations and coefficients needed for inference but no patient-level training rows. The public inference interface validates the 768-feature order and applies the prespecified patient-level slide aggregation. The secondary PLS1–PLS2 inflammatory comparison, including matched folds and cancer-bootstrap intervals, is described in the Supplementary Methods.")
 
 doc.add_heading("Software, transparency and validation status", level=2)
 doc.add_paragraph(f"Analyses used R 4.6 and fastPLS 0.99.20 (Git commit dcf45cc). Complete code, source manifests, target catalogues, checkpoints, out-of-fold predictions, figures, model registry and inference example are organized at {REPO}. Fitted TITAN-derived model objects are generated locally; their public redistribution remains subject to TITAN's upstream terms. No external cohort with compatible precomputed TITAN features and the required multi-omic labels was identified, so all performance estimates remain internal to TCGA.")
@@ -253,7 +300,7 @@ doc.add_paragraph(f"None of the {len(supported_c)} primary continuous Tier-A/B p
 add_figure(doc, "Figure2_continuous_atlas.png", "Figure 2. Strongest supported continuous cancer–endpoint results. Q² is calculated from genuine patient-level outer-fold predictions; all tests remain available in the machine-readable atlas.")
 
 doc.add_heading("Binary molecular phenotypes", level=2)
-doc.add_paragraph(f"The binary atlas yielded {len([r for r in supported_b if r['tier']=='A'])} Tier-A and {len([r for r in supported_b if r['tier']=='B'])} Tier-B pairs. Leading results were {examples(top_b, 'balanced_accuracy', 12)}. The complete table includes tested-negative and ineligible distinctions for mutations, pathways, genome doubling, MSI and fusions.")
+doc.add_paragraph(f"The binary atlas yielded {len([r for r in supported_b if r['tier']=='A'])} Tier-A and {len([r for r in supported_b if r['tier']=='B'])} Tier-B pairs. Leading results were {examples(top_b, 'balanced_accuracy', 12, include_family=True)}. The complete table includes tested-negative and ineligible distinctions for mutations, pathways, genome doubling, MSI and fusions.")
 doc.add_paragraph(f"Of {len(supported_b)} primary binary Tier-A/B pairs, {len(global_supported_b)} also met the stricter across-cancer family q<0.05. No cancer–gene mutation pair passed that global sensitivity, whereas supported pathway, MSI and fusion signals generally did; mutation results are consequently described as cancer-screen-specific findings.")
 add_figure(doc, "Figure3_binary_atlas.png", "Figure 3. Strongest supported binary molecular predictions using PLS latent scores and LDA. Point size represents the number of positive patients.")
 add_figure(doc, "Figure4_supported_counts.png", "Figure 4. Number and family of Tier-A/B prediction targets within each cancer. Absence of an eligible target is distinct from a tested negative result.")
@@ -262,25 +309,21 @@ doc.add_heading("Site and multiple-slide sensitivity", level=2)
 doc.add_paragraph(f"Site-grouped validation was feasible for {sum(r.get('feasible')=='TRUE' for r in site_c)+sum(r.get('feasible')=='TRUE' for r in site_b)} supported models. The median grouped-minus-random performance change was {fnum(median(site_deltas))}. The first-slide-minus-mean-pool median change across supported models was {fnum(median(pool_deltas))}. Individual attenuations are reported because centre robustness and slide aggregation are target specific.")
 add_figure(doc, "Figure5_site_grouped_sensitivity.png", "Figure 5. Random-fold versus tissue-source-site-grouped internal validation. Values below the diagonal indicate attenuation when submitting sites are separated.")
 
-doc.add_heading("Secondary PLS1–PLS2 comparison", level=2)
-if pls2:
-    text = []
-    for r in pls2:
-        text.append(f'{r["block"].replace("_", " ")}: mean cancer-level ΔQ² {fnum(r["mean_cancer_delta"])} (95% interval {fnum(r["ci_low"])} to {fnum(r["ci_high"])})')
-    doc.add_paragraph("; ".join(text) + ". These effect magnitudes, not the number of endpoints won, determine interpretation.")
-add_figure(doc, "Figure6a_pls1_vs_pls2_targets.png", "Figure 6a. Matched target-level PLS1 and PLS2 Q² on identical held-out patients.")
-add_figure(doc, "Figure6b_pls1_vs_pls2_cancers.png", "Figure 6b. Cancer-level mean Q² change for joint PLS2 relative to response-by-response PLS1.")
-
 doc.add_heading("Discussion", level=1)
 doc.add_paragraph("This study answers a target-by-target, cancer-specific question rather than asking whether molecular subtype and mutation status are associated. Frozen TITAN features contain useful signal for selected immune programmes, mutations and higher-level genomic phenotypes, but most eligible pairs do not satisfy both multiplicity and effect thresholds. That heterogeneity—and transparent negative reporting—is the primary result.")
-doc.add_paragraph("Prior CNN studies recovered histological signal for multiple exact cancer–gene pairs [1–5]. In the prespecified crosswalk, " + ", ".join(f"{k.replace('_',' ')}: {v}" for k,v in sorted(lit_counts.items())) + ". Recovered and unrecovered pairs are listed in Supplementary Table S4; original study metrics, evidence notes and URLs are retained in the machine-readable crosswalk. Current balanced accuracy cannot be numerically equated to prior AUROC, and disagreement may reflect primary-versus-metastatic sampling, frozen versus FFPE preparation, mutation definition, model class or validation design.")
-doc.add_paragraph("The practical advantage of TITAN plus PLS is rapid reuse. Once slide embeddings exist, hundreds of new outcomes can be screened without retraining a CNN encoder. This is useful for discovery and triage, particularly when new genomic annotations become available. It does not eliminate the one-time TITAN extraction cost and is not a hardware-matched claim of superior accuracy.")
-doc.add_paragraph("Joint PLS2 is most compelling when responses are correlated and measured on the same patients. Its inflammatory benefit must nevertheless be judged by ΔQ² and its cancer-level interval. Binary mutations and fusions are sparse and only partially correlated, so a shared response space can dilute target-specific signal; separate PLS–LDA therefore remains the primary binary strategy.")
+doc.add_heading("Previously reported and atlas-nominated predictors", level=2)
+doc.add_paragraph("The mutation results divide into two evidence groups. Three of the 16 Tier-A/B cancer–gene pairs were exact pairs in the prespecified CNN literature crosswalk and were recovered here: " + prior_current_text(recovered_reports) + ". Prior studies reported AUROC, whereas the present primary metric is balanced accuracy; the side-by-side values describe consistency of discrimination but are not numerical estimates of improvement or inferiority.")
+doc.add_paragraph("Several published pairs retained moderate discrimination but did not satisfy the current within-cancer mutation-family FDR criterion: " + prior_current_text(previously_reported_not_supported) + ". Other reported pairs were weaker or ineligible under the present primary-tumour and minimum-class-count rules. Differences can arise from cohort composition, primary-versus-metastatic sampling, slide preparation, mutation definition, model class and validation design. Supplementary Table S4 provides the report-level comparison and the complete machine-readable crosswalk preserves original evidence notes and URLs.")
+doc.add_paragraph(f"The remaining {len(atlas_nominated)} supported mutation pairs were not present in the prespecified exact-pair crosswalk and are therefore atlas-nominated candidates rather than replications. Leading examples were " + "; ".join(f'{r["cancer"]}–{r["gene"]} (balanced accuracy {fnum(r["current_balanced_accuracy"])}, q={fnum(r["current_q"])})' for r in atlas_nominated[:8]) + ". Absence from this targeted crosswalk is not a claim that no publication has ever evaluated the pair; a systematic endpoint-level review would be required to establish bibliographic novelty. Supplementary Table S5 classifies all 16 supported mutation pairs explicitly.")
+doc.add_paragraph("The immune measurements, oncogenic pathways, MSI, aneuploidy and fusion endpoints extend the analysis beyond the exact cancer–gene mutation pairs used for the literature crosswalk. They are newly screened in this TITAN–PLS atlas, but the manuscript does not claim that histological prediction of those broad endpoint classes is unprecedented. Their novelty is the unified patient-level, cancer-specific screen and directly reusable linear modelling framework.")
+doc.add_heading("Practical novelty of the PLS framework", level=2)
+doc.add_paragraph("The first practical advantage of TITAN plus PLS is rapid reuse. Once slide embeddings exist, hundreds of new outcomes can be screened without retraining a CNN encoder. This is useful for discovery and triage when new genomic annotations become available. It does not eliminate the one-time TITAN extraction cost and is not a hardware-matched claim of superior accuracy.")
+doc.add_paragraph("The second advantage is data-minimising model portability. A trained PLS predictor is parametric: preprocessing values, latent weights and coefficients are sufficient for continuous prediction, with compact LDA parameters added for binary classification. External users can therefore apply a frozen model to correctly ordered TITAN features without receiving the original patient embeddings, outcomes or neighbour reference set. By contrast, k-nearest-neighbour inference depends directly on stored training examples [19]. This reduces the data that must be distributed, although it does not by itself confer privacy, overcome TITAN licensing restrictions or establish transportability.")
 doc.add_paragraph("Strengths include primary-tumour matching across every data source, deterministic mean pooling of multiple slides, nested patient-level validation, family-wise FDR, exact negative-result reporting, site-grouped sensitivity, saved research models and executable inference code. The supplied Bonneville spreadsheets contained only an ACC/CESC/MESO subset; cBioPortal PanCancer Atlas MANTIS fields were therefore used for full coverage and agreed exactly for all 387 overlapping cases.")
 doc.add_paragraph("The principal limitation is absence of independent external validation. TCGA resampling, even with site separation, cannot establish transportability to another institution, scanner, stain distribution or patient population. The study is retrospective and exploratory; thresholds are prioritisation rules, not clinical operating points. TITAN used report alignment during pretraining, predictability does not establish biological causality, and image-derived predictions cannot justify omitting a molecular assay. External feature extraction and prospective evaluation are required before clinical use.")
 
 doc.add_heading("Conclusions", level=1)
-doc.add_paragraph("Mean-pooled, frozen TITAN embeddings enable a rapid cancer-specific atlas of selected immune, mutation, pathway, MSI, aneuploidy and fusion phenotypes. PLS2 is a secondary option for correlated inflammatory panels; individual PLS–LDA remains the clearer default for binary molecular targets. The resource prioritises hypotheses and exposes unsupported targets, but remains internally validated and non-clinical.")
+doc.add_paragraph("Mean-pooled, frozen TITAN embeddings enable a rapid cancer-specific atlas of selected immune, mutation, pathway, MSI, aneuploidy and fusion phenotypes. Compact fitted PLS and PLS–LDA models can be applied without distributing patient-level training data, providing a practical route to external research validation when licensing permits. The resource prioritises hypotheses and exposes unsupported targets, but remains internally validated and non-clinical.")
 
 doc.add_heading("Declarations", level=1)
 for h, text in [
@@ -314,6 +357,7 @@ references = [
 "16. Sanchez-Vega F, et al. Oncogenic signaling pathways in The Cancer Genome Atlas. Cell. 2018;173:321–337.e10. doi:10.1016/j.cell.2018.03.035.",
 "17. Benjamini Y, Hochberg Y. Controlling the false discovery rate. J R Stat Soc B. 1995;57:289–300. doi:10.1111/j.2517-6161.1995.tb02031.x.",
 "18. Collins GS, et al. TRIPOD+AI statement. BMJ. 2024;385:e078378. doi:10.1136/bmj-2023-078378.",
+"19. Cover TM, Hart PE. Nearest neighbor pattern classification. IEEE Trans Inf Theory. 1967;13:21–27. doi:10.1109/TIT.1967.1053964.",
 ]
 for ref in references: doc.add_paragraph(ref)
 doc.save(OUT / "manuscript_JTM_patient_level_TITAN.docx")
@@ -325,6 +369,8 @@ sup.add_heading("Supplementary material", 0)
 sup.add_paragraph("A patient-level atlas of molecular and immune predictability from frozen TITAN whole-slide embeddings across 32 cancers")
 sup.add_heading("Supplementary Methods", 1)
 sup.add_paragraph("The executable analysis plan, source manifest, eligibility catalogues, checkpoints and out-of-fold predictions are available in the companion repository. Tables below are concise views; complete machine-readable CSV files are authoritative.")
+sup.add_heading("Secondary PLS1–PLS2 inflammatory comparison", 2)
+sup.add_paragraph("The secondary comparison jointly modelled three prespecified inflammatory blocks: infiltration/signatures, immune repertoire and inferred immune-cell fractions. Response-by-response PLS1 and joint PLS2 used identical complete-case patients and outer folds, training-fold outcome scaling, separately selected component counts and three independently seeded nested-CV repeats. Changes in Q² were aggregated first within cancer; uncertainty was estimated by resampling cancers. Endpoint win counts were not treated as inferential evidence.")
 sup.add_heading("Table S1. Analysis coverage", 1)
 add_table(sup, ["Family", "Type", "Tests", "Cancers", "Tier A", "Tier B", "Tier C"], family_table)
 sup.add_heading("Table S2. Top continuous results", 1)
@@ -333,11 +379,27 @@ add_table(sup, ["Cancer", "Endpoint", "Family", "n", "Q²", "q", "Tier"],
 sup.add_heading("Table S3. Top binary results", 1)
 add_table(sup, ["Cancer", "Endpoint", "Family", "n", "Positive", "Balanced accuracy", "q", "Tier"],
           [(r["tumor_type"], r["endpoint"], r["family"], r["n"], r["positive"], fnum(r["balanced_accuracy"]), fnum(r["q_value"]), r["tier"]) for r in top_b[:60]])
-sup.add_heading("Table S4. Previously reported histology mutation pairs", 1)
-add_table(sup, ["Cancer", "Gene", "Prior studies", "Current status", "n", "Positive", "Balanced accuracy", "q"],
-          [(r["current_cancer"], r["gene"], r["studies"], r["current_status"], r["n"], r["positive"], fnum(r["current_balanced_accuracy"]), fnum(r["current_q"])) for r in lit])
+sup.add_heading("Table S4. Published exact cancer–gene results compared with the current screen", 1)
+sup.add_paragraph("Prior studies predominantly reported AUROC, whereas the current prespecified metric is balanced accuracy. These values are displayed side by side for context but are not directly subtractable and do not constitute a head-to-head model comparison.")
+add_table(sup, ["Study", "Cancer", "Gene", "Prior result", "Current BA", "Current q", "Current status"],
+          [(r["study"], r["cancer"], r["gene"], r["prior_metric"], fnum(r["current_balanced_accuracy"]), fnum(r["current_q"]), r["current_status"].replace("_", " ")) for r in lit_accuracy])
+sup.add_heading("Table S5. Supported mutation predictors classified by prior exact-pair evidence", 1)
+sup.add_paragraph("Atlas-nominated means absent from the prespecified exact-pair crosswalk and should not be interpreted as proof that no previous publication has studied the pair.")
+add_table(sup, ["Cancer", "Gene", "Evidence class", "n", "Positive", "Balanced accuracy", "q", "Tier"],
+          [(r["cancer"], r["gene"],
+            "atlas-nominated" if r["evidence_class"].startswith("atlas-nominated") else "prior report recovered",
+            r["n"], r["positive"], fnum(r["current_balanced_accuracy"]), fnum(r["current_q"]), r["current_tier"])
+           for r in mutation_novelty])
+sup.add_heading("Secondary PLS1–PLS2 results", 1)
+if pls2:
+    text = []
+    for r in pls2:
+        text.append(f'{r["block"].replace("_", " ")}: mean cancer-level ΔQ² {fnum(r["mean_cancer_delta"])} (95% interval {fnum(r["ci_low"])} to {fnum(r["ci_high"])})')
+    sup.add_paragraph("; ".join(text) + ". The intervals describe variation across cancers; interpretation is based on effect magnitude rather than endpoint win counts.")
+add_figure(sup, "Figure6a_pls1_vs_pls2_targets.png", "Figure S1. Matched target-level PLS1 and PLS2 Q² on identical held-out patients.")
+add_figure(sup, "Figure6b_pls1_vs_pls2_cancers.png", "Figure S2. Cancer-level mean Q² change for joint PLS2 relative to response-by-response PLS1.")
 sup.add_heading("Machine-readable additional files", 1)
-for name in ["continuous_screen.csv", "binary_screen.csv", "continuous_repeated_nested_cv.csv", "binary_repeated_nested_cv.csv", "continuous_site_grouped_sensitivity.csv", "binary_site_grouped_sensitivity.csv", "continuous_slide_pooling_sensitivity.csv", "binary_slide_pooling_sensitivity.csv", "pls1_vs_pls2_inflammation.csv", "prior_mutation_literature_crosswalk.csv", "nonmutation_sample_type_audit.csv", "mutation_sample_type_audit.csv", "source_manifest.csv", "models/model_registry.csv"]:
+for name in ["continuous_screen.csv", "binary_screen.csv", "continuous_repeated_nested_cv.csv", "binary_repeated_nested_cv.csv", "continuous_site_grouped_sensitivity.csv", "binary_site_grouped_sensitivity.csv", "continuous_slide_pooling_sensitivity.csv", "binary_slide_pooling_sensitivity.csv", "pls1_vs_pls2_inflammation.csv", "prior_mutation_literature_crosswalk.csv", "prior_mutation_accuracy_comparison.csv", "supported_mutation_novelty.csv", "nonmutation_sample_type_audit.csv", "mutation_sample_type_audit.csv", "source_manifest.csv", "models/model_registry.csv"]:
     sup.add_paragraph(name, style="List Bullet")
 sup.save(OUT / "supplementary_material_JTM.docx")
 
@@ -358,11 +420,15 @@ responses = [
     ("4. Distinguish cancer genes from functional driver alleles",
      "Addressed throughout. Mutation targets are described as qualifying protein-altering PASS mutations in tissue-specific consensus cancer genes; the manuscript explicitly states that not every allele is functionally validated."),
     ("5. Preserve effect-size-first interpretation of PLS2",
-     "Addressed. PLS2 is restricted to coherent inflammatory blocks as a secondary analysis. PLS1 and PLS2 use identical patients and folds, and interpretation is based on cancer-level ΔQ² with bootstrap intervals rather than win counts. Binary molecular endpoints retain one-at-a-time PLS–LDA as the primary analysis."),
+     "Addressed. The PLS1–PLS2 comparison is now confined to the Supplementary Methods, results and Figures S1–S2. It remains restricted to coherent inflammatory blocks, uses identical patients and folds, and is interpreted by cancer-level ΔQ² with bootstrap intervals rather than win counts. Binary molecular endpoints retain one-at-a-time PLS–LDA as the primary analysis."),
     ("6. Complete submission-specific fields",
      "Partly outstanding. Corresponding-author details, final author list, funding, competing interests and contribution statements require author confirmation and remain visibly marked. No scientific values are placeholder text."),
     ("7. Presentation and runtime claims",
      "Addressed. High-resolution figures and machine-readable tables accompany the Word documents. The text states that speed applies after TITAN embeddings have been computed and does not claim a hardware-matched accuracy or runtime comparison with CNN pipelines."),
+    ("Additional change: distinguish replication from atlas-nominated predictors",
+     "The Discussion now identifies the three exact published cancer–gene pairs recovered by the current screen, gives prior AUROC and current balanced accuracy side by side without treating the metrics as directly comparable, discusses selected published pairs that were not supported, and labels the remaining supported mutations as atlas-nominated candidates absent from the prespecified crosswalk. Supplementary Tables S4–S5 provide the complete comparison and explicit evidence classification."),
+    ("Additional change: clarify model portability without training-data release",
+     "The Background, Methods, Discussion and Conclusions now explain that fitted PLS and PLS–LDA models contain compact learned transformations and coefficients and can be applied without distributing patient-level training embeddings or outcomes. The contrast with reference-set methods such as k-nearest neighbours is stated explicitly, while licensing, privacy, governance and external-validation limitations are retained."),
     ("Additional change: multiple slides and molecular specimen matching",
      f"The primary predictor is now the feature-wise mean of every eligible diagnostic slide per patient; {n_multi:,} multi-slide patients are retained in a single validation fold. We also audited every molecular source and excluded non-primary TCGA sample types before aggregation. A matched first-slide sensitivity quantifies dependence on the pooling rule."),
 ]

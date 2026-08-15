@@ -46,6 +46,47 @@ pair_summary <- comparable[, .(
 setorder(pair_summary, current_status, current_cancer, gene)
 fwrite(pair_summary, "results/tables/prior_mutation_literature_pair_summary.csv")
 
+# Report-level accuracy crosswalk. Prior studies predominantly reported AUROC,
+# whereas the current prespecified classification metric is balanced accuracy;
+# both values are retained side-by-side but must not be subtracted or treated as
+# estimates of the same performance quantity.
+accuracy_comparison <- out[current_status %in% c(
+  "recovered_tier_A", "recovered_tier_B", "tested_not_supported"
+), .(
+  study, cancer = current_cancer, gene, prior_metric, prior_evidence,
+  current_status, n, positive, current_balanced_accuracy, current_q,
+  current_tier, source_url
+)]
+setorder(accuracy_comparison, current_status, cancer, gene, study)
+fwrite(
+  accuracy_comparison,
+  "results/tables/prior_mutation_accuracy_comparison.csv"
+)
+
+# Classify every current Tier-A/B cancer-gene result by whether that exact pair
+# occurred in the prespecified literature crosswalk. "Atlas-nominated" means
+# absent from this crosswalk; it is not a claim that no publication anywhere
+# has previously studied the pair.
+prior_pairs <- unique(out[!is.na(current_cancer), .(current_cancer, gene)])
+supported_mutations <- current[tier %in% c("A", "B")]
+supported_mutations[, exact_pair_in_crosswalk :=
+  paste(tumor_type, endpoint) %in% paste(prior_pairs$current_cancer, prior_pairs$gene)]
+supported_mutations[, evidence_class := fifelse(
+  exact_pair_in_crosswalk,
+  "previously reported and recovered",
+  "atlas-nominated; absent from prespecified crosswalk"
+)]
+supported_mutation_novelty <- supported_mutations[, .(
+  cancer = tumor_type, gene = endpoint, evidence_class, n, positive,
+  current_balanced_accuracy = balanced_accuracy, current_q = q_value,
+  current_tier = tier
+)]
+setorder(supported_mutation_novelty, -current_balanced_accuracy)
+fwrite(
+  supported_mutation_novelty,
+  "results/tables/supported_mutation_novelty.csv"
+)
+
 status_summary <- unique(out[, .(study, prior_cancer, gene, current_status)])[, .N,
   by = current_status][order(current_status)]
 fwrite(status_summary, "results/tables/prior_mutation_literature_status_summary.csv")
