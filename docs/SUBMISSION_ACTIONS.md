@@ -9,9 +9,9 @@ items for author confirmation rather than inventing administrative details:
    the institution's secondary use of public, de-identified TCGA data.
 3. Confirm funding, competing interests, author contributions and any people
    named in acknowledgements.
-4. Re-authenticate GitHub (`gh auth login -h github.com`), publish
-   `tkcaccia/titan-prediction`, and create an archived release with a persistent
-   DOI (for example through Zenodo) before submission.
+4. Archive the published repository
+   (`https://github.com/tkcaccia/titan-prediction`) with a persistent DOI
+   (for example through Zenodo) before submission.
 5. Obtain written permission or a compatible licence before publicly releasing
    fitted TITAN-derived `.rds` model objects. The code, registry and fitting
    workflow can be public immediately.

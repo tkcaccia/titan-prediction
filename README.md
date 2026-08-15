@@ -4,6 +4,15 @@ Reproducible, patient-level prediction of molecular, immune and genomic
 features from frozen TITAN whole-slide embeddings across 32 TCGA cancer
 types.
 
+Public repository: https://github.com/tkcaccia/titan-prediction
+
+## Manuscript package
+
+- [Main manuscript](manuscript/manuscript_JTM_patient_level_TITAN.docx)
+- [Supplementary material](manuscript/supplementary_material_JTM.docx)
+- [Response to the original reviewer comments](manuscript/response_to_reviewer_JTM.docx)
+- [Journal-style internal reviewer assessment](manuscript/reviewer_report_JTM.docx)
+
 ## Analysis scope
 
 The primary question is cancer-specific: **which individual molecular or

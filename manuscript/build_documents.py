@@ -20,7 +20,9 @@ TABLES = ROOT / "results" / "tables"
 FIGURES = ROOT / "figures"
 OUT = ROOT / "manuscript"
 OUT.mkdir(exist_ok=True)
-REPO = os.environ.get("TITAN_REPOSITORY_URL", "[repository URL pending publication]")
+REPO = os.environ.get(
+    "TITAN_REPOSITORY_URL", "https://github.com/tkcaccia/titan-prediction"
+)
 
 
 def rows(name):
@@ -352,7 +354,7 @@ responses = [
     ("2. Site robustness is incomplete for the inflammatory atlas",
      f"Addressed. Tissue-source-site-grouped validation is now attempted for every supported continuous and binary endpoint, not only mutations. It was feasible for {sum(r.get('feasible')=='TRUE' for r in site_c)+sum(r.get('feasible')=='TRUE' for r in site_b)} models. Figure 5 and the complete machine-readable tables report target-level attenuation; the manuscript does not claim that repeated random folds exclude site confounding."),
     ("3. Reproducibility materials must be deposited before submission",
-     f"Prepared, with final publication pending. The organized repository ({REPO}) contains the exact analysis plan, source URLs/checksums, software commit, eligibility tables, code for every analysis and figure, out-of-fold prediction outputs, model registry, inference example and literature crosswalk. GitHub authentication and an archived release/DOI must be completed by the corresponding author before submission; we do not claim this item is fully addressed until the persistent public record exists."),
+     f"Addressed in a public repository ({REPO}) containing the exact analysis plan, source URLs/checksums, software commit, eligibility tables, code for every analysis and figure, out-of-fold prediction outputs, model registry, inference example and literature crosswalk. An archived versioned release with a persistent DOI remains to be created before submission."),
     ("4. Distinguish cancer genes from functional driver alleles",
      "Addressed throughout. Mutation targets are described as qualifying protein-altering PASS mutations in tissue-specific consensus cancer genes; the manuscript explicitly states that not every allele is functionally validated."),
     ("5. Preserve effect-size-first interpretation of PLS2",
