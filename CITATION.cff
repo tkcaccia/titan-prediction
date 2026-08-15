@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this analysis, cite the accompanying manuscript, TITAN, fastPLS, and the endpoint source publications."
+title: "TITAN prediction atlas"
+type: software
+authors:
+  - family-names: Cacciatore
+    given-names: Stefano
+    orcid: "https://orcid.org/0000-0001-7052-7156"
+repository-code: "https://github.com/tkcaccia/titan-prediction"
+license: GPL-3.0-or-later
+version: 0.1.0
+date-released: 2026-08-15
+

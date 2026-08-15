@@ -1,0 +1,26 @@
+Package: titanprediction
+Type: Project
+Title: Patient-Level Molecular Prediction from TITAN Embeddings
+Version: 0.1.0
+Authors@R: person("Stefano", "Cacciatore", role = c("aut", "cre"),
+    email = "stefano.cacciatore@icgeb.org")
+Description: Reproducible analysis pipeline for cancer-specific prediction of
+    molecular, immune, genomic instability and fusion endpoints from frozen
+    TITAN whole-slide embeddings using PLS regression and PLS-LDA.
+License: GPL-3
+Encoding: UTF-8
+Depends: R (>= 4.6.0)
+Imports:
+    data.table,
+    digest,
+    fastPLS,
+    future.apply,
+    ggplot2,
+    jsonlite,
+    maftools,
+    pROC,
+    readxl,
+    TCGAmutations
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

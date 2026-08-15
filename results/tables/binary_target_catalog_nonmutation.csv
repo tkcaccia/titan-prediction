@@ -1,0 +1,451 @@
+family,subfamily,endpoint,tumor_type,source,n,positive,negative,prevalence
+aneuploidy,aneuploidy,Genome doubling,GBM,Taylor2018_TableS2,362,46,316,0.12707182320442
+aneuploidy,aneuploidy,Genome doubling,LUAD,Taylor2018_TableS2,449,264,185,0.587973273942094
+aneuploidy,aneuploidy,Genome doubling,OV,Taylor2018_TableS2,96,66,30,0.6875
+aneuploidy,aneuploidy,Genome doubling,LUSC,Taylor2018_TableS2,459,249,210,0.542483660130719
+aneuploidy,aneuploidy,Genome doubling,PRAD,Taylor2018_TableS2,382,29,353,0.0759162303664922
+aneuploidy,aneuploidy,Genome doubling,UCEC,Taylor2018_TableS2,477,97,380,0.20335429769392
+aneuploidy,aneuploidy,Genome doubling,BLCA,Taylor2018_TableS2,376,228,148,0.606382978723404
+aneuploidy,aneuploidy,Genome doubling,TGCT,Taylor2018_TableS2,148,141,7,0.952702702702703
+aneuploidy,aneuploidy,Genome doubling,ESCA,Taylor2018_TableS2,136,79,57,0.580882352941177
+aneuploidy,aneuploidy,Genome doubling,PAAD,Taylor2018_TableS2,163,40,123,0.245398773006135
+aneuploidy,aneuploidy,Genome doubling,KIRP,Taylor2018_TableS2,264,18,246,0.0681818181818182
+aneuploidy,aneuploidy,Genome doubling,LIHC,Taylor2018_TableS2,350,115,235,0.328571428571429
+aneuploidy,aneuploidy,Genome doubling,CESC,Taylor2018_TableS2,259,85,174,0.328185328185328
+aneuploidy,aneuploidy,Genome doubling,SARC,Taylor2018_TableS2,238,112,126,0.470588235294118
+aneuploidy,aneuploidy,Genome doubling,BRCA,Taylor2018_TableS2,998,438,560,0.438877755511022
+aneuploidy,aneuploidy,Genome doubling,THYM,Taylor2018_TableS2,103,11,92,0.106796116504854
+aneuploidy,aneuploidy,Genome doubling,MESO,Taylor2018_TableS2,69,14,55,0.202898550724638
+aneuploidy,aneuploidy,Genome doubling,COAD,Taylor2018_TableS2,408,165,243,0.404411764705882
+aneuploidy,aneuploidy,Genome doubling,STAD,Taylor2018_TableS2,360,154,206,0.427777777777778
+aneuploidy,aneuploidy,Genome doubling,CHOL,Taylor2018_TableS2,36,8,28,0.222222222222222
+aneuploidy,aneuploidy,Genome doubling,KIRC,Taylor2018_TableS2,464,89,375,0.191810344827586
+aneuploidy,aneuploidy,Genome doubling,THCA,Taylor2018_TableS2,462,12,450,0.025974025974026
+aneuploidy,aneuploidy,Genome doubling,HNSC,Taylor2018_TableS2,435,176,259,0.404597701149425
+aneuploidy,aneuploidy,Genome doubling,READ,Taylor2018_TableS2,143,72,71,0.503496503496504
+aneuploidy,aneuploidy,Genome doubling,SKCM,Taylor2018_TableS2,98,35,63,0.357142857142857
+aneuploidy,aneuploidy,Genome doubling,LGG,Taylor2018_TableS2,481,157,324,0.326403326403326
+aneuploidy,aneuploidy,Genome doubling,DLBC,Taylor2018_TableS2,43,9,34,0.209302325581395
+aneuploidy,aneuploidy,Genome doubling,KICH,Taylor2018_TableS2,65,10,55,0.153846153846154
+aneuploidy,aneuploidy,Genome doubling,UCS,Taylor2018_TableS2,52,44,8,0.846153846153846
+aneuploidy,aneuploidy,Genome doubling,ACC,Taylor2018_TableS2,54,28,26,0.518518518518519
+aneuploidy,aneuploidy,Genome doubling,PCPG,Taylor2018_TableS2,157,24,133,0.152866242038217
+aneuploidy,aneuploidy,Genome doubling,UVM,Taylor2018_TableS2,80,5,75,0.0625
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,GBM,SanchezVega2018_TableS4,64,62,2,0.96875
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,LUAD,SanchezVega2018_TableS4,426,252,174,0.591549295774648
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,OV,SanchezVega2018_TableS4,22,16,6,0.727272727272727
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,LUSC,SanchezVega2018_TableS4,400,349,51,0.8725
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,PRAD,SanchezVega2018_TableS4,388,109,279,0.280927835051546
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,UCEC,SanchezVega2018_TableS4,226,131,95,0.579646017699115
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,BLCA,SanchezVega2018_TableS4,373,303,70,0.812332439678284
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,TGCT,SanchezVega2018_TableS4,137,11,126,0.0802919708029197
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,ESCA,SanchezVega2018_TableS4,143,129,14,0.902097902097902
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,PAAD,SanchezVega2018_TableS4,150,105,45,0.7
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,KIRP,SanchezVega2018_TableS4,243,31,212,0.127572016460905
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,LIHC,SanchezVega2018_TableS4,337,232,105,0.688427299703264
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,CESC,SanchezVega2018_TableS4,236,47,189,0.199152542372881
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,SARC,SanchezVega2018_TableS4,222,145,77,0.653153153153153
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,BRCA,SanchezVega2018_TableS4,758,365,393,0.481530343007916
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,THYM,SanchezVega2018_TableS4,116,11,105,0.0948275862068965
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,MESO,SanchezVega2018_TableS4,70,36,34,0.514285714285714
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,COAD,SanchezVega2018_TableS4,253,147,106,0.58102766798419
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,STAD,SanchezVega2018_TableS4,317,220,97,0.694006309148265
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,CHOL,SanchezVega2018_TableS4,36,19,17,0.527777777777778
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,KIRC,SanchezVega2018_TableS4,243,46,197,0.189300411522634
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,THCA,SanchezVega2018_TableS4,471,65,406,0.138004246284501
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,HNSC,SanchezVega2018_TableS4,412,332,80,0.805825242718447
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,READ,SanchezVega2018_TableS4,81,35,46,0.432098765432099
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,LGG,SanchezVega2018_TableS4,476,195,281,0.409663865546218
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,DLBC,SanchezVega2018_TableS4,33,24,9,0.727272727272727
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,KICH,SanchezVega2018_TableS4,65,15,50,0.230769230769231
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,UCS,SanchezVega2018_TableS4,52,36,16,0.692307692307692
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,ACC,SanchezVega2018_TableS4,53,17,36,0.320754716981132
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,PCPG,SanchezVega2018_TableS4,155,23,132,0.148387096774194
+oncogenic_pathway,oncogenic_pathway,Cell Cycle,UVM,SanchezVega2018_TableS4,80,5,75,0.0625
+oncogenic_pathway,oncogenic_pathway,HIPPO,GBM,SanchezVega2018_TableS4,71,8,63,0.112676056338028
+oncogenic_pathway,oncogenic_pathway,HIPPO,LUAD,SanchezVega2018_TableS4,451,101,350,0.223946784922395
+oncogenic_pathway,oncogenic_pathway,HIPPO,OV,SanchezVega2018_TableS4,35,6,29,0.171428571428571
+oncogenic_pathway,oncogenic_pathway,HIPPO,LUSC,SanchezVega2018_TableS4,443,119,324,0.2686230248307
+oncogenic_pathway,oncogenic_pathway,HIPPO,PRAD,SanchezVega2018_TableS4,389,19,370,0.0488431876606684
+oncogenic_pathway,oncogenic_pathway,HIPPO,UCEC,SanchezVega2018_TableS4,468,132,336,0.282051282051282
+oncogenic_pathway,oncogenic_pathway,HIPPO,BLCA,SanchezVega2018_TableS4,373,97,276,0.260053619302949
+oncogenic_pathway,oncogenic_pathway,HIPPO,TGCT,SanchezVega2018_TableS4,143,8,135,0.0559440559440559
+oncogenic_pathway,oncogenic_pathway,HIPPO,ESCA,SanchezVega2018_TableS4,143,26,117,0.181818181818182
+oncogenic_pathway,oncogenic_pathway,HIPPO,PAAD,SanchezVega2018_TableS4,150,11,139,0.0733333333333333
+oncogenic_pathway,oncogenic_pathway,HIPPO,KIRP,SanchezVega2018_TableS4,255,29,226,0.113725490196078
+oncogenic_pathway,oncogenic_pathway,HIPPO,LIHC,SanchezVega2018_TableS4,337,43,294,0.127596439169139
+oncogenic_pathway,oncogenic_pathway,HIPPO,CESC,SanchezVega2018_TableS4,238,76,162,0.319327731092437
+oncogenic_pathway,oncogenic_pathway,HIPPO,SARC,SanchezVega2018_TableS4,222,25,197,0.112612612612613
+oncogenic_pathway,oncogenic_pathway,HIPPO,BRCA,SanchezVega2018_TableS4,942,82,860,0.0870488322717622
+oncogenic_pathway,oncogenic_pathway,HIPPO,THYM,SanchezVega2018_TableS4,116,8,108,0.0689655172413793
+oncogenic_pathway,oncogenic_pathway,HIPPO,MESO,SanchezVega2018_TableS4,70,27,43,0.385714285714286
+oncogenic_pathway,oncogenic_pathway,HIPPO,COAD,SanchezVega2018_TableS4,323,63,260,0.195046439628483
+oncogenic_pathway,oncogenic_pathway,HIPPO,STAD,SanchezVega2018_TableS4,327,70,257,0.214067278287462
+oncogenic_pathway,oncogenic_pathway,HIPPO,CHOL,SanchezVega2018_TableS4,36,6,30,0.166666666666667
+oncogenic_pathway,oncogenic_pathway,HIPPO,KIRC,SanchezVega2018_TableS4,336,17,319,0.0505952380952381
+oncogenic_pathway,oncogenic_pathway,HIPPO,THCA,SanchezVega2018_TableS4,478,4,474,0.00836820083682008
+oncogenic_pathway,oncogenic_pathway,HIPPO,HNSC,SanchezVega2018_TableS4,412,156,256,0.378640776699029
+oncogenic_pathway,oncogenic_pathway,HIPPO,READ,SanchezVega2018_TableS4,107,8,99,0.0747663551401869
+oncogenic_pathway,oncogenic_pathway,HIPPO,LGG,SanchezVega2018_TableS4,481,379,102,0.787941787941788
+oncogenic_pathway,oncogenic_pathway,HIPPO,SKCM,SanchezVega2018_TableS4,2,0,2,0
+oncogenic_pathway,oncogenic_pathway,HIPPO,DLBC,SanchezVega2018_TableS4,33,11,22,0.333333333333333
+oncogenic_pathway,oncogenic_pathway,HIPPO,KICH,SanchezVega2018_TableS4,65,2,63,0.0307692307692308
+oncogenic_pathway,oncogenic_pathway,HIPPO,UCS,SanchezVega2018_TableS4,52,7,45,0.134615384615385
+oncogenic_pathway,oncogenic_pathway,HIPPO,ACC,SanchezVega2018_TableS4,53,3,50,0.0566037735849057
+oncogenic_pathway,oncogenic_pathway,HIPPO,PCPG,SanchezVega2018_TableS4,158,7,151,0.0443037974683544
+oncogenic_pathway,oncogenic_pathway,HIPPO,UVM,SanchezVega2018_TableS4,80,8,72,0.1
+oncogenic_pathway,oncogenic_pathway,MYC,GBM,SanchezVega2018_TableS4,71,7,64,0.0985915492957746
+oncogenic_pathway,oncogenic_pathway,MYC,LUAD,SanchezVega2018_TableS4,451,103,348,0.228381374722838
+oncogenic_pathway,oncogenic_pathway,MYC,OV,SanchezVega2018_TableS4,35,9,26,0.257142857142857
+oncogenic_pathway,oncogenic_pathway,MYC,LUSC,SanchezVega2018_TableS4,443,53,390,0.119638826185102
+oncogenic_pathway,oncogenic_pathway,MYC,PRAD,SanchezVega2018_TableS4,389,41,348,0.105398457583548
+oncogenic_pathway,oncogenic_pathway,MYC,UCEC,SanchezVega2018_TableS4,468,112,356,0.239316239316239
+oncogenic_pathway,oncogenic_pathway,MYC,BLCA,SanchezVega2018_TableS4,373,67,306,0.179624664879357
+oncogenic_pathway,oncogenic_pathway,MYC,TGCT,SanchezVega2018_TableS4,143,1,142,0.00699300699300699
+oncogenic_pathway,oncogenic_pathway,MYC,ESCA,SanchezVega2018_TableS4,143,32,111,0.223776223776224
+oncogenic_pathway,oncogenic_pathway,MYC,PAAD,SanchezVega2018_TableS4,150,21,129,0.14
+oncogenic_pathway,oncogenic_pathway,MYC,KIRP,SanchezVega2018_TableS4,255,15,240,0.0588235294117647
+oncogenic_pathway,oncogenic_pathway,MYC,LIHC,SanchezVega2018_TableS4,337,61,276,0.181008902077151
+oncogenic_pathway,oncogenic_pathway,MYC,CESC,SanchezVega2018_TableS4,238,17,221,0.0714285714285714
+oncogenic_pathway,oncogenic_pathway,MYC,SARC,SanchezVega2018_TableS4,222,12,210,0.0540540540540541
+oncogenic_pathway,oncogenic_pathway,MYC,BRCA,SanchezVega2018_TableS4,942,200,742,0.212314225053079
+oncogenic_pathway,oncogenic_pathway,MYC,THYM,SanchezVega2018_TableS4,116,1,115,0.00862068965517241
+oncogenic_pathway,oncogenic_pathway,MYC,MESO,SanchezVega2018_TableS4,70,6,64,0.0857142857142857
+oncogenic_pathway,oncogenic_pathway,MYC,COAD,SanchezVega2018_TableS4,323,79,244,0.244582043343653
+oncogenic_pathway,oncogenic_pathway,MYC,STAD,SanchezVega2018_TableS4,327,55,272,0.168195718654434
+oncogenic_pathway,oncogenic_pathway,MYC,CHOL,SanchezVega2018_TableS4,36,7,29,0.194444444444444
+oncogenic_pathway,oncogenic_pathway,MYC,KIRC,SanchezVega2018_TableS4,336,18,318,0.0535714285714286
+oncogenic_pathway,oncogenic_pathway,MYC,THCA,SanchezVega2018_TableS4,478,10,468,0.0209205020920502
+oncogenic_pathway,oncogenic_pathway,MYC,HNSC,SanchezVega2018_TableS4,412,78,334,0.189320388349515
+oncogenic_pathway,oncogenic_pathway,MYC,READ,SanchezVega2018_TableS4,107,18,89,0.168224299065421
+oncogenic_pathway,oncogenic_pathway,MYC,LGG,SanchezVega2018_TableS4,481,28,453,0.0582120582120582
+oncogenic_pathway,oncogenic_pathway,MYC,SKCM,SanchezVega2018_TableS4,2,0,2,0
+oncogenic_pathway,oncogenic_pathway,MYC,DLBC,SanchezVega2018_TableS4,33,5,28,0.151515151515152
+oncogenic_pathway,oncogenic_pathway,MYC,KICH,SanchezVega2018_TableS4,65,1,64,0.0153846153846154
+oncogenic_pathway,oncogenic_pathway,MYC,UCS,SanchezVega2018_TableS4,52,12,40,0.230769230769231
+oncogenic_pathway,oncogenic_pathway,MYC,ACC,SanchezVega2018_TableS4,53,4,49,0.0754716981132076
+oncogenic_pathway,oncogenic_pathway,MYC,PCPG,SanchezVega2018_TableS4,158,1,157,0.00632911392405063
+oncogenic_pathway,oncogenic_pathway,MYC,UVM,SanchezVega2018_TableS4,80,2,78,0.025
+oncogenic_pathway,oncogenic_pathway,NOTCH,GBM,SanchezVega2018_TableS4,71,14,57,0.197183098591549
+oncogenic_pathway,oncogenic_pathway,NOTCH,LUAD,SanchezVega2018_TableS4,451,97,354,0.215077605321508
+oncogenic_pathway,oncogenic_pathway,NOTCH,OV,SanchezVega2018_TableS4,35,10,25,0.285714285714286
+oncogenic_pathway,oncogenic_pathway,NOTCH,LUSC,SanchezVega2018_TableS4,443,137,306,0.309255079006772
+oncogenic_pathway,oncogenic_pathway,NOTCH,PRAD,SanchezVega2018_TableS4,389,54,335,0.138817480719794
+oncogenic_pathway,oncogenic_pathway,NOTCH,UCEC,SanchezVega2018_TableS4,468,183,285,0.391025641025641
+oncogenic_pathway,oncogenic_pathway,NOTCH,BLCA,SanchezVega2018_TableS4,373,155,218,0.415549597855228
+oncogenic_pathway,oncogenic_pathway,NOTCH,TGCT,SanchezVega2018_TableS4,143,17,126,0.118881118881119
+oncogenic_pathway,oncogenic_pathway,NOTCH,ESCA,SanchezVega2018_TableS4,143,46,97,0.321678321678322
+oncogenic_pathway,oncogenic_pathway,NOTCH,PAAD,SanchezVega2018_TableS4,150,21,129,0.14
+oncogenic_pathway,oncogenic_pathway,NOTCH,KIRP,SanchezVega2018_TableS4,255,31,224,0.12156862745098
+oncogenic_pathway,oncogenic_pathway,NOTCH,LIHC,SanchezVega2018_TableS4,337,87,250,0.258160237388724
+oncogenic_pathway,oncogenic_pathway,NOTCH,CESC,SanchezVega2018_TableS4,238,82,156,0.34453781512605
+oncogenic_pathway,oncogenic_pathway,NOTCH,SARC,SanchezVega2018_TableS4,222,48,174,0.216216216216216
+oncogenic_pathway,oncogenic_pathway,NOTCH,BRCA,SanchezVega2018_TableS4,942,196,746,0.208067940552017
+oncogenic_pathway,oncogenic_pathway,NOTCH,THYM,SanchezVega2018_TableS4,116,6,110,0.0517241379310345
+oncogenic_pathway,oncogenic_pathway,NOTCH,MESO,SanchezVega2018_TableS4,70,5,65,0.0714285714285714
+oncogenic_pathway,oncogenic_pathway,NOTCH,COAD,SanchezVega2018_TableS4,323,107,216,0.331269349845201
+oncogenic_pathway,oncogenic_pathway,NOTCH,STAD,SanchezVega2018_TableS4,327,125,202,0.382262996941896
+oncogenic_pathway,oncogenic_pathway,NOTCH,CHOL,SanchezVega2018_TableS4,36,3,33,0.0833333333333333
+oncogenic_pathway,oncogenic_pathway,NOTCH,KIRC,SanchezVega2018_TableS4,336,24,312,0.0714285714285714
+oncogenic_pathway,oncogenic_pathway,NOTCH,THCA,SanchezVega2018_TableS4,478,17,461,0.0355648535564854
+oncogenic_pathway,oncogenic_pathway,NOTCH,HNSC,SanchezVega2018_TableS4,412,143,269,0.347087378640777
+oncogenic_pathway,oncogenic_pathway,NOTCH,READ,SanchezVega2018_TableS4,107,28,79,0.261682242990654
+oncogenic_pathway,oncogenic_pathway,NOTCH,LGG,SanchezVega2018_TableS4,481,120,361,0.24948024948025
+oncogenic_pathway,oncogenic_pathway,NOTCH,SKCM,SanchezVega2018_TableS4,2,0,2,0
+oncogenic_pathway,oncogenic_pathway,NOTCH,DLBC,SanchezVega2018_TableS4,33,22,11,0.666666666666667
+oncogenic_pathway,oncogenic_pathway,NOTCH,KICH,SanchezVega2018_TableS4,65,2,63,0.0307692307692308
+oncogenic_pathway,oncogenic_pathway,NOTCH,UCS,SanchezVega2018_TableS4,52,28,24,0.538461538461538
+oncogenic_pathway,oncogenic_pathway,NOTCH,ACC,SanchezVega2018_TableS4,53,7,46,0.132075471698113
+oncogenic_pathway,oncogenic_pathway,NOTCH,PCPG,SanchezVega2018_TableS4,158,17,141,0.107594936708861
+oncogenic_pathway,oncogenic_pathway,NOTCH,UVM,SanchezVega2018_TableS4,80,8,72,0.1
+oncogenic_pathway,oncogenic_pathway,NRF2,GBM,SanchezVega2018_TableS4,71,0,71,0
+oncogenic_pathway,oncogenic_pathway,NRF2,LUAD,SanchezVega2018_TableS4,451,63,388,0.139689578713969
+oncogenic_pathway,oncogenic_pathway,NRF2,OV,SanchezVega2018_TableS4,35,1,34,0.0285714285714286
+oncogenic_pathway,oncogenic_pathway,NRF2,LUSC,SanchezVega2018_TableS4,443,109,334,0.246049661399549
+oncogenic_pathway,oncogenic_pathway,NRF2,PRAD,SanchezVega2018_TableS4,389,3,386,0.0077120822622108
+oncogenic_pathway,oncogenic_pathway,NRF2,UCEC,SanchezVega2018_TableS4,468,49,419,0.104700854700855
+oncogenic_pathway,oncogenic_pathway,NRF2,BLCA,SanchezVega2018_TableS4,373,32,341,0.0857908847184987
+oncogenic_pathway,oncogenic_pathway,NRF2,TGCT,SanchezVega2018_TableS4,143,0,143,0
+oncogenic_pathway,oncogenic_pathway,NRF2,ESCA,SanchezVega2018_TableS4,143,22,121,0.153846153846154
+oncogenic_pathway,oncogenic_pathway,NRF2,PAAD,SanchezVega2018_TableS4,150,0,150,0
+oncogenic_pathway,oncogenic_pathway,NRF2,KIRP,SanchezVega2018_TableS4,255,17,238,0.0666666666666667
+oncogenic_pathway,oncogenic_pathway,NRF2,LIHC,SanchezVega2018_TableS4,337,22,315,0.0652818991097923
+oncogenic_pathway,oncogenic_pathway,NRF2,CESC,SanchezVega2018_TableS4,238,20,218,0.0840336134453782
+oncogenic_pathway,oncogenic_pathway,NRF2,SARC,SanchezVega2018_TableS4,222,6,216,0.027027027027027
+oncogenic_pathway,oncogenic_pathway,NRF2,BRCA,SanchezVega2018_TableS4,942,16,926,0.0169851380042463
+oncogenic_pathway,oncogenic_pathway,NRF2,THYM,SanchezVega2018_TableS4,116,2,114,0.0172413793103448
+oncogenic_pathway,oncogenic_pathway,NRF2,MESO,SanchezVega2018_TableS4,70,0,70,0
+oncogenic_pathway,oncogenic_pathway,NRF2,COAD,SanchezVega2018_TableS4,323,5,318,0.0154798761609907
+oncogenic_pathway,oncogenic_pathway,NRF2,STAD,SanchezVega2018_TableS4,327,5,322,0.0152905198776758
+oncogenic_pathway,oncogenic_pathway,NRF2,CHOL,SanchezVega2018_TableS4,36,2,34,0.0555555555555556
+oncogenic_pathway,oncogenic_pathway,NRF2,KIRC,SanchezVega2018_TableS4,336,9,327,0.0267857142857143
+oncogenic_pathway,oncogenic_pathway,NRF2,THCA,SanchezVega2018_TableS4,478,1,477,0.00209205020920502
+oncogenic_pathway,oncogenic_pathway,NRF2,HNSC,SanchezVega2018_TableS4,412,50,362,0.121359223300971
+oncogenic_pathway,oncogenic_pathway,NRF2,READ,SanchezVega2018_TableS4,107,0,107,0
+oncogenic_pathway,oncogenic_pathway,NRF2,LGG,SanchezVega2018_TableS4,481,2,479,0.00415800415800416
+oncogenic_pathway,oncogenic_pathway,NRF2,SKCM,SanchezVega2018_TableS4,2,0,2,0
+oncogenic_pathway,oncogenic_pathway,NRF2,DLBC,SanchezVega2018_TableS4,33,0,33,0
+oncogenic_pathway,oncogenic_pathway,NRF2,KICH,SanchezVega2018_TableS4,65,0,65,0
+oncogenic_pathway,oncogenic_pathway,NRF2,UCS,SanchezVega2018_TableS4,52,2,50,0.0384615384615385
+oncogenic_pathway,oncogenic_pathway,NRF2,ACC,SanchezVega2018_TableS4,53,0,53,0
+oncogenic_pathway,oncogenic_pathway,NRF2,PCPG,SanchezVega2018_TableS4,158,0,158,0
+oncogenic_pathway,oncogenic_pathway,NRF2,UVM,SanchezVega2018_TableS4,80,1,79,0.0125
+oncogenic_pathway,oncogenic_pathway,PI3K,GBM,SanchezVega2018_TableS4,71,40,31,0.563380281690141
+oncogenic_pathway,oncogenic_pathway,PI3K,LUAD,SanchezVega2018_TableS4,451,174,277,0.385809312638581
+oncogenic_pathway,oncogenic_pathway,PI3K,OV,SanchezVega2018_TableS4,35,13,22,0.371428571428571
+oncogenic_pathway,oncogenic_pathway,PI3K,LUSC,SanchezVega2018_TableS4,443,306,137,0.690744920993228
+oncogenic_pathway,oncogenic_pathway,PI3K,PRAD,SanchezVega2018_TableS4,389,131,258,0.336760925449871
+oncogenic_pathway,oncogenic_pathway,PI3K,UCEC,SanchezVega2018_TableS4,468,437,31,0.933760683760684
+oncogenic_pathway,oncogenic_pathway,PI3K,BLCA,SanchezVega2018_TableS4,373,170,203,0.455764075067024
+oncogenic_pathway,oncogenic_pathway,PI3K,TGCT,SanchezVega2018_TableS4,143,11,132,0.0769230769230769
+oncogenic_pathway,oncogenic_pathway,PI3K,ESCA,SanchezVega2018_TableS4,143,61,82,0.426573426573427
+oncogenic_pathway,oncogenic_pathway,PI3K,PAAD,SanchezVega2018_TableS4,150,28,122,0.186666666666667
+oncogenic_pathway,oncogenic_pathway,PI3K,KIRP,SanchezVega2018_TableS4,255,21,234,0.0823529411764706
+oncogenic_pathway,oncogenic_pathway,PI3K,LIHC,SanchezVega2018_TableS4,337,85,252,0.252225519287834
+oncogenic_pathway,oncogenic_pathway,PI3K,CESC,SanchezVega2018_TableS4,238,138,100,0.579831932773109
+oncogenic_pathway,oncogenic_pathway,PI3K,SARC,SanchezVega2018_TableS4,222,62,160,0.279279279279279
+oncogenic_pathway,oncogenic_pathway,PI3K,BRCA,SanchezVega2018_TableS4,942,528,414,0.560509554140127
+oncogenic_pathway,oncogenic_pathway,PI3K,THYM,SanchezVega2018_TableS4,116,5,111,0.0431034482758621
+oncogenic_pathway,oncogenic_pathway,PI3K,MESO,SanchezVega2018_TableS4,70,9,61,0.128571428571429
+oncogenic_pathway,oncogenic_pathway,PI3K,COAD,SanchezVega2018_TableS4,323,148,175,0.458204334365325
+oncogenic_pathway,oncogenic_pathway,PI3K,STAD,SanchezVega2018_TableS4,327,133,194,0.406727828746177
+oncogenic_pathway,oncogenic_pathway,PI3K,CHOL,SanchezVega2018_TableS4,36,6,30,0.166666666666667
+oncogenic_pathway,oncogenic_pathway,PI3K,KIRC,SanchezVega2018_TableS4,336,55,281,0.163690476190476
+oncogenic_pathway,oncogenic_pathway,PI3K,THCA,SanchezVega2018_TableS4,478,21,457,0.0439330543933054
+oncogenic_pathway,oncogenic_pathway,PI3K,HNSC,SanchezVega2018_TableS4,412,170,242,0.412621359223301
+oncogenic_pathway,oncogenic_pathway,PI3K,READ,SanchezVega2018_TableS4,107,25,82,0.233644859813084
+oncogenic_pathway,oncogenic_pathway,PI3K,LGG,SanchezVega2018_TableS4,481,113,368,0.234927234927235
+oncogenic_pathway,oncogenic_pathway,PI3K,SKCM,SanchezVega2018_TableS4,2,0,2,0
+oncogenic_pathway,oncogenic_pathway,PI3K,DLBC,SanchezVega2018_TableS4,33,3,30,0.0909090909090909
+oncogenic_pathway,oncogenic_pathway,PI3K,KICH,SanchezVega2018_TableS4,65,10,55,0.153846153846154
+oncogenic_pathway,oncogenic_pathway,PI3K,UCS,SanchezVega2018_TableS4,52,41,11,0.788461538461538
+oncogenic_pathway,oncogenic_pathway,PI3K,ACC,SanchezVega2018_TableS4,53,10,43,0.188679245283019
+oncogenic_pathway,oncogenic_pathway,PI3K,PCPG,SanchezVega2018_TableS4,158,9,149,0.0569620253164557
+oncogenic_pathway,oncogenic_pathway,PI3K,UVM,SanchezVega2018_TableS4,80,3,77,0.0375
+oncogenic_pathway,oncogenic_pathway,RTK RAS,GBM,SanchezVega2018_TableS4,71,52,19,0.732394366197183
+oncogenic_pathway,oncogenic_pathway,RTK RAS,LUAD,SanchezVega2018_TableS4,451,338,113,0.749445676274945
+oncogenic_pathway,oncogenic_pathway,RTK RAS,OV,SanchezVega2018_TableS4,35,18,17,0.514285714285714
+oncogenic_pathway,oncogenic_pathway,RTK RAS,LUSC,SanchezVega2018_TableS4,443,237,206,0.534988713318285
+oncogenic_pathway,oncogenic_pathway,RTK RAS,PRAD,SanchezVega2018_TableS4,389,58,331,0.149100257069409
+oncogenic_pathway,oncogenic_pathway,RTK RAS,UCEC,SanchezVega2018_TableS4,468,271,197,0.579059829059829
+oncogenic_pathway,oncogenic_pathway,RTK RAS,BLCA,SanchezVega2018_TableS4,373,243,130,0.651474530831099
+oncogenic_pathway,oncogenic_pathway,RTK RAS,TGCT,SanchezVega2018_TableS4,143,54,89,0.377622377622378
+oncogenic_pathway,oncogenic_pathway,RTK RAS,ESCA,SanchezVega2018_TableS4,143,81,62,0.566433566433567
+oncogenic_pathway,oncogenic_pathway,RTK RAS,PAAD,SanchezVega2018_TableS4,150,117,33,0.78
+oncogenic_pathway,oncogenic_pathway,RTK RAS,KIRP,SanchezVega2018_TableS4,255,42,213,0.164705882352941
+oncogenic_pathway,oncogenic_pathway,RTK RAS,LIHC,SanchezVega2018_TableS4,337,74,263,0.219584569732938
+oncogenic_pathway,oncogenic_pathway,RTK RAS,CESC,SanchezVega2018_TableS4,238,89,149,0.373949579831933
+oncogenic_pathway,oncogenic_pathway,RTK RAS,SARC,SanchezVega2018_TableS4,222,86,136,0.387387387387387
+oncogenic_pathway,oncogenic_pathway,RTK RAS,BRCA,SanchezVega2018_TableS4,942,372,570,0.394904458598726
+oncogenic_pathway,oncogenic_pathway,RTK RAS,THYM,SanchezVega2018_TableS4,116,16,100,0.137931034482759
+oncogenic_pathway,oncogenic_pathway,RTK RAS,MESO,SanchezVega2018_TableS4,70,7,63,0.1
+oncogenic_pathway,oncogenic_pathway,RTK RAS,COAD,SanchezVega2018_TableS4,323,242,81,0.74922600619195
+oncogenic_pathway,oncogenic_pathway,RTK RAS,STAD,SanchezVega2018_TableS4,327,192,135,0.587155963302752
+oncogenic_pathway,oncogenic_pathway,RTK RAS,CHOL,SanchezVega2018_TableS4,36,20,16,0.555555555555556
+oncogenic_pathway,oncogenic_pathway,RTK RAS,KIRC,SanchezVega2018_TableS4,336,47,289,0.139880952380952
+oncogenic_pathway,oncogenic_pathway,RTK RAS,THCA,SanchezVega2018_TableS4,478,403,75,0.843096234309624
+oncogenic_pathway,oncogenic_pathway,RTK RAS,HNSC,SanchezVega2018_TableS4,412,176,236,0.427184466019417
+oncogenic_pathway,oncogenic_pathway,RTK RAS,READ,SanchezVega2018_TableS4,107,76,31,0.710280373831776
+oncogenic_pathway,oncogenic_pathway,RTK RAS,LGG,SanchezVega2018_TableS4,481,135,346,0.280665280665281
+oncogenic_pathway,oncogenic_pathway,RTK RAS,SKCM,SanchezVega2018_TableS4,2,0,2,0
+oncogenic_pathway,oncogenic_pathway,RTK RAS,DLBC,SanchezVega2018_TableS4,33,9,24,0.272727272727273
+oncogenic_pathway,oncogenic_pathway,RTK RAS,KICH,SanchezVega2018_TableS4,65,3,62,0.0461538461538462
+oncogenic_pathway,oncogenic_pathway,RTK RAS,UCS,SanchezVega2018_TableS4,52,32,20,0.615384615384615
+oncogenic_pathway,oncogenic_pathway,RTK RAS,ACC,SanchezVega2018_TableS4,53,15,38,0.283018867924528
+oncogenic_pathway,oncogenic_pathway,RTK RAS,PCPG,SanchezVega2018_TableS4,158,52,106,0.329113924050633
+oncogenic_pathway,oncogenic_pathway,RTK RAS,UVM,SanchezVega2018_TableS4,80,5,75,0.0625
+oncogenic_pathway,oncogenic_pathway,TP53,GBM,SanchezVega2018_TableS4,71,38,33,0.535211267605634
+oncogenic_pathway,oncogenic_pathway,TP53,LUAD,SanchezVega2018_TableS4,451,274,177,0.607538802660754
+oncogenic_pathway,oncogenic_pathway,TP53,OV,SanchezVega2018_TableS4,35,33,2,0.942857142857143
+oncogenic_pathway,oncogenic_pathway,TP53,LUSC,SanchezVega2018_TableS4,443,380,63,0.857787810383747
+oncogenic_pathway,oncogenic_pathway,TP53,PRAD,SanchezVega2018_TableS4,389,81,308,0.208226221079692
+oncogenic_pathway,oncogenic_pathway,TP53,UCEC,SanchezVega2018_TableS4,468,218,250,0.465811965811966
+oncogenic_pathway,oncogenic_pathway,TP53,BLCA,SanchezVega2018_TableS4,373,232,141,0.621983914209115
+oncogenic_pathway,oncogenic_pathway,TP53,TGCT,SanchezVega2018_TableS4,143,8,135,0.0559440559440559
+oncogenic_pathway,oncogenic_pathway,TP53,ESCA,SanchezVega2018_TableS4,143,131,12,0.916083916083916
+oncogenic_pathway,oncogenic_pathway,TP53,PAAD,SanchezVega2018_TableS4,150,103,47,0.686666666666667
+oncogenic_pathway,oncogenic_pathway,TP53,KIRP,SanchezVega2018_TableS4,255,9,246,0.0352941176470588
+oncogenic_pathway,oncogenic_pathway,TP53,LIHC,SanchezVega2018_TableS4,337,127,210,0.376854599406528
+oncogenic_pathway,oncogenic_pathway,TP53,CESC,SanchezVega2018_TableS4,238,33,205,0.138655462184874
+oncogenic_pathway,oncogenic_pathway,TP53,SARC,SanchezVega2018_TableS4,222,146,76,0.657657657657658
+oncogenic_pathway,oncogenic_pathway,TP53,BRCA,SanchezVega2018_TableS4,942,437,505,0.463906581740977
+oncogenic_pathway,oncogenic_pathway,TP53,THYM,SanchezVega2018_TableS4,116,7,109,0.0603448275862069
+oncogenic_pathway,oncogenic_pathway,TP53,MESO,SanchezVega2018_TableS4,70,13,57,0.185714285714286
+oncogenic_pathway,oncogenic_pathway,TP53,COAD,SanchezVega2018_TableS4,323,208,115,0.643962848297214
+oncogenic_pathway,oncogenic_pathway,TP53,STAD,SanchezVega2018_TableS4,327,184,143,0.562691131498471
+oncogenic_pathway,oncogenic_pathway,TP53,CHOL,SanchezVega2018_TableS4,36,7,29,0.194444444444444
+oncogenic_pathway,oncogenic_pathway,TP53,KIRC,SanchezVega2018_TableS4,336,19,317,0.0565476190476191
+oncogenic_pathway,oncogenic_pathway,TP53,THCA,SanchezVega2018_TableS4,478,7,471,0.0146443514644351
+oncogenic_pathway,oncogenic_pathway,TP53,HNSC,SanchezVega2018_TableS4,412,312,100,0.757281553398058
+oncogenic_pathway,oncogenic_pathway,TP53,READ,SanchezVega2018_TableS4,107,91,16,0.850467289719626
+oncogenic_pathway,oncogenic_pathway,TP53,LGG,SanchezVega2018_TableS4,481,248,233,0.515592515592516
+oncogenic_pathway,oncogenic_pathway,TP53,SKCM,SanchezVega2018_TableS4,2,0,2,0
+oncogenic_pathway,oncogenic_pathway,TP53,DLBC,SanchezVega2018_TableS4,33,7,26,0.212121212121212
+oncogenic_pathway,oncogenic_pathway,TP53,KICH,SanchezVega2018_TableS4,65,21,44,0.323076923076923
+oncogenic_pathway,oncogenic_pathway,TP53,UCS,SanchezVega2018_TableS4,52,47,5,0.903846153846154
+oncogenic_pathway,oncogenic_pathway,TP53,ACC,SanchezVega2018_TableS4,53,14,39,0.264150943396226
+oncogenic_pathway,oncogenic_pathway,TP53,PCPG,SanchezVega2018_TableS4,158,9,149,0.0569620253164557
+oncogenic_pathway,oncogenic_pathway,TP53,UVM,SanchezVega2018_TableS4,80,2,78,0.025
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,GBM,SanchezVega2018_TableS4,71,1,70,0.0140845070422535
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,LUAD,SanchezVega2018_TableS4,451,45,406,0.0997782705099778
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,OV,SanchezVega2018_TableS4,35,1,34,0.0285714285714286
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,LUSC,SanchezVega2018_TableS4,443,47,396,0.106094808126411
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,PRAD,SanchezVega2018_TableS4,389,25,364,0.06426735218509
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,UCEC,SanchezVega2018_TableS4,468,63,405,0.134615384615385
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,BLCA,SanchezVega2018_TableS4,373,31,342,0.0831099195710456
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,TGCT,SanchezVega2018_TableS4,143,2,141,0.013986013986014
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,ESCA,SanchezVega2018_TableS4,143,27,116,0.188811188811189
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,PAAD,SanchezVega2018_TableS4,150,62,88,0.413333333333333
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,KIRP,SanchezVega2018_TableS4,255,4,251,0.0156862745098039
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,LIHC,SanchezVega2018_TableS4,337,24,313,0.0712166172106825
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,CESC,SanchezVega2018_TableS4,238,30,208,0.126050420168067
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,SARC,SanchezVega2018_TableS4,222,9,213,0.0405405405405405
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,BRCA,SanchezVega2018_TableS4,942,59,883,0.0626326963906582
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,THYM,SanchezVega2018_TableS4,116,3,113,0.0258620689655172
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,MESO,SanchezVega2018_TableS4,70,2,68,0.0285714285714286
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,COAD,SanchezVega2018_TableS4,323,100,223,0.309597523219814
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,STAD,SanchezVega2018_TableS4,327,90,237,0.275229357798165
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,CHOL,SanchezVega2018_TableS4,36,1,35,0.0277777777777778
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,KIRC,SanchezVega2018_TableS4,336,9,327,0.0267857142857143
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,THCA,SanchezVega2018_TableS4,478,12,466,0.0251046025104603
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,HNSC,SanchezVega2018_TableS4,412,54,358,0.131067961165049
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,READ,SanchezVega2018_TableS4,107,27,80,0.252336448598131
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,LGG,SanchezVega2018_TableS4,481,130,351,0.27027027027027
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,SKCM,SanchezVega2018_TableS4,2,1,1,0.5
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,DLBC,SanchezVega2018_TableS4,33,3,30,0.0909090909090909
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,KICH,SanchezVega2018_TableS4,65,3,62,0.0461538461538462
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,UCS,SanchezVega2018_TableS4,52,2,50,0.0384615384615385
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,ACC,SanchezVega2018_TableS4,53,1,52,0.0188679245283019
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,PCPG,SanchezVega2018_TableS4,158,1,157,0.00632911392405063
+oncogenic_pathway,oncogenic_pathway,TGF-Beta,UVM,SanchezVega2018_TableS4,80,0,80,0
+oncogenic_pathway,oncogenic_pathway,WNT,GBM,SanchezVega2018_TableS4,71,7,64,0.0985915492957746
+oncogenic_pathway,oncogenic_pathway,WNT,LUAD,SanchezVega2018_TableS4,451,77,374,0.170731707317073
+oncogenic_pathway,oncogenic_pathway,WNT,OV,SanchezVega2018_TableS4,35,3,32,0.0857142857142857
+oncogenic_pathway,oncogenic_pathway,WNT,LUSC,SanchezVega2018_TableS4,443,81,362,0.182844243792325
+oncogenic_pathway,oncogenic_pathway,WNT,PRAD,SanchezVega2018_TableS4,389,141,248,0.362467866323907
+oncogenic_pathway,oncogenic_pathway,WNT,UCEC,SanchezVega2018_TableS4,468,230,238,0.491452991452991
+oncogenic_pathway,oncogenic_pathway,WNT,BLCA,SanchezVega2018_TableS4,373,72,301,0.193029490616622
+oncogenic_pathway,oncogenic_pathway,WNT,TGCT,SanchezVega2018_TableS4,143,2,141,0.013986013986014
+oncogenic_pathway,oncogenic_pathway,WNT,ESCA,SanchezVega2018_TableS4,143,29,114,0.202797202797203
+oncogenic_pathway,oncogenic_pathway,WNT,PAAD,SanchezVega2018_TableS4,150,19,131,0.126666666666667
+oncogenic_pathway,oncogenic_pathway,WNT,KIRP,SanchezVega2018_TableS4,255,24,231,0.0941176470588235
+oncogenic_pathway,oncogenic_pathway,WNT,LIHC,SanchezVega2018_TableS4,337,147,190,0.43620178041543
+oncogenic_pathway,oncogenic_pathway,WNT,CESC,SanchezVega2018_TableS4,238,32,206,0.134453781512605
+oncogenic_pathway,oncogenic_pathway,WNT,SARC,SanchezVega2018_TableS4,222,32,190,0.144144144144144
+oncogenic_pathway,oncogenic_pathway,WNT,BRCA,SanchezVega2018_TableS4,942,163,779,0.173036093418259
+oncogenic_pathway,oncogenic_pathway,WNT,THYM,SanchezVega2018_TableS4,116,8,108,0.0689655172413793
+oncogenic_pathway,oncogenic_pathway,WNT,MESO,SanchezVega2018_TableS4,70,4,66,0.0571428571428571
+oncogenic_pathway,oncogenic_pathway,WNT,COAD,SanchezVega2018_TableS4,323,290,33,0.897832817337461
+oncogenic_pathway,oncogenic_pathway,WNT,STAD,SanchezVega2018_TableS4,327,120,207,0.36697247706422
+oncogenic_pathway,oncogenic_pathway,WNT,CHOL,SanchezVega2018_TableS4,36,6,30,0.166666666666667
+oncogenic_pathway,oncogenic_pathway,WNT,KIRC,SanchezVega2018_TableS4,336,23,313,0.068452380952381
+oncogenic_pathway,oncogenic_pathway,WNT,THCA,SanchezVega2018_TableS4,478,62,416,0.129707112970711
+oncogenic_pathway,oncogenic_pathway,WNT,HNSC,SanchezVega2018_TableS4,412,64,348,0.155339805825243
+oncogenic_pathway,oncogenic_pathway,WNT,READ,SanchezVega2018_TableS4,107,102,5,0.953271028037383
+oncogenic_pathway,oncogenic_pathway,WNT,LGG,SanchezVega2018_TableS4,481,131,350,0.272349272349272
+oncogenic_pathway,oncogenic_pathway,WNT,SKCM,SanchezVega2018_TableS4,2,1,1,0.5
+oncogenic_pathway,oncogenic_pathway,WNT,DLBC,SanchezVega2018_TableS4,33,22,11,0.666666666666667
+oncogenic_pathway,oncogenic_pathway,WNT,KICH,SanchezVega2018_TableS4,65,2,63,0.0307692307692308
+oncogenic_pathway,oncogenic_pathway,WNT,UCS,SanchezVega2018_TableS4,52,10,42,0.192307692307692
+oncogenic_pathway,oncogenic_pathway,WNT,ACC,SanchezVega2018_TableS4,53,20,33,0.377358490566038
+oncogenic_pathway,oncogenic_pathway,WNT,PCPG,SanchezVega2018_TableS4,158,15,143,0.0949367088607595
+oncogenic_pathway,oncogenic_pathway,WNT,UVM,SanchezVega2018_TableS4,80,1,79,0.0125
+fusion,fusion,Any called fusion,GBM,Gao2018_TableS1,91,81,10,0.89010989010989
+fusion,fusion,Any called fusion,LUAD,Gao2018_TableS1,461,367,94,0.796095444685466
+fusion,fusion,Any called fusion,OV,Gao2018_TableS1,83,75,8,0.903614457831325
+fusion,fusion,Any called fusion,LUSC,Gao2018_TableS1,475,403,72,0.848421052631579
+fusion,fusion,Any called fusion,PRAD,Gao2018_TableS1,400,345,55,0.8625
+fusion,fusion,Any called fusion,UCEC,Gao2018_TableS1,153,80,73,0.522875816993464
+fusion,fusion,Any called fusion,BLCA,Gao2018_TableS1,381,288,93,0.755905511811024
+fusion,fusion,Any called fusion,TGCT,Gao2018_TableS1,149,59,90,0.395973154362416
+fusion,fusion,Any called fusion,ESCA,Gao2018_TableS1,154,103,51,0.668831168831169
+fusion,fusion,Any called fusion,PAAD,Gao2018_TableS1,176,90,86,0.511363636363636
+fusion,fusion,Any called fusion,KIRP,Gao2018_TableS1,265,62,203,0.233962264150943
+fusion,fusion,Any called fusion,LIHC,Gao2018_TableS1,357,214,143,0.599439775910364
+fusion,fusion,Any called fusion,CESC,Gao2018_TableS1,266,152,114,0.571428571428571
+fusion,fusion,Any called fusion,SARC,Gao2018_TableS1,252,216,36,0.857142857142857
+fusion,fusion,Any called fusion,BRCA,Gao2018_TableS1,1051,832,219,0.79162702188392
+fusion,fusion,Any called fusion,THYM,Gao2018_TableS1,117,27,90,0.230769230769231
+fusion,fusion,Any called fusion,MESO,Gao2018_TableS1,75,50,25,0.666666666666667
+fusion,fusion,Any called fusion,COAD,Gao2018_TableS1,258,144,114,0.558139534883721
+fusion,fusion,Any called fusion,STAD,Gao2018_TableS1,280,189,91,0.675
+fusion,fusion,Any called fusion,CHOL,Gao2018_TableS1,36,27,9,0.75
+fusion,fusion,Any called fusion,KIRC,Gao2018_TableS1,507,151,356,0.297830374753452
+fusion,fusion,Any called fusion,THCA,Gao2018_TableS1,502,138,364,0.274900398406375
+fusion,fusion,Any called fusion,HNSC,Gao2018_TableS1,435,302,133,0.694252873563218
+fusion,fusion,Any called fusion,READ,Gao2018_TableS1,81,58,23,0.716049382716049
+fusion,fusion,Any called fusion,,Gao2018_TableS1,6,4,2,0.666666666666667
+fusion,fusion,Any called fusion,SKCM,Gao2018_TableS1,97,68,29,0.701030927835052
+fusion,fusion,Any called fusion,LGG,Gao2018_TableS1,487,236,251,0.484599589322382
+fusion,fusion,Any called fusion,DLBC,Gao2018_TableS1,44,22,22,0.5
+fusion,fusion,Any called fusion,KICH,Gao2018_TableS1,65,11,54,0.169230769230769
+fusion,fusion,Any called fusion,UCS,Gao2018_TableS1,53,48,5,0.905660377358491
+fusion,fusion,Any called fusion,ACC,Gao2018_TableS1,55,40,15,0.727272727272727
+fusion,fusion,Any called fusion,PCPG,Gao2018_TableS1,176,67,109,0.380681818181818
+fusion,fusion,Any called fusion,UVM,Gao2018_TableS1,80,13,67,0.1625
+fusion,recurrent_fusion_pair,Fusion pair: TMPRSS2--ERG,PRAD,Gao2018_TableS1,400,159,241,0.3975
+fusion,recurrent_fusion_pair,Fusion pair: CCDC6--RET,THCA,Gao2018_TableS1,502,21,481,0.0418326693227092
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),GBM,Bonneville2017_cBioPortal,239,1,238,0.00418410041841004
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),LUAD,Bonneville2017_cBioPortal,461,3,458,0.00650759219088937
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),OV,Bonneville2017_cBioPortal,75,1,74,0.0133333333333333
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),LUSC,Bonneville2017_cBioPortal,454,3,451,0.0066079295154185
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),PRAD,Bonneville2017_cBioPortal,398,3,395,0.00753768844221106
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),UCEC,Bonneville2017_cBioPortal,487,155,332,0.318275154004107
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),BLCA,Bonneville2017_cBioPortal,385,2,383,0.0051948051948052
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),TGCT,Bonneville2017_cBioPortal,148,0,148,0
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),ESCA,Bonneville2017_cBioPortal,155,2,153,0.0129032258064516
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),PAAD,Bonneville2017_cBioPortal,180,0,180,0
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),KIRP,Bonneville2017_cBioPortal,264,0,264,0
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),LIHC,Bonneville2017_cBioPortal,359,3,356,0.00835654596100279
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),CESC,Bonneville2017_cBioPortal,261,8,253,0.0306513409961686
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),SARC,Bonneville2017_cBioPortal,244,2,242,0.00819672131147541
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),BRCA,Bonneville2017_cBioPortal,991,16,975,0.0161453077699294
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),THYM,Bonneville2017_cBioPortal,120,1,119,0.00833333333333333
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),MESO,Bonneville2017_cBioPortal,71,2,69,0.028169014084507
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),COAD,Bonneville2017_cBioPortal,391,74,317,0.18925831202046
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),STAD,Bonneville2017_cBioPortal,371,63,308,0.169811320754717
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),CHOL,Bonneville2017_cBioPortal,36,0,36,0
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),KIRC,Bonneville2017_cBioPortal,306,5,301,0.0163398692810458
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),THCA,Bonneville2017_cBioPortal,486,0,486,0
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),HNSC,Bonneville2017_cBioPortal,428,4,424,0.00934579439252336
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),READ,Bonneville2017_cBioPortal,132,7,125,0.053030303030303
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),SKCM,Bonneville2017_cBioPortal,74,0,74,0
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),LGG,Bonneville2017_cBioPortal,485,2,483,0.00412371134020619
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),DLBC,Bonneville2017_cBioPortal,44,11,33,0.25
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),KICH,Bonneville2017_cBioPortal,65,0,65,0
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),UCS,Bonneville2017_cBioPortal,53,2,51,0.0377358490566038
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),ACC,Bonneville2017_cBioPortal,55,2,53,0.0363636363636364
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),PCPG,Bonneville2017_cBioPortal,175,0,175,0
+microsatellite_instability,microsatellite_instability,MSI-H (MANTIS >0.4),UVM,Bonneville2017_cBioPortal,80,0,80,0
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),GBM,cBioPortal_threshold_documentation,238,0,238,0
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),LUAD,cBioPortal_threshold_documentation,458,0,458,0
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),OV,cBioPortal_threshold_documentation,74,0,74,0
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),LUSC,cBioPortal_threshold_documentation,452,1,451,0.00221238938053097
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),PRAD,cBioPortal_threshold_documentation,395,0,395,0
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),UCEC,cBioPortal_threshold_documentation,438,106,332,0.242009132420091
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),BLCA,cBioPortal_threshold_documentation,382,0,382,0
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),TGCT,cBioPortal_threshold_documentation,148,0,148,0
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),ESCA,cBioPortal_threshold_documentation,155,2,153,0.0129032258064516
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),PAAD,cBioPortal_threshold_documentation,180,0,180,0
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),KIRP,cBioPortal_threshold_documentation,264,0,264,0
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),LIHC,cBioPortal_threshold_documentation,356,0,356,0
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),CESC,cBioPortal_threshold_documentation,256,3,253,0.01171875
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),SARC,cBioPortal_threshold_documentation,243,1,242,0.00411522633744856
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),BRCA,cBioPortal_threshold_documentation,980,5,975,0.00510204081632653
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),THYM,cBioPortal_threshold_documentation,120,1,119,0.00833333333333333
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),MESO,cBioPortal_threshold_documentation,69,0,69,0
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),COAD,cBioPortal_threshold_documentation,374,57,317,0.152406417112299
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),STAD,cBioPortal_threshold_documentation,364,56,308,0.153846153846154
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),CHOL,cBioPortal_threshold_documentation,36,0,36,0
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),KIRC,cBioPortal_threshold_documentation,302,1,301,0.0033112582781457
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),THCA,cBioPortal_threshold_documentation,486,0,486,0
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),HNSC,cBioPortal_threshold_documentation,425,1,424,0.00235294117647059
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),READ,cBioPortal_threshold_documentation,129,4,125,0.0310077519379845
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),SKCM,cBioPortal_threshold_documentation,74,0,74,0
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),LGG,cBioPortal_threshold_documentation,483,0,483,0
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),DLBC,cBioPortal_threshold_documentation,33,0,33,0
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),KICH,cBioPortal_threshold_documentation,65,0,65,0
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),UCS,cBioPortal_threshold_documentation,52,1,51,0.0192307692307692
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),ACC,cBioPortal_threshold_documentation,53,0,53,0
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),PCPG,cBioPortal_threshold_documentation,175,0,175,0
+microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),UVM,cBioPortal_threshold_documentation,80,0,80,0

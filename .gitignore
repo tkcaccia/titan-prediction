@@ -1,0 +1,15 @@
+.DS_Store
+.Rhistory
+.RData
+.Rproj.user/
+.Rlib/
+config/paths.local.R
+data/raw/
+data/external/cbioportal/*.txt
+data/processed/*.rds
+data/processed/checkpoints/
+models/*.rds
+manuscript/rendered/
+tmp/
+__pycache__/
+*.pyc

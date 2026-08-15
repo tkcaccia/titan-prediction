@@ -1,0 +1,10 @@
+source_key,label,doi,source_filename,exists,bytes,sha256
+titan_features,Ding et al. 2025 TITAN TCGA embeddings,10.1038/s41591-025-03982-3,TCGA_TITAN_features_in_.csv,TRUE,103062652,d3d91fb0f83a6de440eda5ff437a63e3ca13f50095e6841fb8efcc40e58763f0
+slide_reports,Ding et al. 2025 TCGA slide reports,10.1038/s41591-025-03982-3,TCGA-Slide-Reports.csv,TRUE,39835884,e97048c3fe8a3ce5ea72dee227a3a3f5fe0557ffb5a56572a56a66647477df06
+thorsson,Thorsson et al. 2018 PanImmune_MS,10.1016/j.immuni.2018.03.023,immunology_paper.xlsx,TRUE,6482786,ff2648d3bb089cae83545428efe93f9922f61f9b78f4018625005f8ce6170b64
+tcga_cdr,Liu et al. 2018 TCGA Clinical Data Resource,10.1016/j.cell.2018.02.052,TCGA-CDR-SupplementalTableS1.xlsx,TRUE,2945129,ea594c0fbb6731477c7ac511fab449ca9c38b0d42d269591ed9f5c4090e75a5a
+bailey,Bailey et al. 2018 Table S1,10.1016/j.cell.2018.02.060,mmc1.xlsx,TRUE,197611,579069391438b8dd920df971df4b012c8e1a163310ee668cc1fec908603b34ca
+aneuploidy,Taylor et al. 2018 Table S2,10.1016/j.ccell.2018.03.007,mmc2 (1).xlsx,TRUE,2829437,424b92dabc99196d7fd170876d210b0f46fa2d78b1052f887362e5f76e0183e1
+oncogenic,Sanchez-Vega et al. 2018 Table S4,10.1016/j.cell.2018.03.035,mmc4 (3).xlsx,TRUE,16042589,40b88e2d1300f1e7e300298f987503c426b58a26572ba87181664e7f4528d7d7
+fusion,Gao et al. 2018 Table S1,10.1016/j.celrep.2018.03.050,1-s2.0-S2211124718303954-mmc2.xlsx,TRUE,2198553,1c0398cc4ca96001514ee628500f67fd6df965eec3d08622a273bc5da860e45a
+msi_subset,Bonneville et al. 2017 ACC/CESC/MESO subset,10.1200/PO.17.00073,ds_po.17.00073-5.xlsx,TRUE,36680,73c21a3cb6760a4c599248529265539b867de17f560a7fcc1fce32abfb3eccd2
