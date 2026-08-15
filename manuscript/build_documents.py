@@ -244,11 +244,31 @@ doc = setup(Document(), "Patient-level TITAN molecular and immune atlas")
 p = doc.add_paragraph(style="Title"); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
 p.add_run("A patient-level atlas of molecular and immune predictability from frozen TITAN whole-slide embeddings across 32 cancers")
 p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-p.add_run("Authors: Aamilah Ismail [author list to be confirmed]").bold = True
+authors = [
+    ("Aamilah Ismail", "1,2,*"),
+    ("Moussa Kassim", "1,2,*"),
+    ("Dalia Ahmed", "1"),
+    ("Dupe Ojo", "1"),
+    ("Stefano Cacciatore", "1,2,†"),
+]
+for i, (name, markers) in enumerate(authors):
+    if i:
+        p.add_run(", ")
+    p.add_run(name).bold = True
+    marker_run = p.add_run(markers)
+    marker_run.font.superscript = True
 p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-p.add_run("Division of Engineering, New York University Abu Dhabi, Abu Dhabi, United Arab Emirates")
+p.add_run("1 ").bold = True
+p.add_run("Bioinformatics Unit, International Centre for Genetic Engineering and Biotechnology (ICGEB), Cape Town 7925, South Africa")
 p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-p.add_run("Corresponding author: [to be completed]")
+p.add_run("2 ").bold = True
+p.add_run("Department of Integrative Biomedical Sciences, Institute of Infectious Disease & Molecular Medicine (IDM), University of Cape Town, Cape Town 7925, South Africa")
+p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+p.add_run("* These authors contributed equally.").italic = True
+p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+p.add_run("† Corresponding author: Stefano Cacciatore (stefano.cacciatore@icgeb.org).").italic = True
+p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+p.add_run("Author emails: moussa.kassim@icgeb.org; dalia.ahmed@icgeb.org; dupe.ojo@icgeb.org; stefano.cacciatore@icgeb.org")
 p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
 p.add_run("Research article — Molecular Pathology | Journal of Translational Medicine")
 
@@ -422,7 +442,7 @@ responses = [
     ("5. Preserve effect-size-first interpretation of PLS2",
      "Addressed. The PLS1–PLS2 comparison is now confined to the Supplementary Methods, results and Figures S1–S2. It remains restricted to coherent inflammatory blocks, uses identical patients and folds, and is interpreted by cancer-level ΔQ² with bootstrap intervals rather than win counts. Binary molecular endpoints retain one-at-a-time PLS–LDA as the primary analysis."),
     ("6. Complete submission-specific fields",
-     "Partly outstanding. Corresponding-author details, final author list, funding, competing interests and contribution statements require author confirmation and remain visibly marked. No scientific values are placeholder text."),
+     "Partly outstanding. The supplied author list, affiliations, equal-contribution statement and corresponding-author details have been entered. Aamilah Ismail's affiliation markers and email address, together with funding, competing interests and contribution statements, still require author confirmation and remain visibly marked where applicable. No scientific values are placeholder text."),
     ("7. Presentation and runtime claims",
      "Addressed. High-resolution figures and machine-readable tables accompany the Word documents. The text states that speed applies after TITAN embeddings have been computed and does not claim a hardware-matched accuracy or runtime comparison with CNN pipelines."),
     ("Additional change: distinguish replication from atlas-nominated predictors",

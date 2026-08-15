@@ -3,8 +3,9 @@
 The computational and manuscript outputs intentionally leave the following
 items for author confirmation rather than inventing administrative details:
 
-1. Confirm the final author list, order, affiliations and corresponding-author
-   email.
+1. Confirm Aamilah Ismail's affiliation markers and email address; the other
+   author names, order, affiliations and email addresses have been entered as
+   supplied on 15 August 2026.
 2. Supply the ethics/waiver wording and committee reference appropriate for
    the institution's secondary use of public, de-identified TCGA data.
 3. Confirm funding, competing interests, author contributions and any people
