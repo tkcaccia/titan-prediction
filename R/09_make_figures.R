@@ -139,20 +139,23 @@ connector(0.295, 0.68, 0.365, 0.68)
 connector(0.635, 0.68, 0.705, 0.68)
 
 card(0.29, 0.31, 0.37, 0.25, "4A", "Continuous endpoints",
-     "PLS1 regression\nOuter-fold Q², RMSE and Spearman correlation\nImmune, genomic-context, MSI, fusion and aneuploidy scores",
+     "PLS1 regression\nHeld-out Q2, RMSE and Spearman correlation\nImmune, genomic and instability endpoints",
      "#F4F1FB", purple)
 card(0.71, 0.31, 0.37, 0.25, "4B", "Binary endpoints",
-     "PLS latent scores with LDA\nSensitivity, specificity, balanced accuracy and AUROC\nMutations, pathways, MSI, fusions and genome doubling",
+     "PLS latent scores with LDA\nSensitivity, specificity, balanced accuracy and AUROC\nMutations, pathways, MSI, fusions and aneuploidy",
      "#FFF2EF", coral)
 connector(0.50, 0.535, 0.34, 0.445)
 connector(0.50, 0.535, 0.66, 0.445)
 
 grid.roundrect(x = unit(0.50, "npc"), y = unit(0.095, "npc"),
-               width = unit(0.86, "npc"), height = unit(0.105, "npc"),
+               width = unit(0.88, "npc"), height = unit(0.12, "npc"),
                r = unit(4, "mm"), gp = gpar(fill = navy, col = NA))
-grid.text("Patient-level nested validation  •  within-cancer multiplicity control  •  atlas-wide sensitivity  •  repeated and site-grouped robustness  •  research model metadata",
-          x = unit(0.50, "npc"), y = unit(0.095, "npc"),
-          gp = gpar(fontfamily = "Arial", fontsize = 10.5, col = "white"))
+grid.text("Patient-level nested validation  |  within-cancer multiplicity control  |  site-grouped robustness",
+          x = unit(0.50, "npc"), y = unit(0.112, "npc"),
+          gp = gpar(fontfamily = "Arial", fontsize = 9.4, col = "white"))
+grid.text("Slide-pooling sensitivity  |  research model metadata  |  no external validation",
+          x = unit(0.50, "npc"), y = unit(0.075, "npc"),
+          gp = gpar(fontfamily = "Arial", fontsize = 9.4, col = "white"))
 dev.off()
 
 # Figure 2: concise continuous landscape.
@@ -214,15 +217,18 @@ p3 <- ggplot(bp, aes(balanced_accuracy, display, color = family_label)) +
 ggsave("figures/Figure3_binary_atlas.png", p3, width = 11.2, height = 9.4,
        dpi = 320, bg = "white")
 
-# Figure 4: observed-versus-predicted examples from repeated nested CV.
+# Figure 4: observed-versus-predicted examples. Panel A deliberately shows the
+# strongest primary patient-level nested-CV continuous result; panel B uses the
+# strongest mean repeated-CV binary classifier.
 performance <- fread("results/tables/screen_positive_performance_summary.csv")
-cont_pred <- fread("results/predictions/continuous_repeated_oof_predictions.csv.gz")
 bin_pred <- fread("results/predictions/binary_repeated_oof_predictions.csv.gz")
-cont_job <- performance[outcome_type == "continuous"][order(-repeated_q2_mean)][1L]
+cont_job <- continuous[tier %chin% c("A", "B")][order(-q2)][1L]
 bin_job <- performance[outcome_type == "binary"][order(-repeated_balanced_accuracy_mean)][1L]
-cd <- cont_pred[family == cont_job$family & tumor_type == cont_job$tumor_type &
-                  endpoint == cont_job$endpoint,
-                .(observed = observed[1L], predicted = mean(predicted)), by = patient]
+cont_checkpoint <- file.path(
+  "data/processed/checkpoints/continuous",
+  paste0(safe_name(cont_job$family, cont_job$tumor_type, cont_job$endpoint), ".rds")
+)
+cd <- readRDS(cont_checkpoint)$predictions
 bd_repeat <- bin_pred[
   family == bin_job$family & tumor_type == bin_job$tumor_type &
     endpoint == bin_job$endpoint
@@ -250,11 +256,10 @@ p4a <- ggplot(cd, aes(observed, predicted)) +
   geom_smooth(method = "lm", se = TRUE, color = navy, fill = "#BFD7EA",
               linewidth = 0.8) +
   labs(
-    title = paste0("A  ", cont_job$tumor_type, " · ", cont_job$endpoint),
-    subtitle = sprintf("Repeated nested CV: Q² %.2f; RMSE %.2f; Spearman %.2f",
-                       cont_job$repeated_q2_mean, cont_job$repeated_rmse_mean,
-                       cont_job$repeated_spearman_mean),
-    x = "Observed value", y = "Mean held-out prediction"
+    title = paste0("A  ", cont_job$tumor_type, ": ", cont_job$endpoint),
+    subtitle = sprintf("Patient-level nested CV: Q2 %.2f; RMSE %.2f; Spearman %.2f",
+                       cont_job$q2, cont_job$rmse, cont_job$spearman),
+    x = "Observed value", y = "Held-out prediction"
   ) + theme_titan(10) + theme(legend.position = "none")
 
 p4b <- ggplot(bd, aes(observed_label, lda_score_z, fill = observed_label)) +
@@ -265,9 +270,9 @@ p4b <- ggplot(bd, aes(observed_label, lda_score_z, fill = observed_label)) +
   scale_fill_manual(values = c("Observed negative" = "#AFC9E3",
                                "Observed positive" = coral)) +
   labs(
-    title = paste0("B  ", bin_job$tumor_type, " · ", bin_job$endpoint,
+    title = paste0("B  ", bin_job$tumor_type, ": ", bin_job$endpoint,
                    " [", family_labels[bin_job$family], "]"),
-    subtitle = sprintf("Mean across repeated nested CV: sensitivity %.2f; specificity %.2f; balanced accuracy %.2f; AUROC %.2f",
+    subtitle = sprintf("Repeated nested CV: sensitivity %.2f; specificity %.2f\nbalanced accuracy %.2f; AUROC %.2f",
                        bin_job$repeated_sensitivity_mean,
                        bin_job$repeated_specificity_mean,
                        bin_job$repeated_balanced_accuracy_mean,

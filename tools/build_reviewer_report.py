@@ -166,8 +166,8 @@ add_heading(doc, "Confidential comments to the editor", 1)
 add_body(doc,
     "The manuscript fits the Molecular Pathology remit as a reproducible study "
     "of image-derived molecular and immune signals in human tumours. Its main "
-    "contribution is not a claim that PLS outperforms other algorithms, but a "
-    "transparent endpoint-by-endpoint atlas using a fixed pretrained representation. "
+    "contribution is a transparent endpoint-by-endpoint atlas using a fixed "
+    "pretrained representation. "
     "The authors appropriately refrain from clinical claims. I recommend minor "
     "revision limited to submission administration and permanent archiving."
 )
@@ -270,19 +270,20 @@ add_heading(doc, "6. Administrative completion", 2)
 add_body(doc,
     "Required before submission: replace the remaining placeholders for funding, "
     "competing interests and author contributions; confirm the institutional ethics/waiver "
-    "wording. Aamilah Ismail's New York University Abu Dhabi affiliation and email "
-    "have been restored from the original supplied manuscript. Ekene Emmanuel Nweke's "
-    "University of the Witwatersrand affiliation has been added; an email address was not "
-    "supplied. The current author list contains Aamilah Ismail, Moussa Kassim, Dalia Ahmed, "
-    "Dupe Ojo, Ekene Emmanuel Nweke and Stefano Cacciatore."
+    "wording. Aamilah Ismail and Martin Ocharo are now the shared co-first authors, "
+    "with Martin Ocharo second in the author order and assigned to the ICGEB "
+    "Bioinformatics Unit. Ekene Emmanuel Nweke's University of the Witwatersrand "
+    "affiliation is included. Email addresses for Martin Ocharo and Ekene Emmanuel "
+    "Nweke were not supplied. The current author list contains Aamilah Ismail, Martin "
+    "Ocharo, Moussa Kassim, Dalia Ahmed, Dupe Ojo, Ekene Emmanuel Nweke and Stefano "
+    "Cacciatore."
 )
 
 add_heading(doc, "Minor presentation points", 1)
 for title, body in (
     ("Reporting checklist", "The TRIPOD+AI item-to-location map in Supplementary Table S12 should accompany the submission."),
-    ("Terminology", "Retain 'fixed pretrained' or 'pretrained' rather than 'frozen' where confusion with frozen-section tissue is possible."),
     ("Fusion caveat", "Keep the technical-coverage caveat for fusion-negative status and fusion burden."),
-    ("Figures", "The consistent endpoint-family colours and explicit observed-versus-predicted panel should be retained in production."),
+    ("Figures", "Figure 1 is no longer clipped, and Figure 4A now shows the strongest primary continuous prediction with explicit held-out metrics. These corrected production figures should be retained."),
 ):
     add_heading(doc, title, 3)
     add_body(doc, body)

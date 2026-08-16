@@ -18,6 +18,7 @@ EXPECTED = {
 }
 AUTHORS = (
     "Aamilah Ismail",
+    "Martin Ocharo",
     "Moussa Kassim",
     "Dalia Ahmed",
     "Dupe Ojo",
@@ -40,7 +41,7 @@ def full_text(document: Document) -> str:
     return "\n".join(chunks)
 
 
-found = {p.name for p in OUT.glob("*.docx")}
+found = {p.name for p in OUT.glob("*.docx") if not p.name.startswith("~$")}
 require(found == EXPECTED, f"Expected exactly four final DOCX files; found {sorted(found)}")
 
 documents = {name: Document(OUT / name) for name in EXPECTED}
@@ -54,6 +55,15 @@ main = documents[main_name]
 main_text = texts[main_name]
 for author in AUTHORS:
     require(author in main_text, f"Required author missing from manuscript: {author}")
+author_positions = [main_text.index(author) for author in AUTHORS]
+require(
+    author_positions == sorted(author_positions),
+    "Author order is inconsistent with the approved seven-author sequence",
+)
+require(
+    "Aamilah Ismail3,*" in main_text and "Martin Ocharo1,*" in main_text,
+    "Shared co-first authorship markers are missing for Aamilah Ismail and Martin Ocharo",
+)
 require(
     "Department of Surgery, Faculty of Health Sciences, University of the Witwatersrand, "
     "Johannesburg, Gauteng, South Africa" in main_text,
@@ -88,6 +98,20 @@ require(len(abstract_words) <= 350, f"Abstract has {len(abstract_words)} words (
 keyword_count = len([x for x in paragraphs[keywords_index][9:].split(";") if x.strip()])
 require(3 <= keyword_count <= 10, f"Keyword count is {keyword_count}; expected 3–10")
 require(len(main.inline_shapes) >= 6, "Main manuscript contains fewer than six embedded figures")
+for forbidden in (
+    "IRLBA",
+    "Liver and pancreatic cancer examples",
+    "Previously reported and atlas-nominated predictors",
+    "Practical contribution of the PLS framework",
+):
+    require(forbidden not in main_text, f"Removed manuscript text remains: {forbidden}")
+require("frozen" not in main_text.lower(), "Ambiguous 'frozen' terminology remains")
+for header in (
+    "Q² or Se/Sp (95% CI)",
+    "RMSE or BA (95% CI)",
+    "Spearman or AUROC (95% CI)",
+):
+    require(header in main_text, f"Table 2 metric header is missing: {header}")
 
 supplement = documents["supplementary_material_JTM.docx"]
 supplement_text = texts["supplementary_material_JTM.docx"]

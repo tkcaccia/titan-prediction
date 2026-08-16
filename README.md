@@ -37,9 +37,8 @@ Mutation and other binary endpoints use PLS latent variables followed by LDA;
 continuous endpoints use PLS1 regression. The matched PLS1-versus-PLS2
 comparison for coherent inflammatory blocks is secondary and is reported in
 the supplementary material. All reported fits use CPU rSVD exclusively, with
-10 oversampling vectors, two power iterations and explicit seeds. IRLBA is not
-used. Because rSVD is stochastic, repeated nested validation and exact solver
-metadata are retained; no speed or algorithmic-superiority claim is made.
+10 oversampling vectors, two power iterations and explicit seeds. Repeated
+nested validation and exact solver metadata are retained.
 
 ## Multiple slides per patient
 

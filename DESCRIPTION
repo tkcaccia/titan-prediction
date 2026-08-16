@@ -5,6 +5,7 @@ Version: 0.1.0
 Authors@R: c(
     person("Aamilah", "Ismail", role = "aut",
       email = "aamilahismail@gmail.com"),
+    person("Martin", "Ocharo", role = "aut"),
     person("Moussa", "Kassim", role = "aut",
       email = "moussa.kassim@icgeb.org"),
     person("Dalia", "Ahmed", role = "aut",

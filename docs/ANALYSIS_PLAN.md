@@ -24,7 +24,7 @@ predictions. Balanced accuracy is primary for binary outcomes; AUROC from
 continuous LDA scores is secondary. Q-squared is primary for continuous
 outcomes. Every primary, permutation, repeated, sensitivity and final-model PLS
 fit uses CPU rSVD exclusively, with 10 oversampling vectors, two power
-iterations and an explicit fit seed. IRLBA is not used. Repeated nested
+iterations and an explicit fit seed. Repeated nested
 validation therefore reflects both partition and rSVD-seed variation.
 
 Thorsson Nonsilent Mutation Rate, Silent Mutation Rate, SNV Neoantigens,

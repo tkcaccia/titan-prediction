@@ -3,7 +3,7 @@
 The computational and manuscript outputs intentionally leave the following
 items for author confirmation rather than inventing administrative details:
 
-1. Supply an email address for Ekene Emmanuel Nweke.
+1. Supply email addresses for Martin Ocharo and Ekene Emmanuel Nweke.
 2. Supply the ethics/waiver wording and committee reference appropriate for
    the institution's secondary use of public, de-identified TCGA data.
 3. Confirm funding, competing interests, author contributions and any people
