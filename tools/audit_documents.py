@@ -80,8 +80,8 @@ require(
     "Sole corresponding-author statement is missing",
 )
 for label in (
-    "Additional file 2 (.pdf): COAD example A TITANPred single-sample report",
-    "Additional file 3 (.pdf): COAD example B TITANPred single-sample report",
+    "Additional file 2 (.pdf): COAD example A (TCGA-AD-6964) TITANPred single-sample report",
+    "Additional file 3 (.pdf): COAD example B (TCGA-5M-AAT5) TITANPred single-sample report",
 ):
     require(label in main_text, f"Separate supplementary report is not declared: {label}")
 for pdf_name in (

@@ -505,8 +505,9 @@ doc.add_paragraph(
     "every bundled model available for that cancer. Repeated patient identifiers are mean-pooled "
     "before inference. Continuous outputs retain source endpoint units and are positioned against "
     "repeated out-of-fold reference distributions; binary outputs comprise the fitted PLS-LDA class "
-    "and uncalibrated LDA score. A single-sample report renders continuous percentiles as a radar "
-    "profile and displays binary calls with provenance and out-of-distribution diagnostics."
+    "and uncalibrated LDA score. A single-sample report renders each continuous endpoint as an "
+    "exact reference-percentile dot with its raw prediction and displays binary calls with "
+    "provenance and out-of-distribution diagnostics."
 )
 doc.add_paragraph(
     f"COAD was chosen as a deployment illustration because colorectal cancer, of which colon "
@@ -524,7 +525,7 @@ doc.add_paragraph(
 add_figure(
     doc,
     "Figure7_COAD_TITANPred_examples.png",
-    "Figure 7. TITANPred deployment illustration in COAD. Panel A compares continuous prediction percentiles for the two TCGA patients with maximal separation across the complete COAD continuous profile; percentiles are relative to repeated out-of-fold TCGA predictions, not clinical reference ranges. Panel B shows the corresponding binary PLS-LDA calls and LDA-score percentiles; filled points denote positive calls, and scores are not calibrated probabilities. Examples were selected to demonstrate report contrast and do not provide external validation.",
+    "Figure 7. TITANPred deployment illustration in COAD. Panel A compares endpoint-level continuous predictions for TCGA-AD-6964 (example A) and TCGA-5M-AAT5 (example B), the two TCGA patients with maximal separation across the complete COAD continuous profile. Point positions are percentiles relative to repeated out-of-fold TCGA predictions, not clinical reference ranges; labels beside points give the original model predictions in source endpoint units. Panel B shows the corresponding binary PLS-LDA calls and LDA-score percentiles; filled points denote positive calls, and scores are not calibrated probabilities. Examples were selected to demonstrate report contrast and do not provide external validation.",
     width=6.7,
 )
 
@@ -579,12 +580,12 @@ doc.add_paragraph(
     "machine-readable result files."
 )
 doc.add_paragraph(
-    "Additional file 2 (.pdf): COAD example A TITANPred single-sample report. "
+    "Additional file 2 (.pdf): COAD example A (TCGA-AD-6964) TITANPred single-sample report. "
     "Illustrative full-cohort research-model predictions for the COAD example with "
     "high MSI, mutation-rate and immune-feature predictions and low aneuploidy prediction."
 )
 doc.add_paragraph(
-    "Additional file 3 (.pdf): COAD example B TITANPred single-sample report. "
+    "Additional file 3 (.pdf): COAD example B (TCGA-5M-AAT5) TITANPred single-sample report. "
     "Illustrative full-cohort research-model predictions for the contrasting COAD "
     "example with high aneuploidy prediction and lower MSI and immune-feature predictions."
 )
@@ -632,7 +633,7 @@ doc.save(OUT / "manuscript_JTM_patient_level_TITAN.docx")
 sup = setup(Document(), "Supplementary material — TITAN atlas")
 sup.add_heading("Supplementary material", 0)
 sup.add_paragraph("A patient-level TCGA discovery atlas of molecular and immune predictability from pretrained TITAN whole-slide representations across 32 cancers")
-sup.add_paragraph("This document is Additional file 1. The COAD example A and example B TITANPred single-sample reports are supplied as separate PDF attachments (Additional files 2 and 3, respectively).")
+sup.add_paragraph("This document is Additional file 1. The COAD example A (TCGA-AD-6964) and example B (TCGA-5M-AAT5) TITANPred single-sample reports are supplied as separate PDF attachments (Additional files 2 and 3, respectively).")
 sup.add_heading("Supplementary Methods", 1)
 sup.add_paragraph("The executable analysis plan, source manifest, eligibility catalogues, checkpoint-capable scripts and released out-of-fold prediction tables are available in the companion analysis repository. The separate TITANPred R package bundles all fitted research models, the model registry, reference distributions and report template. Large local restart checkpoints are not redistributed. Tables below are concise views; complete machine-readable CSV files are authoritative.")
 sup.add_heading("Secondary PLS1–PLS2 inflammatory comparison", 2)

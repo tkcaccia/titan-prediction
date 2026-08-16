@@ -127,8 +127,8 @@ predictions <- predict_titan(
 )
 ```
 
-`titan_sample_report()` generates a single-sample HTML or PDF report with a
-continuous radar profile, binary PLS-LDA calls, reference percentiles,
+`titan_sample_report()` generates a single-sample HTML or PDF report with an
+endpoint-level continuous prediction plot, binary PLS-LDA calls, exact reference percentiles,
 out-of-distribution diagnostics and deployment provenance. Reproducible COAD
 examples generated for Figure 7 are available under [`results/reports`](results/reports/).
 

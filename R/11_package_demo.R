@@ -54,7 +54,7 @@ for (i in seq_len(nrow(example_map))) {
   titan_sample_report(
     cancer = "COAD",
     features = cohort$X[row_index, , drop = FALSE],
-    patient_id = example_map$example[i],
+    patient_id = example_map$patient_id[i],
     output_file = file.path("results", "reports", gsub(" ", "_", example_map$example[i])),
     format = "both",
     quiet = TRUE
@@ -86,34 +86,36 @@ radar_order <- c(
   "Aneuploidy", "SNV neoantigens", "Deleted arms", "Silent rate"
 )
 radar[, axis := match(endpoint_label, radar_order)]
-radar <- radar[order(example, axis)]
-radar <- radar[, rbind(.SD, transform(.SD[1L], axis = length(radar_order) + 1L)),
-               by = example]
-axis_labels <- unique(radar[axis <= length(radar_order), .(axis, endpoint_label)])
-setorder(axis_labels, axis)
+radar <- radar[order(axis, example)]
+radar[, endpoint_label := factor(endpoint_label, levels = rev(radar_order))]
+radar[, prediction_label := formatC(prediction, digits = 3, format = "fg")]
+radar[, label_hjust := fifelse(reference_percentile >= 75, 1.15, -0.15)]
 
-p_radar <- ggplot(radar, aes(axis, reference_percentile, color = example, group = example)) +
-  geom_hline(yintercept = c(25, 50, 75), color = c("#D7DEE8", "#9DAABD", "#D7DEE8"),
+p_radar <- ggplot(radar, aes(reference_percentile, endpoint_label, color = example)) +
+  geom_vline(xintercept = c(25, 50, 75),
+             color = c("#D7DEE8", "#9DAABD", "#D7DEE8"),
              linewidth = c(0.35, 0.55, 0.35)) +
-  geom_line(linewidth = 1.2) +
-  geom_point(size = 2.3) +
-  coord_polar(start = -pi / 2, clip = "off") +
-  scale_x_continuous(breaks = axis_labels$axis, labels = axis_labels$endpoint_label) +
-  scale_y_continuous(limits = c(0, 100), breaks = c(25, 50, 75, 100)) +
+  geom_line(aes(group = endpoint_label), color = "#D7DEE8", linewidth = 0.9) +
+  geom_point(size = 2.8) +
+  geom_text(aes(label = prediction_label, hjust = label_hjust),
+            position = position_dodge(width = 0.35), vjust = -0.75,
+            size = 2.25, show.legend = FALSE) +
+  scale_x_continuous(limits = c(0, 100), breaks = seq(0, 100, 25),
+                     labels = function(x) paste0(x, "%")) +
   scale_color_manual(values = sample_palette) +
   labs(
-    title = "A  Contrasting continuous profiles",
-    subtitle = "Percentile relative to repeated TCGA out-of-fold predictions",
-    x = NULL, y = NULL, color = NULL
+    title = "A  Contrasting continuous predictions",
+    subtitle = "Position is the exact TCGA reference percentile; labels are original model predictions",
+    x = "TCGA reference percentile", y = NULL, color = NULL
   ) +
   theme_minimal(base_size = 9.5, base_family = "Arial") +
   theme(
-    panel.grid = element_blank(), axis.text.x = element_text(size = 7.2, color = navy),
-    axis.text.y = element_text(size = 6.8, color = muted),
+    panel.grid.major.y = element_blank(), panel.grid.minor = element_blank(),
+    axis.text.y = element_text(size = 7.4, color = navy),
     plot.title = element_text(face = "bold", size = 13, color = navy),
     plot.subtitle = element_text(size = 8.5, color = muted),
     legend.position = "bottom", legend.text = element_text(size = 8.5),
-    plot.margin = margin(8, 24, 8, 68)
+    plot.margin = margin(8, 8, 8, 8)
   )
 
 binary <- selected[outcome_type == "binary"]
@@ -154,7 +156,8 @@ figure <- p_radar + p_binary +
   plot_annotation(
     title = "TITANPred converts one COAD feature vector into a multi-endpoint molecular profile",
     subtitle = "Examples were selected for maximal continuous-profile separation; this internal TCGA demonstration is not external validation.",
-    caption = "Example A: MSI-, mutation-rate- and immune-high / aneuploidy-low. Example B: aneuploidy-high / MSI- and immune-low. Binary scores are uncalibrated.",
+    caption = paste0("Example A (", example_map[example == "COAD example A", patient_id], "): MSI-, mutation-rate- and immune-high / aneuploidy-low. ",
+                     "Example B (", example_map[example == "COAD example B", patient_id], "): aneuploidy-high / MSI- and immune-low. Binary scores are uncalibrated."),
     theme = theme(
       plot.title = element_text(face = "bold", size = 17, color = navy),
       plot.subtitle = element_text(size = 10, color = muted),
