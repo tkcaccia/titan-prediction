@@ -6,6 +6,8 @@ types.
 
 Public repository: https://github.com/tkcaccia/titan-prediction
 
+Fitted-model R package: https://github.com/tkcaccia/TITANPred
+
 ## Manuscript package
 
 - [Main manuscript](manuscript/manuscript_JTM_patient_level_TITAN.docx)
@@ -104,35 +106,42 @@ relevant denominator and aggregation fields. `software_manifest.csv` records
 package versions and the pinned fastPLS and TCGAmutations GitHub source
 commits.
 
-## Deploying a fitted model
+## Deploying all cancer-matched models
 
-See `examples/predict_titan_features.R`. The example accepts one or more
-TITAN slide embeddings per patient, validates all 768 dimensions, applies
-the same mean pooling used during training, and returns patient-level
-predictions.
-Returned data frames carry `model_id`, `endpoint_transform` and `output_units`
-attributes so transformed continuous outputs cannot be mistaken for source-scale
-values.
+All 323 fitted research models are distributed in the separate
+[`TITANPred`](https://github.com/tkcaccia/TITANPred) R package. Users supply a
+cancer vector and correctly named TITAN features; `predict_titan()` applies
+every model available for each cancer and returns a long patient-model table.
+Repeated patient identifiers are mean-pooled before inference.
 
-Every exported RDS object includes the exact 768-column feature order, slide
+```r
+remotes::install_github("tkcaccia/TITANPred", dependencies = TRUE)
+library(TITANPred)
+
+predictions <- predict_titan(
+  cancer = my_cancer_vector,
+  features = my_titan_features,
+  patient_id = my_patient_ids
+)
+```
+
+`titan_sample_report()` generates a single-sample HTML or PDF report with a
+continuous radar profile, binary PLS-LDA calls, reference percentiles,
+out-of-distribution diagnostics and deployment provenance. Reproducible COAD
+examples generated for Figure 7 are available under [`results/reports`](results/reports/).
+
+Every bundled RDS object includes the exact 768-column feature order, slide
 aggregation rule, cancer type, endpoint, selected component count, class counts
 and priors where applicable, endpoint transformation and output units, exact
 fastPLS version and Git commit, computation backend, and research-only
-intended-use statement.
+intended-use statement. The public registry records SHA-256 hashes for all
+artifacts. The objects contain no patient-level training rows.
 
 PLS and PLS–LDA are parametric models: external prediction needs the learned
 preprocessing values, latent weights, coefficients and classification
 parameters, but not the patient-level training embeddings or outcomes. This
-supports model sharing while minimising distribution of patient-level research
-data; it is not a guarantee of privacy, transportability or redistribution
-permission.
-
-Fitted objects are generated under `models/` but are not committed by
-default. TITAN's upstream terms describe models trained on TITAN outputs as
-derivatives and restrict redistribution. Public release of fitted model
-objects therefore requires written permission or an explicit compatible
-license from the TITAN rights holder. The complete fitting and inference
-code remains public and reproducible.
+minimises the patient-level research data that must be exchanged; it is not a
+guarantee of privacy or transportability.
 
 ## Intended use
 
@@ -142,5 +151,6 @@ research models, not medical devices and not suitable for patient care.
 ## License and attribution
 
 Repository code is released under GPL-3.0 because `fastPLS` is GPL-3.0.
-Source data and TITAN-derived artifacts remain subject to their respective
-upstream terms. See `provenance/SOURCES.md`.
+Source data retain their respective upstream terms. The analysis code and
+TITANPred package are GPL-3.0 licensed; see `provenance/SOURCES.md` for source
+attribution.

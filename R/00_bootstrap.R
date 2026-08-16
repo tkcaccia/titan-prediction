@@ -25,6 +25,13 @@ if (need_fastpls) {
                           upgrade = "never", dependencies = TRUE, force = TRUE)
 }
 
+if (!requireNamespace("TITANPred", quietly = TRUE)) {
+  remotes::install_github(
+    "tkcaccia/TITANPred",
+    lib = ".Rlib", upgrade = "never", dependencies = TRUE
+  )
+}
+
 bioc <- c("maftools")
 missing_bioc <- bioc[!vapply(bioc, requireNamespace, logical(1), quietly = TRUE)]
 if (length(missing_bioc)) {

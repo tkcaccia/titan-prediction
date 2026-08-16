@@ -15,6 +15,7 @@ scripts <- c(
   "R/08_pls1_vs_pls2_inflammation.R",
   "R/09_make_figures.R",
   "R/10_literature_crosswalk.R",
+  "R/11_package_demo.R",
   "R/07_source_manifest.R"
 )
 for (script in scripts) {

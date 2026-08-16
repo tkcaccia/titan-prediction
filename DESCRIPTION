@@ -32,7 +32,11 @@ Imports:
     maftools,
     pROC,
     readxl,
-    TCGAmutations
+    TCGAmutations,
+    TITANPred
+Remotes:
+    tkcaccia/TITANPred,
+    tkcaccia/fastPLS@dcf45cccee8a1cb1a3ae8b3353a410ab0902162f
 Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

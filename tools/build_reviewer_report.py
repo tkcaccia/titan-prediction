@@ -253,16 +253,18 @@ add_body(doc,
 
 add_heading(doc, "5. Reproducibility and model redistribution", 2)
 add_body(doc,
-    "The public repository claim is now limited to files that can actually be released. "
-    "The TITAN model terms restrict redistribution of derivative models, so retaining "
-    "local fitted objects while publishing version-controlled fitting code, inference code, "
-    "registry metadata and hashes is the correct conservative approach."
+    "The reproducibility resource is now split appropriately between the public analysis "
+    "repository and a separate GPL-3 TITANPred R package. The package distributes all 323 "
+    "fitted research models, their SHA-256 registry, repeated out-of-fold reference "
+    "distributions, cancer-vector inference interface and HTML/PDF report template. The "
+    "artifacts contain learned parameters and training-range summaries but no patient-level "
+    "training rows. This materially strengthens the portability and transparency claim."
 )
 add_body(doc,
-    "Required before submission: create a versioned repository release with a "
-    "persistent DOI. Do not upload fitted TITAN-derived RDS objects unless written "
-    "permission or compatible terms are obtained. This is an administrative release "
-    "condition and does not require a new scientific analysis.",
+    "Required before submission: create versioned releases of the analysis and model-package "
+    "repositories with persistent DOIs, retain the research-only and no-external-validation "
+    "notices, and cite the upstream TITAN work and feature source in the package documentation. "
+    "This is an administrative release condition and does not require a new scientific analysis.",
     lead="Required before submission:"
 )
 
