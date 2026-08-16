@@ -93,9 +93,11 @@ matches the current run; obsolete checkpoint files are not collated.
 During a long permutation run, `Rscript tools/permutation_progress.R` reports
 read-only checkpoint counts and attempted permutations without changing state.
 
-This produces the main manuscript, supplementary material and point-by-point
-reviewer response under `manuscript/`. Numerical statements and tables are read
-directly from released CSV files; they are not separately hand-entered.
+This produces the main manuscript, Additional file 1 (supplementary methods,
+tables and figures), the point-by-point reviewer response, and two separate
+single-sample PDF reports designated as Additional files 2 and 3 under
+`manuscript/`. Numerical statements and tables are read directly from released
+CSV files; they are not separately hand-entered.
 
 Large source datasets and TITAN embeddings are not redistributed here.
 `R/00_download_cbioportal.R` retrieves public MSI clinical fields from the

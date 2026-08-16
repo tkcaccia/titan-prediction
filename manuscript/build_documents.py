@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 import os
+import shutil
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -444,7 +445,7 @@ doc.add_paragraph("The fitted PLS and PLS–LDA objects contain the learned tran
 doc.add_heading("Software, transparency and validation status", level=2)
 doc.add_paragraph("Analyses used R 4.6.0 and fastPLS 0.99.20 (Git commit dcf45cc). MC3 objects were loaded with TCGAmutations 0.4.0 from the GitHub source pinned in the software manifest. Version-controlled code, source manifests, released target catalogues, out-of-fold prediction summaries, figures and model registry are organized in the companion analysis repository [30]. A separate GPL-3 R package bundles all fitted models, their SHA-256 registry, reference distributions, inference interface and report template [32]. The bundled artifacts contain learned parameters and training-range summaries but no patient-level training rows. No independent cohort with compatible TITAN features and the required labels was included; all performance estimates remain internal to TCGA.")
 doc.add_paragraph("OpenAI Codex was used for analysis-code refactoring, document generation and language editing. All statistical choices, source-data mappings, numerical outputs and manuscript interpretations were reviewed by the human authors, who retain responsibility for the work.")
-doc.add_paragraph("Supplementary methods, Tables S1–S12, Figures S1–S2 and the machine-readable-file inventory are provided in Additional file 1.")
+doc.add_paragraph("Supplementary methods, Tables S1–S12, Figures S1–S2 and the machine-readable-file inventory are provided in Additional file 1. The two illustrative single-sample TITANPred reports are supplied separately as Additional files 2 and 3.")
 
 doc.add_heading("Results", level=1)
 doc.add_heading("Cohort and analysis coverage", level=2)
@@ -571,11 +572,21 @@ for h, text in [
 ]:
     doc.add_heading(h, level=2); doc.add_paragraph(text)
 
-doc.add_heading("Additional file", level=1)
+doc.add_heading("Additional files", level=1)
 doc.add_paragraph(
     "Additional file 1 (.docx): Supplementary material. Contains Supplementary "
     "Methods, Tables S1–S12, Figures S1–S2 and an inventory of the companion "
     "machine-readable result files."
+)
+doc.add_paragraph(
+    "Additional file 2 (.pdf): COAD example A TITANPred single-sample report. "
+    "Illustrative full-cohort research-model predictions for the COAD example with "
+    "high MSI, mutation-rate and immune-feature predictions and low aneuploidy prediction."
+)
+doc.add_paragraph(
+    "Additional file 3 (.pdf): COAD example B TITANPred single-sample report. "
+    "Illustrative full-cohort research-model predictions for the contrasting COAD "
+    "example with high aneuploidy prediction and lower MSI and immune-feature predictions."
 )
 
 doc.add_heading("References", level=1)
@@ -621,6 +632,7 @@ doc.save(OUT / "manuscript_JTM_patient_level_TITAN.docx")
 sup = setup(Document(), "Supplementary material — TITAN atlas")
 sup.add_heading("Supplementary material", 0)
 sup.add_paragraph("A patient-level TCGA discovery atlas of molecular and immune predictability from pretrained TITAN whole-slide representations across 32 cancers")
+sup.add_paragraph("This document is Additional file 1. The COAD example A and example B TITANPred single-sample reports are supplied as separate PDF attachments (Additional files 2 and 3, respectively).")
 sup.add_heading("Supplementary Methods", 1)
 sup.add_paragraph("The executable analysis plan, source manifest, eligibility catalogues, checkpoint-capable scripts and released out-of-fold prediction tables are available in the companion analysis repository. The separate TITANPred R package bundles all fitted research models, the model registry, reference distributions and report template. Large local restart checkpoints are not redistributed. Tables below are concise views; complete machine-readable CSV files are authoritative.")
 sup.add_heading("Secondary PLS1–PLS2 inflammatory comparison", 2)
@@ -800,7 +812,7 @@ responses = [
     ("Additional change: TITAN pretraining and TCGA relationship",
      "The manuscript now documents that the published Mass-340K pretraining corpus excluded TCGA and PANDA, while TCGA was used for downstream evaluation in the original TITAN study. We therefore describe this work as a secondary TCGA discovery atlas, neither a pretraining-overlap analysis nor independent external validation."),
     ("Additional change: complete performance and prediction examples",
-     "Highlighted binary models now report sensitivity, specificity, balanced accuracy and AUROC; highlighted continuous models report Q², RMSE and Spearman correlation, with patient-cluster bootstrap intervals. Deployment metadata include feature checksums and ranges, class coding and priors, decision rule, calibration status, external-validation status and intended use. Figure 4 compares held-out predictions directly with observed data."),
+     "Highlighted binary models now report sensitivity, specificity, balanced accuracy and AUROC; highlighted continuous models report Q², RMSE and Spearman correlation, with patient-cluster bootstrap intervals. Deployment metadata include feature checksums and ranges, class coding and priors, decision rule, calibration status, external-validation status and intended use. Figure 4 compares held-out predictions directly with observed data. The two illustrative COAD single-sample reports are supplied as separate PDF attachments (Additional files 2 and 3)."),
     ("Additional change: rSVD-only PLS decomposition",
      "All primary, permutation, repeated, site-grouped, slide-pooling, PLS1–PLS2 and final-model fits use CPU rSVD with 10 oversampling vectors, two power iterations and fixed seeds. Solver identity and controls are recorded in screening, sensitivity and model-registry metadata and verified against saved-model diagnostics."),
     ("Additional change: terminology and global multiplicity",
@@ -813,6 +825,12 @@ responses = [
 for title, answer in responses:
     resp.add_heading(title, 1); resp.add_paragraph(answer)
 resp.save(OUT / "response_to_reviewer_JTM.docx")
+
+for source_name, output_name in (
+    ("COAD_example_A.pdf", "Additional_file_2_COAD_example_A_TITANPred_report.pdf"),
+    ("COAD_example_B.pdf", "Additional_file_3_COAD_example_B_TITANPred_report.pdf"),
+):
+    shutil.copyfile(ROOT / "results" / "reports" / source_name, OUT / output_name)
 
 print(OUT / "manuscript_JTM_patient_level_TITAN.docx")
 print(OUT / "supplementary_material_JTM.docx")

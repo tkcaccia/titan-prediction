@@ -79,6 +79,18 @@ require(
     "† Corresponding author: Stefano Cacciatore" in main_text,
     "Sole corresponding-author statement is missing",
 )
+for label in (
+    "Additional file 2 (.pdf): COAD example A TITANPred single-sample report",
+    "Additional file 3 (.pdf): COAD example B TITANPred single-sample report",
+):
+    require(label in main_text, f"Separate supplementary report is not declared: {label}")
+for pdf_name in (
+    "Additional_file_2_COAD_example_A_TITANPred_report.pdf",
+    "Additional_file_3_COAD_example_B_TITANPred_report.pdf",
+):
+    pdf_path = OUT / pdf_name
+    require(pdf_path.is_file(), f"Separate supplementary PDF is missing: {pdf_name}")
+    require(pdf_path.read_bytes().startswith(b"%PDF"), f"Invalid PDF signature: {pdf_name}")
 for heading in (
     "Abstract",
     "Background",
