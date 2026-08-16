@@ -1,17 +1,42 @@
 cancer,gene,evidence_class,n,positive,current_balanced_accuracy,current_q,current_tier
-THYM,GTF2I,atlas-nominated; absent from prespecified crosswalk,121,59,0.876161837069437,0.01,A
-READ,APC,atlas-nominated; absent from prespecified crosswalk,156,65,0.860439560439561,0.01,A
-READ,TP53,atlas-nominated; absent from prespecified crosswalk,156,66,0.846969696969697,0.01,A
-LGG,TP53,previously reported and recovered,490,232,0.830025394279604,0.0216666666666667,A
-THCA,BRAF,previously reported and recovered,505,289,0.827678457003717,0.01,A
-COAD,APC,atlas-nominated; absent from prespecified crosswalk,433,196,0.792323258417291,0.0433333333333333,A
-LGG,ATRX,atlas-nominated; absent from prespecified crosswalk,490,181,0.783734735110587,0.0216666666666667,A
-COAD,TP53,atlas-nominated; absent from prespecified crosswalk,433,161,0.777082572159299,0.0433333333333333,A
-LGG,IDH1,previously reported and recovered,490,375,0.771652173913044,0.0216666666666667,A
-LGG,CIC,atlas-nominated; absent from prespecified crosswalk,490,105,0.77012987012987,0.0216666666666667,A
-SKCM,BRAF,atlas-nominated; absent from prespecified crosswalk,292,52,0.765224358974359,0.01,A
-COAD,KRAS,atlas-nominated; absent from prespecified crosswalk,433,126,0.702859211002534,0.0433333333333333,A
-THCA,NRAS,atlas-nominated; absent from prespecified crosswalk,505,39,0.670848464839881,0.01,B
-LGG,EGFR,atlas-nominated; absent from prespecified crosswalk,490,34,0.654540763673891,0.0216666666666667,B
-LGG,PTEN,atlas-nominated; absent from prespecified crosswalk,490,23,0.637184619681594,0.0216666666666667,B
-READ,KRAS,atlas-nominated; absent from prespecified crosswalk,156,30,0.615873015873016,0.01,B
+THYM,GTF2I,atlas-nominated; absent from prespecified crosswalk,120,59,0.883300916921367,0.001,A
+READ,APC,atlas-nominated; absent from prespecified crosswalk,135,65,0.862087912087912,0.0015,A
+READ,TP53,atlas-nominated; absent from prespecified crosswalk,135,66,0.861001317523057,0.0015,A
+LGG,TP53,previously reported and recovered,485,232,0.846420539730135,0.00185714285714286,A
+THCA,BRAF,previously reported and recovered,490,289,0.8298817332025,0.001,A
+COAD,APC,atlas-nominated; absent from prespecified crosswalk,382,196,0.793339916611806,0.00325,A
+LGG,IDH1,previously reported and recovered,485,375,0.785636363636364,0.00185714285714286,A
+COAD,TP53,atlas-nominated; absent from prespecified crosswalk,382,161,0.778758326072904,0.00325,A
+LGG,CIC,atlas-nominated; absent from prespecified crosswalk,485,105,0.778571428571429,0.00185714285714286,A
+UCEC,TP53,previously reported and recovered,487,155,0.763845705402254,0.016,A
+LGG,ATRX,atlas-nominated; absent from prespecified crosswalk,485,181,0.761422288455947,0.00185714285714286,A
+BRCA,TP53,previously reported and recovered,981,259,0.744120257970674,0.00666666666666667,A
+BRCA,CDH1,previously reported and recovered,981,96,0.73103813559322,0.00666666666666667,A
+BLCA,FGFR3,previously reported and recovered,384,54,0.728956228956229,0.01,A
+UCEC,PTEN,previously reported and recovered,487,261,0.726197741837046,0.016,A
+THCA,NRAS,atlas-nominated; absent from prespecified crosswalk,490,39,0.703053044516459,0.001,A
+LUAD,TP53,previously reported and recovered,463,234,0.699352442802224,0.0075,B
+COAD,KRAS,atlas-nominated; absent from prespecified crosswalk,382,126,0.680369543650794,0.00325,B
+STAD,TP53,atlas-nominated; absent from prespecified crosswalk,371,179,0.675963105214153,0.009,B
+LIHC,CTNNB1,previously reported and recovered,350,93,0.668110120915443,0.00233333333333333,B
+OV,TP53,atlas-nominated; absent from prespecified crosswalk,72,22,0.657272727272727,0.011,B
+COAD,BRAF,atlas-nominated; absent from prespecified crosswalk,382,44,0.650753093060786,0.00325,B
+GBM,TP53,atlas-nominated; absent from prespecified crosswalk,241,52,0.649013024013024,0.004,B
+BLCA,TP53,atlas-nominated; absent from prespecified crosswalk,384,185,0.64185793834035,0.01,B
+STAD,PIK3CA,previously reported and recovered,371,58,0.637270023135397,0.009,B
+HNSC,TP53,previously reported and recovered,431,320,0.63643018018018,0.009,B
+LGG,EGFR,atlas-nominated; absent from prespecified crosswalk,485,34,0.635157167079692,0.00185714285714286,B
+LIHC,TP53,previously reported and recovered,350,107,0.633417945463636,0.00233333333333333,B
+LIHC,BAP1,atlas-nominated; absent from prespecified crosswalk,350,20,0.633333333333333,0.00233333333333333,B
+BRCA,PIK3CA,previously reported and recovered,981,266,0.630671959619328,0.00666666666666667,B
+HNSC,NSD1,previously reported and recovered,431,51,0.629824561403509,0.009,B
+SKCM,BRAF,atlas-nominated; absent from prespecified crosswalk,98,52,0.626254180602007,0.02,B
+PAAD,TP53,atlas-nominated; absent from prespecified crosswalk,175,106,0.619018321028165,0.016,B
+LGG,PTEN,atlas-nominated; absent from prespecified crosswalk,485,23,0.618530020703934,0.00185714285714286,B
+SARC,TP53,atlas-nominated; absent from prespecified crosswalk,229,81,0.617492492492493,0.009,B
+LUAD,EGFR,previously reported and recovered,463,59,0.616651283772445,0.0075,B
+UCEC,ARID1A,atlas-nominated; absent from prespecified crosswalk,487,176,0.615591201403099,0.016,B
+LGG,FUBP1,atlas-nominated; absent from prespecified crosswalk,485,44,0.612554112554113,0.00185714285714286,B
+CESC,TP53,previously reported and recovered,252,21,0.603896103896104,0.024,B
+KIRC,VHL,atlas-nominated; absent from prespecified crosswalk,353,161,0.601821299171843,0.015,B
+BLCA,PIK3CA,atlas-nominated; absent from prespecified crosswalk,384,82,0.601114521078986,0.01,B

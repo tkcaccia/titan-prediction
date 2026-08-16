@@ -14,5 +14,8 @@ analysis_config <- list(
   initial_permutations = 99L,
   extended_permutations = 999L,
   fdr_alpha = 0.05,
-  lda_ridge = 1e-8
+  lda_ridge = 1e-8,
+  svd_method = "rsvd",
+  rsvd_oversample = 10L,
+  rsvd_power = 2L
 )

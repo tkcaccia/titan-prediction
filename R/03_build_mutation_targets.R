@@ -32,6 +32,14 @@ fwrite(drivers, "results/tables/bailey_tissue_specific_drivers.csv")
 
 out <- list()
 sample_type_audit <- list()
+variant_class_audit <- list()
+coverage_audit <- list()
+eligibility_audit <- list()
+protein_altering_classes <- c(
+  "Missense_Mutation", "Nonsense_Mutation", "Nonstop_Mutation",
+  "Splice_Site", "Translation_Start_Site", "Frame_Shift_Del",
+  "Frame_Shift_Ins", "In_Frame_Del", "In_Frame_Ins"
+)
 for (ct in sort(unique(meta$tumor_type))) {
   genes <- drivers[cancer == ct, gene]
   if (!length(genes)) next
@@ -40,14 +48,76 @@ for (ct in sort(unique(meta$tumor_type))) {
   sample_type_audit[[ct]] <- variants[, .N, by = .(
     sample_type = substr(Tumor_Sample_Barcode, 14, 15)
   )][, tumor_type := ct]
+  variant_class_audit[[ct]] <- variants[
+    FILTER == "PASS" & substr(Tumor_Sample_Barcode, 14, 15) == "01",
+    .N, by = Variant_Classification
+  ][, `:=`(
+    tumor_type = ct,
+    retained_as_protein_altering = Variant_Classification %chin%
+      protein_altering_classes
+  )]
   variants <- variants[
-    FILTER == "PASS" & substr(Tumor_Sample_Barcode, 14, 15) == "01"
+    FILTER == "PASS" & substr(Tumor_Sample_Barcode, 14, 15) == "01" &
+      Variant_Classification %chin% protein_altering_classes
   ]
   variants[, patient := substr(Tumor_Sample_Barcode, 1, 12)]
   variants <- unique(variants[Hugo_Symbol %chin% genes, .(patient, gene = Hugo_Symbol)])
-  patients <- meta[tumor_type == ct, patient]
-  counts <- variants[patient %chin% patients, .(positive = uniqueN(patient)), by = gene]
-  counts[, negative := length(patients) - positive]
+
+  # MC3 clinical metadata, rather than the TITAN cohort, defines which primary
+  # tumour specimens were actually mutation-profiled. Only matched profiled
+  # patients may be assigned wild type. Patients absent from this denominator
+  # remain missing and never enter mutation classification.
+  clinical <- as.data.table(maf@clinical.data)
+  barcode_column <- if ("Tumor_Sample_Barcode" %in% names(clinical)) {
+    "Tumor_Sample_Barcode"
+  } else if ("Tumor_Sample_Barcode_min" %in% names(clinical)) {
+    "Tumor_Sample_Barcode_min"
+  } else {
+    stop("No MC3 sample barcode column in clinical metadata for ", ct)
+  }
+  primary_samples <- unique(as.character(clinical[[barcode_column]]))
+  primary_samples <- primary_samples[
+    !is.na(primary_samples) & nzchar(primary_samples) &
+      substr(primary_samples, 14, 15) == "01"
+  ]
+  profiled_patients <- substr(primary_samples, 1, 12)
+  titan_patients <- meta[tumor_type == ct, patient]
+  patients <- intersect(titan_patients, unique(profiled_patients))
+  if (!length(patients)) next
+
+  primary_sample_counts <- table(profiled_patients)
+  coverage_audit[[ct]] <- data.table(
+    tumor_type = ct,
+    titan_embedding_patients = length(titan_patients),
+    mc3_primary_samples = length(primary_samples),
+    mc3_primary_patients = uniqueN(profiled_patients),
+    matched_profiled_patients = length(patients),
+    embedding_patients_without_mc3_profile =
+      length(setdiff(titan_patients, profiled_patients)),
+    profiled_patients_with_multiple_primary_aliquots =
+      sum(primary_sample_counts > 1L),
+    maximum_primary_aliquots = max(primary_sample_counts),
+    wild_type_rule = paste(
+      "matched MC3-profiled primary-tumour patient with no qualifying",
+      "PASS protein-altering variant in the gene"
+    )
+  )
+
+  counts <- variants[patient %chin% patients,
+                     .(positive = uniqueN(patient)), by = gene]
+  counts <- merge(data.table(gene = genes), counts, by = "gene", all.x = TRUE)
+  counts[is.na(positive), positive := 0L]
+  counts[, `:=`(
+    negative = length(patients) - positive,
+    n_profiled = length(patients),
+    tumor_type = ct
+  )]
+  counts[, eligibility := fifelse(
+    positive < cfg$analysis$binary_min_positive, "insufficient_positive",
+    fifelse(negative < cfg$analysis$binary_min_negative,
+            "insufficient_negative", "eligible")
+  )]
+  eligibility_audit[[ct]] <- counts
   eligible <- counts[
     positive >= cfg$analysis$binary_min_positive &
       negative >= cfg$analysis$binary_min_negative
@@ -76,4 +146,10 @@ catalog <- mutation_dt[, .(
 fwrite(catalog, "results/tables/binary_target_catalog_mutation.csv")
 fwrite(rbindlist(sample_type_audit),
        "results/tables/mutation_sample_type_audit.csv")
+fwrite(rbindlist(variant_class_audit),
+       "results/tables/mutation_variant_classification_audit.csv")
+fwrite(rbindlist(coverage_audit, use.names = TRUE, fill = TRUE),
+       "results/tables/mutation_coverage_audit.csv")
+fwrite(rbindlist(eligibility_audit, use.names = TRUE, fill = TRUE),
+       "results/tables/mutation_target_eligibility_audit.csv")
 cat("eligible cancer-gene targets:", nrow(catalog), "\n")

@@ -1,0 +1,53 @@
+item,topic,reported_location,status
+1,Title,Title page,Reported
+2,Abstract,Structured abstract,Reported
+3a,Healthcare context and existing models,Background,Reported
+3b,Target population intended purpose and users,Background; Methods - Study design,Reported
+3c,Known health inequalities,Discussion - Limitations,Reported as not evaluated
+4,Objectives,Background - final paragraph,Reported
+5a,Data sources rationale and representativeness,Methods - Study design and Predictors and outcomes; provenance/SOURCES.md,Reported
+5b,Participant-data dates,Methods - Study design; provenance/SOURCES.md,Historical TCGA cohort and analysis access documented; accrual dates not available in analytic files
+6a,Study setting centres and locations,Methods - Study design; site-grouped sensitivity,Reported as multicentre TCGA with tissue-source-site audit
+6b,Participant eligibility,Methods - Study design,Reported
+6c,Treatments,Methods - Study design,Not applicable; no treatment or prognosis endpoint
+7,Data preparation and quality checking,Methods - Study design and Predictors and outcomes; Supplementary Tables S2-S4,Reported
+8a,Outcome definitions and assessment,Methods - Predictors and outcomes; target catalogues,Reported
+8b,Subjective outcome assessors,Methods - Predictors and outcomes,Not applicable; curated molecular and computational outcomes
+8c,Blinding of outcome assessment,Methods - Study design,Outcomes constructed independently before predictor joining
+9a,Choice of initial predictors,Methods - Predictors and outcomes,All 768 fixed pretrained TITAN dimensions prespecified
+9b,Predictor definitions and measurement,Methods - Predictors and outcomes; provenance/SOURCES.md,Reported
+9c,Subjective predictor assessors,Methods - Predictors and outcomes,Not applicable; fixed numeric embeddings
+10,Sample size,Methods - eligibility paragraph,All available eligible data used; prespecified minimum denominators reported; no formal power calculation
+11,Missing data,Methods - Predictors and outcomes; Supplementary Tables S3-S4,Reported
+12a,Data partitioning and leakage prevention,Methods - PLS1 regression and PLS-LDA classification,Reported
+12b,Predictor handling and standardisation,Methods - PLS1 regression and PLS-LDA classification,Reported
+12c,Model building tuning and internal evaluation,Methods - PLS1 regression and PLS-LDA classification,Reported
+12d,Clustering and heterogeneity,Methods - Robustness; Results - Site and multiple-slide sensitivity,Reported through tissue-source-site grouped evaluation
+12e,Performance measures and plots,Methods - Robustness; Table 2; Figure 4; Supplementary Table S5,Reported; calibration not applicable because no probability output
+12f,Model updating,Methods - Software transparency and validation status,Not applicable; no external model updating
+12g,Calculation of evaluated model predictions,Repository inference example and model registry,Reported
+13,Class imbalance,Methods - PLS1 regression and PLS-LDA classification,No resampling used; balanced accuracy and observed LDA priors reported
+14,Fairness,Discussion - Limitations,No fairness intervention or subgroup evaluation; explicitly limited
+15,Model output classification and thresholds,Methods - PLS1 regression and PLS-LDA classification; models/README.md,Reported; LDA class and uncalibrated score
+16,Differences between development and evaluation data,Discussion - Limitations,Not applicable; no external evaluation cohort
+17,Ethical approval and consent,Declarations,Pending final institutional wording
+18a,Funding,Declarations,Pending author confirmation
+18b,Conflicts of interest,Declarations,Pending author confirmation
+18c,Protocol,Repository docs/ANALYSIS_PLAN.md,Locked analysis plan reported; not prospectively registered
+18d,Registration,Declarations,Study not registered
+18e,Data sharing,Declarations - Availability; provenance/SOURCES.md,Reported with source conditions
+18f,Code sharing,Methods - Software transparency; public repository,Reported with versions and licence
+19,Patient and public involvement,Declarations,No patient or public involvement
+20a,Participant flow,Figure 1; Results - Cohort and analysis coverage,Reported
+20b,Participant characteristics and missingness,Results - Cohort and analysis coverage; Supplementary Tables S2-S5,Participant age, recorded gender, race and stage plus analytic and molecular missingness are reported; subgroup predictive performance remains unavailable
+20c,Evaluation-versus-development distributions,Discussion - Limitations,Not applicable; no independent evaluation cohort
+21,Participants and events per analysis,Primary screen tables; Supplementary Tables S5-S9,Reported
+22,Full model specification and access restrictions,Model registry; models/README.md; inference example,Reported subject to TITAN redistribution terms
+23a,Performance with confidence intervals and plots,Table 2; Figure 4; Supplementary Table S5,Reported for highlighted models
+23b,Heterogeneity across clusters,Figure 6; site-grouped sensitivity tables,Reported
+24,Model updating results,Discussion - Limitations,Not applicable; no model updating
+25,Interpretation and fairness,Discussion,Reported
+26,Limitations bias uncertainty and generalisability,Discussion - Limitations,Reported
+27a,Poor quality or unavailable input data,Inference example; models/README.md,Feature validation training ranges and out-of-distribution warning reported
+27b,User interaction and expertise,README and inference example,Reported for research users
+27c,Next research steps,Discussion - Limitations and Conclusions,Independent external evaluation specified

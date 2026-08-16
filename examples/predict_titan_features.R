@@ -5,6 +5,25 @@ predict_titan_model <- function(model_file, titan_features,
                                 patient_id = NULL, cancer_type = NULL,
                                 filename_column = "filename") {
   artifact <- readRDS(model_file)
+  installed_version <- as.character(packageVersion("fastPLS"))
+  if (!is.null(artifact$fastPLS_version) &&
+      !identical(as.character(artifact$fastPLS_version), installed_version)) {
+    stop(
+      "This model requires fastPLS ", artifact$fastPLS_version,
+      "; installed version is ", installed_version, "."
+    )
+  }
+  installed_sha <- packageDescription("fastPLS")[["RemoteSha"]]
+  if (!is.null(artifact$fastPLS_remote_sha) &&
+      nzchar(as.character(artifact$fastPLS_remote_sha)) &&
+      (is.null(installed_sha) ||
+       !identical(as.character(artifact$fastPLS_remote_sha),
+                  as.character(installed_sha)))) {
+    stop(
+      "The installed fastPLS Git build does not match the model artifact. ",
+      "Install commit ", artifact$fastPLS_remote_sha, "."
+    )
+  }
   x <- as.data.frame(titan_features, check.names = FALSE)
   missing <- setdiff(artifact$feature_names, names(x))
   if (length(missing)) {
@@ -37,20 +56,40 @@ predict_titan_model <- function(model_file, titan_features,
   group <- match(patient_id, ids)
   pooled <- rowsum(X, group = group, reorder = FALSE) /
     tabulate(group, nbins = length(ids))
+  if (!is.null(artifact$training_feature_min) &&
+      !is.null(artifact$training_feature_max)) {
+    # Training ranges are learned from patient-level mean-pooled vectors, so
+    # compare new patients after applying the identical aggregation rule.
+    below <- sweep(pooled, 2L, artifact$training_feature_min, `<`)
+    above <- sweep(pooled, 2L, artifact$training_feature_max, `>`)
+    outside_fraction <- rowMeans(below | above)
+    if (any(outside_fraction > 0.05)) {
+      warning(
+        "At least one pooled patient has >5% of TITAN dimensions outside the TCGA ",
+        "training range (maximum ",
+        sprintf("%.1f%%", 100 * max(outside_fraction)),
+        "). Treat predictions as out-of-distribution research outputs."
+      )
+    }
+  }
   pred <- predict(artifact$model, pooled, raw_scores = artifact$outcome_type == "binary")
   if (artifact$outcome_type == "binary") {
     score <- drop(pred$LDA_scores[, 2, 1] - pred$LDA_scores[, 1, 1])
-    data.frame(patient_id = ids, predicted_class = pred$Ypred[, 1],
-               lda_score = score, check.names = FALSE)
+    result <- data.frame(patient_id = ids, predicted_class = pred$Ypred[, 1],
+                         lda_score = score, check.names = FALSE)
   } else {
     values <- if (length(dim(pred$Ypred)) == 3L) {
       drop(pred$Ypred[, 1, 1])
     } else {
       drop(pred$Ypred)
     }
-    data.frame(patient_id = ids, prediction = values,
-               check.names = FALSE)
+    result <- data.frame(patient_id = ids, prediction = values,
+                         check.names = FALSE)
   }
+  attr(result, "model_id") <- artifact$model_id
+  attr(result, "endpoint_transform") <- artifact$endpoint_transform
+  attr(result, "output_units") <- artifact$output_units
+  result
 }
 
 # Example:

@@ -31,9 +31,11 @@ candidate_files <- function(directory, kind, stage) {
     if (stage == "initial") {
       isTRUE(effect_ok && z$permutations == 0L)
     } else {
-      isTRUE(effect_ok &&
-               z$permutations == cfg$analysis$initial_permutations &&
-               z$permutation_exceedances <= 1L)
+      # Every effect-eligible endpoint is capable of changing rank after a
+      # higher-resolution run. Include completed and conservatively
+      # early-stopped 99-permutation jobs; the latter resume from the exact
+      # number actually attempted rather than skipping unused indices.
+      isTRUE(effect_ok && z$permutations == cfg$analysis$initial_permutations)
     }
   }, logical(1))]
 }
@@ -44,6 +46,9 @@ permuted_continuous_metric <- function(X, y, job, permutation_index) {
   fit <- pls.double.cv(
     X[shuffled, , drop = FALSE], y,
     ncomp = cfg$analysis$components,
+    svd.method = cfg$analysis$svd_method,
+    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    rsvd_power = cfg$analysis$rsvd_power,
     kfold_outer = cfg$analysis$outer_folds,
     kfold_inner = cfg$analysis$inner_folds,
     seed = as.integer(job$seed) + 3000L + permutation_index,
@@ -60,6 +65,9 @@ permuted_binary_metric <- function(X, y, job, permutation_index) {
     ncomp = cfg$analysis$components,
     classifier = "lda", lda_ridge = cfg$analysis$lda_ridge,
     selection_metric = "balanced_accuracy",
+    svd.method = cfg$analysis$svd_method,
+    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    rsvd_power = cfg$analysis$rsvd_power,
     kfold_outer = cfg$analysis$outer_folds,
     kfold_inner = cfg$analysis$inner_folds,
     seed = as.integer(job$seed) + 3000L + permutation_index,
@@ -108,10 +116,15 @@ refine_continuous <- function(path, times) {
   X <- cohort$X[idx[keep], , drop = FALSE]
   y <- d$value[keep]
   extending <- job$permutations == cfg$analysis$initial_permutations
+  existing_attempted <- if (extending) {
+    ifelse(is.na(job$permutation_attempted),
+           cfg$analysis$initial_permutations,
+           as.integer(job$permutation_attempted))
+  } else 0L
   perm <- run_sequential_permutations(
     permuted_continuous_metric, X, y, job, times, loss_metric = TRUE,
     existing_exceedances = if (extending) job$permutation_exceedances else 0L,
-    start_index = if (extending) cfg$analysis$initial_permutations + 1L else 1L
+    start_index = if (extending) existing_attempted + 1L else 1L
   )
   job[, `:=`(
     p_permutation = perm$p_value,
@@ -119,11 +132,13 @@ refine_continuous <- function(path, times) {
     permutation_exceedances = perm$exceedances,
     permutation_attempted = fifelse(
       extending,
-      fifelse(is.na(permutation_attempted), cfg$analysis$initial_permutations,
-              permutation_attempted) + perm$attempted,
+      existing_attempted + perm$attempted,
       perm$attempted
     ),
-    permutation_stopped_early = perm$stopped_early
+    permutation_stopped_early = perm$stopped_early,
+    backend = backend, svd_method = cfg$analysis$svd_method,
+    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    rsvd_power = cfg$analysis$rsvd_power
   )]
   old$row <- job
   saveRDS(old, path)
@@ -144,10 +159,15 @@ refine_binary <- function(path, times) {
   X <- cohort$X[idx[keep], , drop = FALSE]
   y <- factor(d$value[keep], levels = c(0L, 1L))
   extending <- job$permutations == cfg$analysis$initial_permutations
+  existing_attempted <- if (extending) {
+    ifelse(is.na(job$permutation_attempted),
+           cfg$analysis$initial_permutations,
+           as.integer(job$permutation_attempted))
+  } else 0L
   perm <- run_sequential_permutations(
     permuted_binary_metric, X, y, job, times, loss_metric = FALSE,
     existing_exceedances = if (extending) job$permutation_exceedances else 0L,
-    start_index = if (extending) cfg$analysis$initial_permutations + 1L else 1L
+    start_index = if (extending) existing_attempted + 1L else 1L
   )
   job[, `:=`(
     p_permutation = perm$p_value,
@@ -155,16 +175,44 @@ refine_binary <- function(path, times) {
     permutation_exceedances = perm$exceedances,
     permutation_attempted = fifelse(
       extending,
-      fifelse(is.na(permutation_attempted), cfg$analysis$initial_permutations,
-              permutation_attempted) + perm$attempted,
+      existing_attempted + perm$attempted,
       perm$attempted
     ),
-    permutation_stopped_early = perm$stopped_early
+    permutation_stopped_early = perm$stopped_early,
+    backend = backend, svd_method = cfg$analysis$svd_method,
+    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    rsvd_power = cfg$analysis$rsvd_power
   )]
   old$row <- job
   saveRDS(old, path)
   NULL
 }
+
+audit_permutation_state <- function(directory) {
+  files <- list.files(directory, pattern = "[.]rds$", full.names = TRUE)
+  invalid <- files[vapply(files, function(path) {
+    row <- readRDS(path)$row
+    attempted <- if ("permutation_attempted" %in% names(row)) {
+      as.integer(row$permutation_attempted)
+    } else NA_integer_
+    target <- as.integer(row$permutations)
+    (target == 0L && !is.na(attempted) && attempted != 0L) ||
+      (target > 0L && (is.na(attempted) || attempted > target))
+  }, logical(1))]
+  if (length(invalid)) {
+    stop(
+      "Invalid legacy permutation checkpoint metadata in ", length(invalid),
+      " files under ", directory,
+      ". Reset or regenerate these checkpoints before refinement; no ",
+      "permutation indices will be guessed or skipped. First file: ",
+      invalid[[1L]]
+    )
+  }
+  invisible(TRUE)
+}
+
+audit_permutation_state("data/processed/checkpoints/continuous")
+audit_permutation_state("data/processed/checkpoints/binary")
 
 continuous_initial <- candidate_files(
   "data/processed/checkpoints/continuous", "continuous", "initial"
@@ -203,7 +251,15 @@ continuous_extended <- candidate_files(
 binary_extended <- candidate_files(
   "data/processed/checkpoints/binary", "binary", "extended"
 )
-run_extended <- identical(tolower(Sys.getenv("TITAN_RUN_999", "false")), "true")
+continuous_extended <- continuous_extended[order(vapply(
+  continuous_extended, function(path) readRDS(path)$row$q2, numeric(1)
+))]
+binary_extended <- binary_extended[order(vapply(
+  binary_extended,
+  function(path) readRDS(path)$row$adjusted_balanced_accuracy,
+  numeric(1)
+))]
+run_extended <- !identical(tolower(Sys.getenv("TITAN_RUN_999", "true")), "false")
 if (run_extended) {
   message("Extending ", length(continuous_extended), " continuous and ",
           length(binary_extended), " binary candidates to 999 permutations")
@@ -220,7 +276,7 @@ if (run_extended) {
     future.chunk.size = 1
   ))
 } else {
-  message("Skipping optional 999-permutation extension; set TITAN_RUN_999=true to run it")
+  message("Skipping primary 999-permutation refinement because TITAN_RUN_999=false")
 }
 
 collate <- function(directory, kind) {

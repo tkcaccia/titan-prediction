@@ -6,6 +6,8 @@ suppressPackageStartupMessages({
 })
 source("R/utils.R")
 cfg <- load_project_config()
+backend <- tolower(Sys.getenv("TITAN_BACKEND", "cpu"))
+options(fastPLS.backend = backend)
 cohort <- readRDS("data/processed/patient_cohort.rds")
 continuous_targets <- readRDS("data/processed/continuous_targets.rds")
 binary_targets <- readRDS("data/processed/binary_targets_nonmutation.rds")
@@ -33,6 +35,9 @@ run_continuous <- function(i) {
       X, y, ncomp = cfg$analysis$components, constrain = site,
       kfold_outer = cfg$analysis$outer_folds,
       kfold_inner = cfg$analysis$inner_folds,
+      svd.method = cfg$analysis$svd_method,
+      rsvd_oversample = cfg$analysis$rsvd_oversample,
+      rsvd_power = cfg$analysis$rsvd_power,
       seed = cfg$analysis$seed + i, perm.test = FALSE
     ), error = function(e) e
   )
@@ -41,15 +46,31 @@ run_continuous <- function(i) {
       family = job$family, tumor_type = job$tumor_type, endpoint = job$endpoint,
       n = length(y), n_sites = uniqueN(site), random_q2 = job$q2,
       site_grouped_q2 = NA_real_, delta = NA_real_, feasible = FALSE,
+      maximum_outer_folds_per_site = NA_integer_,
+      minimum_sites_per_outer_fold = NA_integer_, outer_site_overlap = NA,
+      seed = cfg$analysis$seed + i,
+      backend = backend, svd_method = cfg$analysis$svd_method,
+      rsvd_oversample = cfg$analysis$rsvd_oversample,
+      rsvd_power = cfg$analysis$rsvd_power,
       error = conditionMessage(grouped)
     ))
   }
   q2_grouped <- as.numeric(grouped$Q2Y)
+  outer_fold <- grouped$results[[1L]]$fold
+  folds_per_site <- vapply(split(outer_fold, site), uniqueN, integer(1))
+  sites_per_fold <- vapply(split(site, outer_fold), uniqueN, integer(1))
   data.table(
     family = job$family, tumor_type = job$tumor_type, endpoint = job$endpoint,
     n = length(y), n_sites = uniqueN(site), random_q2 = job$q2,
     site_grouped_q2 = q2_grouped, delta = q2_grouped - job$q2,
-    feasible = TRUE, error = NA_character_
+    feasible = TRUE,
+    maximum_outer_folds_per_site = max(folds_per_site),
+    minimum_sites_per_outer_fold = min(sites_per_fold),
+    outer_site_overlap = any(folds_per_site > 1L),
+    seed = cfg$analysis$seed + i,
+    backend = backend, svd_method = cfg$analysis$svd_method,
+    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    rsvd_power = cfg$analysis$rsvd_power, error = NA_character_
   )
 }
 
@@ -66,6 +87,9 @@ run_binary <- function(i) {
       X, y, ncomp = cfg$analysis$components, constrain = site,
       classifier = "lda", lda_ridge = cfg$analysis$lda_ridge,
       selection_metric = "balanced_accuracy",
+      svd.method = cfg$analysis$svd_method,
+      rsvd_oversample = cfg$analysis$rsvd_oversample,
+      rsvd_power = cfg$analysis$rsvd_power,
       kfold_outer = cfg$analysis$outer_folds,
       kfold_inner = cfg$analysis$inner_folds,
       seed = cfg$analysis$seed + i, perm.test = FALSE
@@ -77,17 +101,32 @@ run_binary <- function(i) {
       n = length(y), positive = sum(y == "1"), n_sites = uniqueN(site),
       random_balanced_accuracy = job$balanced_accuracy,
       site_grouped_balanced_accuracy = NA_real_, delta = NA_real_,
-      feasible = FALSE, error = conditionMessage(grouped)
+      feasible = FALSE, maximum_outer_folds_per_site = NA_integer_,
+      minimum_sites_per_outer_fold = NA_integer_, outer_site_overlap = NA,
+      seed = cfg$analysis$seed + i,
+      backend = backend, svd_method = cfg$analysis$svd_method,
+      rsvd_oversample = cfg$analysis$rsvd_oversample,
+      rsvd_power = cfg$analysis$rsvd_power,
+      error = conditionMessage(grouped)
     ))
   }
   ba <- balanced_accuracy(y, grouped$Ypred)
+  outer_fold <- grouped$results[[1L]]$fold
+  folds_per_site <- vapply(split(outer_fold, site), uniqueN, integer(1))
+  sites_per_fold <- vapply(split(site, outer_fold), uniqueN, integer(1))
   data.table(
     family = job$family, tumor_type = job$tumor_type, endpoint = job$endpoint,
     n = length(y), positive = sum(y == "1"), n_sites = uniqueN(site),
     random_balanced_accuracy = job$balanced_accuracy,
     site_grouped_balanced_accuracy = ba,
     delta = ba - job$balanced_accuracy, feasible = TRUE,
-    error = NA_character_
+    maximum_outer_folds_per_site = max(folds_per_site),
+    minimum_sites_per_outer_fold = min(sites_per_fold),
+    outer_site_overlap = any(folds_per_site > 1L),
+    seed = cfg$analysis$seed + i,
+    backend = backend, svd_method = cfg$analysis$svd_method,
+    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    rsvd_power = cfg$analysis$rsvd_power, error = NA_character_
   )
 }
 
@@ -101,4 +140,3 @@ fwrite(rbindlist(continuous_out, fill = TRUE),
        "results/tables/continuous_site_grouped_sensitivity.csv")
 fwrite(rbindlist(binary_out, fill = TRUE),
        "results/tables/binary_site_grouped_sensitivity.csv")
-

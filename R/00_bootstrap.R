@@ -10,8 +10,16 @@ if (length(missing)) install.packages(missing)
 dir.create(".Rlib", showWarnings = FALSE)
 .libPaths(c(normalizePath(".Rlib"), .libPaths()))
 
+expected_fastpls_sha <- "dcf45cccee8a1cb1a3ae8b3353a410ab0902162f"
+installed_fastpls_sha <- if (requireNamespace("fastPLS", quietly = TRUE)) {
+  packageDescription("fastPLS")$RemoteSha
+} else {
+  NULL
+}
 need_fastpls <- !requireNamespace("fastPLS", quietly = TRUE) ||
-  packageVersion("fastPLS") < "0.99.20"
+  packageVersion("fastPLS") != "0.99.20" ||
+  is.null(installed_fastpls_sha) ||
+  !identical(as.character(installed_fastpls_sha), expected_fastpls_sha)
 if (need_fastpls) {
   remotes::install_github("tkcaccia/fastPLS@dcf45cc", lib = ".Rlib",
                           upgrade = "never", dependencies = TRUE, force = TRUE)
@@ -32,4 +40,5 @@ if (!requireNamespace("TCGAmutations", quietly = TRUE)) {
 }
 
 message("fastPLS ", as.character(packageVersion("fastPLS")),
-        " installed at ", find.package("fastPLS"))
+        " (", packageDescription("fastPLS")$RemoteSha, ") installed at ",
+        find.package("fastPLS"))

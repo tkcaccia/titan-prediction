@@ -6,6 +6,8 @@ suppressPackageStartupMessages({
 })
 source("R/utils.R")
 cfg <- load_project_config()
+backend <- tolower(Sys.getenv("TITAN_BACKEND", "cpu"))
+options(fastPLS.backend = backend)
 cohort <- readRDS("data/processed/patient_cohort.rds")
 
 # Sensitivity analysis only. Mean pooling is the prespecified primary input.
@@ -43,6 +45,9 @@ run_continuous <- function(i) {
   fit <- pls.double.cv(
     X_first[idx[keep], , drop = FALSE], d$value[keep],
     ncomp = cfg$analysis$components,
+    svd.method = cfg$analysis$svd_method,
+    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    rsvd_power = cfg$analysis$rsvd_power,
     kfold_outer = cfg$analysis$outer_folds,
     kfold_inner = cfg$analysis$inner_folds,
     seed = job$seed, perm.test = FALSE
@@ -52,7 +57,11 @@ run_continuous <- function(i) {
     n = sum(keep), multi_slide_patients = sum(
       cohort$meta$n_slides[match(d$patient[keep], cohort$meta$patient)] > 1
     ), mean_pool_q2 = job$q2, first_slide_q2 = as.numeric(fit$Q2Y),
-    delta_first_minus_mean = as.numeric(fit$Q2Y) - job$q2
+    delta_first_minus_mean = as.numeric(fit$Q2Y) - job$q2,
+    seed = job$seed,
+    backend = backend, svd_method = cfg$analysis$svd_method,
+    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    rsvd_power = cfg$analysis$rsvd_power
   )
 }
 
@@ -69,6 +78,9 @@ run_binary <- function(i) {
     ncomp = cfg$analysis$components,
     classifier = "lda", lda_ridge = cfg$analysis$lda_ridge,
     selection_metric = "balanced_accuracy",
+    svd.method = cfg$analysis$svd_method,
+    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    rsvd_power = cfg$analysis$rsvd_power,
     kfold_outer = cfg$analysis$outer_folds,
     kfold_inner = cfg$analysis$inner_folds,
     seed = job$seed, perm.test = FALSE
@@ -81,7 +93,11 @@ run_binary <- function(i) {
       cohort$meta$n_slides[match(d$patient[keep], cohort$meta$patient)] > 1
     ), mean_pool_balanced_accuracy = job$balanced_accuracy,
     first_slide_balanced_accuracy = ba,
-    delta_first_minus_mean = ba - job$balanced_accuracy
+    delta_first_minus_mean = ba - job$balanced_accuracy,
+    seed = job$seed,
+    backend = backend, svd_method = cfg$analysis$svd_method,
+    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    rsvd_power = cfg$analysis$rsvd_power
   )
 }
 
