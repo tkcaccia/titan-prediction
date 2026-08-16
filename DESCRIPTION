@@ -10,6 +10,7 @@ Authors@R: c(
       email = "moussa.kassim@icgeb.org"),
     person("Dalia", "Ahmed", role = "aut",
       email = "dalia.ahmed@icgeb.org"),
+    person("Brendon", "Price", role = "aut"),
     person("Dupe", "Ojo", role = "aut",
       email = "dupe.ojo@icgeb.org"),
     person("Ekene Emmanuel", "Nweke", role = "aut"),

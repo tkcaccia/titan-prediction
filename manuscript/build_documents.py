@@ -365,9 +365,10 @@ p.add_run("A patient-level TCGA discovery atlas of molecular and immune predicta
 p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
 authors = [
     ("Aamilah Ismail", "3,*"),
-    ("Martin Ocharo", "1,*"),
+    ("Martin Ocharo", "1,2,*"),
     ("Moussa Kassim", "1,2"),
     ("Dalia Ahmed", "1"),
+    ("Brendon Price", "5"),
     ("Dupe Ojo", "1"),
     ("Ekene Emmanuel Nweke", "4"),
     ("Stefano Cacciatore", "1,2,†"),
@@ -390,6 +391,9 @@ p.add_run("Division of Engineering, New York University Abu Dhabi, Abu Dhabi, Un
 p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
 p.add_run("4 ").bold = True
 p.add_run("Department of Surgery, Faculty of Health Sciences, University of the Witwatersrand, Johannesburg, Gauteng, South Africa")
+p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+p.add_run("5 ").bold = True
+p.add_run("Division of Anatomical Pathology, University of Cape Town and National Health Laboratory Service, Observatory, Cape Town, South Africa")
 p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
 p.add_run("* These authors contributed equally.").italic = True
 p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -782,7 +786,7 @@ responses = [
     ("6. Preserve effect-size-first interpretation of PLS2",
      "Addressed. The PLS1–PLS2 comparison is now confined to the Supplementary Methods, results and Figures S1–S2. It remains restricted to coherent inflammatory blocks, uses identical patients and folds, and is interpreted by cancer-level ΔQ² with bootstrap intervals rather than win counts. Binary molecular endpoints retain one-at-a-time PLS–LDA as the primary analysis."),
     ("7. Complete submission-specific fields",
-     "Partly outstanding. Aamilah Ismail and Martin Ocharo are listed as shared co-first authors, with Martin Ocharo second in the author order and assigned to the ICGEB Bioinformatics Unit affiliation. The remaining supplied author names, affiliations, available email addresses and corresponding-author details have been entered. Email addresses for Martin Ocharo and Ekene Emmanuel Nweke were not supplied. Funding, competing interests and contribution statements still require author confirmation and remain visibly marked where applicable. No scientific values are placeholder text."),
+     "Partly outstanding. Aamilah Ismail and Martin Ocharo are listed as shared co-first authors, with Martin Ocharo second in the author order and assigned to affiliations 1 and 2. Brendon Price is included in the middle of the author list with the Division of Anatomical Pathology, University of Cape Town and National Health Laboratory Service affiliation. The remaining supplied author names, affiliations, available email addresses and corresponding-author details have been entered. Email addresses for Martin Ocharo, Brendon Price and Ekene Emmanuel Nweke were not supplied. Funding, competing interests and contribution statements still require author confirmation and remain visibly marked where applicable. No scientific values are placeholder text."),
     ("8. Presentation and algorithm-comparison claims",
      "Addressed. High-resolution figures and machine-readable tables accompany the Word documents. Runtime, speed and method-comparison commentary that was not needed to interpret the scientific results was removed."),
     ("Additional change: distinguish replication from atlas-nominated predictors",

@@ -273,11 +273,13 @@ add_body(doc,
     "Required before submission: replace the remaining placeholders for funding, "
     "competing interests and author contributions; confirm the institutional ethics/waiver "
     "wording. Aamilah Ismail and Martin Ocharo are now the shared co-first authors, "
-    "with Martin Ocharo second in the author order and assigned to the ICGEB "
-    "Bioinformatics Unit. Ekene Emmanuel Nweke's University of the Witwatersrand "
-    "affiliation is included. Email addresses for Martin Ocharo and Ekene Emmanuel "
-    "Nweke were not supplied. The current author list contains Aamilah Ismail, Martin "
-    "Ocharo, Moussa Kassim, Dalia Ahmed, Dupe Ojo, Ekene Emmanuel Nweke and Stefano "
+    "with Martin Ocharo second in the author order and assigned to affiliations 1 and 2. "
+    "Brendon Price is included in the middle of the author list with the Division of "
+    "Anatomical Pathology, University of Cape Town and National Health Laboratory Service "
+    "affiliation. Ekene Emmanuel Nweke's University of the Witwatersrand affiliation is "
+    "included. Email addresses for Martin Ocharo, Brendon Price and Ekene Emmanuel Nweke "
+    "were not supplied. The current author list contains Aamilah Ismail, Martin Ocharo, "
+    "Moussa Kassim, Dalia Ahmed, Brendon Price, Dupe Ojo, Ekene Emmanuel Nweke and Stefano "
     "Cacciatore."
 )
 

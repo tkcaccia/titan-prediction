@@ -21,6 +21,7 @@ AUTHORS = (
     "Martin Ocharo",
     "Moussa Kassim",
     "Dalia Ahmed",
+    "Brendon Price",
     "Dupe Ojo",
     "Ekene Emmanuel Nweke",
     "Stefano Cacciatore",
@@ -58,16 +59,21 @@ for author in AUTHORS:
 author_positions = [main_text.index(author) for author in AUTHORS]
 require(
     author_positions == sorted(author_positions),
-    "Author order is inconsistent with the approved seven-author sequence",
+    "Author order is inconsistent with the approved eight-author sequence",
 )
 require(
-    "Aamilah Ismail3,*" in main_text and "Martin Ocharo1,*" in main_text,
+    "Aamilah Ismail3,*" in main_text and "Martin Ocharo1,2,*" in main_text,
     "Shared co-first authorship markers are missing for Aamilah Ismail and Martin Ocharo",
 )
 require(
     "Department of Surgery, Faculty of Health Sciences, University of the Witwatersrand, "
     "Johannesburg, Gauteng, South Africa" in main_text,
     "Ekene Emmanuel Nweke's affiliation is missing",
+)
+require(
+    "Division of Anatomical Pathology, University of Cape Town and National Health "
+    "Laboratory Service, Observatory, Cape Town, South Africa" in main_text,
+    "Brendon Price's affiliation is missing",
 )
 require(
     "† Corresponding author: Stefano Cacciatore" in main_text,
