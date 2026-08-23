@@ -79,8 +79,13 @@ require(
 )
 require(
     "Computational Biology Group, International Centre for Genetic Engineering and "
-    "Biotechnology (ICGEB), Padriciano 99, 34149 Trieste, Italy" in main_text,
-    "Silvano Piazza's affiliation is missing",
+    "Biotechnology (ICGEB), Trieste, Italy" in main_text,
+    "Silvano Piazza's ICGEB affiliation is missing",
+)
+require(
+    "Bioinformatics Facility, Department of Cellular, Computational and Integrative "
+    "Biology - CIBIO, University of Trento, Trento, Italy" in main_text,
+    "Silvano Piazza's CIBIO affiliation is missing",
 )
 require(
     "Translational Bioinformatics Group, International Centre for Genetic Engineering "
@@ -90,6 +95,10 @@ require(
 require(
     "† Corresponding author: Stefano Cacciatore" in main_text,
     "Sole corresponding-author statement is missing",
+)
+require(
+    "Silvano Piazza6,8" in main_text,
+    "Silvano Piazza's dual-affiliation markers are missing",
 )
 for label in (
     "Additional file 2 (.pdf): COAD example A (TCGA-AA-A01F) TITANPred single-sample report",
