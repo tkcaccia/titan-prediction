@@ -1,0 +1,2 @@
+task,n,classes,accuracy,accuracy_ci_low,accuracy_ci_high,balanced_accuracy_macro_recall,balanced_accuracy_ci_low,balanced_accuracy_ci_high,selected_components,validation,classifier,svd_method,seed
+TCGA cancer type (32 classes),9395,32,0.880681213411389,0.874292176689729,0.886854709952102,0.826279030773926,0.815861156027523,0.836496013850663,10,nested 5-fold patient-level cross-validation,PLS-LDA,rsvd,20262015

@@ -1,0 +1,2 @@
+task,pairs,observations,validation,classifier,selected_components_by_outer_fold,svd_method,development_status,eligible_for_manuscript_claim,eligible_for_deployment,sensitivity,specificity,balanced_accuracy,auc
+KICH primary tumour versus paired adjacent normal,12,24,nested leave-one-patient-out,PLS-LDA,1;1;1;1;1;1;1;1;1;1;1;1,rsvd,insufficient sample; descriptive pilot only,FALSE,FALSE,0.916666666666667,0.916666666666667,0.916666666666667,0.840277777777778

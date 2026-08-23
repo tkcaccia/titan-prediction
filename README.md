@@ -116,6 +116,27 @@ matches the current run; obsolete checkpoint files are not collated.
 During a long permutation run, `Rscript tools/permutation_progress.R` reports
 read-only checkpoint counts and attempted permutations without changing state.
 
+### Exploratory histology-context models
+
+`Rscript R/12_histology_context_models.R` runs three patient-level analyses
+that are kept separate from the primary molecular and inflammatory atlas:
+
+- a 32-class TCGA cancer-type PLS-LDA model (9,395 participants; nested-CV
+  accuracy 0.881 and macro-recall 0.826);
+- cancer-specific PLS1 models for the consensus purity estimate (CPE) published
+  by Aran, Sirota and Butte (Nature Communications 2015,
+  doi:10.1038/ncomms9971); and
+- a deliberately non-deployable KICH tumour-versus-adjacent-normal pilot using
+  only 12 matched participants.
+
+These are internal TCGA discovery results, not externally validated clinical
+classifiers. The KICH pilot is retained to document why the available normal
+set is insufficient. Cancer-type and purity fitted artifacts in
+`models/histology_context/` contain feature definitions and coefficients but
+exclude patient-level training scores and outcomes. The script requires the
+published CPE spreadsheet at the path documented in its source and is therefore
+not called by the main atlas runner.
+
 This produces the main manuscript, Additional file 1 (supplementary methods,
 tables and figures), the point-by-point reviewer response, and two separate
 single-sample PDF reports designated as Additional files 2 and 3 under
