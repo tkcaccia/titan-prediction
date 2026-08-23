@@ -1,8 +1,15 @@
-# TITAN prediction atlas
+# TITAN patient-level prediction benchmark and model resource
 
 Reproducible, patient-level prediction of molecular, immune and genomic
 features from fixed pretrained TITAN whole-slide embeddings across 32 TCGA cancer
 types.
+
+This project is positioned as a systematic benchmark and reusable fitted-model
+resource, not as the first pan-cancer histology-to-molecular screen. In
+particular, Arslan et al. previously trained 12,093 models for 4,031 biomarkers
+in 8,890 TCGA patients across the same 32 cancers. The machine-readable
+comparison with Fu, Kather, Saldanha, Arslan and the present study is
+[`data/reference/pan_cancer_benchmark_comparison.csv`](data/reference/pan_cancer_benchmark_comparison.csv).
 
 Public repository: https://github.com/tkcaccia/titan-prediction
 
@@ -119,7 +126,7 @@ read-only checkpoint counts and attempted permutations without changing state.
 ### Exploratory histology-context models
 
 `Rscript R/12_histology_context_models.R` runs three patient-level analyses
-that are kept separate from the primary molecular and inflammatory atlas:
+that are kept separate from the primary molecular and inflammatory benchmark:
 
 - a 32-class TCGA cancer-type PLS-LDA model (9,395 participants; nested-CV
   accuracy 0.881 and macro-recall 0.826);
@@ -129,13 +136,13 @@ that are kept separate from the primary molecular and inflammatory atlas:
 - a deliberately non-deployable KICH tumour-versus-adjacent-normal pilot using
   only 12 matched participants.
 
-These are internal TCGA discovery results, not externally validated clinical
+These are internal TCGA screening results, not externally validated clinical
 classifiers. The KICH pilot is retained to document why the available normal
 set is insufficient. Cancer-type and purity fitted artifacts in
 `models/histology_context/` contain feature definitions and coefficients but
 exclude patient-level training scores and outcomes. The script requires the
 published CPE spreadsheet at the path documented in its source and is therefore
-not called by the main atlas runner.
+not called by the main benchmark runner.
 
 This produces the main manuscript, Additional file 1 (supplementary methods,
 tables and figures), the point-by-point reviewer response, and two separate

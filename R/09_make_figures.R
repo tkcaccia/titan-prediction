@@ -87,7 +87,7 @@ n_cancers <- uniqueN(na.omit(cohort$meta$tumor_type))
 png("figures/Figure1_patient_first_workflow.png", width = 3000, height = 1600,
     res = 260, bg = "white")
 grid.newpage()
-grid.text("From diagnostic slides to a patient-level TCGA discovery atlas",
+grid.text("From diagnostic slides to a patient-level TCGA benchmark",
           x = unit(0.04, "npc"), y = unit(0.94, "npc"), just = "left",
           gp = gpar(fontfamily = "Arial", fontsize = 24, fontface = "bold",
                     col = navy))
@@ -265,7 +265,9 @@ p4a <- ggplot(cd, aes(observed, predicted)) +
 p4b <- ggplot(bd, aes(observed_label, lda_score_z, fill = observed_label)) +
   geom_violin(width = 0.8, alpha = 0.28, color = NA, trim = FALSE) +
   geom_boxplot(width = 0.22, outlier.shape = NA, alpha = 0.82, color = navy) +
-  geom_jitter(width = 0.11, alpha = 0.34, size = 1.2, color = ink) +
+  geom_jitter(position = position_jitter(width = 0.11, height = 0,
+                                         seed = 20250815),
+              alpha = 0.34, size = 1.2, color = ink) +
   geom_hline(yintercept = 0, linetype = 2, color = muted) +
   scale_fill_manual(values = c("Observed negative" = "#AFC9E3",
                                "Observed positive" = coral)) +
@@ -318,7 +320,7 @@ p5 <- ggplot(counts, aes(N, tumor_type, fill = family_label)) +
   facet_wrap(~outcome_type, scales = "free_x", nrow = 1) +
   scale_fill_manual(values = family_palette, drop = FALSE) +
   labs(
-    title = "The discovery atlas is heterogeneous across cancers",
+    title = "Predictability is heterogeneous across cancers",
     subtitle = "Counts use within-cancer screen criteria; absence can reflect ineligibility or a screen-negative result",
     x = "Screen-positive cancer–endpoint pairs", y = NULL,
     fill = "Endpoint family"

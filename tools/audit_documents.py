@@ -142,11 +142,16 @@ for forbidden in (
     "Liver and pancreatic cancer examples",
     "Previously reported and atlas-nominated predictors",
     "Practical contribution of the PLS framework",
+    "discovery atlas",
 ):
-    require(forbidden not in main_text, f"Removed manuscript text remains: {forbidden}")
+    require(forbidden.lower() not in main_text.lower(), f"Removed manuscript text remains: {forbidden}")
 require("frozen" not in main_text.lower(), "Ambiguous 'frozen' terminology remains")
 for required_revision in (
-    "What is missing is a single patient-level, reusable discovery atlas",
+    "A systematic patient-level benchmark and reusable model resource",
+    "Table 1. Comparison with major pan-cancer histology–molecular prediction studies",
+    "12,093 target-specific models for 4,031 multi-omic biomarkers",
+    "fixed pretrained representation",
+    "tested-negative and sample-size-ineligible results",
     "83/323 models (25.7%) fell below the original effect threshold",
     "PLS was competitive but not uniformly superior",
     "38/41 screen-positive cancer–gene pairs",
@@ -162,7 +167,17 @@ for header in (
     "RMSE or BA (95% CI)",
     "Spearman or AUROC (95% CI)",
 ):
-    require(header in main_text, f"Table 2 metric header is missing: {header}")
+    require(header in main_text, f"Table 3 metric header is missing: {header}")
+for header in (
+    "Patients; cancers",
+    "Representation; patient aggregation",
+    "Validation design",
+    "Site sensitivity",
+    "External validation",
+    "Negative/ineligible reporting",
+    "Fitted predictors",
+):
+    require(header in main_text, f"Main-text pan-cancer comparison field is missing: {header}")
 
 supplement = documents["supplementary_material_JTM.docx"]
 supplement_text = texts["supplementary_material_JTM.docx"]

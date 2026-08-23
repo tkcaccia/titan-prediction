@@ -127,9 +127,9 @@ set_font(p.add_run("REVIEWER REPORT"), size=23, bold=True, color=BLUE)
 p = doc.add_paragraph()
 set_font(
     p.add_run(
-        "A patient-level TCGA discovery atlas of molecular and immune "
-        "predictability from pretrained TITAN whole-slide representations "
-        "across 32 cancers"
+        "A systematic patient-level benchmark and reusable model resource for "
+        "molecular and immune prediction from pretrained TITAN whole-slide "
+        "representations across 32 TCGA cancers"
     ), size=14, color=MUTED
 )
 for label, value in (
@@ -152,22 +152,22 @@ callout.paragraph_format.right_indent = Inches(0.12)
 shade(callout, "EEF4F8")
 set_font(callout.add_run("Overall assessment. "), bold=True, color=BLUE)
 set_font(callout.add_run(
-    "This is a carefully reconstructed, patient-level TCGA discovery atlas. "
+    "This is a carefully reconstructed, patient-level TCGA benchmark and reusable model resource. "
     "The revised work addresses the major scientific concerns that would "
     "otherwise prevent interpretation: multiple slides are aggregated before "
     "validation; molecular missingness is not labelled wild type; binary "
     "models use PLS–LDA; continuous and binary performance is reported with "
     "uncertainty; multiplicity is shown both within cancer and across cancers; "
     "and the absence of independent external validation is explicit. I found "
-    "no further analysis essential for publication under the stated discovery-atlas framing."
+    "no further analysis essential for publication under the revised benchmark-and-resource framing."
 ))
 
 add_heading(doc, "Confidential comments to the editor", 1)
 add_body(doc,
     "The manuscript fits the Molecular Pathology remit as a reproducible study "
     "of image-derived molecular and immune signals in human tumours. Its main "
-    "contribution is a transparent endpoint-by-endpoint atlas using a fixed "
-    "pretrained representation. "
+    "contribution is a transparent endpoint-by-endpoint benchmark using a fixed "
+    "pretrained representation, complete negative reporting and distributable fitted linear models. "
     "The authors appropriately refrain from clinical claims. I recommend minor "
     "revision limited to submission administration and permanent archiving."
 )
@@ -201,7 +201,7 @@ add_body(doc,
     "binary within-cancer candidates. The stricter across-cancer family correction "
     f"retains {len(global_c):,} continuous and {len(global_mut):,} mutation pairs. "
     "The 999-permutation target, finite-p correction, conservative sequential "
-    "stopping and explicit global sensitivity are transparent for a discovery atlas. "
+    "stopping and explicit global sensitivity are transparent for an exploratory benchmark. "
     "The manuscript appropriately acknowledges that the minimum empirical p-value "
     "of 0.001 limits attainable q-values in large global families, so global "
     "non-passage must not be read as evidence of no biological signal. "
@@ -220,7 +220,7 @@ add_body(doc,
     "balanced accuracy and AUROC for binary outcomes and Q², RMSE and Spearman "
     "correlation for continuous outcomes, with patient-cluster bootstrap intervals. "
     "The Discussion correctly clarifies that these intervals are conditional on "
-    "endpoint selection in the same TCGA atlas and do not remove winner's-curse "
+    "endpoint selection in the same TCGA benchmark and do not remove winner's-curse "
     "optimism or estimate external performance. "
     "The observed-versus-predicted figure is useful. Model artifacts record ordered "
     "feature schema, checksums, training ranges, pooling, endpoint transformations, "
@@ -300,10 +300,10 @@ add_heading(doc, "Strengths", 1)
 for body in (
     "Patient-first aggregation and validation prevent multiple-slide leakage.",
     "Wild type, molecular missingness, fusion coverage and aliquot aggregation are auditable.",
-    "The atlas includes immune and inflammatory features as well as mutations, pathways, MSI, aneuploidy and fusions.",
+    "The benchmark includes immune and inflammatory features as well as mutations, pathways, MSI, aneuploidy and fusions.",
     "Negative and ineligible endpoints are preserved rather than selectively omitted.",
     "PLS1–PLS2 comparison is appropriately secondary, with LDA preferred for binary endpoints.",
-    "The literature discussion distinguishes replicated exact pairs from atlas-nominated candidates without overstating novelty.",
+    "The literature discussion reports that 38 of 41 screen-positive mutation pairs had prior support and avoids broad endpoint-novelty claims.",
 ):
     add_body(doc, "• " + body)
 
@@ -312,7 +312,7 @@ decision = doc.add_paragraph()
 shade(decision, "E8EEF5")
 set_font(decision.add_run("MINOR REVISION"), size=12, bold=True, color=BLUE)
 add_body(doc,
-    "The scientific analysis is suitable for consideration as a TCGA discovery atlas. "
+    "The scientific analysis is suitable for consideration as a TCGA patient-level benchmark and reusable model resource. "
     "The remaining work is administrative: complete declarations and author metadata, "
     "provide the reporting checklist, and archive a versioned public release. No further "
     "TCGA analysis is required by this review."
@@ -328,7 +328,7 @@ add_body(doc,
     "https://doi.org/10.1136/bmj-2023-078378"
 )
 
-doc.core_properties.title = "Fresh reviewer report — TITAN TCGA discovery atlas"
+doc.core_properties.title = "Fresh reviewer report — TITAN TCGA benchmark and model resource"
 doc.core_properties.subject = "Journal of Translational Medicine-style internal peer review"
 doc.core_properties.author = "Internal scientific review"
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
