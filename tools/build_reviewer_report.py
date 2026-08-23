@@ -136,7 +136,7 @@ for label, value in (
     ("Target journal", "Journal of Translational Medicine — Molecular Pathology"),
     ("Article type", "Research article"),
     ("Review basis", "Fresh review of the revised manuscript, supplement and reproducibility materials"),
-    ("Recommendation", "Minor revision"),
+    ("Recommendation", "Major revision; consider only under an explicit computational-resource framing unless external validation is added"),
     ("Date", date.today().strftime("%d %B %Y")),
 ):
     p = doc.add_paragraph()
@@ -152,14 +152,15 @@ callout.paragraph_format.right_indent = Inches(0.12)
 shade(callout, "EEF4F8")
 set_font(callout.add_run("Overall assessment. "), bold=True, color=BLUE)
 set_font(callout.add_run(
-    "This is a carefully reconstructed, patient-level TCGA benchmark and reusable model resource. "
+    "This is a carefully reconstructed, patient-level TCGA benchmark and research-software resource. "
     "The revised work addresses the major scientific concerns that would "
     "otherwise prevent interpretation: multiple slides are aggregated before "
     "validation; molecular missingness is not labelled wild type; binary "
     "models use PLS–LDA; continuous and binary performance is reported with "
     "uncertainty; multiplicity is shown both within cancer and across cancers; "
-    "and the absence of independent external validation is explicit. I found "
-    "no further analysis essential for publication under the revised benchmark-and-resource framing."
+    "and the absence of independent external validation is explicit. The revised wording no longer "
+    "presents internal TCGA estimates as translational evidence. Nevertheless, independent validation "
+    "remains the decisive missing element for publication as a translational prediction study."
 ))
 
 add_heading(doc, "Confidential comments to the editor", 1)
@@ -167,9 +168,10 @@ add_body(doc,
     "The manuscript fits the Molecular Pathology remit as a reproducible study "
     "of image-derived molecular and immune signals in human tumours. Its main "
     "contribution is a transparent endpoint-by-endpoint benchmark using a fixed "
-    "pretrained representation, complete negative reporting and distributable fitted linear models. "
-    "The authors appropriately refrain from clinical claims. I recommend minor "
-    "revision limited to submission administration and permanent archiving."
+    "pretrained representation, complete negative reporting and portable fitted linear models. "
+    "The authors appropriately refrain from clinical claims and label every value as an internally "
+    "derived TCGA estimate. Without an independent cohort, the work should be evaluated as a "
+    "computational pathology resource rather than a translational prediction study."
 )
 
 add_heading(doc, "Comments to the authors", 1)
@@ -214,7 +216,7 @@ add_body(doc,
     lead="No additional analysis requested."
 )
 
-add_heading(doc, "3. Performance reporting and deployment metadata", 2)
+add_heading(doc, "3. Performance reporting and research-use provenance", 2)
 add_body(doc,
     f"The {len(highlighted):,} highlighted models report sensitivity, specificity, "
     "balanced accuracy and AUROC for binary outcomes and Q², RMSE and Spearman "
@@ -242,29 +244,33 @@ add_body(doc,
     "prediction, and it distinguishes internal current metrics from prior external "
     "AUROCs and correlations. The manuscript correctly documents that TCGA was "
     "excluded from TITAN's Mass-340K pretraining but used in TITAN's downstream "
-    "evaluation. It is therefore accurate to call this a secondary TCGA discovery "
-    "atlas rather than independent validation."
+    "evaluation. It is therefore accurate to call this a secondary systematic TCGA "
+    "benchmark rather than independent validation."
 )
 add_body(doc,
-    "No additional analysis requested. External validation remains the next research "
-    "stage, not a condition that can be satisfied by further TCGA resampling.",
-    lead="No additional analysis requested."
+    "The authors now document that CPTAC-UCEC is a feasible future cohort but that its "
+    "whole-slide archive requires de novo TITAN extraction. They lock UCEC TP53 mutation, "
+    "genome doubling and continuous aneuploidy score before inspecting external data, with "
+    "artifact hashes, no-refitting rules and mandatory reporting of failures. This is useful "
+    "prospective discipline, but it is not external validation evidence."
 )
 
 add_heading(doc, "5. Reproducibility and model redistribution", 2)
 add_body(doc,
-    "The reproducibility resource is now split appropriately between the public analysis "
-    "repository and a separate GPL-3 TITANPred R package. The package distributes all 323 "
-    "fitted research models, their SHA-256 registry, repeated out-of-fold reference "
-    "distributions, cancer-vector inference interface and HTML/PDF report template. The "
+    "The reproducibility resource is split between the public analysis repository and a "
+    "separate GPL-3 TITANPred R package. The package contains all 323 fitted research models, "
+    "their SHA-256 registry, repeated out-of-fold reference distributions, cancer-vector "
+    "inference interface and HTML/PDF research-software template. The package repository is "
+    "currently private, and the manuscript now states this rather than claiming public release. The "
     "artifacts contain learned parameters and training-range summaries but no patient-level "
     "training rows. This materially strengthens the portability and transparency claim."
 )
 add_body(doc,
-    "Required before submission: create versioned releases of the analysis and model-package "
-    "repositories with persistent DOIs, retain the research-only and no-external-validation "
-    "notices, and cite the upstream TITAN work and feature source in the package documentation. "
-    "This is an administrative release condition and does not require a new scientific analysis.",
+    "Required before submission: create a versioned release and persistent DOI for the public "
+    "analysis repository. If fitted-model redistribution is authorised, document the model-package "
+    "access terms and archive it separately; otherwise retain the private/access-controlled status "
+    "throughout the manuscript. Keep the research-only and no-external-validation notices and cite "
+    "the upstream TITAN work and feature source in the package documentation.",
     lead="Required before submission:"
 )
 
@@ -310,12 +316,12 @@ for body in (
 add_heading(doc, "Recommended editorial decision", 1)
 decision = doc.add_paragraph()
 shade(decision, "E8EEF5")
-set_font(decision.add_run("MINOR REVISION"), size=12, bold=True, color=BLUE)
+set_font(decision.add_run("MAJOR REVISION / RESOURCE FRAMING"), size=12, bold=True, color=BLUE)
 add_body(doc,
-    "The scientific analysis is suitable for consideration as a TCGA patient-level benchmark and reusable model resource. "
-    "The remaining work is administrative: complete declarations and author metadata, "
-    "provide the reporting checklist, and archive a versioned public release. No further "
-    "TCGA analysis is required by this review."
+    "The scientific analysis may be considered as a TCGA patient-level computational pathology benchmark and research-software resource. "
+    "It is not yet supported as a translational prediction study because no independent cohort has been evaluated. "
+    "The revised framing, locked future protocol and complete internal reporting are appropriate, but they do not replace external evidence. "
+    "Declarations and author metadata also remain to be completed."
 )
 
 add_heading(doc, "Review standards consulted", 1)

@@ -27,7 +27,7 @@ saveRDS(coad_predictions, "results/predictions/coad_package_predictions.rds")
 # clear resection margins. Each case must have at most two of ten continuous
 # predictions outside the 1st-99th reference-percentile interval. Within
 # same-site/same-sex groups satisfying those constraints, choose the pair with
-# the greatest complete-profile separation. This is a deployment illustration,
+# the greatest complete-profile separation. This is a research-software illustration,
 # not an additional validation analysis.
 continuous <- as.data.table(coad_predictions)[outcome_type == "continuous"]
 profile <- dcast(continuous, patient_id ~ endpoint, value.var = "reference_percentile")
@@ -253,7 +253,7 @@ p_binary <- ggplot(binary, aes(reference_rank, endpoint_label, color = example))
 figure <- ((p_radar_a | p_radar_b) / p_binary +
              plot_layout(heights = c(1.35, 1))) +
   plot_annotation(
-    title = "TITANPred converts one COAD feature vector into a multi-endpoint molecular profile",
+    title = "TITANPred research-software demonstration: internally derived COAD estimates",
     subtitle = paste(
       "Both examples are male, sigmoid-colon, grade-2 pT3 adenocarcinomas with",
       "clear margins; the pair was selected after limiting profile saturation."

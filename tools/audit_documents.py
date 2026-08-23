@@ -101,8 +101,8 @@ require(
     "Silvano Piazza's dual-affiliation markers are missing",
 )
 for label in (
-    "Additional file 2 (.pdf): COAD example A (TCGA-AA-A01F) TITANPred single-sample report",
-    "Additional file 3 (.pdf): COAD example B (TCGA-AA-3972) TITANPred single-sample report",
+    "Additional file 2 (.pdf): COAD example A (TCGA-AA-A01F) TITANPred research-software output",
+    "Additional file 3 (.pdf): COAD example B (TCGA-AA-3972) TITANPred research-software output",
 ):
     require(label in main_text, f"Separate supplementary report is not declared: {label}")
 for pdf_name in (
@@ -143,6 +143,8 @@ for forbidden in (
     "Previously reported and atlas-nominated predictors",
     "Practical contribution of the PLS framework",
     "discovery atlas",
+    "patient molecular profile",
+    "prediction report",
 ):
     require(forbidden.lower() not in main_text.lower(), f"Removed manuscript text remains: {forbidden}")
 require("frozen" not in main_text.lower(), "Ambiguous 'frozen' terminology remains")
@@ -157,6 +159,12 @@ for required_revision in (
     "38/41 screen-positive cancer–gene pairs",
     "TCGA out-of-fold score rank (not probability)",
     "Probability calibration was not added",
+    "every performance estimate is an internally derived TCGA estimate",
+    "Prospectively locked protocol for future independent evaluation",
+    "Table 4. Prospectively locked subset for future independent evaluation",
+    "CPTAC-UCEC is a plausible future cohort",
+    "research-software demonstration",
+    "currently maintained in a private access-controlled repository",
 ):
     require(
         required_revision in main_text,
@@ -185,6 +193,7 @@ for item in (
     "Table S10a. Expanded literature audit",
     "Table S10b. Screen-positive models below the original effect threshold",
     "Table S10c. PLS versus exportable ridge benchmark",
+    "Table S6c. Prospectively locked subset for future independent evaluation",
     "Table S12",
     "Figure S1",
     "Figure S2",

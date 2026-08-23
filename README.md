@@ -13,7 +13,12 @@ comparison with Fu, Kather, Saldanha, Arslan and the present study is
 
 Public repository: https://github.com/tkcaccia/titan-prediction
 
-Fitted-model R package: https://github.com/tkcaccia/TITANPred
+Access-controlled fitted-model R package: https://github.com/tkcaccia/TITANPred
+
+The TITANPred repository is currently private. The public analysis repository
+therefore does not claim that fitted-model artifacts are openly downloadable;
+release remains subject to upstream redistribution permission and an explicit
+versioned release decision.
 
 ## Manuscript package
 
@@ -115,8 +120,8 @@ Before release, run `Rscript tools/audit_release.R`. This fails if the final
 permutation state is incomplete, endpoint keys are duplicated, repeated
 out-of-fold coverage is missing, sensitivity analyses omit a highlighted
 screen-positive model, artifact hashes or analysis fingerprints differ, or a
-fitted object retains the patient-level diagnostic arrays removed for
-deployment. Robustness checkpoints are reused only when a fingerprint of the
+fitted object retains the patient-level diagnostic arrays removed for research
+use. Robustness checkpoints are reused only when a fingerprint of the
 final screens, configuration, cohort schema/source, fastPLS build and backend
 matches the current run; obsolete checkpoint files are not collated.
 
@@ -133,7 +138,7 @@ that are kept separate from the primary molecular and inflammatory benchmark:
 - cancer-specific PLS1 models for the consensus purity estimate (CPE) published
   by Aran, Sirota and Butte (Nature Communications 2015,
   doi:10.1038/ncomms9971); and
-- a deliberately non-deployable KICH tumour-versus-adjacent-normal pilot using
+- a deliberately non-releaseable KICH tumour-versus-adjacent-normal pilot using
   only 12 matched participants.
 
 These are internal TCGA screening results, not externally validated clinical
@@ -159,10 +164,12 @@ relevant denominator and aggregation fields. `software_manifest.csv` records
 package versions and the pinned fastPLS and TCGAmutations GitHub source
 commits.
 
-## Deploying all cancer-matched models
+## Applying cancer-matched models in research software
 
-All 323 fitted research models are distributed in the separate
-[`TITANPred`](https://github.com/tkcaccia/TITANPred) R package. Users supply a
+All 323 fitted research models are maintained in the separate, currently
+private [`TITANPred`](https://github.com/tkcaccia/TITANPred) R package. They are
+not presented as externally validated or publicly released predictors. An
+authorised research user supplies a
 cancer vector and correctly named TITAN features; `predict_titan()` applies
 every model available for each cancer and returns a long patient-model table.
 Repeated patient identifiers are mean-pooled before inference.
@@ -178,9 +185,10 @@ predictions <- predict_titan(
 )
 ```
 
-`titan_sample_report()` generates a single-sample HTML or PDF report with a
+`titan_sample_report()` generates a research-software HTML or PDF demonstration with a
 continuous-endpoint radar, binary PLS-LDA calls, exact reference percentiles and
-original predictions, out-of-distribution diagnostics, and deployment provenance.
+original internally derived TCGA estimates, out-of-distribution diagnostics,
+and research-use provenance.
 All endpoint definitions and model-target sources are documented at the end of
 the report. Optional pathology or treatment context is displayed separately and
 is never passed to the model. Reproducible matched COAD examples generated for
@@ -190,7 +198,7 @@ Every bundled RDS object includes the exact 768-column feature order, slide
 aggregation rule, cancer type, endpoint, selected component count, class counts
 and priors where applicable, endpoint transformation and output units, exact
 fastPLS version and Git commit, computation backend, and research-only
-intended-use statement. The public registry records SHA-256 hashes for all
+intended-use statement. The analysis repository records SHA-256 hashes for all
 artifacts. The objects contain no patient-level training rows.
 
 PLS and PLS–LDA are parametric models: external prediction needs the learned
@@ -203,6 +211,22 @@ guarantee of privacy or transportability.
 
 Research use only. The models are internally validated retrospective TCGA
 research models, not medical devices and not suitable for patient care.
+
+## Independent evaluation status
+
+No independent cohort has been evaluated. TCGA resampling and tissue-source-site
+grouping remain internal analyses. A future untouched evaluation has been
+locked to three UCEC artifacts—TP53 mutation, genome doubling and continuous
+aneuploidy score—with no refitting, recalibration or threshold adjustment. The
+complete protocol is in
+[`docs/EXTERNAL_VALIDATION_PROTOCOL.md`](docs/EXTERNAL_VALIDATION_PROTOCOL.md),
+and the exact model hashes and metrics are in
+[`data/reference/external_validation_locked_targets.csv`](data/reference/external_validation_locked_targets.csv).
+
+CPTAC-UCEC is a plausible cohort because its official TCIA collection links
+pathology and molecular resources, but compatible precomputed TITAN embeddings
+were not identified. No external performance claim will be made unless the
+locked analysis is completed and every target, including failures, is reported.
 
 ## License and attribution
 
