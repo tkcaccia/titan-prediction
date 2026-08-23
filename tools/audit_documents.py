@@ -24,6 +24,8 @@ AUTHORS = (
     "Brendon Price",
     "Dupe Ojo",
     "Ekene Emmanuel Nweke",
+    "Silvano Piazza",
+    "Dinesh Gupta",
     "Stefano Cacciatore",
 )
 REMOVED = ("Alessia Vignoli", "Leonardo Tenori", "CERM", "University of Florence")
@@ -59,7 +61,7 @@ for author in AUTHORS:
 author_positions = [main_text.index(author) for author in AUTHORS]
 require(
     author_positions == sorted(author_positions),
-    "Author order is inconsistent with the approved eight-author sequence",
+    "Author order is inconsistent with the approved ten-author sequence",
 )
 require(
     "Aamilah Ismail3,*" in main_text and "Martin Ocharo1,2,*" in main_text,
@@ -74,6 +76,16 @@ require(
     "Division of Anatomical Pathology, University of Cape Town and National Health "
     "Laboratory Service, Observatory, Cape Town, South Africa" in main_text,
     "Brendon Price's affiliation is missing",
+)
+require(
+    "Computational Biology Group, International Centre for Genetic Engineering and "
+    "Biotechnology (ICGEB), Padriciano 99, 34149 Trieste, Italy" in main_text,
+    "Silvano Piazza's affiliation is missing",
+)
+require(
+    "Translational Bioinformatics Group, International Centre for Genetic Engineering "
+    "and Biotechnology (ICGEB), Aruna Asaf Ali Marg, New Delhi 110067, India" in main_text,
+    "Dinesh Gupta's affiliation is missing",
 )
 require(
     "† Corresponding author: Stefano Cacciatore" in main_text,

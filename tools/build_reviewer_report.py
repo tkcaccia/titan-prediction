@@ -277,10 +277,12 @@ add_body(doc,
     "Brendon Price is included in the middle of the author list with the Division of "
     "Anatomical Pathology, University of Cape Town and National Health Laboratory Service "
     "affiliation. Ekene Emmanuel Nweke's University of the Witwatersrand affiliation is "
-    "included. Email addresses for Martin Ocharo, Brendon Price and Ekene Emmanuel Nweke "
-    "were not supplied. The current author list contains Aamilah Ismail, Martin Ocharo, "
-    "Moussa Kassim, Dalia Ahmed, Brendon Price, Dupe Ojo, Ekene Emmanuel Nweke and Stefano "
-    "Cacciatore."
+    "included. Silvano Piazza and Dinesh Gupta are listed immediately before Stefano "
+    "Cacciatore with their ICGEB Trieste and ICGEB New Delhi affiliations, respectively. "
+    "Email addresses for Martin Ocharo, Brendon Price, Ekene Emmanuel Nweke, Silvano "
+    "Piazza and Dinesh Gupta were not supplied. The current author list contains Aamilah "
+    "Ismail, Martin Ocharo, Moussa Kassim, Dalia Ahmed, Brendon Price, Dupe Ojo, Ekene "
+    "Emmanuel Nweke, Silvano Piazza, Dinesh Gupta and Stefano Cacciatore."
 )
 
 add_heading(doc, "Minor presentation points", 1)
