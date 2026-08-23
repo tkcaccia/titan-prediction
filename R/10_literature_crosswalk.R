@@ -4,7 +4,21 @@ current <- fread("results/tables/binary_screen.csv")[family == "driver_mutation"
 
 claims[, current_cancer := prior_cancer]
 claims[prior_cancer == "SKCM01", current_cancer := "SKCM"]
-claims[prior_cancer %in% c("CRC", "SKCM06"), current_cancer := NA_character_]
+# Earlier colorectal studies commonly pooled colon and rectal cancers. Map
+# those claims to both current cancer-specific strata while retaining the
+# broader-cohort scope explicitly; an exact-code join would misclassify known
+# CRC results as absent. Metastatic melanoma remains outside the primary-tumour
+# analysis population.
+crc_claims <- copy(claims[prior_cancer == "CRC"])
+claims <- claims[prior_cancer != "CRC"]
+if (nrow(crc_claims)) {
+  claims <- rbindlist(list(
+    claims,
+    copy(crc_claims)[, current_cancer := "COAD"],
+    copy(crc_claims)[, current_cancer := "READ"]
+  ), use.names = TRUE)
+}
+claims[prior_cancer == "SKCM06", current_cancer := NA_character_]
 
 out <- merge(
   claims,
@@ -17,11 +31,10 @@ out <- merge(
   by = c("current_cancer", "gene"), all.x = TRUE
 )
 out[, current_status := fifelse(
-  prior_cancer == "CRC", "pooled_colorectal_cohort_not_directly_comparable",
-  fifelse(prior_cancer == "SKCM06", "metastatic_sample_type_excluded",
+  prior_cancer == "SKCM06", "metastatic_sample_type_excluded",
   fifelse(is.na(current_balanced_accuracy), "not_eligible_or_not_tested",
   fifelse(current_tier %in% c("A", "B"),
-          paste0("recovered_tier_", current_tier), "tested_not_supported"))))]
+          paste0("recovered_tier_", current_tier), "tested_not_supported")))]
 setcolorder(out, c(
   "study", "prior_cancer", "gene", "prior_metric", "prior_evidence",
   "prior_note", "source_url", "current_cancer", "current_status", "n",
@@ -63,21 +76,33 @@ fwrite(
   "results/tables/prior_mutation_accuracy_comparison.csv"
 )
 
-# Classify every current Tier-A/B cancer-gene result by whether that exact pair
-# occurred in the prespecified literature crosswalk. "Atlas-nominated" means
-# absent from this crosswalk; it is not a claim that no publication anywhere
-# has previously studied the pair.
-prior_pairs <- unique(out[!is.na(current_cancer), .(current_cancer, gene)])
+# Classify every current higher-/moderate-effect cancer-gene result using the
+# expanded primary-study audit. This deliberately distinguishes prior support,
+# prior evaluation without support, and a result not identified in the reviewed
+# predictive literature; none of these labels asserts bibliographic novelty.
+expanded_audit <- fread("data/reference/expanded_supported_mutation_audit.csv")
 supported_mutations <- current[tier %in% c("A", "B")]
-supported_mutations[, exact_pair_in_crosswalk :=
-  paste(tumor_type, endpoint) %in% paste(prior_pairs$current_cancer, prior_pairs$gene)]
-supported_mutations[, evidence_class := fifelse(
-  exact_pair_in_crosswalk,
-  "previously reported and recovered",
-  "atlas-nominated; absent from prespecified crosswalk"
+supported_mutation_audit <- merge(
+  supported_mutations,
+  expanded_audit,
+  by.x = c("tumor_type", "endpoint"), by.y = c("cancer", "gene"),
+  all.x = TRUE
+)
+if (nrow(supported_mutation_audit) != nrow(supported_mutations) ||
+    anyNA(supported_mutation_audit$prior_evidence_class)) {
+  stop("Expanded mutation literature audit is incomplete or duplicated")
+}
+supported_mutation_audit[, evidence_class := fcase(
+  prior_evidence_class == "previously_supported",
+  "previously supported in reviewed predictive literature",
+  prior_evidence_class == "previously_evaluated_not_supported",
+  "previously evaluated without statistical support in reviewed study",
+  default = "not identified in reviewed predictive literature"
 )]
-supported_mutation_novelty <- supported_mutations[, .(
-  cancer = tumor_type, gene = endpoint, evidence_class, n, positive,
+supported_mutation_novelty <- supported_mutation_audit[, .(
+  cancer = tumor_type, gene = endpoint, evidence_class,
+  prior_study, prior_scope, prior_result, source_url, audit_note,
+  n, positive,
   current_balanced_accuracy = balanced_accuracy, current_q = q_value,
   current_tier = tier
 )]
@@ -85,6 +110,10 @@ setorder(supported_mutation_novelty, -current_balanced_accuracy)
 fwrite(
   supported_mutation_novelty,
   "results/tables/supported_mutation_novelty.csv"
+)
+fwrite(
+  supported_mutation_novelty,
+  "results/tables/supported_mutation_literature_audit.csv"
 )
 
 status_summary <- unique(out[, .(study, prior_cancer, gene, current_status)])[, .N,

@@ -7,7 +7,7 @@ references are written to `results/tables/software_manifest.csv`.
 
 | Family | Source | Role |
 |---|---|---|
-| Histology features | Ding et al., *Nature Medicine* (2025), TITAN | Fixed pretrained 768-dimensional slide representations |
+| Histology features | Ding et al., *Nature Medicine* (2025); gated `MahmoodLab/TITAN/TCGA_TITAN_features.pkl` | Fixed pretrained 768-dimensional slide representations |
 | Immune/inflammatory | Thorsson et al., *Immunity* (2018) | Continuous patient-level targets |
 | Driver mutations | Bailey et al., *Cell* (2018); TCGA MC3 | Cancer-specific binary targets |
 | Oncogenic pathways | Sanchez-Vega et al., *Cell* (2018), Table S4 | Ten binary pathway-alteration targets |
@@ -23,6 +23,16 @@ study, cancer, gene, reported metric/evidence and a direct article URL; current
 TITAN results are joined by `R/10_literature_crosswalk.R` rather than entered
 manually into the manuscript.
 
+The expanded audit of all 41 screen-positive cancer–gene pairs is stored in
+`data/reference/expanded_supported_mutation_audit.csv`. It was checked against
+the primary source data accompanying Kather et al. (2020), Saldanha et al.
+(2023) and Arslan et al. (2024), while mapping pooled colorectal evidence to
+both COAD and READ. OV–TP53 is explicitly labelled as preprint evidence from
+Fernandes (2025), and THYM–GTF2I is labelled as not identified in the reviewed
+predictive-model literature despite an established morphology–genotype
+association. The generated `supported_mutation_literature_audit.csv` retains
+the evidence class, cohort scope, reported metric, source URL and audit note.
+
 The TITAN paper states that the Mass-340K pretraining corpus did not include
 TCGA or PANDA. TCGA was instead used for downstream evaluation of the
 pretrained model, including TCGA slide/report resources. The current study is
@@ -31,6 +41,15 @@ secondary analysis of a cohort used in TITAN's downstream evaluation and is
 not an independent external validation. The exact local slide-report source is
 `Data/TITAN/TCGA-Slide-Reports.csv`; matching coverage and unmatched selected
 slides are written to `slide_report_coverage_audit.csv`.
+
+The precise whole-slide feature download is
+https://huggingface.co/MahmoodLab/TITAN/blob/main/TCGA_TITAN_features.pkl
+(direct gated artifact:
+https://huggingface.co/MahmoodLab/TITAN/resolve/main/TCGA_TITAN_features.pkl?download=true).
+`tools/convert_tcga_titan_pickle.py` converts that trusted pickle to the
+`filename,titan_000,...,titan_767` CSV schema and records both hashes. The CSV
+supplied for this analysis has 11,658 rows and SHA-256
+`d3d91fb0f83a6de440eda5ff437a63e3ca13f50095e6841fb8efcc40e58763f0`.
 
 Molecular absence is never treated as a negative label. MC3 wild type requires
 a matched primary-tumour profile with no qualifying PASS protein-altering
@@ -56,6 +75,11 @@ Primary publication links:
 - TCGA Clinical Data Resource: https://doi.org/10.1016/j.cell.2018.02.052
 - cBioPortal Datahub: https://github.com/cBioPortal/datahub
 - TITAN model terms: https://huggingface.co/MahmoodLab/TITAN
+- Kather pan-cancer actionable alterations: https://doi.org/10.1038/s43018-020-0087-6
+- Saldanha pan-cancer mutation prediction: https://doi.org/10.1038/s41698-023-00365-0
+- Arslan pan-cancer multi-omic prediction: https://doi.org/10.1038/s43856-024-00471-5
+- Fernandes ovarian morpho-genomics preprint: https://arxiv.org/abs/2511.03365
+- Wells GTF2I–thymoma morphology study: https://doi.org/10.1136/jclinpath-2021-207837
 
 The TITAN model card uses CC-BY-NC-ND 4.0 terms, restricts use to
 non-commercial academic research, defines models trained on TITAN outputs as

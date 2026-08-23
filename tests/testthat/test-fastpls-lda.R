@@ -36,3 +36,30 @@ test_that("fixed fastPLS supports LDA in single and double cross-validation", {
   expect_identical(deployable$diagnostics$rsvd$oversample, 10L)
   expect_identical(deployable$diagnostics$rsvd$power, 2L)
 })
+
+test_that("continuous nested validation returns one prediction per held-out patient", {
+  skip_if_not_installed("fastPLS")
+  old <- getwd()
+  on.exit(setwd(old), add = TRUE)
+  root <- normalizePath(file.path(testthat::test_path(), "..", ".."))
+  setwd(root)
+  source("R/utils.R")
+  set.seed(217)
+  x <- matrix(rnorm(72L * 12L), nrow = 72L, ncol = 12L)
+  y <- 1.8 * x[, 1L] - 0.9 * x[, 2L] + rnorm(72L, sd = 0.35)
+  cfg <- load_project_config()$analysis
+  cfg$outer_folds <- 3L
+  cfg$inner_folds <- 3L
+  cfg$components <- 1:2
+
+  result <- fit_continuous_nested_once(x, y, cfg, seed = 217L)
+
+  expect_length(result$prediction, length(y))
+  expect_false(anyNA(result$prediction))
+  expect_true(all(vapply(
+    split(result$prediction, result$fold),
+    function(z) length(unique(signif(z, 12L))) > 1L,
+    logical(1)
+  )))
+  expect_gt(result$q2, 0.5)
+})

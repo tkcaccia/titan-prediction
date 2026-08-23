@@ -2,7 +2,8 @@ options(repos = c(CRAN = "https://cloud.r-project.org"))
 
 cran <- c(
   "data.table", "readxl", "digest", "jsonlite", "future.apply",
-  "progressr", "pROC", "ggplot2", "testthat", "remotes", "BiocManager"
+  "progressr", "pROC", "ggplot2", "glmnet", "testthat", "remotes",
+  "BiocManager"
 )
 missing <- cran[!vapply(cran, requireNamespace, logical(1), quietly = TRUE)]
 if (length(missing)) install.packages(missing)

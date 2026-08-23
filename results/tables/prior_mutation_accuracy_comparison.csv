@@ -3,8 +3,14 @@ Loeffler2022,BLCA,FGFR3,AUROC 0.780,p<0.001,recovered_tier_A,384,54,0.7289562289
 Loeffler2022,BRCA,CDH1,AUROC 0.810,p<0.001,recovered_tier_A,981,96,0.73103813559322,0.00666666666666667,A,https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2021.806386/full
 Kather2020,BRCA,TP53,AUROC 0.768 [0.735–0.781],FDR q=3.43e-45,recovered_tier_A,981,259,0.744120257970674,0.00666666666666667,A,https://www.nature.com/articles/s43018-020-0087-6
 Loeffler2022,BRCA,TP53,AUROC >0.611,p<0.05,recovered_tier_A,981,259,0.744120257970674,0.00666666666666667,A,https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2021.806386/full
+Kather2020,COAD,APC,AUROC 0.673 [0.664–0.690],FDR q=1.51e-10,recovered_tier_A,382,196,0.793339916611806,0.00325,A,https://www.nature.com/articles/s43018-020-0087-6
+Kather2020,COAD,TP53,AUROC 0.661 [0.639–0.677],FDR q=1.15e-9,recovered_tier_A,382,161,0.778758326072904,0.00325,A,https://www.nature.com/articles/s43018-020-0087-6
+Loeffler2022,COAD,TP53,AUROC 0.660,p<0.001,recovered_tier_A,382,161,0.778758326072904,0.00325,A,https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2021.806386/full
 Loeffler2022,LGG,IDH1,AUROC 0.764,p<0.001,recovered_tier_A,485,375,0.785636363636364,0.00185714285714286,A,https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2021.806386/full
 Loeffler2022,LGG,TP53,AUROC 0.787,p<0.001,recovered_tier_A,485,232,0.846420539730135,0.00185714285714286,A,https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2021.806386/full
+Kather2020,READ,APC,AUROC 0.673 [0.664–0.690],FDR q=1.51e-10,recovered_tier_A,135,65,0.862087912087912,0.0015,A,https://www.nature.com/articles/s43018-020-0087-6
+Kather2020,READ,TP53,AUROC 0.661 [0.639–0.677],FDR q=1.15e-9,recovered_tier_A,135,66,0.861001317523057,0.0015,A,https://www.nature.com/articles/s43018-020-0087-6
+Loeffler2022,READ,TP53,AUROC 0.660,p<0.001,recovered_tier_A,135,66,0.861001317523057,0.0015,A,https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2021.806386/full
 Loeffler2022,THCA,BRAF,AUROC 0.860,p<0.001,recovered_tier_A,490,289,0.8298817332025,0.001,A,https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2021.806386/full
 Fu2020,UCEC,PTEN,reported histopathological association,Figure 4 / source data,recovered_tier_A,487,261,0.726197741837046,0.016,A,https://www.nature.com/articles/s43018-020-0085-8
 Loeffler2022,UCEC,PTEN,AUROC 0.773,p<0.001,recovered_tier_A,487,261,0.726197741837046,0.016,A,https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2021.806386/full
@@ -12,6 +18,8 @@ Loeffler2022,UCEC,TP53,AUROC 0.764,p<0.001,recovered_tier_A,487,155,0.7638457054
 Kather2020,BRCA,PIK3CA,AUROC 0.625 [0.605–0.659],FDR q=1.59e-8,recovered_tier_B,981,266,0.630671959619328,0.00666666666666667,B,https://www.nature.com/articles/s43018-020-0087-6
 Loeffler2022,BRCA,PIK3CA,AUROC >0.611,p<0.05,recovered_tier_B,981,266,0.630671959619328,0.00666666666666667,B,https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2021.806386/full
 Kather2020,CESC,TP53,AUROC 0.673 [0.628–0.749],FDR q=0.0337,recovered_tier_B,252,21,0.603896103896104,0.024,B,https://www.nature.com/articles/s43018-020-0087-6
+Kather2020,COAD,BRAF,AUROC 0.702 [0.672–0.755],FDR q=0.0000104,recovered_tier_B,382,44,0.650753093060786,0.00325,B,https://www.nature.com/articles/s43018-020-0087-6
+Kather2020,COAD,KRAS,AUROC 0.616 [0.584–0.654],FDR q=0.0000481,recovered_tier_B,382,126,0.680369543650794,0.00325,B,https://www.nature.com/articles/s43018-020-0087-6
 Kather2020,HNSC,NSD1,AUROC 0.668 [0.597–0.737],FDR q=0.00815,recovered_tier_B,431,51,0.629824561403509,0.009,B,https://www.nature.com/articles/s43018-020-0087-6
 Kather2020,HNSC,TP53,AUROC 0.699 [0.687–0.732],FDR q=4.62e-12,recovered_tier_B,431,320,0.63643018018018,0.009,B,https://www.nature.com/articles/s43018-020-0087-6
 Kather2020,LIHC,CTNNB1,AUROC 0.682 [0.635–0.688],FDR q=0.00000335,recovered_tier_B,350,93,0.668110120915443,0.00233333333333333,B,https://www.nature.com/articles/s43018-020-0087-6
@@ -30,6 +38,7 @@ Kather2020,BRCA,GATA3,AUROC 0.566 [0.517–0.599],FDR q=0.0471,tested_not_suppor
 Kather2020,BRCA,MAP3K1,AUROC 0.663 [0.626–0.674],FDR q=0.00000393,tested_not_supported,981,62,0.505791709080698,1,C,https://www.nature.com/articles/s43018-020-0087-6
 Loeffler2022,BRCA,MAP3K1,AUROC >0.611,p<0.05,tested_not_supported,981,62,0.505791709080698,1,C,https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2021.806386/full
 Kather2020,BRCA,RB1,AUROC 0.718 [0.635–0.765],FDR q=0.0164,tested_not_supported,981,20,0.497918834547347,1,C,https://www.nature.com/articles/s43018-020-0087-6
+Kather2020,COAD,PIK3CA,AUROC 0.621 [0.574–0.669],FDR q=0.000489,tested_not_supported,382,83,0.534190272796873,1,C,https://www.nature.com/articles/s43018-020-0087-6
 Kather2020,HNSC,HRAS,AUROC 0.685 [0.617–0.776],FDR q=0.0336,tested_not_supported,431,27,0.581453978731206,1,C,https://www.nature.com/articles/s43018-020-0087-6
 Kather2020,KIRC,PBRM1,AUROC 0.621 [0.572–0.657],FDR q=0.000261,tested_not_supported,353,144,0.593185140882509,1,C,https://www.nature.com/articles/s43018-020-0087-6
 Kather2020,KIRC,SETD2,AUROC 0.646 [0.584–0.706],FDR q=0.0137,tested_not_supported,353,47,0.556528994576554,1,C,https://www.nature.com/articles/s43018-020-0087-6
@@ -39,6 +48,7 @@ Kather2020,LUAD,STK11,AUROC 0.632 [0.547–0.679],FDR q=0.00101,tested_not_suppo
 Kather2020,PAAD,KRAS,AUROC 0.670 [0.570–0.712],FDR q=0.00158,tested_not_supported,175,116,0.587594973699591,1,C,https://www.nature.com/articles/s43018-020-0087-6
 Kather2020,PRAD,FOXA1,AUROC 0.762 [0.695–0.880],FDR q=0.0000288,tested_not_supported,399,25,0.509304812834225,1,C,https://www.nature.com/articles/s43018-020-0087-6
 Kather2020,PRAD,TP53,AUROC 0.657 [0.599–0.749],FDR q=0.000485,tested_not_supported,399,46,0.562415322084001,1,C,https://www.nature.com/articles/s43018-020-0087-6
+Kather2020,READ,KRAS,AUROC 0.616 [0.584–0.654],FDR q=0.0000481,tested_not_supported,135,30,0.542857142857143,1,C,https://www.nature.com/articles/s43018-020-0087-6
 Kather2020,STAD,FBXW7,AUROC 0.751 [0.676–0.807],FDR q=0.0000258,tested_not_supported,371,29,0.565739060294414,1,C,https://www.nature.com/articles/s43018-020-0087-6
 Kather2020,STAD,PTEN,AUROC 0.661 [0.436–0.761],FDR q=0.0178,tested_not_supported,371,24,0.500660422670509,1,C,https://www.nature.com/articles/s43018-020-0087-6
 Kather2020,STAD,RNF43,AUROC 0.638 [0.566–0.743],FDR q=0.0153,tested_not_supported,371,30,0.53880742913001,1,C,https://www.nature.com/articles/s43018-020-0087-6

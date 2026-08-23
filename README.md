@@ -53,6 +53,29 @@ used only to audit slide provenance and is never supplied to a predictor.
 
 ## Reproducibility
 
+### Obtain and convert the official TITAN TCGA features
+
+The whole-slide input was downloaded from the gated
+[`MahmoodLab/TITAN`](https://huggingface.co/MahmoodLab/TITAN) repository as
+[`TCGA_TITAN_features.pkl`](https://huggingface.co/MahmoodLab/TITAN/blob/main/TCGA_TITAN_features.pkl).
+After accepting the upstream non-commercial research terms, convert the
+official pickle to the exact CSV schema used by this project with:
+
+```bash
+export HF_TOKEN="your_read_token"
+python3 tools/convert_tcga_titan_pickle.py \
+  --download \
+  --input data/raw/TCGA_TITAN_features.pkl \
+  --output data/raw/TCGA_TITAN_features.csv \
+  --acknowledge-trusted-pickle
+```
+
+Only load a pickle obtained from the official repository: Python pickle is an
+executable format. The converter validates 768 finite numeric values per slide
+and writes a sidecar containing the source and CSV SHA-256 hashes. The supplied
+analysis CSV contains 11,658 slide rows and has SHA-256
+`d3d91fb0f83a6de440eda5ff437a63e3ca13f50095e6841fb8efcc40e58763f0`.
+
 1. Install R 4.6 or later and run `R/00_bootstrap.R`.
 2. Copy `config/paths.example.R` to `config/paths.local.R` and set the local
    paths to the source files.
@@ -127,10 +150,13 @@ predictions <- predict_titan(
 )
 ```
 
-`titan_sample_report()` generates a single-sample HTML or PDF report with an
-endpoint-level continuous prediction plot, binary PLS-LDA calls, exact reference percentiles,
-out-of-distribution diagnostics and deployment provenance. Reproducible COAD
-examples generated for Figure 7 are available under [`results/reports`](results/reports/).
+`titan_sample_report()` generates a single-sample HTML or PDF report with a
+continuous-endpoint radar, binary PLS-LDA calls, exact reference percentiles and
+original predictions, out-of-distribution diagnostics, and deployment provenance.
+All endpoint definitions and model-target sources are documented at the end of
+the report. Optional pathology or treatment context is displayed separately and
+is never passed to the model. Reproducible matched COAD examples generated for
+Figure 7 are available under [`results/reports`](results/reports/).
 
 Every bundled RDS object includes the exact 768-column feature order, slide
 aggregation rule, cancer type, endpoint, selected component count, class counts

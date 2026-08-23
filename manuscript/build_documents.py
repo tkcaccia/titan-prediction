@@ -143,6 +143,11 @@ pls2 = rows("pls1_vs_pls2_inflammation_summary.csv")
 lit = rows("prior_mutation_literature_pair_summary.csv")
 lit_accuracy = rows("prior_mutation_accuracy_comparison.csv")
 mutation_novelty = rows("supported_mutation_novelty.csv")
+mutation_literature_audit = rows("supported_mutation_literature_audit.csv")
+site_retention_summary = rows("site_grouped_retention_summary.csv")
+site_threshold_failures = rows("site_grouped_models_below_effect_threshold.csv")
+ridge_comparison = rows("pls_vs_ridge_highlighted_models.csv")
+ridge_summary = rows("pls_vs_ridge_summary.csv")
 highlighted = optional_rows("highlighted_model_performance.csv")
 slide_coverage = optional_rows("slide_report_coverage_audit.csv")
 slide_multiplicity = optional_rows("patient_slide_multiplicity_by_cancer.csv")
@@ -328,7 +333,47 @@ site_deltas = [r["delta"] for r in site_c + site_b if r.get("feasible") == "TRUE
 pool_deltas = [r["delta_first_minus_mean"] for r in pool_c + pool_b if r.get("delta_first_minus_mean")]
 lit_counts = Counter(r["current_status"] for r in lit)
 recovered_reports = [r for r in lit_accuracy if r["current_status"].startswith("recovered_tier_")]
-atlas_nominated = [r for r in mutation_novelty if r["evidence_class"].startswith("atlas-nominated")]
+prior_supported_mutations = [
+    r for r in mutation_literature_audit
+    if r["evidence_class"].startswith("previously supported")
+]
+prior_evaluated_not_supported = [
+    r for r in mutation_literature_audit
+    if r["evidence_class"].startswith("previously evaluated")
+]
+not_identified_mutations = [
+    r for r in mutation_literature_audit
+    if r["evidence_class"].startswith("not identified")
+]
+site_combined = next(
+    (r for r in site_retention_summary if r.get("outcome_type") == "combined"), {}
+)
+site_failure_examples = sorted(
+    site_threshold_failures,
+    key=lambda r: float(r.get("site_grouped_metric") or 999),
+)[:12]
+site_named_keys = [
+    ("binary", "READ", "APC"),
+    ("binary", "COAD", "APC"),
+    ("binary", "PCPG", "Cell Cycle"),
+    ("binary", "LIHC", "CTNNB1"),
+    ("continuous", "OV", "TCR Shannon"),
+    ("continuous", "COAD", "SNV Neoantigens"),
+]
+site_named_failures = []
+for outcome_type, cancer, endpoint in site_named_keys:
+    match = next((
+        r for r in site_threshold_failures
+        if r.get("outcome_type") == outcome_type
+        and r.get("tumor_type") == cancer and r.get("endpoint") == endpoint
+    ), None)
+    if match:
+        site_named_failures.append(match)
+ridge_better = [r for r in ridge_comparison if r.get("selected_method") == "ridge"]
+pls_better = [r for r in ridge_comparison if r.get("selected_method") == "PLS"]
+baseline_uncertain = [
+    r for r in ridge_comparison if "difference uncertain" in r.get("selected_method", "")
+]
 
 
 def prior_current_text(records):
@@ -338,6 +383,17 @@ def prior_current_text(records):
         f'(q={fnum(r["current_q"])})'
         for r in records
     )
+
+
+def site_failure_text(records):
+    parts = []
+    for r in records:
+        metric = "balanced accuracy" if r.get("outcome_type") == "binary" else "Q²"
+        parts.append(
+            f'{r.get("tumor_type")}–{r.get("endpoint")} ({metric} '
+            f'{fnum(r.get("original_metric"))} to {fnum(r.get("site_grouped_metric"))})'
+        )
+    return "; ".join(parts)
 
 
 def selected_prior_records(keys):
@@ -407,13 +463,14 @@ p.add_run("Research article — Molecular Pathology | Journal of Translational M
 doc.add_heading("Abstract", level=1)
 add_labelled(doc, "Background.", "Deep-learning studies have shown that haematoxylin-and-eosin images encode mutations, microsatellite instability, transcriptomic programmes and tumour-microenvironment phenotypes. We evaluated which individual molecular, genomic-instability and immune endpoints are predictable within cancer type from reusable TITAN whole-slide representations.")
 add_labelled(doc, "Methods.", f"We mean-pooled {n_slides:,} primary diagnostic slide embeddings into {n_patients:,} patient vectors across {n_cancers} TCGA cancers; {n_multi:,} patients contributed multiple slides. We tested {len(continuous):,} continuous and {len(binary):,} binary cancer–endpoint pairs. PLS1 regression was used for continuous targets; binary targets used PLS latent scores with LDA. Patient-level nested 5×5 cross-validation selected 1–10 components. Effect-eligible models underwent a 999-permutation refinement with conservative sequential stopping, Benjamini–Hochberg control within cancer and endpoint family, and a stricter across-cancer family correction.")
-add_labelled(doc, "Results.", f"Within-cancer screening identified {len(supported_c):,} continuous and {len(supported_b):,} binary higher- or moderate-effect candidates. Highlighted repeated-CV results included {abstract_metric_text}. Under the multiplicity sensitivity, {global_abstract_text}; its attainable q-values in large families were limited by the 0.001 empirical-p resolution. Repeated nested validation, site-grouped folds and first-slide sensitivity quantified uncertainty, centre dependence and slide-aggregation dependence.")
+add_labelled(doc, "Results.", f"Within-cancer screening identified {len(supported_c):,} continuous and {len(supported_b):,} binary higher- or moderate-effect candidates. Highlighted repeated-CV results included {abstract_metric_text}. Under the multiplicity sensitivity, {global_abstract_text}; its attainable q-values in large families were limited by the 0.001 empirical-p resolution. Site grouping reduced {ival(site_combined.get('below_threshold_models'))}/{ival(site_combined.get('screen_positive_models'))} candidates ({fnum(site_combined.get('below_threshold_percent'), 1)}%) below the original effect threshold. In a selection-conditioned 24-model benchmark, median ridge-minus-PLS differences were 0.007 balanced accuracy and 0.014 Q², showing no uniform PLS advantage.")
 add_labelled(doc, "Conclusions.", "Pretrained TITAN representations support a cancer-specific TCGA discovery atlas spanning immune and molecular phenotypes. The models are internally validated research candidates, do not replace molecular assays, and require independent external validation before clinical interpretation.")
 add_labelled(doc, "Trial registration.", "Not applicable.")
 doc.add_paragraph("Keywords: computational pathology; whole-slide imaging; foundation model; mutation; inflammation; microsatellite instability; gene fusion; aneuploidy; partial least squares; linear discriminant analysis")
 
 doc.add_heading("Background", level=1)
 doc.add_paragraph("Routine haematoxylin-and-eosin sections reflect phenotypic consequences of tumour genotype and the immune microenvironment. Coudray and colleagues established mutation prediction from lung histology [1]. Subsequent work predicted microsatellite instability, including externally validated colorectal models [2,3]; extended mutation and multi-omic screening across TCGA cancers [4,5,8,11,13]; inferred RNA expression [6,12]; identified tissue-source-site bias [7]; detected gene fusions [9,10]; estimated homologous-recombination deficiency [14]; and characterised tumour-microenvironment phenotypes [15]. Collectively, these studies establish biological plausibility while also showing that performance depends on endpoint, disease, cohort and validation design.")
+doc.add_paragraph("However, the published landscape remains fragmented across selected cancers, endpoint classes, representations and reporting conventions. What is missing is a single patient-level, reusable discovery atlas that applies one fixed pretrained whole-slide representation and one transparent validation framework to many individual mutation, immune, pathway, instability, aneuploidy and fusion endpoints while retaining negative results, class counts, uncertainty and deployable fitted models. This study addresses that gap; it does not claim that the individual endpoint classes themselves are unprecedented.")
 doc.add_paragraph("TITAN is a multimodal whole-slide foundation model pretrained on 335,645 slides with visual self-supervision and vision–language alignment [16]. The published Mass-340K pretraining corpus explicitly excluded TCGA and PANDA; TCGA was instead used for downstream evaluation of the pretrained model. The present work therefore has no reported TCGA pretraining overlap, but it is a secondary analysis of a cohort previously used to benchmark TITAN and is not independent external validation. We use its fixed 768-dimensional slide representation with PLS, a latent-variable method suited to correlated high-dimensional predictors [17,18].")
 doc.add_paragraph("A practical feature of the fitted analysis is model portability. A PLS or PLS–LDA predictor can be distributed as preprocessing parameters, latent-variable weights, regression coefficients and LDA parameters. Prediction therefore does not require release of the patient-level training embeddings or outcomes. This supports external research testing while minimising distribution of patient-level data, but does not itself establish privacy, licensing compatibility or transportability.")
 doc.add_paragraph("The primary question was cancer-specific: which individual mutations, inflammatory measurements, oncogenic pathways, MSI phenotypes, aneuploidy measures and fusions are predictable within each cancer? Molecular subtype association was not analysed. PLS–LDA was preferred for individual binary molecular endpoints. The methodological PLS1–PLS2 comparison for correlated inflammatory panels is reported in the Supplementary Material.")
@@ -427,7 +484,7 @@ doc.add_paragraph("Reporting was audited against TRIPOD+AI [28]. Participant cha
 add_figure(doc, "Figure1_patient_first_workflow.png", "Figure 1. Patient-first study design. Eligible diagnostic slides are mean-pooled before outcome matching; all model selection and evaluation occur at patient level within cancer type.")
 
 doc.add_heading("Predictors and outcomes", level=2)
-doc.add_paragraph("Predictors were the 768 fixed pretrained TITAN dimensions released for the TCGA slides [16]; no slide pixels were reprocessed and TITAN weights were not fine-tuned in this study. Continuous outcomes comprised 39 immune/inflammatory measures and 11 genomic-context scores from Thorsson et al. [19], three aneuploidy burdens from Taylor et al. [20], log-transformed fusion burden from Gao et al. [21], and MANTIS/MSIsensor scores from Bonneville et al. and the cBioPortal TCGA PanCancer Atlas files [22,23]. Binary outcomes comprised qualifying protein-altering PASS mutations in tissue-specific consensus cancer genes from MC3 and Bailey et al. [24,25], ten oncogenic-pathway alteration indicators [26], genome doubling [20], any called fusion and eligible recurrent fusion pairs [21], and MSI-H definitions at MANTIS >0.4 and a strict >0.6 sensitivity threshold [22]. Protein-altering classes were missense, nonsense, nonstop, splice-site and translation-start mutations plus frameshift and in-frame insertions or deletions; their inclusion is recorded in a cancer-level variant-class audit. A mutation target denotes a qualifying alteration in a cancer gene; it does not assert that every allele is a functionally validated driver.")
+doc.add_paragraph("Predictors were the 768 fixed pretrained TITAN dimensions released for the TCGA slides [16]. The official gated artifact, TCGA_TITAN_features.pkl, was downloaded from https://huggingface.co/MahmoodLab/TITAN/blob/main/TCGA_TITAN_features.pkl after accepting the upstream terms and converted with the repository script to filename,titan_000,…,titan_767 CSV format; its source and converted-file SHA-256 hashes are retained in the provenance record. No slide pixels were reprocessed and TITAN weights were not fine-tuned in this study. Continuous outcomes comprised 39 immune/inflammatory measures and 11 genomic-context scores from Thorsson et al. [19], three aneuploidy burdens from Taylor et al. [20], log-transformed fusion burden from Gao et al. [21], and MANTIS/MSIsensor scores from Bonneville et al. and the cBioPortal TCGA PanCancer Atlas files [22,23]. Binary outcomes comprised qualifying protein-altering PASS mutations in tissue-specific consensus cancer genes from MC3 and Bailey et al. [24,25], ten oncogenic-pathway alteration indicators [26], genome doubling [20], any called fusion and eligible recurrent fusion pairs [21], and MSI-H definitions at MANTIS >0.4 and a strict >0.6 sensitivity threshold [22]. Protein-altering classes were missense, nonsense, nonstop, splice-site and translation-start mutations plus frameshift and in-frame insertions or deletions; their inclusion is recorded in a cancer-level variant-class audit. A mutation target denotes a qualifying alteration in a cancer gene; it does not assert that every allele is a functionally validated driver.")
 doc.add_paragraph("The Thorsson Nonsilent Mutation Rate, Silent Mutation Rate, SNV Neoantigens, Indel Neoantigens and Number of Segments variables, and the Gao fusion burden, were analysed as log(1+x); all other continuous endpoints retained their source scale. Reported RMSE values therefore use these analysed units.")
 doc.add_paragraph(f"Molecular missingness was retained rather than converted to a negative label, and no outcome imputation was performed. Mutation status was defined only among {n_mc3_profiled:,} embedding patients matched to an MC3 primary-tumour profile; {n_mc3_missing:,} embedding patients without such a profile were excluded from mutation denominators. Within this profiled set, wild type meant no qualifying PASS protein-altering variant in the specified gene. Fusion-negative status was assigned only within the Gao study sample list. Multiple primary aliquots, if present, were collapsed at patient level by any alteration for binary mutation/pathway/fusion endpoints and by the prespecified mean or any-positive rule for continuous or binary instability endpoints. The source-level coverage table records covered patients, missing patients, aliquot multiplicity and aggregation for every cancer and source; no source contained multiple primary aliquots among matched embedding patients in this release.")
 doc.add_paragraph("Continuous pairs required at least 50 non-missing patients. Binary pairs required at least 20 positive and 20 negative patients. Eligibility was decided before modelling and every eligible test remained in its endpoint-family multiplicity denominator.")
@@ -435,11 +492,13 @@ doc.add_paragraph("Continuous pairs required at least 50 non-missing patients. B
 doc.add_heading("PLS1 regression and PLS–LDA classification", level=2)
 doc.add_paragraph("For each cancer–endpoint pair, five outer folds estimated performance and five inner folds selected 1–10 PLS components. Scaling and component selection were learned from training patients only. All primary, permutation, repeated, sensitivity, PLS1–PLS2 and final-model fits used CPU rSVD with 10 oversampling vectors, two power iterations and explicit seeds. Continuous performance was out-of-fold Q², with RMSE and Spearman correlation secondary. Binary models supplied PLS latent scores to ridge-stabilised LDA; balanced accuracy was primary and AUROC from continuous LDA scores was secondary in repeated validation.")
 doc.add_paragraph("Q² was 1−Σ(y−ŷ)²/Σ(y−ȳ)² over outer-fold predictions, and RMSE was the square root of the mean squared prediction error. For binary outcomes, class 1 denoted altered or positive and class 0 denoted wild type or negative within the outcome-specific covered denominator. Sensitivity was the class-1 true-positive rate, specificity the class-0 true-negative rate, and balanced accuracy their arithmetic mean. AUROC used the continuous class-1-minus-class-0 LDA discriminant score; Spearman correlation used observed and held-out continuous predictions.")
+doc.add_paragraph("As a secondary algorithmic benchmark, the 24 manuscript-highlighted models were refitted on the same five repeated outer partitions using ridge-penalised Gaussian regression for continuous endpoints and ridge logistic regression for binary endpoints. Ridge hyperparameters were selected inside each outer training set; binary operating thresholds maximised balanced accuracy using inner out-of-fold probabilities. The primary paired differences were ridge-minus-PLS Q² and balanced accuracy, with AUROC or Spearman correlation retained as secondary metrics. We report the magnitude, interquartile range and 95% paired-repeat interval rather than declaring a winner from counts alone. Because models were selected for this benchmark after the PLS screen, it is a conditional sensitivity analysis and cannot establish atlas-wide algorithmic superiority. Ridge was chosen as a simple linear baseline whose fitted coefficients can be exported without retaining training embeddings; nonlinear kernel predictors that require training observations or landmarks at inference did not satisfy that deployment constraint.")
 doc.add_paragraph("No class under-sampling, over-sampling or synthetic augmentation was used. LDA used the observed training-fold class priors and returned a class plus an uncalibrated discriminant score, not a probability or clinical-risk threshold. Outcome tables were constructed independently of TITAN feature processing and joined only after patient-level aggregation.")
 doc.add_paragraph("Nested performance was first checkpointed for the complete atlas. Only models with Q²≥0.20 or chance-corrected balanced accuracy≥0.20 entered permutation testing. A 99-permutation checkpoint was followed by refinement toward 999 patient-label permutations. During final refinement, evaluation stopped conservatively after 49 exceedances because raw p<0.05 was then impossible even if every remaining null statistic were less extreme; stopped endpoints were assigned p=1. Early-stopped checkpoint jobs resumed from the exact number attempted, so no permutation indices were skipped. Regression extremeness used lower RMSE, whereas classification used higher balanced accuracy. Completed finite p values were (b+1)/(B+1), giving minimum resolution 0.001. Because each disease defines a separate prediction and intended-use population, Benjamini–Hochberg FDR was controlled separately for continuous and binary screens within cancer and prespecified endpoint family [27]; a q-value across cancers within the same outcome type and family was retained as a stricter multiplicity sensitivity. Effect denotes Q² for continuous outcomes and 2×balanced accuracy−1 for binary outcomes. Screen-positive candidates were described as higher effect (primary q<0.05 and effect≥0.40) or moderate effect (primary q<0.05 and effect 0.20–0.39). Screen-negative tested pairs and pairs ineligible by sample-size rules were reported separately. These categories prioritise discovery candidates and are not clinical grades.")
 
 doc.add_heading("Robustness and saved models", level=2)
 doc.add_paragraph("Screen-positive models were repeated under five independently seeded nested-CV partitions; each repeat seed governed both fold construction and rSVD. Sensitivity, specificity, balanced accuracy and AUROC were calculated within each repeat for binary endpoints; Q², RMSE and Spearman correlation were calculated within each repeat for continuous endpoints. Reported repeated-CV point estimates were the arithmetic mean of the five repeat-specific metrics, so LDA scores from independently fitted repeats were never pooled onto an assumed common scale. For highlighted models, 1,000 patient-cluster bootstrap resamples retained all five held-out predictions for each sampled patient, recalculated metrics within repeat and then averaged them; percentile 2.5th and 97.5th quantiles formed the 95% intervals. Site-grouped validation assigned all patients sharing a two-character TCGA tissue-source-site code to the same outer fold, preventing a site from appearing in both training and test partitions for that fold. A sensitivity analysis replaced each mean-pooled vector with the lexicographically first eligible diagnostic slide while preserving patients and seeds. Full-data research models were tuned by ten-fold CV and saved with feature order and checksum, training ranges, aggregation rule, endpoint transformation and output units, class coding and priors, decision rule, calibration status, class counts, exact software version and commit, computation backend, rSVD controls, external-validation status and intended-use metadata.")
+doc.add_paragraph("TITANPred retains the binary LDA score but does not convert it to a probability. In reports, its position is labelled 'TCGA out-of-fold score rank (not probability)' rather than percentile or risk, and is displayed beside total training n, positive and negative counts, prevalence, repeated-CV balanced accuracy and AUROC. Models with fewer than 50 patients in either class receive an explicit limited-class-size warning; this reporting flag does not change the prespecified 20-per-class eligibility rule. Probability calibration was not added post hoc because it would require an independently evaluated or fully nested calibration procedure, which is not available in this TCGA discovery analysis.")
 doc.add_paragraph("The fitted PLS and PLS–LDA objects contain the learned transformations and coefficients needed for inference but no patient-level training rows. The public inference interface validates the 768-feature order and applies the prespecified patient-level slide aggregation. The secondary PLS1–PLS2 inflammatory comparison, including matched folds and cancer-bootstrap intervals, is described in the Supplementary Methods.")
 
 doc.add_heading("Software, transparency and validation status", level=2)
@@ -492,8 +551,37 @@ if highlighted:
     add_table(doc, ["Cancer–endpoint", "Type", "Q² or Se/Sp (95% CI)", "RMSE or BA (95% CI)", "Spearman or AUROC (95% CI)"], performance_rows)
 add_figure(doc, "Figure5_supported_counts.png", "Figure 5. Breadth and family of within-cancer screen-positive prediction targets. Absence of an eligible target is distinct from a tested screen-negative result.")
 
+doc.add_heading("Exportable linear baseline comparison", level=2)
+binary_baseline_summary = next((r for r in ridge_summary if r.get("outcome_type") == "binary"), {})
+continuous_baseline_summary = next((r for r in ridge_summary if r.get("outcome_type") == "continuous"), {})
+doc.add_paragraph(
+    f"Among the 12 highlighted binary models, the median ridge-minus-PLS balanced-accuracy difference was "
+    f"{fnum(binary_baseline_summary.get('median_delta_ridge_minus_pls'))} "
+    f"(IQR {fnum(binary_baseline_summary.get('q1_delta'))} to {fnum(binary_baseline_summary.get('q3_delta'))}); "
+    f"ridge had a paired-repeat interval above zero for {sum(r.get('outcome_type') == 'binary' for r in ridge_better)} models, "
+    f"PLS for {sum(r.get('outcome_type') == 'binary' for r in pls_better)}, and "
+    f"{sum(r.get('outcome_type') == 'binary' for r in baseline_uncertain)} differences were uncertain. "
+    f"For the 12 continuous models, the median ridge-minus-PLS Q² difference was "
+    f"{fnum(continuous_baseline_summary.get('median_delta_ridge_minus_pls'))} "
+    f"(IQR {fnum(continuous_baseline_summary.get('q1_delta'))} to {fnum(continuous_baseline_summary.get('q3_delta'))}); "
+    f"ridge was favoured for {sum(r.get('outcome_type') == 'continuous' for r in ridge_better)}, "
+    f"PLS for {sum(r.get('outcome_type') == 'continuous' for r in pls_better)}, and "
+    f"{sum(r.get('outcome_type') == 'continuous' for r in baseline_uncertain)} were uncertain. "
+    "Thus PLS was competitive but not uniformly superior to a simpler exportable linear model. Because the benchmark was restricted to PLS-highlighted results, the prespecified PLS atlas was retained and the comparison is reported as selection-conditioned sensitivity evidence rather than a basis for post-screen method switching."
+)
+
 doc.add_heading("Site and multiple-slide sensitivity", level=2)
-doc.add_paragraph(f"Site-grouped validation was feasible for {sum(r.get('feasible')=='TRUE' for r in site_c)+sum(r.get('feasible')=='TRUE' for r in site_b)} screen-positive models. The median grouped-minus-random performance change was {fnum(median(site_deltas))}. The first-slide-minus-mean-pool median change across screen-positive models was {fnum(median(pool_deltas))}. Individual attenuations are reported because centre robustness and slide aggregation are target specific.")
+doc.add_paragraph(
+    f"Site-grouped validation was feasible for {sum(r.get('feasible')=='TRUE' for r in site_c)+sum(r.get('feasible')=='TRUE' for r in site_b)} screen-positive models. "
+    f"Although the median grouped-minus-random performance change was only {fnum(median(site_deltas))}, "
+    f"{ival(site_combined.get('below_threshold_models'))}/{ival(site_combined.get('screen_positive_models'))} "
+    f"models ({fnum(site_combined.get('below_threshold_percent'), 1)}%) fell below the original effect threshold: "
+    f"58/219 continuous models and 25/104 binary models. Prominent attenuations were "
+    f"{site_failure_text(site_named_failures)}. The site-grouped folds contain fewer and less evenly distributed "
+    "training patients, so the decline cannot be attributed solely to site artefact; nevertheless, the near-chance "
+    "colorectal APC results are not adequately summarised by the median and are treated as site-sensitive. "
+    f"The first-slide-minus-mean-pool median change across screen-positive models was {fnum(median(pool_deltas))}."
+)
 add_figure(doc, "Figure6_site_grouped_sensitivity.png", "Figure 6. Random-fold versus tissue-source-site-grouped internal validation. Values below the diagonal indicate attenuation when submitting tissue-source sites are separated.")
 
 doc.add_heading("Reusable multi-endpoint inference and COAD illustration", level=2)
@@ -505,40 +593,97 @@ doc.add_paragraph(
     "every bundled model available for that cancer. Repeated patient identifiers are mean-pooled "
     "before inference. Continuous outputs retain source endpoint units and are positioned against "
     "repeated out-of-fold reference distributions; binary outputs comprise the fitted PLS-LDA class "
-    "and uncalibrated LDA score. A single-sample report renders each continuous endpoint as an "
-    "exact reference-percentile dot with its raw prediction and displays binary calls with "
-    "provenance and out-of-distribution diagnostics."
+    "and uncalibrated LDA score. The binary display labels its TCGA out-of-fold score rank explicitly "
+    "as a rank rather than a probability and places training positive/negative counts, prevalence, "
+    "repeated-CV performance and any limited-class-size warning beside the call. A single-sample report renders all available continuous endpoints "
+    "as a radar, with the exact reference percentile and original prediction printed at every corner, "
+    "and displays binary calls with provenance and out-of-distribution diagnostics. The report ends "
+    "with definitions of every displayed endpoint and citations for the data source used to construct "
+    "each TCGA model target."
 )
 doc.add_paragraph(
     f"COAD was chosen as a deployment illustration because colorectal cancer, of which colon "
     f"adenocarcinoma is a major component, accounted for 1,926,425 new cases worldwide in 2022 "
     f"[31], and COAD contributed {len(coad_supported_c) + len(coad_supported_b)} supported models "
-    f"({len(coad_supported_c)} continuous and {len(coad_supported_b)} binary). Its APC, TP53, KRAS "
-    "and BRAF mutation models were absent from the prespecified exact-pair literature crosswalk, "
-    "which nominates them for follow-up without establishing bibliographic novelty. For visualization, "
-    "the two COAD patients with the greatest Euclidean separation across the complete continuous "
-    "prediction-percentile profile were selected. Example A was MSI-, mutation-rate- and "
-    "lymphocyte/TIL-high but aneuploidy-low, whereas example B was aneuploidy-high but MSI- and "
-    "immune-low (Figure 7). This selection deliberately accentuates contrast and is an internal "
-    "deployment demonstration, not a validation analysis or estimate of clinical prevalence."
+    f"({len(coad_supported_c)} continuous and {len(coad_supported_b)} binary). APC, TP53, KRAS "
+    "and BRAF prediction from colorectal histology had already been evaluated in pooled colorectal "
+    "and/or exact-COAD studies; these models are therefore replications or extensions under a different "
+    "representation and validation framework, not bibliographically novel mutation targets. For visualization, "
+    "we first restricted candidates to cases with a non-empty slide report that described a sigmoid-colon, "
+    "moderately differentiated, pT3 adenocarcinoma with clear margins, and then required that no case had "
+    "more than two of ten continuous predictions outside the first to 99th percentile. Among pairs sharing "
+    "recorded sex and site, TCGA-AA-A01F and TCGA-AA-3972 had the largest Euclidean separation across the "
+    "complete continuous prediction-percentile profile. This produced clinically comparable examples with "
+    "predominantly intermediate rather than saturated values. Example A had higher MSI, mutation-rate and "
+    "TIL predictions and lower aneuploidy predictions, whereas example B showed the converse pattern "
+    "(Figure 7). The selection is an internal deployment demonstration, not a validation analysis or an "
+    "estimate of clinical prevalence."
+)
+doc.add_paragraph(
+    "The accompanying pathology text is paraphrased from TCGA-Slide-Reports.csv rather than reproduced "
+    "verbatim. For TCGA-AA-A01F, the report describes an ulcerated grade-2 sigmoid adenocarcinoma extending "
+    "through the muscular wall into pericolic fat (pT3), with uninvolved resection ends, lymphatic invasion "
+    "and two involved nodes among 30 examined (pN1). For TCGA-AA-3972, it describes an ulcerated grade-2 "
+    "sigmoid colorectal adenocarcinoma extending through the bowel wall into mesocolic fat (pT3), with "
+    "uninvolved proximal and distal margins; a nodal category was not stated in the supplied slide summary."
+)
+doc.add_paragraph(
+    "Public NCI Genomic Data Commons case records provide treatment context [33]. TCGA-AA-A01F received "
+    "fluorouracil, leucovorin and oxaliplatin, for which the recorded treatment outcome was complete response. "
+    "TCGA-AA-3972 received capecitabine plus oxaliplatin and, later, fluorouracil, leucovorin, oxaliplatin and "
+    "bevacizumab; progressive disease was recorded for both treatment records, with recurrence documented "
+    "later in follow-up. These fields are descriptive public metadata and were not predictors, training "
+    "targets or validation outcomes. The examples therefore do not evaluate response prediction or treatment effect."
 )
 add_figure(
     doc,
     "Figure7_COAD_TITANPred_examples.png",
-    "Figure 7. TITANPred deployment illustration in COAD. Panel A compares endpoint-level continuous predictions for TCGA-AD-6964 (example A) and TCGA-5M-AAT5 (example B), the two TCGA patients with maximal separation across the complete COAD continuous profile. Point positions are percentiles relative to repeated out-of-fold TCGA predictions, not clinical reference ranges; labels beside points give the original model predictions in source endpoint units. Panel B shows the corresponding binary PLS-LDA calls and LDA-score percentiles; filled points denote positive calls, and scores are not calibrated probabilities. Examples were selected to demonstrate report contrast and do not provide external validation.",
+    "Figure 7. TITANPred deployment illustration in two clinically comparable COAD cases. Panels A and B show all ten continuous predictions for TCGA-AA-A01F and TCGA-AA-3972, respectively. Silent mutation rate and SNV neoantigens flank nonsilent mutation rate in the semantic axis order. Every radar corner reports the exact percentile relative to corrected repeated out-of-fold TCGA predictions and the original model prediction in the analysed endpoint units; the percentiles are not clinical reference ranges. Panel C shows binary PLS-LDA calls and explicitly labelled TCGA out-of-fold LDA-score ranks; filled points denote positive calls, and ranks are not probabilities. Training n and class counts accompany each binary endpoint. The cases share sex, sigmoid site, grade, pT3 category and clear margins and were selected after limiting saturated continuous profiles. They are full-cohort deployment examples and do not provide external validation.",
     width=6.7,
 )
 
 doc.add_heading("Discussion", level=1)
 doc.add_paragraph(f"This study answers a target-by-target, cancer-specific question rather than asking whether molecular subtype and mutation status are associated. Fixed pretrained TITAN representations contain useful signal for selected immune programmes, mutations and higher-level genomic phenotypes, but most eligible pairs do not satisfy both multiplicity and effect thresholds. That heterogeneity—and transparent negative reporting—is the primary result. Under the stricter across-cancer family correction, {len(global_supported_c)} continuous and {len(global_mutation_b)} mutation pairs passed; the remaining within-cancer candidates should not be interpreted as pan-cancer biomarkers. Conversely, global non-passage cannot be interpreted as evidence of no signal because the 0.001 empirical-p resolution restricts attainable q-values in large families.")
 doc.add_paragraph("The relevant literature spans substantially different validation settings and metrics. For MSI, Kather et al. reported external AUROCs of 0.84 (95% CI 0.72–0.92) in DACHS colorectal cancer and 0.69 (0.52–0.82) in an external gastric cohort, whereas Echle et al. reported an external dMMR AUROC of 0.96 in a 771-case cohort [2,3]. For fusion prediction, Dadhania et al. reported ERG AUROCs of 0.82–0.85, and Mayer et al. reported 100% sensitivity with 100% and 98.6% specificity for ALK and ROS1, respectively, in a small external set [9,10]. Saldanha et al. externally evaluated mutation models in CPTAC, Bergstrom et al. reported external breast HRD AUROC 0.76 (0.71–0.82), and HistoTME reported mean external cell-composition correlation 0.50 and immunotherapy-response AUROC 0.75 (0.61–0.88) [11,14,15]. These externally tested results set a stronger validation standard than the internal TCGA estimates presented here; metric, endpoint and cohort differences preclude claims of direct superiority.")
-doc.add_paragraph(f"The mutation results divide into two evidence groups. {len(recovered_reports)} of the {len(mutation_novelty)} within-cancer screen-positive cancer–gene pairs were exact pairs in the prespecified histology literature crosswalk and were recovered here: " + prior_current_text(recovered_reports) + ". Prior studies generally reported AUROC, whereas the present primary metric is balanced accuracy; the side-by-side values describe consistency of discrimination but are not numerical estimates of improvement or inferiority.")
-doc.add_paragraph("Several published pairs retained moderate discrimination but did not satisfy the current within-cancer mutation-family FDR criterion: " + prior_current_text(previously_reported_not_supported) + ". Other reported pairs were weaker or ineligible under the present primary-tumour and minimum-class-count rules. Differences can arise from cohort composition, primary-versus-metastatic sampling, slide preparation, mutation definition, model class and validation design. Supplementary Table S9 provides the report-level comparison and the complete machine-readable crosswalk preserves original evidence notes and URLs.")
-doc.add_paragraph(f"The remaining {len(atlas_nominated)} screen-positive mutation pairs were not present in the prespecified exact-pair crosswalk and are therefore atlas-nominated candidates rather than replications. Leading examples were " + "; ".join(f'{r["cancer"]}–{r["gene"]} (balanced accuracy {fnum(r["current_balanced_accuracy"])}, q={fnum(r["current_q"])})' for r in atlas_nominated[:8]) + ". Absence from this targeted crosswalk is not a claim that no publication has ever evaluated the pair; a systematic endpoint-level review would be required to establish bibliographic novelty. Supplementary Table S10 classifies every screen-positive mutation pair explicitly.")
+doc.add_paragraph(
+    f"The expanded primary-study audit substantially changes the novelty interpretation. "
+    f"{len(prior_supported_mutations)}/{len(mutation_literature_audit)} screen-positive cancer–gene pairs "
+    "had already received statistical support in reviewed histology-prediction studies, including pooled "
+    "colorectal evidence mapped to both COAD and READ where appropriate. Examples include LGG–CIC "
+    f"(prior mean AUROC 0.836, current balanced accuracy {fnum(next(r for r in mutation_literature_audit if r['cancer']=='LGG' and r['gene']=='CIC')['current_balanced_accuracy'])}), "
+    "LGG–ATRX (prior mean AUROC 0.816), THCA–NRAS (0.809), LIHC–BAP1 (0.825), "
+    "PAAD–TP53 (0.672) and KIRC–VHL (0.631) [13]. Prior studies generally reported AUROC, whereas "
+    "the present primary metric is balanced accuracy; these values are contextual and are not estimates "
+    "of improvement or inferiority."
+)
+doc.add_paragraph(
+    f"Two current screen-positive pairs had been evaluated but were not statistically supported in the "
+    f"reviewed 2024 study: BLCA–PIK3CA (prior mean AUROC 0.588, corrected p=0.058; current balanced "
+    f"accuracy {fnum(next(r for r in prior_evaluated_not_supported if r['cancer']=='BLCA')['current_balanced_accuracy'])}) "
+    f"and SKCM–BRAF (prior mean AUROC 0.579, corrected p=0.286; current balanced accuracy "
+    f"{fnum(next(r for r in prior_evaluated_not_supported if r['cancer']=='SKCM')['current_balanced_accuracy'])}). "
+    "Only THYM–GTF2I was not identified in the reviewed predictive-model literature; a strong direct "
+    "GTF2I–thymoma morphology association is already established, so this result is presented as a "
+    "prediction candidate requiring independent validation rather than a claim of biological novelty. "
+    "The OV–TP53 entry is supported by a 2025 preprint reporting AUROC 0.82±0.02 and is labelled as "
+    "preliminary evidence rather than peer-reviewed external validation [34]. The GTF2I morphology "
+    "association itself was reported by Wells et al. [35]. Supplementary Table S10a and the "
+    "machine-readable audit give the evidence scope, prior metric, source "
+    "and note for every screen-positive pair."
+)
+doc.add_paragraph(
+    "External results also caution against equating internal discrimination with transportability. For PAAD–TP53, "
+    "the current TCGA balanced accuracy was 0.619 and Arslan et al. reported mean internal AUROC 0.672, "
+    "whereas Saldanha et al. reported internal AUROC 0.554 and external CPTAC AUROC 0.443±0.064 [11,13]. "
+    "Differences can arise from cohort composition, slide preparation, mutation definition, model class and "
+    "validation design. The present result therefore supports further locked external testing, not clinical deployment."
+)
 doc.add_paragraph("The immune measurements, oncogenic pathways, MSI, aneuploidy and fusion endpoints extend the analysis beyond the exact cancer–gene mutation pairs used for the literature crosswalk. They are newly screened in this TITAN–PLS atlas, but the manuscript does not claim that histological prediction of those broad endpoint classes is unprecedented. Their novelty is the unified patient-level, cancer-specific screen and directly reusable linear modelling framework.")
 doc.add_paragraph(f"For continuous outcomes, prior work predicted RNA expression [6], tumour composition [4], continuous HRD and microenvironment measures [12], and externally evaluated tumour-microenvironment composition in non-small cell lung cancer [15]. The present study instead screens the prespecified Thorsson immune panel, genomic-context scores, MSI scores, fusion burden and aneuploidy burdens across eligible TCGA cancers using the same patient-level validation design. Only {len(global_supported_c)} continuous pairs passed the stricter across-cancer correction; the others should be treated as endpoint- and cancer-specific nominations, not as replications of the external HistoTME results or as evidence of general immune profiling.")
 doc.add_paragraph("The contribution of TITAN plus PLS is a uniform, auditable screen over many prespecified outcomes using one fixed pretrained representation, with one-at-a-time PLS–LDA retained for the prespecified individual binary endpoints and PLS2 examined secondarily for correlated inflammatory panels.")
-doc.add_paragraph("A further practical feature is data-minimising model portability. Preprocessing values, latent weights and coefficients are sufficient for continuous prediction, with compact LDA parameters added for binary classification. TITANPred publicly distributes these fitted objects and applies every cancer-matched model to correctly ordered TITAN features without distributing the original patient embeddings or outcomes [32]. This reduces the patient-level data that must be exchanged, although it does not itself confer privacy, satisfy local governance requirements or establish transportability. The COAD examples show how the package summarizes divergent multi-endpoint profiles; because the examples were selected for maximal separation within TCGA and were predicted by full-cohort fits, they must not be interpreted as new accuracy evidence.")
+doc.add_paragraph("The ridge benchmark prevents interpreting that design choice as proof of PLS superiority. Median ridge-minus-PLS differences were small (0.007 balanced accuracy for binary and 0.014 Q² for continuous models), although paired intervals favoured ridge for two binary and seven continuous highlighted endpoints and favoured PLS for one binary and two continuous endpoints. The remaining 12 comparisons were uncertain. Both approaches yield compact exportable parameters, so portability is not unique to PLS. PLS remains the prespecified atlas method because the benchmark was performed only on PLS-highlighted models and switching methods after that selection would add another optimistic selection layer. Future external validation can compare locked PLS and ridge candidates prospectively.")
+doc.add_paragraph(f"Site grouping revealed heterogeneity that the median attenuation concealed: {ival(site_combined.get('below_threshold_models'))}/{ival(site_combined.get('screen_positive_models'))} screen-positive models ({fnum(site_combined.get('below_threshold_percent'), 1)}%) fell below their original effect threshold. READ–APC and COAD–APC declined from balanced accuracies 0.862 and 0.793 to 0.495 and 0.543, respectively. Smaller and less balanced training folds contribute to grouped-validation loss, but performance close to chance requires these models to be labelled site-sensitive rather than robust biological signals. This reinforces the need for multi-institutional external validation and for publishing target-level, not only median, sensitivity results.")
+doc.add_paragraph("A further practical feature is data-minimising model portability. Preprocessing values, latent weights and coefficients are sufficient for continuous prediction, with compact LDA parameters added for binary classification. TITANPred publicly distributes these fitted objects and applies every cancer-matched model to correctly ordered TITAN features without distributing the original patient embeddings or outcomes [32]. This reduces the patient-level data that must be exchanged, although it does not itself confer privacy, satisfy local governance requirements or establish transportability. The matched COAD examples show how the package summarizes differing multi-endpoint profiles among cases with shared clinicopathological attributes. Because both examples were chosen within TCGA and were predicted by full-cohort fits, neither their molecular contrast nor their recorded treatment outcomes constitute new accuracy or response-prediction evidence.")
 doc.add_paragraph("Strengths include primary-tumour matching across every data source, deterministic mean pooling of multiple slides, nested patient-level validation, FDR control within cancer and endpoint family, exact negative-result reporting, site-grouped sensitivity, saved research models and executable inference code. The supplied Bonneville spreadsheets contained only an ACC/CESC/MESO subset; cBioPortal PanCancer Atlas MANTIS fields were therefore used for full coverage and agreed exactly for all 387 overlapping cases.")
 doc.add_paragraph("The principal limitation is absence of independent external validation. TCGA resampling, even with site separation, cannot establish transportability to another institution, scanner, stain distribution or patient population. The study is retrospective and exploratory; thresholds are prioritisation rules, not clinical operating points. Although TCGA was excluded from TITAN's Mass-340K pretraining corpus, it was used in the original paper's downstream evaluation; the present cohort is therefore neither a pretraining cohort nor an independent validation cohort. Predictability does not establish biological causality, and image-derived predictions cannot justify omitting a molecular assay. External feature extraction and prospective evaluation are required before clinical use.")
 doc.add_paragraph("The repeated nested-CV estimates and patient-cluster bootstrap intervals are also conditional on selecting endpoints in this same TCGA atlas. They quantify partition and sampling variability for highlighted candidates but do not correct winner's-curse optimism from highlighting the strongest screen results. Consequently, the intervals should not be read as external-performance intervals; locked-model evaluation in an untouched cohort is required for unbiased transportability assessment.")
@@ -565,7 +710,7 @@ for h, text in [
     ("Consent for publication", "Not applicable."),
     ("Study registration and protocol", "This retrospective secondary analysis was not registered. The locked executable analysis plan is available in the companion repository [30]."),
     ("Patient and public involvement", "Patients and members of the public were not involved in the design, conduct, interpretation or reporting of this secondary analysis."),
-    ("Availability of data and materials", "The analysis used the public TITAN TCGA feature artifact (TCGA_TITAN_features.pkl) through its supplied 768-feature CSV export. TCGA molecular data and the cited public supplementary records remain available from their original repositories. Exact source locations, access information and SHA-256 checksums are recorded in the companion analysis repository [30]. Controlled-access whole-slide images are not redistributed. All 323 fitted research models, their registry, inference code and HTML/PDF report template are distributed in the separate TITANPred repository [32]."),
+    ("Availability of data and materials", "The analysis used the gated public TITAN TCGA feature artifact TCGA_TITAN_features.pkl, downloaded from https://huggingface.co/MahmoodLab/TITAN/blob/main/TCGA_TITAN_features.pkl and converted to the documented 768-feature CSV schema with tools/convert_tcga_titan_pickle.py in the companion repository [30]. The analysed CSV contained 11,658 slide rows (SHA-256 d3d91fb0f83a6de440eda5ff437a63e3ca13f50095e6841fb8efcc40e58763f0). TCGA molecular data and the cited public supplementary records remain available from their original repositories. Exact source locations, access conditions and checksums are recorded in the companion repository. Controlled-access whole-slide images are not redistributed. All 323 fitted research models, their registry, inference code and HTML/PDF report template are distributed in the separate TITANPred repository [32]."),
     ("Competing interests", "[Author confirmation required before submission.]"),
     ("Funding", "[Author confirmation required before submission.]"),
     ("Authors’ contributions", "[Author initials and contribution statement required before submission.]"),
@@ -580,12 +725,12 @@ doc.add_paragraph(
     "machine-readable result files."
 )
 doc.add_paragraph(
-    "Additional file 2 (.pdf): COAD example A (TCGA-AD-6964) TITANPred single-sample report. "
+    "Additional file 2 (.pdf): COAD example A (TCGA-AA-A01F) TITANPred single-sample report. "
     "Illustrative full-cohort research-model predictions for the COAD example with "
     "high MSI, mutation-rate and immune-feature predictions and low aneuploidy prediction."
 )
 doc.add_paragraph(
-    "Additional file 3 (.pdf): COAD example B (TCGA-5M-AAT5) TITANPred single-sample report. "
+    "Additional file 3 (.pdf): COAD example B (TCGA-AA-3972) TITANPred single-sample report. "
     "Illustrative full-cohort research-model predictions for the contrasting COAD "
     "example with high aneuploidy prediction and lower MSI and immune-feature predictions."
 )
@@ -624,6 +769,9 @@ references = [
 f"30. TITAN prediction atlas repository. GitHub. {REPO}. Accessed 15 Aug 2026.",
 "31. International Agency for Research on Cancer. Global Cancer Observatory: GLOBOCAN 2022 world fact sheet. Lyon: IARC; 2024. https://gco.iarc.who.int/media/globocan/factsheets/populations/900-world-fact-sheet.pdf. Accessed 16 Aug 2026.",
 f"32. TITANPred R package and fitted-model repository. GitHub. {MODEL_REPO}. Accessed 16 Aug 2026.",
+"33. National Cancer Institute. Genomic Data Commons Cases API. https://api.gdc.cancer.gov/cases. Accessed 16 Aug 2026.",
+"34. Fernandes G. Morpho-genomic deep learning for ovarian cancer subtype and gene mutation prediction from histopathology. arXiv. 2025;arXiv:2511.03365. doi:10.48550/arXiv.2511.03365.",
+"35. Wells K, Lamrca A, Papaxoinis G, et al. Unique correlation between GTF2I mutation and spindle cell morphology in thymomas (type A and AB thymomas). J Clin Pathol. 2023;76:463–466. doi:10.1136/jclinpath-2021-207837.",
 ]
 for ref in references: doc.add_paragraph(ref)
 doc.save(OUT / "manuscript_JTM_patient_level_TITAN.docx")
@@ -633,7 +781,7 @@ doc.save(OUT / "manuscript_JTM_patient_level_TITAN.docx")
 sup = setup(Document(), "Supplementary material — TITAN atlas")
 sup.add_heading("Supplementary material", 0)
 sup.add_paragraph("A patient-level TCGA discovery atlas of molecular and immune predictability from pretrained TITAN whole-slide representations across 32 cancers")
-sup.add_paragraph("This document is Additional file 1. The COAD example A (TCGA-AD-6964) and example B (TCGA-5M-AAT5) TITANPred single-sample reports are supplied as separate PDF attachments (Additional files 2 and 3, respectively).")
+sup.add_paragraph("This document is Additional file 1. The COAD example A (TCGA-AA-A01F) and example B (TCGA-AA-3972) TITANPred single-sample reports are supplied as separate PDF attachments (Additional files 2 and 3, respectively).")
 sup.add_heading("Supplementary Methods", 1)
 sup.add_paragraph("The executable analysis plan, source manifest, eligibility catalogues, checkpoint-capable scripts and released out-of-fold prediction tables are available in the companion analysis repository. The separate TITANPred R package bundles all fitted research models, the model registry, reference distributions and report template. Large local restart checkpoints are not redistributed. Tables below are concise views; complete machine-readable CSV files are authoritative.")
 sup.add_heading("Secondary PLS1–PLS2 inflammatory comparison", 2)
@@ -748,13 +896,27 @@ sup.add_heading("Table S9. Published exact cancer–gene results compared with t
 sup.add_paragraph("Prior studies predominantly reported AUROC, whereas the current prespecified metric is balanced accuracy. These values are displayed side by side for context but are not directly subtractable and do not constitute a head-to-head model comparison.")
 add_table(sup, ["Study", "Cancer", "Gene", "Prior result", "Current BA", "Current q", "Current status"],
           [(r["study"], r["cancer"], r["gene"], r["prior_metric"], fnum(r["current_balanced_accuracy"]), fnum(r["current_q"]), r["current_status"].replace("_", " ")) for r in lit_accuracy])
-sup.add_heading("Table S10. Screen-positive mutation predictors classified by prior exact-pair evidence", 1)
-sup.add_paragraph("Atlas-nominated means absent from the prespecified exact-pair crosswalk and should not be interpreted as proof that no previous publication has studied the pair.")
-add_table(sup, ["Cancer", "Gene", "Evidence class", "n", "Positive", "Balanced accuracy", "q", "Category"],
-          [(r["cancer"], r["gene"],
-            "atlas-nominated" if r["evidence_class"].startswith("atlas-nominated") else "prior report recovered",
-            r["n"], r["positive"], fnum(r["current_balanced_accuracy"]), fnum(r["current_q"]), category(r["current_tier"]))
-           for r in mutation_novelty])
+sup.add_heading("Table S10a. Expanded literature audit for every screen-positive mutation predictor", 1)
+sup.add_paragraph("The audit maps pooled colorectal cohorts to COAD and READ where appropriate and distinguishes prior statistical support, prior evaluation without support, and a result not identified in the reviewed predictive-model literature. The last category is not a claim of biological novelty or an exhaustive proof of bibliographic novelty.")
+add_table(sup, ["Cancer", "Gene", "Evidence class", "Prior study/scope", "Prior result", "Current BA", "Current q", "Current category"],
+          [(r["cancer"], r["gene"], r["evidence_class"],
+            f'{r.get("prior_study")} / {r.get("prior_scope")}', r.get("prior_result"),
+            fnum(r["current_balanced_accuracy"]), fnum(r["current_q"]), category(r["current_tier"]))
+           for r in mutation_literature_audit])
+sup.add_heading("Table S10b. Screen-positive models below the original effect threshold under site-grouped validation", 1)
+add_table(sup, ["Type", "Family", "Cancer", "Endpoint", "n", "Sites", "Random-fold metric", "Site-grouped metric", "Delta"],
+          [(r.get("outcome_type"), r.get("family"), r.get("tumor_type"), r.get("endpoint"),
+            r.get("n"), r.get("n_sites"), fnum(r.get("original_metric")),
+            fnum(r.get("site_grouped_metric")), fnum(r.get("delta")))
+           for r in site_threshold_failures])
+sup.add_heading("Table S10c. PLS versus exportable ridge benchmark for highlighted models", 1)
+sup.add_paragraph("The benchmark is conditional on selection of PLS screen-positive highlighted models. Positive differences favour ridge; metrics and paired-repeat intervals should be interpreted by magnitude rather than winner counts.")
+add_table(sup, ["Type", "Family", "Cancer", "Endpoint", "Metric", "PLS mean", "Ridge mean", "Ridge−PLS", "95% interval", "Interpretation"],
+          [(r.get("outcome_type"), r.get("family"), r.get("tumor_type"), r.get("endpoint"),
+            r.get("primary_metric"), fnum(r.get("pls_primary_mean")),
+            fnum(r.get("ridge_primary_mean")), fnum(r.get("delta_ridge_minus_pls")),
+            f'{fnum(r.get("delta_ci_low"))} to {fnum(r.get("delta_ci_high"))}',
+            r.get("selected_method")) for r in ridge_comparison])
 sup.add_heading("Table S11. Prior histology-based molecular and immune prediction landscape", 1)
 add_table(sup, ["Study", "Year", "Scope", "Endpoints", "Development cohort", "External validation", "Reported performance", "DOI"],
           [(r.get("study"), r.get("year"), r.get("scope"), r.get("endpoints"),
@@ -774,8 +936,10 @@ if pls2:
 add_figure(sup, "Figure6a_pls1_vs_pls2_targets.png", "Figure S1. Matched target-level PLS1 and PLS2 Q² on identical held-out patients.")
 add_figure(sup, "Figure6b_pls1_vs_pls2_cancers.png", "Figure S2. Cancer-level mean Q² change for joint PLS2 relative to response-by-response PLS1.")
 sup.add_heading("Machine-readable additional files", 1)
-for name in ["continuous_screen.csv", "binary_screen.csv", "screen_positive_performance_summary.csv", "highlighted_model_performance.csv", "continuous_repeated_nested_cv.csv", "binary_repeated_nested_cv.csv", "continuous_repeated_oof_predictions.csv.gz", "binary_repeated_oof_predictions.csv.gz", "continuous_site_grouped_sensitivity.csv", "binary_site_grouped_sensitivity.csv", "continuous_slide_pooling_sensitivity.csv", "binary_slide_pooling_sensitivity.csv", "pls1_vs_pls2_inflammation.csv", "prior_mutation_literature_crosswalk.csv", "prior_mutation_accuracy_comparison.csv", "supported_mutation_novelty.csv", "slide_report_coverage_audit.csv", "patient_slide_multiplicity_by_cancer.csv", "participant_characteristics_by_cancer.csv", "tcga_cdr_match_audit.csv", "molecular_source_coverage_audit.csv", "mutation_coverage_audit.csv", "mutation_target_eligibility_audit.csv", "mutation_variant_classification_audit.csv", "source_manifest.csv", "software_manifest.csv", "models/model_registry.csv"]:
-    sup.add_paragraph(name, style="List Bullet")
+for name in ["continuous_screen.csv", "binary_screen.csv", "screen_positive_performance_summary.csv", "highlighted_model_performance.csv", "continuous_repeated_nested_cv.csv", "binary_repeated_nested_cv.csv", "continuous_repeated_oof_predictions.csv.gz", "binary_repeated_oof_predictions.csv.gz", "continuous_site_grouped_sensitivity.csv", "binary_site_grouped_sensitivity.csv", "site_grouped_retention_summary.csv", "site_grouped_models_below_effect_threshold.csv", "continuous_slide_pooling_sensitivity.csv", "binary_slide_pooling_sensitivity.csv", "pls1_vs_pls2_inflammation.csv", "ridge_baseline_repeated_nested_cv.csv", "pls_vs_ridge_highlighted_models.csv", "prior_mutation_literature_crosswalk.csv", "prior_mutation_accuracy_comparison.csv", "supported_mutation_literature_audit.csv", "slide_report_coverage_audit.csv", "patient_slide_multiplicity_by_cancer.csv", "participant_characteristics_by_cancer.csv", "tcga_cdr_match_audit.csv", "molecular_source_coverage_audit.csv", "mutation_coverage_audit.csv", "mutation_target_eligibility_audit.csv", "mutation_variant_classification_audit.csv", "source_manifest.csv", "software_manifest.csv", "models/model_registry.csv"]:
+    p = sup.add_paragraph(name, style="List Bullet")
+    p.paragraph_format.space_after = Pt(0)
+    p.paragraph_format.line_spacing = 1.2
 sup.save(OUT / "supplementary_material_JTM.docx")
 
 
@@ -786,6 +950,20 @@ resp.add_paragraph("Manuscript: A patient-level TCGA discovery atlas of molecula
 resp.add_paragraph("We thank the reviewer for identifying validation and reproducibility as the principal issues. The analysis has been rebuilt from the original files with patient-first slide aggregation and primary-tumour molecular matching.")
 
 responses = [
+    ("Audit comment: continuous repeated cross-validation returned negative Q² and near-zero correlation",
+     "Confirmed and corrected. fastPLS returns continuous predictions as an n-by-1-by-1 array. The previous repeated-validation helper used Ypred[[1]], which extracted one scalar and silently recycled it across every patient in the held-out fold. The revised helper drops only singleton dimensions, verifies that the prediction length equals the held-out patient count, and then assigns one prediction per patient. A targeted COAD TIL Regional Fraction check agreed with pls.double.cv (corrected Q² 0.430 and Spearman 0.701 versus 0.377 and 0.655 with the independent routine). We invalidated the affected analysis fingerprint and regenerated all repeated continuous predictions, summaries, uncertainty intervals, reference distributions, figures and reports. Across the 219 screen-positive continuous models, corrected mean repeated-CV Q² values are now positive, with median Q² 0.300 and median Spearman correlation 0.553."),
+    ("Audit comment: continuous radar reference positions inherited the broken predictions",
+     "Confirmed. The fitted full-cohort predictions were not affected, but the TCGA out-of-fold reference distributions used for radar positions were. TITANPred's prediction_reference.rds was rebuilt from the corrected repeated held-out predictions, the package was reinstalled, and the COAD reports and Figure 7 were regenerated. The original model prediction remains printed at every radar corner."),
+    ("Audit comment: site-grouped validation was underreported",
+     f"Addressed. We now report both the median change and threshold retention. {ival(site_combined.get('below_threshold_models'))}/{ival(site_combined.get('screen_positive_models'))} screen-positive models ({fnum(site_combined.get('below_threshold_percent'), 1)}%) fell below the original effect threshold under hospital-grouped folds: 58/219 continuous and 25/104 binary models. Named examples include READ–APC (balanced accuracy 0.862 to 0.495), COAD–APC (0.793 to 0.543), and COAD–SNV Neoantigens (Q² 0.239 to −0.013). The text acknowledges that smaller and uneven grouped training folds explain part of the decrease but treats near-chance APC results as site-sensitive. Complete target-level results are added as Table S10b and CSV."),
+    ("Audit comment: mutation novelty was overstated",
+     f"Confirmed. The exact-code crosswalk missed pooled colorectal studies and did not include newer pan-cancer source data. We expanded the audit using Kather et al., Saldanha et al., Arslan et al. and a clearly labelled ovarian preprint. Of {len(mutation_literature_audit)} screen-positive mutation pairs, {len(prior_supported_mutations)} were previously supported, {len(prior_evaluated_not_supported)} had been evaluated without statistical support, and only THYM–GTF2I was not identified in the reviewed predictive-model literature. All 'atlas-nominated' novelty language was removed. The revised Table S10a records evidence class, cancer scope, prior metric, source and note for every pair."),
+    ("Audit comment: PLS lacked a simple exportable baseline",
+     "Addressed with a same-fold repeated nested benchmark of the 24 highlighted models against ridge Gaussian or logistic regression. Median ridge-minus-PLS differences were 0.014 Q² for continuous and 0.007 balanced accuracy for binary models. Paired intervals favoured ridge for seven continuous and two binary models, PLS for two continuous and one binary model, and were uncertain for the remaining 12. We therefore state that PLS is competitive but not uniformly superior. Because the benchmark is conditional on PLS-based endpoint highlighting, the prespecified PLS atlas is retained rather than adding post-selection method switching. Ridge was selected as the baseline because its fitted coefficients are portable without retaining training embeddings; the full repeated results and uncertainty are supplied in Table S10c and CSV."),
+    ("Audit comment: the Introduction did not state the gap",
+     "Addressed. The Background now states explicitly that earlier work is fragmented across cancers, endpoints, representations and reporting conventions, and defines the gap as a single patient-level reusable discovery atlas using one fixed pretrained representation and one validation framework across many endpoint classes with negative results, class counts, uncertainty and deployable fitted models."),
+    ("Audit comment: binary percentiles could be mistaken for probabilities and small classes were not visible",
+     "Addressed by relabelling rather than adding an unevaluated post-hoc calibration layer. Binary displays and tables now use 'TCGA out-of-fold score rank (not probability)', retain the raw uncalibrated LDA score and class call, and show training n, positive and negative counts, prevalence, repeated-CV balanced accuracy and AUROC. A warning is emitted and printed when either development class contains fewer than 50 patients. The 20-per-class modelling eligibility rule is unchanged. Proper probability calibration remains future work requiring independently evaluated or fully nested calibration."),
     ("1. Across-cancer multiplicity and permutation resolution",
      f"Addressed. Every effect-eligible endpoint is refined toward 999 patient-label permutations with a conservative stopping boundary of 49 exceedances, minimum completed-test resolution 0.001, and exact attempted counts retained. Both the prespecified within-cancer family q-value and the stricter across-cancer family q-value are reported. The abstract, figures and Discussion state that {len(global_supported_c)} continuous and {len(global_mutation_b)} cancer–mutation pairs passed the stricter correction; all remaining within-cancer results are framed as cancer-specific discovery candidates. We now also state explicitly that the 0.001 resolution limits attainable q-values in large global families, so non-passage is not evidence of absence."),
     ("2. External validation is the principal unresolved limitation",
@@ -801,9 +979,9 @@ responses = [
     ("7. Complete submission-specific fields",
      "Partly outstanding. Aamilah Ismail and Martin Ocharo are listed as shared co-first authors, with Martin Ocharo second in the author order and assigned to affiliations 1 and 2. Brendon Price is included in the middle of the author list with the Division of Anatomical Pathology, University of Cape Town and National Health Laboratory Service affiliation. The remaining supplied author names, affiliations, available email addresses and corresponding-author details have been entered. Email addresses for Martin Ocharo, Brendon Price and Ekene Emmanuel Nweke were not supplied. Funding, competing interests and contribution statements still require author confirmation and remain visibly marked where applicable. No scientific values are placeholder text."),
     ("8. Presentation and algorithm-comparison claims",
-     "Addressed. High-resolution figures and machine-readable tables accompany the Word documents. Runtime, speed and method-comparison commentary that was not needed to interpret the scientific results was removed."),
-    ("Additional change: distinguish replication from atlas-nominated predictors",
-     "The Discussion identifies exact published cancer–gene pairs recovered by the corrected screen, gives prior AUROC and current balanced accuracy side by side without treating the metrics as directly comparable, discusses selected published pairs that were screen-negative, and labels remaining mutation candidates as atlas-nominated rather than proven novel. The literature audit now also covers MSI, continuous biomarkers, expression, gene fusion, HRD and tumour-microenvironment prediction, including external-validation examples."),
+     "Addressed. High-resolution figures and machine-readable tables accompany the Word documents. Runtime and speed claims were removed. A focused same-fold ridge benchmark was added because it directly tests whether PLS materially outperforms a simpler portable linear model; it is reported with effect magnitudes, uncertainty and selection-conditioning caveats."),
+    ("Additional change: distinguish replication from predictors not identified in the reviewed literature",
+     "The Discussion uses an expanded primary-study audit, maps pooled colorectal evidence to COAD and READ, gives prior AUROC and current balanced accuracy side by side without treating the metrics as directly comparable, and distinguishes previously supported, previously evaluated-but-not-supported, and not-identified categories. Only THYM–GTF2I was not identified in the reviewed predictive-model literature, and even that result is not claimed as biological or definitive bibliographic novelty. The broader landscape audit covers MSI, continuous biomarkers, expression, gene fusion, HRD and tumour-microenvironment prediction, including external-validation examples."),
     ("Additional change: clarify model portability without training-data release",
      "The Background, Methods, Discussion and Conclusions explain that fitted PLS and PLS–LDA models contain compact learned transformations and coefficients and can be applied without distributing patient-level training embeddings or outcomes. Licensing, privacy, governance and external-validation limitations are retained."),
     ("Additional change: multiple slides and molecular specimen matching",

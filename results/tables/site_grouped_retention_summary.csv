@@ -1,0 +1,4 @@
+outcome_type,screen_positive_models,feasible_models,retained_models,below_threshold_models,below_threshold_percent,near_chance_or_worse_models,median_delta
+continuous,219,219,161,58,26.4840182648402,3,-0.0323320387920872
+binary,104,104,79,25,24.0384615384615,8,-0.0178069554930491
+combined,323,323,240,83,25.6965944272446,11,-0.0256279714540763

@@ -253,6 +253,29 @@ audit_repeated_predictions(
   "results/predictions/continuous_repeated_oof_predictions.csv.gz",
   supported_c, "continuous repeated OOF"
 )
+continuous_oof <- fread(
+  "results/predictions/continuous_repeated_oof_predictions.csv.gz"
+)
+continuous_fold_variation <- continuous_oof[, .(
+  unique_predictions = uniqueN(signif(predicted, 12L))
+), by = c(key, "repeat", "outer_fold")]
+assert(all(continuous_fold_variation$unique_predictions > 1L),
+       "A continuous held-out fold contains a recycled scalar prediction")
+continuous_recomputed <- continuous_oof[, .(
+  q2 = q_squared(observed, predicted),
+  rmse = sqrt(mean((observed - predicted)^2)),
+  spearman = suppressWarnings(cor(observed, predicted, method = "spearman"))
+), by = c(key, "repeat")]
+continuous_summary <- fread("results/tables/continuous_repeated_nested_cv.csv")
+continuous_check <- merge(
+  continuous_summary, continuous_recomputed,
+  by = c(key, "repeat"), suffixes = c("_stored", "_recomputed")
+)
+assert(nrow(continuous_check) == nrow(continuous_summary) &&
+         all(abs(continuous_check$q2_stored - continuous_check$q2_recomputed) < 1e-12) &&
+         all(abs(continuous_check$rmse_stored - continuous_check$rmse_recomputed) < 1e-9) &&
+         all(abs(continuous_check$spearman_stored - continuous_check$spearman_recomputed) < 1e-12),
+       "Stored continuous repeated-CV metrics do not reproduce the OOF predictions")
 audit_repeated_predictions(
   "results/predictions/binary_repeated_oof_predictions.csv.gz",
   supported_b, "binary repeated OOF"
@@ -352,6 +375,38 @@ assert(all(vapply(binary_h[, ..binary_ci], function(x) all(is.finite(x)),
 assert(all(vapply(continuous_h[, ..continuous_ci],
                   function(x) all(is.finite(x)), logical(1))),
        "Highlighted continuous uncertainty intervals are incomplete")
+
+site_retention <- fread("results/tables/site_grouped_retention_summary.csv")
+combined_retention <- site_retention[outcome_type == "combined"]
+assert(nrow(combined_retention) == 1L &&
+         combined_retention$screen_positive_models == nrow(supported) &&
+         combined_retention$below_threshold_models == 83L &&
+         abs(combined_retention$below_threshold_percent - 100 * 83 / 323) < 1e-10,
+       "Site-grouped threshold-retention summary is inconsistent")
+
+mutation_audit <- fread("results/tables/supported_mutation_literature_audit.csv")
+evidence_counts <- mutation_audit[, .N, by = evidence_class]
+assert(nrow(mutation_audit) == 41L &&
+         evidence_counts[
+           evidence_class == "previously supported in reviewed predictive literature", N
+         ] == 38L &&
+         evidence_counts[
+           evidence_class == "previously evaluated without statistical support in reviewed study", N
+         ] == 2L &&
+         evidence_counts[
+           evidence_class == "not identified in reviewed predictive literature", N
+         ] == 1L,
+       "Expanded mutation-literature evidence counts are inconsistent")
+
+ridge_comparison <- fread("results/tables/pls_vs_ridge_highlighted_models.csv")
+assert(nrow(ridge_comparison) == nrow(highlighted) &&
+         all(ridge_comparison$repeats == cfg$analysis$robustness_repeats) &&
+         all(is.finite(ridge_comparison$delta_ridge_minus_pls)) &&
+         all(ridge_comparison$benchmark_scope == paste(
+           "24 manuscript-highlighted PLS screen-positive models; conditional",
+           "benchmark not suitable for claiming atlas-wide PLS superiority"
+         )),
+       "Exportable ridge benchmark is incomplete or mis-scoped")
 
 cohort <- fread("results/tables/patient_cohort_summary.csv")
 assert(nrow(cohort) == 9404L && sum(cohort$n_slides) == 11449L,

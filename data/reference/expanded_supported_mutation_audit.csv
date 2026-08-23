@@ -1,0 +1,42 @@
+cancer,gene,prior_study,prior_scope,prior_result,prior_evidence_class,source_url,audit_note
+BLCA,FGFR3,Arslan2024,exact cancer,mean three-fold AUROC 0.761 [0.696-0.801]; corrected p=2.301e-10,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+BLCA,PIK3CA,Arslan2024,exact cancer,mean three-fold AUROC 0.588 [0.528-0.629]; corrected p=0.05824,previously_evaluated_not_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+BLCA,TP53,Arslan2024,exact cancer,mean three-fold AUROC 0.675 [0.640-0.722]; corrected p=2.176e-07,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+BRCA,CDH1,Arslan2024,exact cancer,mean three-fold AUROC 0.839 [0.818-0.879]; corrected p=4.843e-46,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+BRCA,PIK3CA,Arslan2024,exact cancer,mean three-fold AUROC 0.622 [0.612-0.629]; corrected p=1.264e-07,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+BRCA,TP53,Arslan2024,exact cancer,mean three-fold AUROC 0.785 [0.756-0.814]; corrected p=4.575e-46,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+CESC,TP53,Arslan2024,exact cancer,mean three-fold AUROC 0.703 [0.551-0.893]; corrected p=8.629e-05,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+COAD,APC,Arslan2024,exact cancer,mean three-fold AUROC 0.636 [0.624-0.653]; corrected p=0.0008781,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+COAD,BRAF,Arslan2024,exact cancer,mean three-fold AUROC 0.768 [0.736-0.825]; corrected p=4.892e-10,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+COAD,KRAS,Arslan2024,exact cancer,mean three-fold AUROC 0.624 [0.583-0.663]; corrected p=0.002947,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+COAD,TP53,Kather2020,pooled colorectal,AUROC 0.661 [0.639-0.677]; FDR q=1.15e-9,previously_supported,https://doi.org/10.1038/s43018-020-0087-6,COAD and READ were pooled in the prior study; Arslan2024 exact-COAD result was not FDR-significant
+GBM,TP53,Arslan2024,exact cancer,mean three-fold AUROC 0.680 [0.638-0.702]; corrected p=0.004082,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+HNSC,NSD1,Arslan2024,exact cancer,mean three-fold AUROC 0.653 [0.586-0.688]; corrected p=0.0001968,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+HNSC,TP53,Arslan2024,exact cancer,mean three-fold AUROC 0.738 [0.668-0.823]; corrected p=1.657e-13,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+KIRC,VHL,Arslan2024,exact cancer,mean three-fold AUROC 0.631 [0.603-0.670]; corrected p=0.001578,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+LGG,ATRX,Arslan2024,exact cancer,mean three-fold AUROC 0.816 [0.789-0.858]; corrected p=1.183e-31,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+LGG,CIC,Arslan2024,exact cancer,mean three-fold AUROC 0.836 [0.790-0.867]; corrected p=5.057e-27,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+LGG,EGFR,Arslan2024,exact cancer,mean three-fold AUROC 0.790 [0.723-0.829]; corrected p=1.747e-17,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+LGG,FUBP1,Arslan2024,exact cancer,mean three-fold AUROC 0.714 [0.695-0.749]; corrected p=2.788e-05,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+LGG,IDH1,Arslan2024,exact cancer,mean three-fold AUROC 0.740 [0.705-0.759]; corrected p=1.677e-12,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+LGG,PTEN,Arslan2024,exact cancer,mean three-fold AUROC 0.688 [0.662-0.703]; corrected p=0.006080,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+LGG,TP53,Arslan2024,exact cancer,mean three-fold AUROC 0.842 [0.810-0.859]; corrected p=5.892e-40,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+LIHC,BAP1,Arslan2024,exact cancer,mean three-fold AUROC 0.825 [0.774-0.862]; corrected p=6.555e-05,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+LIHC,CTNNB1,Arslan2024,exact cancer,mean three-fold AUROC 0.648 [0.638-0.663]; corrected p=0.0001418,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+LIHC,TP53,Arslan2024,exact cancer,mean three-fold AUROC 0.608 [0.582-0.626]; corrected p=0.007657,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+LUAD,EGFR,Arslan2024,exact cancer,mean three-fold AUROC 0.676 [0.644-0.695]; corrected p=0.0001350,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+LUAD,TP53,Arslan2024,exact cancer,mean three-fold AUROC 0.679 [0.642-0.699]; corrected p=1.490e-09,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+OV,TP53,Fernandes2025,exact cancer,AUROC 0.82 +/- 0.02,previously_supported,https://arxiv.org/abs/2511.03365,Preprint; no independent external validation reported
+PAAD,TP53,Arslan2024,exact cancer,mean three-fold AUROC 0.672 [0.624-0.707]; corrected p=0.001334,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Saldanha2023 reported internal AUROC 0.554 and external CPTAC AUROC 0.443 +/- 0.064
+READ,APC,Kather2020,pooled colorectal,AUROC 0.673 [0.664-0.690]; FDR q=1.51e-10,previously_supported,https://doi.org/10.1038/s43018-020-0087-6,COAD and READ were pooled in the prior study; Arslan2024 exact-READ result was not FDR-significant
+READ,TP53,Arslan2024,exact cancer,mean three-fold AUROC 0.743 [0.680-0.777]; corrected p=5.384e-05,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+SARC,TP53,Arslan2024,exact cancer,mean three-fold AUROC 0.620 [0.566-0.653]; corrected p=0.03226,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+SKCM,BRAF,Arslan2024,exact cancer,mean three-fold AUROC 0.579 [0.506-0.617]; corrected p=0.2864,previously_evaluated_not_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+STAD,PIK3CA,Arslan2024,exact cancer,mean three-fold AUROC 0.712 [0.667-0.779]; corrected p=0.0008205,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+STAD,TP53,Arslan2024,exact cancer,mean three-fold AUROC 0.666 [0.602-0.707]; corrected p=0.0001717,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+THCA,BRAF,Arslan2024,exact cancer,mean three-fold AUROC 0.854 [0.850-0.856]; corrected p=5.440e-41,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+THCA,NRAS,Arslan2024,exact cancer,mean three-fold AUROC 0.809 [0.686-0.876]; corrected p=1.231e-09,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+THYM,GTF2I,None identified,exact cancer,No H&E predictive model identified in the reviewed literature,not_identified_in_reviewed_predictive_literature,https://pubmed.ncbi.nlm.nih.gov/35039450/,A morphology-genotype association is established but this is not a prior predictive-model result
+UCEC,ARID1A,Arslan2024,exact cancer,mean three-fold AUROC 0.656 [0.632-0.674]; corrected p=2.281e-06,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+UCEC,PTEN,Arslan2024,exact cancer,mean three-fold AUROC 0.753 [0.740-0.775]; corrected p=1.421e-18,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data
+UCEC,TP53,Arslan2024,exact cancer,mean three-fold AUROC 0.771 [0.757-0.788]; corrected p=1.176e-20,previously_supported,https://doi.org/10.1038/s43856-024-00471-5,Primary-study supplementary data

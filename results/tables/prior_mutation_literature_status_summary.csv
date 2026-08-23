@@ -1,7 +1,6 @@
 current_status,N
 metastatic_sample_type_excluded,2
-not_eligible_or_not_tested,27
-pooled_colorectal_cohort_not_directly_comparable,11
-recovered_tier_A,10
-recovered_tier_B,14
-tested_not_supported,20
+not_eligible_or_not_tested,34
+recovered_tier_A,13
+recovered_tier_B,16
+tested_not_supported,22

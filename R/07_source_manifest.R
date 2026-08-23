@@ -47,7 +47,7 @@ manifest <- rbindlist(lapply(names(cfg$paths), function(key) {
 fwrite(manifest, "results/tables/source_manifest.csv")
 
 software_packages <- c(
-  "data.table", "digest", "fastPLS", "future.apply", "ggplot2",
+  "data.table", "digest", "fastPLS", "future.apply", "ggplot2", "glmnet",
   "jsonlite", "maftools", "pROC", "readxl", "TCGAmutations", "testthat"
 )
 configured_source <- c(

@@ -80,8 +80,8 @@ require(
     "Sole corresponding-author statement is missing",
 )
 for label in (
-    "Additional file 2 (.pdf): COAD example A (TCGA-AD-6964) TITANPred single-sample report",
-    "Additional file 3 (.pdf): COAD example B (TCGA-5M-AAT5) TITANPred single-sample report",
+    "Additional file 2 (.pdf): COAD example A (TCGA-AA-A01F) TITANPred single-sample report",
+    "Additional file 3 (.pdf): COAD example B (TCGA-AA-3972) TITANPred single-sample report",
 ):
     require(label in main_text, f"Separate supplementary report is not declared: {label}")
 for pdf_name in (
@@ -124,6 +124,18 @@ for forbidden in (
 ):
     require(forbidden not in main_text, f"Removed manuscript text remains: {forbidden}")
 require("frozen" not in main_text.lower(), "Ambiguous 'frozen' terminology remains")
+for required_revision in (
+    "What is missing is a single patient-level, reusable discovery atlas",
+    "83/323 models (25.7%) fell below the original effect threshold",
+    "PLS was competitive but not uniformly superior",
+    "38/41 screen-positive cancer–gene pairs",
+    "TCGA out-of-fold score rank (not probability)",
+    "Probability calibration was not added",
+):
+    require(
+        required_revision in main_text,
+        f"A required audit-driven revision is missing: {required_revision}",
+    )
 for header in (
     "Q² or Se/Sp (95% CI)",
     "RMSE or BA (95% CI)",
@@ -133,7 +145,15 @@ for header in (
 
 supplement = documents["supplementary_material_JTM.docx"]
 supplement_text = texts["supplementary_material_JTM.docx"]
-for item in ("Table S12", "Figure S1", "Figure S2", "Machine-readable additional files"):
+for item in (
+    "Table S10a. Expanded literature audit",
+    "Table S10b. Screen-positive models below the original effect threshold",
+    "Table S10c. PLS versus exportable ridge benchmark",
+    "Table S12",
+    "Figure S1",
+    "Figure S2",
+    "Machine-readable additional files",
+):
     require(item in supplement_text, f"Supplementary item missing: {item}")
 require(len(supplement.inline_shapes) >= 2, "Supplement contains fewer than two figures")
 

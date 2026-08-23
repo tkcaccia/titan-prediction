@@ -1,0 +1,3 @@
+outcome_type,models,pls_better,ridge_better,difference_uncertain,median_delta_ridge_minus_pls,q1_delta,q3_delta
+binary,12,1,2,9,0.00726950901109039,-0.00398497128587969,0.0143804226666314
+continuous,12,2,7,3,0.0137019098638479,0.00727900970518836,0.0169535348679688

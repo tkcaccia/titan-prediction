@@ -181,7 +181,20 @@ fit_continuous_nested_once <- function(X, y, cfg, seed) {
       rsvd_power = cfg$rsvd_power,
       seed = seed + 100L + fold
     )
-    pred[test] <- as.numeric(predict(fit, X[test, , drop = FALSE])$Ypred[[1]])
+    # Continuous fastPLS predictions are returned as an n x 1 x 1 array.
+    # Using [[1]] extracts one scalar and silently recycles it across the
+    # complete test fold. Drop only singleton dimensions and require exactly
+    # one prediction per held-out patient.
+    fold_pred <- as.numeric(drop(
+      predict(fit, X[test, , drop = FALSE])$Ypred
+    ))
+    if (length(fold_pred) != sum(test)) {
+      stop(
+        "Continuous prediction length mismatch: expected ", sum(test),
+        ", received ", length(fold_pred)
+      )
+    }
+    pred[test] <- fold_pred
   }
   list(
     prediction = pred,
