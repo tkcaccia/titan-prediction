@@ -1,0 +1,9 @@
+outcome_type,family,tumor_type,endpoint,selection_reason
+continuous,thorsson,TGCT,TGF-beta Response,highest-Q2 continuous screen result and main Figure 4 example
+continuous,thorsson,THYM,Th17 Cells,leading continuous immune-cell example
+continuous,thorsson,THCA,Lymphocyte Infiltration Signature Score,leading lymphocyte-infiltration example
+continuous,thorsson,BRCA,Wound Healing,leading common-cancer continuous immune-programme example
+binary,driver_mutation,COAD,APC,binary example reported in the abstract and main table
+binary,driver_mutation,THYM,GTF2I,leading mutation-discrimination example
+binary,microsatellite_instability_sensitivity,COAD,MSI-H strict (MANTIS >0.6),leading strict-MSI example
+binary,fusion,UCEC,Any called fusion,leading fusion example
