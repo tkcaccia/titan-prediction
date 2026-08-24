@@ -39,7 +39,7 @@ item,topic,reported_location,status
 18f,Code sharing,Methods - Software transparency; public repository,Reported with versions and licence
 19,Patient and public involvement,Declarations,No patient or public involvement
 20a,Participant flow,Figure 1; Results - Cohort and analysis coverage,Reported
-20b,Participant characteristics and missingness,Results - Cohort and analysis coverage; Supplementary Tables S2-S5,Participant age recorded gender race and stage plus analytic and molecular missingness are reported; exact subgroup counts metrics and non-estimability reasons are supplied
+20b,Participant characteristics and missingness,Results - Cohort and analysis coverage; Supplementary Tables S2-S5,"Participant age, recorded gender, race and stage plus analytic and molecular missingness are reported; exact subgroup counts, performance metrics and non-estimability reasons are supplied in Supplementary Table S2b and subgroup_performance_audit.csv"
 20c,Evaluation-versus-development distributions,Discussion - Limitations,Not applicable; no independent evaluation cohort
 21,Participants and events per analysis,Primary screen tables; Supplementary Tables S5-S9,Reported
 22,Full model specification and access restrictions,Model registry; models/README.md; inference example,Reported subject to TITAN redistribution terms

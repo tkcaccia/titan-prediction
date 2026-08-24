@@ -258,6 +258,8 @@ require("Table S6a. Highlighted-model performance and uncertainty" in supplement
         "Complete highlighted-model performance table is missing from the supplement")
 require("Table S2b. Sex- and broad race-stratified performance denominators" in supplement_text,
         "Subgroup denominator table is missing from the supplement")
+require("Participant age, recorded gender, race and stage plus analytic and molecular missingness are reported; exact subgroup counts, performance metrics and non-estimability reasons are supplied in Supplementary Table S2b and subgroup_performance_audit.csv" in supplement_text,
+        "TRIPOD+AI item 20b status is incomplete or truncated")
 require("Manuscript length and table density" in response_text,
         "Response does not address manuscript length and table density")
 require("Report precision–recall metrics" in response_text,
