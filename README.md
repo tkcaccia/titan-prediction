@@ -194,12 +194,20 @@ the report. Optional pathology or treatment context is displayed separately and
 is never passed to the model. Reproducible matched COAD examples generated for
 Figure 7 are available under [`results/reports`](results/reports/).
 
+Every inference row reports the TCGA tissue-source-site-grouped internal metric,
+grouped-minus-random change, analysed-site count, threshold-retention status and
+warning. Models that become near chance or fall below their original effect
+threshold are labelled prominently rather than highlighted without qualification.
+
 Every bundled RDS object includes the exact 768-column feature order, slide
 aggregation rule, cancer type, endpoint, selected component count, class counts
 and priors where applicable, endpoint transformation and output units, exact
 fastPLS version and Git commit, computation backend, and research-only
 intended-use statement. The analysis repository records SHA-256 hashes for all
-artifacts. The objects contain no patient-level training rows.
+artifacts. The public [`models/model_registry.csv`](models/model_registry.csv)
+also records the grouped metric, delta, number of sites, fold-size range, inner
+site-separation audit and site-robustness warning for all 323 models. The objects
+contain no patient-level training rows.
 
 PLS and PLS–LDA are parametric models: external prediction needs the learned
 preprocessing values, latent weights, coefficients and classification
@@ -212,10 +220,30 @@ guarantee of privacy or transportability.
 Research use only. The models are internally validated retrospective TCGA
 research models, not medical devices and not suitable for patient care.
 
+## Tissue-source-site sensitivity
+
+Tissue-source-site sensitivity is a principal result. Under grouped internal
+validation, 83/323 screen-positive models (25.7%) fell below their original
+effect threshold. Complete target-level performance is provided in
+[`results/tables/site_grouped_models_below_effect_threshold.csv`](results/tables/site_grouped_models_below_effect_threshold.csv),
+and all 1,613 outer-fold patient, site and binary class counts are in
+[`results/tables/site_grouped_outer_fold_composition.csv`](results/tables/site_grouped_outer_fold_composition.csv).
+The deterministic audit confirms that complete sites were kept together during
+both outer evaluation and inner component selection.
+
+A dedicated repeated nested PLS–LDA analysis predicted tissue-source site from
+TITAN representations within 27/32 cancers after requiring at least 10 patients
+per analysed site. Results are in
+[`results/tables/tissue_source_site_predictability_summary.csv`](results/tables/tissue_source_site_predictability_summary.csv).
+This quantifies confounding potential; tissue-source site remains an imperfect
+proxy for institution, scanner, laboratory and staining batch.
+
 ## Independent evaluation status
 
-No independent cohort has been evaluated. TCGA resampling and tissue-source-site
-grouping remain internal analyses. A future untouched evaluation has been
+No independent cohort has been evaluated. TCGA resampling and the explicitly
+named "TCGA tissue-source-site-grouped internal validation" remain internal
+analyses and cannot establish scanner- or institution-level transportability.
+A future untouched evaluation has been
 locked to three UCEC artifacts—TP53 mutation, genome doubling and continuous
 aneuploidy score—with no refitting, recalibration or threshold adjustment. The
 complete protocol is in

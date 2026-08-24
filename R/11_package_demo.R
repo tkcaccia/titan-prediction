@@ -218,6 +218,10 @@ binary[, endpoint_label := fcase(
   family == "oncogenic_pathway", paste(endpoint, "pathway"),
   default = endpoint
 )]
+binary[, endpoint_label := fifelse(
+  grepl("^site-sensitive", site_robustness_status),
+  paste0("[SITE-SENSITIVE] ", endpoint_label), endpoint_label
+)]
 binary[, endpoint_label := paste0(
   endpoint_label, "  (n=", training_n, "; +", training_positive,
   "/-", training_negative, ")"
@@ -236,7 +240,7 @@ p_binary <- ggplot(binary, aes(reference_rank, endpoint_label, color = example))
                      labels = function(x) paste0(x, "%")) +
   labs(
     title = "C  Binary calls for the same clinically comparable cases",
-    subtitle = "TCGA out-of-fold LDA-score rank; filled points are positive calls, not probabilities",
+    subtitle = "Ranks are not probabilities; [SITE-SENSITIVE] models fell below their original TSS-grouped threshold",
     x = "TCGA out-of-fold score rank (not probability)", y = NULL,
     color = NULL, shape = NULL
   ) +
@@ -263,6 +267,7 @@ figure <- ((p_radar_a | p_radar_b) / p_binary +
       "; example B: ", example_map[example == "COAD example B", patient_id],
       ". Corner labels show TCGA reference percentile | original prediction. ",
       "Binary ranks describe uncalibrated scores and are not probabilities. ",
+      "[SITE-SENSITIVE] marks models below their original effect threshold under TCGA TSS grouping. ",
       "These full-cohort-fit examples are not validation evidence."
     ),
     theme = theme(

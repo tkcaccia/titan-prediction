@@ -180,8 +180,8 @@ add_heading(doc, "1. Scientific design and analysis", 2)
 add_body(doc,
     f"The patient is now the analysis unit and {n_multi:,} patients with multiple "
     "eligible slides are pooled before outcome matching and fold assignment. "
-    "The first-slide and tissue-source-site sensitivities are appropriate internal "
-    "robustness checks. Mutation denominators are restricted to "
+    "The first-slide sensitivity is an appropriate patient-aggregation check. "
+    "Tissue-source-site sensitivity is now treated separately as a central finding. Mutation denominators are restricted to "
     f"{n_mc3_profiled:,} MC3-profiled patients, while {n_mc3_missing:,} patients "
     "without a matched profile remain missing; the nine retained protein-altering "
     "variant classes are now explicit and audited. The source-level aliquot and "
@@ -237,7 +237,25 @@ add_body(doc,
     lead="No additional analysis requested."
 )
 
-add_heading(doc, "4. Relation to prior work and translational positioning", 2)
+add_heading(doc, "4. Tissue-source-site sensitivity and confounding", 2)
+add_body(doc,
+    "The revised manuscript now makes the site result visible rather than reducing it to a median robustness statistic. "
+    "Main Figure 6 shows every target, the largest attenuations and the new within-cancer submitting-site classifiers; "
+    "Main Table 3 reports grouped performance beside highlighted models. Overall, 83/323 screen-positive models (25.7%) "
+    "fell below their original effect threshold. READ–APC and COAD–APC declined to balanced accuracies 0.495 and 0.543. "
+    "The public analysis registry and inference output expose the grouped metric, delta, site count, threshold-retention "
+    "status and prominent warning for every model. The complete fold audit reports patients, sites and class counts in "
+    "all 1,613 outer folds and confirms that inner component selection also kept tissue-source sites intact."
+)
+add_body(doc,
+    "The dedicated repeated nested analysis predicted tissue-source site from TITAN representations in 27/32 evaluable "
+    "cancers, with median multiclass macro balanced accuracy 0.628. This quantifies substantial confounding potential. "
+    "The manuscript appropriately calls the endpoint analysis 'TCGA tissue-source-site-grouped internal validation' and "
+    "does not interpret retained performance as proof of scanner, laboratory or institutional transportability. Tissue-source "
+    "site remains an imperfect proxy, and smaller grouped folds can account for part—but not all—of the attenuation."
+)
+
+add_heading(doc, "5. Relation to prior work and translational positioning", 2)
 add_body(doc,
     "The expanded review now covers mutation, MSI, gene expression, continuous "
     "biomarkers, fusions, homologous-recombination deficiency and tumour-microenvironment "
@@ -255,7 +273,7 @@ add_body(doc,
     "prospective discipline, but it is not external validation evidence."
 )
 
-add_heading(doc, "5. Reproducibility and model redistribution", 2)
+add_heading(doc, "6. Reproducibility and model redistribution", 2)
 add_body(doc,
     "The reproducibility resource is split between the public analysis repository and a "
     "separate GPL-3 TITANPred R package. The package contains all 323 fitted research models, "
@@ -274,7 +292,7 @@ add_body(doc,
     lead="Required before submission:"
 )
 
-add_heading(doc, "6. Administrative completion", 2)
+add_heading(doc, "7. Administrative completion", 2)
 add_body(doc,
     "Required before submission: replace the remaining placeholders for funding, "
     "competing interests and author contributions; confirm the institutional ethics/waiver "

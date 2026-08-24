@@ -159,6 +159,10 @@ for required_revision in (
     "38/41 screen-positive cancer–gene pairs",
     "TCGA out-of-fold score rank (not probability)",
     "Probability calibration was not added",
+    "Tissue-source-site sensitivity and submitting-site prediction",
+    "the same separation was maintained in every inner component-selection split",
+    "27/32 cancers",
+    "TCGA tissue-source-site-grouped internal validation",
     "every performance estimate is an internally derived TCGA estimate",
     "Prospectively locked protocol for future independent evaluation",
     "Table 4. Prospectively locked subset for future independent evaluation",
@@ -174,6 +178,7 @@ for header in (
     "Q² or Se/Sp (95% CI)",
     "RMSE or BA (95% CI)",
     "Spearman or AUROC (95% CI)",
+    "TSS-grouped metric/status",
 ):
     require(header in main_text, f"Table 3 metric header is missing: {header}")
 for header in (
@@ -192,7 +197,9 @@ supplement_text = texts["supplementary_material_JTM.docx"]
 for item in (
     "Table S10a. Expanded literature audit",
     "Table S10b. Screen-positive models below the original effect threshold",
-    "Table S10c. PLS versus exportable ridge benchmark",
+    "Table S10c. Tissue-source-site-grouped outer-fold composition",
+    "Table S10d. Within-cancer prediction of TCGA tissue-source site",
+    "Table S10e. PLS versus exportable ridge benchmark",
     "Table S6c. Prospectively locked subset for future independent evaluation",
     "Table S12",
     "Figure S1",

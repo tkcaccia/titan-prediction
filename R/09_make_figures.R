@@ -2,6 +2,7 @@ suppressPackageStartupMessages({
   library(data.table)
   library(ggplot2)
   library(grid)
+  library(patchwork)
 })
 source("R/utils.R")
 dir.create("figures", recursive = TRUE, showWarnings = FALSE)
@@ -328,35 +329,109 @@ p5 <- ggplot(counts, aes(N, tumor_type, fill = family_label)) +
 ggsave("figures/Figure5_supported_counts.png", p5, width = 11.4, height = 8.1,
        dpi = 320, bg = "white")
 
-# Figure 6: site-grouped internal sensitivity.
+# Figure 6: site sensitivity as a principal result.
 site_c <- fread("results/tables/continuous_site_grouped_sensitivity.csv")
 site_b <- fread("results/tables/binary_site_grouped_sensitivity.csv")
 site <- rbindlist(list(
   site_c[feasible == TRUE, .(
-    family, random = random_q2, grouped = site_grouped_q2,
-    metric = "Continuous Q²"
+    family, tumor_type, endpoint, random = random_q2,
+    grouped = site_grouped_q2, metric = "Continuous Q²",
+    retained = site_grouped_q2 >= 0.20
   )],
   site_b[feasible == TRUE, .(
-    family, random = random_balanced_accuracy,
+    family, tumor_type, endpoint, random = random_balanced_accuracy,
     grouped = site_grouped_balanced_accuracy,
-    metric = "Binary balanced accuracy"
+    metric = "Binary balanced accuracy",
+    retained = site_grouped_balanced_accuracy >= 0.60
   )]
 ), fill = TRUE)
-site[, family_label := family_labels[family]]
-p6 <- ggplot(site, aes(random, grouped, color = family_label)) +
+site[, `:=`(
+  delta = grouped - random,
+  robustness = factor(
+    fifelse(retained, "Retained effect threshold", "Below effect threshold"),
+    levels = c("Retained effect threshold", "Below effect threshold")
+  ),
+  label = paste0(tumor_type, "–", endpoint)
+)]
+labelled <- site[label %chin% c("READ–APC", "COAD–APC")]
+p6a <- ggplot(site, aes(random, grouped, color = robustness)) +
   geom_abline(slope = 1, intercept = 0, color = muted, linetype = 2) +
-  geom_point(alpha = 0.72, size = 2.1) +
+  geom_point(alpha = 0.72, size = 1.9) +
+  geom_point(data = labelled, shape = 21, fill = "white", stroke = 1.1,
+             size = 3.2) +
+  geom_text(data = labelled, aes(label = label), color = ink, size = 2.8,
+            hjust = 1.04, vjust = -0.45, show.legend = FALSE) +
   facet_wrap(~metric, scales = "free") +
-  scale_color_manual(values = family_palette, drop = FALSE) +
+  scale_color_manual(values = c("Retained effect threshold" = teal,
+                                "Below effect threshold" = coral)) +
   labs(
-    title = "Separating tissue-source sites tests internal robustness",
-    subtitle = "Values below the diagonal attenuate when submitting sites cannot cross folds",
+    title = "A  One quarter of models lose their original effect threshold",
+    subtitle = "83/323 (25.7%); highlighted APC models approach chance",
     x = "Random-fold performance", y = "Site-grouped performance",
-    color = "Endpoint family",
-    caption = "Site grouping remains an internal TCGA sensitivity analysis and is not external validation."
-  ) + theme_titan(10)
+    color = NULL
+  ) + theme_titan(9) +
+  theme(legend.position = "bottom")
+
+largest_declines <- site[order(delta)][seq_len(min(12L, .N))]
+largest_declines[, label := factor(label, levels = rev(label))]
+p6b <- ggplot(largest_declines, aes(y = label)) +
+  geom_segment(aes(x = grouped, xend = random, yend = label),
+               color = "#CBD5E0", linewidth = 1.2) +
+  geom_point(aes(x = random, shape = "Random folds"), color = navy,
+             size = 2.5, stroke = 0.8) +
+  geom_point(aes(x = grouped, shape = "TSS-grouped"), color = coral,
+             size = 2.5, stroke = 0.8) +
+  scale_shape_manual(values = c("Random folds" = 1, "TSS-grouped" = 16)) +
+  facet_wrap(~metric, scales = "free_x") +
+  labs(
+    title = "B  Largest target-level attenuations",
+    subtitle = "Endpoint-level changes expose losses hidden by the median",
+    x = "Performance", y = NULL, shape = NULL
+  ) + theme_titan(8.5) +
+  theme(legend.position = "bottom")
+
+site_prediction <- fread(
+  "results/tables/tissue_source_site_predictability_summary.csv"
+)[eligible == TRUE & (is.na(error) | !nzchar(error))]
+site_prediction[, tumor_type := factor(
+  tumor_type,
+  levels = tumor_type[order(normalized_macro_balanced_accuracy)]
+)]
+p6c <- ggplot(site_prediction, aes(y = tumor_type)) +
+  geom_segment(aes(x = chance_macro_balanced_accuracy,
+                   xend = macro_balanced_accuracy_mean, yend = tumor_type),
+               color = "#CBD5E0", linewidth = 1.05) +
+  geom_point(aes(x = chance_macro_balanced_accuracy, shape = "Chance (1/k)"),
+             color = muted, size = 2.1) +
+  geom_point(aes(x = macro_balanced_accuracy_mean,
+                 color = normalized_macro_balanced_accuracy,
+                 shape = "Nested-CV macro balanced accuracy"), size = 2.8) +
+  scale_color_gradient(low = blue, high = coral, limits = c(0, 1)) +
+  scale_shape_manual(values = c("Chance (1/k)" = 1,
+                                "Nested-CV macro balanced accuracy" = 16)) +
+  scale_x_continuous(limits = c(0, 1), breaks = seq(0, 1, 0.2)) +
+  labs(
+    title = "C  TITAN representations predict submitting site within cancer",
+    subtitle = "Five repeated nested validations; sites with at least 10 patients (27/32 cancers)",
+    x = "Multiclass macro balanced accuracy", y = NULL,
+    color = "Chance-normalised\nsite predictability", shape = NULL
+  ) + theme_titan(9) +
+  theme(legend.position = "bottom")
+
+p6 <- (p6a | p6b) / p6c +
+  plot_annotation(
+    title = "Tissue-source-site sensitivity is a central limitation of the TCGA benchmark",
+    caption = paste(
+      "TSS grouping is internal TCGA validation, not institutional or scanner-level external validation.",
+      "Tissue-source site is an imperfect proxy for laboratory, scanner and staining effects."
+    ),
+    theme = theme(
+      plot.title = element_text(face = "bold", size = 15, color = navy),
+      plot.caption = element_text(color = muted, hjust = 0, size = 8)
+    )
+  )
 ggsave("figures/Figure6_site_grouped_sensitivity.png", p6,
-       width = 10.4, height = 5.7, dpi = 320, bg = "white")
+       width = 11.4, height = 10.2, dpi = 320, bg = "white")
 
 # Supplementary PLS1-versus-PLS2 comparison.
 pc <- fread("results/tables/pls1_vs_pls2_inflammation.csv")

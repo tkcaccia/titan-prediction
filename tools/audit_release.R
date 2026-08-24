@@ -192,6 +192,27 @@ assert(all(!is.na(registry$calibration_status) &
              nzchar(registry$calibration_status) &
              !is.na(registry$intended_use) & nzchar(registry$intended_use)),
        "Registry calibration or intended-use metadata are incomplete")
+site_registry_fields <- c(
+  "site_grouped_metric_name", "site_grouped_metric", "site_performance_delta",
+  "site_grouped_n_sites", "site_grouped_feasible", "site_retained_effect",
+  "site_near_chance_or_worse", "site_robustness_status",
+  "site_robustness_warning", "site_grouped_validation_scope",
+  "site_grouped_outer_folds", "site_grouped_minimum_test_patients",
+  "site_grouped_maximum_test_patients", "site_grouped_minimum_test_sites",
+  "site_grouped_maximum_test_sites", "site_grouped_inner_site_separation"
+)
+assert(all(site_registry_fields %chin% names(registry)),
+       "Model registry lacks tissue-source-site robustness fields")
+assert(all(is.finite(registry$site_grouped_metric) &
+             is.finite(registry$site_performance_delta) &
+             registry$site_grouped_n_sites >= 2L &
+             registry$site_grouped_inner_site_separation &
+             grepl("TCGA tissue-source-site-grouped internal validation",
+                   registry$site_grouped_validation_scope, fixed = TRUE)),
+       "Model registry contains incomplete site-robustness metadata")
+assert(all(nzchar(registry$site_robustness_warning[
+  grepl("^site-sensitive", registry$site_robustness_status)
+])), "Site-sensitive registry rows lack prominent warnings")
 
 for (i in seq_len(nrow(registry))) {
   path <- registry$file[i]
@@ -312,6 +333,33 @@ for (item in list(
            nrow(fsetdiff(z[, ..key], item$jobs[, ..key])) == 0L,
          paste(item$label, "does not cover every screen-positive endpoint"))
 }
+
+site_fold_detail <- fread("results/tables/site_grouped_outer_fold_composition.csv")
+site_fold_summary <- fread("results/tables/site_grouped_fold_composition_summary.csv")
+assert(nrow(site_fold_detail) == 1613L && nrow(site_fold_summary) == nrow(registry),
+       "Tissue-source-site fold-composition coverage is incomplete")
+assert(!any(site_fold_detail$inner_site_overlap) &
+         all(site_fold_detail$maximum_inner_folds_per_site == 1L) &
+         all(site_fold_summary$inner_site_grouped),
+       "At least one inner component-selection split divides a tissue-source site")
+assert(all(site_fold_detail$test_patients > 0L &
+             site_fold_detail$test_sites > 0L &
+             site_fold_detail$training_patients > 0L &
+             site_fold_detail$training_sites > 0L),
+       "Site-grouped fold composition contains an empty partition")
+
+site_prediction <- fread("results/tables/tissue_source_site_predictability_summary.csv")
+site_prediction_repeats <- fread("results/tables/tissue_source_site_predictability_repeats.csv")
+site_prediction_ok <- site_prediction[eligible == TRUE & (is.na(error) | !nzchar(error))]
+assert(nrow(site_prediction) == 32L && nrow(site_prediction_ok) == 27L &&
+         nrow(site_prediction_repeats) == 27L * 5L,
+       "Within-cancer tissue-source-site predictability coverage is incomplete")
+assert(all(site_prediction_ok$analysed_sites >= 2L &
+             site_prediction_ok$minimum_patients_per_site == 10L &
+             site_prediction_ok$macro_balanced_accuracy_mean >
+               site_prediction_ok$chance_macro_balanced_accuracy &
+             is.finite(site_prediction_ok$normalized_macro_balanced_accuracy)),
+       "Within-cancer tissue-source-site metrics are incomplete or inconsistent")
 
 pls_comparison <- fread(
   "results/tables/pls1_vs_pls2_inflammation_by_repeat.csv"
