@@ -201,7 +201,7 @@ for required_revision in (
     "mutation or fusion endpoints with prevalence below 0.20",
     "This divergence illustrates why AUROC or balanced accuracy alone can overstate positive-class retrieval under low prevalence",
     "cohort-specific descriptive estimates, not calibrated probabilities",
-    "Sensitivity to TCGA tissue-source-site-code grouping",
+    "Sensitivity to grouping by TCGA tissue-source-site code",
     "the same separation was maintained in every inner component-selection split",
     "27/32 cancers",
     "internal validation grouped by TCGA tissue-source-site code",
@@ -241,6 +241,7 @@ require("External-validation readiness audit" not in main_text,
 require("site-grouped" not in main_text.lower(), "Ambiguous 'site-grouped' terminology remains in the main manuscript")
 require("submitting site" not in main_text.lower(), "Ambiguous 'submitting site' terminology remains in the main manuscript")
 require("tissue-source site" not in main_text.lower(), "Tissue-source-site variable is named without 'code' in the main manuscript")
+require("tissue-source-site-code" not in main_text.lower(), "Hyphenated shorthand remains instead of the exact term TCGA tissue-source-site code")
 require("Comparison with major pan-cancer histology–molecular prediction studies" not in main_text,
         "Review-style comparison table remains in the main manuscript")
 require("Complete highlighted-model performance, uncertainty, class-size metrics and estimates grouped by TCGA tissue-source-site code are reported in Supplementary Table S6a" in main_text,

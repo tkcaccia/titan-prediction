@@ -277,7 +277,7 @@ add_body(doc,
     f"The patient is now the analysis unit and {n_multi:,} patients with multiple "
     "eligible slides are pooled before outcome matching and fold assignment. "
     "The first-slide sensitivity is an appropriate patient-aggregation check. "
-    "Sensitivity to TCGA tissue-source-site-code grouping is now treated separately as a central finding. Mutation denominators are restricted to "
+    "Sensitivity to grouping by TCGA tissue-source-site code is now treated separately as a central finding. Mutation denominators are restricted to "
     f"{n_mc3_profiled:,} MC3-profiled patients, while {n_mc3_missing:,} patients "
     "without a matched profile remain missing; the nine retained protein-altering "
     "variant classes are now explicit and audited. The source-level aliquot and "
@@ -333,13 +333,13 @@ add_body(doc,
     lead="No additional analysis requested."
 )
 
-add_heading(doc, "4. Sensitivity to TCGA tissue-source-site-code grouping and confounding", 2)
+add_heading(doc, "4. Sensitivity to grouping by TCGA tissue-source-site code and confounding", 2)
 add_body(doc,
-    "The revised manuscript now makes the TCGA tissue-source-site-code result visible rather than reducing it to a median robustness statistic. "
-    "Main Figure 6 shows every target, the largest attenuations and the new within-cancer TCGA tissue-source-site-code classifiers; "
+    "The revised manuscript now makes the result from grouping by TCGA tissue-source-site code visible rather than reducing it to a median robustness statistic. "
+    "Main Figure 6 shows every target, the largest attenuations and the new within-cancer classifiers of TCGA tissue-source-site code; "
     "Supplementary Table S6a reports grouped performance beside highlighted models. Overall, 83/323 screen-positive models (25.7%) "
     "fell below their original prespecified screening threshold. READ–APC and COAD–APC declined to balanced accuracies 0.495 and 0.543. "
-    "The public analysis registry and inference output expose the grouped metric, delta, TCGA tissue-source-site-code count, threshold-retention "
+    "The public analysis registry and inference output expose the grouped metric, delta, number of TCGA tissue-source-site codes, threshold-retention "
     "status and prominent warning for every model. The complete fold audit reports patients, codes and class counts in "
     "all 1,613 outer folds and confirms that inner component selection also kept each TCGA tissue-source-site code intact."
 )

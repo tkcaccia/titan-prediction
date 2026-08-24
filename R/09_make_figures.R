@@ -156,7 +156,7 @@ connector(0.50, 0.535, 0.66, 0.445)
 grid.roundrect(x = unit(0.50, "npc"), y = unit(0.095, "npc"),
                width = unit(0.88, "npc"), height = unit(0.12, "npc"),
                r = unit(4, "mm"), gp = gpar(fill = navy, col = NA))
-grid.text("Patient-level nested validation  |  within-cancer multiplicity control  |  TCGA tissue-source-site-code grouping",
+grid.text("Patient-level nested validation  |  within-cancer multiplicity control  |  grouping by TCGA tissue-source-site code",
           x = unit(0.50, "npc"), y = unit(0.112, "npc"),
           gp = gpar(fontfamily = "Arial", fontsize = 9.4, col = "white"))
 grid.text("Slide-pooling sensitivity  |  research model metadata  |  no external validation",
@@ -338,7 +338,7 @@ p5 <- ggplot(counts, aes(N, tumor_type, fill = family_label)) +
 ggsave("figures/Figure5_supported_counts.png", p5, width = 11.0, height = 7.0,
        dpi = 320, bg = "white")
 
-# Figure 6: site sensitivity as a principal result.
+# Figure 6: sensitivity to grouping by TCGA tissue-source-site code.
 site_c <- fread("results/tables/continuous_site_grouped_sensitivity.csv")
 site_b <- fread("results/tables/binary_site_grouped_sensitivity.csv")
 site <- rbindlist(list(
@@ -376,7 +376,7 @@ p6a <- ggplot(site, aes(random, grouped, color = robustness)) +
   labs(
     title = "A  One quarter of models fall below their original screening threshold",
     subtitle = "83/323 (25.7%); highlighted APC models approach chance",
-    x = "Random-fold performance", y = "Performance grouped by TCGA TSS code",
+    x = "Random-fold performance", y = "Performance grouped by TCGA tissue-source-site code",
     color = NULL
   ) + theme_titan(12) +
   theme(legend.position = "bottom")
@@ -388,9 +388,9 @@ p6b <- ggplot(largest_declines, aes(y = label)) +
                color = "#CBD5E0", linewidth = 1.2) +
   geom_point(aes(x = random, shape = "Random folds"), color = navy,
              size = 2.5, stroke = 0.8) +
-  geom_point(aes(x = grouped, shape = "Grouped by TCGA TSS code"), color = coral,
+  geom_point(aes(x = grouped, shape = "Grouped by TCGA tissue-source-site code"), color = coral,
              size = 2.5, stroke = 0.8) +
-  scale_shape_manual(values = c("Random folds" = 1, "Grouped by TCGA TSS code" = 16)) +
+  scale_shape_manual(values = c("Random folds" = 1, "Grouped by TCGA tissue-source-site code" = 16)) +
   facet_wrap(~metric, scales = "free_x") +
   labs(
     title = "B  Largest target-level attenuations",
@@ -422,16 +422,16 @@ p6c <- ggplot(site_prediction, aes(y = tumor_type)) +
                                 "Nested-CV macro balanced accuracy" = 16)) +
   scale_x_continuous(limits = c(0, 1), breaks = seq(0, 1, 0.2)) +
   labs(
-    title = "C  TITAN representations predict TCGA TSS code within cancer",
+    title = "C  TITAN representations predict TCGA tissue-source-site code within cancer",
     subtitle = "Top 10 chance-normalised results; five repeated nested validations",
     x = "Multiclass macro balanced accuracy", y = NULL,
-    color = "Chance-normalised\nTCGA TSS-code predictability", shape = NULL
+    color = "Chance-normalised\ncode predictability", shape = NULL
   ) + theme_titan(12) +
   theme(legend.position = "bottom", axis.text.y = element_text(size = 10.8))
 
 p6 <- (p6a | p6b) / p6c +
   plot_annotation(
-    title = "Sensitivity to TCGA tissue-source-site-code grouping is a central limitation",
+    title = "Sensitivity to grouping by TCGA tissue-source-site code is a central limitation",
     caption = paste(
       "Grouping by TCGA tissue-source-site code is internal validation, not institutional or scanner-level external validation.\n",
       "The barcode-derived code is not an institution, scanner, laboratory or staining-batch identifier."

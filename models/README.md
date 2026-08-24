@@ -3,8 +3,8 @@
 `R/06_robustness_and_models.R` writes one `.rds` artifact for every within-cancer
 screen-positive cancer–endpoint model and creates `model_registry.csv` with
 its SHA-256 digest. `R/07f_attach_site_metadata.R` then adds the TCGA
-tissue-source-site-grouped metric, change from random folds, analysed-site
-count, fold-size range, inner-site-separation audit, threshold-retention status
+metric grouped by TCGA tissue-source-site code, change from random folds, analysed-code
+count, fold-size range, inner code-group separation audit, threshold-retention status
 and warning to every registry row. Each artifact contains:
 
 - the fitted `fastPLS` object;
@@ -31,7 +31,7 @@ After slides are mean-pooled by patient, patient vectors with more than 5% of
 dimensions outside the patient-level TCGA training range trigger an explicit
 out-of-distribution warning. The LDA score is not a calibrated
 probability and no model in this release has independent external validation.
-Models below their original prespecified screening threshold under tissue-source-site grouping
+Models below their original prespecified screening threshold under grouping by TCGA tissue-source-site code
 must retain the registry and inference warning; grouped performance remains an
 internal TCGA estimate rather than institutional or scanner-level validation.
 

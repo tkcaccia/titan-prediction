@@ -133,8 +133,8 @@ the high-resolution result as Git commit `ac30ccb`), checkpoints are
 resumable, and the result is `targeted_permutation_refinement.csv`. This targeted
 refinement quantifies Monte Carlo precision for leading claims and is not
 substituted into the prespecified FDR screen. Atlas tables and figures are
-ordered by predictive effect magnitude, with repeated and site-grouped
-stability reported alongside; tied minimum permutation q-values are not used
+ordered by predictive effect magnitude, with repeated stability and stability
+under grouping by TCGA tissue-source-site code reported alongside; tied minimum permutation q-values are not used
 for ranking.
 Set `TITAN_RUN_9999=false` only when intentionally skipping this final targeted
 precision analysis; completed permutation indices are checkpointed every 50 fits.
@@ -294,8 +294,8 @@ Two post hoc COAD interface illustrations retained as main Figure 7 and
 separate supplementary reports are available under
 [`results/reports`](results/reports/); they are not validation evidence.
 
-Every inference row reports the TCGA tissue-source-site-grouped internal metric,
-grouped-minus-random change, analysed-site count, threshold-retention status and
+Every inference row reports the internal metric grouped by TCGA tissue-source-site code,
+grouped-minus-random change, analysed-code count, threshold-retention status and
 warning. Binary rows also report PR-AUC, cohort-specific PPV/NPV, fold class
 minima, selected-component distributions, prediction stability and evidence
 tier. Models that become near chance or fall below their original effect
@@ -322,9 +322,9 @@ guarantee of privacy or transportability.
 Research use only. The models are internally validated retrospective TCGA
 research models, not medical devices and not suitable for patient care.
 
-## Tissue-source-site sensitivity
+## Sensitivity to grouping by TCGA tissue-source-site code
 
-Tissue-source-site sensitivity is a principal result. Under grouped internal
+Sensitivity to grouping by TCGA tissue-source-site code is a principal result. Under grouped internal
 validation, 83/323 screen-positive models (25.7%) fell below their original
 prespecified screening threshold. Complete target-level performance is provided in
 [`results/tables/site_grouped_models_below_effect_threshold.csv`](results/tables/site_grouped_models_below_effect_threshold.csv),
@@ -393,12 +393,12 @@ repeat and averages the five repeat-specific metrics. These intervals represent
 patient sampling variability conditional on the five fitted nested-CV
 prediction sets. They do not include the initial screen and endpoint selection,
 new partition generation, scaling or component reselection, model refitting
-inside the bootstrap, or external cohort/site/scanner/population variation.
+inside the bootstrap, or external cohort/institution/scanner/population variation.
 
 ## Independent evaluation status
 
 No independent cohort has been evaluated. TCGA resampling and the explicitly
-named "TCGA tissue-source-site-grouped internal validation" remain internal
+named "internal validation grouped by TCGA tissue-source-site code" remain internal
 analyses and cannot establish scanner- or institution-level transportability.
 A future untouched evaluation has been
 locked to three UCEC artifacts—TP53 mutation, genome doubling and continuous

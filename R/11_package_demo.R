@@ -254,7 +254,7 @@ binary[, endpoint_label := fcase(
 )]
 binary[, endpoint_label := fifelse(
   grepl("^site-sensitive", site_robustness_status),
-  paste0("[TCGA TSS-CODE SENSITIVE] ", endpoint_label), endpoint_label
+  paste0("[SENSITIVE TO CODE GROUPING] ", endpoint_label), endpoint_label
 )]
 binary[, endpoint_label := paste0(
   endpoint_label, "  (n=", training_n, "; +", training_positive,
@@ -274,7 +274,7 @@ p_binary <- ggplot(binary, aes(reference_rank, endpoint_label, color = example))
                      labels = function(x) paste0(x, "%")) +
   labs(
     title = "B  Binary calls for the two illustrative cases",
-    subtitle = "Score rank (not probability); flagged models attenuated under TCGA TSS-code grouping",
+    subtitle = "Score rank (not probability); flagged models attenuated when grouped by TCGA tissue-source-site code",
     x = "TCGA out-of-fold score rank (not probability)", y = NULL,
     color = NULL, shape = NULL
   ) +
