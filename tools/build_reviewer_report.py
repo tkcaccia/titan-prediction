@@ -278,13 +278,55 @@ set_font(callout.add_run(
 
 add_heading(doc, "Confidential comments to the editor", 1)
 add_body(doc,
-    "The manuscript fits the Molecular Pathology remit as a reproducible study "
-    "of image-derived molecular and derived immune-feature signals in human tumours. Its main "
-    "contribution is a transparent endpoint-by-endpoint benchmark using a fixed "
-    "pretrained representation, complete negative reporting and portable fitted linear models. "
-    "The authors appropriately refrain from clinical claims and label every value as an internally "
-    "derived TCGA estimate. Without an independent cohort, the work should be evaluated as a "
-    "computational pathology resource rather than a translational prediction study."
+    "The manuscript is unusually transparent and technically better controlled than many large "
+    "TCGA prediction screens. Patient-level pooling, nested validation, explicit negative-result "
+    "reporting and target-level sensitivity to grouping by TCGA tissue-source-site code are "
+    "important strengths."
+)
+add_body(doc,
+    "However, it remains an internally validated TCGA benchmark whose mutation results "
+    "substantially overlap the existing literature. The most compelling contribution is the "
+    "unified analysis and reusable model infrastructure rather than novel biomarker discovery. "
+    "The lack of external validation is particularly important for a translational journal, and "
+    "the collapse of several leading results under grouping by TCGA tissue-source-site code "
+    "reinforces this concern."
+)
+add_body(doc,
+    "I would support major revision only if the authors can resolve the TITAN-derived fitted-model "
+    "redistribution/licensing question and materially strengthen transportability evidence, "
+    "preferably through locked external validation. The current private, access-controlled status "
+    "of TITANPred avoids an unsupported public-redistribution claim but does not itself constitute "
+    "definitive licensing clearance. Without those changes, I would recommend rejection with "
+    "encouragement to transfer the work to a computational pathology, bioinformatics or "
+    "research-resource venue."
+)
+
+add_heading(doc, "Summary judgement", 2)
+judgement_rows = (
+    ("Scientific question", "Important and timely"),
+    ("Technical execution", "Generally strong, with important statistical issues"),
+    ("Transparency and reproducibility", "Very strong"),
+    ("Novelty", "Moderate; mainly framework/resource novelty"),
+    ("Biological interpretation", "Limited"),
+    ("External/translational validation", "Insufficient"),
+    ("Presentation", "Clear but overly dense"),
+    ("Current decision", "Major revision"),
+)
+table = doc.add_table(rows=1, cols=2)
+table.style = "Table Grid"
+table.autofit = True
+for cell, label in zip(table.rows[0].cells, ("Criterion", "Assessment")):
+    set_font(cell.paragraphs[0].add_run(label), bold=True, color=BLUE)
+for criterion, assessment in judgement_rows:
+    cells = table.add_row().cells
+    set_font(cells[0].paragraphs[0].add_run(criterion), bold=True)
+    set_font(cells[1].paragraphs[0].add_run(assessment),
+             bold=(criterion == "Current decision"))
+
+add_body(doc,
+    "The manuscript has a strong publishable core, but the next revision should be organised "
+    "around four priorities: independent validation, reporting of robustness to grouping by "
+    "TCGA tissue-source-site code, a fair modelling comparison, and definitive licensing clearance."
 )
 
 add_heading(doc, "Comments to the authors", 1)

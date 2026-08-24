@@ -299,6 +299,19 @@ require("Pathology quality control" in reviewer_text and "TCGA-DX-AB2L" in revie
 require("Predictability terminology" in reviewer_text and "assay-equivalence" in reviewer_text,
         "Reviewer report does not acknowledge predictability terminology")
 for item in (
+    "Confidential comments to the editor",
+    "unusually transparent and technically better controlled",
+    "unified analysis and reusable model infrastructure rather than novel biomarker discovery",
+    "definitive licensing clearance",
+    "Summary judgement",
+    "External/translational validation",
+    "Insufficient",
+    "Current decision",
+    "Major revision",
+    "four priorities: independent validation",
+):
+    require(item in reviewer_text, f"Confidential editor assessment missing: {item}")
+for item in (
     "Table S10a. Expanded literature audit",
     "Table S10b. Screen-positive models below the original prespecified screening threshold",
     "Table S10c. Outer-fold composition grouped by TCGA tissue-source-site code",
