@@ -237,9 +237,29 @@ highlighted <- merge(
                binary_all_repeat_class_agreement)],
   by = c("family", "tumor_type", "endpoint"), all.x = TRUE
 )
-highlighted[, uncertainty_method := paste(
-  "95% patient-cluster bootstrap percentile interval for the mean of five",
-  "repeat-specific nested-CV metrics; 1000 resamples"
+highlighted[, `:=`(
+  uncertainty_interval_label = paste(
+    "95% selection-conditioned patient-resampling interval for repeated",
+    "out-of-fold predictions"
+  ),
+  uncertainty_method = paste(
+    "patient-cluster bootstrap percentile interval for the mean of five",
+    "repeat-specific nested-CV metrics; 1000 resamples of the fixed",
+    "held-out prediction sets without refitting"
+  ),
+  uncertainty_included = paste(
+    "patient sampling variability conditional on five independently seeded",
+    "nested-CV out-of-fold prediction sets; the metric is recalculated within",
+    "each repeat and then averaged"
+  ),
+  uncertainty_excluded = paste(
+    "initial atlas screening and endpoint selection; generation of new",
+    "partitions; scaling, component selection or model refitting within",
+    "bootstrap replicates; external cohort, site, scanner or population shift"
+  ),
+  uncertainty_resamples = 1000L,
+  uncertainty_repeat_partitions = 5L,
+  uncertainty_selection_conditioned = TRUE
 )]
 setorder(highlighted, outcome_type, -q2, -balanced_accuracy)
 fwrite(highlighted,

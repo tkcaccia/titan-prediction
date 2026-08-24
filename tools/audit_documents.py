@@ -165,6 +165,10 @@ for required_revision in (
     "38/41 screen-positive cancer–gene pairs",
     "TCGA out-of-fold score rank (not probability)",
     "Probability calibration was not added",
+    "95% selection-conditioned patient-resampling interval for repeated out-of-fold predictions",
+    "It includes neither the initial screen and endpoint highlighting nor new partition generation",
+    "For repeat r, the paired difference was d_r=M_r(ridge)−M_r(PLS)",
+    "neither algorithm was refitted within a bootstrap replicate",
     "A stricter ≥50-per-class sensitivity retained 87/104 binary candidates",
     "Binary class-size sensitivity and development stability",
     "17 screen-positive models with fewer than 50 patients in either class",
@@ -187,13 +191,13 @@ for required_revision in (
         f"A required audit-driven revision is missing: {required_revision}",
     )
 for header in (
-    "Q² or Se/Sp (95% CI)",
-    "RMSE or BA (95% CI)",
-    "Spearman or AUROC (95% CI)",
+    "Q² or Se/Sp (95% SC interval)",
+    "RMSE or BA (95% SC interval)",
+    "Spearman or AUROC (95% SC interval)",
     "TSS-grouped metric/status",
-    "PR-AUC (95% CI)",
-    "PPV at TCGA prevalence (95% CI)",
-    "NPV at TCGA prevalence (95% CI)",
+    "PR-AUC (95% SC interval)",
+    "PPV at TCGA prevalence (95% SC interval)",
+    "NPV at TCGA prevalence (95% SC interval)",
     "Evidence/default",
 ):
     require(header in main_text, f"Table 3 metric header is missing: {header}")
@@ -226,8 +230,20 @@ for item in (
     "Figure S2",
     "Figure S3",
     "Machine-readable additional files",
+    "95% paired patient interval",
+    "No new partitions were generated and neither algorithm was refitted inside a bootstrap replicate",
 ):
     require(item in supplement_text, f"Supplementary item missing: {item}")
+for item in (
+    "7. Reported uncertainty is conditional and does not capture the entire modelling process",
+    "The bootstrap does not generate new partitions or refit models",
+):
+    require(item in response_text, f"Reviewer-response item missing: {item}")
+for item in (
+    "7. Selection-conditioned uncertainty",
+    "2,000-replicate paired patient bootstrap",
+):
+    require(item in reviewer_text, f"Reviewer-report item missing: {item}")
 require(len(supplement.inline_shapes) >= 3, "Supplement contains fewer than three figures")
 require(
     "Panel B. Secondary metric; binary balanced accuracy uses inner-CV operating thresholds selected identically for both methods."
@@ -268,7 +284,8 @@ require(
 
 require(
     "Symmetric binary PLS–ridge comparison" in reviewer_text
-    and "No additional algorithm-comparison correction is requested" in reviewer_text,
+    and "The new 2,000-replicate paired patient-resampling interval is preferable"
+    in reviewer_text,
     "Reviewer report does not reflect the corrected symmetric comparison",
 )
 

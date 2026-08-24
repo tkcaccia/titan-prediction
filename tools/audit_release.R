@@ -714,6 +714,19 @@ assert(all(vapply(binary_h[, ..binary_ci], function(x) all(is.finite(x)),
 assert(all(vapply(continuous_h[, ..continuous_ci],
                   function(x) all(is.finite(x)), logical(1))),
        "Highlighted continuous uncertainty intervals are incomplete")
+assert(all(highlighted$uncertainty_interval_label == paste(
+         "95% selection-conditioned patient-resampling interval for repeated",
+         "out-of-fold predictions"
+       )) &&
+         all(highlighted$uncertainty_resamples == 1000L) &&
+         all(highlighted$uncertainty_repeat_partitions ==
+               cfg$analysis$robustness_repeats) &&
+         all(highlighted$uncertainty_selection_conditioned) &&
+         all(grepl("without refitting", highlighted$uncertainty_method,
+                   fixed = TRUE)) &&
+         all(grepl("initial atlas screening and endpoint selection",
+                   highlighted$uncertainty_excluded, fixed = TRUE)),
+       "Highlighted uncertainty is not explicitly selection-conditioned")
 
 site_retention <- fread("results/tables/site_grouped_retention_summary.csv")
 combined_retention <- site_retention[outcome_type == "combined"]
@@ -741,10 +754,31 @@ ridge_comparison <- fread("results/tables/pls_vs_ridge_highlighted_models.csv")
 binary_symmetric <- fread(
   "results/tables/binary_symmetric_pls_ridge_repeated_nested_cv.csv"
 )
+ridge_paired_repeats <- fread(
+  "results/tables/pls_vs_ridge_paired_repeat_metrics.csv"
+)
+ridge_matched_predictions <- fread(
+  "results/predictions/pls_vs_ridge_matched_oof_predictions.csv.gz"
+)
 assert(nrow(ridge_comparison) == nrow(highlighted) &&
          all(ridge_comparison$repeats == cfg$analysis$robustness_repeats) &&
          all(is.finite(ridge_comparison$delta_ridge_minus_pls)) &&
          all(is.finite(ridge_comparison$delta_secondary_ridge_minus_pls)) &&
+         all(is.finite(ridge_comparison$delta_ci_low)) &&
+         all(is.finite(ridge_comparison$delta_ci_high)) &&
+         all(is.finite(ridge_comparison$delta_secondary_ci_low)) &&
+         all(is.finite(ridge_comparison$delta_secondary_ci_high)) &&
+         all(ridge_comparison$bootstrap_resamples == 2000L) &&
+         all(ridge_comparison$bootstrap_unit == "patient cluster") &&
+         all(ridge_comparison$interval_method == paste(
+           "selection-conditioned paired patient-resampling percentile interval",
+           "for the ridge-minus-PLS difference in the mean of five",
+           "repeat-specific out-of-fold metrics"
+         )) &&
+         all(grepl("model refitting within bootstrap replicates",
+                   ridge_comparison$uncertainty_excluded, fixed = TRUE)) &&
+         !("delta_se" %in% names(ridge_comparison)) &&
+         !("delta_secondary_se" %in% names(ridge_comparison)) &&
          all(ridge_comparison[outcome_type == "binary", primary_metric] ==
                "AUROC (threshold-independent)") &&
          all(ridge_comparison[outcome_type == "binary", secondary_metric] ==
@@ -754,6 +788,53 @@ assert(nrow(ridge_comparison) == nrow(highlighted) &&
            "benchmark not suitable for claiming atlas-wide PLS superiority"
          )),
        "Exportable ridge benchmark is incomplete or mis-scoped")
+ridge_key <- c("outcome_type", "family", "tumor_type", "endpoint")
+ridge_repeat_counts <- ridge_paired_repeats[, .(
+  repeats = uniqueN(repeat_id), rows = .N
+), by = ridge_key]
+ridge_prediction_counts <- ridge_matched_predictions[, .(
+  repeats = uniqueN(repeat_id), patients_per_repeat = .N / uniqueN(repeat_id),
+  minimum_patient_repeats = min(table(patient)),
+  maximum_patient_repeats = max(table(patient))
+), by = ridge_key]
+assert(nrow(ridge_paired_repeats) ==
+         nrow(ridge_comparison) * cfg$analysis$robustness_repeats &&
+         all(ridge_repeat_counts$repeats == cfg$analysis$robustness_repeats) &&
+         all(ridge_repeat_counts$rows == cfg$analysis$robustness_repeats) &&
+         nrow(ridge_prediction_counts) == nrow(ridge_comparison) &&
+         all(ridge_prediction_counts$repeats ==
+               cfg$analysis$robustness_repeats) &&
+         all(ridge_prediction_counts$minimum_patient_repeats ==
+               cfg$analysis$robustness_repeats) &&
+         all(ridge_prediction_counts$maximum_patient_repeats ==
+               cfg$analysis$robustness_repeats) &&
+         all(is.finite(ridge_matched_predictions$pls_prediction)) &&
+         all(is.finite(ridge_matched_predictions$ridge_prediction)) &&
+         all(is.finite(
+           ridge_matched_predictions[outcome_type == "binary", pls_score]
+         )) &&
+         all(is.finite(
+           ridge_matched_predictions[outcome_type == "binary", ridge_score]
+         )),
+       "Paired patient-level PLS-ridge predictions or repeat metrics are incomplete")
+ridge_point_check <- ridge_paired_repeats[, .(
+  delta_ridge_minus_pls_check = mean(delta_ridge_minus_pls),
+  delta_secondary_ridge_minus_pls_check =
+    mean(delta_secondary_ridge_minus_pls)
+), by = ridge_key]
+ridge_point_check <- merge(
+  ridge_comparison[, c(
+    ridge_key, "delta_ridge_minus_pls",
+    "delta_secondary_ridge_minus_pls"
+  ), with = FALSE],
+  ridge_point_check, by = ridge_key
+)
+assert(all(abs(ridge_point_check$delta_ridge_minus_pls -
+                 ridge_point_check$delta_ridge_minus_pls_check) < 1e-12) &&
+         all(abs(ridge_point_check$delta_secondary_ridge_minus_pls -
+                 ridge_point_check$delta_secondary_ridge_minus_pls_check) <
+               1e-12),
+       "PLS-ridge point differences do not equal the mean paired-repeat differences")
 assert(nrow(binary_symmetric) ==
          12L * cfg$analysis$robustness_repeats &&
          all(binary_symmetric$outer_folds_identical) &&

@@ -309,6 +309,32 @@ this conditional benchmark. Repeat-level results are in
 [`results/tables/binary_symmetric_pls_ridge_repeated_nested_cv.csv`](results/tables/binary_symmetric_pls_ridge_repeated_nested_cv.csv),
 with model-level comparisons in
 [`results/tables/pls_vs_ridge_highlighted_models.csv`](results/tables/pls_vs_ridge_highlighted_models.csv).
+The five repeat-specific metric differences are released in
+[`results/tables/pls_vs_ridge_paired_repeat_metrics.csv`](results/tables/pls_vs_ridge_paired_repeat_metrics.csv),
+and the matched patient-level predictions are in
+[`results/predictions/pls_vs_ridge_matched_oof_predictions.csv.gz`](results/predictions/pls_vs_ridge_matched_oof_predictions.csv.gz).
+
+The model-comparison point estimate is
+`mean_r[M_r(ridge) - M_r(PLS)]` over the five matched repeats. Its interval is
+a 2,000-replicate paired patient-cluster bootstrap: patients are sampled with
+replacement, all five predictions and both algorithms are retained for each
+sampled patient, the metric difference is recalculated within each repeat, and
+the mean repeat difference is recorded. The 2.5th and 97.5th percentiles are
+reported as a **selection-conditioned paired patient-resampling interval**.
+This bootstrap does not regenerate folds, refit either algorithm, or repeat the
+initial PLS endpoint screen.
+
+## Selection-conditioned uncertainty
+
+Intervals for the 24 highlighted atlas models are labelled **95% selection-
+conditioned patient-resampling intervals for repeated out-of-fold
+predictions**. Each of 1,000 bootstrap replicates samples patients as clusters,
+retains their five existing held-out predictions, calculates the metric within
+repeat and averages the five repeat-specific metrics. These intervals represent
+patient sampling variability conditional on the five fitted nested-CV
+prediction sets. They do not include the initial screen and endpoint selection,
+new partition generation, scaling or component reselection, model refitting
+inside the bootstrap, or external cohort/site/scanner/population variation.
 
 ## Independent evaluation status
 

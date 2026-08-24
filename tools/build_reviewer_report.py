@@ -86,6 +86,7 @@ mutation_coverage = read_rows("mutation_coverage_audit.csv")
 slide_audit = read_rows("patient_slide_multiplicity_by_cancer.csv")
 participant_characteristics = read_rows("participant_characteristics_by_cancer.csv")
 ridge_summary = read_rows("pls_vs_ridge_summary.csv")
+ridge_comparison = read_rows("pls_vs_ridge_highlighted_models.csv")
 multiplicity_summary = read_rows("multiplicity_sensitivity_summary.csv")
 permutation_uncertainty = read_rows("permutation_monte_carlo_uncertainty.csv")
 targeted_permutation = read_rows("targeted_permutation_refinement.csv")
@@ -112,6 +113,33 @@ targeted_p_summary = (
 binary_ridge_summary = next(
     r for r in ridge_summary if r["outcome_type"] == "binary"
 )
+binary_primary_ridge = [
+    r for r in ridge_comparison
+    if r["outcome_type"] == "binary" and float(r["delta_ci_low"]) > 0
+]
+binary_primary_uncertain = [
+    r for r in ridge_comparison
+    if r["outcome_type"] == "binary"
+    and not (float(r["delta_ci_low"]) > 0 or float(r["delta_ci_high"]) < 0)
+]
+binary_secondary_ridge = [
+    r for r in ridge_comparison
+    if r["outcome_type"] == "binary"
+    and float(r["delta_secondary_ci_low"]) > 0
+]
+binary_secondary_pls = [
+    r for r in ridge_comparison
+    if r["outcome_type"] == "binary"
+    and float(r["delta_secondary_ci_high"]) < 0
+]
+binary_secondary_uncertain = [
+    r for r in ridge_comparison
+    if r["outcome_type"] == "binary"
+    and not (
+        float(r["delta_secondary_ci_low"]) > 0
+        or float(r["delta_secondary_ci_high"]) < 0
+    )
+]
 participant_overall = next(
     r for r in participant_characteristics if r["tumor_type"] == "Overall"
 )
@@ -261,10 +289,8 @@ add_heading(doc, "3. Performance reporting and research-use provenance", 2)
 add_body(doc,
     f"The {len(highlighted):,} highlighted models report sensitivity, specificity, "
     "balanced accuracy, AUROC, PR-AUC and cohort-specific PPV/NPV for binary outcomes and Q², RMSE and Spearman "
-    "correlation for continuous outcomes, with patient-cluster bootstrap intervals. "
-    "The Discussion correctly clarifies that these intervals are conditional on "
-    "endpoint selection in the same TCGA benchmark and do not remove winner's-curse "
-    "optimism or estimate external performance. "
+    "correlation for continuous outcomes, with 95% selection-conditioned patient-resampling intervals for repeated out-of-fold predictions. "
+    "The Methods and Discussion now state that these intervals resample patients from five fixed prediction sets and do not repeat screening, fold generation, tuning or fitting. They do not remove winner's-curse optimism or estimate external performance. "
     "The observed-versus-predicted figure is useful. Model artifacts record ordered "
     "feature schema, checksums, training ranges, pooling, endpoint transformations, "
     "output units, class coding, priors, decision behaviour, calibration status "
@@ -304,17 +330,15 @@ add_body(doc,
     "maximising balanced accuracy. Threshold-independent AUROC is the primary binary algorithm-comparison "
     f"metric: the median ridge-minus-PLS difference is {float(binary_ridge_summary['median_delta_ridge_minus_pls']):.3f} "
     f"(IQR {float(binary_ridge_summary['q1_delta']):.3f} to {float(binary_ridge_summary['q3_delta']):.3f}); "
-    "one endpoint favours ridge and 11 are uncertain. Under symmetric thresholding, the median "
+    f"{len(binary_primary_ridge)} endpoints favour ridge and {len(binary_primary_uncertain)} are uncertain. Under symmetric thresholding, the median "
     f"balanced-accuracy difference is {float(binary_ridge_summary['median_secondary_delta_ridge_minus_pls']):.3f} "
     f"(IQR {float(binary_ridge_summary['q1_secondary_delta']):.3f} to {float(binary_ridge_summary['q3_secondary_delta']):.3f}); "
-    "again one endpoint favours ridge and 11 are uncertain. The primary atlas appropriately retains its "
+    f"{len(binary_secondary_ridge)} favour ridge, {len(binary_secondary_pls)} favour PLS and {len(binary_secondary_uncertain)} are uncertain. The primary atlas appropriately retains its "
     "prespecified observed-prior PLS–LDA rule and is distinguished from this conditional method benchmark."
 )
 add_body(doc,
-    "No additional algorithm-comparison correction is requested. Table S10e should retain both AUROC and the "
-    "symmetrically thresholded balanced accuracy, and the manuscript should not interpret this selected 12-model "
-    "subset as evidence of atlas-wide superiority for either method.",
-    lead="No additional algorithm-comparison correction is requested."
+    "The new 2,000-replicate paired patient-resampling interval is preferable to the previous five-repeat t interval. Table S10e should retain both AUROC and the symmetrically thresholded balanced accuracy, and the manuscript should not interpret this selected 12-model subset as evidence of atlas-wide superiority for either method.",
+    lead="The new 2,000-replicate paired patient-resampling interval is preferable to the previous five-repeat t interval."
 )
 
 add_heading(doc, "6. Binary class size and development stability", 2)
@@ -345,7 +369,19 @@ add_body(doc,
     lead="No further internal sample-size analysis is requested."
 )
 
-add_heading(doc, "7. Relation to prior work and translational positioning", 2)
+add_heading(doc, "7. Selection-conditioned uncertainty", 2)
+add_body(doc,
+    "The revised manuscript no longer presents generic '95% bootstrap intervals' or '95% confidence intervals' for the highlighted TCGA results. The abstract and table captions define these as 95% selection-conditioned patient-resampling intervals for repeated out-of-fold predictions. Each replicate samples patients as clusters, retains all five existing held-out predictions, recalculates the metric within repeat and averages across repeats. The Methods now distinguish represented patient-sampling variability from excluded screening/highlighting uncertainty, new-fold variability, retuning/refitting variability, winner's-curse correction and external cohort/site/scanner/population variation."
+)
+add_body(doc,
+    "The PLS–ridge comparison has also been strengthened. For repeat r, the paired difference is d_r=M_r(ridge)−M_r(PLS), with Δ=(1/5)Σ_r d_r. A 2,000-replicate paired patient bootstrap samples patients with replacement while retaining both methods and all five matched repeat predictions; percentile limits are calculated from the resulting Δ values. The matched predictions and all 120 repeat-specific differences are machine-readable. The interval still conditions on PLS-based highlighting and does not refit either algorithm inside a bootstrap replicate, which is now stated explicitly."
+)
+add_body(doc,
+    "No additional internal uncertainty analysis is requested. Preserve the full interval label in the abstract and define the SC abbreviation in every applicable table; do not relabel these intervals as generalisation confidence intervals during copyediting.",
+    lead="No additional internal uncertainty analysis is requested."
+)
+
+add_heading(doc, "8. Relation to prior work and translational positioning", 2)
 add_body(doc,
     "The expanded review now covers mutation, MSI, gene expression, continuous "
     "biomarkers, fusions, homologous-recombination deficiency and tumour-microenvironment "
@@ -363,7 +399,7 @@ add_body(doc,
     "prospective discipline, but it is not external validation evidence."
 )
 
-add_heading(doc, "8. Reproducibility and model redistribution", 2)
+add_heading(doc, "9. Reproducibility and model redistribution", 2)
 add_body(doc,
     "The reproducibility resource is split between the public analysis repository and a "
     "separate GPL-3 TITANPred R package. The package contains all 323 fitted research models, with 306 in default inference "
@@ -383,7 +419,7 @@ add_body(doc,
     lead="Required before submission:"
 )
 
-add_heading(doc, "9. Administrative completion", 2)
+add_heading(doc, "10. Administrative completion", 2)
 add_body(doc,
     "Required before submission: replace the remaining placeholders for funding, "
     "competing interests and author contributions; confirm the institutional ethics/waiver "
