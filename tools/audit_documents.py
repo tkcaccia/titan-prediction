@@ -197,6 +197,9 @@ for required_revision in (
     "17 screen-positive models with fewer than 50 patients in either class",
     "omitted from default inference and available only through explicit opt-in",
     "PR-AUC was non-interpolated average precision",
+    "Precision–recall performance was reported for every screen-positive binary endpoint",
+    "mutation or fusion endpoints with prevalence below 0.20",
+    "This divergence illustrates why AUROC or balanced accuracy alone can overstate positive-class retrieval under low prevalence",
     "cohort-specific descriptive estimates, not calibrated probabilities",
     "Tissue-source-site sensitivity and submitting-site prediction",
     "the same separation was maintained in every inner component-selection split",
@@ -241,8 +244,12 @@ require("Table S6a. Highlighted-model performance and uncertainty" in supplement
         "Complete highlighted-model performance table is missing from the supplement")
 require("Manuscript length and table density" in response_text,
         "Response does not address manuscript length and table density")
+require("Report precision–recall metrics" in response_text,
+        "Response does not address precision-recall reporting")
 require("Manuscript density" in reviewer_text,
         "Reviewer report does not acknowledge the streamlined table structure")
+require("Precision–recall reporting" in reviewer_text,
+        "Reviewer report does not acknowledge precision-recall reporting")
 for item in (
     "Table S10a. Expanded literature audit",
     "Table S10b. Screen-positive models below the original prespecified screening threshold",
