@@ -212,6 +212,7 @@ for required_revision in (
     "research-software demonstration",
     "The package provides a synthetic feature vector constructed from stored training-feature means",
     "Figure 7. Post hoc TITANPred research-software visualization for two COAD participants",
+    "Panel A replaces separate radar plots with a common-scale dumbbell comparison",
     "Nodal status was not matched",
     "treatment, response, recurrence, follow-up and survival are neither shown nor interpreted",
     "TCGA OOF score rank (not probability)",
@@ -246,10 +247,14 @@ require("Manuscript length and table density" in response_text,
         "Response does not address manuscript length and table density")
 require("Report precision–recall metrics" in response_text,
         "Response does not address precision-recall reporting")
+require("Figure readability" in response_text,
+        "Response does not address figure readability")
 require("Manuscript density" in reviewer_text,
         "Reviewer report does not acknowledge the streamlined table structure")
 require("Precision–recall reporting" in reviewer_text,
         "Reviewer report does not acknowledge precision-recall reporting")
+require("Figure readability" in reviewer_text,
+        "Reviewer report does not acknowledge figure readability")
 for item in (
     "Table S10a. Expanded literature audit",
     "Table S10b. Screen-positive models below the original prespecified screening threshold",

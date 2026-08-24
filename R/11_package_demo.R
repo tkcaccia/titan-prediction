@@ -181,21 +181,58 @@ coral <- "#F05D5E"
 muted <- "#64748B"
 sample_palette <- c("COAD example A" = teal, "COAD example B" = coral)
 
-radar_a <- as.data.frame(selected[
-  example == "COAD example A" & outcome_type == "continuous"
-])
-radar_b <- as.data.frame(selected[
-  example == "COAD example B" & outcome_type == "continuous"
-])
-p_radar_a <- plot_titan_radar(radar_a) +
+continuous_display <- selected[outcome_type == "continuous"]
+continuous_display[, endpoint_label := fcase(
+  endpoint == "Lymphocyte Infiltration Signature Score", "Lymphocyte signature",
+  endpoint == "TIL Regional Fraction", "TIL regional fraction",
+  endpoint == "Nonsilent Mutation Rate", "Nonsilent mutation rate",
+  endpoint == "Silent Mutation Rate", "Silent mutation rate",
+  endpoint == "SNV Neoantigens", "SNV neoantigens",
+  endpoint == "Aneuploidy Score", "Aneuploidy (immune atlas)",
+  endpoint == "Aneuploidy score", "Aneuploidy (Taylor)",
+  endpoint == "Deleted arm count", "Deleted arm count",
+  default = endpoint
+)]
+continuous_display[, endpoint_label := factor(
+  endpoint_label,
+  levels = rev(unique(endpoint_label[order(reference_percentile)]))
+)]
+continuous_wide <- dcast(
+  continuous_display,
+  endpoint_label ~ example,
+  value.var = c("reference_percentile", "prediction")
+)
+setnames(
+  continuous_wide,
+  c("reference_percentile_COAD example A", "reference_percentile_COAD example B",
+    "prediction_COAD example A", "prediction_COAD example B"),
+  c("rank_a", "rank_b", "prediction_a", "prediction_b")
+)
+continuous_wide[, value_label := sprintf("A %.3g  |  B %.3g", prediction_a, prediction_b)]
+p_continuous <- ggplot(continuous_wide, aes(y = endpoint_label)) +
+  geom_segment(aes(x = rank_a, xend = rank_b, yend = endpoint_label),
+               color = "#D7DEE8", linewidth = 1.1) +
+  geom_point(aes(x = rank_a, color = "COAD example A"), size = 3.7) +
+  geom_point(aes(x = rank_b, color = "COAD example B"), size = 3.7) +
+  geom_text(aes(x = 104, label = value_label), hjust = 0, size = 3.3,
+            color = navy, family = "Arial") +
+  scale_color_manual(values = sample_palette) +
+  scale_x_continuous(limits = c(0, 126), breaks = seq(0, 100, 25),
+                     labels = function(x) paste0(x, "%")) +
+  coord_cartesian(clip = "off") +
   labs(
-    title = paste0("A  Example A - ", unique(radar_a$patient_id)),
-    subtitle = "All 10 continuous predictions; exact values at radar corners"
-  )
-p_radar_b <- plot_titan_radar(radar_b) +
-  labs(
-    title = paste0("B  Example B - ", unique(radar_b$patient_id)),
-    subtitle = "All 10 continuous predictions; exact values at radar corners"
+    title = "A  Continuous estimates compared on one common reference-rank scale",
+    subtitle = "Right column gives original predictions (A | B); reference rank is not probability",
+    x = "TCGA out-of-fold prediction rank (not probability)", y = NULL,
+    color = NULL
+  ) +
+  theme_minimal(base_size = 11.5, base_family = "Arial") +
+  theme(
+    panel.grid.major.y = element_blank(), panel.grid.minor = element_blank(),
+    axis.text.y = element_text(size = 10.2),
+    plot.title = element_text(face = "bold", size = 14, color = navy),
+    plot.subtitle = element_text(size = 10, color = muted),
+    legend.position = "bottom", plot.margin = margin(8, 18, 8, 8)
   )
 
 binary <- selected[outcome_type == "binary"]
@@ -227,23 +264,23 @@ p_binary <- ggplot(binary, aes(reference_rank, endpoint_label, color = example))
   scale_x_continuous(limits = c(0, 100), breaks = seq(0, 100, 25),
                      labels = function(x) paste0(x, "%")) +
   labs(
-    title = "C  Binary calls for the two post hoc illustrative cases",
+    title = "B  Binary calls for the two illustrative cases",
     subtitle = "Score rank (not probability); [SITE-SENSITIVE] models fell below their original TSS-grouped threshold",
     x = "TCGA out-of-fold score rank (not probability)", y = NULL,
     color = NULL, shape = NULL
   ) +
-  theme_minimal(base_size = 9.5, base_family = "Arial") +
+  theme_minimal(base_size = 11, base_family = "Arial") +
   theme(
     panel.grid.major.y = element_blank(), panel.grid.minor = element_blank(),
-    axis.text.y = element_text(size = 7.5),
-    plot.title = element_text(face = "bold", size = 13, color = navy),
-    plot.subtitle = element_text(size = 8.5, color = muted),
+    axis.text.y = element_text(size = 9.2),
+    plot.title = element_text(face = "bold", size = 14, color = navy),
+    plot.subtitle = element_text(size = 10, color = muted),
     legend.position = "bottom", legend.box = "vertical",
-    legend.text = element_text(size = 8.2)
+    legend.text = element_text(size = 9.5)
   )
 
-figure <- ((p_radar_a | p_radar_b) / p_binary +
-             plot_layout(heights = c(1.35, 1))) +
+figure <- (p_continuous / p_binary +
+             plot_layout(heights = c(1.05, 1))) +
   plot_annotation(
     title = "TITANPred research-software visualization: internally derived COAD estimates",
     subtitle = paste(
@@ -253,7 +290,7 @@ figure <- ((p_radar_a | p_radar_b) / p_binary +
     caption = paste0(
       "A: ", example_map[example == "COAD example A", patient_id],
       "; B: ", example_map[example == "COAD example B", patient_id],
-      ". Exact radar values shown. Binary TCGA OOF score rank (not probability). ",
+      ". Continuous and binary TCGA OOF ranks are not probabilities. ",
       "Post hoc visualization; no external validation."
     ),
     theme = theme(
@@ -264,9 +301,9 @@ figure <- ((p_radar_a | p_radar_b) / p_binary +
   )
 
 ggsave("figures/Figure7_COAD_TITANPred_examples.png", figure,
-       width = 13.2, height = 11.2, dpi = 320, bg = "white")
+       width = 12.4, height = 10.2, dpi = 320, bg = "white")
 ggsave("figures/Figure7_COAD_TITANPred_examples.pdf", figure,
-       width = 13.2, height = 11.2, device = cairo_pdf, bg = "white")
+       width = 12.4, height = 10.2, device = cairo_pdf, bg = "white")
 
 cat("Selected:", paste(example_map$patient_id, collapse = " and "), "\n")
 cat("Reports:", paste(list.files("results/reports", pattern = "COAD_example", full.names = TRUE), collapse = "\n"), "\n")
