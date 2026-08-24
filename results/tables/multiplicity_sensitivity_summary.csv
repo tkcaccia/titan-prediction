@@ -1,0 +1,4 @@
+outcome_type,eligible_tests,effect_eligible,within_cancer_family_candidates,across_cancer_family_pass,outcome_wide_pass,atlas_wide_pass
+continuous,1614,221,219,219,219,219
+binary,459,107,104,102,102,101
+combined,2073,328,323,321,321,320

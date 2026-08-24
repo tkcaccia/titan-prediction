@@ -144,6 +144,156 @@ audit_permutations(
   "binary screen"
 )
 
+uncertainty <- fread("results/tables/permutation_monte_carlo_uncertainty.csv")
+assert(nrow(uncertainty) == nrow(continuous) + nrow(binary) &&
+         uniqueN(uncertainty, by = c("outcome_type", key)) == nrow(uncertainty),
+       "Permutation Monte Carlo uncertainty table has incomplete or duplicate keys")
+screen_uncertainty <- rbindlist(list(
+  continuous[, .(
+    outcome_type = "continuous", family, tumor_type, endpoint,
+    p_permutation, permutations, permutation_exceedances,
+    permutation_attempted, permutation_stopped_early
+  )],
+  binary[, .(
+    outcome_type = "binary", family, tumor_type, endpoint,
+    p_permutation, permutations, permutation_exceedances,
+    permutation_attempted, permutation_stopped_early
+  )]
+))
+setkeyv(uncertainty, c("outcome_type", key))
+setkeyv(screen_uncertainty, c("outcome_type", key))
+assert(nrow(fsetdiff(
+  uncertainty[, names(screen_uncertainty), with = FALSE], screen_uncertainty
+)) == 0L && nrow(fsetdiff(
+  screen_uncertainty, uncertainty[, names(screen_uncertainty), with = FALSE]
+)) == 0L, "Monte Carlo table does not reproduce screen permutation metadata")
+completed_uncertainty <- uncertainty[
+  permutations > 0L & !permutation_stopped_early
+]
+mc_expected <- t(vapply(seq_len(nrow(completed_uncertainty)), function(i) {
+  b <- completed_uncertainty$permutation_exceedances[[i]]
+  B <- completed_uncertainty$permutations[[i]]
+  c(
+    lower = if (b == 0L) 0 else qbeta(0.025, b, B - b + 1L),
+    upper = if (b == B) 1 else qbeta(0.975, b + 1L, B - b)
+  )
+}, numeric(2L)))
+assert(all(abs(completed_uncertainty$p_mc_lower_95 - mc_expected[, "lower"]) < 1e-12) &&
+         all(abs(completed_uncertainty$p_mc_upper_95 - mc_expected[, "upper"]) < 1e-12),
+       "Monte Carlo intervals do not reproduce exact Clopper-Pearson bounds")
+zero_999 <- completed_uncertainty[
+  permutations == 999L & permutation_exceedances == 0L
+]
+assert(nrow(zero_999) > 0L && all(zero_999$p_mc_lower_95 == 0) &&
+         all(abs(zero_999$p_mc_upper_95 - 0.00368576286573938) < 1e-12),
+       "Zero-exceedance 999-permutation Monte Carlo bounds are incorrect")
+
+multiplicity <- fread("results/tables/multiplicity_sensitivity_by_endpoint.csv")
+assert(nrow(multiplicity) == nrow(continuous) + nrow(binary) &&
+         uniqueN(multiplicity, by = c("outcome_type", key)) == nrow(multiplicity),
+       "Atlas-wide multiplicity table has incomplete or duplicate keys")
+screen_multiplicity <- rbindlist(list(
+  continuous[, .(
+    outcome_type = "continuous", family, tumor_type, endpoint,
+    p_permutation, q_value, q_value_global, tier
+  )],
+  binary[, .(
+    outcome_type = "binary", family, tumor_type, endpoint,
+    p_permutation, q_value, q_value_global, tier
+  )]
+))
+shared_multiplicity_columns <- names(screen_multiplicity)
+assert(nrow(fsetdiff(
+  multiplicity[, ..shared_multiplicity_columns], screen_multiplicity
+)) == 0L && nrow(fsetdiff(
+  screen_multiplicity, multiplicity[, ..shared_multiplicity_columns]
+)) == 0L, "Multiplicity sensitivity table does not reproduce primary screen fields")
+setorder(multiplicity, outcome_type, family, tumor_type, endpoint)
+expected_atlas_q <- p.adjust(multiplicity$p_permutation, method = "BH")
+assert(all(abs(multiplicity$q_value_atlas_wide - expected_atlas_q) < 1e-12),
+       "Atlas-wide q values do not reproduce BH across all eligible tests")
+expected_outcome_q <- multiplicity[, .(
+  expected = p.adjust(p_permutation, method = "BH")
+), by = outcome_type]$expected
+assert(all(abs(multiplicity$q_value_outcome_wide - expected_outcome_q) < 1e-12),
+       "Outcome-wide q values do not reproduce BH within outcome type")
+expected_multiplicity_summary <- rbindlist(lapply(
+  c("continuous", "binary"), function(kind) {
+    z <- multiplicity[outcome_type == kind]
+    primary <- if (kind == "continuous") continuous else binary
+    effect_ok <- if (kind == "continuous") {
+      is.finite(primary$q2) & primary$q2 >= cfg$analysis$continuous_effect_gate
+    } else {
+      is.finite(primary$adjusted_balanced_accuracy) &
+        primary$adjusted_balanced_accuracy >= cfg$analysis$binary_adjusted_ba_gate
+    }
+    local <- z$tier %chin% c("A", "B")
+    data.table(
+      outcome_type = kind,
+      eligible_tests = nrow(z),
+      effect_eligible = sum(effect_ok),
+      within_cancer_family_candidates = sum(local),
+      across_cancer_family_pass = sum(local & z$q_value_global < 0.05),
+      outcome_wide_pass = sum(local & z$q_value_outcome_wide < 0.05),
+      atlas_wide_pass = sum(local & z$q_value_atlas_wide < 0.05)
+    )
+  }
+))
+expected_multiplicity_summary <- rbind(
+  expected_multiplicity_summary,
+  as.data.table(c(
+    list(outcome_type = "combined"),
+    lapply(expected_multiplicity_summary[, -"outcome_type"], sum)
+  ))
+)
+reported_multiplicity_summary <- fread(
+  "results/tables/multiplicity_sensitivity_summary.csv"
+)
+assert(nrow(fsetdiff(expected_multiplicity_summary,
+                     reported_multiplicity_summary)) == 0L &&
+         nrow(fsetdiff(reported_multiplicity_summary,
+                       expected_multiplicity_summary)) == 0L,
+       "Multiplicity sensitivity summary does not reproduce endpoint-level counts")
+
+target_registry <- fread(
+  "data/reference/targeted_permutation_refinement_targets.csv"
+)
+targeted <- fread("results/tables/targeted_permutation_refinement.csv")
+assert(nrow(targeted) == nrow(target_registry) &&
+         nrow(fsetdiff(targeted[, c("outcome_type", key), with = FALSE],
+                       target_registry[, c("outcome_type", key), with = FALSE])) == 0L &&
+         nrow(fsetdiff(target_registry[, c("outcome_type", key), with = FALSE],
+                       targeted[, c("outcome_type", key), with = FALSE])) == 0L,
+       "Targeted 9,999-permutation result keys do not match the locked registry")
+assert(all(targeted$refined_permutations >= 9999L) &&
+         all(!targeted$refinement_stopped_early) &&
+         all(abs(targeted$refined_p_9999 -
+                   (targeted$refined_exceedances_9999 + 1) /
+                   (targeted$refined_permutations + 1)) < 1e-12),
+       "Targeted refinement p values or permutation counts are invalid")
+targeted_mc <- t(vapply(seq_len(nrow(targeted)), function(i) {
+  b <- targeted$refined_exceedances_9999[[i]]
+  B <- targeted$refined_permutations[[i]]
+  c(
+    lower = if (b == 0L) 0 else qbeta(0.025, b, B - b + 1L),
+    upper = if (b == B) 1 else qbeta(0.975, b + 1L, B - b)
+  )
+}, numeric(2L)))
+assert(all(abs(targeted$refined_mc_lower_95 - targeted_mc[, "lower"]) < 1e-12) &&
+         all(abs(targeted$refined_mc_upper_95 - targeted_mc[, "upper"]) < 1e-12) &&
+         all(targeted$full_nested_process_repeated) &&
+         all(targeted$scaling_relearned_within_folds) &&
+         all(targeted$inner_component_selection_repeated) &&
+         all(targeted$outer_predictions_regenerated) &&
+         all(targeted$fastPLS_version == as.character(packageVersion("fastPLS"))) &&
+         all(targeted$pls_method == "simpls") &&
+         all(targeted$scaling == "centering") &&
+         all(targeted$target_registry_git_commit == "ac30ccb") &&
+         all(targeted$svd_method == cfg$analysis$svd_method) &&
+         all(targeted$rsvd_oversample == cfg$analysis$rsvd_oversample) &&
+         all(targeted$rsvd_power == cfg$analysis$rsvd_power),
+       "Targeted refinement uncertainty or full-process metadata are invalid")
+
 supported_c <- continuous[tier %chin% c("A", "B")]
 supported_b <- binary[tier %chin% c("A", "B")]
 supported <- rbindlist(list(

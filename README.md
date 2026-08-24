@@ -97,13 +97,36 @@ The primary inferential screen refines every effect-qualified endpoint to a targ
 999 patient-label permutations, with conservative sequential stopping at the
 point where raw p<0.05 is impossible. It controls FDR separately by outcome
 type within cancer and endpoint family and also writes a stricter across-cancer
-q-value within the same outcome type and family. Set
+q-value within the same outcome type and family. Every permutation reruns the
+complete nested procedure: training-fold centering, inner component selection,
+outer refitting and held-out prediction. Exact two-sided 95% Clopper-Pearson
+Monte Carlo bounds for the null exceedance probability are recorded in
+`results/tables/permutation_monte_carlo_uncertainty.csv`; for zero exceedances
+among 999 permutations the interval is 0–0.003686. A separate BH sensitivity
+across all 2,073 eligible atlas tests is provided in
+`multiplicity_sensitivity_by_endpoint.csv` and summarised in
+`multiplicity_sensitivity_summary.csv`. Set
 `TITAN_RUN_999=false` only for a non-final pilot run. The pipeline records the
 actual number attempted, stopping status, `fastPLS` version and computational
 backend so that the analysis environment can be reconstructed. The minimum
 completed-test p-value is 0.001; consequently, the across-cancer correction is
 a deliberately strict, resolution-limited sensitivity analysis for large
 endpoint families, and non-passage is not treated as evidence of no signal.
+
+Eight prespecified leading models spanning continuous immune programmes,
+mutation, strict MSI and fusion endpoints are extended from the saved first 999
+permutations to 9,999 complete permutations by
+`R/05c_targeted_permutation_refinement.R`. The locked target registry is
+`data/reference/targeted_permutation_refinement_targets.csv` (committed before
+the high-resolution result as Git commit `ac30ccb`), checkpoints are
+resumable, and the result is `targeted_permutation_refinement.csv`. This targeted
+refinement quantifies Monte Carlo precision for leading claims and is not
+substituted into the prespecified FDR screen. Atlas tables and figures are
+ordered by predictive effect magnitude, with repeated and site-grouped
+stability reported alongside; tied minimum permutation q-values are not used
+for ranking.
+Set `TITAN_RUN_9999=false` only when intentionally skipping this final targeted
+precision analysis; completed permutation indices are checkpointed every 50 fits.
 
 After the R pipeline finishes, build the submission documents with:
 
@@ -126,7 +149,8 @@ final screens, configuration, cohort schema/source, fastPLS build and backend
 matches the current run; obsolete checkpoint files are not collated.
 
 During a long permutation run, `Rscript tools/permutation_progress.R` reports
-read-only checkpoint counts and attempted permutations without changing state.
+read-only primary and targeted checkpoint counts, attempted permutations and
+high-resolution completion percentages without changing state.
 
 ### Exploratory histology-context models
 

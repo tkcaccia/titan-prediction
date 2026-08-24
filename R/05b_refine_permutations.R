@@ -12,6 +12,16 @@ cohort <- readRDS("data/processed/patient_cohort.rds")
 workers <- as.integer(Sys.getenv("TITAN_WORKERS", "6"))
 future::plan(future::multicore, workers = workers)
 
+monte_carlo_interval <- function(exceedances, permutations, conf.level = 0.95) {
+  b <- as.integer(exceedances)
+  B <- as.integer(permutations)
+  alpha <- 1 - conf.level
+  c(
+    lower = if (b == 0L) 0 else qbeta(alpha / 2, b, B - b + 1L),
+    upper = if (b == B) 1 else qbeta(1 - alpha / 2, b + 1L, B - b)
+  )
+}
+
 continuous_targets <- readRDS("data/processed/continuous_targets.rds")
 binary_targets <- rbindlist(list(
   readRDS("data/processed/binary_targets_nonmutation.rds"),
@@ -46,6 +56,7 @@ permuted_continuous_metric <- function(X, y, job, permutation_index) {
   fit <- pls.double.cv(
     X[shuffled, , drop = FALSE], y,
     ncomp = cfg$analysis$components,
+    scaling = "centering",
     svd.method = cfg$analysis$svd_method,
     rsvd_oversample = cfg$analysis$rsvd_oversample,
     rsvd_power = cfg$analysis$rsvd_power,
@@ -63,6 +74,7 @@ permuted_binary_metric <- function(X, y, job, permutation_index) {
   fit <- pls.double.cv(
     Xdata = X[shuffled, , drop = FALSE], Ydata = y,
     ncomp = cfg$analysis$components,
+    scaling = "centering",
     classifier = "lda", lda_ridge = cfg$analysis$lda_ridge,
     selection_metric = "balanced_accuracy",
     svd.method = cfg$analysis$svd_method,
@@ -126,6 +138,9 @@ refine_continuous <- function(path, times) {
     existing_exceedances = if (extending) job$permutation_exceedances else 0L,
     start_index = if (extending) existing_attempted + 1L else 1L
   )
+  mc <- if (!perm$stopped_early) {
+    monte_carlo_interval(perm$exceedances, times)
+  } else c(lower = NA_real_, upper = NA_real_)
   job[, `:=`(
     p_permutation = perm$p_value,
     permutations = times,
@@ -136,6 +151,13 @@ refine_continuous <- function(path, times) {
       perm$attempted
     ),
     permutation_stopped_early = perm$stopped_early,
+    p_mc_lower_95 = mc[["lower"]],
+    p_mc_upper_95 = mc[["upper"]],
+    p_mc_status = if (perm$stopped_early) {
+      "not estimated: conservative early stop and p=1 assignment"
+    } else {
+      "two-sided 95% Clopper-Pearson interval for the null exceedance probability"
+    },
     backend = backend, svd_method = cfg$analysis$svd_method,
     rsvd_oversample = cfg$analysis$rsvd_oversample,
     rsvd_power = cfg$analysis$rsvd_power
@@ -169,6 +191,9 @@ refine_binary <- function(path, times) {
     existing_exceedances = if (extending) job$permutation_exceedances else 0L,
     start_index = if (extending) existing_attempted + 1L else 1L
   )
+  mc <- if (!perm$stopped_early) {
+    monte_carlo_interval(perm$exceedances, times)
+  } else c(lower = NA_real_, upper = NA_real_)
   job[, `:=`(
     p_permutation = perm$p_value,
     permutations = times,
@@ -179,6 +204,13 @@ refine_binary <- function(path, times) {
       perm$attempted
     ),
     permutation_stopped_early = perm$stopped_early,
+    p_mc_lower_95 = mc[["lower"]],
+    p_mc_upper_95 = mc[["upper"]],
+    p_mc_status = if (perm$stopped_early) {
+      "not estimated: conservative early stop and p=1 assignment"
+    } else {
+      "two-sided 95% Clopper-Pearson interval for the null exceedance probability"
+    },
     backend = backend, svd_method = cfg$analysis$svd_method,
     rsvd_oversample = cfg$analysis$rsvd_oversample,
     rsvd_power = cfg$analysis$rsvd_power
@@ -282,6 +314,39 @@ if (run_extended) {
 collate <- function(directory, kind) {
   objects <- lapply(list.files(directory, pattern = "[.]rds$", full.names = TRUE), readRDS)
   results <- rbindlist(lapply(objects, `[[`, "row"), fill = TRUE)
+  effect_ok <- if (kind == "continuous") {
+    is.finite(results$q2) & results$q2 >= cfg$analysis$continuous_effect_gate
+  } else {
+    is.finite(results$adjusted_balanced_accuracy) &
+      results$adjusted_balanced_accuracy >= cfg$analysis$binary_adjusted_ba_gate
+  }
+  if (!"p_mc_lower_95" %in% names(results)) results[, p_mc_lower_95 := NA_real_]
+  if (!"p_mc_upper_95" %in% names(results)) results[, p_mc_upper_95 := NA_real_]
+  if (!"p_mc_status" %in% names(results)) results[, p_mc_status := NA_character_]
+  completed <- effect_ok & !results$permutation_stopped_early
+  if (any(completed)) {
+    mc <- t(vapply(which(completed), function(i) {
+      monte_carlo_interval(
+        results$permutation_exceedances[[i]], results$permutations[[i]]
+      )
+    }, numeric(2L)))
+    results[completed, `:=`(
+      p_mc_lower_95 = mc[, "lower"],
+      p_mc_upper_95 = mc[, "upper"],
+      p_mc_status = paste0(
+        "two-sided 95% Clopper-Pearson interval for ",
+        "the null exceedance probability"
+      )
+    )]
+  }
+  results[effect_ok & permutation_stopped_early, `:=`(
+    p_mc_lower_95 = NA_real_, p_mc_upper_95 = NA_real_,
+    p_mc_status = "not estimated: conservative early stop and p=1 assignment"
+  )]
+  results[!effect_ok, `:=`(
+    p_mc_lower_95 = NA_real_, p_mc_upper_95 = NA_real_,
+    p_mc_status = "not permutation-tested: below the prespecified effect gate"
+  )]
   # The primary scientific claim is a separate target screen within each
   # disease. Control FDR within cancer and prespecified endpoint family, while
   # retaining the more stringent across-cancer family q value as sensitivity.
@@ -289,6 +354,7 @@ collate <- function(directory, kind) {
           by = .(family, tumor_type)]
   results[, q_value_global := p.adjust(p_permutation, method = "BH"),
           by = family]
+  results[, q_value_outcome_wide := p.adjust(p_permutation, method = "BH")]
   if (kind == "continuous") {
     results[, tier := fifelse(
       q_value < cfg$analysis$fdr_alpha & q2 >= 0.40, "A",
@@ -303,10 +369,106 @@ collate <- function(directory, kind) {
     )]
     setorder(results, family, -balanced_accuracy)
   }
-  fwrite(results, file.path("results/tables", paste0(kind, "_screen.csv")))
-  saveRDS(lapply(objects, `[[`, "predictions"),
-          file.path("results/predictions", paste0(kind, "_oof_predictions.rds")),
-          compress = "xz")
+  list(results = results, objects = objects)
 }
-collate("data/processed/checkpoints/continuous", "continuous")
-collate("data/processed/checkpoints/binary", "binary")
+
+continuous_collated <- collate(
+  "data/processed/checkpoints/continuous", "continuous"
+)
+binary_collated <- collate("data/processed/checkpoints/binary", "binary")
+atlas_p <- p.adjust(c(
+  continuous_collated$results$p_permutation,
+  binary_collated$results$p_permutation
+), method = "BH")
+continuous_collated$results[, q_value_atlas_wide :=
+  atlas_p[seq_len(nrow(continuous_collated$results))]]
+binary_collated$results[, q_value_atlas_wide := atlas_p[
+  nrow(continuous_collated$results) + seq_len(nrow(binary_collated$results))
+]]
+
+write_collated <- function(x, kind) {
+  screen <- copy(x$results)
+  screen[, c(
+    "p_mc_lower_95", "p_mc_upper_95", "p_mc_status",
+    "q_value_outcome_wide", "q_value_atlas_wide"
+  ) := NULL]
+  fwrite(screen, file.path("results/tables", paste0(kind, "_screen.csv")))
+  saveRDS(
+    lapply(x$objects, `[[`, "predictions"),
+    file.path("results/predictions", paste0(kind, "_oof_predictions.rds")),
+    compress = "xz"
+  )
+}
+write_collated(continuous_collated, "continuous")
+write_collated(binary_collated, "binary")
+
+uncertainty <- rbindlist(list(
+  continuous_collated$results[, .(
+    outcome_type = "continuous", family, tumor_type, endpoint,
+    p_permutation, permutations, permutation_exceedances,
+    permutation_attempted, permutation_stopped_early,
+    p_mc_lower_95, p_mc_upper_95, p_mc_status
+  )],
+  binary_collated$results[, .(
+    outcome_type = "binary", family, tumor_type, endpoint,
+    p_permutation, permutations, permutation_exceedances,
+    permutation_attempted, permutation_stopped_early,
+    p_mc_lower_95, p_mc_upper_95, p_mc_status
+  )]
+), use.names = TRUE)
+fwrite(uncertainty, "results/tables/permutation_monte_carlo_uncertainty.csv")
+
+multiplicity_by_endpoint <- rbindlist(list(
+  continuous_collated$results[, .(
+    outcome_type = "continuous", family, tumor_type, endpoint,
+    p_permutation, q_value, q_value_global,
+    q_value_outcome_wide, q_value_atlas_wide, tier
+  )],
+  binary_collated$results[, .(
+    outcome_type = "binary", family, tumor_type, endpoint,
+    p_permutation, q_value, q_value_global,
+    q_value_outcome_wide, q_value_atlas_wide, tier
+  )]
+), use.names = TRUE)
+fwrite(
+  multiplicity_by_endpoint,
+  "results/tables/multiplicity_sensitivity_by_endpoint.csv"
+)
+
+summarise_multiplicity <- function(z, kind) {
+  effect_ok <- if (kind == "continuous") {
+    is.finite(z$q2) & z$q2 >= cfg$analysis$continuous_effect_gate
+  } else {
+    is.finite(z$adjusted_balanced_accuracy) &
+      z$adjusted_balanced_accuracy >= cfg$analysis$binary_adjusted_ba_gate
+  }
+  screen_positive <- z$tier %chin% c("A", "B")
+  data.table(
+    outcome_type = kind,
+    eligible_tests = nrow(z),
+    effect_eligible = sum(effect_ok),
+    within_cancer_family_candidates = sum(screen_positive),
+    across_cancer_family_pass = sum(screen_positive & z$q_value_global < 0.05),
+    outcome_wide_pass = sum(screen_positive & z$q_value_outcome_wide < 0.05),
+    atlas_wide_pass = sum(screen_positive & z$q_value_atlas_wide < 0.05)
+  )
+}
+multiplicity_summary <- rbindlist(list(
+  summarise_multiplicity(continuous_collated$results, "continuous"),
+  summarise_multiplicity(binary_collated$results, "binary")
+))
+multiplicity_summary <- rbind(
+  multiplicity_summary,
+  data.table(
+    outcome_type = "combined",
+    eligible_tests = sum(multiplicity_summary$eligible_tests),
+    effect_eligible = sum(multiplicity_summary$effect_eligible),
+    within_cancer_family_candidates =
+      sum(multiplicity_summary$within_cancer_family_candidates),
+    across_cancer_family_pass =
+      sum(multiplicity_summary$across_cancer_family_pass),
+    outcome_wide_pass = sum(multiplicity_summary$outcome_wide_pass),
+    atlas_wide_pass = sum(multiplicity_summary$atlas_wide_pass)
+  )
+)
+fwrite(multiplicity_summary, "results/tables/multiplicity_sensitivity_summary.csv")

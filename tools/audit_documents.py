@@ -157,6 +157,11 @@ for required_revision in (
     "83/323 models (25.7%) fell below the original effect threshold",
     "Threshold-independent AUROC was the primary binary algorithm-comparison metric",
     "the same inner-CV balanced-accuracy threshold rule applied to both methods",
+    "every permutation, patient labels were reassigned and the complete modelling process was repeated",
+    "single BH correction across all eligible continuous and binary cancer–endpoint tests",
+    "zero exceedances among 999 permutations this interval is 0–0.003686",
+    "prespecified high-resolution subset extended 8 leading models to 9,999",
+    "figures and tables are ordered by predictive effect magnitude, with repeated and site-grouped stability reported alongside; q-values are not used for ranking",
     "38/41 screen-positive cancer–gene pairs",
     "TCGA out-of-fold score rank (not probability)",
     "Probability calibration was not added",
@@ -195,12 +200,15 @@ for header in (
 
 supplement = documents["supplementary_material_JTM.docx"]
 supplement_text = texts["supplementary_material_JTM.docx"]
+response_text = texts["response_to_reviewer_JTM.docx"]
+reviewer_text = texts["reviewer_report_JTM.docx"]
 for item in (
     "Table S10a. Expanded literature audit",
     "Table S10b. Screen-positive models below the original effect threshold",
     "Table S10c. Tissue-source-site-grouped outer-fold composition",
     "Table S10d. Within-cancer prediction of TCGA tissue-source site",
     "Table S10e. PLS versus exportable ridge benchmark",
+    "Table S10f. Permutation precision and atlas-wide multiplicity sensitivity",
     "Table S6c. Prospectively locked subset for future independent evaluation",
     "Table S12",
     "Figure S1",
@@ -214,8 +222,15 @@ require(
     in supplement_text,
     "Symmetric binary decision-rule panel is missing from Table S10e",
 )
+require(
+    "5. The multiplicity framework is thoughtful but remains resolution-limited"
+    in response_text
+    and "Clopper–Pearson Monte Carlo bounds" in response_text
+    and "9,999 complete-process permutations" in response_text
+    and "single atlas-wide BH sensitivities" in response_text,
+    "Response to reviewer does not fully address permutation resolution and multiplicity",
+)
 
-response_text = texts["response_to_reviewer_JTM.docx"]
 require(
     "4. The binary modelling and ridge comparison use asymmetric decision rules"
     in response_text
@@ -223,8 +238,13 @@ require(
     and "binary_symmetric_pls_ridge_repeated_nested_cv.csv" in response_text,
     "Response to reviewer does not fully address the binary decision-rule asymmetry",
 )
+require(
+    "one BH correction across all" in reviewer_text
+    and "9,999 full permutations" in reviewer_text
+    and "No additional multiplicity correction is requested" in reviewer_text,
+    "Reviewer report does not reflect the corrected multiplicity analysis",
+)
 
-reviewer_text = texts["reviewer_report_JTM.docx"]
 require(
     "Symmetric binary PLS–ridge comparison" in reviewer_text
     and "No additional algorithm-comparison correction is requested" in reviewer_text,

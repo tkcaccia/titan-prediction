@@ -85,6 +85,26 @@ mutation_coverage = read_rows("mutation_coverage_audit.csv")
 slide_audit = read_rows("patient_slide_multiplicity_by_cancer.csv")
 participant_characteristics = read_rows("participant_characteristics_by_cancer.csv")
 ridge_summary = read_rows("pls_vs_ridge_summary.csv")
+multiplicity_summary = read_rows("multiplicity_sensitivity_summary.csv")
+permutation_uncertainty = read_rows("permutation_monte_carlo_uncertainty.csv")
+targeted_permutation = read_rows("targeted_permutation_refinement.csv")
+combined_multiplicity = next(
+    r for r in multiplicity_summary if r["outcome_type"] == "combined"
+)
+zero_999 = [
+    r for r in permutation_uncertainty
+    if r["permutations"] == "999"
+    and r["permutation_exceedances"] == "0"
+    and r["permutation_stopped_early"] == "FALSE"
+]
+zero_999_upper = max(float(r["p_mc_upper_95"]) for r in zero_999)
+targeted_zero = [r for r in targeted_permutation if r["zero_exceedances"] == "TRUE"]
+targeted_p = [float(r["refined_p_9999"]) for r in targeted_permutation]
+targeted_p_summary = (
+    f"all {targeted_p[0]:.4f}"
+    if targeted_p and max(targeted_p) - min(targeted_p) < 1e-12
+    else f"{min(targeted_p):.4f}–{max(targeted_p):.4f}"
+)
 binary_ridge_summary = next(
     r for r in ridge_summary if r["outcome_type"] == "binary"
 )
@@ -161,7 +181,7 @@ set_font(callout.add_run(
     "otherwise prevent interpretation: multiple slides are aggregated before "
     "validation; molecular missingness is not labelled wild type; binary "
     "models use PLS–LDA; continuous and binary performance is reported with "
-    "uncertainty; multiplicity is shown both within cancer and across cancers; "
+    "uncertainty; multiplicity is shown locally, across cancers and atlas-wide; "
     "and the absence of independent external validation is explicit. The revised wording no longer "
     "presents internal TCGA estimates as translational evidence. Nevertheless, independent validation "
     "remains the decisive missing element for publication as a translational prediction study."
@@ -205,19 +225,20 @@ add_heading(doc, "2. Multiplicity and interpretation", 2)
 add_body(doc,
     f"The final screen reports {len(screen_c):,} continuous and {len(screen_b):,} "
     "binary within-cancer candidates. The stricter across-cancer family correction "
-    f"retains {len(global_c):,} continuous and {len(global_mut):,} mutation pairs. "
-    "The 999-permutation target, finite-p correction, conservative sequential "
-    "stopping and explicit global sensitivity are transparent for an exploratory benchmark. "
-    "The manuscript appropriately acknowledges that the minimum empirical p-value "
-    "of 0.001 limits attainable q-values in large global families, so global "
-    "non-passage must not be read as evidence of no biological signal. "
-    "The revised higher-effect/moderate-effect/screen-negative language is preferable "
-    "to presenting internal tiers as clinical evidence grades."
+    f"retains {len(global_c):,} continuous and {len(global_mut):,} mutation pairs, while "
+    f"{int(combined_multiplicity['atlas_wide_pass']):,}/{int(combined_multiplicity['within_cancer_family_candidates']):,} "
+    f"local candidates pass one BH correction across all {int(combined_multiplicity['eligible_tests']):,} eligible atlas tests. "
+    "The manuscript correctly distinguishes this single atlas-wide sensitivity from its primary local cancer-specific questions. "
+    "It also now states explicitly that every permutation reruns training-fold centering, inner component selection, outer refitting and held-out prediction. "
+    f"Among completed 999-permutation tests, {len(zero_999)} had zero exceedances; the exact two-sided 95% Monte Carlo interval is 0–{zero_999_upper:.6f}. "
+    f"The locked eight-model refinement continues the same streams to 9,999 full permutations, with {len(targeted_zero)}/{len(targeted_permutation)} zero-exceedance results and refined p-values {targeted_p_summary}. "
+    "The refinement is appropriately presented as a precision sensitivity rather than being inserted post hoc into the prespecified FDR screen. "
+    "Models are ordered by predictive effect, repeated and site-grouped stability are reported alongside, and tied minimum q-values are not used for ranking."
 )
 add_body(doc,
-    "No additional analysis requested. Preserve the numerical distinction between "
-    "within-cancer and across-cancer results in the abstract and conclusions.",
-    lead="No additional analysis requested."
+    "No additional multiplicity correction is requested. Preserve the numerical distinction between "
+    "within-cancer, across-cancer-family and atlas-wide results, and retain the Monte Carlo interval and targeted-refinement caveats.",
+    lead="No additional multiplicity correction is requested."
 )
 
 add_heading(doc, "3. Performance reporting and research-use provenance", 2)

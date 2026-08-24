@@ -54,3 +54,38 @@ summarise_kind <- function(kind) {
 
 progress <- rbindlist(lapply(c("continuous", "binary"), summarise_kind))
 print(progress)
+
+targeted_directory <- file.path(
+  "data", "processed", "checkpoints", "targeted_permutation_refinement"
+)
+targeted_files <- list.files(
+  targeted_directory, pattern = "[.]rds$", full.names = TRUE
+)
+if (length(targeted_files)) {
+  targeted <- rbindlist(lapply(targeted_files, function(path) {
+    x <- readRDS(path)
+    data.table(
+      outcome_type = x$outcome_type,
+      family = x$family,
+      tumor_type = x$tumor_type,
+      endpoint = x$endpoint,
+      attempted = as.integer(x$attempted),
+      target = as.integer(x$target_permutations),
+      exceedances = as.integer(x$exceedances),
+      complete = as.integer(x$attempted) == as.integer(x$target_permutations)
+    )
+  }), fill = TRUE)
+  setorder(targeted, outcome_type, family, tumor_type, endpoint)
+  cat("\nTargeted high-resolution refinement:\n")
+  print(targeted)
+  initial_total <- sum(pmin(999L, targeted$target))
+  additional_target <- sum(pmax(targeted$target - 999L, 0L))
+  additional_done <- sum(pmax(targeted$attempted - 999L, 0L))
+  cat(sprintf(
+    "Additional-permutation progress: %.1f%% (%s/%s); %d/%d targets complete.\n",
+    100 * additional_done / additional_target,
+    format(additional_done, big.mark = ",", scientific = FALSE),
+    format(additional_target, big.mark = ",", scientific = FALSE),
+    sum(targeted$complete), nrow(targeted)
+  ))
+}

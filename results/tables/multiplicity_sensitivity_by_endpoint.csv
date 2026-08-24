@@ -1,0 +1,2074 @@
+outcome_type,family,tumor_type,endpoint,p_permutation,q_value,q_value_global,q_value_outcome_wide,q_value_atlas_wide,tier
+continuous,aneuploidy,UCEC,Aneuploidy score,0.001,0.0015,0.01125,0.00736986301369863,0.00673051948051948,B
+continuous,aneuploidy,UCEC,Deleted arm count,0.001,0.0015,0.01125,0.00736986301369863,0.00673051948051948,B
+continuous,aneuploidy,COAD,Aneuploidy score,0.001,0.0015,0.01125,0.00736986301369863,0.00673051948051948,B
+continuous,aneuploidy,STAD,Aneuploidy score,0.001,0.003,0.01125,0.00736986301369863,0.00673051948051948,B
+continuous,aneuploidy,BRCA,Aneuploidy score,0.001,0.0015,0.01125,0.00736986301369863,0.00673051948051948,B
+continuous,aneuploidy,COAD,Deleted arm count,0.001,0.0015,0.01125,0.00736986301369863,0.00673051948051948,B
+continuous,aneuploidy,BRCA,Deleted arm count,0.001,0.0015,0.01125,0.00736986301369863,0.00673051948051948,B
+continuous,aneuploidy,UVM,Deleted arm count,0.002,0.006,0.02,0.014606334841629,0.013120253164557,B
+continuous,aneuploidy,LUAD,Aneuploidy score,0.001,0.003,0.01125,0.00736986301369863,0.00673051948051948,B
+continuous,aneuploidy,LGG,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,THYM,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,SARC,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,STAD,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,LGG,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,LUAD,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,PRAD,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,KIRC,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,PRAD,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,SARC,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,KIRC,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,THYM,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,BLCA,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,KIRP,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,KIRP,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,LGG,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,LIHC,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,PAAD,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,TGCT,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,THCA,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,THYM,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,UCEC,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,ACC,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,HNSC,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,LIHC,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,KIRC,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,KIRP,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,LIHC,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,PRAD,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,BLCA,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,CESC,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,THCA,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,HNSC,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,LUAD,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,SARC,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,OV,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,READ,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,LUSC,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,CESC,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,STAD,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,COAD,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,TGCT,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,READ,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,BRCA,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,CESC,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,KICH,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,BLCA,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,PAAD,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,PCPG,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,ESCA,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,GBM,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,MESO,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,HNSC,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,LUSC,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,THCA,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,GBM,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,GBM,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,ACC,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,LUSC,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,READ,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,PCPG,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,TGCT,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,OV,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,ESCA,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,ESCA,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,PAAD,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,MESO,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,OV,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,UCS,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,PCPG,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,ACC,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,SKCM,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,UCS,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,UVM,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,SKCM,Aneuploidy score,1,1,1,1,1,C
+continuous,aneuploidy,SKCM,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,KICH,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,MESO,Deleted arm count,1,1,1,1,1,C
+continuous,aneuploidy,UCS,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,UVM,Amplified arm count,1,1,1,1,1,C
+continuous,aneuploidy,KICH,Aneuploidy score,1,1,1,1,1,C
+continuous,fusion,UCEC,Fusion burden,0.001,0.001,0.01,0.00736986301369863,0.00673051948051948,B
+continuous,fusion,BRCA,Fusion burden,0.001,0.001,0.01,0.00736986301369863,0.00673051948051948,B
+continuous,fusion,LGG,Fusion burden,0.001,0.001,0.01,0.00736986301369863,0.00673051948051948,B
+continuous,fusion,SARC,Fusion burden,1,1,1,1,1,C
+continuous,fusion,BLCA,Fusion burden,1,1,1,1,1,C
+continuous,fusion,LUAD,Fusion burden,1,1,1,1,1,C
+continuous,fusion,PRAD,Fusion burden,1,1,1,1,1,C
+continuous,fusion,STAD,Fusion burden,1,1,1,1,1,C
+continuous,fusion,THCA,Fusion burden,1,1,1,1,1,C
+continuous,fusion,LUSC,Fusion burden,1,1,1,1,1,C
+continuous,fusion,HNSC,Fusion burden,1,1,1,1,1,C
+continuous,fusion,KIRC,Fusion burden,1,1,1,1,1,C
+continuous,fusion,COAD,Fusion burden,1,1,1,1,1,C
+continuous,fusion,KIRP,Fusion burden,1,1,1,1,1,C
+continuous,fusion,ESCA,Fusion burden,1,1,1,1,1,C
+continuous,fusion,UVM,Fusion burden,1,1,1,1,1,C
+continuous,fusion,PCPG,Fusion burden,1,1,1,1,1,C
+continuous,fusion,LIHC,Fusion burden,1,1,1,1,1,C
+continuous,fusion,ACC,Fusion burden,1,1,1,1,1,C
+continuous,fusion,CESC,Fusion burden,1,1,1,1,1,C
+continuous,fusion,PAAD,Fusion burden,1,1,1,1,1,C
+continuous,fusion,SKCM,Fusion burden,1,1,1,1,1,C
+continuous,fusion,TGCT,Fusion burden,1,1,1,1,1,C
+continuous,fusion,OV,Fusion burden,1,1,1,1,1,C
+continuous,fusion,READ,Fusion burden,1,1,1,1,1,C
+continuous,fusion,KICH,Fusion burden,1,1,1,1,1,C
+continuous,fusion,THYM,Fusion burden,1,1,1,1,1,C
+continuous,fusion,UCS,Fusion burden,1,1,1,1,1,C
+continuous,fusion,GBM,Fusion burden,1,1,1,1,1,C
+continuous,fusion,MESO,Fusion burden,1,1,1,1,1,C
+continuous,microsatellite_instability,COAD,MSIsensor score,0.001,0.001,0.03,0.00736986301369863,0.00673051948051948,B
+continuous,microsatellite_instability,COAD,MANTIS score,0.001,0.001,0.03,0.00736986301369863,0.00673051948051948,B
+continuous,microsatellite_instability,TGCT,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,PRAD,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,STAD,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,STAD,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,UCEC,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,UCEC,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,CESC,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,TGCT,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,SARC,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,BRCA,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,BRCA,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,OV,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,LUAD,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,READ,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,KIRP,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,KICH,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,LUSC,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,THCA,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,LGG,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,PCPG,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,CESC,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,UVM,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,LIHC,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,BLCA,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,KIRC,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,GBM,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,READ,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,LUSC,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,UVM,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,BLCA,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,PCPG,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,KIRP,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,ESCA,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,LUAD,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,HNSC,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,OV,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,SKCM,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,SARC,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,GBM,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,LIHC,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,THCA,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,SKCM,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,LGG,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,PRAD,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,ESCA,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,HNSC,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,KIRC,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,PAAD,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,MESO,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,UCS,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,THYM,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,THYM,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,PAAD,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,ACC,MANTIS score,1,1,1,1,1,C
+continuous,microsatellite_instability,KICH,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,MESO,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,ACC,MSIsensor score,1,1,1,1,1,C
+continuous,microsatellite_instability,UCS,MSIsensor score,1,1,1,1,1,C
+continuous,thorsson,TGCT,TGF-beta Response,0.001,0.0049,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,THYM,Th17 Cells,0.001,0.002875,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,THCA,Lymphocyte Infiltration Signature Score,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,BRCA,Wound Healing,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,THCA,TGF-beta Response,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,SARC,Macrophage Regulation,0.001,0.00326666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,KIRP,Proliferation,0.001,0.00544444444444445,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,LUAD,Proliferation,0.001,0.00333333333333333,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,BRCA,Proliferation,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,THCA,Th1 Cells,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,TGCT,Wound Healing,0.001,0.0049,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,THCA,Macrophage Regulation,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,SARC,Leukocyte Fraction,0.001,0.00326666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,TGCT,Leukocyte Fraction,0.001,0.0049,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,THYM,Proliferation,0.001,0.002875,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,UCEC,Number of Segments,0.001,0.00416666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,TGCT,Macrophage Regulation,0.001,0.0049,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,BLCA,TIL Regional Fraction,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,SARC,Lymphocyte Infiltration Signature Score,0.001,0.00326666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,THCA,TCR Shannon,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,TGCT,Macrophages M2,0.001,0.0049,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,UCEC,Homologous Recombination Defects,0.001,0.00416666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,STAD,Proliferation,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,COAD,TIL Regional Fraction,0.001,0.00833333333333334,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,TGCT,Lymphocyte Infiltration Signature Score,0.001,0.0049,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,LGG,TGF-beta Response,0.001,0.00766666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,LIHC,Proliferation,0.001,0.0049,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,THYM,Lymphocyte Infiltration Signature Score,0.001,0.002875,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,BRCA,Lymphocyte Infiltration Signature Score,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,LIHC,Leukocyte Fraction,0.001,0.0049,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,BRCA,TIL Regional Fraction,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,BRCA,Leukocyte Fraction,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,BLCA,Macrophage Regulation,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,SKCM,Lymphocyte Infiltration Signature Score,0.001,0.00555555555555556,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,LUAD,Leukocyte Fraction,0.001,0.00333333333333333,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,THCA,Leukocyte Fraction,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,UCEC,TIL Regional Fraction,0.001,0.00416666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,A
+continuous,thorsson,LUAD,Wound Healing,0.001,0.00333333333333333,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,THYM,TCR Shannon,0.001,0.002875,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LUAD,TIL Regional Fraction,0.001,0.00333333333333333,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LIHC,Wound Healing,0.001,0.0049,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,THYM,TGF-beta Response,0.001,0.002875,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,MESO,Lymphocyte Infiltration Signature Score,0.001,0.045,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,TGCT,Stromal Fraction,0.001,0.0049,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,THYM,SNV Neoantigens,0.001,0.002875,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LIHC,Macrophage Regulation,0.001,0.0049,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,STAD,TIL Regional Fraction,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,READ,TIL Regional Fraction,0.001,0.05,0.00696116504854369,0.00736986301369863,0.00673051948051948,C
+continuous,thorsson,SKCM,Macrophage Regulation,0.001,0.00555555555555556,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LUSC,TIL Regional Fraction,0.001,0.00714285714285714,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LUAD,Th2 Cells,0.001,0.00333333333333333,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,TGCT,B Cells Naive,0.001,0.0049,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,SARC,TGF-beta Response,0.001,0.00326666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,STAD,Number of Segments,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,BLCA,Lymphocyte Infiltration Signature Score,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LGG,Macrophage Regulation,0.001,0.00766666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,BLCA,Wound Healing,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,CESC,TIL Regional Fraction,0.001,0.0125,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,KIRP,Leukocyte Fraction,0.001,0.00544444444444445,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,GBM,Leukocyte Fraction,0.001,0.0115,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,BRCA,Homologous Recombination Defects,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,BLCA,Th1 Cells,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,KICH,Proliferation,0.001,0.0215,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,SKCM,TIL Regional Fraction,0.001,0.00555555555555556,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,BLCA,Leukocyte Fraction,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,BRCA,Number of Segments,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LIHC,Lymphocyte Infiltration Signature Score,0.001,0.0049,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,UCEC,Fraction Altered,0.001,0.00416666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,KIRC,TGF-beta Response,0.001,0.00544444444444445,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,UCEC,Aneuploidy Score,0.001,0.00416666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,SKCM,TCR Shannon,0.001,0.00555555555555556,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,UVM,Dendritic Cells Activated,0.001,0.011,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,THCA,BCR Shannon,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,THCA,IFN-gamma Response,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LIHC,TGF-beta Response,0.001,0.0049,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,BLCA,Stromal Fraction,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LUSC,Proliferation,0.001,0.00714285714285714,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,TGCT,Proliferation,0.001,0.0049,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,THYM,Th2 Cells,0.001,0.002875,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,GBM,Macrophage Regulation,0.001,0.0115,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,PRAD,Proliferation,0.001,0.01225,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,STAD,Wound Healing,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,UCEC,Lymphocyte Infiltration Signature Score,0.001,0.00416666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,KIRP,Macrophage Regulation,0.001,0.00544444444444445,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,BRCA,TGF-beta Response,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,KIRP,Th2 Cells,0.001,0.00544444444444445,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,CESC,Macrophage Regulation,0.001,0.0125,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,THCA,Proliferation,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,KIRC,Leukocyte Fraction,0.001,0.00544444444444445,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,BRCA,Macrophage Regulation,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,SARC,Wound Healing,0.001,0.00326666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,SARC,Th1 Cells,0.001,0.00326666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,UVM,Lymphocyte Infiltration Signature Score,0.001,0.011,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LGG,Leukocyte Fraction,0.001,0.00766666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,THYM,T Cells Regulatory Tregs,0.001,0.002875,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,BLCA,Proliferation,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,UCEC,Leukocyte Fraction,0.001,0.00416666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,PRAD,TIL Regional Fraction,0.001,0.01225,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,THCA,TCR Richness,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,BRCA,Stromal Fraction,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,SKCM,Stromal Fraction,0.001,0.00555555555555556,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,STAD,Fraction Altered,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,BLCA,TGF-beta Response,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LGG,Proliferation,0.001,0.00766666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,TGCT,TCR Richness,0.001,0.0049,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LIHC,Stromal Fraction,0.001,0.0049,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,SKCM,TCR Richness,0.001,0.00555555555555556,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LGG,Wound Healing,0.001,0.00766666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LUAD,Lymphocyte Infiltration Signature Score,0.001,0.00333333333333333,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,KIRP,Macrophages M2,0.001,0.00544444444444445,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,GBM,TGF-beta Response,0.001,0.0115,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,KICH,Wound Healing,0.001,0.0215,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,SARC,Stromal Fraction,0.001,0.00326666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LUSC,Lymphocyte Infiltration Signature Score,0.001,0.00714285714285714,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,UCEC,Wound Healing,0.001,0.00416666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,HNSC,Lymphocyte Infiltration Signature Score,0.001,0.0098,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,CESC,Lymphocyte Infiltration Signature Score,0.001,0.0125,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,KIRP,Macrophages M1,0.001,0.00544444444444445,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,BRCA,Fraction Altered,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LUAD,Macrophage Regulation,0.001,0.00333333333333333,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,STAD,Silent Mutation Rate,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,COAD,Lymphocyte Infiltration Signature Score,0.001,0.00833333333333334,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,SKCM,Leukocyte Fraction,0.001,0.00555555555555556,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,THYM,Macrophages M1,0.001,0.002875,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,SARC,Number of Segments,0.001,0.00326666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,KIRP,Stromal Fraction,0.001,0.00544444444444445,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,PCPG,TGF-beta Response,0.001,0.0225,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,UVM,Macrophage Regulation,0.001,0.011,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,UCEC,Proliferation,0.001,0.00416666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,STAD,Lymphocyte Infiltration Signature Score,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,KIRC,CTA Score,0.001,0.00544444444444445,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,THYM,Stromal Fraction,0.001,0.002875,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,KIRC,Macrophage Regulation,0.001,0.00544444444444445,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,BRCA,TCR Shannon,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,THCA,BCR Richness,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,KIRC,Proliferation,0.001,0.00544444444444445,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,SARC,Proliferation,0.001,0.00326666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,STAD,Aneuploidy Score,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,SARC,Homologous Recombination Defects,0.001,0.00326666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,COAD,Aneuploidy Score,0.001,0.00833333333333334,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,KIRP,Lymphocyte Infiltration Signature Score,0.001,0.00544444444444445,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,KIRP,Homologous Recombination Defects,0.001,0.00544444444444445,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LUAD,Homologous Recombination Defects,0.001,0.00333333333333333,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,GBM,Stromal Fraction,0.001,0.0115,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,KIRC,Lymphocyte Infiltration Signature Score,0.001,0.00544444444444445,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,KIRC,Th1 Cells,0.001,0.00544444444444445,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,PAAD,TIL Regional Fraction,0.001,0.05,0.00696116504854369,0.00736986301369863,0.00673051948051948,C
+continuous,thorsson,SKCM,Th1 Cells,0.001,0.00555555555555556,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,BLCA,Th2 Cells,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LGG,Lymphocyte Infiltration Signature Score,0.001,0.00766666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,HNSC,IFN-gamma Response,0.001,0.0098,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,STAD,Homologous Recombination Defects,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,THYM,Wound Healing,0.001,0.002875,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LUAD,Stromal Fraction,0.001,0.00333333333333333,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,THCA,Plasma Cells,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,THCA,Macrophages M1,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LUAD,Number of Segments,0.001,0.00333333333333333,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,HNSC,Leukocyte Fraction,0.001,0.0098,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,UVM,Th1 Cells,0.001,0.011,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LIHC,Th17 Cells,0.001,0.0049,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LUAD,Nonsilent Mutation Rate,0.001,0.00333333333333333,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,HNSC,Stromal Fraction,0.001,0.0098,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,STAD,Nonsilent Mutation Rate,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LUAD,TGF-beta Response,0.001,0.00333333333333333,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,STAD,Macrophage Regulation,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,COAD,SNV Neoantigens,0.001,0.00833333333333334,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,KIRC,TCR Shannon,0.001,0.00544444444444445,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,BLCA,Homologous Recombination Defects,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,SARC,TCR Shannon,0.001,0.00326666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,COAD,Silent Mutation Rate,0.001,0.00833333333333334,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,SARC,IFN-gamma Response,0.001,0.00326666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LUSC,Stromal Fraction,0.001,0.00714285714285714,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,PCPG,Stromal Fraction,0.001,0.0225,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,OV,Th1 Cells,0.002,0.0313333333333333,0.0138550724637681,0.014606334841629,0.013120253164557,B
+continuous,thorsson,PRAD,Fraction Altered,0.001,0.01225,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LIHC,Homologous Recombination Defects,0.001,0.0049,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,SARC,CTA Score,0.001,0.00326666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LUSC,Leukocyte Fraction,0.001,0.00714285714285714,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,PRAD,Homologous Recombination Defects,0.001,0.01225,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LUAD,Fraction Altered,0.001,0.00333333333333333,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LUSC,T Cells CD8,0.001,0.00714285714285714,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,BLCA,IFN-gamma Response,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,CESC,IFN-gamma Response,0.001,0.0125,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LUAD,SNV Neoantigens,0.001,0.00333333333333333,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,UCEC,Macrophage Regulation,0.001,0.00416666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LUAD,TCR Shannon,0.001,0.00333333333333333,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,THYM,TCR Richness,0.001,0.002875,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,THYM,T Cells CD4 Memory Resting,0.001,0.002875,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,BLCA,Intratumor Heterogeneity,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,SARC,Th2 Cells,0.001,0.00326666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,STAD,T Cells CD4 Memory Activated,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,COAD,Nonsilent Mutation Rate,0.001,0.00833333333333334,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,KIRC,IFN-gamma Response,0.001,0.00544444444444445,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,SKCM,Wound Healing,0.001,0.00555555555555556,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,OV,Stromal Fraction,0.001,0.0235,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,THYM,Macrophages M2,0.001,0.002875,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LIHC,Th2 Cells,0.001,0.0049,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,SARC,Macrophages M0,0.001,0.00326666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,UCEC,SNV Neoantigens,0.001,0.00416666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,STAD,CTA Score,0.001,0.00376923076923077,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,UCEC,Th2 Cells,0.001,0.00416666666666667,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,THYM,Homologous Recombination Defects,0.001,0.002875,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,THYM,Nonsilent Mutation Rate,0.001,0.002875,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,OV,TCR Shannon,0.001,0.0235,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,HNSC,TGF-beta Response,0.001,0.0098,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,LUSC,Wound Healing,0.001,0.00714285714285714,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,BRCA,BCR Shannon,0.001,0.00384615384615385,0.00696116504854369,0.00736986301369863,0.00673051948051948,B
+continuous,thorsson,KIRC,Wound Healing,1,1,1,1,1,C
+continuous,thorsson,LUSC,TGF-beta Response,1,1,1,1,1,C
+continuous,thorsson,CESC,Leukocyte Fraction,1,1,1,1,1,C
+continuous,thorsson,LUAD,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,LUAD,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,COAD,Leukocyte Fraction,1,1,1,1,1,C
+continuous,thorsson,MESO,Macrophage Regulation,1,1,1,1,1,C
+continuous,thorsson,BRCA,BCR Richness,1,1,1,1,1,C
+continuous,thorsson,LGG,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,BRCA,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,THYM,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,BRCA,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,THYM,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,MESO,Wound Healing,1,1,1,1,1,C
+continuous,thorsson,UCEC,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,UCEC,Stromal Fraction,1,1,1,1,1,C
+continuous,thorsson,THYM,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,LUAD,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,LIHC,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,UVM,Leukocyte Fraction,1,1,1,1,1,C
+continuous,thorsson,TGCT,TCR Shannon,1,1,1,1,1,C
+continuous,thorsson,PRAD,Macrophage Regulation,1,1,1,1,1,C
+continuous,thorsson,HNSC,Macrophage Regulation,1,1,1,1,1,C
+continuous,thorsson,BRCA,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,LGG,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,UCEC,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,COAD,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,SARC,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,COAD,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,LUSC,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,BRCA,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,LUSC,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,STAD,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,COAD,Macrophage Regulation,1,1,1,1,1,C
+continuous,thorsson,COAD,Homologous Recombination Defects,1,1,1,1,1,C
+continuous,thorsson,CESC,TGF-beta Response,1,1,1,1,1,C
+continuous,thorsson,THYM,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,ESCA,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,BRCA,CTA Score,1,1,1,1,1,C
+continuous,thorsson,LUSC,Macrophage Regulation,1,1,1,1,1,C
+continuous,thorsson,SKCM,Proliferation,1,1,1,1,1,C
+continuous,thorsson,STAD,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,BRCA,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,PAAD,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,SARC,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,UCEC,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,KIRC,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,THYM,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,OV,Leukocyte Fraction,1,1,1,1,1,C
+continuous,thorsson,BRCA,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,THCA,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,KIRC,Stromal Fraction,1,1,1,1,1,C
+continuous,thorsson,LUSC,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,HNSC,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,BRCA,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,GBM,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,UCEC,TGF-beta Response,1,1,1,1,1,C
+continuous,thorsson,PRAD,Lymphocyte Infiltration Signature Score,1,1,1,1,1,C
+continuous,thorsson,THCA,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,LIHC,TCR Shannon,1,1,1,1,1,C
+continuous,thorsson,TGCT,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,LGG,Homologous Recombination Defects,1,1,1,1,1,C
+continuous,thorsson,ACC,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,THCA,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,HNSC,Proliferation,1,1,1,1,1,C
+continuous,thorsson,SARC,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,THCA,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,THYM,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,SKCM,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,BRCA,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,HNSC,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,THCA,CTA Score,1,1,1,1,1,C
+continuous,thorsson,LUAD,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,UCEC,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,COAD,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,COAD,Stromal Fraction,1,1,1,1,1,C
+continuous,thorsson,SKCM,BCR Richness,1,1,1,1,1,C
+continuous,thorsson,LGG,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,COAD,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,LIHC,BCR Shannon,1,1,1,1,1,C
+continuous,thorsson,HNSC,Homologous Recombination Defects,1,1,1,1,1,C
+continuous,thorsson,LUAD,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,THYM,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,TGCT,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,COAD,TGF-beta Response,1,1,1,1,1,C
+continuous,thorsson,PRAD,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,KIRC,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,CESC,Stromal Fraction,1,1,1,1,1,C
+continuous,thorsson,BLCA,TCR Shannon,1,1,1,1,1,C
+continuous,thorsson,BRCA,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,STAD,TCR Shannon,1,1,1,1,1,C
+continuous,thorsson,LGG,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,PRAD,Wound Healing,1,1,1,1,1,C
+continuous,thorsson,STAD,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,HNSC,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,KIRC,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,UVM,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,BLCA,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,ACC,Macrophage Regulation,1,1,1,1,1,C
+continuous,thorsson,ESCA,Leukocyte Fraction,1,1,1,1,1,C
+continuous,thorsson,THCA,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,THYM,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,KIRC,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,KIRP,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,THYM,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,LUAD,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,LUAD,BCR Shannon,1,1,1,1,1,C
+continuous,thorsson,COAD,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,COAD,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,PRAD,Leukocyte Fraction,1,1,1,1,1,C
+continuous,thorsson,HNSC,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,BLCA,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,THCA,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,BRCA,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,LUAD,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,GBM,TCR Shannon,1,1,1,1,1,C
+continuous,thorsson,LUSC,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,THYM,Macrophage Regulation,1,1,1,1,1,C
+continuous,thorsson,LIHC,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,BRCA,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,SARC,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,LGG,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,SKCM,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,SARC,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,LUAD,CTA Score,1,1,1,1,1,C
+continuous,thorsson,LGG,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,COAD,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,TGCT,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,BRCA,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,PRAD,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,PCPG,Macrophage Regulation,1,1,1,1,1,C
+continuous,thorsson,PRAD,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,KIRP,CTA Score,1,1,1,1,1,C
+continuous,thorsson,BLCA,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,GBM,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,ACC,Proliferation,1,1,1,1,1,C
+continuous,thorsson,CESC,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,HNSC,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,GBM,Lymphocyte Infiltration Signature Score,1,1,1,1,1,C
+continuous,thorsson,PCPG,Leukocyte Fraction,1,1,1,1,1,C
+continuous,thorsson,KIRC,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,CESC,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,LUAD,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,LUSC,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,STAD,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,KIRP,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,KIRC,Homologous Recombination Defects,1,1,1,1,1,C
+continuous,thorsson,SARC,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,ESCA,TGF-beta Response,1,1,1,1,1,C
+continuous,thorsson,LGG,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,MESO,Proliferation,1,1,1,1,1,C
+continuous,thorsson,STAD,TGF-beta Response,1,1,1,1,1,C
+continuous,thorsson,MESO,TGF-beta Response,1,1,1,1,1,C
+continuous,thorsson,CESC,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,SKCM,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,BLCA,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,LIHC,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,BLCA,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,STAD,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,UVM,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,LGG,TCR Shannon,1,1,1,1,1,C
+continuous,thorsson,TGCT,CTA Score,1,1,1,1,1,C
+continuous,thorsson,HNSC,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,CESC,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,OV,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,ACC,Lymphocyte Infiltration Signature Score,1,1,1,1,1,C
+continuous,thorsson,HNSC,Wound Healing,1,1,1,1,1,C
+continuous,thorsson,LUAD,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,ESCA,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,HNSC,BCR Shannon,1,1,1,1,1,C
+continuous,thorsson,BRCA,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,LIHC,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,UVM,CTA Score,1,1,1,1,1,C
+continuous,thorsson,THCA,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,PAAD,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,THYM,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,UCEC,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,ESCA,Wound Healing,1,1,1,1,1,C
+continuous,thorsson,SKCM,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,KIRP,TGF-beta Response,1,1,1,1,1,C
+continuous,thorsson,LUAD,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,LUAD,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,GBM,Homologous Recombination Defects,1,1,1,1,1,C
+continuous,thorsson,CESC,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,STAD,Leukocyte Fraction,1,1,1,1,1,C
+continuous,thorsson,HNSC,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,KIRC,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,KIRC,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,GBM,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,BRCA,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,ESCA,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,TGCT,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,READ,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,COAD,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,UCEC,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,TGCT,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,KIRC,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,BLCA,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,LIHC,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,STAD,Stromal Fraction,1,1,1,1,1,C
+continuous,thorsson,LGG,Stromal Fraction,1,1,1,1,1,C
+continuous,thorsson,LUAD,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,STAD,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,TGCT,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,LGG,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,PAAD,Leukocyte Fraction,1,1,1,1,1,C
+continuous,thorsson,BLCA,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,ACC,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,UVM,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,LUSC,TCR Shannon,1,1,1,1,1,C
+continuous,thorsson,LIHC,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,ACC,Homologous Recombination Defects,1,1,1,1,1,C
+continuous,thorsson,KIRC,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,SARC,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,KIRC,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,COAD,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,UCEC,CTA Score,1,1,1,1,1,C
+continuous,thorsson,LGG,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,LUSC,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,BRCA,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,OV,Proliferation,1,1,1,1,1,C
+continuous,thorsson,LGG,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,LIHC,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,LUAD,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,STAD,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,UCEC,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,BRCA,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,CESC,TCR Shannon,1,1,1,1,1,C
+continuous,thorsson,SARC,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,THYM,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,READ,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,LGG,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,CESC,Wound Healing,1,1,1,1,1,C
+continuous,thorsson,PRAD,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,KICH,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,THCA,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,UVM,TGF-beta Response,1,1,1,1,1,C
+continuous,thorsson,PRAD,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,SKCM,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,COAD,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,HNSC,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,HNSC,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,LUAD,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,KIRP,Wound Healing,1,1,1,1,1,C
+continuous,thorsson,UCEC,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,THCA,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,READ,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,LUAD,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,LUSC,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,BRCA,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,LIHC,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,BLCA,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,BRCA,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,BLCA,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,HNSC,TCR Shannon,1,1,1,1,1,C
+continuous,thorsson,HNSC,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,PRAD,Stromal Fraction,1,1,1,1,1,C
+continuous,thorsson,PRAD,TGF-beta Response,1,1,1,1,1,C
+continuous,thorsson,LGG,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,SARC,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,COAD,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,PCPG,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,CESC,Proliferation,1,1,1,1,1,C
+continuous,thorsson,BLCA,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,LGG,Monocytes,1,1,1,1,1,C
+continuous,thorsson,HNSC,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,TGCT,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,LUAD,BCR Richness,1,1,1,1,1,C
+continuous,thorsson,LGG,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,STAD,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,SKCM,BCR Shannon,1,1,1,1,1,C
+continuous,thorsson,READ,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,TGCT,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,MESO,Leukocyte Fraction,1,1,1,1,1,C
+continuous,thorsson,COAD,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,ACC,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,BLCA,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,CESC,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,LIHC,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,TGCT,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,PRAD,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,UCEC,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,BRCA,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,MESO,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,THCA,Wound Healing,1,1,1,1,1,C
+continuous,thorsson,OV,Homologous Recombination Defects,1,1,1,1,1,C
+continuous,thorsson,LUAD,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,SARC,BCR Richness,1,1,1,1,1,C
+continuous,thorsson,UCEC,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,HNSC,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,CESC,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,LIHC,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,KIRP,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,LIHC,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,THYM,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,READ,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,THYM,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,READ,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,ESCA,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,KIRC,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,LIHC,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,LUSC,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,THCA,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,THCA,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,THCA,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,LUSC,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,THYM,BCR Shannon,1,1,1,1,1,C
+continuous,thorsson,THCA,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,ESCA,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,THCA,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,LGG,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,STAD,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,ESCA,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,THYM,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,LUSC,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,THYM,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,STAD,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,KIRP,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,CESC,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,PAAD,BCR Richness,1,1,1,1,1,C
+continuous,thorsson,HNSC,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,SKCM,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,PRAD,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,ACC,Stromal Fraction,1,1,1,1,1,C
+continuous,thorsson,LUSC,BCR Shannon,1,1,1,1,1,C
+continuous,thorsson,SKCM,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,KICH,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,THCA,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,THCA,Monocytes,1,1,1,1,1,C
+continuous,thorsson,KIRC,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,KIRP,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,SKCM,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,CESC,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,LGG,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,THCA,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,COAD,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,LUAD,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,SKCM,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,GBM,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,SKCM,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,CESC,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,PRAD,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,SARC,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,COAD,TCR Shannon,1,1,1,1,1,C
+continuous,thorsson,PCPG,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,READ,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,STAD,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,LUAD,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,CESC,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,HNSC,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,HNSC,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,OV,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,PAAD,Wound Healing,1,1,1,1,1,C
+continuous,thorsson,UCS,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,KIRP,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,KIRC,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,KICH,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,ACC,Leukocyte Fraction,1,1,1,1,1,C
+continuous,thorsson,LUSC,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,LGG,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,LIHC,Monocytes,1,1,1,1,1,C
+continuous,thorsson,READ,TGF-beta Response,1,1,1,1,1,C
+continuous,thorsson,KIRC,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,THCA,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,MESO,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,ESCA,Lymphocyte Infiltration Signature Score,1,1,1,1,1,C
+continuous,thorsson,LUSC,CTA Score,1,1,1,1,1,C
+continuous,thorsson,SKCM,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,ESCA,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,LUAD,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,ESCA,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,PCPG,Homologous Recombination Defects,1,1,1,1,1,C
+continuous,thorsson,PRAD,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,SARC,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,COAD,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,SARC,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,LIHC,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,CESC,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,LIHC,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,READ,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,COAD,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,TGCT,Monocytes,1,1,1,1,1,C
+continuous,thorsson,ESCA,Proliferation,1,1,1,1,1,C
+continuous,thorsson,LUSC,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,SKCM,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,LUSC,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,READ,Stromal Fraction,1,1,1,1,1,C
+continuous,thorsson,LUSC,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,BLCA,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,LGG,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,BRCA,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,BLCA,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,THYM,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,PRAD,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,COAD,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,BRCA,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,KIRP,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,BRCA,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,THCA,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,LUSC,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,LGG,CTA Score,1,1,1,1,1,C
+continuous,thorsson,ACC,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,PRAD,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,UCEC,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,KIRC,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,READ,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,THCA,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,STAD,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,UCEC,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,ESCA,BCR Richness,1,1,1,1,1,C
+continuous,thorsson,MESO,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,KICH,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,HNSC,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,READ,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,KIRC,Monocytes,1,1,1,1,1,C
+continuous,thorsson,COAD,Proliferation,1,1,1,1,1,C
+continuous,thorsson,THCA,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,BLCA,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,ESCA,Homologous Recombination Defects,1,1,1,1,1,C
+continuous,thorsson,ESCA,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,UCS,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,UCEC,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,ESCA,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,BRCA,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,KIRP,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,UVM,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,KIRP,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,SARC,Monocytes,1,1,1,1,1,C
+continuous,thorsson,HNSC,BCR Richness,1,1,1,1,1,C
+continuous,thorsson,KIRP,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,COAD,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,LUAD,Monocytes,1,1,1,1,1,C
+continuous,thorsson,PCPG,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,HNSC,CTA Score,1,1,1,1,1,C
+continuous,thorsson,GBM,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,BLCA,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,CESC,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,MESO,CTA Score,1,1,1,1,1,C
+continuous,thorsson,COAD,BCR Shannon,1,1,1,1,1,C
+continuous,thorsson,ESCA,TCR Shannon,1,1,1,1,1,C
+continuous,thorsson,LUSC,Homologous Recombination Defects,1,1,1,1,1,C
+continuous,thorsson,TGCT,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,UCEC,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,UCS,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,COAD,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,BLCA,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,CESC,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,KIRC,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,PAAD,Homologous Recombination Defects,1,1,1,1,1,C
+continuous,thorsson,PCPG,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,KIRP,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,THYM,Monocytes,1,1,1,1,1,C
+continuous,thorsson,PRAD,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,SKCM,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,SKCM,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,TGCT,BCR Evenness,1,1,1,1,1,C
+continuous,thorsson,KIRP,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,MESO,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,STAD,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,LGG,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,LGG,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,ACC,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,TGCT,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,BLCA,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,LUAD,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,PRAD,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,THCA,Stromal Fraction,1,1,1,1,1,C
+continuous,thorsson,HNSC,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,STAD,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,LIHC,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,KICH,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,CESC,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,UCEC,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,UCEC,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,HNSC,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,KIRC,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,BRCA,Monocytes,1,1,1,1,1,C
+continuous,thorsson,PRAD,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,CESC,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,BLCA,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,BRCA,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,UCEC,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,PRAD,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,BRCA,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,SARC,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,UCEC,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,PCPG,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,LGG,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,BLCA,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,LUSC,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,UCEC,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,KICH,Homologous Recombination Defects,1,1,1,1,1,C
+continuous,thorsson,MESO,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,BLCA,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,LUSC,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,SKCM,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,BRCA,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,COAD,CTA Score,1,1,1,1,1,C
+continuous,thorsson,BLCA,CTA Score,1,1,1,1,1,C
+continuous,thorsson,KIRC,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,STAD,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,LUSC,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,KIRC,BCR Richness,1,1,1,1,1,C
+continuous,thorsson,GBM,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,CESC,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,KIRC,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,HNSC,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,ESCA,BCR Evenness,1,1,1,1,1,C
+continuous,thorsson,TGCT,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,COAD,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,KIRP,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,STAD,BCR Shannon,1,1,1,1,1,C
+continuous,thorsson,KIRC,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,UCS,TGF-beta Response,1,1,1,1,1,C
+continuous,thorsson,COAD,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,LGG,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,CESC,Homologous Recombination Defects,1,1,1,1,1,C
+continuous,thorsson,BLCA,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,LIHC,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,SKCM,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,LIHC,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,HNSC,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,THCA,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,LUSC,BCR Richness,1,1,1,1,1,C
+continuous,thorsson,LUSC,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,PAAD,Stromal Fraction,1,1,1,1,1,C
+continuous,thorsson,STAD,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,CESC,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,STAD,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,SARC,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,GBM,CTA Score,1,1,1,1,1,C
+continuous,thorsson,PRAD,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,PRAD,Monocytes,1,1,1,1,1,C
+continuous,thorsson,HNSC,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,GBM,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,BLCA,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,COAD,BCR Richness,1,1,1,1,1,C
+continuous,thorsson,LUSC,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,BRCA,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,LIHC,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,PAAD,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,THCA,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,KIRC,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,PRAD,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,SKCM,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,ESCA,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,COAD,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,HNSC,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,KICH,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,COAD,Wound Healing,1,1,1,1,1,C
+continuous,thorsson,OV,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,LUAD,BCR Evenness,1,1,1,1,1,C
+continuous,thorsson,LUAD,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,LUSC,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,BRCA,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,TGCT,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,READ,Leukocyte Fraction,1,1,1,1,1,C
+continuous,thorsson,LUAD,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,GBM,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,THCA,Homologous Recombination Defects,1,1,1,1,1,C
+continuous,thorsson,READ,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,LIHC,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,GBM,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,ESCA,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,STAD,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,UCEC,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,LUSC,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,READ,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,BLCA,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,SKCM,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,HNSC,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,ACC,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,LUSC,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,UVM,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,PAAD,TGF-beta Response,1,1,1,1,1,C
+continuous,thorsson,BRCA,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,STAD,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,HNSC,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,ACC,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,SARC,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,GBM,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,ESCA,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,SARC,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,UCEC,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,LUSC,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,LGG,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,TGCT,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,LUSC,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,LUSC,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,THCA,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,CESC,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,READ,CTA Score,1,1,1,1,1,C
+continuous,thorsson,ACC,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,COAD,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,KICH,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,BRCA,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,BLCA,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,HNSC,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,THYM,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,KIRP,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,PCPG,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,ESCA,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,KICH,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,MESO,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,PCPG,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,SARC,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,STAD,BCR Richness,1,1,1,1,1,C
+continuous,thorsson,MESO,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,PAAD,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,KIRP,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,PRAD,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,GBM,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,LGG,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,SKCM,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,LUAD,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,ESCA,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,LUSC,Monocytes,1,1,1,1,1,C
+continuous,thorsson,KIRC,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,LGG,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,HNSC,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,KIRP,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,SKCM,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,UCS,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,ACC,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,PRAD,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,BLCA,Monocytes,1,1,1,1,1,C
+continuous,thorsson,LIHC,CTA Score,1,1,1,1,1,C
+continuous,thorsson,ACC,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,LIHC,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,KIRC,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,OV,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,SKCM,TGF-beta Response,1,1,1,1,1,C
+continuous,thorsson,SARC,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,SKCM,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,LUSC,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,KIRC,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,READ,BCR Shannon,1,1,1,1,1,C
+continuous,thorsson,MESO,TCR Shannon,1,1,1,1,1,C
+continuous,thorsson,KIRC,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,KIRP,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,READ,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,PRAD,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,BRCA,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,BRCA,BCR Evenness,1,1,1,1,1,C
+continuous,thorsson,ACC,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,PAAD,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,READ,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,SARC,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,LGG,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,STAD,Monocytes,1,1,1,1,1,C
+continuous,thorsson,TGCT,BCR Richness,1,1,1,1,1,C
+continuous,thorsson,TGCT,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,LIHC,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,STAD,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,LGG,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,UCEC,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,LUSC,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,PAAD,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,PCPG,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,STAD,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,KIRC,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,SARC,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,COAD,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,GBM,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,TGCT,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,LGG,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,STAD,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,BLCA,BCR Shannon,1,1,1,1,1,C
+continuous,thorsson,COAD,BCR Evenness,1,1,1,1,1,C
+continuous,thorsson,BLCA,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,HNSC,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,THCA,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,CESC,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,HNSC,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,COAD,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,LUAD,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,PRAD,TCR Shannon,1,1,1,1,1,C
+continuous,thorsson,OV,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,COAD,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,CESC,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,BLCA,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,PCPG,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,CESC,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,PCPG,CTA Score,1,1,1,1,1,C
+continuous,thorsson,KIRP,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,LGG,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,READ,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,READ,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,COAD,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,READ,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,KIRP,Monocytes,1,1,1,1,1,C
+continuous,thorsson,STAD,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,LIHC,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,GBM,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,UCEC,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,LUAD,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,LGG,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,KIRP,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,BLCA,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,STAD,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,ESCA,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,LUSC,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,COAD,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,HNSC,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,MESO,Monocytes,1,1,1,1,1,C
+continuous,thorsson,PRAD,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,LUAD,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,KIRC,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,ESCA,Macrophage Regulation,1,1,1,1,1,C
+continuous,thorsson,BLCA,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,READ,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,LUSC,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,THYM,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,KIRP,TCR Shannon,1,1,1,1,1,C
+continuous,thorsson,THCA,BCR Evenness,1,1,1,1,1,C
+continuous,thorsson,LGG,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,THCA,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,CESC,Monocytes,1,1,1,1,1,C
+continuous,thorsson,BRCA,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,COAD,Monocytes,1,1,1,1,1,C
+continuous,thorsson,KIRC,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,KIRC,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,KIRC,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,LIHC,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,SKCM,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,PRAD,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,MESO,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,COAD,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,LIHC,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,MESO,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,CESC,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,UVM,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,BRCA,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,UCEC,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,LUAD,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,BLCA,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,SKCM,Homologous Recombination Defects,1,1,1,1,1,C
+continuous,thorsson,UCEC,Monocytes,1,1,1,1,1,C
+continuous,thorsson,PRAD,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,TGCT,BCR Shannon,1,1,1,1,1,C
+continuous,thorsson,PRAD,BCR Evenness,1,1,1,1,1,C
+continuous,thorsson,GBM,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,HNSC,Monocytes,1,1,1,1,1,C
+continuous,thorsson,LIHC,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,STAD,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,LUAD,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,PAAD,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,PCPG,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,PCPG,Lymphocyte Infiltration Signature Score,1,1,1,1,1,C
+continuous,thorsson,HNSC,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,HNSC,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,READ,BCR Richness,1,1,1,1,1,C
+continuous,thorsson,CESC,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,CESC,CTA Score,1,1,1,1,1,C
+continuous,thorsson,CESC,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,PRAD,CTA Score,1,1,1,1,1,C
+continuous,thorsson,PAAD,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,OV,Wound Healing,1,1,1,1,1,C
+continuous,thorsson,SKCM,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,CESC,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,MESO,Homologous Recombination Defects,1,1,1,1,1,C
+continuous,thorsson,THCA,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,PRAD,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,PCPG,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,THCA,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,ESCA,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,THYM,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,SARC,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,PAAD,BCR Shannon,1,1,1,1,1,C
+continuous,thorsson,KIRP,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,ESCA,CTA Score,1,1,1,1,1,C
+continuous,thorsson,TGCT,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,UCS,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,OV,Lymphocyte Infiltration Signature Score,1,1,1,1,1,C
+continuous,thorsson,READ,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,KIRP,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,CESC,BCR Shannon,1,1,1,1,1,C
+continuous,thorsson,PRAD,BCR Richness,1,1,1,1,1,C
+continuous,thorsson,UCEC,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,SKCM,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,LUSC,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,LGG,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,OV,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,LIHC,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,PCPG,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,LIHC,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,BLCA,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,PAAD,Lymphocyte Infiltration Signature Score,1,1,1,1,1,C
+continuous,thorsson,PRAD,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,PRAD,BCR Shannon,1,1,1,1,1,C
+continuous,thorsson,UCEC,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,STAD,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,KIRP,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,KIRP,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,PAAD,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,CESC,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,UCEC,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,UCEC,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,KICH,CTA Score,1,1,1,1,1,C
+continuous,thorsson,HNSC,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,UVM,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,UCEC,TCR Shannon,1,1,1,1,1,C
+continuous,thorsson,PAAD,Proliferation,1,1,1,1,1,C
+continuous,thorsson,PCPG,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,KIRP,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,KIRP,BCR Shannon,1,1,1,1,1,C
+continuous,thorsson,READ,Lymphocyte Infiltration Signature Score,1,1,1,1,1,C
+continuous,thorsson,UCS,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,READ,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,CESC,BCR Evenness,1,1,1,1,1,C
+continuous,thorsson,GBM,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,KIRP,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,PAAD,Monocytes,1,1,1,1,1,C
+continuous,thorsson,READ,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,GBM,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,SKCM,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,STAD,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,PCPG,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,THYM,BCR Richness,1,1,1,1,1,C
+continuous,thorsson,THYM,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,PCPG,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,LIHC,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,BLCA,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,UCEC,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,PCPG,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,PAAD,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,SARC,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,OV,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,GBM,Proliferation,1,1,1,1,1,C
+continuous,thorsson,PRAD,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,CESC,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,LGG,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,LGG,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,SKCM,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,PCPG,Wound Healing,1,1,1,1,1,C
+continuous,thorsson,SARC,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,COAD,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,PAAD,TCR Shannon,1,1,1,1,1,C
+continuous,thorsson,SARC,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,CESC,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,UVM,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,KICH,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,LIHC,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,PRAD,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,PCPG,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,LUSC,BCR Evenness,1,1,1,1,1,C
+continuous,thorsson,PCPG,Proliferation,1,1,1,1,1,C
+continuous,thorsson,LUSC,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,ESCA,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,SARC,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,TGCT,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,UVM,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,TGCT,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,READ,Macrophage Regulation,1,1,1,1,1,C
+continuous,thorsson,KICH,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,PAAD,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,LIHC,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,READ,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,CESC,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,PAAD,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,OV,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,PRAD,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,PAAD,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,PRAD,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,ESCA,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,OV,BCR Shannon,1,1,1,1,1,C
+continuous,thorsson,ESCA,Stromal Fraction,1,1,1,1,1,C
+continuous,thorsson,UCS,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,LUAD,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,SARC,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,ESCA,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,KIRP,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,GBM,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,LGG,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,READ,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,SKCM,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,KIRC,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,SARC,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,PRAD,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,PRAD,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,UCS,Macrophage Regulation,1,1,1,1,1,C
+continuous,thorsson,LIHC,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,SARC,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,LIHC,BCR Richness,1,1,1,1,1,C
+continuous,thorsson,PAAD,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,PAAD,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,THCA,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,PCPG,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,OV,TGF-beta Response,1,1,1,1,1,C
+continuous,thorsson,PCPG,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,GBM,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,PAAD,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,OV,Macrophage Regulation,1,1,1,1,1,C
+continuous,thorsson,SKCM,BCR Evenness,1,1,1,1,1,C
+continuous,thorsson,THCA,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,LGG,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,TGCT,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,PAAD,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,GBM,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,PCPG,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,SKCM,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,OV,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,SARC,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,ACC,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,SKCM,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,HNSC,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,MESO,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,ESCA,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,LIHC,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,ACC,TGF-beta Response,1,1,1,1,1,C
+continuous,thorsson,UVM,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,PCPG,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,BLCA,BCR Evenness,1,1,1,1,1,C
+continuous,thorsson,PCPG,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,MESO,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,KIRC,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,ESCA,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,ESCA,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,SKCM,Monocytes,1,1,1,1,1,C
+continuous,thorsson,PAAD,Macrophage Regulation,1,1,1,1,1,C
+continuous,thorsson,PAAD,BCR Evenness,1,1,1,1,1,C
+continuous,thorsson,GBM,Monocytes,1,1,1,1,1,C
+continuous,thorsson,SKCM,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,SKCM,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,PAAD,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,THYM,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,UVM,Proliferation,1,1,1,1,1,C
+continuous,thorsson,LUSC,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,GBM,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,TGCT,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,MESO,Stromal Fraction,1,1,1,1,1,C
+continuous,thorsson,LUAD,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,GBM,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,THYM,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,KIRC,BCR Shannon,1,1,1,1,1,C
+continuous,thorsson,PRAD,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,ESCA,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,UCS,CTA Score,1,1,1,1,1,C
+continuous,thorsson,READ,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,OV,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,PCPG,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,PRAD,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,PAAD,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,UCEC,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,COAD,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,KIRC,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,UVM,Stromal Fraction,1,1,1,1,1,C
+continuous,thorsson,STAD,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,PAAD,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,UCS,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,PCPG,TCR Shannon,1,1,1,1,1,C
+continuous,thorsson,UVM,Homologous Recombination Defects,1,1,1,1,1,C
+continuous,thorsson,TGCT,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,UCS,Monocytes,1,1,1,1,1,C
+continuous,thorsson,TGCT,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,CESC,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,KIRP,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,READ,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,UVM,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,TGCT,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,PCPG,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,BLCA,BCR Richness,1,1,1,1,1,C
+continuous,thorsson,GBM,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,ACC,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,READ,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,UVM,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,PCPG,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,PCPG,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,READ,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,PAAD,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,KICH,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,KIRP,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,OV,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,KICH,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,THYM,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,COAD,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,PCPG,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,UVM,Wound Healing,1,1,1,1,1,C
+continuous,thorsson,UVM,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,ESCA,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,UVM,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,HNSC,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,MESO,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,READ,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,CESC,BCR Richness,1,1,1,1,1,C
+continuous,thorsson,UVM,TIL Regional Fraction,1,1,1,1,1,C
+continuous,thorsson,KIRP,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,ESCA,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,KIRP,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,OV,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,OV,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,GBM,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,PCPG,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,UVM,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,LIHC,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,KIRP,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,TGCT,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,STAD,BCR Evenness,1,1,1,1,1,C
+continuous,thorsson,HNSC,BCR Evenness,1,1,1,1,1,C
+continuous,thorsson,ESCA,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,ACC,CTA Score,1,1,1,1,1,C
+continuous,thorsson,GBM,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,PAAD,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,SARC,BCR Shannon,1,1,1,1,1,C
+continuous,thorsson,ACC,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,READ,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,UCS,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,ACC,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,TGCT,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,PAAD,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,TGCT,Homologous Recombination Defects,1,1,1,1,1,C
+continuous,thorsson,READ,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,SARC,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,OV,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,UVM,Monocytes,1,1,1,1,1,C
+continuous,thorsson,CESC,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,PAAD,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,UVM,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,UVM,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,PAAD,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,ESCA,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,PCPG,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,OV,BCR Richness,1,1,1,1,1,C
+continuous,thorsson,SARC,BCR Evenness,1,1,1,1,1,C
+continuous,thorsson,UVM,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,PAAD,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,ESCA,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,KICH,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,OV,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,LUSC,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,PCPG,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,UCS,Th2 Cells,1,1,1,1,1,C
+continuous,thorsson,ESCA,BCR Shannon,1,1,1,1,1,C
+continuous,thorsson,UCS,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,PAAD,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,OV,CTA Score,1,1,1,1,1,C
+continuous,thorsson,TGCT,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,SKCM,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,OV,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,MESO,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,GBM,Wound Healing,1,1,1,1,1,C
+continuous,thorsson,GBM,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,ACC,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,MESO,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,THYM,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,KIRP,BCR Evenness,1,1,1,1,1,C
+continuous,thorsson,UVM,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,READ,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,PCPG,Monocytes,1,1,1,1,1,C
+continuous,thorsson,SKCM,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,KICH,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,PAAD,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,MESO,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,OV,Monocytes,1,1,1,1,1,C
+continuous,thorsson,ACC,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,ESCA,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,UCS,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,ESCA,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,THYM,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,CESC,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,KIRP,BCR Richness,1,1,1,1,1,C
+continuous,thorsson,ACC,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,TGCT,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,GBM,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,UCS,Homologous Recombination Defects,1,1,1,1,1,C
+continuous,thorsson,GBM,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,GBM,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,READ,Homologous Recombination Defects,1,1,1,1,1,C
+continuous,thorsson,UVM,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,TGCT,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,PCPG,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,ESCA,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,TGCT,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,THCA,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,UVM,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,KICH,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,ESCA,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,TGCT,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,PAAD,CTA Score,1,1,1,1,1,C
+continuous,thorsson,MESO,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,UVM,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,KICH,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,UCS,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,PAAD,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,OV,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,UVM,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,UVM,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,UVM,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,UVM,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,GBM,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,ACC,T Cells CD4 Memory Resting,1,1,1,1,1,C
+continuous,thorsson,OV,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,UCS,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,PCPG,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,UCS,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,MESO,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,KICH,Leukocyte Fraction,1,1,1,1,1,C
+continuous,thorsson,KICH,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,CESC,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,MESO,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,READ,Wound Healing,1,1,1,1,1,C
+continuous,thorsson,READ,Monocytes,1,1,1,1,1,C
+continuous,thorsson,KICH,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,PAAD,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,KICH,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,READ,TCR Shannon,1,1,1,1,1,C
+continuous,thorsson,MESO,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,UCEC,BCR Shannon,1,1,1,1,1,C
+continuous,thorsson,PAAD,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,ESCA,Monocytes,1,1,1,1,1,C
+continuous,thorsson,KIRP,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,PAAD,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,GBM,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,KICH,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,UCS,Macrophages M2,1,1,1,1,1,C
+continuous,thorsson,GBM,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,READ,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,GBM,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,MESO,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,OV,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,UCS,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,OV,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,PAAD,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,OV,Number of Segments,1,1,1,1,1,C
+continuous,thorsson,READ,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,OV,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,READ,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,MESO,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,PAAD,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,OV,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,READ,Proliferation,1,1,1,1,1,C
+continuous,thorsson,UVM,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,MESO,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,ACC,Monocytes,1,1,1,1,1,C
+continuous,thorsson,PAAD,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,TGCT,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,KICH,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,SKCM,CTA Score,1,1,1,1,1,C
+continuous,thorsson,KIRC,BCR Evenness,1,1,1,1,1,C
+continuous,thorsson,UVM,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,OV,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,LIHC,BCR Evenness,1,1,1,1,1,C
+continuous,thorsson,KICH,Macrophage Regulation,1,1,1,1,1,C
+continuous,thorsson,OV,BCR Evenness,1,1,1,1,1,C
+continuous,thorsson,READ,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,UCS,Aneuploidy Score,1,1,1,1,1,C
+continuous,thorsson,KICH,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,KICH,T Cells gamma delta,1,1,1,1,1,C
+continuous,thorsson,MESO,Silent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,GBM,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,ACC,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,UCS,Lymphocyte Infiltration Signature Score,1,1,1,1,1,C
+continuous,thorsson,ACC,T Cells CD8,1,1,1,1,1,C
+continuous,thorsson,PCPG,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,ESCA,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,KICH,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,ACC,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,KICH,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,MESO,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,PCPG,Indel Neoantigens,1,1,1,1,1,C
+continuous,thorsson,UCS,T Cells CD4 Naive,1,1,1,1,1,C
+continuous,thorsson,ACC,Fraction Altered,1,1,1,1,1,C
+continuous,thorsson,MESO,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,MESO,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,UCS,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,UCS,Leukocyte Fraction,1,1,1,1,1,C
+continuous,thorsson,KICH,TGF-beta Response,1,1,1,1,1,C
+continuous,thorsson,MESO,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,UCS,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,GBM,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,UCS,Macrophages M0,1,1,1,1,1,C
+continuous,thorsson,MESO,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,UCS,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,ACC,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,KICH,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,UCEC,BCR Evenness,1,1,1,1,1,C
+continuous,thorsson,UCS,NK Cells Resting,1,1,1,1,1,C
+continuous,thorsson,UCEC,BCR Richness,1,1,1,1,1,C
+continuous,thorsson,KICH,Monocytes,1,1,1,1,1,C
+continuous,thorsson,OV,Dendritic Cells Activated,1,1,1,1,1,C
+continuous,thorsson,KICH,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,OV,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,READ,BCR Evenness,1,1,1,1,1,C
+continuous,thorsson,ACC,Wound Healing,1,1,1,1,1,C
+continuous,thorsson,THYM,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,UCS,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,MESO,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,KICH,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,KICH,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,OV,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,KICH,TCR Richness,1,1,1,1,1,C
+continuous,thorsson,UCS,T Cells Follicular Helper,1,1,1,1,1,C
+continuous,thorsson,OV,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,OV,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,OV,TCR Evenness,1,1,1,1,1,C
+continuous,thorsson,KICH,Lymphocyte Infiltration Signature Score,1,1,1,1,1,C
+continuous,thorsson,UCS,Macrophages M1,1,1,1,1,1,C
+continuous,thorsson,MESO,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,ACC,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,ACC,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,KICH,Intratumor Heterogeneity,1,1,1,1,1,C
+continuous,thorsson,UVM,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,KICH,Stromal Fraction,1,1,1,1,1,C
+continuous,thorsson,ACC,Mast Cells Activated,1,1,1,1,1,C
+continuous,thorsson,UCS,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,ACC,T Cells Regulatory Tregs,1,1,1,1,1,C
+continuous,thorsson,UCS,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,MESO,B Cells Naive,1,1,1,1,1,C
+continuous,thorsson,KICH,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,ACC,Neutrophils,1,1,1,1,1,C
+continuous,thorsson,UVM,Nonsilent Mutation Rate,1,1,1,1,1,C
+continuous,thorsson,ACC,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,OV,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,UCS,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,OV,T Cells CD4 Memory Activated,1,1,1,1,1,C
+continuous,thorsson,UCS,Th1 Cells,1,1,1,1,1,C
+continuous,thorsson,UCS,Mast Cells Resting,1,1,1,1,1,C
+continuous,thorsson,MESO,Th17 Cells,1,1,1,1,1,C
+continuous,thorsson,UVM,Eosinophils,1,1,1,1,1,C
+continuous,thorsson,UCS,Proliferation,1,1,1,1,1,C
+continuous,thorsson,ACC,IFN-gamma Response,1,1,1,1,1,C
+continuous,thorsson,KICH,Plasma Cells,1,1,1,1,1,C
+continuous,thorsson,MESO,SNV Neoantigens,1,1,1,1,1,C
+continuous,thorsson,MESO,Dendritic Cells Resting,1,1,1,1,1,C
+continuous,thorsson,GBM,NK Cells Activated,1,1,1,1,1,C
+continuous,thorsson,ACC,B Cells Memory,1,1,1,1,1,C
+continuous,thorsson,UCS,Wound Healing,1,1,1,1,1,C
+binary,aneuploidy,UCEC,Genome doubling,0.001,0.001,0.002,0.00515730337078652,0.00673051948051948,A
+binary,aneuploidy,BRCA,Genome doubling,0.001,0.001,0.002,0.00515730337078652,0.00673051948051948,B
+binary,aneuploidy,BLCA,Genome doubling,0.001,0.001,0.002,0.00515730337078652,0.00673051948051948,B
+binary,aneuploidy,COAD,Genome doubling,0.001,0.001,0.002,0.00515730337078652,0.00673051948051948,B
+binary,aneuploidy,LUAD,Genome doubling,0.001,0.001,0.002,0.00515730337078652,0.00673051948051948,B
+binary,aneuploidy,STAD,Genome doubling,0.001,0.001,0.002,0.00515730337078652,0.00673051948051948,B
+binary,aneuploidy,OV,Genome doubling,0.001,0.001,0.002,0.00515730337078652,0.00673051948051948,B
+binary,aneuploidy,SARC,Genome doubling,0.001,0.001,0.002,0.00515730337078652,0.00673051948051948,B
+binary,aneuploidy,PCPG,Genome doubling,0.004,0.004,0.00733333333333333,0.0181782178217822,0.0257515527950311,B
+binary,aneuploidy,LIHC,Genome doubling,0.001,0.001,0.002,0.00515730337078652,0.00673051948051948,B
+binary,aneuploidy,HNSC,Genome doubling,0.001,0.001,0.002,0.00515730337078652,0.00673051948051948,B
+binary,aneuploidy,LUSC,Genome doubling,0.001,0.001,0.002,0.00515730337078652,0.00673051948051948,B
+binary,aneuploidy,ACC,Genome doubling,1,1,1,1,1,C
+binary,aneuploidy,READ,Genome doubling,0.029,0.029,0.0490769230769231,0.127990384615385,0.184975384615385,B
+binary,aneuploidy,CESC,Genome doubling,1,1,1,1,1,C
+binary,aneuploidy,SKCM,Genome doubling,1,1,1,1,1,C
+binary,aneuploidy,LGG,Genome doubling,1,1,1,1,1,C
+binary,aneuploidy,KIRC,Genome doubling,1,1,1,1,1,C
+binary,aneuploidy,GBM,Genome doubling,1,1,1,1,1,C
+binary,aneuploidy,PAAD,Genome doubling,1,1,1,1,1,C
+binary,aneuploidy,PRAD,Genome doubling,1,1,1,1,1,C
+binary,aneuploidy,ESCA,Genome doubling,1,1,1,1,1,C
+binary,driver_mutation,THYM,GTF2I,0.001,0.001,0.0068,0.00515730337078652,0.00673051948051948,A
+binary,driver_mutation,READ,APC,0.001,0.0015,0.0068,0.00515730337078652,0.00673051948051948,A
+binary,driver_mutation,READ,TP53,0.001,0.0015,0.0068,0.00515730337078652,0.00673051948051948,A
+binary,driver_mutation,LGG,TP53,0.001,0.00185714285714286,0.0068,0.00515730337078652,0.00673051948051948,A
+binary,driver_mutation,THCA,BRAF,0.001,0.001,0.0068,0.00515730337078652,0.00673051948051948,A
+binary,driver_mutation,COAD,APC,0.001,0.00325,0.0068,0.00515730337078652,0.00673051948051948,A
+binary,driver_mutation,LGG,IDH1,0.001,0.00185714285714286,0.0068,0.00515730337078652,0.00673051948051948,A
+binary,driver_mutation,COAD,TP53,0.001,0.00325,0.0068,0.00515730337078652,0.00673051948051948,A
+binary,driver_mutation,LGG,CIC,0.001,0.00185714285714286,0.0068,0.00515730337078652,0.00673051948051948,A
+binary,driver_mutation,UCEC,TP53,0.001,0.016,0.0068,0.00515730337078652,0.00673051948051948,A
+binary,driver_mutation,LGG,ATRX,0.001,0.00185714285714286,0.0068,0.00515730337078652,0.00673051948051948,A
+binary,driver_mutation,BRCA,TP53,0.001,0.00666666666666667,0.0068,0.00515730337078652,0.00673051948051948,A
+binary,driver_mutation,BRCA,CDH1,0.001,0.00666666666666667,0.0068,0.00515730337078652,0.00673051948051948,A
+binary,driver_mutation,BLCA,FGFR3,0.001,0.01,0.0068,0.00515730337078652,0.00673051948051948,A
+binary,driver_mutation,UCEC,PTEN,0.001,0.016,0.0068,0.00515730337078652,0.00673051948051948,A
+binary,driver_mutation,THCA,NRAS,0.001,0.001,0.0068,0.00515730337078652,0.00673051948051948,A
+binary,driver_mutation,LUAD,TP53,0.001,0.0075,0.0068,0.00515730337078652,0.00673051948051948,B
+binary,driver_mutation,COAD,KRAS,0.001,0.00325,0.0068,0.00515730337078652,0.00673051948051948,B
+binary,driver_mutation,STAD,TP53,0.001,0.009,0.0068,0.00515730337078652,0.00673051948051948,B
+binary,driver_mutation,LIHC,CTNNB1,0.001,0.00233333333333333,0.0068,0.00515730337078652,0.00673051948051948,B
+binary,driver_mutation,OV,TP53,0.011,0.011,0.06545,0.0495,0.0705975232198142,B
+binary,driver_mutation,COAD,BRAF,0.001,0.00325,0.0068,0.00515730337078652,0.00673051948051948,B
+binary,driver_mutation,GBM,TP53,0.001,0.004,0.0068,0.00515730337078652,0.00673051948051948,B
+binary,driver_mutation,BLCA,TP53,0.001,0.01,0.0068,0.00515730337078652,0.00673051948051948,B
+binary,driver_mutation,STAD,PIK3CA,0.001,0.009,0.0068,0.00515730337078652,0.00673051948051948,B
+binary,driver_mutation,HNSC,TP53,0.001,0.009,0.0068,0.00515730337078652,0.00673051948051948,B
+binary,driver_mutation,LGG,EGFR,0.001,0.00185714285714286,0.0068,0.00515730337078652,0.00673051948051948,B
+binary,driver_mutation,LIHC,TP53,0.001,0.00233333333333333,0.0068,0.00515730337078652,0.00673051948051948,B
+binary,driver_mutation,LIHC,BAP1,0.001,0.00233333333333333,0.0068,0.00515730337078652,0.00673051948051948,B
+binary,driver_mutation,BRCA,PIK3CA,0.001,0.00666666666666667,0.0068,0.00515730337078652,0.00673051948051948,B
+binary,driver_mutation,HNSC,NSD1,0.001,0.009,0.0068,0.00515730337078652,0.00673051948051948,B
+binary,driver_mutation,SKCM,BRAF,0.02,0.02,0.11609756097561,0.089126213592233,0.127962962962963,B
+binary,driver_mutation,PAAD,TP53,0.004,0.016,0.0244102564102564,0.0181782178217822,0.0257515527950311,B
+binary,driver_mutation,LGG,PTEN,0.001,0.00185714285714286,0.0068,0.00515730337078652,0.00673051948051948,B
+binary,driver_mutation,SARC,TP53,0.003,0.009,0.0192972972972973,0.0141958762886598,0.0195566037735849,B
+binary,driver_mutation,LUAD,EGFR,0.001,0.0075,0.0068,0.00515730337078652,0.00673051948051948,B
+binary,driver_mutation,UCEC,ARID1A,0.001,0.016,0.0068,0.00515730337078652,0.00673051948051948,B
+binary,driver_mutation,LGG,FUBP1,0.001,0.00185714285714286,0.0068,0.00515730337078652,0.00673051948051948,B
+binary,driver_mutation,CESC,TP53,0.004,0.024,0.0244102564102564,0.0181782178217822,0.0257515527950311,B
+binary,driver_mutation,KIRC,VHL,0.003,0.015,0.0192972972972973,0.0141958762886598,0.0195566037735849,B
+binary,driver_mutation,BLCA,PIK3CA,0.001,0.01,0.0068,0.00515730337078652,0.00673051948051948,B
+binary,driver_mutation,UCEC,KMT2C,1,1,1,1,1,C
+binary,driver_mutation,STAD,KRAS,1,1,1,1,1,C
+binary,driver_mutation,UCEC,CTNNB1,1,1,1,1,1,C
+binary,driver_mutation,KIRC,PBRM1,1,1,1,1,1,C
+binary,driver_mutation,HNSC,CASP8,1,1,1,1,1,C
+binary,driver_mutation,COAD,FBXW7,1,1,1,1,1,C
+binary,driver_mutation,UCEC,ATM,1,1,1,1,1,C
+binary,driver_mutation,GBM,EGFR,1,1,1,1,1,C
+binary,driver_mutation,PAAD,KRAS,1,1,1,1,1,C
+binary,driver_mutation,KICH,TP53,1,1,1,1,1,C
+binary,driver_mutation,STAD,ARID1A,1,1,1,1,1,C
+binary,driver_mutation,COAD,SMAD4,1,1,1,1,1,C
+binary,driver_mutation,HNSC,HRAS,1,1,1,1,1,C
+binary,driver_mutation,UCEC,RPL22,1,1,1,1,1,C
+binary,driver_mutation,UCEC,CHD3,1,1,1,1,1,C
+binary,driver_mutation,STAD,CTNNB1,1,1,1,1,1,C
+binary,driver_mutation,UCEC,FAT1,1,1,1,1,1,C
+binary,driver_mutation,BLCA,RB1,1,1,1,1,1,C
+binary,driver_mutation,UCEC,CTCF,1,1,1,1,1,C
+binary,driver_mutation,UCEC,MSH6,1,1,1,1,1,C
+binary,driver_mutation,UCEC,SIN3A,1,1,1,1,1,C
+binary,driver_mutation,UCEC,ZMYM2,1,1,1,1,1,C
+binary,driver_mutation,STAD,FBXW7,1,1,1,1,1,C
+binary,driver_mutation,LUSC,TP53,1,1,1,1,1,C
+binary,driver_mutation,BRCA,FOXA1,1,1,1,1,1,C
+binary,driver_mutation,UCEC,KRAS,1,1,1,1,1,C
+binary,driver_mutation,UVM,GNAQ,1,1,1,1,1,C
+binary,driver_mutation,UCEC,ATR,1,1,1,1,1,C
+binary,driver_mutation,PRAD,TP53,1,1,1,1,1,C
+binary,driver_mutation,LUAD,KRAS,1,1,1,1,1,C
+binary,driver_mutation,UCEC,KMT2B,1,1,1,1,1,C
+binary,driver_mutation,UCS,FBXW7,1,1,1,1,1,C
+binary,driver_mutation,COAD,CTNNB1,1,1,1,1,1,C
+binary,driver_mutation,KIRC,SETD2,1,1,1,1,1,C
+binary,driver_mutation,STAD,APC,1,1,1,1,1,C
+binary,driver_mutation,LUAD,KEAP1,1,1,1,1,1,C
+binary,driver_mutation,STAD,ERBB4,1,1,1,1,1,C
+binary,driver_mutation,UCEC,DICER1,1,1,1,1,1,C
+binary,driver_mutation,UCEC,PPP2R1A,1,1,1,1,1,C
+binary,driver_mutation,CESC,KMT2C,1,1,1,1,1,C
+binary,driver_mutation,UCEC,RB1,1,1,1,1,1,C
+binary,driver_mutation,UCEC,SCAF4,1,1,1,1,1,C
+binary,driver_mutation,UCEC,TAF1,1,1,1,1,1,C
+binary,driver_mutation,UCEC,INPPL1,1,1,1,1,1,C
+binary,driver_mutation,HNSC,NFE2L2,1,1,1,1,1,C
+binary,driver_mutation,KIRC,BAP1,1,1,1,1,1,C
+binary,driver_mutation,LUAD,PIK3CA,1,1,1,1,1,C
+binary,driver_mutation,CESC,KMT2D,1,1,1,1,1,C
+binary,driver_mutation,UCEC,SMC1A,1,1,1,1,1,C
+binary,driver_mutation,UCEC,ARID5B,1,1,1,1,1,C
+binary,driver_mutation,BRCA,AKT1,1,1,1,1,1,C
+binary,driver_mutation,HNSC,KMT2D,1,1,1,1,1,C
+binary,driver_mutation,READ,KRAS,1,1,1,1,1,C
+binary,driver_mutation,UCEC,CHD4,1,1,1,1,1,C
+binary,driver_mutation,STAD,ARID2,1,1,1,1,1,C
+binary,driver_mutation,UCEC,ZFHX3,1,1,1,1,1,C
+binary,driver_mutation,STAD,RNF43,1,1,1,1,1,C
+binary,driver_mutation,BLCA,SPTAN1,1,1,1,1,1,C
+binary,driver_mutation,LIHC,ARID1A,1,1,1,1,1,C
+binary,driver_mutation,UCEC,SOX17,1,1,1,1,1,C
+binary,driver_mutation,LUSC,KEAP1,1,1,1,1,1,C
+binary,driver_mutation,STAD,RASA1,1,1,1,1,1,C
+binary,driver_mutation,CESC,PIK3CA,1,1,1,1,1,C
+binary,driver_mutation,PAAD,CDKN2A,1,1,1,1,1,C
+binary,driver_mutation,UCEC,FOXA2,1,1,1,1,1,C
+binary,driver_mutation,UCEC,EP300,1,1,1,1,1,C
+binary,driver_mutation,UCEC,MAP3K1,1,1,1,1,1,C
+binary,driver_mutation,COAD,PIK3CA,1,1,1,1,1,C
+binary,driver_mutation,TGCT,KIT,1,1,1,1,1,C
+binary,driver_mutation,UCEC,BCOR,1,1,1,1,1,C
+binary,driver_mutation,UCEC,KANSL1,1,1,1,1,1,C
+binary,driver_mutation,PRAD,SPOP,1,1,1,1,1,C
+binary,driver_mutation,LUAD,NF1,1,1,1,1,1,C
+binary,driver_mutation,UVM,GNA11,1,1,1,1,1,C
+binary,driver_mutation,UCEC,PIK3R1,1,1,1,1,1,C
+binary,driver_mutation,HNSC,KEAP1,1,1,1,1,1,C
+binary,driver_mutation,BLCA,NFE2L2,1,1,1,1,1,C
+binary,driver_mutation,LUAD,RB1,1,1,1,1,1,C
+binary,driver_mutation,HNSC,HUWE1,1,1,1,1,1,C
+binary,driver_mutation,BLCA,ARID1A,1,1,1,1,1,C
+binary,driver_mutation,UCEC,ATF7IP,1,1,1,1,1,C
+binary,driver_mutation,STAD,BCOR,1,1,1,1,1,C
+binary,driver_mutation,LUSC,NF1,1,1,1,1,1,C
+binary,driver_mutation,LUSC,KMT2D,1,1,1,1,1,C
+binary,driver_mutation,HNSC,AJUBA,1,1,1,1,1,C
+binary,driver_mutation,LUSC,RB1,1,1,1,1,1,C
+binary,driver_mutation,UCEC,PBRM1,1,1,1,1,1,C
+binary,driver_mutation,BLCA,FBXW7,1,1,1,1,1,C
+binary,driver_mutation,LGG,NF1,1,1,1,1,1,C
+binary,driver_mutation,SARC,RB1,1,1,1,1,1,C
+binary,driver_mutation,HNSC,EP300,1,1,1,1,1,C
+binary,driver_mutation,LUSC,ARID1A,1,1,1,1,1,C
+binary,driver_mutation,BRCA,GATA3,1,1,1,1,1,C
+binary,driver_mutation,CESC,EP300,1,1,1,1,1,C
+binary,driver_mutation,LUSC,PTEN,1,1,1,1,1,C
+binary,driver_mutation,LGG,NOTCH1,1,1,1,1,1,C
+binary,driver_mutation,COAD,ARID1A,1,1,1,1,1,C
+binary,driver_mutation,UCEC,FBXW7,1,1,1,1,1,C
+binary,driver_mutation,BRCA,BRCA1,1,1,1,1,1,C
+binary,driver_mutation,HNSC,PIK3CA,1,1,1,1,1,C
+binary,driver_mutation,UCEC,PDS5B,1,1,1,1,1,C
+binary,driver_mutation,BRCA,MAP2K4,1,1,1,1,1,C
+binary,driver_mutation,UCEC,ERBB3,1,1,1,1,1,C
+binary,driver_mutation,BLCA,ERBB3,1,1,1,1,1,C
+binary,driver_mutation,BRCA,ARID1A,1,1,1,1,1,C
+binary,driver_mutation,GBM,PTEN,1,1,1,1,1,C
+binary,driver_mutation,STAD,DMD,1,1,1,1,1,C
+binary,driver_mutation,KIRC,MTOR,1,1,1,1,1,C
+binary,driver_mutation,BLCA,KDM6A,1,1,1,1,1,C
+binary,driver_mutation,STAD,CDH1,1,1,1,1,1,C
+binary,driver_mutation,UCEC,ARHGAP35,1,1,1,1,1,C
+binary,driver_mutation,UCEC,CTNND1,1,1,1,1,1,C
+binary,driver_mutation,PRAD,FOXA1,1,1,1,1,1,C
+binary,driver_mutation,CESC,FBXW7,1,1,1,1,1,C
+binary,driver_mutation,UCEC,PIK3CA,1,1,1,1,1,C
+binary,driver_mutation,UCEC,SPOP,1,1,1,1,1,C
+binary,driver_mutation,COAD,SOX9,1,1,1,1,1,C
+binary,driver_mutation,BLCA,ATM,1,1,1,1,1,C
+binary,driver_mutation,BLCA,CREBBP,1,1,1,1,1,C
+binary,driver_mutation,LUSC,FAT1,1,1,1,1,1,C
+binary,driver_mutation,BLCA,CDKN1A,1,1,1,1,1,C
+binary,driver_mutation,LUAD,STK11,1,1,1,1,1,C
+binary,driver_mutation,STAD,RHOA,1,1,1,1,1,C
+binary,driver_mutation,PAAD,SMAD4,1,1,1,1,1,C
+binary,driver_mutation,BRCA,MAP3K1,1,1,1,1,1,C
+binary,driver_mutation,LUSC,RASA1,1,1,1,1,1,C
+binary,driver_mutation,BLCA,FAT1,1,1,1,1,1,C
+binary,driver_mutation,LIHC,ALB,1,1,1,1,1,C
+binary,driver_mutation,LUSC,ARHGAP35,1,1,1,1,1,C
+binary,driver_mutation,BRCA,PTEN,1,1,1,1,1,C
+binary,driver_mutation,LIHC,AXIN1,1,1,1,1,1,C
+binary,driver_mutation,LGG,PIK3CA,1,1,1,1,1,C
+binary,driver_mutation,LUAD,RBM10,1,1,1,1,1,C
+binary,driver_mutation,LUSC,CDKN2A,1,1,1,1,1,C
+binary,driver_mutation,LUAD,SMARCA4,1,1,1,1,1,C
+binary,driver_mutation,BLCA,STAG2,1,1,1,1,1,C
+binary,driver_mutation,LUSC,PIK3CA,1,1,1,1,1,C
+binary,driver_mutation,LUSC,NFE2L2,1,1,1,1,1,C
+binary,driver_mutation,STAD,PTEN,1,1,1,1,1,C
+binary,driver_mutation,BRCA,ERBB2,1,1,1,1,1,C
+binary,driver_mutation,BRCA,PIK3R1,1,1,1,1,1,C
+binary,driver_mutation,STAD,MUC6,1,1,1,1,1,C
+binary,driver_mutation,LUSC,KDM6A,1,1,1,1,1,C
+binary,driver_mutation,BRCA,NCOR1,1,1,1,1,1,C
+binary,driver_mutation,BRCA,RB1,1,1,1,1,1,C
+binary,driver_mutation,HNSC,FAT1,1,1,1,1,1,C
+binary,driver_mutation,BLCA,KLF5,1,1,1,1,1,C
+binary,driver_mutation,UCEC,NFE2L2,1,1,1,1,1,C
+binary,driver_mutation,BLCA,ERCC2,1,1,1,1,1,C
+binary,driver_mutation,BRCA,CHD4,1,1,1,1,1,C
+binary,driver_mutation,LUAD,BRAF,1,1,1,1,1,C
+binary,driver_mutation,BRCA,TBX3,1,1,1,1,1,C
+binary,driver_mutation,BRCA,RUNX1,1,1,1,1,1,C
+binary,driver_mutation,BLCA,RXRA,1,1,1,1,1,C
+binary,driver_mutation,HNSC,HLA-B,1,1,1,1,1,C
+binary,driver_mutation,LUSC,NOTCH1,1,1,1,1,1,C
+binary,driver_mutation,BRCA,KMT2C,1,1,1,1,1,C
+binary,driver_mutation,BRCA,NF1,1,1,1,1,1,C
+binary,driver_mutation,COAD,ACVR2A,1,1,1,1,1,C
+binary,driver_mutation,HNSC,TGFBR2,1,1,1,1,1,C
+binary,driver_mutation,LGG,PIK3R1,1,1,1,1,1,C
+binary,driver_mutation,UCEC,FGFR2,1,1,1,1,1,C
+binary,driver_mutation,LUAD,ATM,1,1,1,1,1,C
+binary,driver_mutation,LGG,IDH2,1,1,1,1,1,C
+binary,driver_mutation,HNSC,FBXW7,1,1,1,1,1,C
+binary,driver_mutation,LGG,SMARCA4,1,1,1,1,1,C
+binary,driver_mutation,BLCA,KANSL1,1,1,1,1,1,C
+binary,driver_mutation,UCEC,CCND1,1,1,1,1,1,C
+binary,driver_mutation,BLCA,RHOB,1,1,1,1,1,C
+binary,driver_mutation,LUAD,ARID1A,1,1,1,1,1,C
+binary,driver_mutation,LUAD,SETD2,1,1,1,1,1,C
+binary,driver_mutation,LUAD,MGA,1,1,1,1,1,C
+binary,driver_mutation,BLCA,ZFP36L1,1,1,1,1,1,C
+binary,driver_mutation,LUSC,CUL3,1,1,1,1,1,C
+binary,driver_mutation,UCEC,ACVR1,1,1,1,1,1,C
+binary,driver_mutation,LUSC,FBXW7,1,1,1,1,1,C
+binary,driver_mutation,GBM,PIK3CA,1,1,1,1,1,C
+binary,driver_mutation,BLCA,SF3B1,1,1,1,1,1,C
+binary,driver_mutation,LIHC,APOB,1,1,1,1,1,C
+binary,driver_mutation,BLCA,ELF3,1,1,1,1,1,C
+binary,driver_mutation,BLCA,ERBB2,1,1,1,1,1,C
+binary,driver_mutation,UCEC,ERBB2,1,1,1,1,1,C
+binary,driver_mutation,PRAD,KMT2D,1,1,1,1,1,C
+binary,driver_mutation,SARC,ATRX,1,1,1,1,1,C
+binary,driver_mutation,BLCA,CDKN2A,1,1,1,1,1,C
+binary,driver_mutation,BLCA,ASXL2,1,1,1,1,1,C
+binary,driver_mutation,BLCA,KMT2D,1,1,1,1,1,C
+binary,driver_mutation,COAD,TCF7L2,1,1,1,1,1,C
+binary,driver_mutation,STAD,SMAD4,1,1,1,1,1,C
+binary,driver_mutation,HNSC,EPHA2,1,1,1,1,1,C
+binary,driver_mutation,UCEC,SOS1,1,1,1,1,1,C
+binary,driver_mutation,BLCA,KMT2C,1,1,1,1,1,C
+binary,driver_mutation,BLCA,TSC1,1,1,1,1,1,C
+binary,driver_mutation,HNSC,CDKN2A,1,1,1,1,1,C
+binary,driver_mutation,COAD,AMER1,1,1,1,1,1,C
+binary,driver_mutation,HNSC,NOTCH1,1,1,1,1,1,C
+binary,driver_mutation,BLCA,EP300,1,1,1,1,1,C
+binary,fusion,UCEC,Any called fusion,0.001,0.001,0.00385714285714286,0.00515730337078652,0.00673051948051948,A
+binary,fusion,LGG,Any called fusion,0.001,0.001,0.00385714285714286,0.00515730337078652,0.00673051948051948,B
+binary,fusion,THCA,Fusion pair: CCDC6--RET,0.001,0.001,0.00385714285714286,0.00515730337078652,0.00673051948051948,B
+binary,fusion,THCA,Any called fusion,0.001,0.001,0.00385714285714286,0.00515730337078652,0.00673051948051948,B
+binary,fusion,PRAD,Fusion pair: TMPRSS2--ERG,0.001,0.002,0.00385714285714286,0.00515730337078652,0.00673051948051948,B
+binary,fusion,SARC,Any called fusion,0.002,0.002,0.00675,0.00966315789473684,0.013120253164557,B
+binary,fusion,LIHC,Any called fusion,0.001,0.001,0.00385714285714286,0.00515730337078652,0.00673051948051948,B
+binary,fusion,BLCA,Any called fusion,0.001,0.001,0.00385714285714286,0.00515730337078652,0.00673051948051948,B
+binary,fusion,COAD,Any called fusion,1,1,1,1,1,C
+binary,fusion,BRCA,Any called fusion,1,1,1,1,1,C
+binary,fusion,PAAD,Any called fusion,1,1,1,1,1,C
+binary,fusion,LUSC,Any called fusion,1,1,1,1,1,C
+binary,fusion,STAD,Any called fusion,1,1,1,1,1,C
+binary,fusion,TGCT,Any called fusion,1,1,1,1,1,C
+binary,fusion,KIRP,Any called fusion,1,1,1,1,1,C
+binary,fusion,ESCA,Any called fusion,1,1,1,1,1,C
+binary,fusion,KIRC,Any called fusion,1,1,1,1,1,C
+binary,fusion,LUAD,Any called fusion,1,1,1,1,1,C
+binary,fusion,DLBC,Any called fusion,1,1,1,1,1,C
+binary,fusion,THYM,Any called fusion,1,1,1,1,1,C
+binary,fusion,PCPG,Any called fusion,1,1,1,1,1,C
+binary,fusion,PRAD,Any called fusion,1,1,1,1,1,C
+binary,fusion,MESO,Any called fusion,1,1,1,1,1,C
+binary,fusion,HNSC,Any called fusion,1,1,1,1,1,C
+binary,fusion,CESC,Any called fusion,1,1,1,1,1,C
+binary,fusion,SKCM,Any called fusion,1,1,1,1,1,C
+binary,fusion,READ,Any called fusion,1,1,1,1,1,C
+binary,microsatellite_instability,COAD,MSI-H (MANTIS >0.4),0.001,0.001,0.001,0.00515730337078652,0.00673051948051948,A
+binary,microsatellite_instability,STAD,MSI-H (MANTIS >0.4),0.001,0.001,0.001,0.00515730337078652,0.00673051948051948,A
+binary,microsatellite_instability,UCEC,MSI-H (MANTIS >0.4),0.001,0.001,0.001,0.00515730337078652,0.00673051948051948,B
+binary,microsatellite_instability_sensitivity,COAD,MSI-H strict (MANTIS >0.6),0.001,0.001,0.001,0.00515730337078652,0.00673051948051948,A
+binary,microsatellite_instability_sensitivity,STAD,MSI-H strict (MANTIS >0.6),0.001,0.001,0.001,0.00515730337078652,0.00673051948051948,A
+binary,microsatellite_instability_sensitivity,UCEC,MSI-H strict (MANTIS >0.6),0.001,0.001,0.001,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,LGG,TP53,0.001,0.0015,0.00553333333333333,0.00515730337078652,0.00673051948051948,A
+binary,oncogenic_pathway,LGG,HIPPO,0.001,0.0015,0.00553333333333333,0.00515730337078652,0.00673051948051948,A
+binary,oncogenic_pathway,UCEC,TP53,0.001,0.00333333333333333,0.00553333333333333,0.00515730337078652,0.00673051948051948,A
+binary,oncogenic_pathway,BRCA,TP53,0.001,0.009,0.00553333333333333,0.00515730337078652,0.00673051948051948,A
+binary,oncogenic_pathway,THCA,RTK RAS,0.001,0.002,0.00553333333333333,0.00515730337078652,0.00673051948051948,A
+binary,oncogenic_pathway,LGG,WNT,0.001,0.0015,0.00553333333333333,0.00515730337078652,0.00673051948051948,A
+binary,oncogenic_pathway,THCA,WNT,0.001,0.002,0.00553333333333333,0.00515730337078652,0.00673051948051948,A
+binary,oncogenic_pathway,LUAD,TP53,0.001,0.01,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,KIRP,Cell Cycle,0.001,0.006,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,PCPG,RTK RAS,0.001,0.002,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,TGCT,RTK RAS,0.001,0.001,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,LGG,RTK RAS,0.001,0.0015,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,GBM,TP53,0.004,0.008,0.0184444444444444,0.0181782178217822,0.0257515527950311,B
+binary,oncogenic_pathway,PCPG,Cell Cycle,0.002,0.002,0.00948571428571429,0.00966315789473684,0.013120253164557,B
+binary,oncogenic_pathway,COAD,TP53,0.001,0.0045,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,LIHC,Cell Cycle,0.001,0.00333333333333333,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,STAD,TP53,0.001,0.00225,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,SARC,TP53,0.001,0.007,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,UCS,RTK RAS,1,1,1,1,1,C
+binary,oncogenic_pathway,STAD,HIPPO,0.001,0.00225,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,LGG,Cell Cycle,0.001,0.0015,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,LIHC,WNT,0.001,0.00333333333333333,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,BLCA,TP53,0.001,0.01,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,LGG,TGF-Beta,0.001,0.0015,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,UCEC,WNT,0.001,0.00333333333333333,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,LIHC,TP53,0.001,0.00333333333333333,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,HNSC,TP53,0.001,0.01,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,STAD,NOTCH,0.001,0.00225,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,STAD,RTK RAS,0.001,0.00225,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,COAD,PI3K,0.002,0.006,0.00948571428571429,0.00966315789473684,0.013120253164557,B
+binary,oncogenic_pathway,KICH,TP53,1,1,1,1,1,C
+binary,oncogenic_pathway,SARC,RTK RAS,0.002,0.007,0.00948571428571429,0.00966315789473684,0.013120253164557,B
+binary,oncogenic_pathway,UCEC,NOTCH,0.001,0.00333333333333333,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,PRAD,PI3K,0.001,0.004,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,PRAD,TP53,0.001,0.004,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,STAD,WNT,0.002,0.0036,0.00948571428571429,0.00966315789473684,0.013120253164557,B
+binary,oncogenic_pathway,COAD,MYC,0.001,0.0045,0.00553333333333333,0.00515730337078652,0.00673051948051948,B
+binary,oncogenic_pathway,KIRC,WNT,0.002,0.01,0.00948571428571429,0.00966315789473684,0.013120253164557,B
+binary,oncogenic_pathway,HNSC,PI3K,1,1,1,1,1,C
+binary,oncogenic_pathway,ACC,WNT,1,1,1,1,1,C
+binary,oncogenic_pathway,READ,Cell Cycle,1,1,1,1,1,C
+binary,oncogenic_pathway,READ,PI3K,1,1,1,1,1,C
+binary,oncogenic_pathway,STAD,Cell Cycle,1,1,1,1,1,C
+binary,oncogenic_pathway,LUSC,NRF2,1,1,1,1,1,C
+binary,oncogenic_pathway,HNSC,Cell Cycle,1,1,1,1,1,C
+binary,oncogenic_pathway,CESC,NOTCH,1,1,1,1,1,C
+binary,oncogenic_pathway,SARC,Cell Cycle,1,1,1,1,1,C
+binary,oncogenic_pathway,STAD,PI3K,1,1,1,1,1,C
+binary,oncogenic_pathway,COAD,TGF-Beta,1,1,1,1,1,C
+binary,oncogenic_pathway,UCEC,TGF-Beta,1,1,1,1,1,C
+binary,oncogenic_pathway,COAD,NOTCH,1,1,1,1,1,C
+binary,oncogenic_pathway,READ,NOTCH,1,1,1,1,1,C
+binary,oncogenic_pathway,STAD,TGF-Beta,1,1,1,1,1,C
+binary,oncogenic_pathway,COAD,RTK RAS,1,1,1,1,1,C
+binary,oncogenic_pathway,BRCA,RTK RAS,1,1,1,1,1,C
+binary,oncogenic_pathway,UCEC,RTK RAS,1,1,1,1,1,C
+binary,oncogenic_pathway,COAD,Cell Cycle,1,1,1,1,1,C
+binary,oncogenic_pathway,UCS,NOTCH,1,1,1,1,1,C
+binary,oncogenic_pathway,BRCA,PI3K,1,1,1,1,1,C
+binary,oncogenic_pathway,CESC,RTK RAS,1,1,1,1,1,C
+binary,oncogenic_pathway,LGG,PI3K,1,1,1,1,1,C
+binary,oncogenic_pathway,ESCA,NRF2,1,1,1,1,1,C
+binary,oncogenic_pathway,PRAD,WNT,1,1,1,1,1,C
+binary,oncogenic_pathway,BRCA,Cell Cycle,1,1,1,1,1,C
+binary,oncogenic_pathway,HNSC,TGF-Beta,1,1,1,1,1,C
+binary,oncogenic_pathway,UCEC,HIPPO,1,1,1,1,1,C
+binary,oncogenic_pathway,LUAD,HIPPO,1,1,1,1,1,C
+binary,oncogenic_pathway,BLCA,PI3K,1,1,1,1,1,C
+binary,oncogenic_pathway,CESC,HIPPO,1,1,1,1,1,C
+binary,oncogenic_pathway,UCEC,PI3K,1,1,1,1,1,C
+binary,oncogenic_pathway,PAAD,TGF-Beta,1,1,1,1,1,C
+binary,oncogenic_pathway,CESC,WNT,1,1,1,1,1,C
+binary,oncogenic_pathway,CESC,TP53,1,1,1,1,1,C
+binary,oncogenic_pathway,BRCA,WNT,1,1,1,1,1,C
+binary,oncogenic_pathway,LUSC,PI3K,1,1,1,1,1,C
+binary,oncogenic_pathway,HNSC,HIPPO,1,1,1,1,1,C
+binary,oncogenic_pathway,PRAD,NOTCH,1,1,1,1,1,C
+binary,oncogenic_pathway,HNSC,NRF2,1,1,1,1,1,C
+binary,oncogenic_pathway,COAD,HIPPO,1,1,1,1,1,C
+binary,oncogenic_pathway,KIRP,RTK RAS,1,1,1,1,1,C
+binary,oncogenic_pathway,STAD,MYC,1,1,1,1,1,C
+binary,oncogenic_pathway,BLCA,TGF-Beta,1,1,1,1,1,C
+binary,oncogenic_pathway,BLCA,RTK RAS,1,1,1,1,1,C
+binary,oncogenic_pathway,CESC,PI3K,1,1,1,1,1,C
+binary,oncogenic_pathway,ESCA,RTK RAS,1,1,1,1,1,C
+binary,oncogenic_pathway,LUAD,WNT,1,1,1,1,1,C
+binary,oncogenic_pathway,MESO,Cell Cycle,1,1,1,1,1,C
+binary,oncogenic_pathway,ESCA,PI3K,1,1,1,1,1,C
+binary,oncogenic_pathway,LUAD,NOTCH,1,1,1,1,1,C
+binary,oncogenic_pathway,BRCA,MYC,1,1,1,1,1,C
+binary,oncogenic_pathway,CESC,Cell Cycle,1,1,1,1,1,C
+binary,oncogenic_pathway,BLCA,MYC,1,1,1,1,1,C
+binary,oncogenic_pathway,LIHC,RTK RAS,1,1,1,1,1,C
+binary,oncogenic_pathway,LUSC,HIPPO,1,1,1,1,1,C
+binary,oncogenic_pathway,BLCA,WNT,1,1,1,1,1,C
+binary,oncogenic_pathway,COAD,WNT,1,1,1,1,1,C
+binary,oncogenic_pathway,MESO,HIPPO,1,1,1,1,1,C
+binary,oncogenic_pathway,LUAD,PI3K,1,1,1,1,1,C
+binary,oncogenic_pathway,HNSC,WNT,1,1,1,1,1,C
+binary,oncogenic_pathway,BLCA,NOTCH,1,1,1,1,1,C
+binary,oncogenic_pathway,THCA,Cell Cycle,1,1,1,1,1,C
+binary,oncogenic_pathway,LIHC,MYC,1,1,1,1,1,C
+binary,oncogenic_pathway,BLCA,Cell Cycle,1,1,1,1,1,C
+binary,oncogenic_pathway,PRAD,Cell Cycle,1,1,1,1,1,C
+binary,oncogenic_pathway,PAAD,TP53,1,1,1,1,1,C
+binary,oncogenic_pathway,BRCA,NOTCH,1,1,1,1,1,C
+binary,oncogenic_pathway,LUAD,RTK RAS,1,1,1,1,1,C
+binary,oncogenic_pathway,BLCA,NRF2,1,1,1,1,1,C
+binary,oncogenic_pathway,PAAD,RTK RAS,1,1,1,1,1,C
+binary,oncogenic_pathway,LIHC,PI3K,1,1,1,1,1,C
+binary,oncogenic_pathway,HNSC,RTK RAS,1,1,1,1,1,C
+binary,oncogenic_pathway,LUAD,NRF2,1,1,1,1,1,C
+binary,oncogenic_pathway,UCEC,Cell Cycle,1,1,1,1,1,C
+binary,oncogenic_pathway,KIRP,HIPPO,1,1,1,1,1,C
+binary,oncogenic_pathway,PRAD,MYC,1,1,1,1,1,C
+binary,oncogenic_pathway,LUAD,Cell Cycle,1,1,1,1,1,C
+binary,oncogenic_pathway,PRAD,RTK RAS,1,1,1,1,1,C
+binary,oncogenic_pathway,ESCA,WNT,1,1,1,1,1,C
+binary,oncogenic_pathway,BRCA,HIPPO,1,1,1,1,1,C
+binary,oncogenic_pathway,LUSC,RTK RAS,1,1,1,1,1,C
+binary,oncogenic_pathway,BLCA,HIPPO,1,1,1,1,1,C
+binary,oncogenic_pathway,LUSC,TP53,1,1,1,1,1,C
+binary,oncogenic_pathway,HNSC,MYC,1,1,1,1,1,C
+binary,oncogenic_pathway,PAAD,MYC,1,1,1,1,1,C
+binary,oncogenic_pathway,ESCA,TGF-Beta,1,1,1,1,1,C
+binary,oncogenic_pathway,READ,RTK RAS,1,1,1,1,1,C
+binary,oncogenic_pathway,LGG,MYC,1,1,1,1,1,C
+binary,oncogenic_pathway,LGG,NOTCH,1,1,1,1,1,C
+binary,oncogenic_pathway,LIHC,TGF-Beta,1,1,1,1,1,C
+binary,oncogenic_pathway,BRCA,TGF-Beta,1,1,1,1,1,C
+binary,oncogenic_pathway,KIRP,NOTCH,1,1,1,1,1,C
+binary,oncogenic_pathway,LUSC,TGF-Beta,1,1,1,1,1,C
+binary,oncogenic_pathway,ESCA,HIPPO,1,1,1,1,1,C
+binary,oncogenic_pathway,LUAD,MYC,1,1,1,1,1,C
+binary,oncogenic_pathway,KIRP,WNT,1,1,1,1,1,C
+binary,oncogenic_pathway,HNSC,NOTCH,1,1,1,1,1,C
+binary,oncogenic_pathway,KIRC,RTK RAS,1,1,1,1,1,C
+binary,oncogenic_pathway,LIHC,NRF2,1,1,1,1,1,C
+binary,oncogenic_pathway,LIHC,HIPPO,1,1,1,1,1,C
+binary,oncogenic_pathway,THCA,PI3K,1,1,1,1,1,C
+binary,oncogenic_pathway,KIRP,PI3K,1,1,1,1,1,C
+binary,oncogenic_pathway,UCEC,NRF2,1,1,1,1,1,C
+binary,oncogenic_pathway,LUSC,NOTCH,1,1,1,1,1,C
+binary,oncogenic_pathway,LUAD,TGF-Beta,1,1,1,1,1,C
+binary,oncogenic_pathway,ESCA,NOTCH,1,1,1,1,1,C
+binary,oncogenic_pathway,CESC,NRF2,1,1,1,1,1,C
+binary,oncogenic_pathway,KIRC,PI3K,1,1,1,1,1,C
+binary,oncogenic_pathway,READ,TGF-Beta,1,1,1,1,1,C
+binary,oncogenic_pathway,PAAD,PI3K,1,1,1,1,1,C
+binary,oncogenic_pathway,LUSC,MYC,1,1,1,1,1,C
+binary,oncogenic_pathway,LUSC,WNT,1,1,1,1,1,C
+binary,oncogenic_pathway,PRAD,TGF-Beta,1,1,1,1,1,C
+binary,oncogenic_pathway,CESC,TGF-Beta,1,1,1,1,1,C
+binary,oncogenic_pathway,KIRC,NOTCH,1,1,1,1,1,C
+binary,oncogenic_pathway,SARC,NOTCH,1,1,1,1,1,C
+binary,oncogenic_pathway,UCEC,MYC,1,1,1,1,1,C
+binary,oncogenic_pathway,PAAD,NOTCH,1,1,1,1,1,C
+binary,oncogenic_pathway,LIHC,NOTCH,1,1,1,1,1,C
+binary,oncogenic_pathway,LUSC,Cell Cycle,1,1,1,1,1,C
+binary,oncogenic_pathway,SARC,HIPPO,1,1,1,1,1,C
+binary,oncogenic_pathway,KIRC,Cell Cycle,1,1,1,1,1,C
+binary,oncogenic_pathway,ESCA,MYC,1,1,1,1,1,C
+binary,oncogenic_pathway,SARC,WNT,1,1,1,1,1,C
+binary,oncogenic_pathway,GBM,PI3K,1,1,1,1,1,C
+binary,oncogenic_pathway,PAAD,Cell Cycle,1,1,1,1,1,C
+binary,oncogenic_pathway,SARC,PI3K,1,1,1,1,1,C
