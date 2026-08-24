@@ -1,0 +1,2 @@
+eligible_slides,exact_report_matched_slides,tumour_content_mentions,tissue_area_mentions,artefact_mentions,procedure_mentions,slide_quality_mentions,no_residual_tumour_mentions,narrative_source,used_for_primary_exclusion_or_weighting
+11449,10106,16,9,2,1286,0,35,TITAN-generated TCGA-Slide-Reports text,FALSE

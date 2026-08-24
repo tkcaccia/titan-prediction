@@ -1,0 +1,2 @@
+patient,n_slides,exact_report_matched_slides,narrative_no_residual_tumour_slides,narrative_artefact_mention_slides,project_id,anatomical_site,within_patient_slide_weight
+TCGA-DX-AB2L,30,30,30,0,TCGA-SARC,"Connective, subcutaneous and other soft tissues of lower limb and hip",0.0333333333333333

@@ -1,0 +1,7 @@
+domain,structured_field_available,field_or_evidence,interpretation
+Tumour content/cellularity,FALSE,,No structured field; generated narrative mentions are unvalidated and were not used for exclusion or weighting.
+Tissue area,FALSE,,No structured field; generated narrative mentions are unvalidated and were not used for exclusion or weighting.
+Artefact,FALSE,,No structured field; generated narrative mentions are unvalidated and were not used for exclusion or weighting.
+Biopsy versus resection,FALSE,,No structured field; generated narrative mentions are unvalidated and were not used for exclusion or weighting.
+Slide/image quality,FALSE,,No structured field; generated narrative mentions are unvalidated and were not used for exclusion or weighting.
+Anatomical resection/biopsy site,TRUE,site_of_resection_or_biopsy,Anatomical site only; it does not encode whether the specimen was a biopsy or resection.

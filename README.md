@@ -265,6 +265,24 @@ This is descriptive context only. Global pooled embeddings cannot localise a
 causal patch, and the generated slide reports are not blinded independent
 pathologist annotations.
 
+## Pathology quality-control audit
+
+`R/14_pathology_qc_audit.R` documents what slide-level quality metadata were
+actually available. Neither the TITAN feature table nor
+`TCGA-Slide-Reports.csv` contains structured tumour content/cellularity, tissue
+area, artefact, biopsy-versus-resection status, or slide/image-quality fields.
+The column `site_of_resection_or_biopsy` is an anatomical site, not a specimen
+procedure. Generated narrative mentions are counted for transparency only and
+are not used as pathologist-adjudicated exclusions or weights.
+
+Mean pooling gives each of a participant's slides weight `1/n`, then represents
+that participant by one row in validation. The maximum-slide participant,
+TCGA-DX-AB2L (SARC), therefore does not receive 30-fold model weight; however,
+all 30 generated narratives mention no residual sarcoma/myxofibrosarcoma. This
+is retained as a prominent limitation of barcode-only eligibility and motivates
+independent pathology review and tumour-area-aware aggregation in future work.
+The machine-readable audit is in `results/tables/pathology_qc_*.csv`.
+
 ```r
 remotes::install_github("tkcaccia/TITANPred", dependencies = TRUE)
 library(TITANPred)

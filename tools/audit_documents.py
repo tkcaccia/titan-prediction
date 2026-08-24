@@ -226,6 +226,9 @@ for required_revision in (
     "Qualitative morphology context",
     "Figure S4 places all held-out patients behind the selected examples",
     "not patch-level relevance, causal attribution or blinded pathologist review",
+    "No structured tumour-content/cellularity percentage, tissue-area measurement, artefact assessment, biopsy-versus-resection indicator or slide/image-quality score was available",
+    "TCGA-DX-AB2L",
+    "all 30 generated narratives",
 ):
     require(
         required_revision in main_text,
@@ -258,6 +261,8 @@ require("Table S6a. Highlighted-model performance and uncertainty" in supplement
         "Complete highlighted-model performance table is missing from the supplement")
 require("Table S2b. Sex- and broad race-stratified performance denominators" in supplement_text,
         "Subgroup denominator table is missing from the supplement")
+require("Table S3b. Pathology quality-control field availability" in supplement_text,
+        "Pathology quality-control audit table is missing from the supplement")
 require("Participant age, recorded gender, race and stage plus analytic and molecular missingness are reported; exact subgroup counts, performance metrics and non-estimability reasons are supplied in Supplementary Table S2b and subgroup_performance_audit.csv" in supplement_text,
         "TRIPOD+AI item 20b status is incomplete or truncated")
 require("Manuscript length and table density" in response_text,
@@ -272,6 +277,8 @@ require("Clarify the site variable" in response_text,
         "Response does not address clarification of the TCGA tissue-source-site code")
 require("denominator-first post hoc subgroup audit" in response_text,
         "Response does not address subgroup performance")
+require("Pathology quality control" in response_text and "TCGA-DX-AB2L" in response_text,
+        "Response does not address pathology quality control")
 require("Manuscript density" in reviewer_text,
         "Reviewer report does not acknowledge the streamlined table structure")
 require("Precision–recall reporting" in reviewer_text,
@@ -282,6 +289,8 @@ require("Implementation detail" in reviewer_text,
         "Reviewer report does not acknowledge movement of implementation detail")
 require("TCGA tissue-source-site code" in reviewer_text,
         "Reviewer report does not acknowledge clarification of the TCGA tissue-source-site code")
+require("Pathology quality control" in reviewer_text and "TCGA-DX-AB2L" in reviewer_text,
+        "Reviewer report does not acknowledge pathology quality control")
 for item in (
     "Table S10a. Expanded literature audit",
     "Table S10b. Screen-positive models below the original prespecified screening threshold",
