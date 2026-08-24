@@ -208,6 +208,9 @@ mutation_coverage = optional_rows("mutation_coverage_audit.csv")
 mutation_eligibility = optional_rows("mutation_target_eligibility_audit.csv")
 molecular_coverage = optional_rows("molecular_source_coverage_audit.csv")
 participant_characteristics = optional_rows("participant_characteristics_by_cancer.csv")
+subgroup_performance = optional_rows("subgroup_performance_audit.csv")
+subgroup_summary = optional_rows("subgroup_performance_summary.csv")
+subgroup_contrasts = optional_rows("subgroup_performance_contrast_summary.csv")
 coad_examples = optional_rows("coad_package_examples.csv")
 coad_example_predictions = optional_rows("coad_package_example_predictions.csv")
 endpoint_dictionary = rows("endpoint_dictionary.csv")
@@ -354,6 +357,27 @@ participant_overall = next(
     (r for r in participant_characteristics if r.get("tumor_type") == "Overall"),
     {},
 )
+subgroup_high_volume_models = {
+    (r.get("outcome_type"), r.get("family"), r.get("tumor_type"), r.get("endpoint"))
+    for r in subgroup_performance if r.get("high_volume") == "TRUE"
+}
+subgroup_estimable_rows = [r for r in subgroup_performance if r.get("denominator_adequate") == "TRUE"]
+subgroup_model_groups = {}
+for r in subgroup_estimable_rows:
+    key = (r.get("outcome_type"), r.get("family"), r.get("tumor_type"),
+           r.get("endpoint"), r.get("subgroup_variable"))
+    subgroup_model_groups.setdefault(key, set()).add(r.get("subgroup"))
+subgroup_two_group_models = {
+    "continuous_sex": sum(k[0] == "continuous" and k[4] == "Recorded sex" and len(v) >= 2
+                          for k, v in subgroup_model_groups.items()),
+    "continuous_race": sum(k[0] == "continuous" and k[4] == "Broad race" and len(v) >= 2
+                           for k, v in subgroup_model_groups.items()),
+    "binary_sex": sum(k[0] == "binary" and k[4] == "Recorded sex" and len(v) >= 2
+                      for k, v in subgroup_model_groups.items()),
+    "binary_race": sum(k[0] == "binary" and k[4] == "Broad race" and len(v) >= 2
+                       for k, v in subgroup_model_groups.items()),
+}
+subgroup_contrast = {(r.get("contrast"), r.get("outcome_type")): r for r in subgroup_contrasts}
 source_coverage_summary = []
 for source in sorted({r.get("source") for r in molecular_coverage if r.get("source")}):
     sr = [r for r in molecular_coverage if r.get("source") == source]
@@ -783,8 +807,8 @@ doc.add_heading("Methods", level=1)
 doc.add_heading("Study design, slides and patient unit", level=2)
 doc.add_paragraph(f"The published TITAN TCGA table contained {n_slides:,} eligible primary-tumour diagnostic slides (TCGA sample type 01 and –DX filename) from {n_patients:,} participants. The {n_multi:,} participants with multiple eligible slides contributed one patient vector obtained by feature-wise arithmetic mean before outcomes were joined. Patient—not slide—was the independent cross-validation unit. TITAN's TCGA-Slide-Reports.csv matched {n_exact_reports:,} selected slides exactly by filename; {n_unmatched_reports:,} slides lacked an exact report row. Report metadata were used only to audit identifiers, project/cancer provenance and resection-site annotations, and no report text entered a model. The two-character tissue-source-site code used for grouped validation was derived directly from the TCGA participant barcode. {n_missing_cancer:,} participants without a resolvable cancer label did not enter cancer-specific modelling. No participant had eligible slides from more than one primary sample barcode.")
 doc.add_paragraph("All models were stratified by cancer type. No model learned pan-cancer differences, and no patient could occur in more than one validation fold. The intended use was discovery-stage prioritisation rather than diagnosis, treatment selection or replacement of molecular testing.")
-doc.add_paragraph("All available eligible TCGA participants were used; no formal power calculation was performed. Minimum outcome-specific denominators were prespecified to support nested folds. Treatments were not modelled because the endpoints were contemporaneous molecular or derived immune/genomic features rather than prognosis or treatment response. Available demographic fields, subgroup sizes and endpoint-specific missingness did not provide a basis for representative subgroup performance or fairness evaluation; this is considered a limitation rather than evidence of equivalent performance across groups.")
-doc.add_paragraph("Reporting was audited against TRIPOD+AI [28]. Participant characteristics were linked from the TCGA Clinical Data Resource [29] and summarized overall and by cancer. These descriptive fields were not supplied to prediction models, and no subgroup performance comparison was prespecified.")
+doc.add_paragraph("All available eligible TCGA participants were used; no formal power calculation was performed. Minimum outcome-specific denominators were prespecified to support nested folds. Treatments were not modelled because the endpoints were contemporaneous molecular or derived immune/genomic features rather than prognosis or treatment response.")
+doc.add_paragraph("Reporting was audited against TRIPOD+AI [28]. Participant characteristics were linked from the TCGA Clinical Data Resource [29] and summarized overall and by cancer. These fields were not supplied to prediction models. In a post hoc denominator-first audit, a cancer–endpoint model was considered high volume at ≥200 outcome-labelled patients. Performance was recalculated within the fixed five-repeat held-out predictions when a continuous subgroup contained ≥50 patients or a binary subgroup contained ≥20 positive and ≥20 negative patients. Recorded sex used the TCGA CDR gender field; broad race retained White, Black or African American, Asian and other recorded categories separately. Continuous subgroup metrics were Q², RMSE and Spearman correlation; binary metrics were sensitivity, specificity, balanced accuracy, AUROC and PR-AUC. No subgroup-specific model was refitted, no formal between-group hypothesis test or multiplicity correction was performed, and the audit was not designed to establish fairness. Exact counts and reasons for non-estimability were retained for every model–subgroup row.")
 add_figure(doc, "Figure1_patient_first_workflow.png", "Figure 1. Patient-first study design. Eligible diagnostic slides are mean-pooled before outcome matching; all model selection and evaluation occur at patient level within cancer type.")
 
 doc.add_heading("Predictors and outcomes", level=2)
@@ -829,8 +853,29 @@ if participant_overall:
         f'Age was available for {ival(participant_overall.get("age_available")):,} participants (median {fnum(participant_overall.get("age_median"), 1)} years, IQR {fnum(participant_overall.get("age_q1"), 1)}–{fnum(participant_overall.get("age_q3"), 1)}); '
         f'{ival(participant_overall.get("female")):,}/{known_gender:,} with recorded gender were female. '
         f'Race was recorded for {ival(participant_overall.get("race_available")):,} and broad stage I–IV for {ival(participant_overall.get("stage_available")):,}. '
-        "These fields describe cohort composition only; subgroup predictive performance was not evaluated."
+        "These fields describe cohort composition and support the post hoc subgroup denominator audit below."
     )
+
+doc.add_heading("Sex- and broad race-stratified performance audit", level=2)
+doc.add_paragraph(
+    f"Of 323 screen-positive models, {len(subgroup_high_volume_models)} had at least 200 outcome-labelled patients. "
+    f"Using fixed repeated out-of-fold predictions, both recorded-sex groups met the prespecified subgroup denominator in "
+    f"{subgroup_two_group_models['continuous_sex']} continuous and {subgroup_two_group_models['binary_sex']} binary models; "
+    f"at least two broad race groups were estimable in {subgroup_two_group_models['continuous_race']} continuous and "
+    f"{subgroup_two_group_models['binary_race']} binary models. The complete audit contains {len(subgroup_performance):,} "
+    f"model–subgroup rows, including exact subgroup and binary class counts, {len(subgroup_estimable_rows):,} estimable "
+    f"performance rows and a specific non-estimability reason for every remaining row. Across estimable female–male comparisons, "
+    f"the median absolute difference was {fnum(subgroup_contrast[('Female versus male', 'continuous')].get('median_absolute_difference'))} in Q², "
+    f"{fnum(subgroup_contrast[('Female versus male', 'binary')].get('median_absolute_difference'))} in AUROC and "
+    f"{fnum(subgroup_contrast[('Female versus male', 'binary')].get('median_absolute_balanced_accuracy_difference'))} in balanced accuracy. "
+    f"For White versus each estimable non-White category, the corresponding medians were "
+    f"{fnum(subgroup_contrast[('White versus each estimable non-White category', 'continuous')].get('median_absolute_difference'))} in Q², "
+    f"{fnum(subgroup_contrast[('White versus each estimable non-White category', 'binary')].get('median_absolute_difference'))} in AUROC and "
+    f"{fnum(subgroup_contrast[('White versus each estimable non-White category', 'binary')].get('median_absolute_balanced_accuracy_difference'))} in balanced accuracy. "
+    "These are descriptive, post hoc "
+    "internal TCGA estimates from the same held-out predictions—not independently validated fairness estimates—and small "
+    "differences should not be interpreted as evidence of demographic equivalence or disparity."
+)
 doc.add_paragraph("Table 1. Eligible cancer–endpoint models and within-cancer screening categories.", style="Caption")
 add_table(doc, ["Family", "Type", "Tests", "Cancers", "Screening tier A", "Screening tier B", "Screen-negative"], family_table,
           [4.8, 2.0, 1.5, 1.5, 1.5, 1.5, 1.5])
@@ -1059,7 +1104,7 @@ doc.add_paragraph("CPTAC-UCEC illustrates both feasibility and the remaining wor
 doc.add_paragraph("The reported uncertainty is deliberately labelled a 95% selection-conditioned patient-resampling interval for repeated out-of-fold predictions. It represents patient sampling variability conditional on the five fitted nested-CV prediction sets and incorporates the five repeat-specific metrics into each bootstrap calculation. It does not repeat the initial screen or highlighting decision, generate new fold partitions, re-estimate scaling, reselect components, refit a model, correct winner's-curse optimism, or sample a new institution, scanner, staining process or population. It is therefore not a conventional confidence interval for model generalisation or an external-performance interval; locked-model evaluation in an untouched cohort is required for transportability assessment.")
 doc.add_paragraph("Arithmetic mean pooling gives each eligible slide equal weight and prevents multiple-slide leakage, but it does not model variable tissue area or within-patient morphological heterogeneity. The first-slide sensitivity measures dependence on one deterministic alternative and should not be interpreted as a comparison with learned or tissue-area-weighted aggregation.")
 doc.add_paragraph("The 768-dimensional TITAN representation is not morphologically self-explanatory. The new high/low anchor and within-cancer nearest-neighbour analysis places representative predictions in the context of globally similar patient embeddings and preserves exact slide/report provenance, but it cannot determine which patch or tissue compartment drove a prediction. The available TCGA-Slide-Reports text was generated by TITAN from the same slides and is neither an independent annotation nor a blinded pathologist review. Consequently, descriptive terms such as lymphoid infiltrate, stromal pattern or necrosis are hypotheses for future review, not validated mechanisms. Tile-level representations or relevance maps retained prospectively, followed by blinded pathologist assessment, are required before morphological explanations can be claimed.")
-doc.add_paragraph("Demographic subgroup performance and algorithmic fairness were not evaluated. The TCGA Clinical Data Resource provides descriptive age, recorded gender, race and stage fields, but coverage and subgroup sizes vary across cancers and would fragment further under endpoint-specific molecular missingness. Grouping by TCGA tissue-source-site code probes one source of heterogeneity but does not directly identify an institution and cannot establish fairness across ancestry, sex, age or access-to-care groups. Any external evaluation should prespecify representative sampling and subgroup performance, calibration and failure analysis.")
+doc.add_paragraph(f"The post hoc subgroup audit partially addresses demographic performance but does not establish algorithmic fairness. Among high-volume models, both recorded-sex groups were estimable for {subgroup_two_group_models['continuous_sex']} continuous and {subgroup_two_group_models['binary_sex']} binary targets, whereas at least two broad race groups were estimable for only {subgroup_two_group_models['continuous_race']} continuous and {subgroup_two_group_models['binary_race']} binary targets. Sparse Black or African American, Asian and other recorded-race groups—and, for binary endpoints, sparse positive or negative classes within those groups—were the dominant barriers. Race categories are heterogeneous administrative labels and are not substitutes for ancestry, socioeconomic context or exposure. The estimates condition on the same selected TCGA models and held-out predictions, have no external validation, and were not accompanied by formal between-group tests or multiplicity correction. Apparent similarity therefore cannot be interpreted as demographic equivalence, and apparent differences may reflect sampling error, outcome prevalence, missingness or structure associated with TCGA tissue-source-site code. Any external evaluation should prespecify representative sampling, intersectional subgroups, calibration and failure analysis.")
 
 doc.add_heading("Conclusions", level=1)
 doc.add_paragraph(f"Using mean-pooled fixed pretrained TITAN representations, this study provides a systematic patient-level TCGA benchmark of direct genomic alterations and derived immune, genomic-context, MSI, aneuploidy and fusion phenotypes. The access-controlled TITANPred package demonstrates how fitted PLS and PLS–LDA objects can be applied without distributing patient-level training data. Its default interface includes all {len(supported_c)} continuous models and the {len(binary_standard)} binary models meeting at least 50 patients per class; {len(binary_limited_reliability)} smaller-class binary models require explicit exploratory opt-in. All reported performance and example outputs are internally derived TCGA estimates. Prediction of a computationally inferred target is not evidence that a direct assay has been reproduced, and the qualitative neighbour examples are not patch-level explanation. The contribution is a transparent computational pathology benchmark and research-software framework—not broad endpoint novelty, external performance evidence or clinical validation—and locked independent testing remains essential.")
@@ -1176,8 +1221,35 @@ if participant_characteristics:
                 f'{fnum(r.get("age_median"), 1)} ({fnum(r.get("age_q1"), 1)}–{fnum(r.get("age_q3"), 1)})',
                 f'{r.get("female")}/{r.get("male")}/{r.get("gender_missing")}',
                 f'{r.get("race_white")}/{r.get("race_black_or_african_american")}/{r.get("race_asian")}/{r.get("race_other_recorded")}/{r.get("race_missing")}',
-                f'{r.get("stage_I")}/{r.get("stage_II")}/{r.get("stage_III")}/{r.get("stage_IV")}/{r.get("stage_missing_or_other")}')
+               f'{r.get("stage_I")}/{r.get("stage_II")}/{r.get("stage_III")}/{r.get("stage_IV")}/{r.get("stage_missing_or_other")}')
                for r in participant_characteristics])
+if subgroup_performance:
+    sup.add_heading("Table S2b. Sex- and broad race-stratified performance denominators", 1)
+    sup.add_paragraph("The complete machine-readable subgroup_performance_audit.csv reports all 323 screen-positive models and every subgroup-specific metric or reason for non-estimability. This concise table gives exact counts for highlighted models. Recorded sex is derived from the TCGA CDR gender field. Binary counts are shown as n (positive/negative); continuous counts are n. Performance was estimated only for high-volume models (n≥200) with ≥50 patients per continuous subgroup or ≥20 positive and ≥20 negative patients per binary subgroup. These post hoc estimates reuse fixed held-out predictions and are not fairness validation.")
+    subgroup_by_model = {}
+    for r in subgroup_performance:
+        if r.get("highlighted") != "TRUE":
+            continue
+        key = (r.get("outcome_type"), r.get("family"), r.get("tumor_type"), r.get("endpoint"), r.get("model_n"))
+        subgroup_by_model.setdefault(key, {})[(r.get("subgroup_variable"), r.get("subgroup"))] = r
+    subgroup_table_rows = []
+    for key, values in sorted(subgroup_by_model.items()):
+        outcome_type, family, cancer, endpoint, model_n = key
+        def count_text(variable, subgroup):
+            row = values.get((variable, subgroup))
+            if not row:
+                return "0"
+            if outcome_type == "binary":
+                return f'{row.get("subgroup_n")} ({row.get("positive")}/{row.get("negative")})'
+            return str(row.get("subgroup_n"))
+        estimable = [r.get("subgroup") for r in values.values() if r.get("denominator_adequate") == "TRUE"]
+        subgroup_table_rows.append((
+            outcome_type, cancer, f'{endpoint} [{family.replace("_", " ")}]', model_n,
+            f'{count_text("Recorded sex", "FEMALE")}/{count_text("Recorded sex", "MALE")}/{count_text("Recorded sex", "Missing")}',
+            f'{count_text("Broad race", "White")}/{count_text("Broad race", "Black or African American")}/{count_text("Broad race", "Asian")}/{count_text("Broad race", "Other recorded race")}/{count_text("Broad race", "Missing")}',
+            ", ".join(estimable) if estimable else "None: denominator rule not met"
+        ))
+    add_table(sup, ["Type", "Cancer", "Endpoint", "n", "Sex F/M/missing", "Race W/B/A/O/missing", "Subgroups with performance"], subgroup_table_rows)
 sup.add_heading("Table S3. Slide multiplicity and report coverage by cancer", 1)
 add_table(sup, ["Cancer", "Patients", "Slides", "Multi-slide patients", "Maximum slides", "Multiple primary barcodes", "Exact report matches"],
           [(r.get("tumor_type") or "Unresolved", r.get("patients"), r.get("eligible_slides"),
@@ -1612,7 +1684,7 @@ responses = [
     ("Clarify the site variable",
      "Agreed. We now use 'TCGA tissue-source-site code' whenever referring to the two-character barcode field. Analyses are described as 'internal validation grouped by TCGA tissue-source-site code' and 'within-cancer classification of TCGA tissue-source-site code'; fold counts are counts of codes rather than sites. The Abstract, Methods, Results, Discussion, Figure 6 caption, Supplementary Tables S6a and S10b–S10d, reviewer report and response have been standardised. We state explicitly that this barcode-derived code is not an institution, scanner, laboratory or staining-batch identifier and that grouping by it is not external validation. Uses of 'site' with a different biological meaning, such as splice site or resection site, were retained."),
     ("Additional change: TRIPOD+AI and fairness reporting",
-     "Supplementary Table S12 maps every TRIPOD+AI item to the manuscript or repository. Participant characteristics from the TCGA Clinical Data Resource are now reported overall and by cancer; the Methods and Discussion state that no resampling or calibrated probability output was used, no formal power calculation was performed, treatment endpoints were not modelled, and demographic subgroup performance was not evaluated. Sensitivity to grouping by TCGA tissue-source-site code is not presented as a substitute for representative external subgroup evaluation."),
+     f"Supplementary Table S12 maps every TRIPOD+AI item to the manuscript or repository. We now add a denominator-first post hoc subgroup audit using the fixed five-repeat held-out predictions. A high-volume model required at least 200 outcome-labelled patients; continuous subgroup metrics required at least 50 patients, and binary metrics required at least 20 positive and 20 negative patients. Both recorded-sex groups were estimable in {subgroup_two_group_models['continuous_sex']} continuous and {subgroup_two_group_models['binary_sex']} binary models; at least two broad race groups were estimable in {subgroup_two_group_models['continuous_race']} continuous and {subgroup_two_group_models['binary_race']} binary models. Supplementary Table S2b gives exact counts for highlighted models, while subgroup_performance_audit.csv reports exact counts, metrics or the specific non-estimability reason for every screen-positive model–subgroup row. The manuscript states that these post hoc internal estimates are not formal fairness validation and do not establish demographic equivalence."),
     ("Additional change: selection-conditioned uncertainty",
      "The Methods, tables and Discussion now use the explicit label 'selection-conditioned patient-resampling interval for repeated out-of-fold predictions' and enumerate included and excluded uncertainty components. These intervals condition on endpoint selection and five fixed nested-CV prediction sets; they do not remove winner's-curse optimism, repeat screening or refitting, or represent external performance."),
 ]

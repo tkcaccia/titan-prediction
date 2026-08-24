@@ -201,6 +201,9 @@ for required_revision in (
     "mutation or fusion endpoints with prevalence below 0.20",
     "This divergence illustrates why AUROC or balanced accuracy alone can overstate positive-class retrieval under low prevalence",
     "cohort-specific descriptive estimates, not calibrated probabilities",
+    "Sex- and broad race-stratified performance audit",
+    "cancer–endpoint model was considered high volume at ≥200 outcome-labelled patients",
+    "not independently validated fairness estimates",
     "Sensitivity to grouping by TCGA tissue-source-site code",
     "the same separation was maintained in every inner component-selection split",
     "27/32 cancers",
@@ -253,6 +256,8 @@ response_text = texts["response_to_reviewer_JTM.docx"]
 reviewer_text = texts["reviewer_report_JTM.docx"]
 require("Table S6a. Highlighted-model performance and uncertainty" in supplement_text,
         "Complete highlighted-model performance table is missing from the supplement")
+require("Table S2b. Sex- and broad race-stratified performance denominators" in supplement_text,
+        "Subgroup denominator table is missing from the supplement")
 require("Manuscript length and table density" in response_text,
         "Response does not address manuscript length and table density")
 require("Report precision–recall metrics" in response_text,
@@ -263,6 +268,8 @@ require("Move implementation detail out of the main Results" in response_text,
         "Response does not address implementation detail in the main Results")
 require("Clarify the site variable" in response_text,
         "Response does not address clarification of the TCGA tissue-source-site code")
+require("denominator-first post hoc subgroup audit" in response_text,
+        "Response does not address subgroup performance")
 require("Manuscript density" in reviewer_text,
         "Reviewer report does not acknowledge the streamlined table structure")
 require("Precision–recall reporting" in reviewer_text,

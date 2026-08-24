@@ -1,0 +1,5 @@
+contrast,outcome_type,comparisons,primary_metric,median_absolute_difference,median_absolute_balanced_accuracy_difference
+Female versus male,continuous,138,Q2,0.0992490922295618,
+Female versus male,binary,56,AUROC,0.0255766740242935,0.018554049827581
+White versus each estimable non-White category,continuous,114,Q2,0.0886871519011149,
+White versus each estimable non-White category,binary,36,AUROC,0.0227949467228311,0.0342668407892653

@@ -85,6 +85,7 @@ highlighted = read_rows("highlighted_model_performance.csv")
 mutation_coverage = read_rows("mutation_coverage_audit.csv")
 slide_audit = read_rows("patient_slide_multiplicity_by_cancer.csv")
 participant_characteristics = read_rows("participant_characteristics_by_cancer.csv")
+subgroup_performance = read_rows("subgroup_performance_audit.csv")
 ridge_summary = read_rows("pls_vs_ridge_representative_summary.csv")
 ridge_comparison = read_rows("pls_vs_ridge_representative_models.csv")
 ridge_jobs = read_rows("pls_vs_ridge_representative_jobs.csv")
@@ -97,6 +98,22 @@ binary_learning = read_rows("binary_limited_evidence_learning_curve_summary.csv"
 endpoint_dictionary = read_rows("endpoint_dictionary.csv")
 endpoint_definitions = read_rows("endpoint_definition_dictionary.csv")
 morphology_context = read_rows("morphology_context_examples.csv")
+subgroup_high_volume = {
+    (r["outcome_type"], r["family"], r["tumor_type"], r["endpoint"])
+    for r in subgroup_performance if r["high_volume"] == "TRUE"
+}
+subgroup_groups = {}
+for r in subgroup_performance:
+    if r["denominator_adequate"] != "TRUE":
+        continue
+    key = (r["outcome_type"], r["family"], r["tumor_type"], r["endpoint"], r["subgroup_variable"])
+    subgroup_groups.setdefault(key, set()).add(r["subgroup"])
+subgroup_two = {
+    (outcome, variable): sum(k[0] == outcome and k[4] == variable and len(v) >= 2
+                             for k, v in subgroup_groups.items())
+    for outcome in ("continuous", "binary")
+    for variable in ("Recorded sex", "Broad race")
+}
 combined_multiplicity = next(
     r for r in multiplicity_summary if r["outcome_type"] == "combined"
 )
@@ -282,14 +299,20 @@ add_body(doc,
     "without a matched profile remain missing; the nine retained protein-altering "
     "variant classes are now explicit and audited. The source-level aliquot and "
     "fusion-coverage audits make the outcome construction reproducible. "
-    f"The TCGA Clinical Data Resource now supplies descriptive characteristics "
+    f"The TCGA Clinical Data Resource supplies descriptive characteristics "
     f"for {int(participant_overall['cdr_matched']):,} matched participants, "
-    "including age, recorded gender, race and broad stage overall and by cancer."
+    "including age, recorded gender, race and broad stage overall and by cancer. "
+    f"A new denominator-first subgroup audit covers {len(subgroup_high_volume)} high-volume models. "
+    f"Both recorded-sex groups were estimable in {subgroup_two[('continuous', 'Recorded sex')]} continuous "
+    f"and {subgroup_two[('binary', 'Recorded sex')]} binary models; at least two broad race groups were "
+    f"estimable in {subgroup_two[('continuous', 'Broad race')]} continuous and "
+    f"{subgroup_two[('binary', 'Broad race')]} binary models. Exact counts, metrics and non-estimability "
+    "reasons are supplied for every screen-positive model–subgroup row."
 )
 add_body(doc,
     "No additional analysis requested. The manuscript should retain the exact "
     "wild-type, fusion-negative and patient-aggregation definitions during copyediting, "
-    "and should not imply that descriptive demographics constitute subgroup model validation.",
+    "and should not imply that post hoc internal subgroup estimates constitute fairness validation or demographic equivalence.",
     lead="No additional analysis requested."
 )
 

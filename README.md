@@ -46,8 +46,11 @@ representations?** The pipeline evaluates:
 
 Participant age, recorded gender, race and broad stage are summarized overall
 and by cancer from the TCGA Clinical Data Resource. These descriptors document
-cohort composition; they are not used as predictors and do not substitute for
-subgroup performance or fairness evaluation.
+cohort composition and are not used as predictors. `R/12_subgroup_performance.R`
+adds a post hoc denominator-first audit of fixed repeated out-of-fold predictions
+for high-volume models. Exact counts, subgroup metrics and non-estimability
+reasons are reported in `results/tables/subgroup_performance_audit.csv`; these
+internal estimates do not constitute formal fairness validation.
 
 Mutation and other binary endpoints use PLS latent variables followed by LDA;
 continuous endpoints use PLS1 regression. The matched PLS1-versus-PLS2

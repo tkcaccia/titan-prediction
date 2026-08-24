@@ -1,0 +1,5 @@
+outcome_type,subgroup_variable,models,high_volume_models,estimable_subgroup_rows,nonestimable_subgroup_rows
+binary,Broad race,104,90,121,367
+binary,Recorded sex,104,90,139,66
+continuous,Broad race,219,176,290,684
+continuous,Recorded sex,219,176,314,113
