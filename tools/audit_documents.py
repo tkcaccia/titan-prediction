@@ -207,15 +207,15 @@ for required_revision in (
     "TCGA tissue-source-site-grouped internal validation",
     "every performance estimate is an internally derived TCGA estimate",
     "Prospectively locked protocol for future independent evaluation",
-    "Table 2. Prospectively locked subset for future independent evaluation",
     "CPTAC-UCEC is a plausible future cohort",
     "research-software demonstration",
-    "The package provides a synthetic feature vector constructed from stored training-feature means",
+    "Three UCEC targets—TP53 mutation, genome doubling and continuous aneuploidy score—were prospectively locked",
+    "Illustrative COAD output",
+    "construction, model inventory, checksums, score-rank definitions, reliability warnings, input validation and report behaviour are described in Supplementary Methods",
     "Figure 7. Post hoc TITANPred research-software visualization for two COAD participants",
     "Panel A replaces separate radar plots with a common-scale dumbbell comparison",
     "Nodal status was not matched",
     "treatment, response, recurrence, follow-up and survival are neither shown nor interpreted",
-    "TCGA OOF score rank (not probability)",
     "currently maintained in a private access-controlled repository",
     "Endpoint provenance and assay equivalence",
     "2,073-row endpoint dictionary",
@@ -230,8 +230,12 @@ for required_revision in (
         required_revision in main_text,
         f"A required audit-driven revision is missing: {required_revision}",
     )
+require("Table 2." not in main_text, "Implementation-focused Table 2 remains in the main manuscript")
 require("Table 3." not in main_text, "Oversized Table 3 remains in the main manuscript")
 require("Table 4." not in main_text, "Obsolete Table 4 numbering remains in the main manuscript")
+require("Artifact SHA-256 (prefix)" not in main_text, "Artifact hashes remain in the main manuscript")
+require("Default inference exposes" not in main_text, "Detailed inference behaviour remains in the main manuscript")
+require("Every binary display uses" not in main_text, "Detailed score-rank behaviour remains in the main manuscript")
 require("Comparison with major pan-cancer histology–molecular prediction studies" not in main_text,
         "Review-style comparison table remains in the main manuscript")
 require("Complete highlighted-model performance, uncertainty, class-size metrics and tissue-source-site-grouped estimates are reported in Supplementary Table S6a" in main_text,
@@ -249,12 +253,16 @@ require("Report precision–recall metrics" in response_text,
         "Response does not address precision-recall reporting")
 require("Figure readability" in response_text,
         "Response does not address figure readability")
+require("Move implementation detail out of the main Results" in response_text,
+        "Response does not address implementation detail in the main Results")
 require("Manuscript density" in reviewer_text,
         "Reviewer report does not acknowledge the streamlined table structure")
 require("Precision–recall reporting" in reviewer_text,
         "Reviewer report does not acknowledge precision-recall reporting")
 require("Figure readability" in reviewer_text,
         "Reviewer report does not acknowledge figure readability")
+require("Implementation detail" in reviewer_text,
+        "Reviewer report does not acknowledge movement of implementation detail")
 for item in (
     "Table S10a. Expanded literature audit",
     "Table S10b. Screen-positive models below the original prespecified screening threshold",
