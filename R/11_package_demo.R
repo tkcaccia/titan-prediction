@@ -265,7 +265,7 @@ p_binary <- ggplot(binary, aes(reference_rank, endpoint_label, color = example))
                      labels = function(x) paste0(x, "%")) +
   labs(
     title = "B  Binary calls for the two illustrative cases",
-    subtitle = "Score rank (not probability); [SITE-SENSITIVE] models fell below their original TSS-grouped threshold",
+    subtitle = "Score rank (not probability); flagged models fell below their original TCGA TSS-code-grouped threshold",
     x = "TCGA out-of-fold score rank (not probability)", y = NULL,
     color = NULL, shape = NULL
   ) +

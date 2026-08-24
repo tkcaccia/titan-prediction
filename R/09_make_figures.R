@@ -156,7 +156,7 @@ connector(0.50, 0.535, 0.66, 0.445)
 grid.roundrect(x = unit(0.50, "npc"), y = unit(0.095, "npc"),
                width = unit(0.88, "npc"), height = unit(0.12, "npc"),
                r = unit(4, "mm"), gp = gpar(fill = navy, col = NA))
-grid.text("Patient-level nested validation  |  within-cancer multiplicity control  |  site-grouped robustness",
+grid.text("Patient-level nested validation  |  within-cancer multiplicity control  |  TCGA tissue-source-site-code grouping",
           x = unit(0.50, "npc"), y = unit(0.112, "npc"),
           gp = gpar(fontfamily = "Arial", fontsize = 9.4, col = "white"))
 grid.text("Slide-pooling sensitivity  |  research model metadata  |  no external validation",
@@ -376,7 +376,7 @@ p6a <- ggplot(site, aes(random, grouped, color = robustness)) +
   labs(
     title = "A  One quarter of models fall below their original screening threshold",
     subtitle = "83/323 (25.7%); highlighted APC models approach chance",
-    x = "Random-fold performance", y = "Site-grouped performance",
+    x = "Random-fold performance", y = "Performance grouped by TCGA TSS code",
     color = NULL
   ) + theme_titan(10.5) +
   theme(legend.position = "bottom")
@@ -388,9 +388,9 @@ p6b <- ggplot(largest_declines, aes(y = label)) +
                color = "#CBD5E0", linewidth = 1.2) +
   geom_point(aes(x = random, shape = "Random folds"), color = navy,
              size = 2.5, stroke = 0.8) +
-  geom_point(aes(x = grouped, shape = "TSS-grouped"), color = coral,
+  geom_point(aes(x = grouped, shape = "Grouped by TCGA TSS code"), color = coral,
              size = 2.5, stroke = 0.8) +
-  scale_shape_manual(values = c("Random folds" = 1, "TSS-grouped" = 16)) +
+  scale_shape_manual(values = c("Random folds" = 1, "Grouped by TCGA TSS code" = 16)) +
   facet_wrap(~metric, scales = "free_x") +
   labs(
     title = "B  Largest target-level attenuations",
@@ -422,19 +422,19 @@ p6c <- ggplot(site_prediction, aes(y = tumor_type)) +
                                 "Nested-CV macro balanced accuracy" = 16)) +
   scale_x_continuous(limits = c(0, 1), breaks = seq(0, 1, 0.2)) +
   labs(
-    title = "C  TITAN representations predict submitting site within cancer",
+    title = "C  TITAN representations predict TCGA TSS code within cancer",
     subtitle = "Top 15 chance-normalised results; five repeated nested validations",
     x = "Multiclass macro balanced accuracy", y = NULL,
-    color = "Chance-normalised\nsite predictability", shape = NULL
+    color = "Chance-normalised\nTCGA TSS-code predictability", shape = NULL
   ) + theme_titan(10.5) +
   theme(legend.position = "bottom", axis.text.y = element_text(size = 9.5))
 
 p6 <- (p6a | p6b) / p6c +
   plot_annotation(
-    title = "Tissue-source-site sensitivity is a central limitation of the TCGA benchmark",
+    title = "Sensitivity to TCGA tissue-source-site-code grouping is a central limitation",
     caption = paste(
-      "TSS grouping is internal TCGA validation, not institutional or scanner-level external validation.",
-      "Tissue-source site is an imperfect proxy for laboratory, scanner and staining effects."
+      "Grouping by TCGA tissue-source-site code is internal validation, not institutional or scanner-level external validation.",
+      "The barcode-derived code is not an institution, scanner, laboratory or staining-batch identifier."
     ),
     theme = theme(
       plot.title = element_text(face = "bold", size = 17, color = navy),

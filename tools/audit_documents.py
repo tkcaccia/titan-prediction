@@ -177,7 +177,7 @@ for required_revision in (
     "single BH correction across all eligible continuous and binary cancer–endpoint tests",
     "zero exceedances among 999 permutations this interval is 0–0.003686",
     "prespecified high-resolution subset extended 8 leading models to 9,999",
-    "figures and tables are ordered by the outcome-appropriate predictive metric, with repeated and site-grouped stability reported alongside; q-values are not used for ranking",
+    "figures and tables are ordered by the outcome-appropriate predictive metric, with repeated stability and stability under grouping by TCGA tissue-source-site code reported alongside; q-values are not used for ranking",
     "prespecified screening tier A",
     "prespecified screening tier B",
     "The tiers are prespecified prioritisation rules, not established clinical or statistical effect categories",
@@ -201,10 +201,10 @@ for required_revision in (
     "mutation or fusion endpoints with prevalence below 0.20",
     "This divergence illustrates why AUROC or balanced accuracy alone can overstate positive-class retrieval under low prevalence",
     "cohort-specific descriptive estimates, not calibrated probabilities",
-    "Tissue-source-site sensitivity and submitting-site prediction",
+    "Sensitivity to TCGA tissue-source-site-code grouping",
     "the same separation was maintained in every inner component-selection split",
     "27/32 cancers",
-    "TCGA tissue-source-site-grouped internal validation",
+    "internal validation grouped by TCGA tissue-source-site code",
     "every performance estimate is an internally derived TCGA estimate",
     "Prospectively locked protocol for future independent evaluation",
     "CPTAC-UCEC is a plausible future cohort",
@@ -236,9 +236,12 @@ require("Table 4." not in main_text, "Obsolete Table 4 numbering remains in the 
 require("Artifact SHA-256 (prefix)" not in main_text, "Artifact hashes remain in the main manuscript")
 require("Default inference exposes" not in main_text, "Detailed inference behaviour remains in the main manuscript")
 require("Every binary display uses" not in main_text, "Detailed score-rank behaviour remains in the main manuscript")
+require("site-grouped" not in main_text.lower(), "Ambiguous 'site-grouped' terminology remains in the main manuscript")
+require("submitting site" not in main_text.lower(), "Ambiguous 'submitting site' terminology remains in the main manuscript")
+require("tissue-source site" not in main_text.lower(), "Tissue-source-site variable is named without 'code' in the main manuscript")
 require("Comparison with major pan-cancer histology–molecular prediction studies" not in main_text,
         "Review-style comparison table remains in the main manuscript")
-require("Complete highlighted-model performance, uncertainty, class-size metrics and tissue-source-site-grouped estimates are reported in Supplementary Table S6a" in main_text,
+require("Complete highlighted-model performance, uncertainty, class-size metrics and estimates grouped by TCGA tissue-source-site code are reported in Supplementary Table S6a" in main_text,
         "Main text does not direct readers to the complete supplementary performance table")
 
 supplement = documents["supplementary_material_JTM.docx"]
@@ -255,6 +258,8 @@ require("Figure readability" in response_text,
         "Response does not address figure readability")
 require("Move implementation detail out of the main Results" in response_text,
         "Response does not address implementation detail in the main Results")
+require("Clarify the site variable" in response_text,
+        "Response does not address clarification of the TCGA tissue-source-site code")
 require("Manuscript density" in reviewer_text,
         "Reviewer report does not acknowledge the streamlined table structure")
 require("Precision–recall reporting" in reviewer_text,
@@ -263,11 +268,13 @@ require("Figure readability" in reviewer_text,
         "Reviewer report does not acknowledge figure readability")
 require("Implementation detail" in reviewer_text,
         "Reviewer report does not acknowledge movement of implementation detail")
+require("TCGA tissue-source-site code" in reviewer_text,
+        "Reviewer report does not acknowledge clarification of the TCGA tissue-source-site code")
 for item in (
     "Table S10a. Expanded literature audit",
     "Table S10b. Screen-positive models below the original prespecified screening threshold",
-    "Table S10c. Tissue-source-site-grouped outer-fold composition",
-    "Table S10d. Within-cancer prediction of TCGA tissue-source site",
+    "Table S10c. Outer-fold composition grouped by TCGA tissue-source-site code",
+    "Table S10d. Within-cancer prediction of TCGA tissue-source-site code",
     "Table S10e. Metadata-stratified representative PLS–ridge benchmark",
     "Table S10f. Permutation precision and atlas-wide multiplicity sensitivity",
     "Table S10g. Binary class-size sensitivity and development reliability",

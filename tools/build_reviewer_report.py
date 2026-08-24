@@ -277,7 +277,7 @@ add_body(doc,
     f"The patient is now the analysis unit and {n_multi:,} patients with multiple "
     "eligible slides are pooled before outcome matching and fold assignment. "
     "The first-slide sensitivity is an appropriate patient-aggregation check. "
-    "Tissue-source-site sensitivity is now treated separately as a central finding. Mutation denominators are restricted to "
+    "Sensitivity to TCGA tissue-source-site-code grouping is now treated separately as a central finding. Mutation denominators are restricted to "
     f"{n_mc3_profiled:,} MC3-profiled patients, while {n_mc3_missing:,} patients "
     "without a matched profile remain missing; the nine retained protein-altering "
     "variant classes are now explicit and audited. The source-level aliquot and "
@@ -305,7 +305,7 @@ add_body(doc,
     f"Among completed 999-permutation tests, {len(zero_999)} had zero exceedances; the exact two-sided 95% Monte Carlo interval is 0–{zero_999_upper:.6f}. "
     f"The locked eight-model refinement continues the same streams to 9,999 full permutations, with {len(targeted_zero)}/{len(targeted_permutation)} zero-exceedance results and refined p-values {targeted_p_summary}. "
     "The refinement is appropriately presented as a precision sensitivity rather than being inserted post hoc into the prespecified FDR screen. "
-    "Models are ordered by the outcome-appropriate predictive metric, repeated and site-grouped stability are reported alongside, and tied minimum q-values are not used for ranking. "
+    "Models are ordered by the outcome-appropriate predictive metric, repeated stability and stability under grouping by TCGA tissue-source-site code are reported alongside, and tied minimum q-values are not used for ranking. "
     "The former effect-sounding categories have been replaced by the neutral labels 'prespecified screening tier A' and 'prespecified screening tier B'. The Methods state that these are prioritisation rules based on Q² for continuous outcomes and 2×balanced accuracy−1 for binary outcomes, not established clinical or statistical effect categories or directly commensurate scales."
 )
 add_body(doc,
@@ -333,22 +333,22 @@ add_body(doc,
     lead="No additional analysis requested."
 )
 
-add_heading(doc, "4. Tissue-source-site sensitivity and confounding", 2)
+add_heading(doc, "4. Sensitivity to TCGA tissue-source-site-code grouping and confounding", 2)
 add_body(doc,
-    "The revised manuscript now makes the site result visible rather than reducing it to a median robustness statistic. "
-    "Main Figure 6 shows every target, the largest attenuations and the new within-cancer submitting-site classifiers; "
+    "The revised manuscript now makes the TCGA tissue-source-site-code result visible rather than reducing it to a median robustness statistic. "
+    "Main Figure 6 shows every target, the largest attenuations and the new within-cancer TCGA tissue-source-site-code classifiers; "
     "Supplementary Table S6a reports grouped performance beside highlighted models. Overall, 83/323 screen-positive models (25.7%) "
     "fell below their original prespecified screening threshold. READ–APC and COAD–APC declined to balanced accuracies 0.495 and 0.543. "
-    "The public analysis registry and inference output expose the grouped metric, delta, site count, threshold-retention "
-    "status and prominent warning for every model. The complete fold audit reports patients, sites and class counts in "
-    "all 1,613 outer folds and confirms that inner component selection also kept tissue-source sites intact."
+    "The public analysis registry and inference output expose the grouped metric, delta, TCGA tissue-source-site-code count, threshold-retention "
+    "status and prominent warning for every model. The complete fold audit reports patients, codes and class counts in "
+    "all 1,613 outer folds and confirms that inner component selection also kept each TCGA tissue-source-site code intact."
 )
 add_body(doc,
-    "The dedicated repeated nested analysis predicted tissue-source site from TITAN representations in 27/32 evaluable "
+    "The dedicated repeated nested analysis predicted TCGA tissue-source-site code from TITAN representations in 27/32 evaluable "
     "cancers, with median multiclass macro balanced accuracy 0.628. This quantifies substantial confounding potential. "
-    "The manuscript appropriately calls the endpoint analysis 'TCGA tissue-source-site-grouped internal validation' and "
+    "The manuscript appropriately calls the endpoint analysis 'internal validation grouped by TCGA tissue-source-site code' and "
     "does not interpret retained performance as proof of scanner, laboratory or institutional transportability. Tissue-source "
-    "site remains an imperfect proxy, and smaller grouped folds can account for part—but not all—of the attenuation."
+    "the barcode-derived code is not an institution, scanner or laboratory identifier, and smaller grouped folds can account for part—but not all—of the attenuation."
 )
 
 add_heading(doc, "5. Metadata-stratified PLS–ridge benchmark", 2)
@@ -414,7 +414,7 @@ add_body(doc,
 
 add_heading(doc, "7. Selection-conditioned uncertainty", 2)
 add_body(doc,
-    "The revised manuscript no longer presents generic '95% bootstrap intervals' or '95% confidence intervals' for the highlighted TCGA results. The abstract and table captions define these as 95% selection-conditioned patient-resampling intervals for repeated out-of-fold predictions. Each replicate samples patients as clusters, retains all five existing held-out predictions, recalculates the metric within repeat and averages across repeats. The Methods now distinguish represented patient-sampling variability from excluded screening/highlighting uncertainty, new-fold variability, retuning/refitting variability, winner's-curse correction and external cohort/site/scanner/population variation."
+    "The revised manuscript no longer presents generic '95% bootstrap intervals' or '95% confidence intervals' for the highlighted TCGA results. The abstract and table captions define these as 95% selection-conditioned patient-resampling intervals for repeated out-of-fold predictions. Each replicate samples patients as clusters, retains all five existing held-out predictions, recalculates the metric within repeat and averages across repeats. The Methods now distinguish represented patient-sampling variability from excluded screening/highlighting uncertainty, new-fold variability, retuning/refitting variability, winner's-curse correction and external cohort/institution/scanner/population variation."
 )
 add_body(doc,
     f"The PLS–ridge comparison has also been strengthened. For repeat r, the paired difference is d_r=M_r(ridge)−M_r(PLS), with Δ=(1/5)Σ_r d_r. A 2,000-replicate paired patient bootstrap samples patients with replacement while retaining both methods and all five matched repeat predictions; percentile limits are calculated from the resulting Δ values. The matched predictions and all {len(ridge_comparison) * 5} repeat-specific differences are machine-readable. The interval conditions on the metadata-stratified representative sample and does not regenerate partitions or refit either algorithm inside a bootstrap replicate, which is now stated explicitly."
@@ -523,6 +523,7 @@ for title, body in (
     ("Primary versus repeated estimates", "The revision now distinguishes the initial nested-CV primary screening estimate from the mean across five additional nested-CV repeats. Supplementary Table S6a reports both; THYM–Th17 is transparently labelled Q² 0.638 in the screen and 0.594 in repeated validation. The difference is expected resampling variation, not an inconsistency."),
     ("Manuscript density", "The main paper is appropriately streamlined as a research article: the review-style literature comparison table has been removed, and the oversized highlighted-model performance table has moved to Supplementary Table S6a without loss of metrics. The locked-target implementation table has also moved to Supplementary Table S6c, leaving one compact main-text table."),
     ("Implementation detail", "Detailed report construction, score-rank definitions, checksums, model inventory, input validation and package behaviour have been moved out of the main Results to the Supplement and software documentation. The main Results retain only a concise description needed to interpret the illustrative COAD output."),
+    ("TCGA tissue-source-site code", "The two-character barcode variable is now named consistently as the TCGA tissue-source-site code. Grouped validation and code-classification analyses no longer use the broader shorthand 'site'. The manuscript explicitly states that this code is not an institution, scanner, laboratory or staining-batch identifier and that grouping by it is internal to TCGA."),
     ("Precision–recall reporting", "PR-AUC is now visible in the Abstract and main Results, not only in supplementary reliability fields. It is correctly defined as non-interpolated average precision and interpreted against endpoint prevalence. The explicit low-prevalence mutation/fusion summary usefully shows that apparently strong AUROC can coexist with substantially more modest positive-class retrieval."),
     ("Figure readability", "Figures 2, 3, 5 and 6 now use larger typography and restrict ranked displays while directing readers to complete supplementary tables. Figure 7 replaces the two radar plots with a shared-axis dumbbell comparison, retains original predicted values in a separate column and simplifies the binary panel. The redesign materially improves normal-size comparison without dropping the two illustrative COAD cases."),
     ("Screening tiers", "The neutral labels prespecified screening tier A/B are appropriate. They are clearly defined as prioritisation rules rather than established clinical or statistical effect categories."),
