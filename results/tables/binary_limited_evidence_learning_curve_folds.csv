@@ -1,0 +1,1276 @@
+family,tumor_type,endpoint,repeat,training_fraction,outer_fold,training_patients,training_positive,training_negative,test_positive,test_negative,selected_components,seed
+aneuploidy,OV,Genome doubling,1,0.5,1,38,26,12,14,6,4,20270822
+aneuploidy,OV,Genome doubling,1,0.5,2,38,26,12,13,6,9,20270822
+aneuploidy,OV,Genome doubling,1,0.5,3,38,26,12,13,6,5,20270822
+aneuploidy,OV,Genome doubling,1,0.5,4,38,26,12,13,6,2,20270822
+aneuploidy,OV,Genome doubling,1,0.5,5,38,26,12,13,6,4,20270822
+aneuploidy,OV,Genome doubling,2,0.5,1,38,26,12,14,6,10,20280822
+aneuploidy,OV,Genome doubling,2,0.5,2,38,26,12,13,6,6,20280822
+aneuploidy,OV,Genome doubling,2,0.5,3,38,26,12,13,6,1,20280822
+aneuploidy,OV,Genome doubling,2,0.5,4,38,26,12,13,6,5,20280822
+aneuploidy,OV,Genome doubling,2,0.5,5,38,26,12,13,6,1,20280822
+aneuploidy,OV,Genome doubling,3,0.5,1,38,26,12,14,6,4,20290822
+aneuploidy,OV,Genome doubling,3,0.5,2,38,26,12,13,6,6,20290822
+aneuploidy,OV,Genome doubling,3,0.5,3,38,26,12,13,6,10,20290822
+aneuploidy,OV,Genome doubling,3,0.5,4,38,26,12,13,6,2,20290822
+aneuploidy,OV,Genome doubling,3,0.5,5,38,26,12,13,6,6,20290822
+aneuploidy,OV,Genome doubling,4,0.5,1,38,26,12,14,6,8,20300822
+aneuploidy,OV,Genome doubling,4,0.5,2,38,26,12,13,6,8,20300822
+aneuploidy,OV,Genome doubling,4,0.5,3,38,26,12,13,6,2,20300822
+aneuploidy,OV,Genome doubling,4,0.5,4,38,26,12,13,6,4,20300822
+aneuploidy,OV,Genome doubling,4,0.5,5,38,26,12,13,6,9,20300822
+aneuploidy,OV,Genome doubling,5,0.5,1,38,26,12,14,6,8,20310822
+aneuploidy,OV,Genome doubling,5,0.5,2,38,26,12,13,6,5,20310822
+aneuploidy,OV,Genome doubling,5,0.5,3,38,26,12,13,6,2,20310822
+aneuploidy,OV,Genome doubling,5,0.5,4,38,26,12,13,6,2,20310822
+aneuploidy,OV,Genome doubling,5,0.5,5,38,26,12,13,6,2,20310822
+aneuploidy,OV,Genome doubling,1,0.75,1,57,39,18,14,6,8,20270822
+aneuploidy,OV,Genome doubling,1,0.75,2,57,39,18,13,6,5,20270822
+aneuploidy,OV,Genome doubling,1,0.75,3,57,39,18,13,6,4,20270822
+aneuploidy,OV,Genome doubling,1,0.75,4,57,39,18,13,6,3,20270822
+aneuploidy,OV,Genome doubling,1,0.75,5,57,39,18,13,6,5,20270822
+aneuploidy,OV,Genome doubling,2,0.75,1,57,39,18,14,6,2,20280822
+aneuploidy,OV,Genome doubling,2,0.75,2,57,39,18,13,6,5,20280822
+aneuploidy,OV,Genome doubling,2,0.75,3,57,39,18,13,6,2,20280822
+aneuploidy,OV,Genome doubling,2,0.75,4,57,39,18,13,6,10,20280822
+aneuploidy,OV,Genome doubling,2,0.75,5,57,39,18,13,6,8,20280822
+aneuploidy,OV,Genome doubling,3,0.75,1,57,39,18,14,6,7,20290822
+aneuploidy,OV,Genome doubling,3,0.75,2,57,39,18,13,6,6,20290822
+aneuploidy,OV,Genome doubling,3,0.75,3,57,39,18,13,6,2,20290822
+aneuploidy,OV,Genome doubling,3,0.75,4,57,39,18,13,6,10,20290822
+aneuploidy,OV,Genome doubling,3,0.75,5,57,39,18,13,6,2,20290822
+aneuploidy,OV,Genome doubling,4,0.75,1,57,39,18,14,6,9,20300822
+aneuploidy,OV,Genome doubling,4,0.75,2,57,39,18,13,6,10,20300822
+aneuploidy,OV,Genome doubling,4,0.75,3,57,39,18,13,6,2,20300822
+aneuploidy,OV,Genome doubling,4,0.75,4,57,39,18,13,6,4,20300822
+aneuploidy,OV,Genome doubling,4,0.75,5,57,39,18,13,6,10,20300822
+aneuploidy,OV,Genome doubling,5,0.75,1,57,39,18,14,6,2,20310822
+aneuploidy,OV,Genome doubling,5,0.75,2,57,39,18,13,6,4,20310822
+aneuploidy,OV,Genome doubling,5,0.75,3,57,39,18,13,6,10,20310822
+aneuploidy,OV,Genome doubling,5,0.75,4,57,39,18,13,6,3,20310822
+aneuploidy,OV,Genome doubling,5,0.75,5,57,39,18,13,6,4,20310822
+aneuploidy,OV,Genome doubling,1,1,1,76,52,24,14,6,2,20270822
+aneuploidy,OV,Genome doubling,1,1,2,77,53,24,13,6,3,20270822
+aneuploidy,OV,Genome doubling,1,1,3,77,53,24,13,6,3,20270822
+aneuploidy,OV,Genome doubling,1,1,4,77,53,24,13,6,3,20270822
+aneuploidy,OV,Genome doubling,1,1,5,77,53,24,13,6,5,20270822
+aneuploidy,OV,Genome doubling,2,1,1,76,52,24,14,6,7,20280822
+aneuploidy,OV,Genome doubling,2,1,2,77,53,24,13,6,4,20280822
+aneuploidy,OV,Genome doubling,2,1,3,77,53,24,13,6,10,20280822
+aneuploidy,OV,Genome doubling,2,1,4,77,53,24,13,6,2,20280822
+aneuploidy,OV,Genome doubling,2,1,5,77,53,24,13,6,2,20280822
+aneuploidy,OV,Genome doubling,3,1,1,76,52,24,14,6,8,20290822
+aneuploidy,OV,Genome doubling,3,1,2,77,53,24,13,6,3,20290822
+aneuploidy,OV,Genome doubling,3,1,3,77,53,24,13,6,5,20290822
+aneuploidy,OV,Genome doubling,3,1,4,77,53,24,13,6,3,20290822
+aneuploidy,OV,Genome doubling,3,1,5,77,53,24,13,6,2,20290822
+aneuploidy,OV,Genome doubling,4,1,1,76,52,24,14,6,4,20300822
+aneuploidy,OV,Genome doubling,4,1,2,77,53,24,13,6,10,20300822
+aneuploidy,OV,Genome doubling,4,1,3,77,53,24,13,6,3,20300822
+aneuploidy,OV,Genome doubling,4,1,4,77,53,24,13,6,2,20300822
+aneuploidy,OV,Genome doubling,4,1,5,77,53,24,13,6,4,20300822
+aneuploidy,OV,Genome doubling,5,1,1,76,52,24,14,6,9,20310822
+aneuploidy,OV,Genome doubling,5,1,2,77,53,24,13,6,2,20310822
+aneuploidy,OV,Genome doubling,5,1,3,77,53,24,13,6,3,20310822
+aneuploidy,OV,Genome doubling,5,1,4,77,53,24,13,6,3,20310822
+aneuploidy,OV,Genome doubling,5,1,5,77,53,24,13,6,5,20310822
+aneuploidy,PCPG,Genome doubling,1,0.5,1,62,9,53,5,27,2,20270824
+aneuploidy,PCPG,Genome doubling,1,0.5,2,62,9,53,5,27,2,20270824
+aneuploidy,PCPG,Genome doubling,1,0.5,3,62,9,53,5,27,1,20270824
+aneuploidy,PCPG,Genome doubling,1,0.5,4,62,9,53,5,26,8,20270824
+aneuploidy,PCPG,Genome doubling,1,0.5,5,63,10,53,4,26,2,20270824
+aneuploidy,PCPG,Genome doubling,2,0.5,1,62,9,53,5,27,5,20280824
+aneuploidy,PCPG,Genome doubling,2,0.5,2,62,9,53,5,27,5,20280824
+aneuploidy,PCPG,Genome doubling,2,0.5,3,62,9,53,5,27,7,20280824
+aneuploidy,PCPG,Genome doubling,2,0.5,4,62,9,53,5,26,6,20280824
+aneuploidy,PCPG,Genome doubling,2,0.5,5,63,10,53,4,26,10,20280824
+aneuploidy,PCPG,Genome doubling,3,0.5,1,62,9,53,5,27,5,20290824
+aneuploidy,PCPG,Genome doubling,3,0.5,2,62,9,53,5,27,6,20290824
+aneuploidy,PCPG,Genome doubling,3,0.5,3,62,9,53,5,27,4,20290824
+aneuploidy,PCPG,Genome doubling,3,0.5,4,62,9,53,5,26,4,20290824
+aneuploidy,PCPG,Genome doubling,3,0.5,5,63,10,53,4,26,10,20290824
+aneuploidy,PCPG,Genome doubling,4,0.5,1,62,9,53,5,27,5,20300824
+aneuploidy,PCPG,Genome doubling,4,0.5,2,62,9,53,5,27,10,20300824
+aneuploidy,PCPG,Genome doubling,4,0.5,3,62,9,53,5,27,6,20300824
+aneuploidy,PCPG,Genome doubling,4,0.5,4,62,9,53,5,26,1,20300824
+aneuploidy,PCPG,Genome doubling,4,0.5,5,63,10,53,4,26,3,20300824
+aneuploidy,PCPG,Genome doubling,5,0.5,1,62,9,53,5,27,2,20310824
+aneuploidy,PCPG,Genome doubling,5,0.5,2,62,9,53,5,27,2,20310824
+aneuploidy,PCPG,Genome doubling,5,0.5,3,62,9,53,5,27,6,20310824
+aneuploidy,PCPG,Genome doubling,5,0.5,4,62,9,53,5,26,6,20310824
+aneuploidy,PCPG,Genome doubling,5,0.5,5,63,10,53,4,26,7,20310824
+aneuploidy,PCPG,Genome doubling,1,0.75,1,93,14,79,5,27,6,20270824
+aneuploidy,PCPG,Genome doubling,1,0.75,2,93,14,79,5,27,1,20270824
+aneuploidy,PCPG,Genome doubling,1,0.75,3,93,14,79,5,27,4,20270824
+aneuploidy,PCPG,Genome doubling,1,0.75,4,94,14,80,5,26,3,20270824
+aneuploidy,PCPG,Genome doubling,1,0.75,5,95,15,80,4,26,6,20270824
+aneuploidy,PCPG,Genome doubling,2,0.75,1,93,14,79,5,27,7,20280824
+aneuploidy,PCPG,Genome doubling,2,0.75,2,93,14,79,5,27,6,20280824
+aneuploidy,PCPG,Genome doubling,2,0.75,3,93,14,79,5,27,2,20280824
+aneuploidy,PCPG,Genome doubling,2,0.75,4,94,14,80,5,26,9,20280824
+aneuploidy,PCPG,Genome doubling,2,0.75,5,95,15,80,4,26,7,20280824
+aneuploidy,PCPG,Genome doubling,3,0.75,1,93,14,79,5,27,10,20290824
+aneuploidy,PCPG,Genome doubling,3,0.75,2,93,14,79,5,27,7,20290824
+aneuploidy,PCPG,Genome doubling,3,0.75,3,93,14,79,5,27,5,20290824
+aneuploidy,PCPG,Genome doubling,3,0.75,4,94,14,80,5,26,10,20290824
+aneuploidy,PCPG,Genome doubling,3,0.75,5,95,15,80,4,26,8,20290824
+aneuploidy,PCPG,Genome doubling,4,0.75,1,93,14,79,5,27,7,20300824
+aneuploidy,PCPG,Genome doubling,4,0.75,2,93,14,79,5,27,5,20300824
+aneuploidy,PCPG,Genome doubling,4,0.75,3,93,14,79,5,27,3,20300824
+aneuploidy,PCPG,Genome doubling,4,0.75,4,94,14,80,5,26,10,20300824
+aneuploidy,PCPG,Genome doubling,4,0.75,5,95,15,80,4,26,10,20300824
+aneuploidy,PCPG,Genome doubling,5,0.75,1,93,14,79,5,27,10,20310824
+aneuploidy,PCPG,Genome doubling,5,0.75,2,93,14,79,5,27,10,20310824
+aneuploidy,PCPG,Genome doubling,5,0.75,3,93,14,79,5,27,7,20310824
+aneuploidy,PCPG,Genome doubling,5,0.75,4,94,14,80,5,26,7,20310824
+aneuploidy,PCPG,Genome doubling,5,0.75,5,95,15,80,4,26,5,20310824
+aneuploidy,PCPG,Genome doubling,1,1,1,125,19,106,5,27,8,20270824
+aneuploidy,PCPG,Genome doubling,1,1,2,125,19,106,5,27,10,20270824
+aneuploidy,PCPG,Genome doubling,1,1,3,125,19,106,5,27,5,20270824
+aneuploidy,PCPG,Genome doubling,1,1,4,126,19,107,5,26,7,20270824
+aneuploidy,PCPG,Genome doubling,1,1,5,127,20,107,4,26,10,20270824
+aneuploidy,PCPG,Genome doubling,2,1,1,125,19,106,5,27,9,20280824
+aneuploidy,PCPG,Genome doubling,2,1,2,125,19,106,5,27,6,20280824
+aneuploidy,PCPG,Genome doubling,2,1,3,125,19,106,5,27,7,20280824
+aneuploidy,PCPG,Genome doubling,2,1,4,126,19,107,5,26,6,20280824
+aneuploidy,PCPG,Genome doubling,2,1,5,127,20,107,4,26,10,20280824
+aneuploidy,PCPG,Genome doubling,3,1,1,125,19,106,5,27,6,20290824
+aneuploidy,PCPG,Genome doubling,3,1,2,125,19,106,5,27,9,20290824
+aneuploidy,PCPG,Genome doubling,3,1,3,125,19,106,5,27,5,20290824
+aneuploidy,PCPG,Genome doubling,3,1,4,126,19,107,5,26,6,20290824
+aneuploidy,PCPG,Genome doubling,3,1,5,127,20,107,4,26,3,20290824
+aneuploidy,PCPG,Genome doubling,4,1,1,125,19,106,5,27,10,20300824
+aneuploidy,PCPG,Genome doubling,4,1,2,125,19,106,5,27,10,20300824
+aneuploidy,PCPG,Genome doubling,4,1,3,125,19,106,5,27,1,20300824
+aneuploidy,PCPG,Genome doubling,4,1,4,126,19,107,5,26,7,20300824
+aneuploidy,PCPG,Genome doubling,4,1,5,127,20,107,4,26,5,20300824
+aneuploidy,PCPG,Genome doubling,5,1,1,125,19,106,5,27,8,20310824
+aneuploidy,PCPG,Genome doubling,5,1,2,125,19,106,5,27,7,20310824
+aneuploidy,PCPG,Genome doubling,5,1,3,125,19,106,5,27,10,20310824
+aneuploidy,PCPG,Genome doubling,5,1,4,126,19,107,5,26,4,20310824
+aneuploidy,PCPG,Genome doubling,5,1,5,127,20,107,4,26,8,20310824
+driver_mutation,CESC,TP53,1,0.5,1,100,8,92,5,47,2,20270867
+driver_mutation,CESC,TP53,1,0.5,2,100,8,92,4,46,4,20270867
+driver_mutation,CESC,TP53,1,0.5,3,100,8,92,4,46,7,20270867
+driver_mutation,CESC,TP53,1,0.5,4,100,8,92,4,46,1,20270867
+driver_mutation,CESC,TP53,1,0.5,5,100,8,92,4,46,10,20270867
+driver_mutation,CESC,TP53,2,0.5,1,100,8,92,5,47,2,20280867
+driver_mutation,CESC,TP53,2,0.5,2,100,8,92,4,46,1,20280867
+driver_mutation,CESC,TP53,2,0.5,3,100,8,92,4,46,7,20280867
+driver_mutation,CESC,TP53,2,0.5,4,100,8,92,4,46,7,20280867
+driver_mutation,CESC,TP53,2,0.5,5,100,8,92,4,46,1,20280867
+driver_mutation,CESC,TP53,3,0.5,1,100,8,92,5,47,6,20290867
+driver_mutation,CESC,TP53,3,0.5,2,100,8,92,4,46,1,20290867
+driver_mutation,CESC,TP53,3,0.5,3,100,8,92,4,46,5,20290867
+driver_mutation,CESC,TP53,3,0.5,4,100,8,92,4,46,6,20290867
+driver_mutation,CESC,TP53,3,0.5,5,100,8,92,4,46,4,20290867
+driver_mutation,CESC,TP53,4,0.5,1,100,8,92,5,47,4,20300867
+driver_mutation,CESC,TP53,4,0.5,2,100,8,92,4,46,2,20300867
+driver_mutation,CESC,TP53,4,0.5,3,100,8,92,4,46,2,20300867
+driver_mutation,CESC,TP53,4,0.5,4,100,8,92,4,46,2,20300867
+driver_mutation,CESC,TP53,4,0.5,5,100,8,92,4,46,1,20300867
+driver_mutation,CESC,TP53,5,0.5,1,100,8,92,5,47,1,20310867
+driver_mutation,CESC,TP53,5,0.5,2,100,8,92,4,46,1,20310867
+driver_mutation,CESC,TP53,5,0.5,3,100,8,92,4,46,4,20310867
+driver_mutation,CESC,TP53,5,0.5,4,100,8,92,4,46,1,20310867
+driver_mutation,CESC,TP53,5,0.5,5,100,8,92,4,46,4,20310867
+driver_mutation,CESC,TP53,1,0.75,1,150,12,138,5,47,4,20270867
+driver_mutation,CESC,TP53,1,0.75,2,150,12,138,4,46,9,20270867
+driver_mutation,CESC,TP53,1,0.75,3,150,12,138,4,46,1,20270867
+driver_mutation,CESC,TP53,1,0.75,4,150,12,138,4,46,10,20270867
+driver_mutation,CESC,TP53,1,0.75,5,150,12,138,4,46,4,20270867
+driver_mutation,CESC,TP53,2,0.75,1,150,12,138,5,47,5,20280867
+driver_mutation,CESC,TP53,2,0.75,2,150,12,138,4,46,7,20280867
+driver_mutation,CESC,TP53,2,0.75,3,150,12,138,4,46,1,20280867
+driver_mutation,CESC,TP53,2,0.75,4,150,12,138,4,46,7,20280867
+driver_mutation,CESC,TP53,2,0.75,5,150,12,138,4,46,7,20280867
+driver_mutation,CESC,TP53,3,0.75,1,150,12,138,5,47,8,20290867
+driver_mutation,CESC,TP53,3,0.75,2,150,12,138,4,46,4,20290867
+driver_mutation,CESC,TP53,3,0.75,3,150,12,138,4,46,1,20290867
+driver_mutation,CESC,TP53,3,0.75,4,150,12,138,4,46,6,20290867
+driver_mutation,CESC,TP53,3,0.75,5,150,12,138,4,46,4,20290867
+driver_mutation,CESC,TP53,4,0.75,1,150,12,138,5,47,4,20300867
+driver_mutation,CESC,TP53,4,0.75,2,150,12,138,4,46,4,20300867
+driver_mutation,CESC,TP53,4,0.75,3,150,12,138,4,46,1,20300867
+driver_mutation,CESC,TP53,4,0.75,4,150,12,138,4,46,4,20300867
+driver_mutation,CESC,TP53,4,0.75,5,150,12,138,4,46,4,20300867
+driver_mutation,CESC,TP53,5,0.75,1,150,12,138,5,47,4,20310867
+driver_mutation,CESC,TP53,5,0.75,2,150,12,138,4,46,4,20310867
+driver_mutation,CESC,TP53,5,0.75,3,150,12,138,4,46,4,20310867
+driver_mutation,CESC,TP53,5,0.75,4,150,12,138,4,46,10,20310867
+driver_mutation,CESC,TP53,5,0.75,5,150,12,138,4,46,4,20310867
+driver_mutation,CESC,TP53,1,1,1,200,16,184,5,47,7,20270867
+driver_mutation,CESC,TP53,1,1,2,202,17,185,4,46,1,20270867
+driver_mutation,CESC,TP53,1,1,3,202,17,185,4,46,8,20270867
+driver_mutation,CESC,TP53,1,1,4,202,17,185,4,46,9,20270867
+driver_mutation,CESC,TP53,1,1,5,202,17,185,4,46,7,20270867
+driver_mutation,CESC,TP53,2,1,1,200,16,184,5,47,2,20280867
+driver_mutation,CESC,TP53,2,1,2,202,17,185,4,46,4,20280867
+driver_mutation,CESC,TP53,2,1,3,202,17,185,4,46,9,20280867
+driver_mutation,CESC,TP53,2,1,4,202,17,185,4,46,1,20280867
+driver_mutation,CESC,TP53,2,1,5,202,17,185,4,46,4,20280867
+driver_mutation,CESC,TP53,3,1,1,200,16,184,5,47,5,20290867
+driver_mutation,CESC,TP53,3,1,2,202,17,185,4,46,8,20290867
+driver_mutation,CESC,TP53,3,1,3,202,17,185,4,46,1,20290867
+driver_mutation,CESC,TP53,3,1,4,202,17,185,4,46,9,20290867
+driver_mutation,CESC,TP53,3,1,5,202,17,185,4,46,7,20290867
+driver_mutation,CESC,TP53,4,1,1,200,16,184,5,47,1,20300867
+driver_mutation,CESC,TP53,4,1,2,202,17,185,4,46,3,20300867
+driver_mutation,CESC,TP53,4,1,3,202,17,185,4,46,4,20300867
+driver_mutation,CESC,TP53,4,1,4,202,17,185,4,46,5,20300867
+driver_mutation,CESC,TP53,4,1,5,202,17,185,4,46,10,20300867
+driver_mutation,CESC,TP53,5,1,1,200,16,184,5,47,4,20310867
+driver_mutation,CESC,TP53,5,1,2,202,17,185,4,46,2,20310867
+driver_mutation,CESC,TP53,5,1,3,202,17,185,4,46,8,20310867
+driver_mutation,CESC,TP53,5,1,4,202,17,185,4,46,9,20310867
+driver_mutation,CESC,TP53,5,1,5,202,17,185,4,46,1,20310867
+driver_mutation,COAD,BRAF,1,0.5,1,152,17,135,9,68,3,20270850
+driver_mutation,COAD,BRAF,1,0.5,2,152,17,135,9,68,9,20270850
+driver_mutation,COAD,BRAF,1,0.5,3,152,17,135,9,68,5,20270850
+driver_mutation,COAD,BRAF,1,0.5,4,152,17,135,9,67,10,20270850
+driver_mutation,COAD,BRAF,1,0.5,5,153,18,135,8,67,4,20270850
+driver_mutation,COAD,BRAF,2,0.5,1,152,17,135,9,68,9,20280850
+driver_mutation,COAD,BRAF,2,0.5,2,152,17,135,9,68,7,20280850
+driver_mutation,COAD,BRAF,2,0.5,3,152,17,135,9,68,7,20280850
+driver_mutation,COAD,BRAF,2,0.5,4,152,17,135,9,67,10,20280850
+driver_mutation,COAD,BRAF,2,0.5,5,153,18,135,8,67,5,20280850
+driver_mutation,COAD,BRAF,3,0.5,1,152,17,135,9,68,10,20290850
+driver_mutation,COAD,BRAF,3,0.5,2,152,17,135,9,68,7,20290850
+driver_mutation,COAD,BRAF,3,0.5,3,152,17,135,9,68,10,20290850
+driver_mutation,COAD,BRAF,3,0.5,4,152,17,135,9,67,9,20290850
+driver_mutation,COAD,BRAF,3,0.5,5,153,18,135,8,67,7,20290850
+driver_mutation,COAD,BRAF,4,0.5,1,152,17,135,9,68,3,20300850
+driver_mutation,COAD,BRAF,4,0.5,2,152,17,135,9,68,4,20300850
+driver_mutation,COAD,BRAF,4,0.5,3,152,17,135,9,68,3,20300850
+driver_mutation,COAD,BRAF,4,0.5,4,152,17,135,9,67,6,20300850
+driver_mutation,COAD,BRAF,4,0.5,5,153,18,135,8,67,2,20300850
+driver_mutation,COAD,BRAF,5,0.5,1,152,17,135,9,68,8,20310850
+driver_mutation,COAD,BRAF,5,0.5,2,152,17,135,9,68,7,20310850
+driver_mutation,COAD,BRAF,5,0.5,3,152,17,135,9,68,4,20310850
+driver_mutation,COAD,BRAF,5,0.5,4,152,17,135,9,67,2,20310850
+driver_mutation,COAD,BRAF,5,0.5,5,153,18,135,8,67,4,20310850
+driver_mutation,COAD,BRAF,1,0.75,1,228,26,202,9,68,4,20270850
+driver_mutation,COAD,BRAF,1,0.75,2,228,26,202,9,68,3,20270850
+driver_mutation,COAD,BRAF,1,0.75,3,228,26,202,9,68,7,20270850
+driver_mutation,COAD,BRAF,1,0.75,4,229,26,203,9,67,9,20270850
+driver_mutation,COAD,BRAF,1,0.75,5,230,27,203,8,67,10,20270850
+driver_mutation,COAD,BRAF,2,0.75,1,228,26,202,9,68,4,20280850
+driver_mutation,COAD,BRAF,2,0.75,2,228,26,202,9,68,3,20280850
+driver_mutation,COAD,BRAF,2,0.75,3,228,26,202,9,68,5,20280850
+driver_mutation,COAD,BRAF,2,0.75,4,229,26,203,9,67,8,20280850
+driver_mutation,COAD,BRAF,2,0.75,5,230,27,203,8,67,9,20280850
+driver_mutation,COAD,BRAF,3,0.75,1,228,26,202,9,68,4,20290850
+driver_mutation,COAD,BRAF,3,0.75,2,228,26,202,9,68,10,20290850
+driver_mutation,COAD,BRAF,3,0.75,3,228,26,202,9,68,3,20290850
+driver_mutation,COAD,BRAF,3,0.75,4,229,26,203,9,67,4,20290850
+driver_mutation,COAD,BRAF,3,0.75,5,230,27,203,8,67,4,20290850
+driver_mutation,COAD,BRAF,4,0.75,1,228,26,202,9,68,8,20300850
+driver_mutation,COAD,BRAF,4,0.75,2,228,26,202,9,68,7,20300850
+driver_mutation,COAD,BRAF,4,0.75,3,228,26,202,9,68,8,20300850
+driver_mutation,COAD,BRAF,4,0.75,4,229,26,203,9,67,8,20300850
+driver_mutation,COAD,BRAF,4,0.75,5,230,27,203,8,67,6,20300850
+driver_mutation,COAD,BRAF,5,0.75,1,228,26,202,9,68,4,20310850
+driver_mutation,COAD,BRAF,5,0.75,2,228,26,202,9,68,9,20310850
+driver_mutation,COAD,BRAF,5,0.75,3,228,26,202,9,68,3,20310850
+driver_mutation,COAD,BRAF,5,0.75,4,229,26,203,9,67,5,20310850
+driver_mutation,COAD,BRAF,5,0.75,5,230,27,203,8,67,9,20310850
+driver_mutation,COAD,BRAF,1,1,1,305,35,270,9,68,9,20270850
+driver_mutation,COAD,BRAF,1,1,2,305,35,270,9,68,4,20270850
+driver_mutation,COAD,BRAF,1,1,3,305,35,270,9,68,10,20270850
+driver_mutation,COAD,BRAF,1,1,4,306,35,271,9,67,3,20270850
+driver_mutation,COAD,BRAF,1,1,5,307,36,271,8,67,9,20270850
+driver_mutation,COAD,BRAF,2,1,1,305,35,270,9,68,4,20280850
+driver_mutation,COAD,BRAF,2,1,2,305,35,270,9,68,5,20280850
+driver_mutation,COAD,BRAF,2,1,3,305,35,270,9,68,9,20280850
+driver_mutation,COAD,BRAF,2,1,4,306,35,271,9,67,9,20280850
+driver_mutation,COAD,BRAF,2,1,5,307,36,271,8,67,5,20280850
+driver_mutation,COAD,BRAF,3,1,1,305,35,270,9,68,8,20290850
+driver_mutation,COAD,BRAF,3,1,2,305,35,270,9,68,7,20290850
+driver_mutation,COAD,BRAF,3,1,3,305,35,270,9,68,8,20290850
+driver_mutation,COAD,BRAF,3,1,4,306,35,271,9,67,4,20290850
+driver_mutation,COAD,BRAF,3,1,5,307,36,271,8,67,8,20290850
+driver_mutation,COAD,BRAF,4,1,1,305,35,270,9,68,9,20300850
+driver_mutation,COAD,BRAF,4,1,2,305,35,270,9,68,9,20300850
+driver_mutation,COAD,BRAF,4,1,3,305,35,270,9,68,7,20300850
+driver_mutation,COAD,BRAF,4,1,4,306,35,271,9,67,3,20300850
+driver_mutation,COAD,BRAF,4,1,5,307,36,271,8,67,3,20300850
+driver_mutation,COAD,BRAF,5,1,1,305,35,270,9,68,4,20310850
+driver_mutation,COAD,BRAF,5,1,2,305,35,270,9,68,10,20310850
+driver_mutation,COAD,BRAF,5,1,3,305,35,270,9,68,10,20310850
+driver_mutation,COAD,BRAF,5,1,4,306,35,271,9,67,3,20310850
+driver_mutation,COAD,BRAF,5,1,5,307,36,271,8,67,9,20310850
+driver_mutation,LGG,EGFR,1,0.5,1,193,13,180,7,91,3,20270855
+driver_mutation,LGG,EGFR,1,0.5,2,193,13,180,7,90,5,20270855
+driver_mutation,LGG,EGFR,1,0.5,3,193,13,180,7,90,1,20270855
+driver_mutation,LGG,EGFR,1,0.5,4,193,13,180,7,90,2,20270855
+driver_mutation,LGG,EGFR,1,0.5,5,194,14,180,6,90,2,20270855
+driver_mutation,LGG,EGFR,2,0.5,1,193,13,180,7,91,2,20280855
+driver_mutation,LGG,EGFR,2,0.5,2,193,13,180,7,90,1,20280855
+driver_mutation,LGG,EGFR,2,0.5,3,193,13,180,7,90,10,20280855
+driver_mutation,LGG,EGFR,2,0.5,4,193,13,180,7,90,3,20280855
+driver_mutation,LGG,EGFR,2,0.5,5,194,14,180,6,90,5,20280855
+driver_mutation,LGG,EGFR,3,0.5,1,193,13,180,7,91,2,20290855
+driver_mutation,LGG,EGFR,3,0.5,2,193,13,180,7,90,4,20290855
+driver_mutation,LGG,EGFR,3,0.5,3,193,13,180,7,90,2,20290855
+driver_mutation,LGG,EGFR,3,0.5,4,193,13,180,7,90,4,20290855
+driver_mutation,LGG,EGFR,3,0.5,5,194,14,180,6,90,3,20290855
+driver_mutation,LGG,EGFR,4,0.5,1,193,13,180,7,91,10,20300855
+driver_mutation,LGG,EGFR,4,0.5,2,193,13,180,7,90,1,20300855
+driver_mutation,LGG,EGFR,4,0.5,3,193,13,180,7,90,3,20300855
+driver_mutation,LGG,EGFR,4,0.5,4,193,13,180,7,90,2,20300855
+driver_mutation,LGG,EGFR,4,0.5,5,194,14,180,6,90,2,20300855
+driver_mutation,LGG,EGFR,5,0.5,1,193,13,180,7,91,6,20310855
+driver_mutation,LGG,EGFR,5,0.5,2,193,13,180,7,90,1,20310855
+driver_mutation,LGG,EGFR,5,0.5,3,193,13,180,7,90,1,20310855
+driver_mutation,LGG,EGFR,5,0.5,4,193,13,180,7,90,2,20310855
+driver_mutation,LGG,EGFR,5,0.5,5,194,14,180,6,90,3,20310855
+driver_mutation,LGG,EGFR,1,0.75,1,290,20,270,7,91,3,20270855
+driver_mutation,LGG,EGFR,1,0.75,2,290,20,270,7,90,4,20270855
+driver_mutation,LGG,EGFR,1,0.75,3,290,20,270,7,90,3,20270855
+driver_mutation,LGG,EGFR,1,0.75,4,290,20,270,7,90,1,20270855
+driver_mutation,LGG,EGFR,1,0.75,5,291,21,270,6,90,2,20270855
+driver_mutation,LGG,EGFR,2,0.75,1,290,20,270,7,91,3,20280855
+driver_mutation,LGG,EGFR,2,0.75,2,290,20,270,7,90,2,20280855
+driver_mutation,LGG,EGFR,2,0.75,3,290,20,270,7,90,2,20280855
+driver_mutation,LGG,EGFR,2,0.75,4,290,20,270,7,90,3,20280855
+driver_mutation,LGG,EGFR,2,0.75,5,291,21,270,6,90,2,20280855
+driver_mutation,LGG,EGFR,3,0.75,1,290,20,270,7,91,2,20290855
+driver_mutation,LGG,EGFR,3,0.75,2,290,20,270,7,90,2,20290855
+driver_mutation,LGG,EGFR,3,0.75,3,290,20,270,7,90,8,20290855
+driver_mutation,LGG,EGFR,3,0.75,4,290,20,270,7,90,3,20290855
+driver_mutation,LGG,EGFR,3,0.75,5,291,21,270,6,90,3,20290855
+driver_mutation,LGG,EGFR,4,0.75,1,290,20,270,7,91,3,20300855
+driver_mutation,LGG,EGFR,4,0.75,2,290,20,270,7,90,2,20300855
+driver_mutation,LGG,EGFR,4,0.75,3,290,20,270,7,90,3,20300855
+driver_mutation,LGG,EGFR,4,0.75,4,290,20,270,7,90,2,20300855
+driver_mutation,LGG,EGFR,4,0.75,5,291,21,270,6,90,3,20300855
+driver_mutation,LGG,EGFR,5,0.75,1,290,20,270,7,91,5,20310855
+driver_mutation,LGG,EGFR,5,0.75,2,290,20,270,7,90,6,20310855
+driver_mutation,LGG,EGFR,5,0.75,3,290,20,270,7,90,1,20310855
+driver_mutation,LGG,EGFR,5,0.75,4,290,20,270,7,90,3,20310855
+driver_mutation,LGG,EGFR,5,0.75,5,291,21,270,6,90,3,20310855
+driver_mutation,LGG,EGFR,1,1,1,387,27,360,7,91,2,20270855
+driver_mutation,LGG,EGFR,1,1,2,388,27,361,7,90,3,20270855
+driver_mutation,LGG,EGFR,1,1,3,388,27,361,7,90,3,20270855
+driver_mutation,LGG,EGFR,1,1,4,388,27,361,7,90,3,20270855
+driver_mutation,LGG,EGFR,1,1,5,389,28,361,6,90,2,20270855
+driver_mutation,LGG,EGFR,2,1,1,387,27,360,7,91,2,20280855
+driver_mutation,LGG,EGFR,2,1,2,388,27,361,7,90,4,20280855
+driver_mutation,LGG,EGFR,2,1,3,388,27,361,7,90,2,20280855
+driver_mutation,LGG,EGFR,2,1,4,388,27,361,7,90,2,20280855
+driver_mutation,LGG,EGFR,2,1,5,389,28,361,6,90,3,20280855
+driver_mutation,LGG,EGFR,3,1,1,387,27,360,7,91,2,20290855
+driver_mutation,LGG,EGFR,3,1,2,388,27,361,7,90,3,20290855
+driver_mutation,LGG,EGFR,3,1,3,388,27,361,7,90,2,20290855
+driver_mutation,LGG,EGFR,3,1,4,388,27,361,7,90,2,20290855
+driver_mutation,LGG,EGFR,3,1,5,389,28,361,6,90,3,20290855
+driver_mutation,LGG,EGFR,4,1,1,387,27,360,7,91,4,20300855
+driver_mutation,LGG,EGFR,4,1,2,388,27,361,7,90,2,20300855
+driver_mutation,LGG,EGFR,4,1,3,388,27,361,7,90,2,20300855
+driver_mutation,LGG,EGFR,4,1,4,388,27,361,7,90,4,20300855
+driver_mutation,LGG,EGFR,4,1,5,389,28,361,6,90,2,20300855
+driver_mutation,LGG,EGFR,5,1,1,387,27,360,7,91,2,20310855
+driver_mutation,LGG,EGFR,5,1,2,388,27,361,7,90,2,20310855
+driver_mutation,LGG,EGFR,5,1,3,388,27,361,7,90,4,20310855
+driver_mutation,LGG,EGFR,5,1,4,388,27,361,7,90,2,20310855
+driver_mutation,LGG,EGFR,5,1,5,389,28,361,6,90,2,20310855
+driver_mutation,LGG,FUBP1,1,0.5,1,193,17,176,9,89,8,20270866
+driver_mutation,LGG,FUBP1,1,0.5,2,193,17,176,9,88,7,20270866
+driver_mutation,LGG,FUBP1,1,0.5,3,193,17,176,9,88,10,20270866
+driver_mutation,LGG,FUBP1,1,0.5,4,193,17,176,9,88,3,20270866
+driver_mutation,LGG,FUBP1,1,0.5,5,194,18,176,8,88,2,20270866
+driver_mutation,LGG,FUBP1,2,0.5,1,193,17,176,9,89,4,20280866
+driver_mutation,LGG,FUBP1,2,0.5,2,193,17,176,9,88,10,20280866
+driver_mutation,LGG,FUBP1,2,0.5,3,193,17,176,9,88,10,20280866
+driver_mutation,LGG,FUBP1,2,0.5,4,193,17,176,9,88,9,20280866
+driver_mutation,LGG,FUBP1,2,0.5,5,194,18,176,8,88,4,20280866
+driver_mutation,LGG,FUBP1,3,0.5,1,193,17,176,9,89,4,20290866
+driver_mutation,LGG,FUBP1,3,0.5,2,193,17,176,9,88,3,20290866
+driver_mutation,LGG,FUBP1,3,0.5,3,193,17,176,9,88,5,20290866
+driver_mutation,LGG,FUBP1,3,0.5,4,193,17,176,9,88,5,20290866
+driver_mutation,LGG,FUBP1,3,0.5,5,194,18,176,8,88,4,20290866
+driver_mutation,LGG,FUBP1,4,0.5,1,193,17,176,9,89,8,20300866
+driver_mutation,LGG,FUBP1,4,0.5,2,193,17,176,9,88,5,20300866
+driver_mutation,LGG,FUBP1,4,0.5,3,193,17,176,9,88,2,20300866
+driver_mutation,LGG,FUBP1,4,0.5,4,193,17,176,9,88,6,20300866
+driver_mutation,LGG,FUBP1,4,0.5,5,194,18,176,8,88,5,20300866
+driver_mutation,LGG,FUBP1,5,0.5,1,193,17,176,9,89,7,20310866
+driver_mutation,LGG,FUBP1,5,0.5,2,193,17,176,9,88,5,20310866
+driver_mutation,LGG,FUBP1,5,0.5,3,193,17,176,9,88,4,20310866
+driver_mutation,LGG,FUBP1,5,0.5,4,193,17,176,9,88,3,20310866
+driver_mutation,LGG,FUBP1,5,0.5,5,194,18,176,8,88,7,20310866
+driver_mutation,LGG,FUBP1,1,0.75,1,290,26,264,9,89,10,20270866
+driver_mutation,LGG,FUBP1,1,0.75,2,290,26,264,9,88,6,20270866
+driver_mutation,LGG,FUBP1,1,0.75,3,290,26,264,9,88,2,20270866
+driver_mutation,LGG,FUBP1,1,0.75,4,290,26,264,9,88,10,20270866
+driver_mutation,LGG,FUBP1,1,0.75,5,291,27,264,8,88,6,20270866
+driver_mutation,LGG,FUBP1,2,0.75,1,290,26,264,9,89,9,20280866
+driver_mutation,LGG,FUBP1,2,0.75,2,290,26,264,9,88,6,20280866
+driver_mutation,LGG,FUBP1,2,0.75,3,290,26,264,9,88,6,20280866
+driver_mutation,LGG,FUBP1,2,0.75,4,290,26,264,9,88,7,20280866
+driver_mutation,LGG,FUBP1,2,0.75,5,291,27,264,8,88,5,20280866
+driver_mutation,LGG,FUBP1,3,0.75,1,290,26,264,9,89,8,20290866
+driver_mutation,LGG,FUBP1,3,0.75,2,290,26,264,9,88,9,20290866
+driver_mutation,LGG,FUBP1,3,0.75,3,290,26,264,9,88,5,20290866
+driver_mutation,LGG,FUBP1,3,0.75,4,290,26,264,9,88,8,20290866
+driver_mutation,LGG,FUBP1,3,0.75,5,291,27,264,8,88,10,20290866
+driver_mutation,LGG,FUBP1,4,0.75,1,290,26,264,9,89,10,20300866
+driver_mutation,LGG,FUBP1,4,0.75,2,290,26,264,9,88,6,20300866
+driver_mutation,LGG,FUBP1,4,0.75,3,290,26,264,9,88,5,20300866
+driver_mutation,LGG,FUBP1,4,0.75,4,290,26,264,9,88,7,20300866
+driver_mutation,LGG,FUBP1,4,0.75,5,291,27,264,8,88,7,20300866
+driver_mutation,LGG,FUBP1,5,0.75,1,290,26,264,9,89,8,20310866
+driver_mutation,LGG,FUBP1,5,0.75,2,290,26,264,9,88,10,20310866
+driver_mutation,LGG,FUBP1,5,0.75,3,290,26,264,9,88,6,20310866
+driver_mutation,LGG,FUBP1,5,0.75,4,290,26,264,9,88,10,20310866
+driver_mutation,LGG,FUBP1,5,0.75,5,291,27,264,8,88,10,20310866
+driver_mutation,LGG,FUBP1,1,1,1,387,35,352,9,89,7,20270866
+driver_mutation,LGG,FUBP1,1,1,2,388,35,353,9,88,9,20270866
+driver_mutation,LGG,FUBP1,1,1,3,388,35,353,9,88,6,20270866
+driver_mutation,LGG,FUBP1,1,1,4,388,35,353,9,88,7,20270866
+driver_mutation,LGG,FUBP1,1,1,5,389,36,353,8,88,3,20270866
+driver_mutation,LGG,FUBP1,2,1,1,387,35,352,9,89,9,20280866
+driver_mutation,LGG,FUBP1,2,1,2,388,35,353,9,88,9,20280866
+driver_mutation,LGG,FUBP1,2,1,3,388,35,353,9,88,5,20280866
+driver_mutation,LGG,FUBP1,2,1,4,388,35,353,9,88,6,20280866
+driver_mutation,LGG,FUBP1,2,1,5,389,36,353,8,88,8,20280866
+driver_mutation,LGG,FUBP1,3,1,1,387,35,352,9,89,7,20290866
+driver_mutation,LGG,FUBP1,3,1,2,388,35,353,9,88,9,20290866
+driver_mutation,LGG,FUBP1,3,1,3,388,35,353,9,88,9,20290866
+driver_mutation,LGG,FUBP1,3,1,4,388,35,353,9,88,10,20290866
+driver_mutation,LGG,FUBP1,3,1,5,389,36,353,8,88,5,20290866
+driver_mutation,LGG,FUBP1,4,1,1,387,35,352,9,89,10,20300866
+driver_mutation,LGG,FUBP1,4,1,2,388,35,353,9,88,10,20300866
+driver_mutation,LGG,FUBP1,4,1,3,388,35,353,9,88,10,20300866
+driver_mutation,LGG,FUBP1,4,1,4,388,35,353,9,88,9,20300866
+driver_mutation,LGG,FUBP1,4,1,5,389,36,353,8,88,9,20300866
+driver_mutation,LGG,FUBP1,5,1,1,387,35,352,9,89,10,20310866
+driver_mutation,LGG,FUBP1,5,1,2,388,35,353,9,88,8,20310866
+driver_mutation,LGG,FUBP1,5,1,3,388,35,353,9,88,9,20310866
+driver_mutation,LGG,FUBP1,5,1,4,388,35,353,9,88,9,20310866
+driver_mutation,LGG,FUBP1,5,1,5,389,36,353,8,88,6,20310866
+driver_mutation,LGG,PTEN,1,0.5,1,193,9,184,5,93,1,20270862
+driver_mutation,LGG,PTEN,1,0.5,2,193,9,184,5,93,2,20270862
+driver_mutation,LGG,PTEN,1,0.5,3,194,9,185,5,92,7,20270862
+driver_mutation,LGG,PTEN,1,0.5,4,194,9,185,4,92,9,20270862
+driver_mutation,LGG,PTEN,1,0.5,5,194,9,185,4,92,9,20270862
+driver_mutation,LGG,PTEN,2,0.5,1,193,9,184,5,93,7,20280862
+driver_mutation,LGG,PTEN,2,0.5,2,193,9,184,5,93,7,20280862
+driver_mutation,LGG,PTEN,2,0.5,3,194,9,185,5,92,1,20280862
+driver_mutation,LGG,PTEN,2,0.5,4,194,9,185,4,92,4,20280862
+driver_mutation,LGG,PTEN,2,0.5,5,194,9,185,4,92,6,20280862
+driver_mutation,LGG,PTEN,3,0.5,1,193,9,184,5,93,2,20290862
+driver_mutation,LGG,PTEN,3,0.5,2,193,9,184,5,93,1,20290862
+driver_mutation,LGG,PTEN,3,0.5,3,194,9,185,5,92,2,20290862
+driver_mutation,LGG,PTEN,3,0.5,4,194,9,185,4,92,5,20290862
+driver_mutation,LGG,PTEN,3,0.5,5,194,9,185,4,92,3,20290862
+driver_mutation,LGG,PTEN,4,0.5,1,193,9,184,5,93,1,20300862
+driver_mutation,LGG,PTEN,4,0.5,2,193,9,184,5,93,4,20300862
+driver_mutation,LGG,PTEN,4,0.5,3,194,9,185,5,92,8,20300862
+driver_mutation,LGG,PTEN,4,0.5,4,194,9,185,4,92,1,20300862
+driver_mutation,LGG,PTEN,4,0.5,5,194,9,185,4,92,9,20300862
+driver_mutation,LGG,PTEN,5,0.5,1,193,9,184,5,93,10,20310862
+driver_mutation,LGG,PTEN,5,0.5,2,193,9,184,5,93,5,20310862
+driver_mutation,LGG,PTEN,5,0.5,3,194,9,185,5,92,1,20310862
+driver_mutation,LGG,PTEN,5,0.5,4,194,9,185,4,92,5,20310862
+driver_mutation,LGG,PTEN,5,0.5,5,194,9,185,4,92,10,20310862
+driver_mutation,LGG,PTEN,1,0.75,1,289,13,276,5,93,7,20270862
+driver_mutation,LGG,PTEN,1,0.75,2,289,13,276,5,93,8,20270862
+driver_mutation,LGG,PTEN,1,0.75,3,290,13,277,5,92,5,20270862
+driver_mutation,LGG,PTEN,1,0.75,4,291,14,277,4,92,9,20270862
+driver_mutation,LGG,PTEN,1,0.75,5,291,14,277,4,92,10,20270862
+driver_mutation,LGG,PTEN,2,0.75,1,289,13,276,5,93,4,20280862
+driver_mutation,LGG,PTEN,2,0.75,2,289,13,276,5,93,5,20280862
+driver_mutation,LGG,PTEN,2,0.75,3,290,13,277,5,92,8,20280862
+driver_mutation,LGG,PTEN,2,0.75,4,291,14,277,4,92,5,20280862
+driver_mutation,LGG,PTEN,2,0.75,5,291,14,277,4,92,6,20280862
+driver_mutation,LGG,PTEN,3,0.75,1,289,13,276,5,93,4,20290862
+driver_mutation,LGG,PTEN,3,0.75,2,289,13,276,5,93,2,20290862
+driver_mutation,LGG,PTEN,3,0.75,3,290,13,277,5,92,2,20290862
+driver_mutation,LGG,PTEN,3,0.75,4,291,14,277,4,92,10,20290862
+driver_mutation,LGG,PTEN,3,0.75,5,291,14,277,4,92,6,20290862
+driver_mutation,LGG,PTEN,4,0.75,1,289,13,276,5,93,6,20300862
+driver_mutation,LGG,PTEN,4,0.75,2,289,13,276,5,93,5,20300862
+driver_mutation,LGG,PTEN,4,0.75,3,290,13,277,5,92,10,20300862
+driver_mutation,LGG,PTEN,4,0.75,4,291,14,277,4,92,4,20300862
+driver_mutation,LGG,PTEN,4,0.75,5,291,14,277,4,92,3,20300862
+driver_mutation,LGG,PTEN,5,0.75,1,289,13,276,5,93,7,20310862
+driver_mutation,LGG,PTEN,5,0.75,2,289,13,276,5,93,2,20310862
+driver_mutation,LGG,PTEN,5,0.75,3,290,13,277,5,92,8,20310862
+driver_mutation,LGG,PTEN,5,0.75,4,291,14,277,4,92,5,20310862
+driver_mutation,LGG,PTEN,5,0.75,5,291,14,277,4,92,5,20310862
+driver_mutation,LGG,PTEN,1,1,1,387,18,369,5,93,8,20270862
+driver_mutation,LGG,PTEN,1,1,2,387,18,369,5,93,7,20270862
+driver_mutation,LGG,PTEN,1,1,3,388,18,370,5,92,10,20270862
+driver_mutation,LGG,PTEN,1,1,4,389,19,370,4,92,5,20270862
+driver_mutation,LGG,PTEN,1,1,5,389,19,370,4,92,2,20270862
+driver_mutation,LGG,PTEN,2,1,1,387,18,369,5,93,5,20280862
+driver_mutation,LGG,PTEN,2,1,2,387,18,369,5,93,6,20280862
+driver_mutation,LGG,PTEN,2,1,3,388,18,370,5,92,6,20280862
+driver_mutation,LGG,PTEN,2,1,4,389,19,370,4,92,3,20280862
+driver_mutation,LGG,PTEN,2,1,5,389,19,370,4,92,9,20280862
+driver_mutation,LGG,PTEN,3,1,1,387,18,369,5,93,6,20290862
+driver_mutation,LGG,PTEN,3,1,2,387,18,369,5,93,6,20290862
+driver_mutation,LGG,PTEN,3,1,3,388,18,370,5,92,7,20290862
+driver_mutation,LGG,PTEN,3,1,4,389,19,370,4,92,10,20290862
+driver_mutation,LGG,PTEN,3,1,5,389,19,370,4,92,7,20290862
+driver_mutation,LGG,PTEN,4,1,1,387,18,369,5,93,6,20300862
+driver_mutation,LGG,PTEN,4,1,2,387,18,369,5,93,7,20300862
+driver_mutation,LGG,PTEN,4,1,3,388,18,370,5,92,10,20300862
+driver_mutation,LGG,PTEN,4,1,4,389,19,370,4,92,9,20300862
+driver_mutation,LGG,PTEN,4,1,5,389,19,370,4,92,5,20300862
+driver_mutation,LGG,PTEN,5,1,1,387,18,369,5,93,8,20310862
+driver_mutation,LGG,PTEN,5,1,2,387,18,369,5,93,6,20310862
+driver_mutation,LGG,PTEN,5,1,3,388,18,370,5,92,5,20310862
+driver_mutation,LGG,PTEN,5,1,4,389,19,370,4,92,5,20310862
+driver_mutation,LGG,PTEN,5,1,5,389,19,370,4,92,10,20310862
+driver_mutation,LIHC,BAP1,1,0.5,1,140,8,132,4,66,4,20270857
+driver_mutation,LIHC,BAP1,1,0.5,2,140,8,132,4,66,1,20270857
+driver_mutation,LIHC,BAP1,1,0.5,3,140,8,132,4,66,5,20270857
+driver_mutation,LIHC,BAP1,1,0.5,4,140,8,132,4,66,2,20270857
+driver_mutation,LIHC,BAP1,1,0.5,5,140,8,132,4,66,1,20270857
+driver_mutation,LIHC,BAP1,2,0.5,1,140,8,132,4,66,1,20280857
+driver_mutation,LIHC,BAP1,2,0.5,2,140,8,132,4,66,3,20280857
+driver_mutation,LIHC,BAP1,2,0.5,3,140,8,132,4,66,6,20280857
+driver_mutation,LIHC,BAP1,2,0.5,4,140,8,132,4,66,2,20280857
+driver_mutation,LIHC,BAP1,2,0.5,5,140,8,132,4,66,2,20280857
+driver_mutation,LIHC,BAP1,3,0.5,1,140,8,132,4,66,3,20290857
+driver_mutation,LIHC,BAP1,3,0.5,2,140,8,132,4,66,3,20290857
+driver_mutation,LIHC,BAP1,3,0.5,3,140,8,132,4,66,1,20290857
+driver_mutation,LIHC,BAP1,3,0.5,4,140,8,132,4,66,1,20290857
+driver_mutation,LIHC,BAP1,3,0.5,5,140,8,132,4,66,6,20290857
+driver_mutation,LIHC,BAP1,4,0.5,1,140,8,132,4,66,1,20300857
+driver_mutation,LIHC,BAP1,4,0.5,2,140,8,132,4,66,9,20300857
+driver_mutation,LIHC,BAP1,4,0.5,3,140,8,132,4,66,4,20300857
+driver_mutation,LIHC,BAP1,4,0.5,4,140,8,132,4,66,4,20300857
+driver_mutation,LIHC,BAP1,4,0.5,5,140,8,132,4,66,9,20300857
+driver_mutation,LIHC,BAP1,5,0.5,1,140,8,132,4,66,1,20310857
+driver_mutation,LIHC,BAP1,5,0.5,2,140,8,132,4,66,3,20310857
+driver_mutation,LIHC,BAP1,5,0.5,3,140,8,132,4,66,3,20310857
+driver_mutation,LIHC,BAP1,5,0.5,4,140,8,132,4,66,9,20310857
+driver_mutation,LIHC,BAP1,5,0.5,5,140,8,132,4,66,1,20310857
+driver_mutation,LIHC,BAP1,1,0.75,1,210,12,198,4,66,4,20270857
+driver_mutation,LIHC,BAP1,1,0.75,2,210,12,198,4,66,2,20270857
+driver_mutation,LIHC,BAP1,1,0.75,3,210,12,198,4,66,1,20270857
+driver_mutation,LIHC,BAP1,1,0.75,4,210,12,198,4,66,1,20270857
+driver_mutation,LIHC,BAP1,1,0.75,5,210,12,198,4,66,1,20270857
+driver_mutation,LIHC,BAP1,2,0.75,1,210,12,198,4,66,1,20280857
+driver_mutation,LIHC,BAP1,2,0.75,2,210,12,198,4,66,1,20280857
+driver_mutation,LIHC,BAP1,2,0.75,3,210,12,198,4,66,6,20280857
+driver_mutation,LIHC,BAP1,2,0.75,4,210,12,198,4,66,3,20280857
+driver_mutation,LIHC,BAP1,2,0.75,5,210,12,198,4,66,3,20280857
+driver_mutation,LIHC,BAP1,3,0.75,1,210,12,198,4,66,6,20290857
+driver_mutation,LIHC,BAP1,3,0.75,2,210,12,198,4,66,3,20290857
+driver_mutation,LIHC,BAP1,3,0.75,3,210,12,198,4,66,3,20290857
+driver_mutation,LIHC,BAP1,3,0.75,4,210,12,198,4,66,9,20290857
+driver_mutation,LIHC,BAP1,3,0.75,5,210,12,198,4,66,1,20290857
+driver_mutation,LIHC,BAP1,4,0.75,1,210,12,198,4,66,3,20300857
+driver_mutation,LIHC,BAP1,4,0.75,2,210,12,198,4,66,1,20300857
+driver_mutation,LIHC,BAP1,4,0.75,3,210,12,198,4,66,1,20300857
+driver_mutation,LIHC,BAP1,4,0.75,4,210,12,198,4,66,9,20300857
+driver_mutation,LIHC,BAP1,4,0.75,5,210,12,198,4,66,10,20300857
+driver_mutation,LIHC,BAP1,5,0.75,1,210,12,198,4,66,3,20310857
+driver_mutation,LIHC,BAP1,5,0.75,2,210,12,198,4,66,10,20310857
+driver_mutation,LIHC,BAP1,5,0.75,3,210,12,198,4,66,1,20310857
+driver_mutation,LIHC,BAP1,5,0.75,4,210,12,198,4,66,1,20310857
+driver_mutation,LIHC,BAP1,5,0.75,5,210,12,198,4,66,1,20310857
+driver_mutation,LIHC,BAP1,1,1,1,280,16,264,4,66,2,20270857
+driver_mutation,LIHC,BAP1,1,1,2,280,16,264,4,66,1,20270857
+driver_mutation,LIHC,BAP1,1,1,3,280,16,264,4,66,5,20270857
+driver_mutation,LIHC,BAP1,1,1,4,280,16,264,4,66,2,20270857
+driver_mutation,LIHC,BAP1,1,1,5,280,16,264,4,66,1,20270857
+driver_mutation,LIHC,BAP1,2,1,1,280,16,264,4,66,1,20280857
+driver_mutation,LIHC,BAP1,2,1,2,280,16,264,4,66,4,20280857
+driver_mutation,LIHC,BAP1,2,1,3,280,16,264,4,66,8,20280857
+driver_mutation,LIHC,BAP1,2,1,4,280,16,264,4,66,9,20280857
+driver_mutation,LIHC,BAP1,2,1,5,280,16,264,4,66,1,20280857
+driver_mutation,LIHC,BAP1,3,1,1,280,16,264,4,66,10,20290857
+driver_mutation,LIHC,BAP1,3,1,2,280,16,264,4,66,1,20290857
+driver_mutation,LIHC,BAP1,3,1,3,280,16,264,4,66,3,20290857
+driver_mutation,LIHC,BAP1,3,1,4,280,16,264,4,66,3,20290857
+driver_mutation,LIHC,BAP1,3,1,5,280,16,264,4,66,9,20290857
+driver_mutation,LIHC,BAP1,4,1,1,280,16,264,4,66,1,20300857
+driver_mutation,LIHC,BAP1,4,1,2,280,16,264,4,66,4,20300857
+driver_mutation,LIHC,BAP1,4,1,3,280,16,264,4,66,1,20300857
+driver_mutation,LIHC,BAP1,4,1,4,280,16,264,4,66,3,20300857
+driver_mutation,LIHC,BAP1,4,1,5,280,16,264,4,66,1,20300857
+driver_mutation,LIHC,BAP1,5,1,1,280,16,264,4,66,7,20310857
+driver_mutation,LIHC,BAP1,5,1,2,280,16,264,4,66,1,20310857
+driver_mutation,LIHC,BAP1,5,1,3,280,16,264,4,66,5,20310857
+driver_mutation,LIHC,BAP1,5,1,4,280,16,264,4,66,4,20310857
+driver_mutation,LIHC,BAP1,5,1,5,280,16,264,4,66,4,20310857
+driver_mutation,OV,TP53,1,0.5,1,28,8,20,5,10,2,20270849
+driver_mutation,OV,TP53,1,0.5,2,28,8,20,5,10,4,20270849
+driver_mutation,OV,TP53,1,0.5,3,29,9,20,4,10,8,20270849
+driver_mutation,OV,TP53,1,0.5,4,29,9,20,4,10,2,20270849
+driver_mutation,OV,TP53,1,0.5,5,29,9,20,4,10,1,20270849
+driver_mutation,OV,TP53,2,0.5,1,28,8,20,5,10,3,20280849
+driver_mutation,OV,TP53,2,0.5,2,28,8,20,5,10,5,20280849
+driver_mutation,OV,TP53,2,0.5,3,29,9,20,4,10,1,20280849
+driver_mutation,OV,TP53,2,0.5,4,29,9,20,4,10,1,20280849
+driver_mutation,OV,TP53,2,0.5,5,29,9,20,4,10,5,20280849
+driver_mutation,OV,TP53,3,0.5,1,28,8,20,5,10,1,20290849
+driver_mutation,OV,TP53,3,0.5,2,28,8,20,5,10,4,20290849
+driver_mutation,OV,TP53,3,0.5,3,29,9,20,4,10,3,20290849
+driver_mutation,OV,TP53,3,0.5,4,29,9,20,4,10,2,20290849
+driver_mutation,OV,TP53,3,0.5,5,29,9,20,4,10,2,20290849
+driver_mutation,OV,TP53,4,0.5,1,28,8,20,5,10,4,20300849
+driver_mutation,OV,TP53,4,0.5,2,28,8,20,5,10,1,20300849
+driver_mutation,OV,TP53,4,0.5,3,29,9,20,4,10,7,20300849
+driver_mutation,OV,TP53,4,0.5,4,29,9,20,4,10,4,20300849
+driver_mutation,OV,TP53,4,0.5,5,29,9,20,4,10,3,20300849
+driver_mutation,OV,TP53,5,0.5,1,28,8,20,5,10,3,20310849
+driver_mutation,OV,TP53,5,0.5,2,28,8,20,5,10,4,20310849
+driver_mutation,OV,TP53,5,0.5,3,29,9,20,4,10,1,20310849
+driver_mutation,OV,TP53,5,0.5,4,29,9,20,4,10,1,20310849
+driver_mutation,OV,TP53,5,0.5,5,29,9,20,4,10,4,20310849
+driver_mutation,OV,TP53,1,0.75,1,42,12,30,5,10,4,20270849
+driver_mutation,OV,TP53,1,0.75,2,42,12,30,5,10,3,20270849
+driver_mutation,OV,TP53,1,0.75,3,43,13,30,4,10,2,20270849
+driver_mutation,OV,TP53,1,0.75,4,43,13,30,4,10,6,20270849
+driver_mutation,OV,TP53,1,0.75,5,43,13,30,4,10,1,20270849
+driver_mutation,OV,TP53,2,0.75,1,42,12,30,5,10,1,20280849
+driver_mutation,OV,TP53,2,0.75,2,42,12,30,5,10,1,20280849
+driver_mutation,OV,TP53,2,0.75,3,43,13,30,4,10,6,20280849
+driver_mutation,OV,TP53,2,0.75,4,43,13,30,4,10,5,20280849
+driver_mutation,OV,TP53,2,0.75,5,43,13,30,4,10,2,20280849
+driver_mutation,OV,TP53,3,0.75,1,42,12,30,5,10,2,20290849
+driver_mutation,OV,TP53,3,0.75,2,42,12,30,5,10,10,20290849
+driver_mutation,OV,TP53,3,0.75,3,43,13,30,4,10,6,20290849
+driver_mutation,OV,TP53,3,0.75,4,43,13,30,4,10,2,20290849
+driver_mutation,OV,TP53,3,0.75,5,43,13,30,4,10,5,20290849
+driver_mutation,OV,TP53,4,0.75,1,42,12,30,5,10,1,20300849
+driver_mutation,OV,TP53,4,0.75,2,42,12,30,5,10,4,20300849
+driver_mutation,OV,TP53,4,0.75,3,43,13,30,4,10,3,20300849
+driver_mutation,OV,TP53,4,0.75,4,43,13,30,4,10,2,20300849
+driver_mutation,OV,TP53,4,0.75,5,43,13,30,4,10,5,20300849
+driver_mutation,OV,TP53,5,0.75,1,42,12,30,5,10,7,20310849
+driver_mutation,OV,TP53,5,0.75,2,42,12,30,5,10,3,20310849
+driver_mutation,OV,TP53,5,0.75,3,43,13,30,4,10,2,20310849
+driver_mutation,OV,TP53,5,0.75,4,43,13,30,4,10,1,20310849
+driver_mutation,OV,TP53,5,0.75,5,43,13,30,4,10,3,20310849
+driver_mutation,OV,TP53,1,1,1,57,17,40,5,10,2,20270849
+driver_mutation,OV,TP53,1,1,2,57,17,40,5,10,5,20270849
+driver_mutation,OV,TP53,1,1,3,58,18,40,4,10,2,20270849
+driver_mutation,OV,TP53,1,1,4,58,18,40,4,10,3,20270849
+driver_mutation,OV,TP53,1,1,5,58,18,40,4,10,1,20270849
+driver_mutation,OV,TP53,2,1,1,57,17,40,5,10,7,20280849
+driver_mutation,OV,TP53,2,1,2,57,17,40,5,10,6,20280849
+driver_mutation,OV,TP53,2,1,3,58,18,40,4,10,2,20280849
+driver_mutation,OV,TP53,2,1,4,58,18,40,4,10,3,20280849
+driver_mutation,OV,TP53,2,1,5,58,18,40,4,10,2,20280849
+driver_mutation,OV,TP53,3,1,1,57,17,40,5,10,9,20290849
+driver_mutation,OV,TP53,3,1,2,57,17,40,5,10,9,20290849
+driver_mutation,OV,TP53,3,1,3,58,18,40,4,10,5,20290849
+driver_mutation,OV,TP53,3,1,4,58,18,40,4,10,3,20290849
+driver_mutation,OV,TP53,3,1,5,58,18,40,4,10,2,20290849
+driver_mutation,OV,TP53,4,1,1,57,17,40,5,10,10,20300849
+driver_mutation,OV,TP53,4,1,2,57,17,40,5,10,10,20300849
+driver_mutation,OV,TP53,4,1,3,58,18,40,4,10,8,20300849
+driver_mutation,OV,TP53,4,1,4,58,18,40,4,10,3,20300849
+driver_mutation,OV,TP53,4,1,5,58,18,40,4,10,2,20300849
+driver_mutation,OV,TP53,5,1,1,57,17,40,5,10,10,20310849
+driver_mutation,OV,TP53,5,1,2,57,17,40,5,10,4,20310849
+driver_mutation,OV,TP53,5,1,3,58,18,40,4,10,3,20310849
+driver_mutation,OV,TP53,5,1,4,58,18,40,4,10,10,20310849
+driver_mutation,OV,TP53,5,1,5,58,18,40,4,10,6,20310849
+driver_mutation,SKCM,BRAF,1,0.5,1,38,20,18,11,10,1,20270860
+driver_mutation,SKCM,BRAF,1,0.5,2,38,20,18,11,9,10,20270860
+driver_mutation,SKCM,BRAF,1,0.5,3,39,21,18,10,9,2,20270860
+driver_mutation,SKCM,BRAF,1,0.5,4,39,21,18,10,9,1,20270860
+driver_mutation,SKCM,BRAF,1,0.5,5,39,21,18,10,9,2,20270860
+driver_mutation,SKCM,BRAF,2,0.5,1,38,20,18,11,10,3,20280860
+driver_mutation,SKCM,BRAF,2,0.5,2,38,20,18,11,9,4,20280860
+driver_mutation,SKCM,BRAF,2,0.5,3,39,21,18,10,9,7,20280860
+driver_mutation,SKCM,BRAF,2,0.5,4,39,21,18,10,9,1,20280860
+driver_mutation,SKCM,BRAF,2,0.5,5,39,21,18,10,9,3,20280860
+driver_mutation,SKCM,BRAF,3,0.5,1,38,20,18,11,10,1,20290860
+driver_mutation,SKCM,BRAF,3,0.5,2,38,20,18,11,9,1,20290860
+driver_mutation,SKCM,BRAF,3,0.5,3,39,21,18,10,9,1,20290860
+driver_mutation,SKCM,BRAF,3,0.5,4,39,21,18,10,9,2,20290860
+driver_mutation,SKCM,BRAF,3,0.5,5,39,21,18,10,9,1,20290860
+driver_mutation,SKCM,BRAF,4,0.5,1,38,20,18,11,10,2,20300860
+driver_mutation,SKCM,BRAF,4,0.5,2,38,20,18,11,9,2,20300860
+driver_mutation,SKCM,BRAF,4,0.5,3,39,21,18,10,9,1,20300860
+driver_mutation,SKCM,BRAF,4,0.5,4,39,21,18,10,9,2,20300860
+driver_mutation,SKCM,BRAF,4,0.5,5,39,21,18,10,9,2,20300860
+driver_mutation,SKCM,BRAF,5,0.5,1,38,20,18,11,10,10,20310860
+driver_mutation,SKCM,BRAF,5,0.5,2,38,20,18,11,9,2,20310860
+driver_mutation,SKCM,BRAF,5,0.5,3,39,21,18,10,9,3,20310860
+driver_mutation,SKCM,BRAF,5,0.5,4,39,21,18,10,9,1,20310860
+driver_mutation,SKCM,BRAF,5,0.5,5,39,21,18,10,9,1,20310860
+driver_mutation,SKCM,BRAF,1,0.75,1,57,30,27,11,10,1,20270860
+driver_mutation,SKCM,BRAF,1,0.75,2,57,30,27,11,9,1,20270860
+driver_mutation,SKCM,BRAF,1,0.75,3,58,31,27,10,9,10,20270860
+driver_mutation,SKCM,BRAF,1,0.75,4,58,31,27,10,9,3,20270860
+driver_mutation,SKCM,BRAF,1,0.75,5,58,31,27,10,9,10,20270860
+driver_mutation,SKCM,BRAF,2,0.75,1,57,30,27,11,10,1,20280860
+driver_mutation,SKCM,BRAF,2,0.75,2,57,30,27,11,9,8,20280860
+driver_mutation,SKCM,BRAF,2,0.75,3,58,31,27,10,9,10,20280860
+driver_mutation,SKCM,BRAF,2,0.75,4,58,31,27,10,9,1,20280860
+driver_mutation,SKCM,BRAF,2,0.75,5,58,31,27,10,9,1,20280860
+driver_mutation,SKCM,BRAF,3,0.75,1,57,30,27,11,10,10,20290860
+driver_mutation,SKCM,BRAF,3,0.75,2,57,30,27,11,9,3,20290860
+driver_mutation,SKCM,BRAF,3,0.75,3,58,31,27,10,9,8,20290860
+driver_mutation,SKCM,BRAF,3,0.75,4,58,31,27,10,9,10,20290860
+driver_mutation,SKCM,BRAF,3,0.75,5,58,31,27,10,9,7,20290860
+driver_mutation,SKCM,BRAF,4,0.75,1,57,30,27,11,10,3,20300860
+driver_mutation,SKCM,BRAF,4,0.75,2,57,30,27,11,9,1,20300860
+driver_mutation,SKCM,BRAF,4,0.75,3,58,31,27,10,9,3,20300860
+driver_mutation,SKCM,BRAF,4,0.75,4,58,31,27,10,9,1,20300860
+driver_mutation,SKCM,BRAF,4,0.75,5,58,31,27,10,9,2,20300860
+driver_mutation,SKCM,BRAF,5,0.75,1,57,30,27,11,10,3,20310860
+driver_mutation,SKCM,BRAF,5,0.75,2,57,30,27,11,9,2,20310860
+driver_mutation,SKCM,BRAF,5,0.75,3,58,31,27,10,9,1,20310860
+driver_mutation,SKCM,BRAF,5,0.75,4,58,31,27,10,9,5,20310860
+driver_mutation,SKCM,BRAF,5,0.75,5,58,31,27,10,9,2,20310860
+driver_mutation,SKCM,BRAF,1,1,1,77,41,36,11,10,2,20270860
+driver_mutation,SKCM,BRAF,1,1,2,78,41,37,11,9,1,20270860
+driver_mutation,SKCM,BRAF,1,1,3,79,42,37,10,9,4,20270860
+driver_mutation,SKCM,BRAF,1,1,4,79,42,37,10,9,3,20270860
+driver_mutation,SKCM,BRAF,1,1,5,79,42,37,10,9,3,20270860
+driver_mutation,SKCM,BRAF,2,1,1,77,41,36,11,10,1,20280860
+driver_mutation,SKCM,BRAF,2,1,2,78,41,37,11,9,4,20280860
+driver_mutation,SKCM,BRAF,2,1,3,79,42,37,10,9,2,20280860
+driver_mutation,SKCM,BRAF,2,1,4,79,42,37,10,9,1,20280860
+driver_mutation,SKCM,BRAF,2,1,5,79,42,37,10,9,3,20280860
+driver_mutation,SKCM,BRAF,3,1,1,77,41,36,11,10,1,20290860
+driver_mutation,SKCM,BRAF,3,1,2,78,41,37,11,9,3,20290860
+driver_mutation,SKCM,BRAF,3,1,3,79,42,37,10,9,1,20290860
+driver_mutation,SKCM,BRAF,3,1,4,79,42,37,10,9,2,20290860
+driver_mutation,SKCM,BRAF,3,1,5,79,42,37,10,9,2,20290860
+driver_mutation,SKCM,BRAF,4,1,1,77,41,36,11,10,3,20300860
+driver_mutation,SKCM,BRAF,4,1,2,78,41,37,11,9,1,20300860
+driver_mutation,SKCM,BRAF,4,1,3,79,42,37,10,9,4,20300860
+driver_mutation,SKCM,BRAF,4,1,4,79,42,37,10,9,2,20300860
+driver_mutation,SKCM,BRAF,4,1,5,79,42,37,10,9,1,20300860
+driver_mutation,SKCM,BRAF,5,1,1,77,41,36,11,10,3,20310860
+driver_mutation,SKCM,BRAF,5,1,2,78,41,37,11,9,2,20310860
+driver_mutation,SKCM,BRAF,5,1,3,79,42,37,10,9,3,20310860
+driver_mutation,SKCM,BRAF,5,1,4,79,42,37,10,9,6,20310860
+driver_mutation,SKCM,BRAF,5,1,5,79,42,37,10,9,1,20310860
+driver_mutation,THCA,NRAS,1,0.5,1,195,15,180,8,91,6,20270844
+driver_mutation,THCA,NRAS,1,0.5,2,195,15,180,8,90,6,20270844
+driver_mutation,THCA,NRAS,1,0.5,3,195,15,180,8,90,2,20270844
+driver_mutation,THCA,NRAS,1,0.5,4,195,15,180,8,90,7,20270844
+driver_mutation,THCA,NRAS,1,0.5,5,196,16,180,7,90,2,20270844
+driver_mutation,THCA,NRAS,2,0.5,1,195,15,180,8,91,9,20280844
+driver_mutation,THCA,NRAS,2,0.5,2,195,15,180,8,90,6,20280844
+driver_mutation,THCA,NRAS,2,0.5,3,195,15,180,8,90,5,20280844
+driver_mutation,THCA,NRAS,2,0.5,4,195,15,180,8,90,8,20280844
+driver_mutation,THCA,NRAS,2,0.5,5,196,16,180,7,90,9,20280844
+driver_mutation,THCA,NRAS,3,0.5,1,195,15,180,8,91,6,20290844
+driver_mutation,THCA,NRAS,3,0.5,2,195,15,180,8,90,7,20290844
+driver_mutation,THCA,NRAS,3,0.5,3,195,15,180,8,90,1,20290844
+driver_mutation,THCA,NRAS,3,0.5,4,195,15,180,8,90,1,20290844
+driver_mutation,THCA,NRAS,3,0.5,5,196,16,180,7,90,1,20290844
+driver_mutation,THCA,NRAS,4,0.5,1,195,15,180,8,91,9,20300844
+driver_mutation,THCA,NRAS,4,0.5,2,195,15,180,8,90,10,20300844
+driver_mutation,THCA,NRAS,4,0.5,3,195,15,180,8,90,1,20300844
+driver_mutation,THCA,NRAS,4,0.5,4,195,15,180,8,90,10,20300844
+driver_mutation,THCA,NRAS,4,0.5,5,196,16,180,7,90,4,20300844
+driver_mutation,THCA,NRAS,5,0.5,1,195,15,180,8,91,5,20310844
+driver_mutation,THCA,NRAS,5,0.5,2,195,15,180,8,90,8,20310844
+driver_mutation,THCA,NRAS,5,0.5,3,195,15,180,8,90,8,20310844
+driver_mutation,THCA,NRAS,5,0.5,4,195,15,180,8,90,10,20310844
+driver_mutation,THCA,NRAS,5,0.5,5,196,16,180,7,90,2,20310844
+driver_mutation,THCA,NRAS,1,0.75,1,293,23,270,8,91,7,20270844
+driver_mutation,THCA,NRAS,1,0.75,2,293,23,270,8,90,4,20270844
+driver_mutation,THCA,NRAS,1,0.75,3,293,23,270,8,90,6,20270844
+driver_mutation,THCA,NRAS,1,0.75,4,293,23,270,8,90,3,20270844
+driver_mutation,THCA,NRAS,1,0.75,5,294,24,270,7,90,5,20270844
+driver_mutation,THCA,NRAS,2,0.75,1,293,23,270,8,91,8,20280844
+driver_mutation,THCA,NRAS,2,0.75,2,293,23,270,8,90,6,20280844
+driver_mutation,THCA,NRAS,2,0.75,3,293,23,270,8,90,2,20280844
+driver_mutation,THCA,NRAS,2,0.75,4,293,23,270,8,90,7,20280844
+driver_mutation,THCA,NRAS,2,0.75,5,294,24,270,7,90,6,20280844
+driver_mutation,THCA,NRAS,3,0.75,1,293,23,270,8,91,4,20290844
+driver_mutation,THCA,NRAS,3,0.75,2,293,23,270,8,90,3,20290844
+driver_mutation,THCA,NRAS,3,0.75,3,293,23,270,8,90,6,20290844
+driver_mutation,THCA,NRAS,3,0.75,4,293,23,270,8,90,10,20290844
+driver_mutation,THCA,NRAS,3,0.75,5,294,24,270,7,90,2,20290844
+driver_mutation,THCA,NRAS,4,0.75,1,293,23,270,8,91,7,20300844
+driver_mutation,THCA,NRAS,4,0.75,2,293,23,270,8,90,9,20300844
+driver_mutation,THCA,NRAS,4,0.75,3,293,23,270,8,90,9,20300844
+driver_mutation,THCA,NRAS,4,0.75,4,293,23,270,8,90,9,20300844
+driver_mutation,THCA,NRAS,4,0.75,5,294,24,270,7,90,7,20300844
+driver_mutation,THCA,NRAS,5,0.75,1,293,23,270,8,91,2,20310844
+driver_mutation,THCA,NRAS,5,0.75,2,293,23,270,8,90,5,20310844
+driver_mutation,THCA,NRAS,5,0.75,3,293,23,270,8,90,4,20310844
+driver_mutation,THCA,NRAS,5,0.75,4,293,23,270,8,90,10,20310844
+driver_mutation,THCA,NRAS,5,0.75,5,294,24,270,7,90,5,20310844
+driver_mutation,THCA,NRAS,1,1,1,391,31,360,8,91,5,20270844
+driver_mutation,THCA,NRAS,1,1,2,392,31,361,8,90,7,20270844
+driver_mutation,THCA,NRAS,1,1,3,392,31,361,8,90,6,20270844
+driver_mutation,THCA,NRAS,1,1,4,392,31,361,8,90,6,20270844
+driver_mutation,THCA,NRAS,1,1,5,393,32,361,7,90,3,20270844
+driver_mutation,THCA,NRAS,2,1,1,391,31,360,8,91,10,20280844
+driver_mutation,THCA,NRAS,2,1,2,392,31,361,8,90,8,20280844
+driver_mutation,THCA,NRAS,2,1,3,392,31,361,8,90,9,20280844
+driver_mutation,THCA,NRAS,2,1,4,392,31,361,8,90,7,20280844
+driver_mutation,THCA,NRAS,2,1,5,393,32,361,7,90,6,20280844
+driver_mutation,THCA,NRAS,3,1,1,391,31,360,8,91,7,20290844
+driver_mutation,THCA,NRAS,3,1,2,392,31,361,8,90,10,20290844
+driver_mutation,THCA,NRAS,3,1,3,392,31,361,8,90,6,20290844
+driver_mutation,THCA,NRAS,3,1,4,392,31,361,8,90,7,20290844
+driver_mutation,THCA,NRAS,3,1,5,393,32,361,7,90,9,20290844
+driver_mutation,THCA,NRAS,4,1,1,391,31,360,8,91,7,20300844
+driver_mutation,THCA,NRAS,4,1,2,392,31,361,8,90,7,20300844
+driver_mutation,THCA,NRAS,4,1,3,392,31,361,8,90,9,20300844
+driver_mutation,THCA,NRAS,4,1,4,392,31,361,8,90,9,20300844
+driver_mutation,THCA,NRAS,4,1,5,393,32,361,7,90,3,20300844
+driver_mutation,THCA,NRAS,5,1,1,391,31,360,8,91,9,20310844
+driver_mutation,THCA,NRAS,5,1,2,392,31,361,8,90,7,20310844
+driver_mutation,THCA,NRAS,5,1,3,392,31,361,8,90,9,20310844
+driver_mutation,THCA,NRAS,5,1,4,392,31,361,8,90,10,20310844
+driver_mutation,THCA,NRAS,5,1,5,393,32,361,7,90,5,20310844
+fusion,SARC,Any called fusion,1,0.5,1,100,86,14,44,8,6,20270875
+fusion,SARC,Any called fusion,1,0.5,2,100,86,14,43,7,8,20270875
+fusion,SARC,Any called fusion,1,0.5,3,100,86,14,43,7,9,20270875
+fusion,SARC,Any called fusion,1,0.5,4,100,86,14,43,7,3,20270875
+fusion,SARC,Any called fusion,1,0.5,5,100,86,14,43,7,3,20270875
+fusion,SARC,Any called fusion,2,0.5,1,100,86,14,44,8,10,20280875
+fusion,SARC,Any called fusion,2,0.5,2,100,86,14,43,7,8,20280875
+fusion,SARC,Any called fusion,2,0.5,3,100,86,14,43,7,2,20280875
+fusion,SARC,Any called fusion,2,0.5,4,100,86,14,43,7,9,20280875
+fusion,SARC,Any called fusion,2,0.5,5,100,86,14,43,7,4,20280875
+fusion,SARC,Any called fusion,3,0.5,1,100,86,14,44,8,8,20290875
+fusion,SARC,Any called fusion,3,0.5,2,100,86,14,43,7,6,20290875
+fusion,SARC,Any called fusion,3,0.5,3,100,86,14,43,7,2,20290875
+fusion,SARC,Any called fusion,3,0.5,4,100,86,14,43,7,8,20290875
+fusion,SARC,Any called fusion,3,0.5,5,100,86,14,43,7,2,20290875
+fusion,SARC,Any called fusion,4,0.5,1,100,86,14,44,8,3,20300875
+fusion,SARC,Any called fusion,4,0.5,2,100,86,14,43,7,2,20300875
+fusion,SARC,Any called fusion,4,0.5,3,100,86,14,43,7,2,20300875
+fusion,SARC,Any called fusion,4,0.5,4,100,86,14,43,7,7,20300875
+fusion,SARC,Any called fusion,4,0.5,5,100,86,14,43,7,9,20300875
+fusion,SARC,Any called fusion,5,0.5,1,100,86,14,44,8,6,20310875
+fusion,SARC,Any called fusion,5,0.5,2,100,86,14,43,7,2,20310875
+fusion,SARC,Any called fusion,5,0.5,3,100,86,14,43,7,10,20310875
+fusion,SARC,Any called fusion,5,0.5,4,100,86,14,43,7,4,20310875
+fusion,SARC,Any called fusion,5,0.5,5,100,86,14,43,7,8,20310875
+fusion,SARC,Any called fusion,1,0.75,1,150,129,21,44,8,7,20270875
+fusion,SARC,Any called fusion,1,0.75,2,150,129,21,43,7,2,20270875
+fusion,SARC,Any called fusion,1,0.75,3,150,129,21,43,7,8,20270875
+fusion,SARC,Any called fusion,1,0.75,4,150,129,21,43,7,10,20270875
+fusion,SARC,Any called fusion,1,0.75,5,150,129,21,43,7,7,20270875
+fusion,SARC,Any called fusion,2,0.75,1,150,129,21,44,8,5,20280875
+fusion,SARC,Any called fusion,2,0.75,2,150,129,21,43,7,8,20280875
+fusion,SARC,Any called fusion,2,0.75,3,150,129,21,43,7,6,20280875
+fusion,SARC,Any called fusion,2,0.75,4,150,129,21,43,7,7,20280875
+fusion,SARC,Any called fusion,2,0.75,5,150,129,21,43,7,7,20280875
+fusion,SARC,Any called fusion,3,0.75,1,150,129,21,44,8,3,20290875
+fusion,SARC,Any called fusion,3,0.75,2,150,129,21,43,7,7,20290875
+fusion,SARC,Any called fusion,3,0.75,3,150,129,21,43,7,6,20290875
+fusion,SARC,Any called fusion,3,0.75,4,150,129,21,43,7,7,20290875
+fusion,SARC,Any called fusion,3,0.75,5,150,129,21,43,7,10,20290875
+fusion,SARC,Any called fusion,4,0.75,1,150,129,21,44,8,7,20300875
+fusion,SARC,Any called fusion,4,0.75,2,150,129,21,43,7,7,20300875
+fusion,SARC,Any called fusion,4,0.75,3,150,129,21,43,7,8,20300875
+fusion,SARC,Any called fusion,4,0.75,4,150,129,21,43,7,10,20300875
+fusion,SARC,Any called fusion,4,0.75,5,150,129,21,43,7,2,20300875
+fusion,SARC,Any called fusion,5,0.75,1,150,129,21,44,8,8,20310875
+fusion,SARC,Any called fusion,5,0.75,2,150,129,21,43,7,8,20310875
+fusion,SARC,Any called fusion,5,0.75,3,150,129,21,43,7,7,20310875
+fusion,SARC,Any called fusion,5,0.75,4,150,129,21,43,7,5,20310875
+fusion,SARC,Any called fusion,5,0.75,5,150,129,21,43,7,5,20310875
+fusion,SARC,Any called fusion,1,1,1,200,172,28,44,8,6,20270875
+fusion,SARC,Any called fusion,1,1,2,202,173,29,43,7,8,20270875
+fusion,SARC,Any called fusion,1,1,3,202,173,29,43,7,6,20270875
+fusion,SARC,Any called fusion,1,1,4,202,173,29,43,7,9,20270875
+fusion,SARC,Any called fusion,1,1,5,202,173,29,43,7,5,20270875
+fusion,SARC,Any called fusion,2,1,1,200,172,28,44,8,6,20280875
+fusion,SARC,Any called fusion,2,1,2,202,173,29,43,7,8,20280875
+fusion,SARC,Any called fusion,2,1,3,202,173,29,43,7,4,20280875
+fusion,SARC,Any called fusion,2,1,4,202,173,29,43,7,9,20280875
+fusion,SARC,Any called fusion,2,1,5,202,173,29,43,7,7,20280875
+fusion,SARC,Any called fusion,3,1,1,200,172,28,44,8,10,20290875
+fusion,SARC,Any called fusion,3,1,2,202,173,29,43,7,7,20290875
+fusion,SARC,Any called fusion,3,1,3,202,173,29,43,7,10,20290875
+fusion,SARC,Any called fusion,3,1,4,202,173,29,43,7,7,20290875
+fusion,SARC,Any called fusion,3,1,5,202,173,29,43,7,6,20290875
+fusion,SARC,Any called fusion,4,1,1,200,172,28,44,8,8,20300875
+fusion,SARC,Any called fusion,4,1,2,202,173,29,43,7,6,20300875
+fusion,SARC,Any called fusion,4,1,3,202,173,29,43,7,5,20300875
+fusion,SARC,Any called fusion,4,1,4,202,173,29,43,7,6,20300875
+fusion,SARC,Any called fusion,4,1,5,202,173,29,43,7,7,20300875
+fusion,SARC,Any called fusion,5,1,1,200,172,28,44,8,7,20310875
+fusion,SARC,Any called fusion,5,1,2,202,173,29,43,7,6,20310875
+fusion,SARC,Any called fusion,5,1,3,202,173,29,43,7,2,20310875
+fusion,SARC,Any called fusion,5,1,4,202,173,29,43,7,7,20310875
+fusion,SARC,Any called fusion,5,1,5,202,173,29,43,7,5,20310875
+fusion,THCA,Fusion pair: CCDC6--RET,1,0.5,1,200,8,192,5,97,1,20270872
+fusion,THCA,Fusion pair: CCDC6--RET,1,0.5,2,200,8,192,4,96,4,20270872
+fusion,THCA,Fusion pair: CCDC6--RET,1,0.5,3,200,8,192,4,96,9,20270872
+fusion,THCA,Fusion pair: CCDC6--RET,1,0.5,4,200,8,192,4,96,3,20270872
+fusion,THCA,Fusion pair: CCDC6--RET,1,0.5,5,200,8,192,4,96,4,20270872
+fusion,THCA,Fusion pair: CCDC6--RET,2,0.5,1,200,8,192,5,97,4,20280872
+fusion,THCA,Fusion pair: CCDC6--RET,2,0.5,2,200,8,192,4,96,3,20280872
+fusion,THCA,Fusion pair: CCDC6--RET,2,0.5,3,200,8,192,4,96,4,20280872
+fusion,THCA,Fusion pair: CCDC6--RET,2,0.5,4,200,8,192,4,96,9,20280872
+fusion,THCA,Fusion pair: CCDC6--RET,2,0.5,5,200,8,192,4,96,3,20280872
+fusion,THCA,Fusion pair: CCDC6--RET,3,0.5,1,200,8,192,5,97,5,20290872
+fusion,THCA,Fusion pair: CCDC6--RET,3,0.5,2,200,8,192,4,96,3,20290872
+fusion,THCA,Fusion pair: CCDC6--RET,3,0.5,3,200,8,192,4,96,2,20290872
+fusion,THCA,Fusion pair: CCDC6--RET,3,0.5,4,200,8,192,4,96,1,20290872
+fusion,THCA,Fusion pair: CCDC6--RET,3,0.5,5,200,8,192,4,96,6,20290872
+fusion,THCA,Fusion pair: CCDC6--RET,4,0.5,1,200,8,192,5,97,5,20300872
+fusion,THCA,Fusion pair: CCDC6--RET,4,0.5,2,200,8,192,4,96,4,20300872
+fusion,THCA,Fusion pair: CCDC6--RET,4,0.5,3,200,8,192,4,96,4,20300872
+fusion,THCA,Fusion pair: CCDC6--RET,4,0.5,4,200,8,192,4,96,3,20300872
+fusion,THCA,Fusion pair: CCDC6--RET,4,0.5,5,200,8,192,4,96,2,20300872
+fusion,THCA,Fusion pair: CCDC6--RET,5,0.5,1,200,8,192,5,97,1,20310872
+fusion,THCA,Fusion pair: CCDC6--RET,5,0.5,2,200,8,192,4,96,9,20310872
+fusion,THCA,Fusion pair: CCDC6--RET,5,0.5,3,200,8,192,4,96,3,20310872
+fusion,THCA,Fusion pair: CCDC6--RET,5,0.5,4,200,8,192,4,96,8,20310872
+fusion,THCA,Fusion pair: CCDC6--RET,5,0.5,5,200,8,192,4,96,3,20310872
+fusion,THCA,Fusion pair: CCDC6--RET,1,0.75,1,300,12,288,5,97,6,20270872
+fusion,THCA,Fusion pair: CCDC6--RET,1,0.75,2,300,12,288,4,96,10,20270872
+fusion,THCA,Fusion pair: CCDC6--RET,1,0.75,3,300,12,288,4,96,9,20270872
+fusion,THCA,Fusion pair: CCDC6--RET,1,0.75,4,300,12,288,4,96,5,20270872
+fusion,THCA,Fusion pair: CCDC6--RET,1,0.75,5,300,12,288,4,96,7,20270872
+fusion,THCA,Fusion pair: CCDC6--RET,2,0.75,1,300,12,288,5,97,9,20280872
+fusion,THCA,Fusion pair: CCDC6--RET,2,0.75,2,300,12,288,4,96,6,20280872
+fusion,THCA,Fusion pair: CCDC6--RET,2,0.75,3,300,12,288,4,96,8,20280872
+fusion,THCA,Fusion pair: CCDC6--RET,2,0.75,4,300,12,288,4,96,4,20280872
+fusion,THCA,Fusion pair: CCDC6--RET,2,0.75,5,300,12,288,4,96,2,20280872
+fusion,THCA,Fusion pair: CCDC6--RET,3,0.75,1,300,12,288,5,97,3,20290872
+fusion,THCA,Fusion pair: CCDC6--RET,3,0.75,2,300,12,288,4,96,8,20290872
+fusion,THCA,Fusion pair: CCDC6--RET,3,0.75,3,300,12,288,4,96,9,20290872
+fusion,THCA,Fusion pair: CCDC6--RET,3,0.75,4,300,12,288,4,96,3,20290872
+fusion,THCA,Fusion pair: CCDC6--RET,3,0.75,5,300,12,288,4,96,7,20290872
+fusion,THCA,Fusion pair: CCDC6--RET,4,0.75,1,300,12,288,5,97,8,20300872
+fusion,THCA,Fusion pair: CCDC6--RET,4,0.75,2,300,12,288,4,96,9,20300872
+fusion,THCA,Fusion pair: CCDC6--RET,4,0.75,3,300,12,288,4,96,10,20300872
+fusion,THCA,Fusion pair: CCDC6--RET,4,0.75,4,300,12,288,4,96,3,20300872
+fusion,THCA,Fusion pair: CCDC6--RET,4,0.75,5,300,12,288,4,96,10,20300872
+fusion,THCA,Fusion pair: CCDC6--RET,5,0.75,1,300,12,288,5,97,8,20310872
+fusion,THCA,Fusion pair: CCDC6--RET,5,0.75,2,300,12,288,4,96,8,20310872
+fusion,THCA,Fusion pair: CCDC6--RET,5,0.75,3,300,12,288,4,96,8,20310872
+fusion,THCA,Fusion pair: CCDC6--RET,5,0.75,4,300,12,288,4,96,3,20310872
+fusion,THCA,Fusion pair: CCDC6--RET,5,0.75,5,300,12,288,4,96,9,20310872
+fusion,THCA,Fusion pair: CCDC6--RET,1,1,1,400,16,384,5,97,6,20270872
+fusion,THCA,Fusion pair: CCDC6--RET,1,1,2,402,17,385,4,96,10,20270872
+fusion,THCA,Fusion pair: CCDC6--RET,1,1,3,402,17,385,4,96,9,20270872
+fusion,THCA,Fusion pair: CCDC6--RET,1,1,4,402,17,385,4,96,6,20270872
+fusion,THCA,Fusion pair: CCDC6--RET,1,1,5,402,17,385,4,96,7,20270872
+fusion,THCA,Fusion pair: CCDC6--RET,2,1,1,400,16,384,5,97,6,20280872
+fusion,THCA,Fusion pair: CCDC6--RET,2,1,2,402,17,385,4,96,10,20280872
+fusion,THCA,Fusion pair: CCDC6--RET,2,1,3,402,17,385,4,96,7,20280872
+fusion,THCA,Fusion pair: CCDC6--RET,2,1,4,402,17,385,4,96,7,20280872
+fusion,THCA,Fusion pair: CCDC6--RET,2,1,5,402,17,385,4,96,10,20280872
+fusion,THCA,Fusion pair: CCDC6--RET,3,1,1,400,16,384,5,97,9,20290872
+fusion,THCA,Fusion pair: CCDC6--RET,3,1,2,402,17,385,4,96,8,20290872
+fusion,THCA,Fusion pair: CCDC6--RET,3,1,3,402,17,385,4,96,7,20290872
+fusion,THCA,Fusion pair: CCDC6--RET,3,1,4,402,17,385,4,96,9,20290872
+fusion,THCA,Fusion pair: CCDC6--RET,3,1,5,402,17,385,4,96,8,20290872
+fusion,THCA,Fusion pair: CCDC6--RET,4,1,1,400,16,384,5,97,8,20300872
+fusion,THCA,Fusion pair: CCDC6--RET,4,1,2,402,17,385,4,96,9,20300872
+fusion,THCA,Fusion pair: CCDC6--RET,4,1,3,402,17,385,4,96,9,20300872
+fusion,THCA,Fusion pair: CCDC6--RET,4,1,4,402,17,385,4,96,4,20300872
+fusion,THCA,Fusion pair: CCDC6--RET,4,1,5,402,17,385,4,96,10,20300872
+fusion,THCA,Fusion pair: CCDC6--RET,5,1,1,400,16,384,5,97,9,20310872
+fusion,THCA,Fusion pair: CCDC6--RET,5,1,2,402,17,385,4,96,9,20310872
+fusion,THCA,Fusion pair: CCDC6--RET,5,1,3,402,17,385,4,96,7,20310872
+fusion,THCA,Fusion pair: CCDC6--RET,5,1,4,402,17,385,4,96,9,20310872
+fusion,THCA,Fusion pair: CCDC6--RET,5,1,5,402,17,385,4,96,9,20310872
+oncogenic_pathway,GBM,TP53,1,0.5,1,28,15,13,8,7,4,20270896
+oncogenic_pathway,GBM,TP53,1,0.5,2,28,15,13,8,7,2,20270896
+oncogenic_pathway,GBM,TP53,1,0.5,3,28,15,13,8,7,2,20270896
+oncogenic_pathway,GBM,TP53,1,0.5,4,28,15,13,7,6,1,20270896
+oncogenic_pathway,GBM,TP53,1,0.5,5,28,15,13,7,6,1,20270896
+oncogenic_pathway,GBM,TP53,2,0.5,1,28,15,13,8,7,1,20280896
+oncogenic_pathway,GBM,TP53,2,0.5,2,28,15,13,8,7,1,20280896
+oncogenic_pathway,GBM,TP53,2,0.5,3,28,15,13,8,7,7,20280896
+oncogenic_pathway,GBM,TP53,2,0.5,4,28,15,13,7,6,5,20280896
+oncogenic_pathway,GBM,TP53,2,0.5,5,28,15,13,7,6,6,20280896
+oncogenic_pathway,GBM,TP53,3,0.5,1,28,15,13,8,7,7,20290896
+oncogenic_pathway,GBM,TP53,3,0.5,2,28,15,13,8,7,5,20290896
+oncogenic_pathway,GBM,TP53,3,0.5,3,28,15,13,8,7,6,20290896
+oncogenic_pathway,GBM,TP53,3,0.5,4,28,15,13,7,6,2,20290896
+oncogenic_pathway,GBM,TP53,3,0.5,5,28,15,13,7,6,5,20290896
+oncogenic_pathway,GBM,TP53,4,0.5,1,28,15,13,8,7,7,20300896
+oncogenic_pathway,GBM,TP53,4,0.5,2,28,15,13,8,7,9,20300896
+oncogenic_pathway,GBM,TP53,4,0.5,3,28,15,13,8,7,8,20300896
+oncogenic_pathway,GBM,TP53,4,0.5,4,28,15,13,7,6,7,20300896
+oncogenic_pathway,GBM,TP53,4,0.5,5,28,15,13,7,6,5,20300896
+oncogenic_pathway,GBM,TP53,5,0.5,1,28,15,13,8,7,1,20310896
+oncogenic_pathway,GBM,TP53,5,0.5,2,28,15,13,8,7,3,20310896
+oncogenic_pathway,GBM,TP53,5,0.5,3,28,15,13,8,7,7,20310896
+oncogenic_pathway,GBM,TP53,5,0.5,4,28,15,13,7,6,8,20310896
+oncogenic_pathway,GBM,TP53,5,0.5,5,28,15,13,7,6,6,20310896
+oncogenic_pathway,GBM,TP53,1,0.75,1,41,22,19,8,7,2,20270896
+oncogenic_pathway,GBM,TP53,1,0.75,2,41,22,19,8,7,1,20270896
+oncogenic_pathway,GBM,TP53,1,0.75,3,41,22,19,8,7,6,20270896
+oncogenic_pathway,GBM,TP53,1,0.75,4,43,23,20,7,6,2,20270896
+oncogenic_pathway,GBM,TP53,1,0.75,5,43,23,20,7,6,3,20270896
+oncogenic_pathway,GBM,TP53,2,0.75,1,41,22,19,8,7,4,20280896
+oncogenic_pathway,GBM,TP53,2,0.75,2,41,22,19,8,7,9,20280896
+oncogenic_pathway,GBM,TP53,2,0.75,3,41,22,19,8,7,1,20280896
+oncogenic_pathway,GBM,TP53,2,0.75,4,43,23,20,7,6,5,20280896
+oncogenic_pathway,GBM,TP53,2,0.75,5,43,23,20,7,6,1,20280896
+oncogenic_pathway,GBM,TP53,3,0.75,1,41,22,19,8,7,9,20290896
+oncogenic_pathway,GBM,TP53,3,0.75,2,41,22,19,8,7,7,20290896
+oncogenic_pathway,GBM,TP53,3,0.75,3,41,22,19,8,7,4,20290896
+oncogenic_pathway,GBM,TP53,3,0.75,4,43,23,20,7,6,6,20290896
+oncogenic_pathway,GBM,TP53,3,0.75,5,43,23,20,7,6,2,20290896
+oncogenic_pathway,GBM,TP53,4,0.75,1,41,22,19,8,7,4,20300896
+oncogenic_pathway,GBM,TP53,4,0.75,2,41,22,19,8,7,5,20300896
+oncogenic_pathway,GBM,TP53,4,0.75,3,41,22,19,8,7,10,20300896
+oncogenic_pathway,GBM,TP53,4,0.75,4,43,23,20,7,6,2,20300896
+oncogenic_pathway,GBM,TP53,4,0.75,5,43,23,20,7,6,1,20300896
+oncogenic_pathway,GBM,TP53,5,0.75,1,41,22,19,8,7,8,20310896
+oncogenic_pathway,GBM,TP53,5,0.75,2,41,22,19,8,7,1,20310896
+oncogenic_pathway,GBM,TP53,5,0.75,3,41,22,19,8,7,5,20310896
+oncogenic_pathway,GBM,TP53,5,0.75,4,43,23,20,7,6,8,20310896
+oncogenic_pathway,GBM,TP53,5,0.75,5,43,23,20,7,6,6,20310896
+oncogenic_pathway,GBM,TP53,1,1,1,56,30,26,8,7,2,20270896
+oncogenic_pathway,GBM,TP53,1,1,2,56,30,26,8,7,2,20270896
+oncogenic_pathway,GBM,TP53,1,1,3,56,30,26,8,7,3,20270896
+oncogenic_pathway,GBM,TP53,1,1,4,58,31,27,7,6,6,20270896
+oncogenic_pathway,GBM,TP53,1,1,5,58,31,27,7,6,4,20270896
+oncogenic_pathway,GBM,TP53,2,1,1,56,30,26,8,7,6,20280896
+oncogenic_pathway,GBM,TP53,2,1,2,56,30,26,8,7,10,20280896
+oncogenic_pathway,GBM,TP53,2,1,3,56,30,26,8,7,2,20280896
+oncogenic_pathway,GBM,TP53,2,1,4,58,31,27,7,6,2,20280896
+oncogenic_pathway,GBM,TP53,2,1,5,58,31,27,7,6,2,20280896
+oncogenic_pathway,GBM,TP53,3,1,1,56,30,26,8,7,4,20290896
+oncogenic_pathway,GBM,TP53,3,1,2,56,30,26,8,7,2,20290896
+oncogenic_pathway,GBM,TP53,3,1,3,56,30,26,8,7,1,20290896
+oncogenic_pathway,GBM,TP53,3,1,4,58,31,27,7,6,6,20290896
+oncogenic_pathway,GBM,TP53,3,1,5,58,31,27,7,6,2,20290896
+oncogenic_pathway,GBM,TP53,4,1,1,56,30,26,8,7,9,20300896
+oncogenic_pathway,GBM,TP53,4,1,2,56,30,26,8,7,4,20300896
+oncogenic_pathway,GBM,TP53,4,1,3,56,30,26,8,7,1,20300896
+oncogenic_pathway,GBM,TP53,4,1,4,58,31,27,7,6,2,20300896
+oncogenic_pathway,GBM,TP53,4,1,5,58,31,27,7,6,6,20300896
+oncogenic_pathway,GBM,TP53,5,1,1,56,30,26,8,7,3,20310896
+oncogenic_pathway,GBM,TP53,5,1,2,56,30,26,8,7,3,20310896
+oncogenic_pathway,GBM,TP53,5,1,3,56,30,26,8,7,5,20310896
+oncogenic_pathway,GBM,TP53,5,1,4,58,31,27,7,6,3,20310896
+oncogenic_pathway,GBM,TP53,5,1,5,58,31,27,7,6,6,20310896
+oncogenic_pathway,KIRC,WNT,1,0.5,1,134,9,125,5,63,2,20270919
+oncogenic_pathway,KIRC,WNT,1,0.5,2,134,9,125,5,63,3,20270919
+oncogenic_pathway,KIRC,WNT,1,0.5,3,134,9,125,5,63,1,20270919
+oncogenic_pathway,KIRC,WNT,1,0.5,4,134,9,125,4,62,6,20270919
+oncogenic_pathway,KIRC,WNT,1,0.5,5,134,9,125,4,62,7,20270919
+oncogenic_pathway,KIRC,WNT,2,0.5,1,134,9,125,5,63,5,20280919
+oncogenic_pathway,KIRC,WNT,2,0.5,2,134,9,125,5,63,1,20280919
+oncogenic_pathway,KIRC,WNT,2,0.5,3,134,9,125,5,63,3,20280919
+oncogenic_pathway,KIRC,WNT,2,0.5,4,134,9,125,4,62,3,20280919
+oncogenic_pathway,KIRC,WNT,2,0.5,5,134,9,125,4,62,1,20280919
+oncogenic_pathway,KIRC,WNT,3,0.5,1,134,9,125,5,63,6,20290919
+oncogenic_pathway,KIRC,WNT,3,0.5,2,134,9,125,5,63,4,20290919
+oncogenic_pathway,KIRC,WNT,3,0.5,3,134,9,125,5,63,1,20290919
+oncogenic_pathway,KIRC,WNT,3,0.5,4,134,9,125,4,62,5,20290919
+oncogenic_pathway,KIRC,WNT,3,0.5,5,134,9,125,4,62,1,20290919
+oncogenic_pathway,KIRC,WNT,4,0.5,1,134,9,125,5,63,1,20300919
+oncogenic_pathway,KIRC,WNT,4,0.5,2,134,9,125,5,63,1,20300919
+oncogenic_pathway,KIRC,WNT,4,0.5,3,134,9,125,5,63,2,20300919
+oncogenic_pathway,KIRC,WNT,4,0.5,4,134,9,125,4,62,1,20300919
+oncogenic_pathway,KIRC,WNT,4,0.5,5,134,9,125,4,62,1,20300919
+oncogenic_pathway,KIRC,WNT,5,0.5,1,134,9,125,5,63,3,20310919
+oncogenic_pathway,KIRC,WNT,5,0.5,2,134,9,125,5,63,2,20310919
+oncogenic_pathway,KIRC,WNT,5,0.5,3,134,9,125,5,63,2,20310919
+oncogenic_pathway,KIRC,WNT,5,0.5,4,134,9,125,4,62,10,20310919
+oncogenic_pathway,KIRC,WNT,5,0.5,5,134,9,125,4,62,10,20310919
+oncogenic_pathway,KIRC,WNT,1,0.75,1,200,13,187,5,63,4,20270919
+oncogenic_pathway,KIRC,WNT,1,0.75,2,200,13,187,5,63,1,20270919
+oncogenic_pathway,KIRC,WNT,1,0.75,3,200,13,187,5,63,7,20270919
+oncogenic_pathway,KIRC,WNT,1,0.75,4,202,14,188,4,62,6,20270919
+oncogenic_pathway,KIRC,WNT,1,0.75,5,202,14,188,4,62,3,20270919
+oncogenic_pathway,KIRC,WNT,2,0.75,1,200,13,187,5,63,3,20280919
+oncogenic_pathway,KIRC,WNT,2,0.75,2,200,13,187,5,63,6,20280919
+oncogenic_pathway,KIRC,WNT,2,0.75,3,200,13,187,5,63,7,20280919
+oncogenic_pathway,KIRC,WNT,2,0.75,4,202,14,188,4,62,2,20280919
+oncogenic_pathway,KIRC,WNT,2,0.75,5,202,14,188,4,62,10,20280919
+oncogenic_pathway,KIRC,WNT,3,0.75,1,200,13,187,5,63,6,20290919
+oncogenic_pathway,KIRC,WNT,3,0.75,2,200,13,187,5,63,10,20290919
+oncogenic_pathway,KIRC,WNT,3,0.75,3,200,13,187,5,63,2,20290919
+oncogenic_pathway,KIRC,WNT,3,0.75,4,202,14,188,4,62,5,20290919
+oncogenic_pathway,KIRC,WNT,3,0.75,5,202,14,188,4,62,7,20290919
+oncogenic_pathway,KIRC,WNT,4,0.75,1,200,13,187,5,63,7,20300919
+oncogenic_pathway,KIRC,WNT,4,0.75,2,200,13,187,5,63,3,20300919
+oncogenic_pathway,KIRC,WNT,4,0.75,3,200,13,187,5,63,2,20300919
+oncogenic_pathway,KIRC,WNT,4,0.75,4,202,14,188,4,62,1,20300919
+oncogenic_pathway,KIRC,WNT,4,0.75,5,202,14,188,4,62,4,20300919
+oncogenic_pathway,KIRC,WNT,5,0.75,1,200,13,187,5,63,1,20310919
+oncogenic_pathway,KIRC,WNT,5,0.75,2,200,13,187,5,63,3,20310919
+oncogenic_pathway,KIRC,WNT,5,0.75,3,200,13,187,5,63,8,20310919
+oncogenic_pathway,KIRC,WNT,5,0.75,4,202,14,188,4,62,5,20310919
+oncogenic_pathway,KIRC,WNT,5,0.75,5,202,14,188,4,62,4,20310919
+oncogenic_pathway,KIRC,WNT,1,1,1,268,18,250,5,63,6,20270919
+oncogenic_pathway,KIRC,WNT,1,1,2,268,18,250,5,63,7,20270919
+oncogenic_pathway,KIRC,WNT,1,1,3,268,18,250,5,63,3,20270919
+oncogenic_pathway,KIRC,WNT,1,1,4,270,19,251,4,62,5,20270919
+oncogenic_pathway,KIRC,WNT,1,1,5,270,19,251,4,62,2,20270919
+oncogenic_pathway,KIRC,WNT,2,1,1,268,18,250,5,63,5,20280919
+oncogenic_pathway,KIRC,WNT,2,1,2,268,18,250,5,63,8,20280919
+oncogenic_pathway,KIRC,WNT,2,1,3,268,18,250,5,63,3,20280919
+oncogenic_pathway,KIRC,WNT,2,1,4,270,19,251,4,62,4,20280919
+oncogenic_pathway,KIRC,WNT,2,1,5,270,19,251,4,62,3,20280919
+oncogenic_pathway,KIRC,WNT,3,1,1,268,18,250,5,63,6,20290919
+oncogenic_pathway,KIRC,WNT,3,1,2,268,18,250,5,63,3,20290919
+oncogenic_pathway,KIRC,WNT,3,1,3,268,18,250,5,63,4,20290919
+oncogenic_pathway,KIRC,WNT,3,1,4,270,19,251,4,62,2,20290919
+oncogenic_pathway,KIRC,WNT,3,1,5,270,19,251,4,62,6,20290919
+oncogenic_pathway,KIRC,WNT,4,1,1,268,18,250,5,63,6,20300919
+oncogenic_pathway,KIRC,WNT,4,1,2,268,18,250,5,63,3,20300919
+oncogenic_pathway,KIRC,WNT,4,1,3,268,18,250,5,63,1,20300919
+oncogenic_pathway,KIRC,WNT,4,1,4,270,19,251,4,62,4,20300919
+oncogenic_pathway,KIRC,WNT,4,1,5,270,19,251,4,62,5,20300919
+oncogenic_pathway,KIRC,WNT,5,1,1,268,18,250,5,63,2,20310919
+oncogenic_pathway,KIRC,WNT,5,1,2,268,18,250,5,63,6,20310919
+oncogenic_pathway,KIRC,WNT,5,1,3,268,18,250,5,63,4,20310919
+oncogenic_pathway,KIRC,WNT,5,1,4,270,19,251,4,62,4,20310919
+oncogenic_pathway,KIRC,WNT,5,1,5,270,19,251,4,62,6,20310919
+oncogenic_pathway,KIRP,Cell Cycle,1,0.5,1,96,12,84,7,43,1,20270892
+oncogenic_pathway,KIRP,Cell Cycle,1,0.5,2,96,12,84,6,43,2,20270892
+oncogenic_pathway,KIRP,Cell Cycle,1,0.5,3,97,12,85,6,42,3,20270892
+oncogenic_pathway,KIRP,Cell Cycle,1,0.5,4,97,12,85,6,42,1,20270892
+oncogenic_pathway,KIRP,Cell Cycle,1,0.5,5,97,12,85,6,42,2,20270892
+oncogenic_pathway,KIRP,Cell Cycle,2,0.5,1,96,12,84,7,43,2,20280892
+oncogenic_pathway,KIRP,Cell Cycle,2,0.5,2,96,12,84,6,43,2,20280892
+oncogenic_pathway,KIRP,Cell Cycle,2,0.5,3,97,12,85,6,42,3,20280892
+oncogenic_pathway,KIRP,Cell Cycle,2,0.5,4,97,12,85,6,42,1,20280892
+oncogenic_pathway,KIRP,Cell Cycle,2,0.5,5,97,12,85,6,42,1,20280892
+oncogenic_pathway,KIRP,Cell Cycle,3,0.5,1,96,12,84,7,43,5,20290892
+oncogenic_pathway,KIRP,Cell Cycle,3,0.5,2,96,12,84,6,43,1,20290892
+oncogenic_pathway,KIRP,Cell Cycle,3,0.5,3,97,12,85,6,42,1,20290892
+oncogenic_pathway,KIRP,Cell Cycle,3,0.5,4,97,12,85,6,42,5,20290892
+oncogenic_pathway,KIRP,Cell Cycle,3,0.5,5,97,12,85,6,42,1,20290892
+oncogenic_pathway,KIRP,Cell Cycle,4,0.5,1,96,12,84,7,43,1,20300892
+oncogenic_pathway,KIRP,Cell Cycle,4,0.5,2,96,12,84,6,43,2,20300892
+oncogenic_pathway,KIRP,Cell Cycle,4,0.5,3,97,12,85,6,42,4,20300892
+oncogenic_pathway,KIRP,Cell Cycle,4,0.5,4,97,12,85,6,42,7,20300892
+oncogenic_pathway,KIRP,Cell Cycle,4,0.5,5,97,12,85,6,42,9,20300892
+oncogenic_pathway,KIRP,Cell Cycle,5,0.5,1,96,12,84,7,43,1,20310892
+oncogenic_pathway,KIRP,Cell Cycle,5,0.5,2,96,12,84,6,43,1,20310892
+oncogenic_pathway,KIRP,Cell Cycle,5,0.5,3,97,12,85,6,42,2,20310892
+oncogenic_pathway,KIRP,Cell Cycle,5,0.5,4,97,12,85,6,42,1,20310892
+oncogenic_pathway,KIRP,Cell Cycle,5,0.5,5,97,12,85,6,42,5,20310892
+oncogenic_pathway,KIRP,Cell Cycle,1,0.75,1,144,18,126,7,43,2,20270892
+oncogenic_pathway,KIRP,Cell Cycle,1,0.75,2,144,18,126,6,43,4,20270892
+oncogenic_pathway,KIRP,Cell Cycle,1,0.75,3,145,18,127,6,42,2,20270892
+oncogenic_pathway,KIRP,Cell Cycle,1,0.75,4,145,18,127,6,42,10,20270892
+oncogenic_pathway,KIRP,Cell Cycle,1,0.75,5,145,18,127,6,42,1,20270892
+oncogenic_pathway,KIRP,Cell Cycle,2,0.75,1,144,18,126,7,43,3,20280892
+oncogenic_pathway,KIRP,Cell Cycle,2,0.75,2,144,18,126,6,43,3,20280892
+oncogenic_pathway,KIRP,Cell Cycle,2,0.75,3,145,18,127,6,42,1,20280892
+oncogenic_pathway,KIRP,Cell Cycle,2,0.75,4,145,18,127,6,42,6,20280892
+oncogenic_pathway,KIRP,Cell Cycle,2,0.75,5,145,18,127,6,42,2,20280892
+oncogenic_pathway,KIRP,Cell Cycle,3,0.75,1,144,18,126,7,43,1,20290892
+oncogenic_pathway,KIRP,Cell Cycle,3,0.75,2,144,18,126,6,43,7,20290892
+oncogenic_pathway,KIRP,Cell Cycle,3,0.75,3,145,18,127,6,42,2,20290892
+oncogenic_pathway,KIRP,Cell Cycle,3,0.75,4,145,18,127,6,42,6,20290892
+oncogenic_pathway,KIRP,Cell Cycle,3,0.75,5,145,18,127,6,42,3,20290892
+oncogenic_pathway,KIRP,Cell Cycle,4,0.75,1,144,18,126,7,43,1,20300892
+oncogenic_pathway,KIRP,Cell Cycle,4,0.75,2,144,18,126,6,43,4,20300892
+oncogenic_pathway,KIRP,Cell Cycle,4,0.75,3,145,18,127,6,42,10,20300892
+oncogenic_pathway,KIRP,Cell Cycle,4,0.75,4,145,18,127,6,42,10,20300892
+oncogenic_pathway,KIRP,Cell Cycle,4,0.75,5,145,18,127,6,42,9,20300892
+oncogenic_pathway,KIRP,Cell Cycle,5,0.75,1,144,18,126,7,43,3,20310892
+oncogenic_pathway,KIRP,Cell Cycle,5,0.75,2,144,18,126,6,43,2,20310892
+oncogenic_pathway,KIRP,Cell Cycle,5,0.75,3,145,18,127,6,42,4,20310892
+oncogenic_pathway,KIRP,Cell Cycle,5,0.75,4,145,18,127,6,42,4,20310892
+oncogenic_pathway,KIRP,Cell Cycle,5,0.75,5,145,18,127,6,42,2,20310892
+oncogenic_pathway,KIRP,Cell Cycle,1,1,1,193,24,169,7,43,4,20270892
+oncogenic_pathway,KIRP,Cell Cycle,1,1,2,194,25,169,6,43,4,20270892
+oncogenic_pathway,KIRP,Cell Cycle,1,1,3,195,25,170,6,42,2,20270892
+oncogenic_pathway,KIRP,Cell Cycle,1,1,4,195,25,170,6,42,5,20270892
+oncogenic_pathway,KIRP,Cell Cycle,1,1,5,195,25,170,6,42,2,20270892
+oncogenic_pathway,KIRP,Cell Cycle,2,1,1,193,24,169,7,43,4,20280892
+oncogenic_pathway,KIRP,Cell Cycle,2,1,2,194,25,169,6,43,3,20280892
+oncogenic_pathway,KIRP,Cell Cycle,2,1,3,195,25,170,6,42,10,20280892
+oncogenic_pathway,KIRP,Cell Cycle,2,1,4,195,25,170,6,42,8,20280892
+oncogenic_pathway,KIRP,Cell Cycle,2,1,5,195,25,170,6,42,3,20280892
+oncogenic_pathway,KIRP,Cell Cycle,3,1,1,193,24,169,7,43,4,20290892
+oncogenic_pathway,KIRP,Cell Cycle,3,1,2,194,25,169,6,43,2,20290892
+oncogenic_pathway,KIRP,Cell Cycle,3,1,3,195,25,170,6,42,4,20290892
+oncogenic_pathway,KIRP,Cell Cycle,3,1,4,195,25,170,6,42,3,20290892
+oncogenic_pathway,KIRP,Cell Cycle,3,1,5,195,25,170,6,42,4,20290892
+oncogenic_pathway,KIRP,Cell Cycle,4,1,1,193,24,169,7,43,6,20300892
+oncogenic_pathway,KIRP,Cell Cycle,4,1,2,194,25,169,6,43,4,20300892
+oncogenic_pathway,KIRP,Cell Cycle,4,1,3,195,25,170,6,42,2,20300892
+oncogenic_pathway,KIRP,Cell Cycle,4,1,4,195,25,170,6,42,3,20300892
+oncogenic_pathway,KIRP,Cell Cycle,4,1,5,195,25,170,6,42,2,20300892
+oncogenic_pathway,KIRP,Cell Cycle,5,1,1,193,24,169,7,43,2,20310892
+oncogenic_pathway,KIRP,Cell Cycle,5,1,2,194,25,169,6,43,3,20310892
+oncogenic_pathway,KIRP,Cell Cycle,5,1,3,195,25,170,6,42,6,20310892
+oncogenic_pathway,KIRP,Cell Cycle,5,1,4,195,25,170,6,42,3,20310892
+oncogenic_pathway,KIRP,Cell Cycle,5,1,5,195,25,170,6,42,3,20310892
+oncogenic_pathway,PCPG,Cell Cycle,1,0.5,1,61,9,52,5,27,6,20270897
+oncogenic_pathway,PCPG,Cell Cycle,1,0.5,2,61,9,52,5,27,6,20270897
+oncogenic_pathway,PCPG,Cell Cycle,1,0.5,3,62,9,53,5,26,3,20270897
+oncogenic_pathway,PCPG,Cell Cycle,1,0.5,4,62,9,53,4,26,3,20270897
+oncogenic_pathway,PCPG,Cell Cycle,1,0.5,5,62,9,53,4,26,8,20270897
+oncogenic_pathway,PCPG,Cell Cycle,2,0.5,1,61,9,52,5,27,8,20280897
+oncogenic_pathway,PCPG,Cell Cycle,2,0.5,2,61,9,52,5,27,5,20280897
+oncogenic_pathway,PCPG,Cell Cycle,2,0.5,3,62,9,53,5,26,9,20280897
+oncogenic_pathway,PCPG,Cell Cycle,2,0.5,4,62,9,53,4,26,3,20280897
+oncogenic_pathway,PCPG,Cell Cycle,2,0.5,5,62,9,53,4,26,7,20280897
+oncogenic_pathway,PCPG,Cell Cycle,3,0.5,1,61,9,52,5,27,3,20290897
+oncogenic_pathway,PCPG,Cell Cycle,3,0.5,2,61,9,52,5,27,5,20290897
+oncogenic_pathway,PCPG,Cell Cycle,3,0.5,3,62,9,53,5,26,3,20290897
+oncogenic_pathway,PCPG,Cell Cycle,3,0.5,4,62,9,53,4,26,7,20290897
+oncogenic_pathway,PCPG,Cell Cycle,3,0.5,5,62,9,53,4,26,1,20290897
+oncogenic_pathway,PCPG,Cell Cycle,4,0.5,1,61,9,52,5,27,1,20300897
+oncogenic_pathway,PCPG,Cell Cycle,4,0.5,2,61,9,52,5,27,3,20300897
+oncogenic_pathway,PCPG,Cell Cycle,4,0.5,3,62,9,53,5,26,5,20300897
+oncogenic_pathway,PCPG,Cell Cycle,4,0.5,4,62,9,53,4,26,3,20300897
+oncogenic_pathway,PCPG,Cell Cycle,4,0.5,5,62,9,53,4,26,10,20300897
+oncogenic_pathway,PCPG,Cell Cycle,5,0.5,1,61,9,52,5,27,6,20310897
+oncogenic_pathway,PCPG,Cell Cycle,5,0.5,2,61,9,52,5,27,3,20310897
+oncogenic_pathway,PCPG,Cell Cycle,5,0.5,3,62,9,53,5,26,9,20310897
+oncogenic_pathway,PCPG,Cell Cycle,5,0.5,4,62,9,53,4,26,8,20310897
+oncogenic_pathway,PCPG,Cell Cycle,5,0.5,5,62,9,53,4,26,8,20310897
+oncogenic_pathway,PCPG,Cell Cycle,1,0.75,1,91,13,78,5,27,8,20270897
+oncogenic_pathway,PCPG,Cell Cycle,1,0.75,2,91,13,78,5,27,3,20270897
+oncogenic_pathway,PCPG,Cell Cycle,1,0.75,3,92,13,79,5,26,10,20270897
+oncogenic_pathway,PCPG,Cell Cycle,1,0.75,4,93,14,79,4,26,7,20270897
+oncogenic_pathway,PCPG,Cell Cycle,1,0.75,5,93,14,79,4,26,6,20270897
+oncogenic_pathway,PCPG,Cell Cycle,2,0.75,1,91,13,78,5,27,7,20280897
+oncogenic_pathway,PCPG,Cell Cycle,2,0.75,2,91,13,78,5,27,5,20280897
+oncogenic_pathway,PCPG,Cell Cycle,2,0.75,3,92,13,79,5,26,9,20280897
+oncogenic_pathway,PCPG,Cell Cycle,2,0.75,4,93,14,79,4,26,6,20280897
+oncogenic_pathway,PCPG,Cell Cycle,2,0.75,5,93,14,79,4,26,1,20280897
+oncogenic_pathway,PCPG,Cell Cycle,3,0.75,1,91,13,78,5,27,9,20290897
+oncogenic_pathway,PCPG,Cell Cycle,3,0.75,2,91,13,78,5,27,3,20290897
+oncogenic_pathway,PCPG,Cell Cycle,3,0.75,3,92,13,79,5,26,5,20290897
+oncogenic_pathway,PCPG,Cell Cycle,3,0.75,4,93,14,79,4,26,8,20290897
+oncogenic_pathway,PCPG,Cell Cycle,3,0.75,5,93,14,79,4,26,9,20290897
+oncogenic_pathway,PCPG,Cell Cycle,4,0.75,1,91,13,78,5,27,7,20300897
+oncogenic_pathway,PCPG,Cell Cycle,4,0.75,2,91,13,78,5,27,5,20300897
+oncogenic_pathway,PCPG,Cell Cycle,4,0.75,3,92,13,79,5,26,9,20300897
+oncogenic_pathway,PCPG,Cell Cycle,4,0.75,4,93,14,79,4,26,6,20300897
+oncogenic_pathway,PCPG,Cell Cycle,4,0.75,5,93,14,79,4,26,1,20300897
+oncogenic_pathway,PCPG,Cell Cycle,5,0.75,1,91,13,78,5,27,5,20310897
+oncogenic_pathway,PCPG,Cell Cycle,5,0.75,2,91,13,78,5,27,3,20310897
+oncogenic_pathway,PCPG,Cell Cycle,5,0.75,3,92,13,79,5,26,6,20310897
+oncogenic_pathway,PCPG,Cell Cycle,5,0.75,4,93,14,79,4,26,3,20310897
+oncogenic_pathway,PCPG,Cell Cycle,5,0.75,5,93,14,79,4,26,6,20310897
+oncogenic_pathway,PCPG,Cell Cycle,1,1,1,123,18,105,5,27,6,20270897
+oncogenic_pathway,PCPG,Cell Cycle,1,1,2,123,18,105,5,27,9,20270897
+oncogenic_pathway,PCPG,Cell Cycle,1,1,3,124,18,106,5,26,6,20270897
+oncogenic_pathway,PCPG,Cell Cycle,1,1,4,125,19,106,4,26,5,20270897
+oncogenic_pathway,PCPG,Cell Cycle,1,1,5,125,19,106,4,26,7,20270897
+oncogenic_pathway,PCPG,Cell Cycle,2,1,1,123,18,105,5,27,9,20280897
+oncogenic_pathway,PCPG,Cell Cycle,2,1,2,123,18,105,5,27,8,20280897
+oncogenic_pathway,PCPG,Cell Cycle,2,1,3,124,18,106,5,26,8,20280897
+oncogenic_pathway,PCPG,Cell Cycle,2,1,4,125,19,106,4,26,4,20280897
+oncogenic_pathway,PCPG,Cell Cycle,2,1,5,125,19,106,4,26,5,20280897
+oncogenic_pathway,PCPG,Cell Cycle,3,1,1,123,18,105,5,27,9,20290897
+oncogenic_pathway,PCPG,Cell Cycle,3,1,2,123,18,105,5,27,8,20290897
+oncogenic_pathway,PCPG,Cell Cycle,3,1,3,124,18,106,5,26,10,20290897
+oncogenic_pathway,PCPG,Cell Cycle,3,1,4,125,19,106,4,26,10,20290897
+oncogenic_pathway,PCPG,Cell Cycle,3,1,5,125,19,106,4,26,8,20290897
+oncogenic_pathway,PCPG,Cell Cycle,4,1,1,123,18,105,5,27,9,20300897
+oncogenic_pathway,PCPG,Cell Cycle,4,1,2,123,18,105,5,27,9,20300897
+oncogenic_pathway,PCPG,Cell Cycle,4,1,3,124,18,106,5,26,5,20300897
+oncogenic_pathway,PCPG,Cell Cycle,4,1,4,125,19,106,4,26,7,20300897
+oncogenic_pathway,PCPG,Cell Cycle,4,1,5,125,19,106,4,26,10,20300897
+oncogenic_pathway,PCPG,Cell Cycle,5,1,1,123,18,105,5,27,7,20310897
+oncogenic_pathway,PCPG,Cell Cycle,5,1,2,123,18,105,5,27,7,20310897
+oncogenic_pathway,PCPG,Cell Cycle,5,1,3,124,18,106,5,26,6,20310897
+oncogenic_pathway,PCPG,Cell Cycle,5,1,4,125,19,106,4,26,7,20310897
+oncogenic_pathway,PCPG,Cell Cycle,5,1,5,125,19,106,4,26,8,20310897

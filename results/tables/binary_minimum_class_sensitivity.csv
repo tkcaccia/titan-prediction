@@ -1,0 +1,3 @@
+minimum_per_class,eligible_binary_targets,screen_positive_binary_models,eligible_target_retention_percent,screen_positive_retention_percent,interpretation
+20,459,104,100,100,Prespecified atlas eligibility; models below 50 per class are exploratory
+50,244,87,53.1590413943355,83.6538461538462,Sensitivity threshold and default inference-package eligibility

@@ -165,6 +165,12 @@ for required_revision in (
     "38/41 screen-positive cancer–gene pairs",
     "TCGA out-of-fold score rank (not probability)",
     "Probability calibration was not added",
+    "A stricter ≥50-per-class sensitivity retained 87/104 binary candidates",
+    "Binary class-size sensitivity and development stability",
+    "17 screen-positive models with fewer than 50 patients in either class",
+    "omitted from default inference and available only through explicit opt-in",
+    "PR-AUC was non-interpolated average precision",
+    "cohort-specific descriptive estimates, not calibrated probabilities",
     "Tissue-source-site sensitivity and submitting-site prediction",
     "the same separation was maintained in every inner component-selection split",
     "27/32 cancers",
@@ -185,6 +191,10 @@ for header in (
     "RMSE or BA (95% CI)",
     "Spearman or AUROC (95% CI)",
     "TSS-grouped metric/status",
+    "PR-AUC (95% CI)",
+    "PPV at TCGA prevalence (95% CI)",
+    "NPV at TCGA prevalence (95% CI)",
+    "Evidence/default",
 ):
     require(header in main_text, f"Table 3 metric header is missing: {header}")
 for header in (
@@ -209,18 +219,29 @@ for item in (
     "Table S10d. Within-cancer prediction of TCGA tissue-source site",
     "Table S10e. PLS versus exportable ridge benchmark",
     "Table S10f. Permutation precision and atlas-wide multiplicity sensitivity",
+    "Table S10g. Binary class-size sensitivity and development reliability",
     "Table S6c. Prospectively locked subset for future independent evaluation",
     "Table S12",
     "Figure S1",
     "Figure S2",
+    "Figure S3",
     "Machine-readable additional files",
 ):
     require(item in supplement_text, f"Supplementary item missing: {item}")
-require(len(supplement.inline_shapes) >= 2, "Supplement contains fewer than two figures")
+require(len(supplement.inline_shapes) >= 3, "Supplement contains fewer than three figures")
 require(
     "Panel B. Secondary metric; binary balanced accuracy uses inner-CV operating thresholds selected identically for both methods."
     in supplement_text,
     "Symmetric binary decision-rule panel is missing from Table S10e",
+)
+
+require(
+    "6. The minimum binary class requirement is too permissive for headline and distributed models"
+    in response_text
+    and "87 (83.7%) met it" in response_text
+    and "excluded from default TITANPred inference" in response_text
+    and "fixed-outer-test learning curves" in response_text,
+    "Response to reviewer does not fully address binary class-size reliability",
 )
 require(
     "5. The multiplicity framework is thoughtful but remains resolution-limited"
@@ -249,6 +270,13 @@ require(
     "Symmetric binary PLS–ridge comparison" in reviewer_text
     and "No additional algorithm-comparison correction is requested" in reviewer_text,
     "Reviewer report does not reflect the corrected symmetric comparison",
+)
+
+require(
+    "Binary class size and development stability" in reviewer_text
+    and "17 are now designated exploratory/limited evidence" in reviewer_text
+    and "excludes the 17 limited models from default inference" in reviewer_text,
+    "Reviewer report does not reflect binary class-size reliability changes",
 )
 
 for name, text in texts.items():

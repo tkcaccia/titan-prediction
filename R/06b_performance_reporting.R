@@ -64,7 +64,23 @@ summary_common <- merge(
                model_fit_seed = fit_seed,
                model_analysis_fingerprint = analysis_fingerprint,
                class_labels, class_priors,
-               calibration_status, intended_use, redistribution_status)],
+               calibration_status, intended_use, redistribution_status,
+               model_evidence_tier, default_inference,
+               limited_evidence_reason, binary_pr_auc,
+               binary_ppv_tcga_prevalence, binary_npv_tcga_prevalence,
+               binary_observed_tcga_prevalence,
+               binary_minimum_outer_test_positive,
+               binary_minimum_outer_test_negative,
+               binary_minimum_inner_training_positive,
+               binary_minimum_inner_training_negative,
+               binary_selected_components_median,
+               binary_selected_components_q1,
+               binary_selected_components_q3,
+               binary_selected_components_minimum,
+               binary_selected_components_maximum,
+               binary_repeat_score_spearman,
+               binary_repeat_class_agreement,
+               binary_all_repeat_class_agreement)],
   by = c("family", "tumor_type", "endpoint"), all.x = TRUE
 )
 summary_common[, evidence_label := fifelse(
@@ -79,8 +95,53 @@ continuous_metric <- function(d) {
   mean_repeat_continuous_metrics(d)
 }
 
+average_precision <- function(truth, score) {
+  truth <- as.integer(truth)
+  keep <- truth %in% c(0L, 1L) & is.finite(score)
+  truth <- truth[keep]
+  score <- score[keep]
+  n_positive <- sum(truth == 1L)
+  if (!n_positive || !sum(truth == 0L)) return(NA_real_)
+  by_score <- data.table(score = score, positive = truth == 1L)[, .(
+    positives = sum(positive), total = .N
+  ), by = score]
+  setorder(by_score, -score)
+  by_score[, `:=`(
+    cumulative_positive = cumsum(positives),
+    cumulative_total = cumsum(total)
+  )]
+  by_score[, precision := cumulative_positive / cumulative_total]
+  sum((by_score$positives / n_positive) * by_score$precision)
+}
+
 binary_metric <- function(d) {
-  mean_repeat_binary_metrics(d)
+  d <- as.data.table(d)
+  per_repeat <- d[, {
+    truth <- as.integer(observed)
+    estimate <- as.integer(predicted)
+    tp <- sum(truth == 1L & estimate == 1L)
+    fn <- sum(truth == 1L & estimate == 0L)
+    tn <- sum(truth == 0L & estimate == 0L)
+    fp <- sum(truth == 0L & estimate == 1L)
+    sensitivity <- tp / (tp + fn)
+    specificity <- tn / (tn + fp)
+    data.table(
+      sensitivity = sensitivity,
+      specificity = specificity,
+      balanced_accuracy = mean(c(sensitivity, specificity)),
+      auc = rank_auc(truth, lda_score),
+      pr_auc = average_precision(truth, lda_score),
+      ppv_tcga_prevalence = if (tp + fp) tp / (tp + fp) else NA_real_,
+      npv_tcga_prevalence = if (tn + fn) tn / (tn + fn) else NA_real_
+    )
+  }, by = `repeat`]
+  per_repeat[, .(
+    sensitivity = mean(sensitivity), specificity = mean(specificity),
+    balanced_accuracy = mean(balanced_accuracy), auc = mean(auc),
+    pr_auc = mean(pr_auc),
+    ppv_tcga_prevalence = mean(ppv_tcga_prevalence, na.rm = TRUE),
+    npv_tcga_prevalence = mean(npv_tcga_prevalence, na.rm = TRUE)
+  )]
 }
 
 cluster_bootstrap <- function(d, metric_function, seed, times = 1000L) {
@@ -157,7 +218,23 @@ highlighted <- merge(
                model_fit_seed = fit_seed,
                model_analysis_fingerprint = analysis_fingerprint,
                class_labels, class_priors,
-               calibration_status, intended_use, redistribution_status)],
+               calibration_status, intended_use, redistribution_status,
+               model_evidence_tier, default_inference,
+               limited_evidence_reason, binary_pr_auc,
+               binary_ppv_tcga_prevalence, binary_npv_tcga_prevalence,
+               binary_observed_tcga_prevalence,
+               binary_minimum_outer_test_positive,
+               binary_minimum_outer_test_negative,
+               binary_minimum_inner_training_positive,
+               binary_minimum_inner_training_negative,
+               binary_selected_components_median,
+               binary_selected_components_q1,
+               binary_selected_components_q3,
+               binary_selected_components_minimum,
+               binary_selected_components_maximum,
+               binary_repeat_score_spearman,
+               binary_repeat_class_agreement,
+               binary_all_repeat_class_agreement)],
   by = c("family", "tumor_type", "endpoint"), all.x = TRUE
 )
 highlighted[, uncertainty_method := paste(

@@ -338,6 +338,35 @@ assert(all(!is.na(binary_registry$class_labels) &
              !is.na(binary_registry$class_priors) &
              nzchar(binary_registry$class_priors)),
        "Binary registry class coding or priors are incomplete")
+binary_reliability_registry_fields <- c(
+  "model_evidence_tier", "default_inference", "limited_evidence_reason",
+  "binary_pr_auc", "binary_ppv_tcga_prevalence",
+  "binary_npv_tcga_prevalence", "binary_observed_tcga_prevalence",
+  "binary_minimum_outer_test_positive", "binary_minimum_outer_test_negative",
+  "binary_minimum_inner_training_positive",
+  "binary_minimum_inner_training_negative",
+  "binary_selected_components_median", "binary_selected_components_q1",
+  "binary_selected_components_q3", "binary_selected_components_minimum",
+  "binary_selected_components_maximum", "binary_repeat_score_spearman",
+  "binary_repeat_class_agreement", "binary_all_repeat_class_agreement"
+)
+assert(all(binary_reliability_registry_fields %chin% names(registry)),
+       "Model registry lacks binary class-reliability metadata")
+assert(sum(binary_registry$model_evidence_tier ==
+             "exploratory_limited_evidence") == 17L &&
+         sum(binary_registry$default_inference) == 87L &&
+         all(binary_registry$default_inference ==
+               (binary_registry$positive >= 50L &
+                  binary_registry$negative >= 50L)) &&
+         all(nzchar(binary_registry$limited_evidence_reason[
+           !binary_registry$default_inference
+         ])) &&
+         all(is.finite(binary_registry$binary_pr_auc) &
+               is.finite(binary_registry$binary_ppv_tcga_prevalence) &
+               is.finite(binary_registry$binary_npv_tcga_prevalence) &
+               is.finite(binary_registry$binary_repeat_score_spearman) &
+               is.finite(binary_registry$binary_repeat_class_agreement)),
+       "Binary registry evidence tiers or reliability metrics are invalid")
 assert(all(!is.na(registry$calibration_status) &
              nzchar(registry$calibration_status) &
              !is.na(registry$intended_use) & nzchar(registry$intended_use)),
@@ -451,6 +480,118 @@ audit_repeated_predictions(
   "results/predictions/binary_repeated_oof_predictions.csv.gz",
   supported_b, "binary repeated OOF"
 )
+
+binary_reliability <- fread(
+  "results/tables/binary_class_reliability_summary.csv"
+)
+binary_reliability_repeats <- fread(
+  "results/tables/binary_reliability_by_repeat.csv"
+)
+binary_fold_counts <- fread(
+  "results/tables/binary_outer_fold_class_counts.csv"
+)
+binary_components <- fread(
+  "results/tables/binary_selected_components_by_fold.csv"
+)
+binary_component_summary <- fread(
+  "results/tables/binary_selected_component_distribution.csv"
+)
+binary_minimum_sensitivity <- fread(
+  "results/tables/binary_minimum_class_sensitivity.csv"
+)
+binary_learning_repeats <- fread(
+  "results/tables/binary_limited_evidence_learning_curve_repeats.csv"
+)
+binary_learning_folds <- fread(
+  "results/tables/binary_limited_evidence_learning_curve_folds.csv"
+)
+binary_learning_summary <- fread(
+  "results/tables/binary_limited_evidence_learning_curve_summary.csv"
+)
+assert(nrow(binary_reliability) == 104L &&
+         nrow(binary_reliability_repeats) == 520L &&
+         nrow(binary_fold_counts) == 2600L &&
+         nrow(binary_components) == 2600L &&
+         nrow(binary_component_summary) == 104L,
+       "Binary reliability coverage is incomplete")
+assert(binary_minimum_sensitivity[
+         minimum_per_class == 20L, eligible_binary_targets] == 459L &&
+         binary_minimum_sensitivity[
+           minimum_per_class == 50L, eligible_binary_targets] == 244L &&
+         binary_minimum_sensitivity[
+           minimum_per_class == 20L, screen_positive_binary_models] == 104L &&
+         binary_minimum_sensitivity[
+           minimum_per_class == 50L, screen_positive_binary_models] == 87L,
+       "The 50-per-class sensitivity counts are inconsistent")
+assert(all(binary_fold_counts$training_positive > 0L &
+             binary_fold_counts$training_negative > 0L &
+             binary_fold_counts$test_positive > 0L &
+             binary_fold_counts$test_negative > 0L) &&
+         all(binary_fold_counts$training_positive +
+               binary_fold_counts$test_positive ==
+               binary_fold_counts$positive) &&
+         all(binary_fold_counts$training_negative +
+               binary_fold_counts$test_negative ==
+               binary_fold_counts$negative),
+       "Binary repeated outer-fold class counts are invalid")
+component_fold_check <- merge(
+  binary_components,
+  binary_fold_counts[, .(
+    family, tumor_type, endpoint, `repeat`, outer_fold,
+    training_positive, training_negative, test_positive, test_negative
+  )],
+  by = c(key, "repeat", "outer_fold"), all = TRUE
+)
+assert(nrow(component_fold_check) == 2600L &&
+         all(component_fold_check$selected_components %in%
+               cfg$analysis$components) &&
+         all(component_fold_check$outer_training_positive ==
+               component_fold_check$training_positive) &&
+         all(component_fold_check$outer_training_negative ==
+               component_fold_check$training_negative) &&
+         all(component_fold_check$outer_test_positive ==
+               component_fold_check$test_positive) &&
+         all(component_fold_check$outer_test_negative ==
+               component_fold_check$test_negative) &&
+         all(component_fold_check$minimum_inner_training_positive > 0L) &&
+         all(component_fold_check$minimum_inner_training_negative > 0L) &&
+         all(component_fold_check$minimum_inner_validation_positive > 0L) &&
+         all(component_fold_check$minimum_inner_validation_negative > 0L),
+       "Binary component-selection or inner-fold class audit is invalid")
+assert(nrow(binary_learning_repeats) == 255L &&
+         nrow(binary_learning_folds) == 1275L &&
+         nrow(binary_learning_summary) == 51L &&
+         all(sort(unique(binary_learning_summary$training_fraction)) ==
+               c(0.50, 0.75, 1.00)),
+       "Limited-evidence learning-curve coverage is incomplete")
+learning_full <- binary_learning_repeats[training_fraction == 1]
+reliability_limited <- binary_reliability_repeats[
+  binary_reliability[model_evidence_tier ==
+    "exploratory_limited_evidence", ..key], on = key, nomatch = 0L
+]
+learning_check <- merge(
+  learning_full, reliability_limited,
+  by = c(key, "repeat"), suffixes = c("_learning", "_original")
+)
+assert(nrow(learning_check) == 85L &&
+         all(abs(learning_check$balanced_accuracy_learning -
+                   learning_check$balanced_accuracy_original) < 1e-12) &&
+         all(abs(learning_check$auc_learning -
+                   learning_check$auc_original) < 1e-12) &&
+         all(abs(learning_check$pr_auc_learning -
+                   learning_check$pr_auc_original) < 1e-12),
+       "Full-data learning-curve fits do not reproduce repeated-CV metrics")
+highlighted_reliability <- fread(
+  "results/tables/highlighted_model_performance.csv"
+)[outcome_type == "binary"]
+assert(nrow(highlighted_reliability) == 12L &&
+         all(highlighted_reliability$default_inference) &&
+         all(highlighted_reliability$model_evidence_tier ==
+               "standard_internal_evidence") &&
+         all(is.finite(highlighted_reliability$pr_auc) &
+               is.finite(highlighted_reliability$ppv_tcga_prevalence) &
+               is.finite(highlighted_reliability$npv_tcga_prevalence)),
+       "Headline binary models lack standard evidence or required metrics")
 
 for (item in list(
   list(file = "results/tables/continuous_site_grouped_sensitivity.csv",

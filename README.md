@@ -128,6 +128,26 @@ for ranking.
 Set `TITAN_RUN_9999=false` only when intentionally skipping this final targeted
 precision analysis; completed permutation indices are checkpointed every 50 fits.
 
+Binary atlas eligibility remains the prespecified minimum of 20 positive and
+20 negative patients so that tested results are not silently discarded.
+`R/06c_binary_class_reliability.R` adds a stricter 50-per-class sensitivity and
+the development diagnostics required to interpret smaller classes. Of 459
+eligible binary targets, 244 (53.2%) meet 50 per class; 87/104 screen-positive
+binary models (83.7%) meet that standard. The remaining 17 are retained in the
+complete atlas but labelled `exploratory_limited_evidence` and excluded from
+default TITANPred inference.
+
+The reliability analysis reports all 2,600 repeated outer-fold training/test
+class counts, reconstructs the exact 2,600 inner component selections and their
+inner class minima, calculates held-out average precision (PR-AUC), PPV and NPV
+at the observed TCGA prevalence, measures repeat-to-repeat score and class-call
+stability, and runs fixed-test-fold learning curves at 50%, 75% and 100% of the
+outer training data for all 17 limited-evidence models. Principal outputs are
+[`binary_class_reliability_summary.csv`](results/tables/binary_class_reliability_summary.csv),
+[`binary_outer_fold_class_counts.csv`](results/tables/binary_outer_fold_class_counts.csv),
+[`binary_selected_components_by_fold.csv`](results/tables/binary_selected_components_by_fold.csv),
+and [`binary_limited_evidence_learning_curve_summary.csv`](results/tables/binary_limited_evidence_learning_curve_summary.csv).
+
 After the R pipeline finishes, build the submission documents with:
 
 ```bash
@@ -191,7 +211,10 @@ commits.
 ## Applying cancer-matched models in research software
 
 All 323 fitted research models are maintained in the separate, currently
-private [`TITANPred`](https://github.com/tkcaccia/TITANPred) R package. They are
+private [`TITANPred`](https://github.com/tkcaccia/TITANPred) R package. Default
+inference applies 306 models: all 219 continuous models and the 87 binary models
+with at least 50 participants in both development classes. The 17 smaller-class
+binary models remain registry-visible but require explicit opt-in. They are
 not presented as externally validated or publicly released predictors. An
 authorised research user supplies a
 cancer vector and correctly named TITAN features; `predict_titan()` applies
@@ -207,6 +230,15 @@ predictions <- predict_titan(
   features = my_titan_features,
   patient_id = my_patient_ids
 )
+
+# Explicit research-only opt-in for smaller-class binary models:
+limited_predictions <- predict_titan(
+  cancer = my_cancer_vector,
+  features = my_titan_features,
+  patient_id = my_patient_ids,
+  outcome_type = "binary",
+  include_limited_evidence = TRUE
+)
 ```
 
 `titan_sample_report()` generates a research-software HTML or PDF demonstration with a
@@ -220,7 +252,9 @@ Figure 7 are available under [`results/reports`](results/reports/).
 
 Every inference row reports the TCGA tissue-source-site-grouped internal metric,
 grouped-minus-random change, analysed-site count, threshold-retention status and
-warning. Models that become near chance or fall below their original effect
+warning. Binary rows also report PR-AUC, cohort-specific PPV/NPV, fold class
+minima, selected-component distributions, prediction stability and evidence
+tier. Models that become near chance or fall below their original effect
 threshold are labelled prominently rather than highlighted without qualification.
 
 Every bundled RDS object includes the exact 768-column feature order, slide

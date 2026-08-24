@@ -1,0 +1,105 @@
+family,tumor_type,endpoint,selected_components_median,selected_components_q1,selected_components_q3,selected_components_minimum,selected_components_maximum,selected_components_unique,minimum_inner_training_positive,minimum_inner_training_negative,minimum_inner_validation_positive,minimum_inner_validation_negative
+aneuploidy,BLCA,Genome doubling,6,4,8,3,9,6,145,94,36,23
+aneuploidy,BRCA,Genome doubling,5,4,6,2,9,8,280,358,70,89
+aneuploidy,COAD,Genome doubling,6,5,8,4,10,7,105,155,26,38
+aneuploidy,HNSC,Genome doubling,4,4,5,2,7,6,112,165,28,41
+aneuploidy,LIHC,Genome doubling,4,3,5,1,9,8,73,150,18,37
+aneuploidy,LUAD,Genome doubling,2,2,3,2,7,4,168,118,42,29
+aneuploidy,LUSC,Genome doubling,3,3,4,1,10,6,159,134,39,33
+aneuploidy,OV,Genome doubling,3,3,5,2,10,8,41,19,10,4
+aneuploidy,PCPG,Genome doubling,7,6,9,1,10,9,15,84,3,21
+aneuploidy,READ,Genome doubling,3,1,4,1,10,8,45,44,11,11
+aneuploidy,SARC,Genome doubling,4,2,5,1,10,9,71,80,17,20
+aneuploidy,STAD,Genome doubling,4,3,7,3,10,7,98,131,24,32
+aneuploidy,UCEC,Genome doubling,4,2,8,1,9,8,61,243,15,60
+driver_mutation,BLCA,FGFR3,5,3,6,2,9,7,34,211,8,52
+driver_mutation,BLCA,PIK3CA,7,7,8,5,9,5,52,192,13,48
+driver_mutation,BLCA,TP53,2,1,3,1,8,8,118,127,29,31
+driver_mutation,BRCA,CDH1,7,5,8,2,10,7,60,566,15,141
+driver_mutation,BRCA,PIK3CA,8,8,9,4,10,6,169,457,42,114
+driver_mutation,BRCA,TP53,8,7,9,6,10,5,165,461,41,115
+driver_mutation,CESC,TP53,5,2,8,1,10,9,12,147,3,36
+driver_mutation,COAD,APC,2,2,2,1,4,4,124,118,31,29
+driver_mutation,COAD,BRAF,8,4,9,3,10,7,28,216,7,54
+driver_mutation,COAD,KRAS,4,3,7,2,10,8,80,163,20,40
+driver_mutation,COAD,TP53,2,2,3,2,7,4,102,140,25,35
+driver_mutation,GBM,TP53,2,2,5,1,10,5,32,120,8,30
+driver_mutation,HNSC,NSD1,7,5,9,5,10,6,32,243,8,60
+driver_mutation,HNSC,TP53,6,4,7,2,10,8,204,70,51,17
+driver_mutation,KIRC,VHL,1,1,1,1,9,5,102,122,25,30
+driver_mutation,LGG,ATRX,4,2,5,2,10,7,115,194,28,48
+driver_mutation,LGG,CIC,4,3,5,2,10,8,67,243,16,60
+driver_mutation,LGG,EGFR,2,2,3,2,4,3,21,288,5,72
+driver_mutation,LGG,FUBP1,9,7,9,3,10,7,28,281,7,70
+driver_mutation,LGG,IDH1,3,3,3,2,10,6,240,70,60,17
+driver_mutation,LGG,PTEN,6,5,8,2,10,8,14,295,3,73
+driver_mutation,LGG,TP53,3,3,5,2,9,7,148,161,37,40
+driver_mutation,LIHC,BAP1,3,1,5,1,10,9,12,211,3,52
+driver_mutation,LIHC,CTNNB1,9,7,10,2,10,7,59,164,14,41
+driver_mutation,LIHC,TP53,3,2,3,2,7,4,68,155,17,38
+driver_mutation,LUAD,EGFR,6,5,7,3,10,8,37,258,9,64
+driver_mutation,LUAD,TP53,3,3,4,2,9,5,149,146,37,36
+driver_mutation,OV,TP53,4,2,8,1,10,10,13,32,3,8
+driver_mutation,PAAD,TP53,3,3,7,1,10,8,67,44,16,11
+driver_mutation,READ,APC,2,1,4,1,10,8,41,44,10,11
+driver_mutation,READ,TP53,2,1,2,1,5,5,41,44,10,11
+driver_mutation,SARC,TP53,5,2,8,1,10,7,51,94,12,23
+driver_mutation,SKCM,BRAF,2,1,3,1,6,5,32,28,8,7
+driver_mutation,STAD,PIK3CA,4,4,6,2,10,7,36,200,9,50
+driver_mutation,STAD,TP53,3,3,4,1,9,7,114,122,28,30
+driver_mutation,THCA,BRAF,4,4,4,3,8,5,184,128,46,32
+driver_mutation,THCA,NRAS,7,6,9,3,10,7,24,288,6,72
+driver_mutation,THYM,GTF2I,4,2,6,1,8,8,37,38,9,9
+driver_mutation,UCEC,ARID1A,7,4,9,2,10,8,112,198,28,49
+driver_mutation,UCEC,PTEN,4,4,4,2,9,7,166,144,41,36
+driver_mutation,UCEC,TP53,5,4,7,2,10,9,99,212,24,53
+fusion,BLCA,Any called fusion,3,2,9,1,10,8,184,59,46,14
+fusion,LGG,Any called fusion,1,1,2,1,4,3,150,160,37,40
+fusion,LIHC,Any called fusion,4,3,6,1,9,9,136,91,34,22
+fusion,PRAD,Fusion pair: TMPRSS2--ERG,9,8,10,4,10,7,101,153,25,38
+fusion,SARC,Any called fusion,7,6,8,2,10,8,137,22,34,5
+fusion,THCA,Any called fusion,6,4,7,3,10,8,88,232,22,58
+fusion,THCA,Fusion pair: CCDC6--RET,9,7,9,4,10,6,12,307,3,76
+fusion,UCEC,Any called fusion,2,2,3,2,10,5,51,46,12,11
+microsatellite_instability,COAD,MSI-H (MANTIS >0.4),6,5,7,4,9,5,47,202,11,50
+microsatellite_instability,STAD,MSI-H (MANTIS >0.4),7,6,8,3,10,8,40,196,10,49
+microsatellite_instability,UCEC,MSI-H (MANTIS >0.4),5,4,5,3,10,7,99,212,24,53
+microsatellite_instability_sensitivity,COAD,MSI-H strict (MANTIS >0.6),7,6,8,3,10,8,36,202,9,50
+microsatellite_instability_sensitivity,STAD,MSI-H strict (MANTIS >0.6),5,4,8,3,10,8,35,196,8,49
+microsatellite_instability_sensitivity,UCEC,MSI-H strict (MANTIS >0.6),9,7,10,3,10,7,67,212,16,53
+oncogenic_pathway,BLCA,TP53,2,2,2,1,9,6,148,89,37,22
+oncogenic_pathway,BRCA,TP53,1,1,3,1,4,4,279,323,69,80
+oncogenic_pathway,COAD,MYC,4,3,4,2,5,4,50,156,12,39
+oncogenic_pathway,COAD,PI3K,4,3,5,2,10,8,94,112,23,28
+oncogenic_pathway,COAD,TP53,3,2,4,1,6,6,132,73,33,18
+oncogenic_pathway,GBM,TP53,3,2,6,1,10,8,24,20,6,5
+oncogenic_pathway,HNSC,TP53,5,3,7,1,10,10,199,64,49,16
+oncogenic_pathway,KIRC,WNT,4,3,6,1,8,8,14,200,3,50
+oncogenic_pathway,KIRP,Cell Cycle,3,3,4,2,10,7,19,135,4,33
+oncogenic_pathway,LGG,Cell Cycle,2,1,2,1,7,4,124,179,31,44
+oncogenic_pathway,LGG,HIPPO,5,3,6,2,7,6,242,64,60,16
+oncogenic_pathway,LGG,RTK RAS,2,2,2,1,4,4,86,220,21,55
+oncogenic_pathway,LGG,TGF-Beta,7,4,9,2,10,7,83,224,20,56
+oncogenic_pathway,LGG,TP53,3,2,3,2,7,4,158,148,39,37
+oncogenic_pathway,LGG,WNT,3,1,4,1,10,7,83,224,20,56
+oncogenic_pathway,LIHC,Cell Cycle,6,4,8,3,10,8,148,67,37,16
+oncogenic_pathway,LIHC,TP53,3,2,7,1,10,10,80,134,20,33
+oncogenic_pathway,LIHC,WNT,3,3,5,1,8,8,93,121,23,30
+oncogenic_pathway,LUAD,TP53,1,1,3,1,10,5,175,112,43,28
+oncogenic_pathway,PCPG,Cell Cycle,8,6,9,4,10,7,14,84,3,21
+oncogenic_pathway,PCPG,RTK RAS,3,2,5,2,10,8,32,67,8,16
+oncogenic_pathway,PRAD,PI3K,7,6,8,4,10,7,83,164,20,41
+oncogenic_pathway,PRAD,TP53,8,8,10,7,10,4,51,196,12,49
+oncogenic_pathway,SARC,RTK RAS,1,1,2,1,3,3,54,86,13,21
+oncogenic_pathway,SARC,TP53,1,1,2,1,5,4,92,48,23,12
+oncogenic_pathway,STAD,HIPPO,7,5,8,2,10,9,44,164,11,41
+oncogenic_pathway,STAD,NOTCH,3,2,4,1,10,6,80,128,20,32
+oncogenic_pathway,STAD,RTK RAS,3,3,4,1,10,5,122,86,30,21
+oncogenic_pathway,STAD,TP53,3,2,4,1,5,5,117,91,29,22
+oncogenic_pathway,STAD,WNT,2,2,5,1,9,7,76,132,19,33
+oncogenic_pathway,TGCT,RTK RAS,2,1,3,1,9,5,34,56,8,14
+oncogenic_pathway,THCA,RTK RAS,5,4,7,3,10,8,257,48,64,12
+oncogenic_pathway,THCA,WNT,4,2,6,1,10,8,39,265,9,66
+oncogenic_pathway,UCEC,NOTCH,4,3,6,1,10,9,116,182,29,45
+oncogenic_pathway,UCEC,TP53,2,2,3,2,9,6,139,160,34,40
+oncogenic_pathway,UCEC,WNT,5,4,7,2,9,8,147,152,36,38

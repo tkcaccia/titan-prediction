@@ -10,6 +10,7 @@ scripts <- c(
   "R/05b_refine_permutations.R",
   "R/05c_targeted_permutation_refinement.R",
   "R/06_robustness_and_models.R",
+  "R/06c_binary_class_reliability.R",
   "R/06b_performance_reporting.R",
   "R/07_site_grouped_sensitivity.R",
   "R/07c_site_retention_summary.R",

@@ -55,6 +55,11 @@ theme_titan <- function(base_size = 10) {
 
 continuous <- fread("results/tables/continuous_screen.csv")
 binary <- fread("results/tables/binary_screen.csv")
+binary_reliability <- fread("results/tables/binary_class_reliability_summary.csv")
+binary[binary_reliability,
+       on = .(family, tumor_type, endpoint),
+       `:=`(model_evidence_tier = i.model_evidence_tier,
+            default_inference = i.default_inference)]
 continuous[, family_label := family_labels[family]]
 binary[, family_label := family_labels[family]]
 continuous[, evidence_band := factor(
@@ -191,8 +196,11 @@ p2 <- ggplot(cp, aes(q2, display, color = family_label)) +
 ggsave("figures/Figure2_continuous_atlas.png", p2, width = 10.2, height = 8.7,
        dpi = 320, bg = "white")
 
-# Figure 3: concise binary landscape with endpoint family in every label.
-bs <- binary[tier %chin% c("A", "B")][order(-balanced_accuracy)]
+# Figure 3: standard-evidence binary landscape. The 17 smaller-class models are
+# separated into Supplementary Figure S3 and excluded from default inference.
+bs <- binary[
+  tier %chin% c("A", "B") & model_evidence_tier == "standard_internal_evidence"
+][order(-balanced_accuracy)]
 bp <- head(bs, 30L)
 bp[, display := paste0(tumor_type, "  ·  ", endpoint, "  [", family_label, "]")]
 bp[, display := factor(display, levels = rev(display))]
@@ -208,11 +216,11 @@ p3 <- ggplot(bp, aes(balanced_accuracy, display, color = family_label)) +
   scale_size_continuous(range = c(2.4, 5.2)) +
   labs(
     title = "Binary discrimination is endpoint- and cancer-specific",
-    subtitle = "Top 30 PLS–LDA candidates; filled points pass the stricter across-cancer family correction",
+    subtitle = "Top 30 of 87 models with at least 50 patients per class; 17 limited-evidence models are separated in Figure S3",
     x = "Patient-level outer-fold balanced accuracy", y = NULL,
     color = "Endpoint family", shape = "Multiplicity sensitivity",
     size = "Positive patients",
-    caption = "Mutation and pathway labels are explicitly separated. LDA scores are not calibrated probabilities."
+    caption = "Mutation and pathway labels are explicitly separated. Limited-evidence models are excluded from this panel and default inference. LDA scores are not calibrated probabilities."
   ) + theme_titan(8.6) +
   theme(legend.box = "vertical")
 ggsave("figures/Figure3_binary_atlas.png", p3, width = 11.2, height = 9.4,
@@ -461,3 +469,104 @@ ggsave("figures/Figure6a_pls1_vs_pls2_targets.png", p_s1,
        width = 6.2, height = 5.5, dpi = 320, bg = "white")
 ggsave("figures/Figure6b_pls1_vs_pls2_cancers.png", p_s2,
        width = 7.5, height = 7.5, dpi = 320, bg = "white")
+
+# Supplementary binary class-size and stability analysis.
+learning <- fread(
+  "results/tables/binary_limited_evidence_learning_curve_summary.csv"
+)
+limited <- fread("results/tables/binary_limited_evidence_models.csv")
+components <- fread("results/tables/binary_selected_components_by_fold.csv")
+stability <- fread("results/tables/binary_class_reliability_summary.csv")
+
+learning[, model := paste0(tumor_type, "-", endpoint)]
+learning_long <- melt(
+  learning,
+  id.vars = c("family", "tumor_type", "endpoint", "model",
+              "training_fraction"),
+  measure.vars = c("balanced_accuracy_mean", "auc_mean", "pr_auc_mean"),
+  variable.name = "metric", value.name = "performance"
+)
+learning_long[, metric := factor(
+  metric,
+  levels = c("balanced_accuracy_mean", "auc_mean", "pr_auc_mean"),
+  labels = c("Balanced accuracy", "AUROC", "Average precision (PR-AUC)")
+)]
+learning_median <- learning_long[, .(
+  performance = median(performance)
+), by = .(training_fraction, metric)]
+p_s3a <- ggplot(learning_long,
+                aes(training_fraction * 100, performance, group = model)) +
+  geom_line(color = "#AAB7C4", linewidth = 0.45, alpha = 0.7) +
+  geom_point(color = "#AAB7C4", size = 1.1, alpha = 0.7) +
+  geom_line(data = learning_median, aes(group = 1), color = coral,
+            linewidth = 1.25) +
+  geom_point(data = learning_median, aes(group = 1), color = coral,
+             size = 2.2) +
+  facet_wrap(~metric, nrow = 1) +
+  scale_x_continuous(breaks = c(50, 75, 100), labels = c("50%", "75%", "100%")) +
+  scale_y_continuous(limits = c(0, 1), breaks = seq(0, 1, 0.2)) +
+  labs(
+    title = "A  Learning curves for all 17 limited-evidence models",
+    subtitle = "Grey: individual models; coral: cross-model median; outer test folds remain fixed",
+    x = "Fraction of each outer training set used", y = "Held-out performance"
+  ) + theme_titan(8.5)
+
+limited_keys <- limited[, .(family, tumor_type, endpoint)]
+limited_components <- components[limited_keys,
+                                 on = .(family, tumor_type, endpoint),
+                                 nomatch = 0L]
+limited_components[, model := paste0(tumor_type, "-", endpoint)]
+component_order <- limited_components[, .(
+  selected_components_median = median(selected_components)
+), by = model][order(selected_components_median), model]
+limited_components[, model := factor(
+  model, levels = component_order
+)]
+p_s3b <- ggplot(limited_components,
+                aes(selected_components, model)) +
+  geom_boxplot(width = 0.58, outlier.shape = NA, fill = "#E8F4F2",
+               color = teal, linewidth = 0.55) +
+  geom_jitter(height = 0.12, width = 0.08, color = navy,
+              size = 0.75, alpha = 0.5) +
+  scale_x_continuous(breaks = 1:10, limits = c(0.5, 10.5)) +
+  labs(
+    title = "B  Latent-component selection varies across 25 outer fits per model",
+    subtitle = "Five outer folds in each of five independently seeded nested validations",
+    x = "Inner-CV selected PLS components", y = NULL
+  ) + theme_titan(8.3)
+
+stability[, evidence := factor(
+  fifelse(model_evidence_tier == "exploratory_limited_evidence",
+          "Exploratory / limited evidence", "At least 50 per class"),
+  levels = c("At least 50 per class", "Exploratory / limited evidence")
+)]
+p_s3c <- ggplot(stability,
+                aes(repeat_score_spearman_mean,
+                    repeat_class_agreement_mean, color = evidence)) +
+  geom_point(alpha = 0.8, size = 2) +
+  scale_color_manual(values = c("At least 50 per class" = teal,
+                                "Exploratory / limited evidence" = coral)) +
+  scale_x_continuous(limits = c(0, 1), breaks = seq(0, 1, 0.2)) +
+  scale_y_continuous(limits = c(0.5, 1), breaks = seq(0.5, 1, 0.1)) +
+  labs(
+    title = "C  Repeat-to-repeat stability from held-out predictions",
+    subtitle = "Score correlation uses within-repeat standardised LDA scores; agreement uses class calls",
+    x = "Mean pairwise Spearman correlation",
+    y = "Mean pairwise class agreement", color = NULL
+  ) + theme_titan(8.5)
+
+p_s3 <- p_s3a / p_s3b / p_s3c +
+  plot_layout(heights = c(0.8, 1.35, 0.9)) +
+  plot_annotation(
+    title = "Binary class-size sensitivity, model complexity and prediction stability",
+    caption = paste(
+      "Models with fewer than 50 TCGA participants in either class remain in the complete atlas",
+      "but are excluded from default TITANPred inference and require explicit opt-in."
+    ),
+    theme = theme(
+      plot.title = element_text(face = "bold", size = 15, color = navy),
+      plot.caption = element_text(color = muted, hjust = 0, size = 8)
+    )
+  )
+ggsave("figures/FigureS3_binary_class_reliability.png", p_s3,
+       width = 11.2, height = 13.5, dpi = 320, bg = "white")

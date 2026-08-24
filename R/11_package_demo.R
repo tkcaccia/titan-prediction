@@ -1,3 +1,4 @@
+.libPaths(c(normalizePath(".Rlib", mustWork = FALSE), .libPaths()))
 suppressPackageStartupMessages({
   library(data.table)
   library(ggplot2)

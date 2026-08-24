@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 from datetime import date
 from pathlib import Path
+from statistics import median
 
 from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -88,6 +89,9 @@ ridge_summary = read_rows("pls_vs_ridge_summary.csv")
 multiplicity_summary = read_rows("multiplicity_sensitivity_summary.csv")
 permutation_uncertainty = read_rows("permutation_monte_carlo_uncertainty.csv")
 targeted_permutation = read_rows("targeted_permutation_refinement.csv")
+binary_class_sensitivity = read_rows("binary_minimum_class_sensitivity.csv")
+binary_reliability = read_rows("binary_class_reliability_summary.csv")
+binary_learning = read_rows("binary_limited_evidence_learning_curve_summary.csv")
 combined_multiplicity = next(
     r for r in multiplicity_summary if r["outcome_type"] == "combined"
 )
@@ -114,6 +118,18 @@ participant_overall = next(
 
 screen_c = [r for r in continuous if r["tier"] in ("A", "B")]
 screen_b = [r for r in binary if r["tier"] in ("A", "B")]
+binary_standard = [
+    r for r in binary_reliability
+    if r["model_evidence_tier"] == "standard_internal_evidence"
+]
+binary_limited = [
+    r for r in binary_reliability
+    if r["model_evidence_tier"] == "exploratory_limited_evidence"
+]
+binary_sensitivity_50 = next(
+    r for r in binary_class_sensitivity if r["minimum_per_class"] == "50"
+)
+binary_learning_100 = [r for r in binary_learning if float(r["training_fraction"]) == 1.0]
 global_c = [r for r in screen_c if float(r["q_value_global"]) < 0.05]
 global_mut = [
     r for r in screen_b
@@ -244,7 +260,7 @@ add_body(doc,
 add_heading(doc, "3. Performance reporting and research-use provenance", 2)
 add_body(doc,
     f"The {len(highlighted):,} highlighted models report sensitivity, specificity, "
-    "balanced accuracy and AUROC for binary outcomes and Q², RMSE and Spearman "
+    "balanced accuracy, AUROC, PR-AUC and cohort-specific PPV/NPV for binary outcomes and Q², RMSE and Spearman "
     "correlation for continuous outcomes, with patient-cluster bootstrap intervals. "
     "The Discussion correctly clarifies that these intervals are conditional on "
     "endpoint selection in the same TCGA benchmark and do not remove winner's-curse "
@@ -258,7 +274,7 @@ add_body(doc,
 )
 add_body(doc,
     "No additional analysis requested. Continue to describe LDA scores as uncalibrated "
-    "and all fitted objects as research-only TCGA models.",
+    "and all fitted objects as research-only TCGA models; PPV and NPV must remain explicitly tied to observed TCGA prevalence.",
     lead="No additional analysis requested."
 )
 
@@ -301,7 +317,35 @@ add_body(doc,
     lead="No additional algorithm-comparison correction is requested."
 )
 
-add_heading(doc, "6. Relation to prior work and translational positioning", 2)
+add_heading(doc, "6. Binary class size and development stability", 2)
+add_body(doc,
+    f"The authors have now separated screening inclusiveness from model maturity. Of 459 binary pairs eligible under "
+    f"the prespecified 20-per-class rule, {int(binary_sensitivity_50['eligible_binary_targets'])} "
+    f"({float(binary_sensitivity_50['eligible_target_retention_percent']):.1f}%) meet a stricter 50-per-class rule. "
+    f"Among 104 screen-positive binary models, {len(binary_standard)} ({100 * len(binary_standard) / len(screen_b):.1f}%) meet "
+    f"the stricter standard and {len(binary_limited)} are now designated exploratory/limited evidence. None of the main "
+    "highlighted binary models is limited evidence. The package retains the complete atlas for transparency but excludes "
+    "the 17 limited models from default inference; explicit opt-in emits a warning."
+)
+add_body(doc,
+    "The reliability supplement now provides class counts for every repeated outer fold, exact reconstructed inner-fold "
+    "class minima, selected-component distributions across 25 fits per model, average precision, TCGA-prevalence PPV/NPV, "
+    "repeat score and call stability, and fixed-test-fold learning curves at 50%, 75% and 100% of the outer-training data. "
+    f"The limited models had as few as 4 positive cases in an outer test fold, 12 positive cases in an inner training fold "
+    f"and 3 in an inner validation fold. At full training size, their median balanced accuracy was "
+    f"{median(float(r['balanced_accuracy_mean']) for r in binary_learning_100):.3f}, median AUROC "
+    f"{median(float(r['auc_mean']) for r in binary_learning_100):.3f} and median PR-AUC "
+    f"{median(float(r['pr_auc_mean']) for r in binary_learning_100):.3f}. Component selection frequently reached the "
+    "prespecified ceiling, supporting the decision not to present these models beside substantially better-supported ones."
+)
+add_body(doc,
+    "No further internal sample-size analysis is requested. Retain these models only in the clearly separated exploratory "
+    "tier, keep them out of default inference, and do not interpret learning curves or repeat stability as substitutes for "
+    "independent validation.",
+    lead="No further internal sample-size analysis is requested."
+)
+
+add_heading(doc, "7. Relation to prior work and translational positioning", 2)
 add_body(doc,
     "The expanded review now covers mutation, MSI, gene expression, continuous "
     "biomarkers, fusions, homologous-recombination deficiency and tumour-microenvironment "
@@ -319,10 +363,11 @@ add_body(doc,
     "prospective discipline, but it is not external validation evidence."
 )
 
-add_heading(doc, "7. Reproducibility and model redistribution", 2)
+add_heading(doc, "8. Reproducibility and model redistribution", 2)
 add_body(doc,
     "The reproducibility resource is split between the public analysis repository and a "
-    "separate GPL-3 TITANPred R package. The package contains all 323 fitted research models, "
+    "separate GPL-3 TITANPred R package. The package contains all 323 fitted research models, with 306 in default inference "
+    "and 17 limited-evidence binary models requiring explicit opt-in, "
     "their SHA-256 registry, repeated out-of-fold reference distributions, cancer-vector "
     "inference interface and HTML/PDF research-software template. The package repository is "
     "currently private, and the manuscript now states this rather than claiming public release. The "
@@ -338,7 +383,7 @@ add_body(doc,
     lead="Required before submission:"
 )
 
-add_heading(doc, "8. Administrative completion", 2)
+add_heading(doc, "9. Administrative completion", 2)
 add_body(doc,
     "Required before submission: replace the remaining placeholders for funding, "
     "competing interests and author contributions; confirm the institutional ethics/waiver "
