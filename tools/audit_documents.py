@@ -207,11 +207,9 @@ for required_revision in (
     "internal validation grouped by TCGA tissue-source-site code",
     "every performance estimate is an internally derived TCGA estimate",
     "Prospectively locked protocol for future independent evaluation",
-    "CPTAC-UCEC is a plausible future cohort",
     "research-software demonstration",
-    "Three UCEC targets—TP53 mutation, genome doubling and continuous aneuploidy score—were prospectively locked",
-    "Illustrative COAD output",
-    "construction, model inventory, checksums, score-rank definitions, reliability warnings, input validation and report behaviour are described in Supplementary Methods",
+    "No non-TCGA patient entered model evaluation, and no external performance result is reported",
+    "Illustrative COAD profiles",
     "Figure 7. Post hoc TITANPred research-software visualization for two COAD participants",
     "Panel A replaces separate radar plots with a common-scale dumbbell comparison",
     "Nodal status was not matched",
@@ -236,6 +234,10 @@ require("Table 4." not in main_text, "Obsolete Table 4 numbering remains in the 
 require("Artifact SHA-256 (prefix)" not in main_text, "Artifact hashes remain in the main manuscript")
 require("Default inference exposes" not in main_text, "Detailed inference behaviour remains in the main manuscript")
 require("Every binary display uses" not in main_text, "Detailed score-rank behaviour remains in the main manuscript")
+require("construction, model inventory, checksums" not in main_text,
+        "Software construction detail remains in the main manuscript")
+require("External-validation readiness audit" not in main_text,
+        "Implementation-oriented external-readiness subsection remains in the main Results")
 require("site-grouped" not in main_text.lower(), "Ambiguous 'site-grouped' terminology remains in the main manuscript")
 require("submitting site" not in main_text.lower(), "Ambiguous 'submitting site' terminology remains in the main manuscript")
 require("tissue-source site" not in main_text.lower(), "Tissue-source-site variable is named without 'code' in the main manuscript")
