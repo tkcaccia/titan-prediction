@@ -229,6 +229,9 @@ for required_revision in (
     "No structured tumour-content/cellularity percentage, tissue-area measurement, artefact assessment, biopsy-versus-resection indicator or slide/image-quality score was available",
     "TCGA-DX-AB2L",
     "all 30 generated narratives",
+    "‘predictability’ is shorthand only for that operational cross-validated association",
+    "does not denote causal biological information",
+    "justify omitting or replacing a molecular or immune assay",
 ):
     require(
         required_revision in main_text,
@@ -279,6 +282,8 @@ require("denominator-first post hoc subgroup audit" in response_text,
         "Response does not address subgroup performance")
 require("Pathology quality control" in response_text and "TCGA-DX-AB2L" in response_text,
         "Response does not address pathology quality control")
+require("Terminology: predictability" in response_text and "held-out cross-validated statistical association" in response_text,
+        "Response does not define predictability operationally")
 require("Manuscript density" in reviewer_text,
         "Reviewer report does not acknowledge the streamlined table structure")
 require("Precision–recall reporting" in reviewer_text,
@@ -291,6 +296,8 @@ require("TCGA tissue-source-site code" in reviewer_text,
         "Reviewer report does not acknowledge clarification of the TCGA tissue-source-site code")
 require("Pathology quality control" in reviewer_text and "TCGA-DX-AB2L" in reviewer_text,
         "Reviewer report does not acknowledge pathology quality control")
+require("Predictability terminology" in reviewer_text and "assay-equivalence" in reviewer_text,
+        "Reviewer report does not acknowledge predictability terminology")
 for item in (
     "Table S10a. Expanded literature audit",
     "Table S10b. Screen-positive models below the original prespecified screening threshold",

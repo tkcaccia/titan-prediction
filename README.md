@@ -1,5 +1,11 @@
 # TITAN patient-level prediction benchmark and model resource
 
+In this project, **predictability** has a narrow operational meaning: held-out
+cross-validated statistical association under the documented target, model,
+folds and performance criterion. It does not imply causal biological
+information, a histological mechanism, direct recovery of the source
+measurement, assay equivalence or justification for replacing an assay.
+
 Reproducible, patient-level prediction of molecular, derived immune and genomic
 features from fixed pretrained TITAN whole-slide embeddings across 32 TCGA cancer
 types. These labels are not assay-equivalent: the benchmark includes direct
