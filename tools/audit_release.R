@@ -37,6 +37,10 @@ morphology_context <- fread("results/tables/morphology_context_examples.csv")
 morphology_summary <- fread(
   "results/tables/morphology_context_model_summary.csv"
 )
+coad_examples <- fread("results/tables/coad_package_examples.csv")
+coad_example_predictions <- fread(
+  "results/tables/coad_package_example_predictions.csv"
+)
 expected_endpoint_classes <- c(
   "directly observed genomic alteration",
   "sequencing-derived continuous burden",
@@ -121,6 +125,25 @@ assert(nrow(morphology_context) == 20L &&
          all(nzchar(morphology_context$interpretability_limit)) &&
          nrow(morphology_summary) == 5L,
        "Morphology-context anchors, neighbours or provenance are incomplete")
+assert(nrow(coad_examples) == 2L &&
+         setequal(coad_examples$patient_id,
+                  c("TCGA-AA-A01F", "TCGA-AA-3972")) &&
+         all(coad_examples$selection_design ==
+               "post hoc main-figure software visualization") &&
+         !"treatment" %chin% names(coad_examples) &&
+         all(grepl("Nodal status was not matched", coad_examples$shared_features,
+                   fixed = TRUE)) &&
+         all(grepl("maximum Euclidean distance", coad_examples$selection_rule,
+                   fixed = TRUE)),
+       "COAD visualization provenance is incomplete or retains treatment fields")
+coad_binary <- coad_example_predictions[outcome_type == "binary"]
+assert(nrow(coad_binary) > 0L &&
+         all(coad_binary$rank_interpretation ==
+               "TCGA OOF score rank (not probability)") &&
+         all(coad_binary$rank_is_probability == FALSE) &&
+         all(coad_binary$calibration_status ==
+               "uncalibrated; no probability estimate"),
+       "COAD binary display metadata does not make non-probability status explicit")
 screen_backends <- unique(c(continuous$backend, binary$backend))
 assert(length(screen_backends) == 1L && !is.na(screen_backends) &&
          nzchar(screen_backends),

@@ -136,7 +136,7 @@ abstract_words = re.findall(r"\b[\w²×–-]+\b", abstract, flags=re.UNICODE)
 require(len(abstract_words) <= 350, f"Abstract has {len(abstract_words)} words (>350)")
 keyword_count = len([x for x in paragraphs[keywords_index][9:].split(";") if x.strip()])
 require(3 <= keyword_count <= 10, f"Keyword count is {keyword_count}; expected 3–10")
-require(len(main.inline_shapes) >= 6, "Main manuscript contains fewer than six embedded figures")
+require(len(main.inline_shapes) >= 7, "Main manuscript contains fewer than seven embedded figures")
 for forbidden in (
     "IRLBA",
     "Liver and pancreatic cancer examples",
@@ -145,6 +145,11 @@ for forbidden in (
     "discovery atlas",
     "patient molecular profile",
     "prediction report",
+    "fluorouracil",
+    "oxaliplatin",
+    "bevacizumab",
+    "complete response",
+    "progressive disease",
 ):
     require(forbidden.lower() not in main_text.lower(), f"Removed manuscript text remains: {forbidden}")
 require("frozen" not in main_text.lower(), "Ambiguous 'frozen' terminology remains")
@@ -189,6 +194,11 @@ for required_revision in (
     "Table 4. Prospectively locked subset for future independent evaluation",
     "CPTAC-UCEC is a plausible future cohort",
     "research-software demonstration",
+    "The package provides a synthetic feature vector constructed from stored training-feature means",
+    "Figure 7. Post hoc TITANPred research-software visualization for two COAD participants",
+    "Nodal status was not matched",
+    "treatment, response, recurrence, follow-up and survival are neither shown nor interpreted",
+    "TCGA OOF score rank (not probability)",
     "currently maintained in a private access-controlled repository",
     "Endpoint provenance and assay equivalence",
     "2,073-row endpoint dictionary",
@@ -256,6 +266,10 @@ for item in (
     "9. Derived immune phenotypes, endpoint provenance and morphological context",
     "Every one of the 2,073 eligible cancer–endpoint tests is classified",
     "qualitative neighbour retrieval—not patch relevance, causal morphology or blinded pathologist review",
+    "10. The COAD single-sample demonstration risks overinterpretation",
+    "remain in the main manuscript solely as a software-visualization example",
+    "All treatment, response, recurrence, follow-up and survival narrative has been deleted",
+    "rank_is_probability=FALSE",
 ):
     require(item in response_text, f"Reviewer-response item missing: {item}")
 for item in (
@@ -264,6 +278,9 @@ for item in (
     "9. Endpoint provenance and morphological interpretation",
     "complete 2,073-row endpoint dictionary",
     "No additional internal interpretability claim is requested",
+    "10. COAD software-interface illustration",
+    "remain in main Figure 7 solely to show the software output",
+    "No further case-based clinical interpretation is justified",
 ):
     require(item in reviewer_text, f"Reviewer-report item missing: {item}")
 require(len(supplement.inline_shapes) >= 4, "Supplement contains fewer than four figures")

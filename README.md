@@ -278,9 +278,12 @@ continuous-endpoint radar, binary PLS-LDA calls, exact reference percentiles and
 original internally derived TCGA estimates, out-of-distribution diagnostics,
 and research-use provenance.
 All endpoint definitions and model-target sources are documented at the end of
-the report. Optional pathology or treatment context is displayed separately and
-is never passed to the model. Reproducible matched COAD examples generated for
-Figure 7 are available under [`results/reports`](results/reports/).
+the report. Optional descriptive pathology/source context is displayed separately
+and is never passed to the model; treatment and response narratives are excluded.
+The package's synthetic feature vector is the preferred interface smoke test.
+Two post hoc COAD interface illustrations retained as main Figure 7 and
+separate supplementary reports are available under
+[`results/reports`](results/reports/); they are not validation evidence.
 
 Every inference row reports the TCGA tissue-source-site-grouped internal metric,
 grouped-minus-random change, analysed-site count, threshold-retention status and

@@ -22,14 +22,14 @@ coad_predictions <- suppressWarnings(predict_titan(
 ))
 saveRDS(coad_predictions, "results/predictions/coad_package_predictions.rds")
 
-# Select a clinically comparable pair rather than the globally most extreme
-# pair. Eligibility requires a non-empty TITAN slide report describing a male
+# Select a post hoc illustrative pair for a supplementary software-interface
+# demonstration. Eligibility requires a non-empty TITAN slide report describing a male
 # patient with sigmoid-colon, moderately differentiated, pT3 adenocarcinoma and
 # clear resection margins. Each case must have at most two of ten continuous
 # predictions outside the 1st-99th reference-percentile interval. Within
 # same-site/same-sex groups satisfying those constraints, choose the pair with
-# the greatest complete-profile separation. This is a research-software illustration,
-# not an additional validation analysis.
+# the greatest complete-profile separation. The selection is intentionally
+# disclosed as post hoc and has no inferential, prognostic or validation role.
 continuous <- as.data.table(coad_predictions)[outcome_type == "continuous"]
 profile <- dcast(continuous, patient_id ~ endpoint, value.var = "reference_percentile")
 profile_ids <- profile$patient_id
@@ -82,7 +82,7 @@ pair_candidates <- rbindlist(lapply(
     )
   }
 ))
-if (!nrow(pair_candidates)) stop("No clinically comparable COAD example pair was eligible.")
+if (!nrow(pair_candidates)) stop("No COAD pair met the prespecified illustration filters.")
 setorder(pair_candidates, -distance, id1, id2)
 selected_ids <- unlist(pair_candidates[1L, .(id1, id2)], use.names = FALSE)
 
@@ -113,14 +113,18 @@ example_map <- merge(
 )
 example_map[, `:=`(
   profile_distance = pair_candidates$distance[1L],
+  selection_design = "post hoc main-figure software visualization",
   selection_rule = paste(
     "same reported sex and sigmoid site; moderately differentiated pT3",
     "adenocarcinoma with clear margins; no more than two saturated continuous",
-    "reference percentiles per case; maximum distance within eligible pairs"
+    "reference percentiles per case; maximum Euclidean distance within eligible pairs;",
+    "not a performance, prognosis or treatment-response analysis"
   ),
   shared_features = paste(
     "Both cases were men with sigmoid-colon, moderately differentiated (G2),",
-    "pT3 adenocarcinoma and tumour-free resection margins."
+    "pT3 adenocarcinoma and tumour-free resection margins. Nodal status was",
+    "not matched: example A was pN1, whereas the available slide summary for",
+    "example B did not state a nodal category."
   )
 )]
 
@@ -140,27 +144,10 @@ clinical_context <- data.table(
       "the supplied slide summary did not state a nodal category."
     )
   ),
-  treatment = c(
-    paste(
-      "NCI GDC records list fluorouracil, leucovorin calcium and oxaliplatin",
-      "from day 62 to day 215, each with the recorded outcome 'Complete",
-      "Response'. Follow-up disease status was 'with tumor' on day 31 and",
-      "'unknown' on day 974; the recorded vital status was alive."
-    ),
-    paste(
-      "NCI GDC records list capecitabine and oxaliplatin beginning on day 60,",
-      "with the recorded outcome 'Progressive Disease'; recurrence was recorded",
-      "on day 1216. Later records list fluorouracil, leucovorin, oxaliplatin and",
-      "bevacizumab through day 1369, also with progressive disease. Follow-up",
-      "on day 1551 was 'with tumor'; the recorded vital status was alive."
-    )
-  ),
   source = paste(
     "Pathology was paraphrased from TCGA-Slide-Reports.csv distributed with",
     "the TITAN study (Ding et al., Nature Medicine 2025;",
-    "doi:10.1038/s41591-025-03982-3). Treatment and follow-up fields were",
-    "retrieved from the public NCI GDC Cases API",
-    "(https://api.gdc.cancer.gov/cases) on 16 August 2026."
+    "doi:10.1038/s41591-025-03982-3)."
   )
 )
 example_map <- merge(example_map, clinical_context, by = "patient_id",
@@ -182,7 +169,7 @@ for (i in seq_len(nrow(example_map))) {
     output_file = file.path("results", "reports", gsub(" ", "_", example_map$example[i])),
     format = "both",
     clinical_context = as.list(example_map[i, .(
-      shared_features, pathology, treatment, source
+      shared_features, pathology, source
     )]),
     quiet = TRUE
   )
@@ -240,8 +227,8 @@ p_binary <- ggplot(binary, aes(reference_rank, endpoint_label, color = example))
   scale_x_continuous(limits = c(0, 100), breaks = seq(0, 100, 25),
                      labels = function(x) paste0(x, "%")) +
   labs(
-    title = "C  Binary calls for the same clinically comparable cases",
-    subtitle = "Ranks are not probabilities; [SITE-SENSITIVE] models fell below their original TSS-grouped threshold",
+    title = "C  Binary calls for the two post hoc illustrative cases",
+    subtitle = "Score rank (not probability); [SITE-SENSITIVE] models fell below their original TSS-grouped threshold",
     x = "TCGA out-of-fold score rank (not probability)", y = NULL,
     color = NULL, shape = NULL
   ) +
@@ -258,18 +245,16 @@ p_binary <- ggplot(binary, aes(reference_rank, endpoint_label, color = example))
 figure <- ((p_radar_a | p_radar_b) / p_binary +
              plot_layout(heights = c(1.35, 1))) +
   plot_annotation(
-    title = "TITANPred research-software demonstration: internally derived COAD estimates",
+    title = "TITANPred research-software visualization: internally derived COAD estimates",
     subtitle = paste(
-      "Both examples are male, sigmoid-colon, grade-2 pT3 adenocarcinomas with",
-      "clear margins; the pair was selected after limiting profile saturation."
+      "Post hoc COAD cases selected after limiting profile saturation and maximising",
+      "profile separation; the comparison is illustrative, not validation evidence."
     ),
     caption = paste0(
-      "Example A: ", example_map[example == "COAD example A", patient_id],
-      "; example B: ", example_map[example == "COAD example B", patient_id],
-      ". Corner labels show TCGA reference percentile | original prediction. ",
-      "Binary ranks describe uncalibrated scores and are not probabilities. ",
-      "[SITE-SENSITIVE] marks models below their original effect threshold under TCGA TSS grouping. ",
-      "These full-cohort-fit examples are not validation evidence."
+      "A: ", example_map[example == "COAD example A", patient_id],
+      "; B: ", example_map[example == "COAD example B", patient_id],
+      ". Exact radar values shown. Binary TCGA OOF score rank (not probability). ",
+      "Post hoc visualization; no external validation."
     ),
     theme = theme(
       plot.title = element_text(face = "bold", size = 17, color = navy),

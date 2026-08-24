@@ -463,7 +463,19 @@ add_body(doc,
     lead="No additional internal interpretability claim is requested."
 )
 
-add_heading(doc, "10. Reproducibility and model redistribution", 2)
+add_heading(doc, "10. COAD software-interface illustration", 2)
+add_body(doc,
+    "At the authors' request, the two COAD participants and radar comparison remain in main Figure 7 solely to show the software output. The Results and caption state the full post hoc construction: clinical-text and profile-saturation restrictions followed by selection of the pair with maximum Euclidean separation across continuous TCGA OOF prediction percentiles. This makes clear that the visual contrast was designed after inspecting model outputs and is not representative sampling or performance evidence."
+)
+add_body(doc,
+    "The case language is now appropriately limited. TCGA-AA-A01F is reported as pN1, whereas the available slide summary for TCGA-AA-3972 contains no nodal category; no claim of clinical comparability remains. Treatment, response, recurrence, follow-up and survival narratives have been removed because these variables were neither model inputs nor validation outcomes. The package tutorial separately uses a synthetic non-patient vector for routine smoke testing."
+)
+add_body(doc,
+    "The package report makes the principal limitations visually prominent: its banner states 'UNVALIDATED RESEARCH OUTPUT', 'TCGA OOF score rank (not probability)', 'No independent external validation' and 'Not for diagnosis, treatment selection, or clinical risk estimation'. Binary plots and tables place '(not probability)' directly beside every score-rank label, and machine-readable inference rows expose an explicit false probability flag and uncalibrated status. No further case-based clinical interpretation is justified.",
+    lead="No further case-based clinical interpretation is justified."
+)
+
+add_heading(doc, "11. Reproducibility and model redistribution", 2)
 add_body(doc,
     "The reproducibility resource is split between the public analysis repository and a "
     "separate GPL-3 TITANPred R package. The package contains all 323 fitted research models, with 306 in default inference "
@@ -483,7 +495,7 @@ add_body(doc,
     lead="Required before submission:"
 )
 
-add_heading(doc, "11. Administrative completion", 2)
+add_heading(doc, "12. Administrative completion", 2)
 add_body(doc,
     "Required before submission: replace the remaining placeholders for funding, "
     "competing interests and author contributions; confirm the institutional ethics/waiver "
