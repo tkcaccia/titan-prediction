@@ -65,6 +65,15 @@ keeps every participant in exactly one validation fold and avoids the
 arbitrary choice of a first slide. Slide-level and case-level report text is
 used only to audit slide provenance and is never supplied to a predictor.
 
+Performance estimates from the two validation stages are deliberately kept
+distinct. Unsuffixed screening fields such as `q2`, `rmse`, `spearman`, and
+`balanced_accuracy` are the **primary screening estimates** from the initial
+nested-CV run used for selection, permutation testing, and tier assignment.
+Fields prefixed by `repeated_` are means across five additional independently
+seeded nested-CV partitions and describe post-selection resampling stability.
+They need not be numerically identical; for example, THYM–Th17 has primary
+screening Q² 0.638 and five-repeat mean Q² 0.594.
+
 ## Reproducibility
 
 ### Obtain and convert the official TITAN TCGA features
@@ -317,7 +326,7 @@ research models, not medical devices and not suitable for patient care.
 
 Tissue-source-site sensitivity is a principal result. Under grouped internal
 validation, 83/323 screen-positive models (25.7%) fell below their original
-effect threshold. Complete target-level performance is provided in
+prespecified screening threshold. Complete target-level performance is provided in
 [`results/tables/site_grouped_models_below_effect_threshold.csv`](results/tables/site_grouped_models_below_effect_threshold.csv),
 and all 1,613 outer-fold patient, site and binary class counts are in
 [`results/tables/site_grouped_outer_fold_composition.csv`](results/tables/site_grouped_outer_fold_composition.csv).

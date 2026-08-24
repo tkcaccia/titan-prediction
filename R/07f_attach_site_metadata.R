@@ -34,8 +34,8 @@ site <- rbindlist(list(continuous_site, binary_site), use.names = TRUE)
 site[, site_robustness_status := fcase(
   !site_grouped_feasible, "not evaluable",
   site_near_chance_or_worse, "site-sensitive: near chance or worse",
-  !site_retained_effect, "site-sensitive: below original effect threshold",
-  default = "retained original effect threshold"
+  !site_retained_effect, "site-sensitive: below original prespecified screening threshold",
+  default = "retained original prespecified screening threshold"
 )]
 site[, site_robustness_warning := fcase(
   !site_grouped_feasible,
@@ -43,7 +43,7 @@ site[, site_robustness_warning := fcase(
   site_near_chance_or_worse,
   "Prominent site-sensitivity warning: performance was near chance or worse under TCGA tissue-source-site grouping.",
   !site_retained_effect,
-  "Site-sensitivity warning: performance fell below the original effect threshold under TCGA tissue-source-site grouping.",
+  "Site-sensitivity warning: performance fell below the original prespecified screening threshold under TCGA tissue-source-site grouping.",
   default = ""
 )]
 site[, site_grouped_validation_scope := paste(

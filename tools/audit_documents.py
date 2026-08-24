@@ -56,6 +56,7 @@ for removed in REMOVED:
 main_name = "manuscript_JTM_patient_level_TITAN.docx"
 main = documents[main_name]
 main_text = texts[main_name]
+supplement_text = texts["supplementary_material_JTM.docx"]
 for author in AUTHORS:
     require(author in main_text, f"Required author missing from manuscript: {author}")
 author_positions = [main_text.index(author) for author in AUTHORS]
@@ -153,13 +154,18 @@ for forbidden in (
 ):
     require(forbidden.lower() not in main_text.lower(), f"Removed manuscript text remains: {forbidden}")
 require("frozen" not in main_text.lower(), "Ambiguous 'frozen' terminology remains")
+for obsolete_effect_label in ("higher effect", "moderate effect", "higher-effect", "moderate-effect"):
+    require(
+        obsolete_effect_label not in (main_text + "\n" + supplement_text).lower(),
+        f"Obsolete effect-sounding screening label remains: {obsolete_effect_label}",
+    )
 for required_revision in (
     "A systematic patient-level benchmark and reusable model resource",
     "Table 1. Comparison with major pan-cancer histology–molecular prediction studies",
     "12,093 target-specific models for 4,031 multi-omic biomarkers",
     "fixed pretrained representation",
     "tested-negative and sample-size-ineligible results",
-    "83/323 models (25.7%) fell below the original effect threshold",
+    "83/323 models (25.7%) fell below the original prespecified screening threshold",
     "Threshold-independent AUROC was the primary binary comparison metric",
     "the same inner-CV balanced-accuracy threshold rule applied to both methods",
     "targets were selected from all 2,073 eligible cancer–endpoint tests without using PLS performance",
@@ -171,7 +177,14 @@ for required_revision in (
     "single BH correction across all eligible continuous and binary cancer–endpoint tests",
     "zero exceedances among 999 permutations this interval is 0–0.003686",
     "prespecified high-resolution subset extended 8 leading models to 9,999",
-    "figures and tables are ordered by predictive effect magnitude, with repeated and site-grouped stability reported alongside; q-values are not used for ranking",
+    "figures and tables are ordered by the outcome-appropriate predictive metric, with repeated and site-grouped stability reported alongside; q-values are not used for ranking",
+    "prespecified screening tier A",
+    "prespecified screening tier B",
+    "The tiers are prespecified prioritisation rules, not established clinical or statistical effect categories",
+    "their numerical values are not interpreted as directly commensurate across outcome types",
+    "The initial nested-CV estimate used for candidate screening, permutation testing and tier assignment is termed the primary screening estimate",
+    "THYM–Th17 had primary screening Q²=0.638 and a five-repeat mean repeated-validation Q²=0.594",
+    "differences between them are expected resampling variation, not inconsistencies",
     "38/41 screen-positive cancer–gene pairs",
     "TCGA out-of-fold score rank (not probability)",
     "Probability calibration was not added",
@@ -214,9 +227,10 @@ for required_revision in (
         f"A required audit-driven revision is missing: {required_revision}",
     )
 for header in (
-    "Q² or Se/Sp (95% SC interval)",
-    "RMSE or BA (95% SC interval)",
-    "Spearman or AUROC (95% SC interval)",
+    "Primary screen Q²/BA",
+    "Five-repeat Q² or Se/Sp (95% SC interval)",
+    "Five-repeat RMSE or BA (95% SC interval)",
+    "Five-repeat Spearman or AUROC (95% SC interval)",
     "TSS-grouped metric/status",
     "PR-AUC (95% SC interval)",
     "PPV at TCGA prevalence (95% SC interval)",
@@ -241,7 +255,7 @@ response_text = texts["response_to_reviewer_JTM.docx"]
 reviewer_text = texts["reviewer_report_JTM.docx"]
 for item in (
     "Table S10a. Expanded literature audit",
-    "Table S10b. Screen-positive models below the original effect threshold",
+    "Table S10b. Screen-positive models below the original prespecified screening threshold",
     "Table S10c. Tissue-source-site-grouped outer-fold composition",
     "Table S10d. Within-cancer prediction of TCGA tissue-source site",
     "Table S10e. Metadata-stratified representative PLS–ridge benchmark",
@@ -258,6 +272,7 @@ for item in (
     "Machine-readable additional files",
     "95% paired patient interval",
     "The interval does not repeat target sampling, generate partitions or refit models",
+    "THYM–Th17, for example, had primary screening Q²=0.638 and five-repeat mean Q²=0.594",
 ):
     require(item in supplement_text, f"Supplementary item missing: {item}")
 for item in (
@@ -270,6 +285,8 @@ for item in (
     "remain in the main manuscript solely as a software-visualization example",
     "All treatment, response, recurrence, follow-up and survival narrative has been deleted",
     "rank_is_probability=FALSE",
+    "Primary versus repeated estimates",
+    "THYM–Th17 is stated explicitly as primary screening Q²=0.638 versus five-repeat mean Q²=0.594",
 ):
     require(item in response_text, f"Reviewer-response item missing: {item}")
 for item in (
@@ -281,6 +298,8 @@ for item in (
     "10. COAD software-interface illustration",
     "remain in main Figure 7 solely to show the software output",
     "No further case-based clinical interpretation is justified",
+    "THYM–Th17 is transparently labelled Q² 0.638 in the screen and 0.594 in repeated validation",
+    "neutral labels prespecified screening tier A/B are appropriate",
 ):
     require(item in reviewer_text, f"Reviewer-report item missing: {item}")
 require(len(supplement.inline_shapes) >= 4, "Supplement contains fewer than four figures")

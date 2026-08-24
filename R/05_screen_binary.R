@@ -95,7 +95,7 @@ run_job <- function(i) {
   ba <- balanced_accuracy(y, fit$Ypred)
   adjusted_ba <- 2 * ba - 1
   # Performance is checkpointed for the complete atlas first. Only models able
-  # to meet the effect threshold receive 99/999 permutations in R/05b.
+  # to meet the prespecified screening threshold receive 99/999 permutations in R/05b.
   p <- 1; nperm <- 0L; exceed <- NA_integer_
   row <- data.table(
     family = job$family, subfamily = job$subfamily,

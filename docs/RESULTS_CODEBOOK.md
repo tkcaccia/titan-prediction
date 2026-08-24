@@ -12,6 +12,15 @@ endpoint. Primary performance is `balanced_accuracy` and the effect used for
 tiering is `adjusted_balanced_accuracy = 2 × balanced_accuracy − 1`.
 Patient-level outer-fold predictions are stored separately.
 
+These unsuffixed metrics are the **primary screening estimates** from the
+initial nested-CV run used for selection, permutation testing, and tier
+assignment. Fields prefixed by `repeated_` are means across five additional
+independently seeded nested-CV partitions and quantify post-selection
+resampling stability. They may differ because the fold partitions and rSVD
+seeds differ. `screen_positive_performance_summary.csv` additionally provides
+explicit `primary_screen_*`, `repeated_minus_primary_*`,
+`primary_estimate_label`, and `repeated_estimate_label` fields.
+
 Common columns:
 
 - `family`, `subfamily`, `tumor_type`, `endpoint`, `source`: endpoint identity;
@@ -27,14 +36,18 @@ Common columns:
 - `q_value_global`: stricter sensitivity value across all cancers within the
   prespecified endpoint family;
 - `tier`: machine-readable code retained for compatibility: A denotes a
-  within-cancer screen-positive higher-effect candidate (q<0.05 and
-  effect≥0.40), B a screen-positive moderate-effect candidate (q<0.05 and
-  effect 0.20–0.39), and C a tested screen-negative pair;
+  within-cancer screen-positive prespecified screening-tier-A candidate
+  (q<0.05 and screening statistic≥0.40), B a screen-positive prespecified
+  screening-tier-B candidate (q<0.05 and screening statistic from 0.20 to
+  <0.40), and
+  C a tested screen-negative pair. The screening statistic is Q² for continuous
+  outcomes and 2×balanced accuracy−1 for binary outcomes; the tiers are
+  prioritisation rules, not clinical or generally established effect categories;
 - `fastPLS_version`, `backend`, `svd_method`, `rsvd_oversample`, `rsvd_power`:
   software version, computation backend and seeded rSVD configuration used for
   the checkpoint.
 
-Models below the moderate-effect threshold are not permuted and conservatively
+Models below the screening-tier-B threshold are not permuted and conservatively
 retain `p_permutation=1`; they remain in the multiplicity denominator.
 
 ## Endpoint provenance dictionary

@@ -76,7 +76,7 @@ fwrite(
   "results/tables/prior_mutation_accuracy_comparison.csv"
 )
 
-# Classify every current higher-/moderate-effect cancer-gene result using the
+# Classify every current screening-tier-A/B cancer-gene result using the
 # expanded primary-study audit. This deliberately distinguishes prior support,
 # prior evaluation without support, and a result not identified in the reviewed
 # predictive literature; none of these labels asserts bibliographic novelty.

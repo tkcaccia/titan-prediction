@@ -41,7 +41,7 @@ candidate_files <- function(directory, kind, stage) {
     if (stage == "initial") {
       isTRUE(effect_ok && z$permutations == 0L)
     } else {
-      # Every effect-eligible endpoint is capable of changing rank after a
+      # Every screening-threshold-eligible endpoint is capable of changing rank after a
       # higher-resolution run. Include completed and conservatively
       # early-stopped 99-permutation jobs; the latter resume from the exact
       # number actually attempted rather than skipping unused indices.

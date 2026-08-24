@@ -31,7 +31,7 @@ After slides are mean-pooled by patient, patient vectors with more than 5% of
 dimensions outside the patient-level TCGA training range trigger an explicit
 out-of-distribution warning. The LDA score is not a calibrated
 probability and no model in this release has independent external validation.
-Models below their original effect threshold under tissue-source-site grouping
+Models below their original prespecified screening threshold under tissue-source-site grouping
 must retain the registry and inference warning; grouped performance remains an
 internal TCGA estimate rather than institutional or scanner-level validation.
 

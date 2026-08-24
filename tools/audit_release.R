@@ -232,9 +232,9 @@ audit_permutations <- function(z, effect_ok, label) {
                z$q_value_global <= 1),
          paste(label, "has invalid global q values"))
   assert(all(z$permutations[effect_ok] == cfg$analysis$extended_permutations),
-         paste(label, "effect-eligible rows were not finalized at the 999 target"))
+         paste(label, "screening-threshold-eligible rows were not finalized at the 999 target"))
   assert(all(z$permutations[!effect_ok] == 0L),
-         paste(label, "non-effect rows unexpectedly entered permutation testing"))
+         paste(label, "rows below the screening threshold unexpectedly entered permutation testing"))
   assert(all(z$permutation_attempted[effect_ok] > 0L &
                z$permutation_attempted[effect_ok] <= z$permutations[effect_ok]),
          paste(label, "has invalid attempted-permutation metadata"))
@@ -412,6 +412,25 @@ assert(all(abs(targeted$refined_mc_lower_95 - targeted_mc[, "lower"]) < 1e-12) &
 
 supported_c <- continuous[tier %chin% c("A", "B")]
 supported_b <- binary[tier %chin% c("A", "B")]
+performance_summary <- fread("results/tables/screen_positive_performance_summary.csv")
+assert(
+  all(performance_summary$evidence_label %chin% c(
+    "within-cancer screen-positive, prespecified screening tier A",
+    "within-cancer screen-positive, prespecified screening tier B"
+  )),
+  "Performance summary contains obsolete or invalid screening-tier labels"
+)
+assert(
+  all(performance_summary$primary_estimate_label ==
+        "initial nested-CV screening estimate") &&
+    all(performance_summary$repeated_estimate_label ==
+          "mean of five independently seeded nested-CV repeats") &&
+    all(is.finite(performance_summary[outcome_type == "continuous"]$primary_screen_q2)) &&
+    all(is.finite(performance_summary[outcome_type == "continuous"]$repeated_minus_primary_q2)) &&
+    all(is.finite(performance_summary[outcome_type == "binary"]$primary_screen_balanced_accuracy)) &&
+    all(is.finite(performance_summary[outcome_type == "binary"]$repeated_minus_primary_balanced_accuracy)),
+  "Primary-screen and repeated-validation estimates are not explicitly distinguished"
+)
 supported <- rbindlist(list(
   supported_c[, c(key), with = FALSE], supported_b[, c(key), with = FALSE]
 ))
@@ -792,6 +811,14 @@ assert(all(pls_repeat_counts$repeats == 3L & pls_repeat_counts$rows == 3L),
 highlighted <- fread("results/tables/highlighted_model_performance.csv")
 assert(nrow(highlighted) <= 24L && nrow(highlighted) > 0L,
        "Highlighted-model table has an unexpected size")
+assert(
+  all(highlighted$primary_estimate_label ==
+        "initial nested-CV screening estimate") &&
+    all(highlighted$repeated_estimate_label ==
+          "mean of five independently seeded nested-CV repeats") &&
+    all(is.finite(highlighted$repeated_minus_primary_primary_metric)),
+  "Highlighted table does not distinguish primary and repeated estimates"
+)
 assert(all(highlighted$model_fastPLS_version == "0.99.20" &
              startsWith(highlighted$model_fastPLS_remote_sha, "dcf45cc") &
              !is.na(highlighted$model_backend) &

@@ -63,14 +63,14 @@ binary[binary_reliability,
 continuous[, family_label := family_labels[family]]
 binary[, family_label := family_labels[family]]
 continuous[, evidence_band := factor(
-  fifelse(tier == "A", "Higher effect", fifelse(tier == "B", "Moderate effect",
-                                                  "Screen-negative")),
-  levels = c("Higher effect", "Moderate effect", "Screen-negative")
+  fifelse(tier == "A", "Screening tier A", fifelse(tier == "B", "Screening tier B",
+                                                     "Screen-negative")),
+  levels = c("Screening tier A", "Screening tier B", "Screen-negative")
 )]
 binary[, evidence_band := factor(
-  fifelse(tier == "A", "Higher effect", fifelse(tier == "B", "Moderate effect",
-                                                  "Screen-negative")),
-  levels = c("Higher effect", "Moderate effect", "Screen-negative")
+  fifelse(tier == "A", "Screening tier A", fifelse(tier == "B", "Screening tier B",
+                                                     "Screen-negative")),
+  levels = c("Screening tier A", "Screening tier B", "Screen-negative")
 )]
   continuous[, global_status := factor(
   fifelse(q_value_global < 0.05, "Passes across-cancer sensitivity",
@@ -178,8 +178,8 @@ p2 <- ggplot(cp, aes(q2, display, color = family_label)) +
   scale_color_manual(values = family_palette, drop = FALSE) +
   scale_shape_manual(values = c("Passes across-cancer sensitivity" = 19,
                                 "Within-cancer only" = 21), drop = FALSE) +
-  scale_size_manual(values = c("Higher effect" = 3.6,
-                               "Moderate effect" = 2.8,
+  scale_size_manual(values = c("Screening tier A" = 3.6,
+                               "Screening tier B" = 2.8,
                                "Screen-negative" = 2.2), drop = FALSE) +
   labs(
     title = "Continuous signals are strong in selected cancer–endpoint pairs",
@@ -189,7 +189,7 @@ p2 <- ggplot(cp, aes(q2, display, color = family_label)) +
     ),
     x = expression("Patient-level outer-fold " * Q^2), y = NULL,
     color = "Endpoint family", shape = "Multiplicity sensitivity",
-    size = "Effect band",
+    size = "Prespecified screening tier",
     caption = "Open points indicate within-cancer evidence only. Thresholds are discovery-prioritisation rules, not clinical grades."
   ) + theme_titan(9.2) +
   theme(legend.box = "vertical")
@@ -356,8 +356,8 @@ site <- rbindlist(list(
 site[, `:=`(
   delta = grouped - random,
   robustness = factor(
-    fifelse(retained, "Retained effect threshold", "Below effect threshold"),
-    levels = c("Retained effect threshold", "Below effect threshold")
+    fifelse(retained, "Retained screening threshold", "Below screening threshold"),
+    levels = c("Retained screening threshold", "Below screening threshold")
   ),
   label = paste0(tumor_type, "–", endpoint)
 )]
@@ -370,10 +370,10 @@ p6a <- ggplot(site, aes(random, grouped, color = robustness)) +
   geom_text(data = labelled, aes(label = label), color = ink, size = 2.8,
             hjust = 1.04, vjust = -0.45, show.legend = FALSE) +
   facet_wrap(~metric, scales = "free") +
-  scale_color_manual(values = c("Retained effect threshold" = teal,
-                                "Below effect threshold" = coral)) +
+  scale_color_manual(values = c("Retained screening threshold" = teal,
+                                "Below screening threshold" = coral)) +
   labs(
-    title = "A  One quarter of models lose their original effect threshold",
+    title = "A  One quarter of models fall below their original screening threshold",
     subtitle = "83/323 (25.7%); highlighted APC models approach chance",
     x = "Random-fold performance", y = "Site-grouped performance",
     color = NULL

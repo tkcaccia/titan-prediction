@@ -36,5 +36,5 @@ for (path in files) {
   reset <- reset + 1L
 }
 
-cat("reset", reset, "effect-eligible continuous checkpoints; archive:",
+cat("reset", reset, "screening-threshold-eligible continuous checkpoints; archive:",
     archive_dir, "\n")

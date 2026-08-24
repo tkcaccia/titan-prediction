@@ -305,7 +305,8 @@ add_body(doc,
     f"Among completed 999-permutation tests, {len(zero_999)} had zero exceedances; the exact two-sided 95% Monte Carlo interval is 0–{zero_999_upper:.6f}. "
     f"The locked eight-model refinement continues the same streams to 9,999 full permutations, with {len(targeted_zero)}/{len(targeted_permutation)} zero-exceedance results and refined p-values {targeted_p_summary}. "
     "The refinement is appropriately presented as a precision sensitivity rather than being inserted post hoc into the prespecified FDR screen. "
-    "Models are ordered by predictive effect, repeated and site-grouped stability are reported alongside, and tied minimum q-values are not used for ranking."
+    "Models are ordered by the outcome-appropriate predictive metric, repeated and site-grouped stability are reported alongside, and tied minimum q-values are not used for ranking. "
+    "The former effect-sounding categories have been replaced by the neutral labels 'prespecified screening tier A' and 'prespecified screening tier B'. The Methods state that these are prioritisation rules based on Q² for continuous outcomes and 2×balanced accuracy−1 for binary outcomes, not established clinical or statistical effect categories or directly commensurate scales."
 )
 add_body(doc,
     "No additional multiplicity correction is requested. Preserve the numerical distinction between "
@@ -337,7 +338,7 @@ add_body(doc,
     "The revised manuscript now makes the site result visible rather than reducing it to a median robustness statistic. "
     "Main Figure 6 shows every target, the largest attenuations and the new within-cancer submitting-site classifiers; "
     "Main Table 3 reports grouped performance beside highlighted models. Overall, 83/323 screen-positive models (25.7%) "
-    "fell below their original effect threshold. READ–APC and COAD–APC declined to balanced accuracies 0.495 and 0.543. "
+    "fell below their original prespecified screening threshold. READ–APC and COAD–APC declined to balanced accuracies 0.495 and 0.543. "
     "The public analysis registry and inference output expose the grouped metric, delta, site count, threshold-retention "
     "status and prominent warning for every model. The complete fold audit reports patients, sites and class counts in "
     "all 1,613 outer folds and confirms that inner component selection also kept tissue-source sites intact."
@@ -518,7 +519,9 @@ add_heading(doc, "Minor presentation points", 1)
 for title, body in (
     ("Reporting checklist", "The TRIPOD+AI item-to-location map in Supplementary Table S12 and the endpoint dictionary in Table S13 should accompany the submission."),
     ("Fusion caveat", "Keep the technical-coverage caveat for fusion-negative status and fusion burden."),
-    ("Figures", "Figure 1 is no longer clipped, and Figure 4A now shows the strongest primary continuous prediction with explicit held-out metrics. These corrected production figures should be retained."),
+    ("Figures", "Figure 1 is no longer clipped, and Figure 4A now shows the strongest primary-screen continuous prediction with explicit held-out metrics. These corrected production figures should be retained."),
+    ("Primary versus repeated estimates", "The revision now distinguishes the initial nested-CV primary screening estimate from the mean across five additional nested-CV repeats. Main Table 3 reports both; THYM–Th17 is transparently labelled Q² 0.638 in the screen and 0.594 in repeated validation. The difference is expected resampling variation, not an inconsistency."),
+    ("Screening tiers", "The neutral labels prespecified screening tier A/B are appropriate. They are clearly defined as prioritisation rules rather than established clinical or statistical effect categories."),
 ):
     add_heading(doc, title, 3)
     add_body(doc, body)

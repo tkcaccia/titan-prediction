@@ -25,6 +25,14 @@ continuous_summary <- merge(
   continuous_screen[tier %chin% c("A", "B")], continuous_summary,
   by = c("family", "tumor_type", "endpoint"), all.x = TRUE
 )
+continuous_summary[, `:=`(
+  primary_screen_q2 = q2,
+  primary_screen_rmse = rmse,
+  primary_screen_spearman = spearman,
+  repeated_minus_primary_q2 = repeated_q2_mean - q2,
+  primary_estimate_label = "initial nested-CV screening estimate",
+  repeated_estimate_label = "mean of five independently seeded nested-CV repeats"
+)]
 
 binary_summary <- binary_repeats[, .(
   repeated_sensitivity_mean = mean(sensitivity),
@@ -42,6 +50,13 @@ binary_summary <- merge(
   binary_screen[tier %chin% c("A", "B")], binary_summary,
   by = c("family", "tumor_type", "endpoint"), all.x = TRUE
 )
+binary_summary[, `:=`(
+  primary_screen_balanced_accuracy = balanced_accuracy,
+  repeated_minus_primary_balanced_accuracy =
+    repeated_balanced_accuracy_mean - balanced_accuracy,
+  primary_estimate_label = "initial nested-CV screening estimate",
+  repeated_estimate_label = "mean of five independently seeded nested-CV repeats"
+)]
 
 continuous_summary[, outcome_type := "continuous"]
 binary_summary[, outcome_type := "binary"]
@@ -84,8 +99,8 @@ summary_common <- merge(
   by = c("family", "tumor_type", "endpoint"), all.x = TRUE
 )
 summary_common[, evidence_label := fifelse(
-  tier == "A", "within-cancer screen-positive, higher effect",
-  "within-cancer screen-positive, moderate effect"
+  tier == "A", "within-cancer screen-positive, prespecified screening tier A",
+  "within-cancer screen-positive, prespecified screening tier B"
 )]
 setorder(summary_common, outcome_type, family, tumor_type, endpoint)
 fwrite(summary_common,
@@ -183,7 +198,9 @@ continuous_ci <- rbindlist(lapply(seq_len(nrow(highlighted_continuous)), functio
     family == job$family & tumor_type == job$tumor_type & endpoint == job$endpoint
   ]
   cbind(job[, .(family, tumor_type, endpoint, n, q_value, q_value_global,
-                tier)],
+                tier, primary_screen_q2 = q2,
+                primary_screen_rmse = rmse,
+                primary_screen_spearman = spearman)],
         cluster_bootstrap(d, continuous_metric, 20260815L + i))
 }))
 continuous_ci[, outcome_type := "continuous"]
@@ -194,7 +211,8 @@ binary_ci <- rbindlist(lapply(seq_len(nrow(highlighted_binary)), function(i) {
     family == job$family & tumor_type == job$tumor_type & endpoint == job$endpoint
   ]
   cbind(job[, .(family, tumor_type, endpoint, n, positive, negative,
-                q_value, q_value_global, tier)],
+                q_value, q_value_global, tier,
+                primary_screen_balanced_accuracy = balanced_accuracy)],
         cluster_bootstrap(d, binary_metric, 20261815L + i))
 }))
 binary_ci[, outcome_type := "binary"]
@@ -238,6 +256,14 @@ highlighted <- merge(
   by = c("family", "tumor_type", "endpoint"), all.x = TRUE
 )
 highlighted[, `:=`(
+  primary_estimate_label = "initial nested-CV screening estimate",
+  repeated_estimate_label =
+    "mean of five independently seeded nested-CV repeats",
+  repeated_minus_primary_primary_metric = fifelse(
+    outcome_type == "continuous",
+    q2 - primary_screen_q2,
+    balanced_accuracy - primary_screen_balanced_accuracy
+  ),
   uncertainty_interval_label = paste(
     "95% selection-conditioned patient-resampling interval for repeated",
     "out-of-fold predictions"
