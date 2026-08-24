@@ -1,0 +1,17 @@
+{
+  "foundation_model": "Prov-GigaPath",
+  "slides": 10542,
+  "dimensions": 768,
+  "source_files": [
+    "/Users/stefano/Documents/Titan/Data/tcga_provgigapath_embeddings/provgigapath_embeddings_with_metadata.parquet"
+  ],
+  "source_sha256": [
+    "234379b0d85cce26817358d7c63f707042ee8fd8f7145c18940a6893fb5deed6"
+  ],
+  "representation": "published slide-encoder state index 13 (final layer)",
+  "layer_index": 13,
+  "duplicate_rows_removed": 1406,
+  "duplicate_rule": "retain first occurrence only after exact final-layer equality check",
+  "converted_file": "data/raw/ProvGigaPath_TCGA_final_layer_features.csv.gz",
+  "converted_sha256": "665889378927a5a4e7862f41aff59bd0a7b614e619308c4814b13a7495346bda"
+}

@@ -1,0 +1,4 @@
+foundation_model,source_slides,patients,dimensions,multi_slide_patients,maximum_slides,resolved_cancer_patients,source_sha256,common_three_model_patients
+TITAN,11449,9404,768,843,30,9404,d3d91fb0f83a6de440eda5ff437a63e3ca13f50095e6841fb8efcc40e58763f0,8241
+GigaSSL,11427,9378,512,845,30,9311,0c7ff510cc99c1135a8eb5c3fa2fcb53676ac4881972ea6bd152814ae7830324,8241
+ProvGigaPath,10328,8393,768,778,30,8333,665889378927a5a4e7862f41aff59bd0a7b614e619308c4814b13a7495346bda,8241

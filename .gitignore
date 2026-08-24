@@ -3,6 +3,7 @@
 .RData
 .Rproj.user/
 .Rlib/
+.pythonlib/
 config/paths.local.R
 data/raw/
 data/external/cbioportal/*.txt
@@ -10,8 +11,10 @@ data/processed/*.rds
 data/processed/checkpoints/
 data/processed/model_archive/
 models/*.rds
+models/foundation_models/*.rds
 manuscript/rendered/
 manuscript/rendered_*/
+manuscript/*montage*.png
 tmp/
 __pycache__/
 *.pyc

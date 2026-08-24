@@ -1,0 +1,5 @@
+comparison,outcome_type,targets,spearman_effect,median_delta_vs_TITAN,other_higher,TITAN_higher,tied
+GigaSSL versus TITAN,binary,426,0.628263229707646,-0.033697705810686,146,276,4
+GigaSSL versus TITAN,continuous,1507,0.792597508315558,-0.0318336087526581,464,1043,0
+ProvGigaPath versus TITAN,binary,426,0.66271206119743,-0.018612706225503,166,260,0
+ProvGigaPath versus TITAN,continuous,1507,0.805163887668503,-0.0431819267751263,409,1098,0

@@ -1,0 +1,16 @@
+{
+  "foundation_model": "Giga-SSL",
+  "slides": 11642,
+  "dimensions": 512,
+  "source_files": [
+    "/Users/stefano/Documents/Titan/Data/gigassl/TCGA_encoded_t5e1000/ids.npy",
+    "/Users/stefano/Documents/Titan/Data/gigassl/TCGA_encoded_t5e1000/embeddings.npy"
+  ],
+  "source_sha256": [
+    "15fb36633a2b7206240434b1256678afb3b7453b37d53c8b80c5d39c334308b8",
+    "c0ffa2e8d10881b7c5dfef266485b87a0a1d87dc71849d276c6cfb037cd701ff"
+  ],
+  "representation": "published TCGA_encoded_t5e1000 slide embedding",
+  "converted_file": "data/raw/GigaSSL_TCGA_features.csv.gz",
+  "converted_sha256": "0c7ff510cc99c1135a8eb5c3fa2fcb53676ac4881972ea6bd152814ae7830324"
+}
