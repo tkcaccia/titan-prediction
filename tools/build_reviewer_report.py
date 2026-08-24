@@ -337,7 +337,7 @@ add_heading(doc, "4. Tissue-source-site sensitivity and confounding", 2)
 add_body(doc,
     "The revised manuscript now makes the site result visible rather than reducing it to a median robustness statistic. "
     "Main Figure 6 shows every target, the largest attenuations and the new within-cancer submitting-site classifiers; "
-    "Main Table 3 reports grouped performance beside highlighted models. Overall, 83/323 screen-positive models (25.7%) "
+    "Supplementary Table S6a reports grouped performance beside highlighted models. Overall, 83/323 screen-positive models (25.7%) "
     "fell below their original prespecified screening threshold. READ–APC and COAD–APC declined to balanced accuracies 0.495 and 0.543. "
     "The public analysis registry and inference output expose the grouped metric, delta, site count, threshold-retention "
     "status and prominent warning for every model. The complete fold audit reports patients, sites and class counts in "
@@ -520,7 +520,8 @@ for title, body in (
     ("Reporting checklist", "The TRIPOD+AI item-to-location map in Supplementary Table S12 and the endpoint dictionary in Table S13 should accompany the submission."),
     ("Fusion caveat", "Keep the technical-coverage caveat for fusion-negative status and fusion burden."),
     ("Figures", "Figure 1 is no longer clipped, and Figure 4A now shows the strongest primary-screen continuous prediction with explicit held-out metrics. These corrected production figures should be retained."),
-    ("Primary versus repeated estimates", "The revision now distinguishes the initial nested-CV primary screening estimate from the mean across five additional nested-CV repeats. Main Table 3 reports both; THYM–Th17 is transparently labelled Q² 0.638 in the screen and 0.594 in repeated validation. The difference is expected resampling variation, not an inconsistency."),
+    ("Primary versus repeated estimates", "The revision now distinguishes the initial nested-CV primary screening estimate from the mean across five additional nested-CV repeats. Supplementary Table S6a reports both; THYM–Th17 is transparently labelled Q² 0.638 in the screen and 0.594 in repeated validation. The difference is expected resampling variation, not an inconsistency."),
+    ("Manuscript density", "The main paper is appropriately streamlined as a research article: the review-style literature comparison table has been removed, and the oversized highlighted-model performance table has moved to Supplementary Table S6a without loss of metrics. The main manuscript now contains only two compact tables."),
     ("Screening tiers", "The neutral labels prespecified screening tier A/B are appropriate. They are clearly defined as prioritisation rules rather than established clinical or statistical effect categories."),
 ):
     add_heading(doc, title, 3)

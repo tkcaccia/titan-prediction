@@ -161,7 +161,7 @@ for obsolete_effect_label in ("higher effect", "moderate effect", "higher-effect
     )
 for required_revision in (
     "A systematic patient-level benchmark and reusable model resource",
-    "Table 1. Comparison with major pan-cancer histology–molecular prediction studies",
+    "Table 1. Eligible cancer–endpoint models and within-cancer screening categories",
     "12,093 target-specific models for 4,031 multi-omic biomarkers",
     "fixed pretrained representation",
     "tested-negative and sample-size-ineligible results",
@@ -184,7 +184,7 @@ for required_revision in (
     "their numerical values are not interpreted as directly commensurate across outcome types",
     "The initial nested-CV estimate used for candidate screening, permutation testing and tier assignment is termed the primary screening estimate",
     "THYM–Th17 had primary screening Q²=0.638 and a five-repeat mean repeated-validation Q²=0.594",
-    "differences between them are expected resampling variation, not inconsistencies",
+    "This difference reflects independently seeded nested-CV partitions and is not a discrepancy",
     "38/41 screen-positive cancer–gene pairs",
     "TCGA out-of-fold score rank (not probability)",
     "Probability calibration was not added",
@@ -204,7 +204,7 @@ for required_revision in (
     "TCGA tissue-source-site-grouped internal validation",
     "every performance estimate is an internally derived TCGA estimate",
     "Prospectively locked protocol for future independent evaluation",
-    "Table 4. Prospectively locked subset for future independent evaluation",
+    "Table 2. Prospectively locked subset for future independent evaluation",
     "CPTAC-UCEC is a plausible future cohort",
     "research-software demonstration",
     "The package provides a synthetic feature vector constructed from stored training-feature means",
@@ -226,33 +226,23 @@ for required_revision in (
         required_revision in main_text,
         f"A required audit-driven revision is missing: {required_revision}",
     )
-for header in (
-    "Primary screen Q²/BA",
-    "Five-repeat Q² or Se/Sp (95% SC interval)",
-    "Five-repeat RMSE or BA (95% SC interval)",
-    "Five-repeat Spearman or AUROC (95% SC interval)",
-    "TSS-grouped metric/status",
-    "PR-AUC (95% SC interval)",
-    "PPV at TCGA prevalence (95% SC interval)",
-    "NPV at TCGA prevalence (95% SC interval)",
-    "Evidence/default",
-):
-    require(header in main_text, f"Table 3 metric header is missing: {header}")
-for header in (
-    "Patients; cancers",
-    "Representation; patient aggregation",
-    "Validation design",
-    "Site sensitivity",
-    "External validation",
-    "Negative/ineligible reporting",
-    "Fitted predictors",
-):
-    require(header in main_text, f"Main-text pan-cancer comparison field is missing: {header}")
+require("Table 3." not in main_text, "Oversized Table 3 remains in the main manuscript")
+require("Table 4." not in main_text, "Obsolete Table 4 numbering remains in the main manuscript")
+require("Comparison with major pan-cancer histology–molecular prediction studies" not in main_text,
+        "Review-style comparison table remains in the main manuscript")
+require("Complete highlighted-model performance, uncertainty, class-size metrics and tissue-source-site-grouped estimates are reported in Supplementary Table S6a" in main_text,
+        "Main text does not direct readers to the complete supplementary performance table")
 
 supplement = documents["supplementary_material_JTM.docx"]
 supplement_text = texts["supplementary_material_JTM.docx"]
 response_text = texts["response_to_reviewer_JTM.docx"]
 reviewer_text = texts["reviewer_report_JTM.docx"]
+require("Table S6a. Highlighted-model performance and uncertainty" in supplement_text,
+        "Complete highlighted-model performance table is missing from the supplement")
+require("Manuscript length and table density" in response_text,
+        "Response does not address manuscript length and table density")
+require("Manuscript density" in reviewer_text,
+        "Reviewer report does not acknowledge the streamlined table structure")
 for item in (
     "Table S10a. Expanded literature audit",
     "Table S10b. Screen-positive models below the original prespecified screening threshold",
