@@ -23,6 +23,7 @@ scripts <- c(
   "R/09_make_figures.R",
   "R/10_literature_crosswalk.R",
   "R/11_package_demo.R",
+  "R/13_endpoint_dictionary_and_morphology.R",
   "R/07_source_manifest.R"
 )
 for (script in scripts) {

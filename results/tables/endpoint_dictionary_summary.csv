@@ -1,0 +1,16 @@
+measurement_class,direct_vs_inferred,cancer_endpoint_tests,unique_endpoint_definitions,median_missing_percent,minimum_missing_percent,maximum_missing_percent,same_histology_modality_tests
+composite genomic-context score,Computational MSI score/status,6,2,6.63206274438067,0.802139037433155,13.6258660508083,0
+composite genomic-context score,Computationally derived,120,4,3.57142857142857,0,39.8148148148148,0
+composite genomic-context score,Computationally inferred,58,2,6.95970695970696,0,43.5185185185185,0
+composite genomic-context score,Computationally inferred whole-genome-doubling status,22,1,5.42882371728634,1.83673469387755,66.4383561643836,0
+composite genomic-context score,Derived binary pathway composite,166,10,8.33333333333333,1.83673469387755,81.5104166666667,0
+computationally inferred immune-cell fraction,Computationally inferred,685,23,3.36787564766839,0,75,0
+directly observed genomic alteration,Sequence-supported alteration call; computationally called,265,125,3.56435643564356,0,69.7029702970297,0
+pathology-associated quantity,Computationally inferred from histology,13,1,11.6831683168317,1.70940170940171,23.0569948186529,13
+sequencing-derived continuous burden,Computational MSI score/status,60,2,2.97397769516729,0,74.6575342465753,0
+sequencing-derived continuous burden,Computational fusion calls collapsed to a count,30,1,1.39553164164563,0,76.3020833333333,0
+sequencing-derived continuous burden,Computationally derived burden,90,3,5.42882371728634,0,66.4383561643836,0
+sequencing-derived continuous burden,Computationally reconstructed repertoire metric,147,6,25.9842519685039,0,87.3267326732673,0
+sequencing-derived continuous burden,Derived mutation-rate burden,60,2,3.00317508031638,0,51.3011152416357,0
+sequencing-derived continuous burden,In-silico peptide–MHC prediction,52,2,14.224043715847,0,81.7708333333333,0
+transcriptomic signature,Derived gene-set score,299,10,3.57142857142857,0,75,0

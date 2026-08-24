@@ -28,6 +28,99 @@ assert(startsWith(fastpls_sha, "dcf45cc"),
 
 continuous <- fread("results/tables/continuous_screen.csv")
 binary <- fread("results/tables/binary_screen.csv")
+endpoint_dictionary <- fread("results/tables/endpoint_dictionary.csv")
+endpoint_definitions <- fread("results/tables/endpoint_definition_dictionary.csv")
+endpoint_dictionary_summary <- fread(
+  "results/tables/endpoint_dictionary_summary.csv"
+)
+morphology_context <- fread("results/tables/morphology_context_examples.csv")
+morphology_summary <- fread(
+  "results/tables/morphology_context_model_summary.csv"
+)
+expected_endpoint_classes <- c(
+  "directly observed genomic alteration",
+  "sequencing-derived continuous burden",
+  "computationally inferred immune-cell fraction",
+  "transcriptomic signature",
+  "pathology-associated quantity",
+  "composite genomic-context score"
+)
+required_dictionary_columns <- c(
+  "target_id", "outcome_type", "family", "subfamily", "tumor_type",
+  "endpoint", "source", "measurement_class", "source_modality",
+  "direct_vs_inferred", "derivation_algorithm", "original_scale",
+  "transformation", "analysed_patients", "embedding_cohort_patients",
+  "missing_patients", "missing_percent", "expected_measurement_error",
+  "biological_interpretation", "equivalence_caveat",
+  "same_histology_modality", "source_reference", "definition_group"
+)
+assert(all(required_dictionary_columns %chin% names(endpoint_dictionary)),
+       "Endpoint dictionary is missing required provenance fields")
+expected_target_ids <- c(
+  paste("continuous", continuous$family, continuous$tumor_type,
+        continuous$endpoint, sep = "::"),
+  paste("binary", binary$family, binary$tumor_type,
+        binary$endpoint, sep = "::")
+)
+assert(nrow(endpoint_dictionary) == nrow(continuous) + nrow(binary) &&
+         nrow(endpoint_dictionary) == 2073L &&
+         uniqueN(endpoint_dictionary$target_id) == nrow(endpoint_dictionary) &&
+         setequal(endpoint_dictionary$target_id, expected_target_ids),
+       "Endpoint dictionary does not contain exactly the eligible atlas targets")
+required_text_fields <- setdiff(
+  required_dictionary_columns,
+  c("analysed_patients", "embedding_cohort_patients", "missing_patients",
+    "missing_percent", "same_histology_modality")
+)
+assert(all(vapply(required_text_fields, function(field) {
+  all(!is.na(endpoint_dictionary[[field]]) &
+        nzchar(trimws(as.character(endpoint_dictionary[[field]]))))
+}, logical(1))), "Endpoint dictionary contains blank provenance text")
+assert(setequal(endpoint_dictionary$measurement_class,
+                expected_endpoint_classes) &&
+         all(endpoint_dictionary$missing_patients ==
+               endpoint_dictionary$embedding_cohort_patients -
+                 endpoint_dictionary$analysed_patients) &&
+         all(abs(endpoint_dictionary$missing_percent -
+                   100 * endpoint_dictionary$missing_patients /
+                     endpoint_dictionary$embedding_cohort_patients) < 1e-10),
+       "Endpoint dictionary classes or missingness arithmetic are invalid")
+same_histology <- endpoint_dictionary[same_histology_modality == TRUE]
+assert(nrow(same_histology) == 13L &&
+         all(same_histology$endpoint == "TIL Regional Fraction") &&
+         all(endpoint_dictionary[
+           endpoint != "TIL Regional Fraction", !same_histology_modality
+         ]),
+       "Same-histology-modality flag is not restricted to TIL Regional Fraction")
+assert(nrow(endpoint_definitions) == 194L &&
+         uniqueN(endpoint_definitions,
+                 by = c("outcome_type", "family", "endpoint", "source")) ==
+           nrow(endpoint_definitions) &&
+         sum(endpoint_dictionary_summary$cancer_endpoint_tests) == 2073L,
+       "Endpoint definition dictionary or summary is incomplete")
+context_key <- c("outcome_type", "family", "tumor_type", "endpoint")
+assert(nrow(morphology_context) == 20L &&
+         uniqueN(morphology_context, by = c(context_key, "stratum", "role")) ==
+           20L &&
+         uniqueN(morphology_context, by = context_key) == 5L &&
+         setequal(morphology_context$stratum, c("high", "low")) &&
+         setequal(morphology_context$role, c("anchor", "nearest neighbour")) &&
+         all(is.finite(morphology_context$observed)) &&
+         all(is.finite(morphology_context$predicted_value)) &&
+         all(morphology_context$predicted_rank >= 0 &
+               morphology_context$predicted_rank <= 1) &&
+         all(morphology_context$embedding_cosine_similarity_to_anchor >= -1 &
+               morphology_context$embedding_cosine_similarity_to_anchor <= 1) &&
+         all(abs(morphology_context[
+           role == "anchor", embedding_cosine_similarity_to_anchor
+         ] - 1) < 1e-12) &&
+         all(nzchar(morphology_context$patient)) &&
+         all(nzchar(morphology_context$representative_slide)) &&
+         all(nzchar(morphology_context$report_text)) &&
+         all(nzchar(morphology_context$report_provenance)) &&
+         all(nzchar(morphology_context$interpretability_limit)) &&
+         nrow(morphology_summary) == 5L,
+       "Morphology-context anchors, neighbours or provenance are incomplete")
 screen_backends <- unique(c(continuous$backend, binary$backend))
 assert(length(screen_backends) == 1L && !is.na(screen_backends) &&
          nzchar(screen_backends),
@@ -948,7 +1041,8 @@ figures <- c(
   "Figure1_patient_first_workflow.png", "Figure2_continuous_atlas.png",
   "Figure3_binary_atlas.png", "Figure4_prediction_examples.png",
   "Figure5_supported_counts.png", "Figure6_site_grouped_sensitivity.png",
-  "Figure6a_pls1_vs_pls2_targets.png", "Figure6b_pls1_vs_pls2_cancers.png"
+  "Figure6a_pls1_vs_pls2_targets.png", "Figure6b_pls1_vs_pls2_cancers.png",
+  "FigureS4_morphology_context.png"
 )
 assert(all(file.exists(file.path("figures", figures))), "A required figure is missing")
 

@@ -77,3 +77,23 @@ Within-cancer screen-positive models are repeated across five independently
 seeded nested 5x5 cross-validations. Collection-site grouped validation and a
 first-slide versus mean-pool sensitivity analysis are reported separately. No
 pathology-report text is used as a predictor.
+
+## Endpoint provenance and qualitative morphology context
+
+Every eligible cancer–endpoint test is assigned one of six label-generation
+classes: directly observed genomic alteration, sequencing-derived continuous
+burden, computationally inferred immune-cell fraction, transcriptomic
+signature, pathology-associated quantity or composite genomic-context score.
+The target-level dictionary retains source modality, direct/inferred status,
+derivation algorithm, source scale, transformation, missingness, expected
+measurement error, interpretation and assay-equivalence caveat. TIL Regional
+Fraction is flagged as a same-H&E-modality target.
+
+Morphological context is descriptive and secondary. Five representative label
+modalities are illustrated with concordant high/low anchors from repeated
+out-of-fold predictions and their nearest within-cancer patient-level mean
+TITAN neighbour by cosine similarity. A report-covered slide closest to each
+patient mean supplies a deterministic identifier and automated report context.
+Report text does not enter fitting. Because only global pooled embeddings and
+TITAN-generated same-slide reports are available, this analysis is not
+patch-level relevance, causal attribution or blinded pathologist review.

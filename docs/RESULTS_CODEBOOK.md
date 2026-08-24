@@ -37,6 +37,31 @@ Common columns:
 Models below the moderate-effect threshold are not permuted and conservatively
 retain `p_permutation=1`; they remain in the multiplicity denominator.
 
+## Endpoint provenance dictionary
+
+`endpoint_dictionary.csv` has one row per eligible cancer–endpoint test and a
+stable `target_id`. It classifies each target as a directly observed genomic
+alteration, sequencing-derived continuous burden, computationally inferred
+immune-cell fraction, transcriptomic signature, pathology-associated quantity
+or composite genomic-context score. The file also reports source modality,
+direct/inferred status, derivation algorithm, original scale, modelling
+transformation, analysed and missing patients, expected measurement error,
+biological interpretation, assay-equivalence caveat and source reference.
+
+`endpoint_definition_dictionary.csv` collapses repeated cancer-specific tests
+to the 194 unique endpoint definitions. `endpoint_dictionary_summary.csv`
+summarises the measurement classes. The `same_histology_modality` flag is true
+only for TIL Regional Fraction, because that outcome was itself computationally
+derived from H&E images; it is not a molecular or directly counted immune assay.
+
+`morphology_context_examples.csv` contains the five-model qualitative
+high/low-anchor and within-cancer nearest-neighbour retrieval. `role` separates
+anchors from their closest patient-level mean-embedding neighbour, and
+`embedding_cosine_similarity_to_anchor` quantifies that retrieval. Exact
+representative slide IDs and TITAN-generated report text are included solely as
+descriptive context. These rows are not patch-level attribution, causal
+morphology, or blinded pathologist review.
+
 ## Robustness files
 
 - `*_repeated_nested_cv.csv`: five independently partitioned nested-CV runs;

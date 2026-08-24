@@ -8,7 +8,7 @@ references are written to `results/tables/software_manifest.csv`.
 | Family | Source | Role |
 |---|---|---|
 | Histology features | Ding et al., *Nature Medicine* (2025); gated `MahmoodLab/TITAN/TCGA_TITAN_features.pkl` | Fixed pretrained 768-dimensional slide representations |
-| Immune/inflammatory | Thorsson et al., *Immunity* (2018) | Continuous patient-level targets |
+| Immune/inflammatory and genomic context | Thorsson et al., *Immunity* (2018) | RNA signatures, CIBERSORT fractions, methylation-derived leukocyte fraction, H&E-derived TIL regional fraction, immune-repertoire and genomic-context targets |
 | Driver mutations | Bailey et al., *Cell* (2018); TCGA MC3 | Cancer-specific binary targets |
 | Oncogenic pathways | Sanchez-Vega et al., *Cell* (2018), Table S4 | Ten binary pathway-alteration targets |
 | Aneuploidy | Taylor et al., *Cancer Cell* (2018), Table S2 | Aneuploidy score, arm burdens, genome doubling |
@@ -62,10 +62,22 @@ are recorded in `tcga_cdr_match_audit.csv` and
 `participant_characteristics_by_cancer.csv`; no patient-level clinical table is
 redistributed.
 
+The machine-readable `endpoint_dictionary.csv` distinguishes directly observed
+genomic alterations from sequencing-derived continuous burdens,
+computationally inferred immune-cell fractions, transcriptomic signatures,
+pathology-associated quantities and composite genomic-context scores. It
+records modality, derivation, scale, transformation, missingness, expected
+measurement error, interpretation and assay-equivalence caveats for every
+eligible cancer–endpoint test. The H&E-derived TIL Regional Fraction follows
+Saltz et al. and is explicitly labelled a same-modality concordance target;
+CIBERSORT fractions follow Newman et al. and are not direct cell counts.
+
 Primary publication links:
 
 - TITAN: https://doi.org/10.1038/s41591-025-03982-3
 - PanCancer immune landscape: https://doi.org/10.1016/j.immuni.2018.03.023
+- CIBERSORT immune-cell deconvolution: https://doi.org/10.1038/nmeth.3337
+- H&E-derived spatial TIL maps: https://doi.org/10.1016/j.celrep.2018.03.086
 - MC3 mutation calls: https://doi.org/10.1016/j.cels.2018.03.002
 - Cancer driver catalogue: https://doi.org/10.1016/j.cell.2018.02.060
 - Oncogenic pathways: https://doi.org/10.1016/j.cell.2018.03.035

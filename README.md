@@ -1,8 +1,10 @@
 # TITAN patient-level prediction benchmark and model resource
 
-Reproducible, patient-level prediction of molecular, immune and genomic
+Reproducible, patient-level prediction of molecular, derived immune and genomic
 features from fixed pretrained TITAN whole-slide embeddings across 32 TCGA cancer
-types.
+types. These labels are not assay-equivalent: the benchmark includes direct
+alteration calls, sequencing-derived burdens, inferred cell fractions,
+transcriptomic signatures, pathology-derived quantities and composite scores.
 
 This project is positioned as a systematic benchmark and reusable fitted-model
 resource, not as the first pan-cancer histology-to-molecular screen. In
@@ -34,7 +36,7 @@ inflammatory features can be predicted from histology-derived TITAN
 representations?** The pipeline evaluates:
 
 - tissue-specific driver mutations;
-- 39 immune/inflammatory measurements plus 11 genomic-context scores from
+- 39 immune/inflammatory features plus 11 genomic-context scores from
   Thorsson et al. (50 continuous endpoints in total);
 - ten oncogenic pathway alteration indicators from Sanchez-Vega et al.;
 - MANTIS/MSIsensor microsatellite-instability scores and eligible binary MSI
@@ -220,6 +222,36 @@ authorised research user supplies a
 cancer vector and correctly named TITAN features; `predict_titan()` applies
 every model available for each cancer and returns a long patient-model table.
 Repeated patient identifiers are mean-pooled before inference.
+
+## Endpoint provenance and morphology context
+
+[`endpoint_dictionary.csv`](results/tables/endpoint_dictionary.csv) contains one
+row for each of the 2,073 eligible cancer–endpoint tests. It records the source
+modality, direct-versus-inferred status, derivation algorithm, original scale,
+analysis transformation, outcome-specific missingness, expected measurement
+error, biological interpretation and an assay-equivalence caveat. The companion
+[`endpoint_definition_dictionary.csv`](results/tables/endpoint_definition_dictionary.csv)
+contains the 194 unique endpoint definitions. In particular, CIBERSORT fractions
+are RNA-seq deconvolution outputs, leukocyte fraction is methylation-derived,
+expression signatures are gene-set scores, and TIL Regional Fraction is itself
+an H&E-derived computational quantity. Predicting any of these is not equivalent
+to predicting a directly counted immune-cell assay or a clinically certified
+biomarker.
+
+`R/13_endpoint_dictionary_and_morphology.R` also performs a qualitative
+within-cancer nearest-neighbour retrieval for five representative endpoint
+types. High- and low-prediction anchors are chosen from repeated held-out
+predictions; their nearest patients are identified by cosine similarity of the
+patient-level mean TITAN embeddings. A deterministic report-covered slide is
+selected nearest each patient's pooled representation. The exact patients,
+slides, observed values, predictions, ranks, similarities and TITAN-generated
+report excerpts are in
+[`morphology_context_examples.csv`](results/tables/morphology_context_examples.csv),
+with the visual summary in
+[`FigureS4_morphology_context.png`](figures/FigureS4_morphology_context.png).
+This is descriptive context only. Global pooled embeddings cannot localise a
+causal patch, and the generated slide reports are not blinded independent
+pathologist annotations.
 
 ```r
 remotes::install_github("tkcaccia/TITANPred", dependencies = TRUE)

@@ -190,6 +190,14 @@ for required_revision in (
     "CPTAC-UCEC is a plausible future cohort",
     "research-software demonstration",
     "currently maintained in a private access-controlled repository",
+    "Endpoint provenance and assay equivalence",
+    "2,073-row endpoint dictionary",
+    "TIL Regional Fraction inferred from H&E",
+    "same-histology-modality concordance task",
+    "equivalent to flow cytometry, immunohistochemistry, a directly counted immune-cell assay",
+    "Qualitative morphology context",
+    "Figure S4 places all held-out patients behind the selected examples",
+    "not patch-level relevance, causal attribution or blinded pathologist review",
 ):
     require(
         required_revision in main_text,
@@ -234,6 +242,9 @@ for item in (
     "Figure S1",
     "Figure S2",
     "Figure S3",
+    "Table S13. Endpoint provenance, derivation and assay equivalence",
+    "Table S14. Qualitative high/low prediction anchors and within-cancer TITAN neighbours",
+    "Figure S4",
     "Machine-readable additional files",
     "95% paired patient interval",
     "The interval does not repeat target sampling, generate partitions or refit models",
@@ -242,14 +253,20 @@ for item in (
 for item in (
     "7. Reported uncertainty is conditional and does not capture the entire modelling process",
     "does not regenerate partitions or refit models",
+    "9. Derived immune phenotypes, endpoint provenance and morphological context",
+    "Every one of the 2,073 eligible cancer–endpoint tests is classified",
+    "qualitative neighbour retrieval—not patch relevance, causal morphology or blinded pathologist review",
 ):
     require(item in response_text, f"Reviewer-response item missing: {item}")
 for item in (
     "7. Selection-conditioned uncertainty",
     "2,000-replicate paired patient bootstrap",
+    "9. Endpoint provenance and morphological interpretation",
+    "complete 2,073-row endpoint dictionary",
+    "No additional internal interpretability claim is requested",
 ):
     require(item in reviewer_text, f"Reviewer-report item missing: {item}")
-require(len(supplement.inline_shapes) >= 3, "Supplement contains fewer than three figures")
+require(len(supplement.inline_shapes) >= 4, "Supplement contains fewer than four figures")
 require(
     "Panel C. Target-level secondary metric; binary balanced accuracy uses operating thresholds selected identically for both methods."
     in supplement_text,
