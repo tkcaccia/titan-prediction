@@ -209,6 +209,11 @@ setnames(
   c("rank_a", "rank_b", "prediction_a", "prediction_b")
 )
 continuous_wide[, value_label := sprintf("A %.3g  |  B %.3g", prediction_a, prediction_b)]
+continuous_wide[, separation := abs(rank_a - rank_b)]
+continuous_wide <- continuous_wide[order(-separation)][seq_len(min(8L, .N))]
+continuous_wide[, endpoint_label := factor(
+  endpoint_label, levels = rev(as.character(endpoint_label[order(rank_a)]))
+)]
 p_continuous <- ggplot(continuous_wide, aes(y = endpoint_label)) +
   geom_segment(aes(x = rank_a, xend = rank_b, yend = endpoint_label),
                color = "#D7DEE8", linewidth = 1.1) +
@@ -226,16 +231,20 @@ p_continuous <- ggplot(continuous_wide, aes(y = endpoint_label)) +
     x = "TCGA out-of-fold prediction rank (not probability)", y = NULL,
     color = NULL
   ) +
-  theme_minimal(base_size = 11.5, base_family = "Arial") +
+  theme_minimal(base_size = 12.8, base_family = "Arial") +
   theme(
     panel.grid.major.y = element_blank(), panel.grid.minor = element_blank(),
-    axis.text.y = element_text(size = 10.2),
-    plot.title = element_text(face = "bold", size = 14, color = navy),
-    plot.subtitle = element_text(size = 10, color = muted),
+    axis.text.y = element_text(size = 11.5),
+    plot.title = element_text(face = "bold", size = 15, color = navy),
+    plot.subtitle = element_text(size = 11, color = muted),
     legend.position = "bottom", plot.margin = margin(8, 18, 8, 8)
   )
 
 binary <- selected[outcome_type == "binary"]
+binary[, endpoint_key := paste(family, endpoint, sep = "::")]
+binary[, separation := max(reference_rank) - min(reference_rank), by = endpoint_key]
+selected_binary_keys <- unique(binary[order(-separation), endpoint_key])[seq_len(min(6L, uniqueN(binary$endpoint_key)))]
+binary <- binary[endpoint_key %chin% selected_binary_keys]
 binary[, endpoint_label := fcase(
   endpoint == "MSI-H strict (MANTIS >0.6)", "MSI-H strict (>0.6)",
   endpoint == "MSI-H (MANTIS >0.4)", "MSI-H (>0.4)",
@@ -245,7 +254,7 @@ binary[, endpoint_label := fcase(
 )]
 binary[, endpoint_label := fifelse(
   grepl("^site-sensitive", site_robustness_status),
-  paste0("[SITE-SENSITIVE] ", endpoint_label), endpoint_label
+  paste0("[TCGA TSS-CODE SENSITIVE] ", endpoint_label), endpoint_label
 )]
 binary[, endpoint_label := paste0(
   endpoint_label, "  (n=", training_n, "; +", training_positive,
@@ -265,16 +274,16 @@ p_binary <- ggplot(binary, aes(reference_rank, endpoint_label, color = example))
                      labels = function(x) paste0(x, "%")) +
   labs(
     title = "B  Binary calls for the two illustrative cases",
-    subtitle = "Score rank (not probability); flagged models fell below their original TCGA TSS-code-grouped threshold",
+    subtitle = "Score rank (not probability); flagged models attenuated under TCGA TSS-code grouping",
     x = "TCGA out-of-fold score rank (not probability)", y = NULL,
     color = NULL, shape = NULL
   ) +
-  theme_minimal(base_size = 11, base_family = "Arial") +
+  theme_minimal(base_size = 12.5, base_family = "Arial") +
   theme(
     panel.grid.major.y = element_blank(), panel.grid.minor = element_blank(),
-    axis.text.y = element_text(size = 9.2),
-    plot.title = element_text(face = "bold", size = 14, color = navy),
-    plot.subtitle = element_text(size = 10, color = muted),
+    axis.text.y = element_text(size = 10.8),
+    plot.title = element_text(face = "bold", size = 15, color = navy),
+    plot.subtitle = element_text(size = 11, color = muted),
     legend.position = "bottom", legend.box = "vertical",
     legend.text = element_text(size = 9.5)
   )
@@ -294,9 +303,9 @@ figure <- (p_continuous / p_binary +
       "Post hoc visualization; no external validation."
     ),
     theme = theme(
-      plot.title = element_text(face = "bold", size = 17, color = navy),
-      plot.subtitle = element_text(size = 10, color = muted),
-      plot.caption = element_text(size = 8.3, color = muted, hjust = 0)
+      plot.title = element_text(face = "bold", size = 18, color = navy),
+      plot.subtitle = element_text(size = 11, color = muted),
+      plot.caption = element_text(size = 9.2, color = muted, hjust = 0)
     )
   )
 

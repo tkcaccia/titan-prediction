@@ -166,7 +166,7 @@ dev.off()
 
 # Figure 2: concise continuous landscape.
 cs <- continuous[tier %chin% c("A", "B")][order(-q2)]
-cp <- head(cs, 18L)
+cp <- head(cs, 12L)
 cp[, display := paste0(tumor_type, "  ·  ", endpoint)]
 cp[, display := factor(display, levels = rev(unique(as.character(display))))]
 p2 <- ggplot(cp, aes(q2, display)) +
@@ -178,14 +178,14 @@ p2 <- ggplot(cp, aes(q2, display)) +
   labs(
     title = "Continuous signals are strong in selected cancer–endpoint pairs",
     subtitle = sprintf(
-      "Top 18 within-cancer candidates; %d continuous pairs passed the stricter across-cancer family correction",
+      "Top 12 candidates; %d pairs pass the across-cancer family correction",
       continuous[tier %chin% c("A", "B") & q_value_global < 0.05, .N]
     ),
     x = expression("Patient-level outer-fold " * Q^2), y = NULL,
     caption = "Top-ranked models are shown for legibility; complete results are in Supplementary Table S7.\nAll displayed models passed the across-cancer sensitivity correction."
-  ) + theme_titan(11.5) +
-  theme(legend.position = "none", axis.text.y = element_text(size = 10.5))
-ggsave("figures/Figure2_continuous_atlas.png", p2, width = 10.8, height = 7.4,
+  ) + theme_titan(13) +
+  theme(legend.position = "none", axis.text.y = element_text(size = 12))
+ggsave("figures/Figure2_continuous_atlas.png", p2, width = 10.8, height = 6.8,
        dpi = 320, bg = "white")
 
 # Figure 3: standard-evidence binary landscape. The 17 smaller-class models are
@@ -193,7 +193,7 @@ ggsave("figures/Figure2_continuous_atlas.png", p2, width = 10.8, height = 7.4,
 bs <- binary[
   tier %chin% c("A", "B") & model_evidence_tier == "standard_internal_evidence"
 ][order(-balanced_accuracy)]
-bp <- head(bs, 18L)
+bp <- head(bs, 12L)
 bp[, display := paste0(
   tumor_type, "  ·  ", endpoint,
   fifelse(family == "oncogenic_pathway", " (pathway)", "")
@@ -210,16 +210,16 @@ p3 <- ggplot(bp, aes(balanced_accuracy, display, color = family_label)) +
                                 "Within-cancer only" = 21), drop = FALSE) +
   labs(
     title = "Binary discrimination is endpoint- and cancer-specific",
-    subtitle = "Top 18 of 87 models with at least 50 patients per class; 17 limited-evidence models are separated in Figure S3",
+    subtitle = "Top 12 models with ≥50 patients per class; limited-evidence models: Figure S3",
     x = "Patient-level outer-fold balanced accuracy", y = NULL,
     color = "Endpoint family", shape = "Multiplicity sensitivity",
-    caption = "Top-ranked models are shown for legibility; complete BA, AUROC and PR-AUC results are in Supplementary Tables S6a, S7 and S10g."
-  ) + theme_titan(11.2) +
+    caption = "Complete BA, AUROC and PR-AUC results: Supplementary Tables S6a, S7 and S10g."
+  ) + theme_titan(12.8) +
   guides(color = guide_legend(nrow = 2, byrow = TRUE),
          shape = guide_legend(nrow = 1)) +
-  theme(legend.box = "vertical", legend.text = element_text(size = 9.2),
-        axis.text.y = element_text(size = 10.2))
-ggsave("figures/Figure3_binary_atlas.png", p3, width = 10.8, height = 7.5,
+  theme(legend.box = "vertical", legend.text = element_text(size = 10.5),
+        axis.text.y = element_text(size = 11.8))
+ggsave("figures/Figure3_binary_atlas.png", p3, width = 10.8, height = 7.1,
        dpi = 320, bg = "white")
 
 # Figure 4: observed-versus-predicted examples. Panel A deliberately shows the
@@ -319,7 +319,7 @@ counts <- merge(
 )
 counts[is.na(N), N := 0L]
 totals <- counts[, .(total = sum(N)), by = tumor_type][order(-total)]
-shown_cancers <- totals[total > 0][seq_len(min(20L, .N)), tumor_type]
+shown_cancers <- totals[total > 0][seq_len(min(15L, .N)), tumor_type]
 counts <- counts[tumor_type %chin% shown_cancers]
 ordering <- rev(unique(as.character(shown_cancers)))
 counts[, tumor_type := factor(tumor_type, levels = ordering)]
@@ -332,10 +332,10 @@ p5 <- ggplot(counts, aes(N, tumor_type, fill = family_label)) +
     subtitle = "Counts use within-cancer screen criteria; absence can reflect ineligibility or a screen-negative result",
     x = "Screen-positive cancer–endpoint pairs", y = NULL,
     fill = "Endpoint family",
-    caption = "Twenty cancers with the largest number of screen-positive pairs are shown; complete cancer-level counts are in Table S1."
-  ) + theme_titan(11) +
-  theme(axis.text.y = element_text(size = 10.5), legend.text = element_text(size = 9.5))
-ggsave("figures/Figure5_supported_counts.png", p5, width = 11.0, height = 7.5,
+    caption = "Fifteen cancers with the largest number of screen-positive pairs are shown; complete cancer-level counts are in Table S1."
+  ) + theme_titan(12.5) +
+  theme(axis.text.y = element_text(size = 11.8), legend.text = element_text(size = 10.5))
+ggsave("figures/Figure5_supported_counts.png", p5, width = 11.0, height = 7.0,
        dpi = 320, bg = "white")
 
 # Figure 6: site sensitivity as a principal result.
@@ -378,10 +378,10 @@ p6a <- ggplot(site, aes(random, grouped, color = robustness)) +
     subtitle = "83/323 (25.7%); highlighted APC models approach chance",
     x = "Random-fold performance", y = "Performance grouped by TCGA TSS code",
     color = NULL
-  ) + theme_titan(10.5) +
+  ) + theme_titan(12) +
   theme(legend.position = "bottom")
 
-largest_declines <- site[order(delta)][seq_len(min(8L, .N))]
+largest_declines <- site[order(delta)][seq_len(min(6L, .N))]
 largest_declines[, label := factor(label, levels = rev(unique(as.character(label))))]
 p6b <- ggplot(largest_declines, aes(y = label)) +
   geom_segment(aes(x = grouped, xend = random, yend = label),
@@ -394,16 +394,16 @@ p6b <- ggplot(largest_declines, aes(y = label)) +
   facet_wrap(~metric, scales = "free_x") +
   labs(
     title = "B  Largest target-level attenuations",
-    subtitle = "Endpoint-level changes expose losses hidden by the median",
+    subtitle = "Largest losses hidden by the median",
     x = "Performance", y = NULL, shape = NULL
-  ) + theme_titan(10.5) +
-  theme(axis.text.y = element_text(size = 9.5)) +
+  ) + theme_titan(12) +
+  theme(axis.text.y = element_text(size = 10.8)) +
   theme(legend.position = "bottom")
 
 site_prediction <- fread(
   "results/tables/tissue_source_site_predictability_summary.csv"
 )[eligible == TRUE & (is.na(error) | !nzchar(error))]
-site_prediction <- site_prediction[order(-normalized_macro_balanced_accuracy)][seq_len(min(15L, .N))]
+site_prediction <- site_prediction[order(-normalized_macro_balanced_accuracy)][seq_len(min(10L, .N))]
 site_prediction[, tumor_type := factor(
   tumor_type,
   levels = unique(as.character(tumor_type[order(normalized_macro_balanced_accuracy)]))
@@ -423,22 +423,22 @@ p6c <- ggplot(site_prediction, aes(y = tumor_type)) +
   scale_x_continuous(limits = c(0, 1), breaks = seq(0, 1, 0.2)) +
   labs(
     title = "C  TITAN representations predict TCGA TSS code within cancer",
-    subtitle = "Top 15 chance-normalised results; five repeated nested validations",
+    subtitle = "Top 10 chance-normalised results; five repeated nested validations",
     x = "Multiclass macro balanced accuracy", y = NULL,
     color = "Chance-normalised\nTCGA TSS-code predictability", shape = NULL
-  ) + theme_titan(10.5) +
-  theme(legend.position = "bottom", axis.text.y = element_text(size = 9.5))
+  ) + theme_titan(12) +
+  theme(legend.position = "bottom", axis.text.y = element_text(size = 10.8))
 
 p6 <- (p6a | p6b) / p6c +
   plot_annotation(
     title = "Sensitivity to TCGA tissue-source-site-code grouping is a central limitation",
     caption = paste(
-      "Grouping by TCGA tissue-source-site code is internal validation, not institutional or scanner-level external validation.",
+      "Grouping by TCGA tissue-source-site code is internal validation, not institutional or scanner-level external validation.\n",
       "The barcode-derived code is not an institution, scanner, laboratory or staining-batch identifier."
     ),
     theme = theme(
-      plot.title = element_text(face = "bold", size = 17, color = navy),
-      plot.caption = element_text(color = muted, hjust = 0, size = 9)
+      plot.title = element_text(face = "bold", size = 18, color = navy),
+      plot.caption = element_text(color = muted, hjust = 0, size = 10)
     )
   )
 ggsave("figures/Figure6_site_grouped_sensitivity.png", p6,
