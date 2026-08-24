@@ -238,6 +238,20 @@ per analysed site. Results are in
 This quantifies confounding potential; tissue-source site remains an imperfect
 proxy for institution, scanner, laboratory and staining batch.
 
+## Symmetric PLS–ridge benchmark
+
+The secondary comparison of 12 highlighted binary models now uses identical
+outer folds, identical inner folds and the same decision rule for both methods:
+within each outer training set, PLS–LDA and ridge operating thresholds are
+selected from inner out-of-fold scores to maximise balanced accuracy. AUROC is
+the threshold-independent primary binary comparison metric; the symmetrically
+thresholded balanced accuracy is reported alongside it. The prespecified atlas
+continues to use its original fitted PLS–LDA class rule and is not altered by
+this conditional benchmark. Repeat-level results are in
+[`results/tables/binary_symmetric_pls_ridge_repeated_nested_cv.csv`](results/tables/binary_symmetric_pls_ridge_repeated_nested_cv.csv),
+with model-level comparisons in
+[`results/tables/pls_vs_ridge_highlighted_models.csv`](results/tables/pls_vs_ridge_highlighted_models.csv).
+
 ## Independent evaluation status
 
 No independent cohort has been evaluated. TCGA resampling and the explicitly

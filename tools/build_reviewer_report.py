@@ -84,6 +84,10 @@ highlighted = read_rows("highlighted_model_performance.csv")
 mutation_coverage = read_rows("mutation_coverage_audit.csv")
 slide_audit = read_rows("patient_slide_multiplicity_by_cancer.csv")
 participant_characteristics = read_rows("participant_characteristics_by_cancer.csv")
+ridge_summary = read_rows("pls_vs_ridge_summary.csv")
+binary_ridge_summary = next(
+    r for r in ridge_summary if r["outcome_type"] == "binary"
+)
 participant_overall = next(
     r for r in participant_characteristics if r["tumor_type"] == "Overall"
 )
@@ -255,7 +259,28 @@ add_body(doc,
     "site remains an imperfect proxy, and smaller grouped folds can account for part—but not all—of the attenuation."
 )
 
-add_heading(doc, "5. Relation to prior work and translational positioning", 2)
+add_heading(doc, "5. Symmetric binary PLS–ridge comparison", 2)
+add_body(doc,
+    "The revised 12-model binary comparison removes the earlier operating-rule advantage given to ridge. "
+    "PLS–LDA and ridge now use identical outer partitions and identical inner partitions. Within each outer "
+    "training set, both operating thresholds are selected from method-specific inner out-of-fold scores by "
+    "maximising balanced accuracy. Threshold-independent AUROC is the primary binary algorithm-comparison "
+    f"metric: the median ridge-minus-PLS difference is {float(binary_ridge_summary['median_delta_ridge_minus_pls']):.3f} "
+    f"(IQR {float(binary_ridge_summary['q1_delta']):.3f} to {float(binary_ridge_summary['q3_delta']):.3f}); "
+    "one endpoint favours ridge and 11 are uncertain. Under symmetric thresholding, the median "
+    f"balanced-accuracy difference is {float(binary_ridge_summary['median_secondary_delta_ridge_minus_pls']):.3f} "
+    f"(IQR {float(binary_ridge_summary['q1_secondary_delta']):.3f} to {float(binary_ridge_summary['q3_secondary_delta']):.3f}); "
+    "again one endpoint favours ridge and 11 are uncertain. The primary atlas appropriately retains its "
+    "prespecified observed-prior PLS–LDA rule and is distinguished from this conditional method benchmark."
+)
+add_body(doc,
+    "No additional algorithm-comparison correction is requested. Table S10e should retain both AUROC and the "
+    "symmetrically thresholded balanced accuracy, and the manuscript should not interpret this selected 12-model "
+    "subset as evidence of atlas-wide superiority for either method.",
+    lead="No additional algorithm-comparison correction is requested."
+)
+
+add_heading(doc, "6. Relation to prior work and translational positioning", 2)
 add_body(doc,
     "The expanded review now covers mutation, MSI, gene expression, continuous "
     "biomarkers, fusions, homologous-recombination deficiency and tumour-microenvironment "
@@ -273,7 +298,7 @@ add_body(doc,
     "prospective discipline, but it is not external validation evidence."
 )
 
-add_heading(doc, "6. Reproducibility and model redistribution", 2)
+add_heading(doc, "7. Reproducibility and model redistribution", 2)
 add_body(doc,
     "The reproducibility resource is split between the public analysis repository and a "
     "separate GPL-3 TITANPred R package. The package contains all 323 fitted research models, "
@@ -292,7 +317,7 @@ add_body(doc,
     lead="Required before submission:"
 )
 
-add_heading(doc, "7. Administrative completion", 2)
+add_heading(doc, "8. Administrative completion", 2)
 add_body(doc,
     "Required before submission: replace the remaining placeholders for funding, "
     "competing interests and author contributions; confirm the institutional ethics/waiver "

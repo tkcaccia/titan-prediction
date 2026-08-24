@@ -447,14 +447,35 @@ assert(nrow(mutation_audit) == 41L &&
        "Expanded mutation-literature evidence counts are inconsistent")
 
 ridge_comparison <- fread("results/tables/pls_vs_ridge_highlighted_models.csv")
+binary_symmetric <- fread(
+  "results/tables/binary_symmetric_pls_ridge_repeated_nested_cv.csv"
+)
 assert(nrow(ridge_comparison) == nrow(highlighted) &&
          all(ridge_comparison$repeats == cfg$analysis$robustness_repeats) &&
          all(is.finite(ridge_comparison$delta_ridge_minus_pls)) &&
+         all(is.finite(ridge_comparison$delta_secondary_ridge_minus_pls)) &&
+         all(ridge_comparison[outcome_type == "binary", primary_metric] ==
+               "AUROC (threshold-independent)") &&
+         all(ridge_comparison[outcome_type == "binary", secondary_metric] ==
+               "balanced accuracy (inner-CV thresholds for both)") &&
          all(ridge_comparison$benchmark_scope == paste(
-           "24 manuscript-highlighted PLS screen-positive models; conditional",
+           "24 manuscript-highlighted PLS screen-positive models; conditional symmetric",
            "benchmark not suitable for claiming atlas-wide PLS superiority"
          )),
        "Exportable ridge benchmark is incomplete or mis-scoped")
+assert(nrow(binary_symmetric) ==
+         12L * cfg$analysis$robustness_repeats &&
+         all(binary_symmetric$outer_folds_identical) &&
+         all(binary_symmetric$inner_folds_identical) &&
+         all(binary_symmetric$threshold_selection == paste(
+           "identical inner-CV rule for both methods:",
+           "maximise balanced accuracy on inner out-of-fold scores"
+         )) &&
+         all(is.finite(binary_symmetric$pls_auc)) &&
+         all(is.finite(binary_symmetric$ridge_auc)) &&
+         all(is.finite(binary_symmetric$pls_balanced_accuracy)) &&
+         all(is.finite(binary_symmetric$ridge_balanced_accuracy)),
+       "Symmetric binary PLS-ridge benchmark is incomplete")
 
 cohort <- fread("results/tables/patient_cohort_summary.csv")
 assert(nrow(cohort) == 9404L && sum(cohort$n_slides) == 11449L,

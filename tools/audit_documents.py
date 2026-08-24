@@ -155,7 +155,8 @@ for required_revision in (
     "fixed pretrained representation",
     "tested-negative and sample-size-ineligible results",
     "83/323 models (25.7%) fell below the original effect threshold",
-    "PLS was competitive but not uniformly superior",
+    "Threshold-independent AUROC was the primary binary algorithm-comparison metric",
+    "the same inner-CV balanced-accuracy threshold rule applied to both methods",
     "38/41 screen-positive cancer–gene pairs",
     "TCGA out-of-fold score rank (not probability)",
     "Probability calibration was not added",
@@ -208,6 +209,27 @@ for item in (
 ):
     require(item in supplement_text, f"Supplementary item missing: {item}")
 require(len(supplement.inline_shapes) >= 2, "Supplement contains fewer than two figures")
+require(
+    "Panel B. Secondary metric; binary balanced accuracy uses inner-CV operating thresholds selected identically for both methods."
+    in supplement_text,
+    "Symmetric binary decision-rule panel is missing from Table S10e",
+)
+
+response_text = texts["response_to_reviewer_JTM.docx"]
+require(
+    "4. The binary modelling and ridge comparison use asymmetric decision rules"
+    in response_text
+    and "Confirmed and corrected" in response_text
+    and "binary_symmetric_pls_ridge_repeated_nested_cv.csv" in response_text,
+    "Response to reviewer does not fully address the binary decision-rule asymmetry",
+)
+
+reviewer_text = texts["reviewer_report_JTM.docx"]
+require(
+    "Symmetric binary PLS–ridge comparison" in reviewer_text
+    and "No additional algorithm-comparison correction is requested" in reviewer_text,
+    "Reviewer report does not reflect the corrected symmetric comparison",
+)
 
 for name, text in texts.items():
     require("Error! Reference source not found" not in text, f"Broken Word field in {name}")
