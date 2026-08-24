@@ -1,0 +1,3 @@
+outcome_type,models,primary_metric,secondary_metric,pls_better,ridge_better,difference_uncertain,median_delta_ridge_minus_pls,q1_delta,q3_delta,median_secondary_delta_ridge_minus_pls,q1_secondary_delta,q3_secondary_delta
+binary,35,AUROC (threshold-independent),balanced accuracy (inner-CV thresholds for both),0,8,27,0.00818144777943775,-0.00163436837510911,0.0273927757267647,0.0119703670942061,0.00504141769778665,0.0246107539527722
+continuous,12,Q2,Spearman correlation,0,10,2,0.0530173928933533,0.0308020386590799,0.135952876498288,-0.00937088550823833,-0.103896097029048,0.0191742225830259

@@ -155,8 +155,13 @@ for required_revision in (
     "fixed pretrained representation",
     "tested-negative and sample-size-ineligible results",
     "83/323 models (25.7%) fell below the original effect threshold",
-    "Threshold-independent AUROC was the primary binary algorithm-comparison metric",
+    "Threshold-independent AUROC was the primary binary comparison metric",
     "the same inner-CV balanced-accuracy threshold rule applied to both methods",
+    "targets were selected from all 2,073 eligible cancer–endpoint tests without using PLS performance",
+    "The fixed rule yielded 12 continuous and 35 binary targets",
+    "PLS is the prespecified reference method, not an empirically optimal algorithm",
+    "Portability cannot justify PLS over ridge because both yield compact exportable parameters",
+    "Its mean cancer-level ΔQ² relative to response-by-response PLS1 was 0.066",
     "every permutation, patient labels were reassigned and the complete modelling process was repeated",
     "single BH correction across all eligible continuous and binary cancer–endpoint tests",
     "zero exceedances among 999 permutations this interval is 0–0.003686",
@@ -167,8 +172,8 @@ for required_revision in (
     "Probability calibration was not added",
     "95% selection-conditioned patient-resampling interval for repeated out-of-fold predictions",
     "It includes neither the initial screen and endpoint highlighting nor new partition generation",
-    "For repeat r, the paired difference was d_r=M_r(ridge)−M_r(PLS)",
-    "neither algorithm was refitted within a bootstrap replicate",
+    "For repeat r, d_r=M_r(ridge)−M_r(PLS)",
+    "generate new partitions or refit either algorithm",
     "A stricter ≥50-per-class sensitivity retained 87/104 binary candidates",
     "Binary class-size sensitivity and development stability",
     "17 screen-positive models with fewer than 50 patients in either class",
@@ -221,7 +226,7 @@ for item in (
     "Table S10b. Screen-positive models below the original effect threshold",
     "Table S10c. Tissue-source-site-grouped outer-fold composition",
     "Table S10d. Within-cancer prediction of TCGA tissue-source site",
-    "Table S10e. PLS versus exportable ridge benchmark",
+    "Table S10e. Metadata-stratified representative PLS–ridge benchmark",
     "Table S10f. Permutation precision and atlas-wide multiplicity sensitivity",
     "Table S10g. Binary class-size sensitivity and development reliability",
     "Table S6c. Prospectively locked subset for future independent evaluation",
@@ -231,12 +236,12 @@ for item in (
     "Figure S3",
     "Machine-readable additional files",
     "95% paired patient interval",
-    "No new partitions were generated and neither algorithm was refitted inside a bootstrap replicate",
+    "The interval does not repeat target sampling, generate partitions or refit models",
 ):
     require(item in supplement_text, f"Supplementary item missing: {item}")
 for item in (
     "7. Reported uncertainty is conditional and does not capture the entire modelling process",
-    "The bootstrap does not generate new partitions or refit models",
+    "does not regenerate partitions or refit models",
 ):
     require(item in response_text, f"Reviewer-response item missing: {item}")
 for item in (
@@ -246,7 +251,7 @@ for item in (
     require(item in reviewer_text, f"Reviewer-report item missing: {item}")
 require(len(supplement.inline_shapes) >= 3, "Supplement contains fewer than three figures")
 require(
-    "Panel B. Secondary metric; binary balanced accuracy uses inner-CV operating thresholds selected identically for both methods."
+    "Panel C. Target-level secondary metric; binary balanced accuracy uses operating thresholds selected identically for both methods."
     in supplement_text,
     "Symmetric binary decision-rule panel is missing from Table S10e",
 )
@@ -272,8 +277,16 @@ require(
     "4. The binary modelling and ridge comparison use asymmetric decision rules"
     in response_text
     and "Confirmed and corrected" in response_text
-    and "binary_symmetric_pls_ridge_repeated_nested_cv.csv" in response_text,
+    and "35 binary comparisons" in response_text,
     "Response to reviewer does not fully address the binary decision-rule asymmetry",
+)
+require(
+    "8. The justification for retaining PLS as the central model is currently insufficient"
+    in response_text
+    and "47-target representative benchmark" in response_text
+    and "portability is explicitly stated to apply to ridge as well" in response_text
+    and "0.066, 0.017 and 0.056" in response_text,
+    "Response to reviewer does not fully address the rationale for retaining PLS",
 )
 require(
     "one BH correction across all" in reviewer_text
@@ -283,10 +296,11 @@ require(
 )
 
 require(
-    "Symmetric binary PLS–ridge comparison" in reviewer_text
-    and "The new 2,000-replicate paired patient-resampling interval is preferable"
-    in reviewer_text,
-    "Reviewer report does not reflect the corrected symmetric comparison",
+    "Metadata-stratified PLS–ridge benchmark" in reviewer_text
+    and "47-target benchmark comprises 12 continuous and 35 binary endpoints" in reviewer_text
+    and "These results do not establish PLS as the best model" in reviewer_text
+    and "PLS2 remains a secondary, hypothesis-generating analysis" in reviewer_text,
+    "Reviewer report does not reflect the representative algorithm benchmark",
 )
 
 require(

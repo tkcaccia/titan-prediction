@@ -1,6 +1,7 @@
 .libPaths(c(normalizePath(".Rlib", mustWork = FALSE), .libPaths()))
 suppressPackageStartupMessages({
   library(data.table)
+  library(digest)
   library(fastPLS)
   library(future.apply)
   library(glmnet)
@@ -18,25 +19,117 @@ binary_targets <- rbindlist(list(
 ), use.names = TRUE)
 continuous_screen <- fread("results/tables/continuous_screen.csv")
 binary_screen <- fread("results/tables/binary_screen.csv")
-highlighted <- fread("results/tables/highlighted_model_performance.csv")
-pls_continuous_predictions <- fread(
-  "results/predictions/continuous_repeated_oof_predictions.csv.gz"
-)
 
-continuous_jobs <- continuous_screen[tier %chin% c("A", "B")]
-continuous_jobs[, screen_index := .I]
-continuous_benchmark <- merge(
-  highlighted[outcome_type == "continuous", .(family, tumor_type, endpoint)],
-  continuous_jobs, by = c("family", "tumor_type", "endpoint"), all.x = TRUE
+# Construct the representative benchmark without using PLS performance. All
+# eligible endpoints enter the sampling frame. Sample-size terciles are formed
+# separately for continuous and binary endpoints; binary endpoints are also
+# stratified by empirical terciles of the minority-class fraction. Within each
+# non-empty family-by-stratum cell, a salted SHA-256 rank selects one endpoint.
+# The salt and rule are fixed here so that the sample can be reconstructed from
+# metadata alone and cannot change with PLS or ridge results.
+selection_version <- "titan-representative-benchmark-v1"
+rank_stratum <- function(x, labels) {
+  r <- frank(x, ties.method = "average")
+  index <- ceiling(length(labels) * r / length(x))
+  labels[pmax(1L, pmin(length(labels), index))]
+}
+selection_hash <- function(family, tumor_type, endpoint) {
+  digest(
+    paste(selection_version, family, tumor_type, endpoint, sep = "|"),
+    algo = "sha256", serialize = FALSE
+  )
+}
+
+continuous_frame <- continuous_screen[, .(
+  outcome_type = "continuous", family, tumor_type, endpoint, n,
+  positive = NA_integer_, negative = NA_integer_, screen_tier = tier
+)]
+continuous_frame[, size_stratum := rank_stratum(
+  n, c("small", "medium", "large")
+)]
+continuous_frame[, imbalance_stratum := "not applicable"]
+continuous_frame[, minority_fraction := NA_real_]
+continuous_frame[, selection_hash := mapply(
+  selection_hash, family, tumor_type, endpoint, USE.NAMES = FALSE
+)]
+continuous_benchmark <- continuous_frame[
+  order(selection_hash), .SD[1L], by = .(family, size_stratum)
+]
+
+binary_frame <- binary_screen[, .(
+  outcome_type = "binary", family, tumor_type, endpoint, n,
+  positive, negative, screen_tier = tier
+)]
+binary_frame[, minority_fraction := pmin(positive, negative) / n]
+binary_frame[, size_stratum := rank_stratum(
+  n, c("small", "medium", "large")
+)]
+binary_frame[, imbalance_stratum := rank_stratum(
+  minority_fraction, c("high", "moderate", "low")
+)]
+binary_frame[, selection_hash := mapply(
+  selection_hash, family, tumor_type, endpoint, USE.NAMES = FALSE
+)]
+binary_benchmark <- binary_frame[
+  order(selection_hash), .SD[1L],
+  by = .(family, size_stratum, imbalance_stratum)
+]
+
+setorder(continuous_benchmark, family, size_stratum, tumor_type, endpoint)
+setorder(
+  binary_benchmark, family, size_stratum, imbalance_stratum,
+  tumor_type, endpoint
 )
-binary_jobs <- binary_screen[tier %chin% c("A", "B")]
-binary_jobs[, screen_index := .I]
-binary_benchmark <- merge(
-  highlighted[outcome_type == "binary", .(family, tumor_type, endpoint)],
-  binary_jobs, by = c("family", "tumor_type", "endpoint"), all.x = TRUE
+continuous_benchmark[, benchmark_index := seq_len(.N)]
+binary_benchmark[, benchmark_index := seq_len(.N) + nrow(continuous_benchmark)]
+
+selection_keys <- rbindlist(list(
+  continuous_benchmark[, .(outcome_type, family, tumor_type, endpoint)],
+  binary_benchmark[, .(outcome_type, family, tumor_type, endpoint)]
+))
+sampling_frame <- rbindlist(
+  list(continuous_frame, binary_frame), use.names = TRUE, fill = TRUE
 )
-if (anyNA(continuous_benchmark$screen_index) || anyNA(binary_benchmark$screen_index)) {
-  stop("A highlighted model is absent from the screen-positive job list")
+sampling_frame[, selected := FALSE]
+sampling_frame[
+  selection_keys,
+  on = .(outcome_type, family, tumor_type, endpoint), selected := TRUE
+]
+sampling_frame[, `:=`(
+  selection_version = selection_version,
+  selection_uses_pls_performance = FALSE,
+  selection_rule = paste(
+    "one lowest salted SHA-256 endpoint per non-empty outcome-family and",
+    "sample-size-tercile cell; binary cells additionally stratified by",
+    "minority-class-fraction tercile"
+  )
+)]
+setorder(
+  sampling_frame, outcome_type, family, size_stratum,
+  imbalance_stratum, selection_hash
+)
+fwrite(
+  sampling_frame,
+  "results/tables/pls_vs_ridge_representative_sampling_frame.csv"
+)
+representative_jobs <- rbindlist(
+  list(continuous_benchmark, binary_benchmark), use.names = TRUE, fill = TRUE
+)
+representative_jobs[, `:=`(
+  selection_version = selection_version,
+  selection_uses_pls_performance = FALSE
+)]
+setorder(
+  representative_jobs, outcome_type, family, size_stratum,
+  imbalance_stratum, tumor_type, endpoint
+)
+fwrite(
+  representative_jobs,
+  "results/tables/pls_vs_ridge_representative_jobs.csv"
+)
+if (nrow(continuous_benchmark) != 12L || nrow(binary_benchmark) != 35L ||
+    anyDuplicated(selection_keys)) {
+  stop("Representative benchmark selection is incomplete or non-unique")
 }
 
 # Select an operating threshold using only inner out-of-fold predictions. The
@@ -63,32 +156,127 @@ best_balanced_threshold <- function(truth, score, reference) {
   list(threshold = candidates[[chosen]], balanced_accuracy = metric[[chosen]])
 }
 
-fit_ridge_continuous_once <- function(X, y, seed) {
+inner_pls_continuous_selection <- function(X, y, inner, seed) {
+  components <- as.integer(cfg$analysis$components)
+  inner_prediction <- matrix(
+    NA_real_, nrow = nrow(X), ncol = length(components)
+  )
+  for (inner_fold in sort(unique(inner))) {
+    validation <- inner == inner_fold
+    fit <- fastPLS::pls(
+      X[!validation, , drop = FALSE], y[!validation],
+      ncomp = components, fit = TRUE, return_loadings = TRUE,
+      svd.method = cfg$analysis$svd_method,
+      rsvd_oversample = cfg$analysis$rsvd_oversample,
+      rsvd_power = cfg$analysis$rsvd_power,
+      seed = seed + inner_fold
+    )
+    fold_prediction <- predict(
+      fit, X[validation, , drop = FALSE]
+    )$Ypred
+    dim(fold_prediction) <- c(sum(validation), length(components))
+    inner_prediction[validation, ] <- fold_prediction
+  }
+  inner_q2 <- vapply(seq_along(components), function(j) {
+    q_squared(y, inner_prediction[, j])
+  }, numeric(1L))
+  best_index <- which(inner_q2 == max(inner_q2, na.rm = TRUE))[[1L]]
+  list(ncomp = components[[best_index]], q2 = inner_q2[[best_index]])
+}
+
+inner_ridge_continuous_selection <- function(X, y, inner) {
+  tune <- cv.glmnet(
+    X, y, family = "gaussian", alpha = 0, foldid = inner,
+    type.measure = "mse", keep = TRUE, standardize = TRUE,
+    intercept = TRUE, parallel = FALSE
+  )
+  inner_prediction <- as.matrix(tune$fit.preval)
+  inner_q2 <- vapply(seq_len(ncol(inner_prediction)), function(j) {
+    q_squared(y, inner_prediction[, j])
+  }, numeric(1L))
+  if (!any(is.finite(inner_q2))) {
+    stop("No ridge penalty produced complete continuous inner predictions")
+  }
+  # glmnet orders penalties from strongest to weakest regularisation. The first
+  # maximum is therefore the more regularised fit when pooled inner Q2 ties.
+  best_index <- which(inner_q2 == max(inner_q2, na.rm = TRUE))[[1L]]
+  list(
+    fit = tune$glmnet.fit,
+    lambda = tune$lambda[[best_index]],
+    q2 = inner_q2[[best_index]]
+  )
+}
+
+fit_continuous_pair_once <- function(X, y, seed) {
   outer <- random_folds(length(y), cfg$analysis$outer_folds, seed)
-  prediction <- rep(NA_real_, length(y))
+  pls_prediction <- ridge_prediction <- rep(NA_real_, length(y))
+  selected_pls_ncomp <- integer(cfg$analysis$outer_folds)
   selected_lambda <- numeric(cfg$analysis$outer_folds)
+  inner_pls_q2 <- inner_ridge_q2 <- numeric(cfg$analysis$outer_folds)
   for (fold in seq_len(cfg$analysis$outer_folds)) {
     test <- outer == fold
     train <- !test
-    inner <- random_folds(sum(train), cfg$analysis$inner_folds, seed + fold)
-    tune <- cv.glmnet(
-      X[train, , drop = FALSE], y[train], family = "gaussian", alpha = 0,
-      foldid = inner, type.measure = "mse", standardize = TRUE,
-      intercept = TRUE, parallel = FALSE
+    inner <- random_folds(
+      sum(train), cfg$analysis$inner_folds, seed + 1000L + fold
     )
-    selected_lambda[fold] <- tune$lambda.min
-    prediction[test] <- as.numeric(predict(
-      tune, newx = X[test, , drop = FALSE], s = "lambda.min"
+
+    pls_choice <- inner_pls_continuous_selection(
+      X[train, , drop = FALSE], y[train], inner,
+      seed = seed + 10000L + 100L * fold
+    )
+    pls_fit <- fastPLS::pls(
+      X[train, , drop = FALSE], y[train], ncomp = pls_choice$ncomp,
+      fit = TRUE, return_loadings = TRUE,
+      svd.method = cfg$analysis$svd_method,
+      rsvd_oversample = cfg$analysis$rsvd_oversample,
+      rsvd_power = cfg$analysis$rsvd_power,
+      seed = seed + 20000L + fold
+    )
+    fold_prediction <- as.numeric(drop(
+      predict(pls_fit, X[test, , drop = FALSE])$Ypred
     ))
+    if (length(fold_prediction) != sum(test)) {
+      stop("Continuous PLS prediction length does not match the outer fold")
+    }
+    pls_prediction[test] <- fold_prediction
+    selected_pls_ncomp[[fold]] <- pls_choice$ncomp
+    inner_pls_q2[[fold]] <- pls_choice$q2
+
+    ridge_choice <- inner_ridge_continuous_selection(
+      X[train, , drop = FALSE], y[train], inner
+    )
+    ridge_prediction[test] <- as.numeric(predict(
+      ridge_choice$fit, newx = X[test, , drop = FALSE],
+      s = ridge_choice$lambda
+    ))
+    selected_lambda[[fold]] <- ridge_choice$lambda
+    inner_ridge_q2[[fold]] <- ridge_choice$q2
   }
   list(
     metrics = data.table(
-      q2 = q_squared(y, prediction),
-      rmse = sqrt(mean((y - prediction)^2)),
-      spearman = suppressWarnings(cor(y, prediction, method = "spearman")),
-      median_lambda = median(selected_lambda)
+      pls_q2 = q_squared(y, pls_prediction),
+      pls_rmse = sqrt(mean((y - pls_prediction)^2)),
+      pls_spearman = suppressWarnings(
+        cor(y, pls_prediction, method = "spearman")
+      ),
+      ridge_q2 = q_squared(y, ridge_prediction),
+      ridge_rmse = sqrt(mean((y - ridge_prediction)^2)),
+      ridge_spearman = suppressWarnings(
+        cor(y, ridge_prediction, method = "spearman")
+      ),
+      median_pls_ncomp = median(selected_pls_ncomp),
+      median_ridge_lambda = median(selected_lambda),
+      median_inner_pls_q2 = median(inner_pls_q2),
+      median_inner_ridge_q2 = median(inner_ridge_q2),
+      outer_folds_identical = TRUE,
+      inner_folds_identical = TRUE,
+      tuning_rule_symmetry = paste(
+        "identical outer and inner folds; both PLS component count and",
+        "ridge penalty selected by maximising pooled inner out-of-fold Q2"
+      )
     ),
-    prediction = prediction,
+    pls_prediction = pls_prediction,
+    ridge_prediction = ridge_prediction,
     fold = outer
   )
 }
@@ -291,7 +479,7 @@ paired_patient_bootstrap <- function(d, metric_function, seed, times = 2000L) {
       "patients, outer folds and inner folds"
     ),
     uncertainty_excluded = paste(
-      "initial atlas screening and endpoint selection; generation of new",
+      "metadata-stratified benchmark-sample selection; generation of new",
       "partitions; scaling, tuning or model refitting within bootstrap",
       "replicates; external cohort, site, scanner or population shift"
     )
@@ -378,24 +566,33 @@ run_continuous <- function(i) {
   job <- continuous_benchmark[i]
   d <- prepare_job(job, continuous_targets)
   fits <- lapply(seq_len(cfg$analysis$robustness_repeats), function(repeat_id) {
-    seed <- cfg$analysis$seed + 10000L * repeat_id + job$screen_index
-    fit_ridge_continuous_once(d$X, d$y, seed)
+    seed <- cfg$analysis$seed + 10000L * repeat_id + job$benchmark_index
+    fit_continuous_pair_once(d$X, d$y, seed)
   })
   list(
     metrics = rbindlist(lapply(seq_along(fits), function(repeat_id) {
-      seed <- cfg$analysis$seed + 10000L * repeat_id + job$screen_index
+      seed <- cfg$analysis$seed +
+        10000L * repeat_id + job$benchmark_index
       cbind(
-        job[, .(outcome_type = "continuous", family, tumor_type, endpoint)],
+        job[, .(
+          outcome_type, family, tumor_type, endpoint,
+          size_stratum, imbalance_stratum, screen_tier
+        )],
         data.table(repeat_id = repeat_id, seed = seed),
         fits[[repeat_id]]$metrics
       )
     })),
     predictions = rbindlist(lapply(seq_along(fits), function(repeat_id) {
       cbind(
-        job[, .(outcome_type = "continuous", family, tumor_type, endpoint)],
+        job[, .(
+          outcome_type, family, tumor_type, endpoint,
+          size_stratum, imbalance_stratum, screen_tier
+        )],
         data.table(
           repeat_id = repeat_id, patient = d$patient, observed = d$y,
-          ridge_prediction = fits[[repeat_id]]$prediction,
+          pls_prediction = fits[[repeat_id]]$pls_prediction,
+          ridge_prediction = fits[[repeat_id]]$ridge_prediction,
+          pls_score = NA_real_, ridge_score = NA_real_,
           outer_fold = fits[[repeat_id]]$fold
         )
       )
@@ -407,21 +604,28 @@ run_binary <- function(i) {
   job <- binary_benchmark[i]
   d <- prepare_job(job, binary_targets, binary = TRUE)
   fits <- lapply(seq_len(cfg$analysis$robustness_repeats), function(repeat_id) {
-    seed <- cfg$analysis$seed + 10000L * repeat_id + job$screen_index
+    seed <- cfg$analysis$seed + 10000L * repeat_id + job$benchmark_index
     fit_binary_pair_once(d$X, d$y, seed)
   })
   list(
     metrics = rbindlist(lapply(seq_along(fits), function(repeat_id) {
-      seed <- cfg$analysis$seed + 10000L * repeat_id + job$screen_index
+      seed <- cfg$analysis$seed +
+        10000L * repeat_id + job$benchmark_index
       cbind(
-        job[, .(outcome_type = "binary", family, tumor_type, endpoint)],
+        job[, .(
+          outcome_type, family, tumor_type, endpoint,
+          size_stratum, imbalance_stratum, screen_tier
+        )],
         data.table(repeat_id = repeat_id, seed = seed),
         fits[[repeat_id]]$metrics
       )
     })),
     predictions = rbindlist(lapply(seq_along(fits), function(repeat_id) {
       cbind(
-        job[, .(outcome_type = "binary", family, tumor_type, endpoint)],
+        job[, .(
+          outcome_type, family, tumor_type, endpoint,
+          size_stratum, imbalance_stratum, screen_tier
+        )],
         data.table(
           repeat_id = repeat_id, patient = d$patient,
           observed = as.integer(as.character(d$y)),
@@ -440,15 +644,15 @@ workers <- as.integer(Sys.getenv("TITAN_BASELINE_WORKERS", "6"))
 future::plan(future::multicore, workers = workers)
 continuous_results <- future_lapply(
   seq_len(nrow(continuous_benchmark)), run_continuous,
-  future.seed = TRUE, future.packages = c("data.table", "glmnet")
+  future.seed = TRUE, future.packages = c("data.table", "fastPLS", "glmnet")
 )
 binary_results <- future_lapply(
   seq_len(nrow(binary_benchmark)), run_binary,
   future.seed = TRUE,
   future.packages = c("data.table", "fastPLS", "glmnet")
 )
-continuous_ridge <- rbindlist(lapply(continuous_results, `[[`, "metrics"))
-continuous_ridge_predictions <- rbindlist(
+continuous_pair <- rbindlist(lapply(continuous_results, `[[`, "metrics"))
+continuous_pair_predictions <- rbindlist(
   lapply(continuous_results, `[[`, "predictions")
 )
 binary_pair <- rbindlist(lapply(binary_results, `[[`, "metrics"))
@@ -457,45 +661,11 @@ binary_pair_predictions <- rbindlist(
 )
 fwrite(
   binary_pair,
-  "results/tables/binary_symmetric_pls_ridge_repeated_nested_cv.csv"
+  paste0(
+    "results/tables/",
+    "binary_symmetric_pls_ridge_representative_repeated_nested_cv.csv"
+  )
 )
-
-# Match continuous PLS and ridge predictions generated on the same seeded
-# outer folds. Binary predictions are generated together above and are already
-# paired exactly by patient, repeat and fold.
-continuous_pls_predictions <- pls_continuous_predictions[
-  continuous_benchmark[, .(family, tumor_type, endpoint)],
-  on = .(family, tumor_type, endpoint), nomatch = 0L
-][, .(
-  outcome_type = "continuous", family, tumor_type, endpoint,
-  repeat_id = get("repeat"), patient, observed,
-  pls_prediction = predicted, pls_outer_fold = outer_fold
-)]
-continuous_pair_predictions <- merge(
-  continuous_pls_predictions,
-  continuous_ridge_predictions,
-  by = c(
-    "outcome_type", "family", "tumor_type", "endpoint",
-    "repeat_id", "patient"
-  ),
-  suffixes = c("_pls", "_ridge")
-)
-if (nrow(continuous_pair_predictions) != nrow(continuous_pls_predictions) ||
-    any(continuous_pair_predictions$observed_pls !=
-        continuous_pair_predictions$observed_ridge) ||
-    any(continuous_pair_predictions$pls_outer_fold !=
-        continuous_pair_predictions$outer_fold)) {
-  stop("Continuous PLS and ridge out-of-fold predictions are not exactly paired")
-}
-continuous_pair_predictions[, `:=`(
-  observed = observed_pls,
-  observed_pls = NULL,
-  observed_ridge = NULL,
-  outer_fold = pls_outer_fold,
-  pls_outer_fold = NULL,
-  pls_score = NA_real_,
-  ridge_score = NA_real_
-)]
 matched_predictions <- rbindlist(list(
   continuous_pair_predictions,
   binary_pair_predictions
@@ -506,26 +676,26 @@ setorder(
 )
 fwrite(
   matched_predictions,
-  "results/predictions/pls_vs_ridge_matched_oof_predictions.csv.gz"
+  paste0(
+    "results/predictions/",
+    "pls_vs_ridge_representative_matched_oof_predictions.csv.gz"
+  )
 )
 
-# Retain the historical ridge-only filename for downstream compatibility while
-# recording that its binary rows now use the symmetric threshold procedure.
-ridge <- rbindlist(list(
-  continuous_ridge,
-  binary_pair[, .(
-    outcome_type, family, tumor_type, endpoint, repeat_id, seed,
-    sensitivity = ridge_sensitivity, specificity = ridge_specificity,
-    balanced_accuracy = ridge_balanced_accuracy, auc = ridge_auc,
-    median_lambda = median_ridge_lambda,
-    median_threshold = median_ridge_threshold,
-    outer_folds_identical, inner_folds_identical, threshold_selection
-  )]
-), use.names = TRUE, fill = TRUE)
-fwrite(ridge, "results/tables/ridge_baseline_repeated_nested_cv.csv")
+repeat_model_metrics <- rbindlist(
+  list(continuous_pair, binary_pair), use.names = TRUE, fill = TRUE
+)
+fwrite(
+  repeat_model_metrics,
+  paste0(
+    "results/tables/",
+    "pls_vs_ridge_representative_repeated_nested_cv.csv"
+  )
+)
 
 comparison_keys <- unique(matched_predictions[, .(
-  outcome_type, family, tumor_type, endpoint
+  outcome_type, family, tumor_type, endpoint, size_stratum,
+  imbalance_stratum, screen_tier
 )])
 comparison <- rbindlist(lapply(seq_len(nrow(comparison_keys)), function(i) {
   job <- comparison_keys[i]
@@ -569,11 +739,14 @@ setorder(
 )
 fwrite(
   paired_repeat_metrics,
-  "results/tables/pls_vs_ridge_paired_repeat_metrics.csv"
+  paste0(
+    "results/tables/",
+    "pls_vs_ridge_representative_paired_repeat_metrics.csv"
+  )
 )
 comparison[, selected_method := fifelse(
   delta_ci_low > 0, "ridge",
-  fifelse(delta_ci_high < 0, "PLS", "PLS (prespecified; difference uncertain)")
+  fifelse(delta_ci_high < 0, "PLS", "uncertain")
 )]
 comparison[, primary_metric := fifelse(
   outcome_type == "continuous", "Q2", "AUROC (threshold-independent)"
@@ -591,11 +764,14 @@ comparison[, decision_rule_symmetry := fifelse(
   "not applicable to continuous regression"
 )]
 comparison[, benchmark_scope := paste(
-  "24 manuscript-highlighted PLS screen-positive models; conditional symmetric",
-  "benchmark not suitable for claiming atlas-wide PLS superiority"
+  "47 metadata-stratified endpoints selected from all 2073 eligible tests",
+  "without reference to PLS performance; representative rather than atlas-wide"
 )]
 setorder(comparison, outcome_type, -pls_primary_mean)
-fwrite(comparison, "results/tables/pls_vs_ridge_highlighted_models.csv")
+fwrite(
+  comparison,
+  "results/tables/pls_vs_ridge_representative_models.csv"
+)
 
 aggregate_summary <- comparison[, .(
   models = .N,
@@ -603,7 +779,7 @@ aggregate_summary <- comparison[, .(
   secondary_metric = first(secondary_metric),
   pls_better = sum(selected_method == "PLS"),
   ridge_better = sum(selected_method == "ridge"),
-  difference_uncertain = sum(grepl("difference uncertain", selected_method)),
+  difference_uncertain = sum(selected_method == "uncertain"),
   median_delta_ridge_minus_pls = median(delta_ridge_minus_pls),
   q1_delta = quantile(delta_ridge_minus_pls, 0.25),
   q3_delta = quantile(delta_ridge_minus_pls, 0.75),
@@ -612,5 +788,37 @@ aggregate_summary <- comparison[, .(
   q1_secondary_delta = quantile(delta_secondary_ridge_minus_pls, 0.25),
   q3_secondary_delta = quantile(delta_secondary_ridge_minus_pls, 0.75)
 ), by = outcome_type]
-fwrite(aggregate_summary, "results/tables/pls_vs_ridge_summary.csv")
+fwrite(
+  aggregate_summary,
+  "results/tables/pls_vs_ridge_representative_summary.csv"
+)
+
+summarise_stratum <- function(d, stratifier_label, stratum_column) {
+  out <- d[, .(
+    models = .N,
+    median_delta_ridge_minus_pls = median(delta_ridge_minus_pls),
+    q1_delta = quantile(delta_ridge_minus_pls, 0.25),
+    q3_delta = quantile(delta_ridge_minus_pls, 0.75),
+    pls_better = sum(selected_method == "PLS"),
+    ridge_better = sum(selected_method == "ridge"),
+    difference_uncertain = sum(selected_method == "uncertain")
+  ), by = c("outcome_type", stratum_column)]
+  setnames(out, stratum_column, "stratum")
+  out[, stratifier := stratifier_label]
+  setcolorder(out, c("outcome_type", "stratifier", "stratum"))
+  out
+}
+stratified_summary <- rbindlist(list(
+  summarise_stratum(comparison, "outcome family", "family"),
+  summarise_stratum(comparison, "sample size", "size_stratum"),
+  summarise_stratum(
+    comparison[outcome_type == "binary"],
+    "class imbalance", "imbalance_stratum"
+  )
+), use.names = TRUE)
+setorder(stratified_summary, outcome_type, stratifier, stratum)
+fwrite(
+  stratified_summary,
+  "results/tables/pls_vs_ridge_representative_stratified_summary.csv"
+)
 print(aggregate_summary)

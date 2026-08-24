@@ -750,17 +750,72 @@ assert(nrow(mutation_audit) == 41L &&
          ] == 1L,
        "Expanded mutation-literature evidence counts are inconsistent")
 
-ridge_comparison <- fread("results/tables/pls_vs_ridge_highlighted_models.csv")
+ridge_comparison <- fread(
+  "results/tables/pls_vs_ridge_representative_models.csv"
+)
+ridge_jobs <- fread("results/tables/pls_vs_ridge_representative_jobs.csv")
+ridge_sampling_frame <- fread(
+  "results/tables/pls_vs_ridge_representative_sampling_frame.csv"
+)
+ridge_stratified_summary <- fread(
+  "results/tables/pls_vs_ridge_representative_stratified_summary.csv"
+)
+ridge_repeat_models <- fread(
+  "results/tables/pls_vs_ridge_representative_repeated_nested_cv.csv"
+)
 binary_symmetric <- fread(
-  "results/tables/binary_symmetric_pls_ridge_repeated_nested_cv.csv"
+  paste0(
+    "results/tables/",
+    "binary_symmetric_pls_ridge_representative_repeated_nested_cv.csv"
+  )
 )
 ridge_paired_repeats <- fread(
-  "results/tables/pls_vs_ridge_paired_repeat_metrics.csv"
+  paste0(
+    "results/tables/",
+    "pls_vs_ridge_representative_paired_repeat_metrics.csv"
+  )
 )
 ridge_matched_predictions <- fread(
-  "results/predictions/pls_vs_ridge_matched_oof_predictions.csv.gz"
+  paste0(
+    "results/predictions/",
+    "pls_vs_ridge_representative_matched_oof_predictions.csv.gz"
+  )
 )
-assert(nrow(ridge_comparison) == nrow(highlighted) &&
+ridge_selected_keys <- ridge_sampling_frame[selected == TRUE, .(
+  outcome_type, family, tumor_type, endpoint
+)]
+ridge_comparison_keys <- ridge_comparison[, .(
+  outcome_type, family, tumor_type, endpoint
+)]
+ridge_nonempty_continuous_cells <- unique(
+  ridge_sampling_frame[outcome_type == "continuous", .(
+    family, size_stratum
+  )]
+)
+ridge_nonempty_binary_cells <- unique(
+  ridge_sampling_frame[outcome_type == "binary", .(
+    family, size_stratum, imbalance_stratum
+  )]
+)
+assert(nrow(ridge_sampling_frame) == nrow(continuous) + nrow(binary) &&
+         nrow(ridge_jobs) == 47L && nrow(ridge_comparison) == 47L &&
+         nrow(ridge_comparison[outcome_type == "continuous"]) == 12L &&
+         nrow(ridge_comparison[outcome_type == "binary"]) == 35L &&
+         nrow(ridge_nonempty_continuous_cells) == 12L &&
+         nrow(ridge_nonempty_binary_cells) == 35L &&
+         all(!ridge_sampling_frame$selection_uses_pls_performance) &&
+         all(!ridge_jobs$selection_uses_pls_performance) &&
+         nrow(ridge_selected_keys) == 47L &&
+         nrow(fsetdiff(ridge_selected_keys, ridge_comparison_keys)) == 0L &&
+         nrow(fsetdiff(ridge_comparison_keys, ridge_selected_keys)) == 0L &&
+         uniqueN(ridge_sampling_frame$selection_hash) ==
+           nrow(ridge_sampling_frame) &&
+         unique(ridge_sampling_frame$selection_version) ==
+           "titan-representative-benchmark-v1" &&
+         all(c("outcome family", "sample size", "class imbalance") %in%
+               ridge_stratified_summary$stratifier),
+       "Representative PLS-ridge sampling is incomplete or performance-selected")
+assert(
          all(ridge_comparison$repeats == cfg$analysis$robustness_repeats) &&
          all(is.finite(ridge_comparison$delta_ridge_minus_pls)) &&
          all(is.finite(ridge_comparison$delta_secondary_ridge_minus_pls)) &&
@@ -784,8 +839,8 @@ assert(nrow(ridge_comparison) == nrow(highlighted) &&
          all(ridge_comparison[outcome_type == "binary", secondary_metric] ==
                "balanced accuracy (inner-CV thresholds for both)") &&
          all(ridge_comparison$benchmark_scope == paste(
-           "24 manuscript-highlighted PLS screen-positive models; conditional symmetric",
-           "benchmark not suitable for claiming atlas-wide PLS superiority"
+           "47 metadata-stratified endpoints selected from all 2073 eligible tests",
+           "without reference to PLS performance; representative rather than atlas-wide"
          )),
        "Exportable ridge benchmark is incomplete or mis-scoped")
 ridge_key <- c("outcome_type", "family", "tumor_type", "endpoint")
@@ -836,7 +891,9 @@ assert(all(abs(ridge_point_check$delta_ridge_minus_pls -
                1e-12),
        "PLS-ridge point differences do not equal the mean paired-repeat differences")
 assert(nrow(binary_symmetric) ==
-         12L * cfg$analysis$robustness_repeats &&
+         35L * cfg$analysis$robustness_repeats &&
+         nrow(ridge_repeat_models) ==
+           47L * cfg$analysis$robustness_repeats &&
          all(binary_symmetric$outer_folds_identical) &&
          all(binary_symmetric$inner_folds_identical) &&
          all(binary_symmetric$threshold_selection == paste(
@@ -848,6 +905,18 @@ assert(nrow(binary_symmetric) ==
          all(is.finite(binary_symmetric$pls_balanced_accuracy)) &&
          all(is.finite(binary_symmetric$ridge_balanced_accuracy)),
        "Symmetric binary PLS-ridge benchmark is incomplete")
+continuous_symmetric <- ridge_repeat_models[outcome_type == "continuous"]
+assert(nrow(continuous_symmetric) ==
+         12L * cfg$analysis$robustness_repeats &&
+         all(continuous_symmetric$outer_folds_identical) &&
+         all(continuous_symmetric$inner_folds_identical) &&
+         all(continuous_symmetric$tuning_rule_symmetry == paste(
+           "identical outer and inner folds; both PLS component count and",
+           "ridge penalty selected by maximising pooled inner out-of-fold Q2"
+         )) &&
+         all(is.finite(continuous_symmetric$pls_q2)) &&
+         all(is.finite(continuous_symmetric$ridge_q2)),
+       "Symmetric continuous PLS-ridge benchmark is incomplete")
 
 cohort <- fread("results/tables/patient_cohort_summary.csv")
 assert(nrow(cohort) == 9404L && sum(cohort$n_slides) == 11449L,

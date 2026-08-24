@@ -85,8 +85,9 @@ highlighted = read_rows("highlighted_model_performance.csv")
 mutation_coverage = read_rows("mutation_coverage_audit.csv")
 slide_audit = read_rows("patient_slide_multiplicity_by_cancer.csv")
 participant_characteristics = read_rows("participant_characteristics_by_cancer.csv")
-ridge_summary = read_rows("pls_vs_ridge_summary.csv")
-ridge_comparison = read_rows("pls_vs_ridge_highlighted_models.csv")
+ridge_summary = read_rows("pls_vs_ridge_representative_summary.csv")
+ridge_comparison = read_rows("pls_vs_ridge_representative_models.csv")
+ridge_jobs = read_rows("pls_vs_ridge_representative_jobs.csv")
 multiplicity_summary = read_rows("multiplicity_sensitivity_summary.csv")
 permutation_uncertainty = read_rows("permutation_monte_carlo_uncertainty.csv")
 targeted_permutation = read_rows("targeted_permutation_refinement.csv")
@@ -112,6 +113,9 @@ targeted_p_summary = (
 )
 binary_ridge_summary = next(
     r for r in ridge_summary if r["outcome_type"] == "binary"
+)
+continuous_ridge_summary = next(
+    r for r in ridge_summary if r["outcome_type"] == "continuous"
 )
 binary_primary_ridge = [
     r for r in ridge_comparison
@@ -140,6 +144,25 @@ binary_secondary_uncertain = [
         or float(r["delta_secondary_ci_high"]) < 0
     )
 ]
+continuous_secondary_ridge = [
+    r for r in ridge_comparison
+    if r["outcome_type"] == "continuous"
+    and float(r["delta_secondary_ci_low"]) > 0
+]
+continuous_secondary_pls = [
+    r for r in ridge_comparison
+    if r["outcome_type"] == "continuous"
+    and float(r["delta_secondary_ci_high"]) < 0
+]
+continuous_secondary_uncertain = [
+    r for r in ridge_comparison
+    if r["outcome_type"] == "continuous"
+    and not (
+        float(r["delta_secondary_ci_low"]) > 0
+        or float(r["delta_secondary_ci_high"]) < 0
+    )
+]
+ridge_screen_positive = [r for r in ridge_jobs if r["screen_tier"] in ("A", "B")]
 participant_overall = next(
     r for r in participant_characteristics if r["tumor_type"] == "Overall"
 )
@@ -226,7 +249,9 @@ set_font(callout.add_run(
     "validation; molecular missingness is not labelled wild type; binary "
     "models use PLS–LDA; continuous and binary performance is reported with "
     "uncertainty; multiplicity is shown locally, across cancers and atlas-wide; "
-    "and the absence of independent external validation is explicit. The revised wording no longer "
+    "and the absence of independent external validation is explicit. A metadata-stratified, "
+    "performance-independent comparison now shows that ridge often matches or exceeds PLS, so the "
+    "manuscript retains PLS only as the prespecified reference analysis and makes no optimality claim. The revised wording no longer "
     "presents internal TCGA estimates as translational evidence. Nevertheless, independent validation "
     "remains the decisive missing element for publication as a translational prediction study."
 ))
@@ -322,23 +347,37 @@ add_body(doc,
     "site remains an imperfect proxy, and smaller grouped folds can account for part—but not all—of the attenuation."
 )
 
-add_heading(doc, "5. Symmetric binary PLS–ridge comparison", 2)
+add_heading(doc, "5. Metadata-stratified PLS–ridge benchmark", 2)
 add_body(doc,
-    "The revised 12-model binary comparison removes the earlier operating-rule advantage given to ridge. "
-    "PLS–LDA and ridge now use identical outer partitions and identical inner partitions. Within each outer "
-    "training set, both operating thresholds are selected from method-specific inner out-of-fold scores by "
-    "maximising balanced accuracy. Threshold-independent AUROC is the primary binary algorithm-comparison "
+    f"The revised comparison is no longer conditional on successful PLS screening. All 2,073 eligible tests entered "
+    f"a metadata-only sampling frame, and a fixed salted SHA-256 rank selected one target from each non-empty outcome-family "
+    f"× sample-size-tercile cell, with an additional minority-class-fraction tercile for binary outcomes. The resulting "
+    f"47-target benchmark comprises 12 continuous and 35 binary endpoints; only {len(ridge_screen_positive)} were PLS "
+    "screen-positive and 33 were screen-negative. This is a representative benchmark, not an atlas-wide ridge screen. "
+    "Both methods use the same patients, five repeated outer partitions and inner partitions. Continuous PLS components "
+    "and ridge penalties are each selected by maximising pooled inner out-of-fold Q². Binary PLS–LDA components and ridge "
+    "penalties are tuned within the same inner folds, and both operating thresholds are selected from method-specific inner "
+    "out-of-fold scores by maximising balanced accuracy. Threshold-independent AUROC is the primary binary comparison "
     f"metric: the median ridge-minus-PLS difference is {float(binary_ridge_summary['median_delta_ridge_minus_pls']):.3f} "
     f"(IQR {float(binary_ridge_summary['q1_delta']):.3f} to {float(binary_ridge_summary['q3_delta']):.3f}); "
-    f"{len(binary_primary_ridge)} endpoints favour ridge and {len(binary_primary_uncertain)} are uncertain. Under symmetric thresholding, the median "
+    f"{int(binary_ridge_summary['ridge_better'])} endpoints favour ridge, {int(binary_ridge_summary['pls_better'])} favour PLS and "
+    f"{int(binary_ridge_summary['difference_uncertain'])} are uncertain. Under symmetric thresholding, the median "
     f"balanced-accuracy difference is {float(binary_ridge_summary['median_secondary_delta_ridge_minus_pls']):.3f} "
     f"(IQR {float(binary_ridge_summary['q1_secondary_delta']):.3f} to {float(binary_ridge_summary['q3_secondary_delta']):.3f}); "
-    f"{len(binary_secondary_ridge)} favour ridge, {len(binary_secondary_pls)} favour PLS and {len(binary_secondary_uncertain)} are uncertain. The primary atlas appropriately retains its "
-    "prespecified observed-prior PLS–LDA rule and is distinguished from this conditional method benchmark."
+    f"{len(binary_secondary_ridge)} favour ridge, {len(binary_secondary_pls)} favour PLS and {len(binary_secondary_uncertain)} are uncertain."
 )
 add_body(doc,
-    "The new 2,000-replicate paired patient-resampling interval is preferable to the previous five-repeat t interval. Table S10e should retain both AUROC and the symmetrically thresholded balanced accuracy, and the manuscript should not interpret this selected 12-model subset as evidence of atlas-wide superiority for either method.",
-    lead="The new 2,000-replicate paired patient-resampling interval is preferable to the previous five-repeat t interval."
+    f"For continuous outcomes, the median ridge-minus-PLS Q² difference is "
+    f"{float(continuous_ridge_summary['median_delta_ridge_minus_pls']):.3f} "
+    f"(IQR {float(continuous_ridge_summary['q1_delta']):.3f} to {float(continuous_ridge_summary['q3_delta']):.3f}); "
+    f"{int(continuous_ridge_summary['ridge_better'])}/12 favour ridge, none favour PLS and "
+    f"{int(continuous_ridge_summary['difference_uncertain'])} are uncertain. The secondary Spearman difference has median "
+    f"{float(continuous_ridge_summary['median_secondary_delta_ridge_minus_pls']):.3f}; "
+    f"{len(continuous_secondary_ridge)} favour ridge, {len(continuous_secondary_pls)} favour PLS and "
+    f"{len(continuous_secondary_uncertain)} are uncertain. The 2,000-replicate paired patient-resampling intervals are "
+    "conditional on the fixed representative sample, folds and predictions and do not refit either model. These results do "
+    "not establish PLS as the best model. The primary atlas appropriately retains PLS only as its prespecified reference "
+    "analysis; the released PLS models should not be described as algorithmically optimal."
 )
 
 add_heading(doc, "6. Binary class size and development stability", 2)
@@ -374,7 +413,7 @@ add_body(doc,
     "The revised manuscript no longer presents generic '95% bootstrap intervals' or '95% confidence intervals' for the highlighted TCGA results. The abstract and table captions define these as 95% selection-conditioned patient-resampling intervals for repeated out-of-fold predictions. Each replicate samples patients as clusters, retains all five existing held-out predictions, recalculates the metric within repeat and averages across repeats. The Methods now distinguish represented patient-sampling variability from excluded screening/highlighting uncertainty, new-fold variability, retuning/refitting variability, winner's-curse correction and external cohort/site/scanner/population variation."
 )
 add_body(doc,
-    "The PLS–ridge comparison has also been strengthened. For repeat r, the paired difference is d_r=M_r(ridge)−M_r(PLS), with Δ=(1/5)Σ_r d_r. A 2,000-replicate paired patient bootstrap samples patients with replacement while retaining both methods and all five matched repeat predictions; percentile limits are calculated from the resulting Δ values. The matched predictions and all 120 repeat-specific differences are machine-readable. The interval still conditions on PLS-based highlighting and does not refit either algorithm inside a bootstrap replicate, which is now stated explicitly."
+    f"The PLS–ridge comparison has also been strengthened. For repeat r, the paired difference is d_r=M_r(ridge)−M_r(PLS), with Δ=(1/5)Σ_r d_r. A 2,000-replicate paired patient bootstrap samples patients with replacement while retaining both methods and all five matched repeat predictions; percentile limits are calculated from the resulting Δ values. The matched predictions and all {len(ridge_comparison) * 5} repeat-specific differences are machine-readable. The interval conditions on the metadata-stratified representative sample and does not regenerate partitions or refit either algorithm inside a bootstrap replicate, which is now stated explicitly."
 )
 add_body(doc,
     "No additional internal uncertainty analysis is requested. Preserve the full interval label in the abstract and define the SC abbreviation in every applicable table; do not relabel these intervals as generalisation confidence intervals during copyediting.",
@@ -397,6 +436,16 @@ add_body(doc,
     "genome doubling and continuous aneuploidy score before inspecting external data, with "
     "artifact hashes, no-refitting rules and mandatory reporting of failures. This is useful "
     "prospective discipline, but it is not external validation evidence."
+)
+add_body(doc,
+    "PLS2 remains a secondary, hypothesis-generating analysis because it answers a different multiresponse question. "
+    "Within complete-case, ordered inflammatory panels it improved mean cancer-level Q² by 0.066 for inferred cell "
+    "fractions, 0.017 for infiltration scores and 0.056 for immune-repertoire features. However, the shared latent "
+    "solution changes the estimand and eligible complete-case population, has no binary analogue in this resource, and "
+    "has not been compared with a matched multiresponse ridge baseline or independently validated. It should therefore "
+    "not replace the endpoint-wise primary benchmark post hoc. A future locked multiresponse study could evaluate PLS2 "
+    "and alternative multitask models on identical cohorts and external data. Portability is not unique to PLS; both PLS "
+    "and ridge yield compact exportable linear parameters."
 )
 
 add_heading(doc, "9. Reproducibility and model redistribution", 2)
@@ -453,7 +502,7 @@ for body in (
     "Wild type, molecular missingness, fusion coverage and aliquot aggregation are auditable.",
     "The benchmark includes immune and inflammatory features as well as mutations, pathways, MSI, aneuploidy and fusions.",
     "Negative and ineligible endpoints are preserved rather than selectively omitted.",
-    "PLS1–PLS2 comparison is appropriately secondary, with LDA preferred for binary endpoints.",
+    "PLS1–PLS2 comparison is appropriately secondary because it changes the estimand and complete-case population; PLS is presented as the prespecified reference rather than the best method.",
     "The literature discussion reports that 38 of 41 screen-positive mutation pairs had prior support and avoids broad endpoint-novelty claims.",
 ):
     add_body(doc, "• " + body)

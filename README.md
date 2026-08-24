@@ -296,23 +296,32 @@ per analysed site. Results are in
 This quantifies confounding potential; tissue-source site remains an imperfect
 proxy for institution, scanner, laboratory and staining batch.
 
-## Symmetric PLS–ridge benchmark
+## Metadata-stratified symmetric PLS–ridge benchmark
 
-The secondary comparison of 12 highlighted binary models now uses identical
-outer folds, identical inner folds and the same decision rule for both methods:
-within each outer training set, PLS–LDA and ridge operating thresholds are
-selected from inner out-of-fold scores to maximise balanced accuracy. AUROC is
-the threshold-independent primary binary comparison metric; the symmetrically
-thresholded balanced accuracy is reported alongside it. The prespecified atlas
-continues to use its original fitted PLS–LDA class rule and is not altered by
-this conditional benchmark. Repeat-level results are in
-[`results/tables/binary_symmetric_pls_ridge_repeated_nested_cv.csv`](results/tables/binary_symmetric_pls_ridge_repeated_nested_cv.csv),
-with model-level comparisons in
-[`results/tables/pls_vs_ridge_highlighted_models.csv`](results/tables/pls_vs_ridge_highlighted_models.csv).
+The secondary comparison is a deterministic representative sample selected
+from all 2,073 eligible cancer–endpoint tests without reference to PLS
+performance. A fixed salted SHA-256 rank selects one endpoint from every
+non-empty outcome-family × sample-size-tercile cell; binary endpoints are also
+stratified by minority-class-fraction tercile. This yields 12 continuous and 35
+binary models, including screen-positive and screen-negative targets. The full
+sampling frame and selected jobs are released in
+[`results/tables/pls_vs_ridge_representative_sampling_frame.csv`](results/tables/pls_vs_ridge_representative_sampling_frame.csv)
+and
+[`results/tables/pls_vs_ridge_representative_jobs.csv`](results/tables/pls_vs_ridge_representative_jobs.csv).
+
+PLS and ridge use identical outer folds and identical inner folds. For
+continuous outcomes, both PLS component count and ridge penalty maximise pooled
+inner out-of-fold Q². For binary outcomes, both operating thresholds maximise
+balanced accuracy on method-specific inner out-of-fold scores; AUROC is the
+threshold-independent primary comparison metric and symmetrically thresholded
+balanced accuracy is secondary. Model-level and stratified comparisons are in
+[`results/tables/pls_vs_ridge_representative_models.csv`](results/tables/pls_vs_ridge_representative_models.csv)
+and
+[`results/tables/pls_vs_ridge_representative_stratified_summary.csv`](results/tables/pls_vs_ridge_representative_stratified_summary.csv).
 The five repeat-specific metric differences are released in
-[`results/tables/pls_vs_ridge_paired_repeat_metrics.csv`](results/tables/pls_vs_ridge_paired_repeat_metrics.csv),
+[`results/tables/pls_vs_ridge_representative_paired_repeat_metrics.csv`](results/tables/pls_vs_ridge_representative_paired_repeat_metrics.csv),
 and the matched patient-level predictions are in
-[`results/predictions/pls_vs_ridge_matched_oof_predictions.csv.gz`](results/predictions/pls_vs_ridge_matched_oof_predictions.csv.gz).
+[`results/predictions/pls_vs_ridge_representative_matched_oof_predictions.csv.gz`](results/predictions/pls_vs_ridge_representative_matched_oof_predictions.csv.gz).
 
 The model-comparison point estimate is
 `mean_r[M_r(ridge) - M_r(PLS)]` over the five matched repeats. Its interval is
@@ -322,7 +331,13 @@ sampled patient, the metric difference is recalculated within each repeat, and
 the mean repeat difference is recorded. The 2.5th and 97.5th percentiles are
 reported as a **selection-conditioned paired patient-resampling interval**.
 This bootstrap does not regenerate folds, refit either algorithm, or repeat the
-initial PLS endpoint screen.
+metadata-stratified benchmark-sample selection. The representative results do
+not establish that PLS is the best method: ridge-minus-PLS median differences
+were 0.008 AUROC for 35 binary endpoints and 0.053 Q² for 12 continuous
+endpoints; the paired interval favoured ridge for 8 and 10 models,
+respectively, PLS for none, and was otherwise inconclusive. The PLS atlas is
+therefore described as the prespecified reference analysis, not an empirically
+optimal resource model.
 
 ## Selection-conditioned uncertainty
 
