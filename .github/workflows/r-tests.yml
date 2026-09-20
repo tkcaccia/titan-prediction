@@ -4,6 +4,9 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   unit-tests:
     runs-on: macos-latest
@@ -12,9 +15,21 @@ jobs:
       - uses: r-lib/actions/setup-r@v2
         with:
           r-version: release
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          packages: any::testthat
+      # This repository is an analysis project rather than an installable R
+      # package. Install only the dependencies exercised by the source-level
+      # unit tests so the runner does not try to resolve the full data-ingest
+      # stack declared in DESCRIPTION (including non-CRAN data packages).
+      - name: Install source-test dependencies and pinned fastPLS
+        run: |
+          install.packages(c("testthat", "data.table", "float"))
+          archive <- tempfile(fileext = ".tar.gz")
+          download.file(
+            "https://codeload.github.com/tkcaccia/fastPLS/tar.gz/b518f75285c387632c2443a0c0989d75c9dcda48",
+            archive,
+            mode = "wb"
+          )
+          install.packages(archive, repos = NULL, type = "source")
+          stopifnot(as.character(packageVersion("fastPLS")) == "0.3")
+        shell: Rscript {0}
       - name: Run source-only unit tests
         run: Rscript tests/testthat.R
-
