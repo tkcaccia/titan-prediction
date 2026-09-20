@@ -1,0 +1,4 @@
+foundation_model,dimensions,constant_features,near_constant_features,variance_filtering
+TITAN,768,0,0,none before nested fitting; glmnet standardises within training folds
+GigaSSL,512,5,0,none before nested fitting; glmnet standardises within training folds
+ProvGigaPath,768,0,0,none before nested fitting; glmnet standardises within training folds

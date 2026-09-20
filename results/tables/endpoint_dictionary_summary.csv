@@ -13,4 +13,5 @@ sequencing-derived continuous burden,Computationally derived burden,90,3,5.42882
 sequencing-derived continuous burden,Computationally reconstructed repertoire metric,147,6,25.9842519685039,0,87.3267326732673,0
 sequencing-derived continuous burden,Derived mutation-rate burden,60,2,3.00317508031638,0,51.3011152416357,0
 sequencing-derived continuous burden,In-silico peptide–MHC prediction,52,2,14.224043715847,0,81.7708333333333,0
+transcriptomic pathway score,Computationally derived expression score,1560,52,0.911835502427482,0,75,0
 transcriptomic signature,Derived gene-set score,299,10,3.57142857142857,0,75,0

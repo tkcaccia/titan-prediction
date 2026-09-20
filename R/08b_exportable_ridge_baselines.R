@@ -9,7 +9,7 @@ suppressPackageStartupMessages({
 source("R/utils.R")
 cfg <- load_project_config()
 backend <- tolower(Sys.getenv("TITAN_BACKEND", "cpu"))
-options(fastPLS.backend = backend)
+options(backend = backend)
 
 cohort <- readRDS("data/processed/patient_cohort.rds")
 continuous_targets <- readRDS("data/processed/continuous_targets.rds")
@@ -27,7 +27,7 @@ binary_screen <- fread("results/tables/binary_screen.csv")
 # non-empty family-by-stratum cell, a salted SHA-256 rank selects one endpoint.
 # The salt and rule are fixed here so that the sample can be reconstructed from
 # metadata alone and cannot change with PLS or ridge results.
-selection_version <- "titan-representative-benchmark-v1"
+selection_version <- "pathofmpred-representative-benchmark-v2-pathways"
 rank_stratum <- function(x, labels) {
   r <- frank(x, ties.method = "average")
   index <- ceiling(length(labels) * r / length(x))
@@ -127,7 +127,14 @@ fwrite(
   representative_jobs,
   "results/tables/pls_vs_ridge_representative_jobs.csv"
 )
-if (nrow(continuous_benchmark) != 12L || nrow(binary_benchmark) != 35L ||
+expected_continuous_jobs <- uniqueN(
+  continuous_frame, by = c("family", "size_stratum")
+)
+expected_binary_jobs <- uniqueN(
+  binary_frame, by = c("family", "size_stratum", "imbalance_stratum")
+)
+if (nrow(continuous_benchmark) != expected_continuous_jobs ||
+    nrow(binary_benchmark) != expected_binary_jobs ||
     anyDuplicated(selection_keys)) {
   stop("Representative benchmark selection is incomplete or non-unique")
 }
@@ -165,9 +172,7 @@ inner_pls_continuous_selection <- function(X, y, inner, seed) {
     validation <- inner == inner_fold
     fit <- fastPLS::pls(
       X[!validation, , drop = FALSE], y[!validation],
-      ncomp = components, fit = TRUE, return_loadings = TRUE,
-      svd.method = cfg$analysis$svd_method,
-      rsvd_oversample = cfg$analysis$rsvd_oversample,
+      ncomp = components, fit = TRUE, return_loadings = TRUE, rsvd_oversample = cfg$analysis$rsvd_oversample,
       rsvd_power = cfg$analysis$rsvd_power,
       seed = seed + inner_fold
     )
@@ -226,9 +231,7 @@ fit_continuous_pair_once <- function(X, y, seed) {
     )
     pls_fit <- fastPLS::pls(
       X[train, , drop = FALSE], y[train], ncomp = pls_choice$ncomp,
-      fit = TRUE, return_loadings = TRUE,
-      svd.method = cfg$analysis$svd_method,
-      rsvd_oversample = cfg$analysis$rsvd_oversample,
+      fit = TRUE, return_loadings = TRUE, rsvd_oversample = cfg$analysis$rsvd_oversample,
       rsvd_power = cfg$analysis$rsvd_power,
       seed = seed + 20000L + fold
     )
@@ -288,11 +291,7 @@ inner_pls_selection <- function(X, y, inner, seed) {
     validation <- inner == inner_fold
     fit <- fastPLS::pls(
       X[!validation, , drop = FALSE], droplevels(y[!validation]),
-      ncomp = components, classifier = "lda",
-      lda_ridge = cfg$analysis$lda_ridge,
-      fit = TRUE, return_loadings = TRUE,
-      svd.method = cfg$analysis$svd_method,
-      rsvd_oversample = cfg$analysis$rsvd_oversample,
+      ncomp = components, classifier = "lda", fit = TRUE, return_loadings = TRUE, rsvd_oversample = cfg$analysis$rsvd_oversample,
       rsvd_power = cfg$analysis$rsvd_power,
       seed = seed + inner_fold
     )
@@ -368,11 +367,7 @@ fit_binary_pair_once <- function(X, y, seed) {
     )
     pls_fit <- fastPLS::pls(
       X[train, , drop = FALSE], droplevels(y[train]),
-      ncomp = pls_choice$ncomp, classifier = "lda",
-      lda_ridge = cfg$analysis$lda_ridge,
-      fit = TRUE, return_loadings = TRUE,
-      svd.method = cfg$analysis$svd_method,
-      rsvd_oversample = cfg$analysis$rsvd_oversample,
+      ncomp = pls_choice$ncomp, classifier = "lda", fit = TRUE, return_loadings = TRUE, rsvd_oversample = cfg$analysis$rsvd_oversample,
       rsvd_power = cfg$analysis$rsvd_power,
       seed = seed + 20000L + fold
     )
@@ -764,7 +759,8 @@ comparison[, decision_rule_symmetry := fifelse(
   "not applicable to continuous regression"
 )]
 comparison[, benchmark_scope := paste(
-  "47 metadata-stratified endpoints selected from all 2073 eligible tests",
+  nrow(comparison), "metadata-stratified endpoints selected from all",
+  nrow(sampling_frame), "eligible tests",
   "without reference to PLS performance; representative rather than atlas-wide"
 )]
 setorder(comparison, outcome_type, -pls_primary_mean)

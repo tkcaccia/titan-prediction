@@ -1,0 +1,3 @@
+outcome_type,tasks,representation_task_models,tasks_with_four_outer_folds,tasks_with_outer_test_n_below_10,tasks_with_single_class_outer_test_fold,tasks_with_single_class_inner_validation_fold,tasks_with_single_class_inner_training_fold,tasks_with_outer_training_minority_below_20,tasks_with_inner_training_minority_below_20,tasks_with_sparse_grouped_folds,minimum_outer_test_n,maximum_outer_test_n,minimum_outer_training_n,minimum_outer_training_positive,minimum_outer_training_negative,minimum_inner_training_positive,minimum_inner_training_negative
+binary,268,804,4,41,27,114,2,68,135,153,1,252,6,1,5,0,1
+continuous,703,2109,11,184,0,0,0,0,0,184,1,317,6,,,,

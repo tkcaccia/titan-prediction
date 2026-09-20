@@ -1,0 +1,7 @@
+foundation_model,outcome_type,eligible_endpoint_definitions,endpoint_definitions_crossing,endpoint_definition_crossing_percent
+GigaSSL,binary,131,67,51.1450381679389
+GigaSSL,continuous,108,79,73.1481481481482
+ProvGigaPath,binary,131,75,57.2519083969466
+ProvGigaPath,continuous,108,86,79.6296296296296
+TITAN,binary,131,95,72.5190839694657
+TITAN,continuous,108,91,84.2592592592593

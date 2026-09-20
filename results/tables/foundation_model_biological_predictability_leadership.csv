@@ -1,0 +1,22 @@
+figure_class,best_foundation_model,N,total,percentage,count_label
+Continuous genomic-context scores,TITAN,29,35,82.8571428571429,29
+Continuous genomic-context scores,GigaSSL,2,35,5.71428571428571,""
+Continuous genomic-context scores,ProvGigaPath,4,35,11.4285714285714,4
+Inferred immune-cell fractions,TITAN,23,31,74.1935483870968,23
+Inferred immune-cell fractions,GigaSSL,4,31,12.9032258064516,4
+Inferred immune-cell fractions,ProvGigaPath,4,31,12.9032258064516,4
+RNA-derived pathway activities,TITAN,394,486,81.0699588477366,394
+RNA-derived pathway activities,GigaSSL,28,486,5.76131687242798,""
+RNA-derived pathway activities,ProvGigaPath,64,486,13.1687242798354,64
+Transcriptomic signatures,TITAN,84,101,83.1683168316832,84
+Transcriptomic signatures,GigaSSL,6,101,5.94059405940594,""
+Transcriptomic signatures,ProvGigaPath,11,101,10.8910891089109,11
+Sequencing-derived burdens,TITAN,27,39,69.2307692307692,27
+Sequencing-derived burdens,GigaSSL,4,39,10.2564102564103,4
+Sequencing-derived burdens,ProvGigaPath,8,39,20.5128205128205,8
+Composite genomic-context status,TITAN,69,108,63.8888888888889,69
+Composite genomic-context status,GigaSSL,22,108,20.3703703703704,22
+Composite genomic-context status,ProvGigaPath,17,108,15.7407407407407,17
+Direct genomic alterations,TITAN,108,160,67.5,108
+Direct genomic alterations,GigaSSL,21,160,13.125,21
+Direct genomic alterations,ProvGigaPath,31,160,19.375,31

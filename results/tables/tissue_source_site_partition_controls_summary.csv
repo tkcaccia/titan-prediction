@@ -1,0 +1,3 @@
+outcome_type,models,median_grouped_minus_matched,q1,q3,intervals_below_zero,intervals_include_zero,median_code_only_metric,median_code_heterogeneity,exact_size_matches,exact_class_matches
+binary,99,-0.00578568518267009,-0.0287587942316072,0.0127714263191875,11,82,0.52416071900608,1,99,99
+continuous,770,-0.024935254118725,-0.067196328298804,0.00775070729249697,229,502,-0.0376251699482082,0.12654673229027,770,

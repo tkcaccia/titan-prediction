@@ -7,7 +7,7 @@ suppressPackageStartupMessages({
 source("R/utils.R")
 cfg <- load_project_config()
 backend <- tolower(Sys.getenv("TITAN_BACKEND", "cpu"))
-options(fastPLS.backend = backend)
+options(backend = backend)
 cohort <- readRDS("data/processed/patient_cohort.rds")
 continuous_targets <- readRDS("data/processed/continuous_targets.rds")
 binary_targets <- readRDS("data/processed/binary_targets_nonmutation.rds")
@@ -34,9 +34,7 @@ run_continuous <- function(i) {
     pls.double.cv(
       X, y, ncomp = cfg$analysis$components, constrain = site,
       kfold_outer = cfg$analysis$outer_folds,
-      kfold_inner = cfg$analysis$inner_folds,
-      svd.method = cfg$analysis$svd_method,
-      rsvd_oversample = cfg$analysis$rsvd_oversample,
+      kfold_inner = cfg$analysis$inner_folds, rsvd_oversample = cfg$analysis$rsvd_oversample,
       rsvd_power = cfg$analysis$rsvd_power,
       seed = cfg$analysis$seed + i, perm.test = FALSE
     ), error = function(e) e
@@ -85,10 +83,7 @@ run_binary <- function(i) {
   grouped <- tryCatch(
     pls.double.cv(
       X, y, ncomp = cfg$analysis$components, constrain = site,
-      classifier = "lda", lda_ridge = cfg$analysis$lda_ridge,
-      selection_metric = "balanced_accuracy",
-      svd.method = cfg$analysis$svd_method,
-      rsvd_oversample = cfg$analysis$rsvd_oversample,
+      classifier = "lda", selection = "balanced_accuracy", rsvd_oversample = cfg$analysis$rsvd_oversample,
       rsvd_power = cfg$analysis$rsvd_power,
       kfold_outer = cfg$analysis$outer_folds,
       kfold_inner = cfg$analysis$inner_folds,

@@ -7,7 +7,7 @@ suppressPackageStartupMessages({
 source("R/utils.R")
 cfg <- load_project_config()
 backend <- tolower(Sys.getenv("TITAN_BACKEND", "cpu"))
-options(fastPLS.backend = backend)
+options(backend = backend)
 cohort <- readRDS("data/processed/patient_cohort.rds")
 nonmutation <- readRDS("data/processed/binary_targets_nonmutation.rds")
 mutation_path <- "data/processed/binary_targets_mutation.rds"
@@ -82,10 +82,7 @@ run_job <- function(i) {
   seed <- cfg$analysis$seed + i
   fit_args <- list(
     Xdata = X, Ydata = y, ncomp = cfg$analysis$components,
-    classifier = "lda", lda_ridge = cfg$analysis$lda_ridge,
-    selection_metric = "balanced_accuracy",
-    svd.method = cfg$analysis$svd_method,
-    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    classifier = "lda", selection = "balanced_accuracy", rsvd_oversample = cfg$analysis$rsvd_oversample,
     rsvd_power = cfg$analysis$rsvd_power,
     kfold_outer = cfg$analysis$outer_folds,
     kfold_inner = cfg$analysis$inner_folds,
@@ -95,7 +92,7 @@ run_job <- function(i) {
   ba <- balanced_accuracy(y, fit$Ypred)
   adjusted_ba <- 2 * ba - 1
   # Performance is checkpointed for the complete atlas first. Only models able
-  # to meet the prespecified screening threshold receive 99/999 permutations in R/05b.
+  # to meet the documented screening threshold receive 99/999 permutations in R/05b.
   p <- 1; nperm <- 0L; exceed <- NA_integer_
   row <- data.table(
     family = job$family, subfamily = job$subfamily,

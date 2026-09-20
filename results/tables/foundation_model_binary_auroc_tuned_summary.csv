@@ -1,0 +1,4 @@
+foundation_model,tasks,empirical_ba_crossings,auroc_tuned_ba_crossings,auroc_tuned_auroc_crossings,median_auroc_delta,q25_auroc_delta,q75_auroc_delta,maximum_absolute_auroc_delta,auroc_spearman,tasks_with_changed_median_component,component_ceiling_outer_fits,component_ceiling_outer_fit_fraction,consensus_changed_empirical_ba_to_auroc_tuned_ba,auroc_winner_changed_tasks
+GigaSSL,426,64,117,166,0.00838063108813397,-0.0138178796645616,0.0322736741866397,0.28405315614618,0.861482957533048,363,78,0.0366197183098592,154,146
+ProvGigaPath,426,79,116,176,0.00814283910078295,-0.0100651048926914,0.0344159192168718,0.236156949028236,0.863893408668016,359,70,0.0328638497652582,154,146
+TITAN,426,91,160,230,0.0131584086107176,-0.00948380975206714,0.042827303675587,0.203240740740741,0.844492296110317,365,63,0.0295774647887324,154,146

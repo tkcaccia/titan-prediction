@@ -1,0 +1,2 @@
+flagged_patients,flagged_slides,affected_cancers,patient_ids,cancer_codes,narrative_source,pathology_adjudicated,used_for_primary_exclusion_or_weighting
+6,35,4,TCGA-B6-A0IA;TCGA-B6-A0WV;TCGA-55-8203;TCGA-55-8507;TCGA-22-4596;TCGA-DX-AB2L,TCGA-BRCA;TCGA-LUAD;TCGA-LUSC;TCGA-SARC,TITAN-generated TCGA-Slide-Reports text,FALSE,FALSE

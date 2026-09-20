@@ -7,7 +7,7 @@ suppressPackageStartupMessages({
 source("R/utils.R")
 cfg <- load_project_config()
 backend <- tolower(Sys.getenv("TITAN_BACKEND", "cpu"))
-options(fastPLS.backend = backend)
+options(backend = backend)
 
 cohort <- readRDS("data/processed/patient_cohort.rds")
 meta <- as.data.table(cohort$meta)
@@ -18,7 +18,7 @@ meta <- meta[
 
 # Ten patients per tissue-source site permits five-fold outer validation and
 # leaves at least eight members of every retained site in each outer training
-# set. Rare sites remain reported as excluded for this dedicated confounding
+# set. Rare sites remain reported as excluded for this dedicated code-association
 # analysis; they are not removed from any molecular-endpoint analysis.
 minimum_patients_per_site <- 10L
 repeats <- 5L
@@ -73,13 +73,10 @@ run_cancer <- function(i) {
   fit <- tryCatch(
     pls.double.cv(
       X, y, ncomp = cfg$analysis$components,
-      classifier = "lda", lda_ridge = cfg$analysis$lda_ridge,
-      selection_metric = "balanced_accuracy",
+      classifier = "lda", selection = "balanced_accuracy",
       kfold_outer = cfg$analysis$outer_folds,
       kfold_inner = cfg$analysis$inner_folds,
-      runn = repeats, seed = seed,
-      svd.method = cfg$analysis$svd_method,
-      rsvd_oversample = cfg$analysis$rsvd_oversample,
+      runn = repeats, seed = seed, rsvd_oversample = cfg$analysis$rsvd_oversample,
       rsvd_power = cfg$analysis$rsvd_power,
       perm.test = FALSE
     ),

@@ -11,7 +11,7 @@ source("R/utils.R")
 # the primary PLS-score + LDA analysis in R/05_screen_binary.R.
 cfg <- load_project_config()
 backend <- tolower(Sys.getenv("TITAN_BACKEND", "cpu"))
-options(fastPLS.backend = backend)
+options(backend = backend)
 cohort <- readRDS("data/processed/patient_cohort.rds")
 targets <- readRDS("data/processed/continuous_targets.rds")
 targets <- targets[family == "thorsson"]
@@ -65,9 +65,7 @@ fit_predict <- function(Xtrain, Ytrain, Xtest, ncomp, seed) {
   Yz <- sweep(sweep(Ytrain, 2, ym, "-"), 2, ys, "/")
   fit <- pls(
     Xtrain = Xtrain, Ytrain = Yz, Xtest = Xtest, ncomp = ncomp,
-    scaling = "autoscaling", method = "simpls",
-    svd.method = cfg$analysis$svd_method,
-    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    scaling = "autoscaling", method = "simpls", rsvd_oversample = cfg$analysis$rsvd_oversample,
     rsvd_power = cfg$analysis$rsvd_power,
     seed = seed, fit = FALSE, return_variance = FALSE
   )
@@ -85,11 +83,9 @@ select_ncomp <- function(X, Y, kfold, seed) {
   Yz <- sweep(sweep(Y, 2, ym, "-"), 2, ys, "/")
   fit <- pls.single.cv(
     Xdata = X, Ydata = Yz, ncomp = ncomp_grid, kfold = kfold,
-    seed = seed, scaling = "autoscaling", method = "simpls",
-    svd.method = cfg$analysis$svd_method,
-    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    seed = seed, scaling = "autoscaling", method = "simpls", rsvd_oversample = cfg$analysis$rsvd_oversample,
     rsvd_power = cfg$analysis$rsvd_power,
-    fit = FALSE, selection_metric = "q2"
+    fit = FALSE, selection = "Q2Y"
   )
   as.integer(fit$best_ncomp)
 }

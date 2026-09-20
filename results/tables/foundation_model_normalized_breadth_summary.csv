@@ -1,0 +1,7 @@
+foundation_model,outcome_type,eligible_tasks,task_crossings,task_crossing_percent,eligible_endpoint_definitions,endpoint_definitions_crossing,endpoint_definition_crossing_percent,macro_family_crossing_percent,evaluated_families,macro_cancer_crossing_percent,evaluated_cancers,largest_crossing_family,largest_family_crossings,largest_family_share_of_crossings
+GigaSSL,binary,426,166,38.9671361502347,131,67,51.1450381679389,59.4110638465477,6,46.2141875712725,30,driver_mutation,81,48.7951807228916
+GigaSSL,continuous,2963,362,12.217347283159,108,79,73.1481481481482,6.11983889896511,5,12.1416771320532,28,rna_pathway_activity,249,68.7845303867403
+ProvGigaPath,binary,426,176,41.3145539906103,131,75,57.2519083969466,65.8705541770058,6,46.0204643242459,30,driver_mutation,88,50
+ProvGigaPath,continuous,2963,441,14.8835639554506,108,86,79.6296296296296,8.36333973469896,5,14.7657624046149,28,rna_pathway_activity,305,69.1609977324263
+TITAN,binary,426,230,53.9906103286385,131,95,72.5190839694657,71.5969514356611,6,51.148560246625,30,driver_mutation,125,54.3478260869565
+TITAN,continuous,2963,643,21.7009787377658,108,91,84.2592592592593,12.4897311426438,5,21.576514989531,28,rna_pathway_activity,447,69.5178849144635

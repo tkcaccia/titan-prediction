@@ -1,0 +1,7 @@
+foundation_model,outcome_type,targets,selected_components_median,targets_with_any_outer_fit_at_ceiling,target_ceiling_percent,outer_fits_at_ceiling,outer_fits_total,outer_fit_ceiling_percent,numerical_failures
+GigaSSL,binary,426,4,62,14.5539906103286,78,2130,3.66197183098592,0
+ProvGigaPath,binary,426,4,55,12.9107981220657,70,2130,3.28638497652582,0
+TITAN,binary,426,3,51,11.9718309859155,63,2130,2.95774647887324,0
+GigaSSL,continuous,2963,1,6,0.20249746878164,6,14815,0.040499493756328,0
+ProvGigaPath,continuous,2963,2,14,0.472494093823827,14,14815,0.0944988187647654,0
+TITAN,continuous,2963,2,4,0.134998312521094,4,14815,0.0269996625042187,0

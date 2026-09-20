@@ -2,10 +2,11 @@
 suppressPackageStartupMessages({
   library(data.table)
   library(fastPLS)
+  library(future.apply)
 })
 source("R/utils.R")
 cfg <- load_project_config()
-options(fastPLS.backend = tolower(Sys.getenv("TITAN_BACKEND", "cpu")))
+options(backend = tolower(Sys.getenv("TITAN_BACKEND", "cpu")))
 
 screen <- fread("results/tables/foundation_model_matched_screen.csv")
 oof <- readRDS("results/predictions/foundation_model_matched_oof.rds")
@@ -32,7 +33,7 @@ out_dir <- "models/foundation_models"
 dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
 registry_rows <- vector("list", nrow(jobs))
 
-for (i in seq_len(nrow(jobs))) {
+fit_resource_model <- function(i) {
   job <- jobs[i]
   cohort <- readRDS(file.path(
     "data/processed", paste0("patient_cohort_", job$foundation_model, ".rds")
@@ -50,8 +51,17 @@ for (i in seq_len(nrow(jobs))) {
   X <- cohort$X[idx, , drop = FALSE]
   y <- if (job$outcome_type == "continuous") d$value else
     factor(d$value, levels = c(0L, 1L))
-  ncomp <- max(1L, as.integer(round(job$selected_components_median)))
   seed <- cfg$analysis$seed + 200000L + i
+  full_binary_rule <- if (job$outcome_type == "binary") {
+    select_binary_auroc_rule(
+      X, y, rep(TRUE, nrow(X)), cfg$analysis, seed = seed + 50000L
+    )
+  } else NULL
+  ncomp <- if (job$outcome_type == "binary") {
+    full_binary_rule$component
+  } else {
+    max(1L, as.integer(round(job$selected_components_median)))
+  }
   fitted <- fit_final_model(X, y, job$outcome_type, ncomp, cfg$analysis, seed)
   fitted$Ttrain <- NULL
   fitted$Yfit <- NULL
@@ -61,7 +71,7 @@ for (i in seq_len(nrow(jobs))) {
   transform <- if (job$outcome_type == "continuous")
     continuous_endpoint_transform(job$family, job$endpoint) else "none"
   units <- if (job$outcome_type == "binary")
-    "class label and uncalibrated LDA score" else if (transform == "log1p")
+    "training-threshold class label and uncalibrated LDA score" else if (transform == "log1p")
       "log1p-transformed source endpoint units" else "source endpoint units"
   artifact <- list(
     model = fitted, model_id = model_id,
@@ -76,6 +86,15 @@ for (i in seq_len(nrow(jobs))) {
     class_labels = if (job$outcome_type == "binary")
       c(wild_type_or_negative = "0", altered_or_positive = "1") else NULL,
     class_priors = if (job$outcome_type == "binary") prop.table(table(y)) else NULL,
+    operating_threshold = if (job$outcome_type == "binary")
+      full_binary_rule$threshold else NULL,
+    validation_operating_threshold_median = if (job$outcome_type == "binary")
+      job$operating_threshold_median else NULL,
+    primary_binary_decision_rule = if (job$outcome_type == "binary")
+      paste(
+        "component selected by pooled inner out-of-fold AUROC; operating",
+        "threshold selected from full-development inner out-of-fold scores"
+      ) else NULL,
     training_feature_min = apply(X, 2L, min),
     training_feature_max = apply(X, 2L, max),
     training_feature_mean = colMeans(X),
@@ -83,7 +102,8 @@ for (i in seq_len(nrow(jobs))) {
     feature_file_sha256 = cohort$source_sha256,
     feature_schema_sha256 = digest::digest(cohort$feature_names, algo = "sha256"),
     fastPLS_version = as.character(packageVersion("fastPLS")),
-    backend = getOption("fastPLS.backend"), svd_method = cfg$analysis$svd_method,
+    fastPLS_remote_sha = as.character(packageDescription("fastPLS")$RemoteSha),
+    backend = getOption("backend"), svd_method = cfg$analysis$svd_method,
     rsvd_oversample = cfg$analysis$rsvd_oversample,
     rsvd_power = cfg$analysis$rsvd_power, fit_seed = seed,
     intended_use = paste(
@@ -97,7 +117,12 @@ for (i in seq_len(nrow(jobs))) {
       external_validation = "none",
       contains_patient_level_training_rows = FALSE,
       calibration_status = if (job$outcome_type == "binary")
-        "uncalibrated; score is not a probability" else "not applicable"
+        "uncalibrated; score is not a probability" else "not applicable",
+      primary_binary_decision_rule = if (job$outcome_type == "binary")
+        paste(
+          "component selected by pooled inner out-of-fold AUROC; operating",
+          "threshold selected from full-development inner out-of-fold scores"
+        ) else "not applicable"
     )
   )
   model_file <- file.path(out_dir, paste0(model_id, ".rds"))
@@ -107,6 +132,7 @@ for (i in seq_len(nrow(jobs))) {
     outcome_type == job$outcome_type & family == job$family &
       cancer_type == job$tumor_type & endpoint == job$endpoint
   ][1])
+  inherited_titan_tier <- old$tier
   old[, `:=`(
     foundation_model = job$foundation_model, model_id = new_model_id,
     file = basename(model_file), sha256 = digest::digest(file = model_file, algo = "sha256"),
@@ -117,6 +143,16 @@ for (i in seq_len(nrow(jobs))) {
     screen_q2 = job$q2, screen_rmse = job$rmse,
     screen_spearman = job$spearman,
     screen_balanced_accuracy = job$balanced_accuracy,
+    screen_auc = job$auc,
+    screen_sensitivity = job$sensitivity,
+    screen_specificity = job$specificity,
+    screen_ppv = job$ppv,
+    screen_npv = job$npv,
+    binary_prevalence = job$prevalence,
+    binary_no_skill_pr_auc = job$no_skill_pr_auc,
+    binary_operating_threshold = if (job$outcome_type == "binary")
+      full_binary_rule$threshold else NA_real_,
+    binary_operating_threshold_median = job$operating_threshold_median,
     repeated_q2 = NA_real_, repeated_rmse = NA_real_, repeated_spearman = NA_real_,
     repeated_sensitivity = NA_real_, repeated_specificity = NA_real_,
     repeated_balanced_accuracy = NA_real_, repeated_auc = job$auc,
@@ -124,6 +160,21 @@ for (i in seq_len(nrow(jobs))) {
     primary_estimate_label = "matched-cohort patient-level nested-CV estimate",
     repeated_estimate_label = "not performed for this representation",
     repeated_minus_primary_primary_metric = NA_real_,
+    resource_selection_basis = paste(
+      "endpoint inherited from the permutation/FDR-qualified TITAN catalogue;",
+      "not selected by this representation's performance"
+    ),
+    representation_specific_qualification = paste(
+      "matched-cohort nested-CV estimate only; no representation-specific",
+      "permutation/FDR qualification"
+    ),
+    titan_catalogue_tier = inherited_titan_tier,
+    tier_origin = paste(
+      "inherited from the TITAN permutation/FDR-qualified endpoint catalogue;",
+      "not a representation-specific q-value tier"
+    ),
+    representation_effect_threshold_crossing = if (job$outcome_type == "continuous")
+      job$q2 >= 0.20 else job$auc >= 0.60,
     external_validation = "none",
     site_grouped_metric_name = NA_character_, site_grouped_metric = NA_real_,
     site_performance_delta = NA_real_, site_grouped_n_sites = NA_integer_,
@@ -134,17 +185,48 @@ for (i in seq_len(nrow(jobs))) {
       "for this representation."
     ),
     site_grouped_validation_scope = "not evaluated",
-    model_evidence_tier = if (job$outcome_type == "binary" &&
-                               min(artifact$positive, artifact$negative) < 50)
-      "exploratory_limited_evidence" else "standard_internal_evidence",
-    default_inference = if (job$outcome_type == "continuous") job$q2 >= 0.20 else
-      job$balanced_accuracy >= 0.60 && min(artifact$positive, artifact$negative) >= 50,
-    redistribution_status = "access-controlled private artifact; no public release claimed"
+    model_evidence_tier = fcase(
+      job$outcome_type == "binary" && min(artifact$positive, artifact$negative) < 50,
+        "exploratory_limited_evidence",
+      job$outcome_type == "continuous" && length(y) < 100,
+        "exploratory_limited_continuous_evidence",
+      job$outcome_type == "continuous" && job$q2 >= 0.20,
+        "matched_effect_threshold_internal_evidence",
+      job$outcome_type == "binary" && job$auc >= 0.60,
+        "matched_effect_threshold_internal_evidence",
+      default = "matched_tested_below_effect_threshold"
+    ),
+    limited_evidence_reason = fcase(
+      job$outcome_type == "binary" && min(artifact$positive, artifact$negative) < 50,
+        "fewer than 50 patients in one or both binary classes",
+      job$outcome_type == "continuous" && length(y) < 100,
+        "fewer than 100 outcome-labelled patients",
+      job$outcome_type == "continuous" && job$q2 < 0.20,
+        "representation-specific matched Q2 was below the descriptive effect threshold",
+      job$outcome_type == "binary" && job$auc < 0.60,
+        "representation-specific matched AUROC was below the descriptive effect threshold",
+      default = ""
+    ),
+    default_inference = if (job$outcome_type == "continuous")
+      job$q2 >= 0.20 && length(y) >= 100 else
+      job$auc >= 0.60 && min(artifact$positive, artifact$negative) >= 50,
+    redistribution_status = paste(
+      "optional public PathoFMPred download under separate CC BY 4.0",
+      "downstream-asset terms; upstream notices remain applicable"
+    )
   )]
-  registry_rows[[i]] <- old
   cat("Fitted", i, "of", nrow(jobs), model_id, "\n")
   flush.console()
+  old
 }
+
+workers <- as.integer(Sys.getenv("TITAN_WORKERS", "4"))
+future::plan(future::multicore, workers = workers)
+registry_rows <- future_lapply(
+  seq_len(nrow(jobs)), fit_resource_model, future.seed = TRUE,
+  future.packages = c("fastPLS", "data.table", "digest"),
+  future.globals = TRUE, future.chunk.size = 1
+)
 
 registry <- rbindlist(registry_rows, fill = TRUE)
 setcolorder(registry, union(c("foundation_model", "model_id"), names(registry)))
@@ -161,3 +243,20 @@ reference_list <- split(reference$V1,
                         paste(reference$foundation_model, reference$model_id, sep = "::"))
 saveRDS(reference_list, file.path(out_dir, "prediction_reference_additions.rds"),
         compress = "xz")
+
+# Candidate membership can change after a synchronized permutation refresh.
+# Remove only unregistered fitted-object files from this explicit resource
+# directory; the prediction-reference object is retained separately.
+registered_rds <- c(
+  basename(registry$file), "prediction_reference_additions.rds"
+)
+existing_rds <- list.files(out_dir, pattern = "[.]rds$", full.names = TRUE)
+stale_rds <- existing_rds[!basename(existing_rds) %chin% registered_rds]
+if (length(stale_rds)) {
+  removed <- unlink(stale_rds)
+  if (any(removed != 0L)) {
+    stop("Failed to remove one or more stale foundation-model artifacts")
+  }
+}
+message("Removed ", length(stale_rds),
+        " unregistered stale foundation-model artifacts")

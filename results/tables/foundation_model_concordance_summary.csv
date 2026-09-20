@@ -1,0 +1,9 @@
+outcome_type,support_category,tasks
+binary,effect-threshold crossing in two,60
+binary,effect-threshold crossing in all three,122
+binary,no effect-threshold crossing,158
+binary,effect-threshold crossing in one,86
+continuous,no effect-threshold crossing,2260
+continuous,effect-threshold crossing in all three,304
+continuous,effect-threshold crossing in two,135
+continuous,effect-threshold crossing in one,264

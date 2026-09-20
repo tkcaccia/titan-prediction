@@ -1,48 +1,51 @@
 family,size_stratum,outcome_type,tumor_type,endpoint,n,positive,negative,screen_tier,imbalance_stratum,minority_fraction,selection_hash,benchmark_index,selection_version,selection_uses_pls_performance
-aneuploidy,large,binary,LGG,Genome doubling,481,157,324,C,low,0.326403326403326,0b6818e3b270d1d89f8d264f97a40a8b3052611e659551c12a5a297ffbf06092,13,titan-representative-benchmark-v1,FALSE
-aneuploidy,large,binary,KIRC,Genome doubling,464,89,375,C,moderate,0.191810344827586,3acab48dc22bc3faebf46da62abd1f9a46797a5e842dfb179b4c4eb00c1df78d,14,titan-representative-benchmark-v1,FALSE
-aneuploidy,medium,binary,PRAD,Genome doubling,382,29,353,C,high,0.0759162303664922,37da62aeec825c298d93c13f009c9e7d88b84963029c4a5ec78a6629443cb60b,15,titan-representative-benchmark-v1,FALSE
-aneuploidy,medium,binary,COAD,Genome doubling,408,165,243,B,low,0.404411764705882,1ef22274a533ce2b7a203089208532f1dacbea71903b781775aae7986136ebb7,16,titan-representative-benchmark-v1,FALSE
-aneuploidy,medium,binary,GBM,Genome doubling,362,46,316,C,moderate,0.12707182320442,66b91c7c32670ad27e3ef475e4e5a80accb5baa0854071509ba36cdc888a88ae,17,titan-representative-benchmark-v1,FALSE
-aneuploidy,small,binary,ESCA,Genome doubling,136,79,57,C,low,0.419117647058824,459b38765a74a11f7d295c785d6758eb6e3ed7b3b2fca5895767d7b02c497f53,18,titan-representative-benchmark-v1,FALSE
-aneuploidy,small,binary,PAAD,Genome doubling,163,40,123,C,moderate,0.245398773006135,0da0559edd862b3ac924862ac8f8cc4c3ba19803b9d4c6af128547dd5a2118cb,19,titan-representative-benchmark-v1,FALSE
-driver_mutation,large,binary,LUAD,ARID1A,463,25,438,C,high,0.0539956803455724,006372704b4a9e72da51acefcf409da2c39fd94372fcff5b1d5599019001ba51,20,titan-representative-benchmark-v1,FALSE
-driver_mutation,large,binary,LUAD,KRAS,463,140,323,C,low,0.302375809935205,0dc01cc67fdc34c6cbddd5e89eda459a02034634d082298e30cf4d3b3c61c579,21,titan-representative-benchmark-v1,FALSE
-driver_mutation,large,binary,UCEC,CTCF,487,96,391,C,moderate,0.197125256673511,07baaf278d9d454254cf760ba2e81380b1a1bc98268ed02cd514e57de17a3d9f,22,titan-representative-benchmark-v1,FALSE
-driver_mutation,medium,binary,HNSC,AJUBA,431,28,403,C,high,0.0649651972157773,0594c366c4035ae17139582c45d0257af98ac8b405da5584957afd3dcb3e2eea,23,titan-representative-benchmark-v1,FALSE
-driver_mutation,medium,binary,BLCA,TP53,384,185,199,B,low,0.481770833333333,17ec8acaa7a2de7aa6fddee60c9995fe48f2407841d3a68767ff10be4333a541,24,titan-representative-benchmark-v1,FALSE
-driver_mutation,medium,binary,STAD,DMD,371,48,323,C,moderate,0.129380053908356,197568b12fc089c6d1df7b42f6cf6a90c20c3a0842b45b3602d41ad0f9ba43c1,25,titan-representative-benchmark-v1,FALSE
-driver_mutation,small,binary,KIRC,MTOR,353,27,326,C,high,0.0764872521246459,0a909505762208ffac878f21361cf6d4505ccca8bf9efa6e6811257740307fab,26,titan-representative-benchmark-v1,FALSE
-driver_mutation,small,binary,OV,TP53,72,22,50,B,low,0.305555555555556,32c23f82377c5952f1c9edd13544915c1d0463531b729859f3b8114ae89eea4f,27,titan-representative-benchmark-v1,FALSE
-driver_mutation,small,binary,CESC,KMT2C,252,47,205,C,moderate,0.186507936507937,0935912a22bac07053e43e7a7f05c31c835eb432001c321814a6771963a42b1a,28,titan-representative-benchmark-v1,FALSE
-fusion,large,binary,THCA,Fusion pair: CCDC6--RET,502,21,481,B,high,0.0418326693227092,35705f6589c400c75ef88d2b205c134a0eb768c7b53c65321e19938865cb6720,29,titan-representative-benchmark-v1,FALSE
-fusion,large,binary,LGG,Any called fusion,487,236,251,B,low,0.484599589322382,395d2d6550c684c35cf7bed8802c2f65dbfd9770d562324c8d515a5950163f49,30,titan-representative-benchmark-v1,FALSE
-fusion,large,binary,LUSC,Any called fusion,475,403,72,C,moderate,0.151578947368421,14b58a05908272f768b80456769f65f4564d0dec246335bf28dd029cd82cf9d1,31,titan-representative-benchmark-v1,FALSE
-fusion,medium,binary,HNSC,Any called fusion,435,302,133,C,low,0.305747126436782,1b5ccb6b208ba07d2541602ff3191b1187d0a5323b1363a63c5c71b1a23040b9,32,titan-representative-benchmark-v1,FALSE
-fusion,medium,binary,BLCA,Any called fusion,381,288,93,B,moderate,0.244094488188976,39636ebfa2157f81d63765cd0d6825c9e7ccdf289c87ad5344f29015811705c7,33,titan-representative-benchmark-v1,FALSE
-fusion,small,binary,SKCM,Any called fusion,97,68,29,C,low,0.298969072164948,1075d1f8a0a355df97642af1f3f4f546e2d6f9b81881865912641a5f82b1c28a,34,titan-representative-benchmark-v1,FALSE
-fusion,small,binary,THYM,Any called fusion,117,27,90,C,moderate,0.230769230769231,6b7ff08f346c0a1627e2fcf3fd0981be4e7de36f9e08b943e0f5374cd176f19d,35,titan-representative-benchmark-v1,FALSE
-microsatellite_instability,large,binary,UCEC,MSI-H (MANTIS >0.4),487,155,332,B,low,0.318275154004107,730c981aea44621813e41ca5c17b1bdd433b8a327f313a29fc7ae722346f2b71,36,titan-representative-benchmark-v1,FALSE
-microsatellite_instability,medium,binary,COAD,MSI-H (MANTIS >0.4),391,74,317,A,moderate,0.18925831202046,1501f55fe8f7c57eb6f691eac7e8650c0f95d77c62c1072f50105e8d4d728d3d,37,titan-representative-benchmark-v1,FALSE
-microsatellite_instability_sensitivity,medium,binary,STAD,MSI-H strict (MANTIS >0.6),364,56,308,A,moderate,0.153846153846154,234e556934011d50fb58aaea1a99e1e2e018bc750df6f6a9bc6825d48081ab39,38,titan-representative-benchmark-v1,FALSE
-oncogenic_pathway,large,binary,THCA,PI3K,478,21,457,C,high,0.0439330543933054,0e4b41a179ee286649c379d7a57f512b07138b4f70d555fb86f9fcfd9cfc03c2,39,titan-representative-benchmark-v1,FALSE
-oncogenic_pathway,large,binary,UCEC,HIPPO,468,132,336,C,low,0.282051282051282,0ac55578dc535768db99870e3692bb0d453a9c9994581c4c3ef87c410ac69801,40,titan-representative-benchmark-v1,FALSE
-oncogenic_pathway,large,binary,UCEC,MYC,468,112,356,C,moderate,0.239316239316239,11510619423c6470a35c2575455cc64debb80116cecf7411d53a6b2cd04cafd9,41,titan-representative-benchmark-v1,FALSE
-oncogenic_pathway,medium,binary,LUAD,TGF-Beta,451,45,406,C,high,0.0997782705099778,25e6687f4e130fb704c798c8fe8ffde0f790ffedcd20147a1a61f5f762f0baa1,42,titan-representative-benchmark-v1,FALSE
-oncogenic_pathway,medium,binary,LUAD,RTK RAS,451,338,113,C,low,0.250554323725055,07a8cba3bb4375d12510830e519a8795f42b862bead19b8ffae0a3887d1f1bd2,43,titan-representative-benchmark-v1,FALSE
-oncogenic_pathway,medium,binary,PRAD,TP53,389,81,308,B,moderate,0.208226221079692,11209469dd78252d6503c71ec023221627af8fe355e9d59641cefec9f72c81af,44,titan-representative-benchmark-v1,FALSE
-oncogenic_pathway,small,binary,KIRC,WNT,336,23,313,B,high,0.068452380952381,002d269e0d6661295cd6dcf57367499280ee10ab1b2e02deab35565eb8a357b3,45,titan-representative-benchmark-v1,FALSE
-oncogenic_pathway,small,binary,MESO,HIPPO,70,27,43,C,low,0.385714285714286,01fd3688a4d3a3bba78a5c802f95679f7055f03aa22b32eba60ed1ba2965e17c,46,titan-representative-benchmark-v1,FALSE
-oncogenic_pathway,small,binary,PAAD,MYC,150,21,129,C,moderate,0.14,08ae3f29019a4d75ff8cda5d5bdb02f1f24d2a1703314cd69fac65ae20f44958,47,titan-representative-benchmark-v1,FALSE
-aneuploidy,large,continuous,UCEC,Aneuploidy score,477,,,B,not applicable,,02d6effc4e19cda3a0753cbc291e1919a99a513729255dc799a45c941fb445d1,1,titan-representative-benchmark-v1,FALSE
-aneuploidy,medium,continuous,STAD,Deleted arm count,360,,,C,not applicable,,0eed0cd18188760357d48922dea872acfa992165c739ac68b8e93b45d763839b,2,titan-representative-benchmark-v1,FALSE
-aneuploidy,small,continuous,SKCM,Amplified arm count,98,,,C,not applicable,,0e3ccc77d58597291ae9182c91cdc6bfc22dbd7e5060d6ed70cc10f8fb5a4d41,3,titan-representative-benchmark-v1,FALSE
-fusion,large,continuous,LGG,Fusion burden,487,,,B,not applicable,,04c77648800928d20b8343b411be0b2f69c7c5f66d8365092b33549fdf97fb05,4,titan-representative-benchmark-v1,FALSE
-fusion,medium,continuous,CESC,Fusion burden,266,,,C,not applicable,,1300aa7aa4dba80a2a157d6b157a82f28db91cc8356572bed58f4bce7f922b25,5,titan-representative-benchmark-v1,FALSE
-fusion,small,continuous,MESO,Fusion burden,75,,,C,not applicable,,0da5243d63f5583ba8e4f59de3d5d12afa67876888d4d7d32e3b0b8712b2429c,6,titan-representative-benchmark-v1,FALSE
-microsatellite_instability,large,continuous,STAD,MANTIS score,371,,,C,not applicable,,09d2a46c93624b456acfb9f2de4e8fac0e522f707809d44206f808492c497d16,7,titan-representative-benchmark-v1,FALSE
-microsatellite_instability,medium,continuous,LIHC,MSIsensor score,359,,,C,not applicable,,0c91605ba7e12bbbc229040c32acb21536bb97387c87247c80a734b7cd3b1f59,8,titan-representative-benchmark-v1,FALSE
-microsatellite_instability,small,continuous,MESO,MANTIS score,71,,,C,not applicable,,26b6aa9a10d9ff63734582898876efdaa28184f8dc1c29ecf7ac8d49604d7926,9,titan-representative-benchmark-v1,FALSE
-thorsson,large,continuous,BLCA,IFN-gamma Response,373,,,B,not applicable,,00444e80fad08df36f5f4f66a16d194919fcb992f446ffdbb7c279db95766b33,10,titan-representative-benchmark-v1,FALSE
-thorsson,medium,continuous,PRAD,Mast Cells Activated,325,,,C,not applicable,,003a9470923b88b731c7a35bef688e67005fe046074f27e026d87c8187a05ae3,11,titan-representative-benchmark-v1,FALSE
-thorsson,small,continuous,ACC,Plasma Cells,54,,,C,not applicable,,023ddc15583e90dd900c347ade17b5c8eec8393614253dd4aa8bd61cbf8ade62,12,titan-representative-benchmark-v1,FALSE
+aneuploidy,large,binary,BRCA,Genome doubling,998,438,560,A,low,0.438877755511022,73307904b4ff86c6767d7d8b452a803f60ffc05b7ea83cea93c72bcae6d78d01,16,pathofmpred-representative-benchmark-v2-pathways,FALSE
+aneuploidy,large,binary,KIRC,Genome doubling,464,89,375,C,moderate,0.191810344827586,2e9e01a8036c0a0371f32adf6b736b565765e66d346e9448b09709f667e41df6,17,pathofmpred-representative-benchmark-v2-pathways,FALSE
+aneuploidy,medium,binary,PRAD,Genome doubling,382,29,353,C,high,0.0759162303664922,5e68613ae554783b92c0bc682298bd58edef95b36ca5e03d1e6db1a4fd78e77d,18,pathofmpred-representative-benchmark-v2-pathways,FALSE
+aneuploidy,medium,binary,COAD,Genome doubling,408,165,243,B,low,0.404411764705882,13c0743159dd4d73cdca5795e215c7a9df768cbb74b6d70c1ef8191d828de30f,19,pathofmpred-representative-benchmark-v2-pathways,FALSE
+aneuploidy,medium,binary,GBM,Genome doubling,362,46,316,C,moderate,0.12707182320442,097046f9ddb9932b13c774bb022991e1f6580085ea9094d427f72be2d123937f,20,pathofmpred-representative-benchmark-v2-pathways,FALSE
+aneuploidy,small,binary,ACC,Genome doubling,54,28,26,C,low,0.481481481481482,7a6f4c258bf2899bcbd23c370dae83816da5597a0940869fb911a1817d6de08b,21,pathofmpred-representative-benchmark-v2-pathways,FALSE
+aneuploidy,small,binary,PAAD,Genome doubling,163,40,123,C,moderate,0.245398773006135,3398e3d9a0520bc2f47539a3d7ed0ee8816d6604944f5cc66db6f120c8c21998,22,pathofmpred-representative-benchmark-v2-pathways,FALSE
+driver_mutation,large,binary,LUAD,ARID1A,463,25,438,C,high,0.0539956803455724,05e15f1495c6fee73dd6bbef363a0643aa73c0a48a0e693c2776f737d5601c7c,23,pathofmpred-representative-benchmark-v2-pathways,FALSE
+driver_mutation,large,binary,UCEC,ARID1A,487,176,311,B,low,0.361396303901437,0e35e4abc3b83e357230a83c3e028599209d3ea7c0e832ec7889dbd397c76da9,24,pathofmpred-representative-benchmark-v2-pathways,FALSE
+driver_mutation,large,binary,UCEC,BCOR,487,70,417,C,moderate,0.143737166324435,06baf75d082aaf28ae6e7e3dab98e2dc326c81e3fca13951c56bd28c58e1312d,25,pathofmpred-representative-benchmark-v2-pathways,FALSE
+driver_mutation,medium,binary,BLCA,FBXW7,384,30,354,C,high,0.078125,06584adc132a0dd2a39258e42dc2139687fcefcd9ce0b8885f7eeee9cfc932a7,26,pathofmpred-representative-benchmark-v2-pathways,FALSE
+driver_mutation,medium,binary,COAD,TP53,382,161,221,A,low,0.421465968586387,46eeb298df77d28b915af04342843d8836b451abec161b84d3d9c74a3588ed44,27,pathofmpred-representative-benchmark-v2-pathways,FALSE
+driver_mutation,medium,binary,BLCA,EP300,384,54,330,C,moderate,0.140625,023db6f03c50464edd3bfd38662632bccb52a16aa12f408ebfbf067750984d2a,28,pathofmpred-representative-benchmark-v2-pathways,FALSE
+driver_mutation,small,binary,LIHC,APOB,350,34,316,C,high,0.0971428571428571,0c839e2a8694d1a58fdb488e734ff552e7066290acb0452d1f497213b47b7c12,29,pathofmpred-representative-benchmark-v2-pathways,FALSE
+driver_mutation,small,binary,PAAD,KRAS,175,116,59,C,low,0.337142857142857,064a9de872d985705387bea0d8f14dd8bf46e570e8733a79f481bf0e8ae4c054,30,pathofmpred-representative-benchmark-v2-pathways,FALSE
+driver_mutation,small,binary,CESC,EP300,252,30,222,C,moderate,0.119047619047619,100769afa09190e625b30821bb75368053bbe9493097df427c6d8b3fa769b772,31,pathofmpred-representative-benchmark-v2-pathways,FALSE
+fusion,large,binary,THCA,Fusion pair: CCDC6--RET,502,21,481,B,high,0.0418326693227092,289b8991ce27603f3b21f8bf7718bb779d7529c039c56585d5d645e38c9ce7df,32,pathofmpred-representative-benchmark-v2-pathways,FALSE
+fusion,large,binary,KIRC,Any called fusion,507,151,356,C,low,0.297830374753452,189e94f35411699f6c305f94f77db773bd90d2d14735c9edbea54d5c918dc1c5,33,pathofmpred-representative-benchmark-v2-pathways,FALSE
+fusion,large,binary,LUSC,Any called fusion,475,403,72,C,moderate,0.151578947368421,107d2b7c19dd5d5661903d8f6f07642c1f0ed428a4bcccc9da43d4cb5768951c,34,pathofmpred-representative-benchmark-v2-pathways,FALSE
+fusion,medium,binary,HNSC,Any called fusion,435,302,133,C,low,0.305747126436782,91c43747e54dbe11f4332d7ce0cd98c1113283bd31345c58747858aa30cb3630,35,pathofmpred-representative-benchmark-v2-pathways,FALSE
+fusion,medium,binary,BLCA,Any called fusion,381,288,93,C,moderate,0.244094488188976,52241adf98abda75efb0191989279c3cb3c802d80ae0bd9bd7cb3b574909425b,36,pathofmpred-representative-benchmark-v2-pathways,FALSE
+fusion,small,binary,DLBC,Any called fusion,44,22,22,C,low,0.5,12ef98684c9f073eee2238f04da3c3cce6abd71cb77f5d00adddc3ce414810b3,37,pathofmpred-representative-benchmark-v2-pathways,FALSE
+fusion,small,binary,THYM,Any called fusion,117,27,90,C,moderate,0.230769230769231,b9b29023f1730bf7056e06caecbb724c9dbf18199913505c4458d8af166b6410,38,pathofmpred-representative-benchmark-v2-pathways,FALSE
+microsatellite_instability,large,binary,UCEC,MSI-H (MANTIS >0.4),487,155,332,B,low,0.318275154004107,fb92b908dd2f41a648e4986db08914fc9d828ac2a661dc11df833e0355c1a04a,39,pathofmpred-representative-benchmark-v2-pathways,FALSE
+microsatellite_instability,medium,binary,COAD,MSI-H (MANTIS >0.4),391,74,317,A,moderate,0.18925831202046,23fe9b2f4e85b8613ef25cd8234de8305592df85c36e9b0b5fc82f4fce4e7189,40,pathofmpred-representative-benchmark-v2-pathways,FALSE
+microsatellite_instability_sensitivity,medium,binary,COAD,MSI-H strict (MANTIS >0.6),374,57,317,A,moderate,0.152406417112299,75cf168e96587e5a33a6c0b5526c25585d10a371b1828597638575dd9c28dcd2,41,pathofmpred-representative-benchmark-v2-pathways,FALSE
+oncogenic_pathway,large,binary,UCEC,PI3K,468,437,31,C,high,0.0662393162393162,533400ea976af7ee9aaeea7864d1f8cf099ed7aa8cfcfb9681398f8c820c8a0f,42,pathofmpred-representative-benchmark-v2-pathways,FALSE
+oncogenic_pathway,large,binary,UCEC,HIPPO,468,132,336,C,low,0.282051282051282,0f5bb27fdd9fc394d47edf3e3ed4289c96d4129c0de6dfe7debe723867250965,43,pathofmpred-representative-benchmark-v2-pathways,FALSE
+oncogenic_pathway,large,binary,UCEC,MYC,468,112,356,C,moderate,0.239316239316239,21fd2f892cb584ac9c11df51e820e9df4457611920f753947af23127c283d62a,44,pathofmpred-representative-benchmark-v2-pathways,FALSE
+oncogenic_pathway,medium,binary,PRAD,MYC,389,41,348,C,high,0.105398457583548,2ba1f72c25855fba7185718aacc59c61b742939e7be803b1e628934fb7c39e8b,45,pathofmpred-representative-benchmark-v2-pathways,FALSE
+oncogenic_pathway,medium,binary,LUSC,PI3K,443,306,137,C,low,0.309255079006772,231d67d4d66a2b72235916fcdf6d021da84fc7de007c16a81dc46681543d29d8,46,pathofmpred-representative-benchmark-v2-pathways,FALSE
+oncogenic_pathway,medium,binary,LUAD,NRF2,451,63,388,C,moderate,0.139689578713969,00bfcf023d1d3c0f074c5bf40f20753173f5360dcb0f66a07df6b83952a80650,47,pathofmpred-representative-benchmark-v2-pathways,FALSE
+oncogenic_pathway,small,binary,KIRP,PI3K,255,21,234,C,high,0.0823529411764706,08be1fbdc9a3c7e6b996146109099e293e023f3f2c60ef75219960cb2d293ba6,48,pathofmpred-representative-benchmark-v2-pathways,FALSE
+oncogenic_pathway,small,binary,LIHC,TP53,337,127,210,B,low,0.376854599406528,01066e9d2168084d797c124080ca9d4a90515116230465bcd40167ad2d70d329,49,pathofmpred-representative-benchmark-v2-pathways,FALSE
+oncogenic_pathway,small,binary,STAD,MYC,327,55,272,C,moderate,0.168195718654434,113616464c450ab077c389b3dc3a2358ac6f0e6a31e6e18236367bba945b6671,50,pathofmpred-representative-benchmark-v2-pathways,FALSE
+aneuploidy,large,continuous,PRAD,Deleted arm count,382,,,C,not applicable,,02d0b595d9fe59755ad9a38a1dbdc37884511957c448a4b59ba8a45942e41404,1,pathofmpred-representative-benchmark-v2-pathways,FALSE
+aneuploidy,medium,continuous,KIRP,Amplified arm count,264,,,C,not applicable,,15dc051f52e53b103013732ba5303154ca8da6b09601b6cc0958f511a2bcc745,2,pathofmpred-representative-benchmark-v2-pathways,FALSE
+aneuploidy,small,continuous,KICH,Aneuploidy score,65,,,C,not applicable,,0156e5e030ba12eb6a10c8a18de1f088d5329b0fba7663acf67f867a1042080b,3,pathofmpred-representative-benchmark-v2-pathways,FALSE
+fusion,large,continuous,LGG,Fusion burden,487,,,B,not applicable,,18d011ae879202ce35372dcd52ec1f977ca8513cc4ac3da2cbf64830a18df10a,4,pathofmpred-representative-benchmark-v2-pathways,FALSE
+fusion,medium,continuous,KIRP,Fusion burden,265,,,C,not applicable,,16390a2b2454feffae547f99b61277d416a1dc4b6eda02f7d3fad948df4de67e,5,pathofmpred-representative-benchmark-v2-pathways,FALSE
+fusion,small,continuous,SKCM,Fusion burden,97,,,C,not applicable,,05c63334db605102a0aa5c5bde447d4f92110c440934ec6eddc4a147b82a6519,6,pathofmpred-representative-benchmark-v2-pathways,FALSE
+microsatellite_instability,large,continuous,BRCA,MSIsensor score,1032,,,C,not applicable,,09a41c485e568b0911d25f980490fbb907ad6746c64841613e38598f7b6a7ba9,7,pathofmpred-representative-benchmark-v2-pathways,FALSE
+microsatellite_instability,medium,continuous,PAAD,MSIsensor score,181,,,C,not applicable,,04fd4f50d8205c6393442328e76fc649f1aa538c19095aa12dcc52611eac85ec,8,pathofmpred-representative-benchmark-v2-pathways,FALSE
+microsatellite_instability,small,continuous,SKCM,MSIsensor score,74,,,C,not applicable,,006ee026f386d3a52753442142ae4c4d9dc368324ed384e6a8f9808eab517033,9,pathofmpred-representative-benchmark-v2-pathways,FALSE
+rna_pathway_activity,large,continuous,UCEC,HALLMARK_CHOLESTEROL_HOMEOSTASIS,492,,,C,not applicable,,008bdee3800c6fc421ba1e13ab2813851510e0df064483541cfdc4a98d3598b6,10,pathofmpred-representative-benchmark-v2-pathways,FALSE
+rna_pathway_activity,medium,continuous,CESC,HALLMARK_GLYCOLYSIS,267,,,C,not applicable,,000dacae116218099156e355c7bd6e56a90105ac740b93a382168f2a36aa321e,11,pathofmpred-representative-benchmark-v2-pathways,FALSE
+rna_pathway_activity,small,continuous,ACC,HALLMARK_APICAL_SURFACE,55,,,C,not applicable,,003a46134e190b2baeaa60a377aabe59ebfb5e58a8d5eab9fe79128dc9b8d411,12,pathofmpred-representative-benchmark-v2-pathways,FALSE
+thorsson,large,continuous,LUSC,Th2 Cells,462,,,B,not applicable,,00bf6646983a330b80ddd4256bba4e7a914578d18ac583683c06ace339c4e61b,13,pathofmpred-representative-benchmark-v2-pathways,FALSE
+thorsson,medium,continuous,PAAD,Number of Segments,181,,,C,not applicable,,006d2567fda8a4e748d5aafb970a3d511ca743ddddb0125ea3825c5c701aaa02,14,pathofmpred-representative-benchmark-v2-pathways,FALSE
+thorsson,small,continuous,READ,TCR Richness,78,,,C,not applicable,,008f947843fd345a3aa62547f184fff6457b9874ac68ddca60b1faab431fc8fa,15,pathofmpred-representative-benchmark-v2-pathways,FALSE

@@ -13,6 +13,8 @@ cfg <- load_project_config()
 labels <- c(
   titan_features = "Ding et al. 2025 TITAN TCGA embeddings",
   slide_reports = "Ding et al. 2025 TCGA slide reports",
+  gigassl_features = "Giga-SSL released TCGA embeddings",
+  provgigapath_features = "Davis Prov-GigaPath released TCGA embeddings",
   thorsson = "Thorsson et al. 2018 PanImmune_MS",
   tcga_cdr = "Liu et al. 2018 TCGA Clinical Data Resource",
   bailey = "Bailey et al. 2018 Table S1",
@@ -20,10 +22,14 @@ labels <- c(
   oncogenic = "Sanchez-Vega et al. 2018 Table S4",
   fusion = "Gao et al. 2018 Table S1",
   msi_subset = "Bonneville et al. 2017 ACC/CESC/MESO subset"
+  ,pathway_rnaseq = "UCSC Xena TCGA Pan-Cancer normalized RNA-seq"
+  ,pathway_gene_sets = "MSigDB 2026.1.Hs Hallmarks and focused metabolic pathways"
 )
 dois <- c(
   titan_features = "10.1038/s41591-025-03982-3",
   slide_reports = "10.1038/s41591-025-03982-3",
+  gigassl_features = NA_character_,
+  provgigapath_features = "10.1038/s41586-024-07441-w",
   thorsson = "10.1016/j.immuni.2018.03.023",
   tcga_cdr = "10.1016/j.cell.2018.02.052",
   bailey = "10.1016/j.cell.2018.02.060",
@@ -31,6 +37,8 @@ dois <- c(
   oncogenic = "10.1016/j.cell.2018.03.035",
   fusion = "10.1016/j.celrep.2018.03.050",
   msi_subset = "10.1200/PO.17.00073"
+  ,pathway_rnaseq = NA_character_
+  ,pathway_gene_sets = "10.1016/j.cels.2015.12.004"
 )
 
 manifest <- rbindlist(lapply(names(cfg$paths), function(key) {
@@ -51,7 +59,7 @@ software_packages <- c(
   "jsonlite", "maftools", "pROC", "readxl", "TCGAmutations", "testthat"
 )
 configured_source <- c(
-  fastPLS = "tkcaccia/fastPLS@dcf45cccee8a1cb1a3ae8b3353a410ab0902162f",
+  fastPLS = "tkcaccia/fastPLS@b518f75285c387632c2443a0c0989d75c9dcda48",
   TCGAmutations = paste0(
     "PoisonAlien/TCGAmutations@",
     "3474e3412cfa1490db4a84db57e4a732480990a9"

@@ -1,0 +1,427 @@
+family,tumor_type,endpoint,empirical_ba_consensus,auroc_tuned_ba_consensus,auroc_tuned_auroc_consensus,empirical_ba_crossing_count,auroc_tuned_ba_crossing_count,auroc_tuned_auroc_crossing_count,baseline_auroc_winner,auroc_tuned_winner,maximum_auroc_tuning_change,empirical_to_auroc_tuned_ba_consensus_changed,auroc_tuned_ba_to_auroc_consensus_changed,auroc_winner_changed
+aneuploidy,ACC,Genome doubling,representation specific,representation specific,exactly two,1,1,2,ProvGigaPath,ProvGigaPath,0.0133333333333331,FALSE,TRUE,FALSE
+aneuploidy,BLCA,Genome doubling,all three,all three,all three,3,3,3,ProvGigaPath,ProvGigaPath,0.0212482219061162,FALSE,FALSE,FALSE
+aneuploidy,CESC,Genome doubling,none,exactly two,all three,0,2,3,GigaSSL,GigaSSL,0.0476190476190476,TRUE,TRUE,FALSE
+aneuploidy,COAD,Genome doubling,all three,all three,all three,3,3,3,ProvGigaPath,ProvGigaPath,0.0121462559479086,FALSE,FALSE,FALSE
+aneuploidy,ESCA,Genome doubling,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.023261278195489,FALSE,FALSE,FALSE
+aneuploidy,GBM,Genome doubling,none,representation specific,exactly two,0,1,2,TITAN,TITAN,0.09296066252588,TRUE,TRUE,FALSE
+aneuploidy,HNSC,Genome doubling,exactly two,exactly two,all three,2,2,3,TITAN,GigaSSL,0.021652334152334,FALSE,TRUE,TRUE
+aneuploidy,KIRC,Genome doubling,none,exactly two,all three,0,2,3,TITAN,TITAN,0.0119004470218678,TRUE,TRUE,FALSE
+aneuploidy,LGG,Genome doubling,none,none,none,0,0,0,TITAN,TITAN,0.0224895808759928,FALSE,FALSE,FALSE
+aneuploidy,LIHC,Genome doubling,all three,all three,all three,3,3,3,ProvGigaPath,ProvGigaPath,0.0201016374929417,FALSE,FALSE,FALSE
+aneuploidy,LUAD,Genome doubling,all three,all three,all three,3,3,3,TITAN,TITAN,0.0211506961506963,FALSE,FALSE,FALSE
+aneuploidy,LUSC,Genome doubling,none,representation specific,all three,0,1,3,TITAN,TITAN,0.0508448540706604,TRUE,TRUE,FALSE
+aneuploidy,OV,Genome doubling,representation specific,representation specific,all three,1,1,3,TITAN,TITAN,0.0790450928381968,FALSE,TRUE,FALSE
+aneuploidy,PAAD,Genome doubling,representation specific,exactly two,all three,1,2,3,GigaSSL,GigaSSL,0.0428861788617889,TRUE,TRUE,FALSE
+aneuploidy,PCPG,Genome doubling,none,none,representation specific,0,0,1,GigaSSL,TITAN,0.106203007518797,FALSE,TRUE,TRUE
+aneuploidy,PRAD,Genome doubling,none,representation specific,exactly two,0,1,2,GigaSSL,GigaSSL,0.0652557319223982,TRUE,TRUE,FALSE
+aneuploidy,READ,Genome doubling,exactly two,exactly two,exactly two,2,2,2,GigaSSL,GigaSSL,0.0279761904761906,FALSE,FALSE,FALSE
+aneuploidy,SARC,Genome doubling,all three,all three,all three,3,3,3,TITAN,GigaSSL,0.0930413832199545,FALSE,FALSE,TRUE
+aneuploidy,SKCM,Genome doubling,exactly two,exactly two,exactly two,2,2,2,ProvGigaPath,TITAN,0.0358276643990935,FALSE,FALSE,TRUE
+aneuploidy,STAD,Genome doubling,all three,all three,all three,3,3,3,TITAN,ProvGigaPath,0.0215932777488276,FALSE,FALSE,TRUE
+aneuploidy,UCEC,Genome doubling,all three,all three,all three,3,3,3,TITAN,TITAN,0.0275004760220877,FALSE,FALSE,FALSE
+driver_mutation,BLCA,ARID1A,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0420293991722562,FALSE,FALSE,FALSE
+driver_mutation,BLCA,ASXL2,none,none,none,0,0,0,GigaSSL,TITAN,0.0618092509209988,FALSE,FALSE,TRUE
+driver_mutation,BLCA,ATM,none,representation specific,representation specific,0,1,1,TITAN,TITAN,0.0592259020692013,TRUE,FALSE,FALSE
+driver_mutation,BLCA,CDKN1A,none,none,none,0,0,0,GigaSSL,TITAN,0.0707220188488196,FALSE,FALSE,TRUE
+driver_mutation,BLCA,CDKN2A,none,representation specific,representation specific,0,1,1,TITAN,TITAN,0.0386574074074075,TRUE,FALSE,FALSE
+driver_mutation,BLCA,CREBBP,none,none,none,0,0,0,GigaSSL,ProvGigaPath,0.0758928571428574,FALSE,FALSE,TRUE
+driver_mutation,BLCA,ELF3,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.0124131721121686,FALSE,FALSE,FALSE
+driver_mutation,BLCA,EP300,none,none,none,0,0,0,TITAN,TITAN,0.0269921436588103,FALSE,FALSE,FALSE
+driver_mutation,BLCA,ERBB2,none,none,representation specific,0,0,1,ProvGigaPath,ProvGigaPath,0.0562773347054279,FALSE,TRUE,FALSE
+driver_mutation,BLCA,ERBB3,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0449127906976743,FALSE,FALSE,FALSE
+driver_mutation,BLCA,ERCC2,none,none,representation specific,0,0,1,TITAN,TITAN,0.0232501023331971,FALSE,TRUE,FALSE
+driver_mutation,BLCA,FAT1,none,none,none,0,0,0,GigaSSL,ProvGigaPath,0.0592359145870849,FALSE,FALSE,TRUE
+driver_mutation,BLCA,FBXW7,none,none,none,0,0,0,GigaSSL,TITAN,0.05819209039548,FALSE,FALSE,TRUE
+driver_mutation,BLCA,FGFR3,all three,all three,all three,3,3,3,TITAN,GigaSSL,0.0619528619528622,FALSE,FALSE,TRUE
+driver_mutation,BLCA,KANSL1,none,none,none,0,0,0,TITAN,TITAN,0.0706018518518518,FALSE,FALSE,FALSE
+driver_mutation,BLCA,KDM6A,none,none,none,0,0,0,TITAN,TITAN,0.0149739583333337,FALSE,FALSE,FALSE
+driver_mutation,BLCA,KLF5,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.0721500721500722,FALSE,FALSE,FALSE
+driver_mutation,BLCA,KMT2C,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0366287179948703,FALSE,FALSE,FALSE
+driver_mutation,BLCA,KMT2D,none,none,none,0,0,0,TITAN,TITAN,0.0322495023224949,FALSE,FALSE,FALSE
+driver_mutation,BLCA,NFE2L2,none,none,representation specific,0,0,1,TITAN,TITAN,0.0422453703703705,FALSE,TRUE,FALSE
+driver_mutation,BLCA,PIK3CA,none,none,representation specific,0,0,1,TITAN,TITAN,0.024067194314327,FALSE,TRUE,FALSE
+driver_mutation,BLCA,RB1,none,none,all three,0,0,3,ProvGigaPath,TITAN,0.0821036867374358,FALSE,TRUE,TRUE
+driver_mutation,BLCA,RHOB,none,representation specific,none,0,1,0,TITAN,GigaSSL,0.0383101851851847,TRUE,TRUE,TRUE
+driver_mutation,BLCA,RXRA,none,none,none,0,0,0,GigaSSL,GigaSSL,0.086448904630723,FALSE,FALSE,FALSE
+driver_mutation,BLCA,SF3B1,none,none,none,0,0,0,GigaSSL,ProvGigaPath,0.0914113510798599,FALSE,FALSE,TRUE
+driver_mutation,BLCA,SPTAN1,none,none,none,0,0,0,GigaSSL,ProvGigaPath,0.0647656506063583,FALSE,FALSE,TRUE
+driver_mutation,BLCA,STAG2,none,representation specific,exactly two,0,1,2,GigaSSL,ProvGigaPath,0.0744456478367436,TRUE,TRUE,TRUE
+driver_mutation,BLCA,TP53,exactly two,exactly two,all three,2,2,3,TITAN,TITAN,0.0206980850196925,FALSE,TRUE,FALSE
+driver_mutation,BLCA,TSC1,none,none,none,0,0,0,TITAN,GigaSSL,0.063949579831933,FALSE,FALSE,TRUE
+driver_mutation,BLCA,ZFP36L1,none,none,none,0,0,0,TITAN,GigaSSL,0.0742061281337045,FALSE,FALSE,TRUE
+driver_mutation,CESC,EP300,none,representation specific,exactly two,0,1,2,TITAN,TITAN,0.135897435897436,TRUE,TRUE,FALSE
+driver_mutation,CESC,FBXW7,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0399192295744015,FALSE,FALSE,FALSE
+driver_mutation,CESC,KMT2C,none,none,none,0,0,0,TITAN,TITAN,0.0133500208594075,FALSE,FALSE,FALSE
+driver_mutation,CESC,KMT2D,none,representation specific,representation specific,0,1,1,TITAN,TITAN,0.0516431924882627,TRUE,FALSE,FALSE
+driver_mutation,CESC,PIK3CA,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0478295185477507,FALSE,FALSE,FALSE
+driver_mutation,CESC,TP53,representation specific,representation specific,representation specific,1,1,1,TITAN,TITAN,0.099585921325052,FALSE,FALSE,FALSE
+driver_mutation,COAD,ACVR2A,none,all three,all three,0,3,3,GigaSSL,GigaSSL,0.0907531987864397,TRUE,FALSE,FALSE
+driver_mutation,COAD,AMER1,none,none,exactly two,0,0,2,TITAN,ProvGigaPath,0.1397571484528,FALSE,TRUE,TRUE
+driver_mutation,COAD,APC,all three,all three,all three,3,3,3,TITAN,TITAN,0.029295589203423,FALSE,FALSE,FALSE
+driver_mutation,COAD,ARID1A,none,representation specific,exactly two,0,1,2,GigaSSL,TITAN,0.0935598377281945,TRUE,TRUE,TRUE
+driver_mutation,COAD,BRAF,representation specific,all three,all three,1,3,3,ProvGigaPath,TITAN,0.13548951048951,TRUE,FALSE,TRUE
+driver_mutation,COAD,CTNNB1,none,exactly two,exactly two,0,2,2,TITAN,TITAN,0.123466561139691,TRUE,FALSE,FALSE
+driver_mutation,COAD,FBXW7,none,none,exactly two,0,0,2,TITAN,TITAN,0.0840364958496256,FALSE,TRUE,FALSE
+driver_mutation,COAD,KRAS,all three,all three,all three,3,3,3,ProvGigaPath,TITAN,0.0466889880952381,FALSE,FALSE,TRUE
+driver_mutation,COAD,PIK3CA,none,exactly two,exactly two,0,2,2,GigaSSL,GigaSSL,0.0477092315751295,TRUE,FALSE,FALSE
+driver_mutation,COAD,SMAD4,none,all three,all three,0,3,3,TITAN,ProvGigaPath,0.0924855491329483,TRUE,FALSE,TRUE
+driver_mutation,COAD,SOX9,none,exactly two,all three,0,2,3,GigaSSL,TITAN,0.172058823529411,TRUE,TRUE,TRUE
+driver_mutation,COAD,TCF7L2,none,none,none,0,0,0,GigaSSL,TITAN,0.0753571428571427,FALSE,FALSE,TRUE
+driver_mutation,COAD,TP53,all three,all three,all three,3,3,3,TITAN,TITAN,0.00854388578173715,FALSE,FALSE,FALSE
+driver_mutation,GBM,EGFR,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0308750000000001,FALSE,FALSE,FALSE
+driver_mutation,GBM,PIK3CA,none,representation specific,none,0,1,0,TITAN,ProvGigaPath,0.131567973311093,TRUE,TRUE,TRUE
+driver_mutation,GBM,PTEN,none,representation specific,representation specific,0,1,1,TITAN,TITAN,0.13863384118656,TRUE,FALSE,FALSE
+driver_mutation,GBM,TP53,all three,exactly two,all three,3,2,3,TITAN,TITAN,0.0124795417348605,TRUE,TRUE,FALSE
+driver_mutation,HNSC,AJUBA,none,representation specific,exactly two,0,1,2,ProvGigaPath,TITAN,0.123094647288195,TRUE,TRUE,TRUE
+driver_mutation,HNSC,CASP8,representation specific,all three,all three,1,3,3,TITAN,TITAN,0.0333000886524821,TRUE,FALSE,FALSE
+driver_mutation,HNSC,CDKN2A,none,none,none,0,0,0,ProvGigaPath,TITAN,0.0780107733743747,FALSE,FALSE,TRUE
+driver_mutation,HNSC,EP300,none,none,none,0,0,0,TITAN,GigaSSL,0.0955112219451371,FALSE,FALSE,TRUE
+driver_mutation,HNSC,EPHA2,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.058290707587383,FALSE,FALSE,FALSE
+driver_mutation,HNSC,FAT1,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0196206467661686,FALSE,FALSE,FALSE
+driver_mutation,HNSC,FBXW7,none,none,none,0,0,0,ProvGigaPath,GigaSSL,0.0404112017015246,FALSE,FALSE,TRUE
+driver_mutation,HNSC,HLA-B,none,exactly two,representation specific,0,2,1,TITAN,TITAN,0.0204379562043799,TRUE,TRUE,FALSE
+driver_mutation,HNSC,HRAS,none,all three,all three,0,3,3,TITAN,TITAN,0.236156949028236,TRUE,FALSE,FALSE
+driver_mutation,HNSC,HUWE1,none,representation specific,all three,0,1,3,TITAN,GigaSSL,0.0405370843989766,TRUE,TRUE,TRUE
+driver_mutation,HNSC,KEAP1,none,none,exactly two,0,0,2,GigaSSL,GigaSSL,0.166423357664233,FALSE,TRUE,FALSE
+driver_mutation,HNSC,KMT2D,none,none,representation specific,0,0,1,ProvGigaPath,TITAN,0.0531755915317557,FALSE,TRUE,TRUE
+driver_mutation,HNSC,NFE2L2,none,none,none,0,0,0,TITAN,GigaSSL,0.0410256410256413,FALSE,FALSE,TRUE
+driver_mutation,HNSC,NOTCH1,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.040318438623523,FALSE,FALSE,FALSE
+driver_mutation,HNSC,NSD1,all three,exactly two,all three,3,2,3,TITAN,GigaSSL,0.0411248710010317,TRUE,TRUE,TRUE
+driver_mutation,HNSC,PIK3CA,none,none,none,0,0,0,TITAN,ProvGigaPath,0.0211976682564913,FALSE,FALSE,TRUE
+driver_mutation,HNSC,TGFBR2,none,representation specific,exactly two,0,1,2,ProvGigaPath,ProvGigaPath,0.133333333333333,TRUE,TRUE,FALSE
+driver_mutation,HNSC,TP53,exactly two,exactly two,all three,2,2,3,GigaSSL,GigaSSL,0.0181587837837838,FALSE,TRUE,FALSE
+driver_mutation,KICH,TP53,none,none,representation specific,0,0,1,TITAN,TITAN,0.08982683982684,FALSE,TRUE,FALSE
+driver_mutation,KIRC,BAP1,none,representation specific,exactly two,0,1,2,GigaSSL,TITAN,0.15750452079566,TRUE,TRUE,TRUE
+driver_mutation,KIRC,MTOR,none,none,none,0,0,0,TITAN,ProvGigaPath,0.0474394147233652,FALSE,FALSE,TRUE
+driver_mutation,KIRC,PBRM1,representation specific,representation specific,all three,1,1,3,ProvGigaPath,ProvGigaPath,0.0259114495585956,FALSE,TRUE,FALSE
+driver_mutation,KIRC,SETD2,representation specific,representation specific,exactly two,1,1,2,TITAN,TITAN,0.0632698768197086,FALSE,TRUE,FALSE
+driver_mutation,KIRC,VHL,none,none,representation specific,0,0,1,TITAN,TITAN,0.00929319371727788,FALSE,TRUE,FALSE
+driver_mutation,LGG,ATRX,all three,all three,all three,3,3,3,TITAN,TITAN,0.0117221576039542,FALSE,FALSE,FALSE
+driver_mutation,LGG,CIC,all three,all three,all three,3,3,3,TITAN,TITAN,0.0243859649122808,FALSE,FALSE,FALSE
+driver_mutation,LGG,EGFR,exactly two,all three,all three,2,3,3,TITAN,TITAN,0.0504108517020996,TRUE,FALSE,FALSE
+driver_mutation,LGG,FUBP1,exactly two,all three,all three,2,3,3,TITAN,TITAN,0.0913213770356625,TRUE,FALSE,FALSE
+driver_mutation,LGG,IDH1,all three,all three,all three,3,3,3,TITAN,ProvGigaPath,0.0204848484848482,FALSE,FALSE,TRUE
+driver_mutation,LGG,IDH2,none,all three,all three,0,3,3,GigaSSL,GigaSSL,0.180322580645161,TRUE,FALSE,FALSE
+driver_mutation,LGG,NF1,none,representation specific,representation specific,0,1,1,ProvGigaPath,TITAN,0.16278243569703,TRUE,FALSE,TRUE
+driver_mutation,LGG,NOTCH1,none,exactly two,exactly two,0,2,2,GigaSSL,TITAN,0.0757450331125826,TRUE,FALSE,TRUE
+driver_mutation,LGG,PIK3CA,none,none,representation specific,0,0,1,GigaSSL,ProvGigaPath,0.0644382022471915,FALSE,TRUE,TRUE
+driver_mutation,LGG,PIK3R1,none,none,none,0,0,0,ProvGigaPath,TITAN,0.0450533661740562,FALSE,FALSE,TRUE
+driver_mutation,LGG,PTEN,representation specific,exactly two,all three,1,2,3,ProvGigaPath,ProvGigaPath,0.0408432147562586,TRUE,TRUE,FALSE
+driver_mutation,LGG,SMARCA4,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.0653043478260865,FALSE,FALSE,FALSE
+driver_mutation,LGG,TP53,all three,all three,all three,3,3,3,TITAN,TITAN,0.016951751397029,FALSE,FALSE,FALSE
+driver_mutation,LIHC,ALB,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.0162421557770397,FALSE,FALSE,FALSE
+driver_mutation,LIHC,APOB,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0347850678733033,FALSE,FALSE,FALSE
+driver_mutation,LIHC,ARID1A,none,representation specific,representation specific,0,1,1,GigaSSL,GigaSSL,0.0439903846153843,TRUE,FALSE,FALSE
+driver_mutation,LIHC,AXIN1,none,all three,all three,0,3,3,ProvGigaPath,TITAN,0.0750155763239877,TRUE,FALSE,TRUE
+driver_mutation,LIHC,BAP1,representation specific,all three,all three,1,3,3,ProvGigaPath,TITAN,0.0720858895705517,TRUE,FALSE,TRUE
+driver_mutation,LIHC,CTNNB1,representation specific,exactly two,exactly two,1,2,2,TITAN,TITAN,0.0336357411845255,TRUE,FALSE,FALSE
+driver_mutation,LIHC,TP53,none,exactly two,all three,0,2,3,TITAN,TITAN,0.0889544025157232,TRUE,TRUE,FALSE
+driver_mutation,LUAD,ARID1A,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0577168949771692,FALSE,FALSE,FALSE
+driver_mutation,LUAD,ATM,none,none,none,0,0,0,ProvGigaPath,TITAN,0.114135262022586,FALSE,FALSE,TRUE
+driver_mutation,LUAD,BRAF,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.0376221291714247,FALSE,FALSE,FALSE
+driver_mutation,LUAD,EGFR,all three,all three,all three,3,3,3,GigaSSL,ProvGigaPath,0.0351988588689381,FALSE,FALSE,TRUE
+driver_mutation,LUAD,KEAP1,none,exactly two,exactly two,0,2,2,TITAN,TITAN,0.0286303107165499,TRUE,FALSE,FALSE
+driver_mutation,LUAD,KRAS,representation specific,none,none,1,0,0,ProvGigaPath,ProvGigaPath,0.030915524104379,TRUE,FALSE,FALSE
+driver_mutation,LUAD,MGA,none,none,none,0,0,0,TITAN,TITAN,0.0201014832162369,FALSE,FALSE,FALSE
+driver_mutation,LUAD,NF1,none,none,representation specific,0,0,1,TITAN,TITAN,0.0691815746262208,FALSE,TRUE,FALSE
+driver_mutation,LUAD,PIK3CA,none,representation specific,representation specific,0,1,1,TITAN,TITAN,0.0379334624185878,TRUE,FALSE,FALSE
+driver_mutation,LUAD,RB1,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.0268493150684929,FALSE,FALSE,FALSE
+driver_mutation,LUAD,RBM10,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.0568710359408037,FALSE,FALSE,FALSE
+driver_mutation,LUAD,SETD2,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0317167051578142,FALSE,FALSE,FALSE
+driver_mutation,LUAD,SMARCA4,none,representation specific,exactly two,0,1,2,GigaSSL,TITAN,0.0399427530575069,TRUE,TRUE,TRUE
+driver_mutation,LUAD,STK11,representation specific,exactly two,all three,1,2,3,ProvGigaPath,ProvGigaPath,0.0747022463440369,TRUE,TRUE,FALSE
+driver_mutation,LUAD,TP53,all three,all three,all three,3,3,3,ProvGigaPath,ProvGigaPath,0.00757660582988062,FALSE,FALSE,FALSE
+driver_mutation,LUSC,ARHGAP35,none,none,exactly two,0,0,2,ProvGigaPath,ProvGigaPath,0.0886210563629921,FALSE,TRUE,FALSE
+driver_mutation,LUSC,ARID1A,none,none,none,0,0,0,ProvGigaPath,GigaSSL,0.0621851267012561,FALSE,FALSE,TRUE
+driver_mutation,LUSC,CDKN2A,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.0742421968787514,FALSE,FALSE,FALSE
+driver_mutation,LUSC,CUL3,none,none,none,0,0,0,TITAN,GigaSSL,0.0516781609195406,FALSE,FALSE,TRUE
+driver_mutation,LUSC,FAT1,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.0278379096882005,FALSE,FALSE,FALSE
+driver_mutation,LUSC,FBXW7,none,none,representation specific,0,0,1,GigaSSL,GigaSSL,0.0805517241379314,FALSE,TRUE,FALSE
+driver_mutation,LUSC,KDM6A,none,none,none,0,0,0,ProvGigaPath,GigaSSL,0.100553205336804,FALSE,FALSE,TRUE
+driver_mutation,LUSC,KEAP1,none,representation specific,exactly two,0,1,2,TITAN,TITAN,0.0342777697876212,TRUE,TRUE,FALSE
+driver_mutation,LUSC,KMT2D,none,none,none,0,0,0,TITAN,TITAN,0.0390525142095671,FALSE,FALSE,FALSE
+driver_mutation,LUSC,NF1,none,none,none,0,0,0,TITAN,ProvGigaPath,0.0649486071800987,FALSE,FALSE,TRUE
+driver_mutation,LUSC,NFE2L2,none,none,representation specific,0,0,1,TITAN,TITAN,0.0471081372096599,FALSE,TRUE,FALSE
+driver_mutation,LUSC,NOTCH1,none,none,none,0,0,0,TITAN,TITAN,0.0305293501048221,FALSE,FALSE,FALSE
+driver_mutation,LUSC,PIK3CA,none,none,none,0,0,0,TITAN,ProvGigaPath,0.0400474365991603,FALSE,FALSE,TRUE
+driver_mutation,LUSC,PTEN,none,none,none,0,0,0,TITAN,GigaSSL,0.118893523179443,FALSE,FALSE,TRUE
+driver_mutation,LUSC,RASA1,none,none,representation specific,0,0,1,TITAN,TITAN,0.0236018881510525,FALSE,TRUE,FALSE
+driver_mutation,LUSC,RB1,none,none,none,0,0,0,ProvGigaPath,TITAN,0.101736972704715,FALSE,FALSE,TRUE
+driver_mutation,LUSC,TP53,none,none,none,0,0,0,TITAN,ProvGigaPath,0.0349181035914812,FALSE,FALSE,TRUE
+driver_mutation,OV,TP53,exactly two,exactly two,all three,2,2,3,ProvGigaPath,ProvGigaPath,0.0835762876579208,FALSE,TRUE,FALSE
+driver_mutation,PAAD,CDKN2A,none,none,none,0,0,0,TITAN,TITAN,0.0219023779724652,FALSE,FALSE,FALSE
+driver_mutation,PAAD,KRAS,representation specific,representation specific,representation specific,1,1,1,ProvGigaPath,ProvGigaPath,0.0881063705435415,FALSE,FALSE,FALSE
+driver_mutation,PAAD,SMAD4,none,none,none,0,0,0,TITAN,TITAN,0.0783392087739912,FALSE,FALSE,FALSE
+driver_mutation,PAAD,TP53,none,none,exactly two,0,0,2,ProvGigaPath,ProvGigaPath,0.0706863549357394,FALSE,TRUE,FALSE
+driver_mutation,PRAD,FOXA1,representation specific,none,none,1,0,0,GigaSSL,GigaSSL,0.0509136735979834,TRUE,FALSE,FALSE
+driver_mutation,PRAD,SPOP,none,representation specific,representation specific,0,1,1,TITAN,TITAN,0.0820668693009115,TRUE,FALSE,FALSE
+driver_mutation,PRAD,TP53,none,exactly two,exactly two,0,2,2,TITAN,GigaSSL,0.0977212971078,TRUE,FALSE,TRUE
+driver_mutation,READ,APC,all three,all three,all three,3,3,3,ProvGigaPath,ProvGigaPath,0.0241071428571427,FALSE,FALSE,FALSE
+driver_mutation,READ,KRAS,none,exactly two,representation specific,0,2,1,ProvGigaPath,ProvGigaPath,0.0958949096880134,TRUE,TRUE,FALSE
+driver_mutation,READ,TP53,all three,all three,all three,3,3,3,TITAN,TITAN,0.0247326203208553,FALSE,FALSE,FALSE
+driver_mutation,SARC,ATRX,none,exactly two,representation specific,0,2,1,TITAN,TITAN,0.0662739322533141,TRUE,TRUE,FALSE
+driver_mutation,SARC,RB1,none,exactly two,all three,0,2,3,TITAN,TITAN,0.099186991869919,TRUE,TRUE,FALSE
+driver_mutation,SARC,TP53,none,representation specific,all three,0,1,3,GigaSSL,ProvGigaPath,0.0851685018351681,TRUE,TRUE,TRUE
+driver_mutation,SKCM,BRAF,none,representation specific,exactly two,0,1,2,ProvGigaPath,TITAN,0.0765050167224076,TRUE,TRUE,TRUE
+driver_mutation,STAD,APC,none,none,representation specific,0,0,1,TITAN,TITAN,0.0681357649442753,FALSE,TRUE,FALSE
+driver_mutation,STAD,ARID1A,exactly two,all three,all three,2,3,3,ProvGigaPath,TITAN,0.0317537860283337,TRUE,FALSE,TRUE
+driver_mutation,STAD,ARID2,none,exactly two,representation specific,0,2,1,TITAN,TITAN,0.117148157964484,TRUE,TRUE,FALSE
+driver_mutation,STAD,BCOR,none,representation specific,exactly two,0,1,2,ProvGigaPath,TITAN,0.159790640394089,TRUE,TRUE,TRUE
+driver_mutation,STAD,CDH1,none,exactly two,all three,0,2,3,GigaSSL,TITAN,0.136103896103896,TRUE,TRUE,TRUE
+driver_mutation,STAD,CTNNB1,none,exactly two,all three,0,2,3,TITAN,TITAN,0.28405315614618,TRUE,TRUE,FALSE
+driver_mutation,STAD,DMD,none,none,representation specific,0,0,1,GigaSSL,TITAN,0.147731834604576,FALSE,TRUE,TRUE
+driver_mutation,STAD,ERBB4,none,none,none,0,0,0,TITAN,TITAN,0.0528472222222222,FALSE,FALSE,FALSE
+driver_mutation,STAD,FBXW7,none,all three,all three,0,3,3,ProvGigaPath,GigaSSL,0.0372536945812808,TRUE,FALSE,TRUE
+driver_mutation,STAD,KRAS,none,all three,all three,0,3,3,ProvGigaPath,ProvGigaPath,0.125671641791045,TRUE,FALSE,FALSE
+driver_mutation,STAD,MUC6,none,none,none,0,0,0,TITAN,TITAN,0.0523096732657327,FALSE,FALSE,FALSE
+driver_mutation,STAD,PIK3CA,representation specific,all three,all three,1,3,3,TITAN,TITAN,0.0948973607038123,TRUE,FALSE,FALSE
+driver_mutation,STAD,PTEN,none,none,representation specific,0,0,1,GigaSSL,GigaSSL,0.0572082379862697,FALSE,TRUE,FALSE
+driver_mutation,STAD,RASA1,none,none,representation specific,0,0,1,TITAN,TITAN,0.0643687707641191,FALSE,TRUE,FALSE
+driver_mutation,STAD,RHOA,none,exactly two,exactly two,0,2,2,TITAN,TITAN,0.131739130434783,TRUE,FALSE,FALSE
+driver_mutation,STAD,RNF43,representation specific,exactly two,representation specific,1,2,1,ProvGigaPath,ProvGigaPath,0.0653735632183912,TRUE,TRUE,FALSE
+driver_mutation,STAD,SMAD4,none,none,none,0,0,0,TITAN,GigaSSL,0.0773769003857501,FALSE,FALSE,TRUE
+driver_mutation,STAD,TP53,exactly two,exactly two,all three,2,2,3,TITAN,TITAN,0.0261750210361824,FALSE,TRUE,FALSE
+driver_mutation,TGCT,KIT,none,all three,all three,0,3,3,ProvGigaPath,TITAN,0.203240740740741,TRUE,FALSE,TRUE
+driver_mutation,THCA,BRAF,all three,all three,all three,3,3,3,TITAN,TITAN,0.0192848388724679,FALSE,FALSE,FALSE
+driver_mutation,THCA,NRAS,exactly two,all three,all three,2,3,3,TITAN,TITAN,0.101869492736366,TRUE,FALSE,FALSE
+driver_mutation,THYM,GTF2I,all three,all three,all three,3,3,3,TITAN,TITAN,0.0648230746357413,FALSE,FALSE,FALSE
+driver_mutation,UCEC,ACVR1,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0370401337792646,FALSE,FALSE,FALSE
+driver_mutation,UCEC,ARHGAP35,none,none,representation specific,0,0,1,GigaSSL,GigaSSL,0.0191680753441196,FALSE,TRUE,FALSE
+driver_mutation,UCEC,ARID1A,representation specific,exactly two,all three,1,2,3,TITAN,TITAN,0.0315296279283415,TRUE,TRUE,FALSE
+driver_mutation,UCEC,ARID5B,none,representation specific,representation specific,0,1,1,TITAN,TITAN,0.024548032612549,TRUE,FALSE,FALSE
+driver_mutation,UCEC,ATF7IP,none,none,representation specific,0,0,1,ProvGigaPath,ProvGigaPath,0.0464364903389293,FALSE,TRUE,FALSE
+driver_mutation,UCEC,ATM,exactly two,all three,all three,2,3,3,TITAN,TITAN,0.0160718971398585,TRUE,FALSE,FALSE
+driver_mutation,UCEC,ATR,none,representation specific,all three,0,1,3,ProvGigaPath,TITAN,0.0628803245436104,TRUE,TRUE,TRUE
+driver_mutation,UCEC,BCOR,none,representation specific,representation specific,0,1,1,TITAN,TITAN,0.0266140109890104,TRUE,FALSE,FALSE
+driver_mutation,UCEC,CCND1,none,none,none,0,0,0,TITAN,TITAN,0.0621056362991845,FALSE,FALSE,FALSE
+driver_mutation,UCEC,CHD3,exactly two,all three,all three,2,3,3,TITAN,TITAN,0.0459188868148648,TRUE,FALSE,FALSE
+driver_mutation,UCEC,CHD4,none,none,representation specific,0,0,1,ProvGigaPath,ProvGigaPath,0.0353886235345207,FALSE,TRUE,FALSE
+driver_mutation,UCEC,CTCF,none,exactly two,all three,0,2,3,GigaSSL,GigaSSL,0.0178952991452985,TRUE,TRUE,FALSE
+driver_mutation,UCEC,CTNNB1,representation specific,none,exactly two,1,0,2,TITAN,TITAN,0.0525908119658117,TRUE,TRUE,FALSE
+driver_mutation,UCEC,CTNND1,none,none,representation specific,0,0,1,TITAN,TITAN,0.129624554672513,FALSE,TRUE,FALSE
+driver_mutation,UCEC,DICER1,none,exactly two,representation specific,0,2,1,TITAN,TITAN,0.0479152580572462,TRUE,TRUE,FALSE
+driver_mutation,UCEC,EP300,none,none,representation specific,0,0,1,TITAN,TITAN,0.0477990033222596,FALSE,TRUE,FALSE
+driver_mutation,UCEC,ERBB2,none,none,none,0,0,0,TITAN,TITAN,0.032277657266811,FALSE,FALSE,FALSE
+driver_mutation,UCEC,ERBB3,none,none,representation specific,0,0,1,TITAN,TITAN,0.0280138339920952,FALSE,TRUE,FALSE
+driver_mutation,UCEC,FAT1,none,none,representation specific,0,0,1,GigaSSL,GigaSSL,0.0159381791837717,FALSE,TRUE,FALSE
+driver_mutation,UCEC,FBXW7,none,representation specific,exactly two,0,1,2,GigaSSL,GigaSSL,0.0873768472906406,TRUE,TRUE,FALSE
+driver_mutation,UCEC,FGFR2,none,none,representation specific,0,0,1,TITAN,TITAN,0.0390584686222363,FALSE,TRUE,FALSE
+driver_mutation,UCEC,FOXA2,none,representation specific,exactly two,0,1,2,ProvGigaPath,ProvGigaPath,0.0800438596491232,TRUE,TRUE,FALSE
+driver_mutation,UCEC,INPPL1,none,representation specific,representation specific,0,1,1,TITAN,TITAN,0.075664451827242,TRUE,FALSE,FALSE
+driver_mutation,UCEC,KANSL1,representation specific,exactly two,all three,1,2,3,ProvGigaPath,TITAN,0.0849609786964771,TRUE,TRUE,TRUE
+driver_mutation,UCEC,KMT2B,none,representation specific,representation specific,0,1,1,TITAN,TITAN,0.0166399572649577,TRUE,FALSE,FALSE
+driver_mutation,UCEC,KMT2C,representation specific,representation specific,representation specific,1,1,1,TITAN,TITAN,0.0171368146051694,FALSE,FALSE,FALSE
+driver_mutation,UCEC,KRAS,none,representation specific,exactly two,0,1,2,TITAN,TITAN,0.0262155159274504,TRUE,TRUE,FALSE
+driver_mutation,UCEC,MAP3K1,none,representation specific,exactly two,0,1,2,ProvGigaPath,TITAN,0.0935321100917436,TRUE,TRUE,TRUE
+driver_mutation,UCEC,MSH6,none,exactly two,exactly two,0,2,2,TITAN,TITAN,0.0315137614678896,TRUE,FALSE,FALSE
+driver_mutation,UCEC,NFE2L2,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0550167224080273,FALSE,FALSE,FALSE
+driver_mutation,UCEC,PBRM1,none,none,exactly two,0,0,2,TITAN,ProvGigaPath,0.0768544280539664,FALSE,TRUE,TRUE
+driver_mutation,UCEC,PDS5B,none,exactly two,all three,0,2,3,GigaSSL,TITAN,0.0963642213642216,TRUE,TRUE,TRUE
+driver_mutation,UCEC,PIK3CA,none,none,none,0,0,0,ProvGigaPath,TITAN,0.0307662808534379,FALSE,FALSE,TRUE
+driver_mutation,UCEC,PIK3R1,none,none,none,0,0,0,TITAN,TITAN,0.0189252077562331,FALSE,FALSE,FALSE
+driver_mutation,UCEC,PPP2R1A,none,exactly two,all three,0,2,3,TITAN,TITAN,0.124757902430111,TRUE,TRUE,FALSE
+driver_mutation,UCEC,PTEN,all three,all three,all three,3,3,3,TITAN,TITAN,0.0077944179714089,FALSE,FALSE,FALSE
+driver_mutation,UCEC,RB1,none,none,representation specific,0,0,1,ProvGigaPath,TITAN,0.0625299577323629,FALSE,TRUE,TRUE
+driver_mutation,UCEC,RPL22,none,representation specific,representation specific,0,1,1,TITAN,TITAN,0.13168449197861,TRUE,FALSE,FALSE
+driver_mutation,UCEC,SCAF4,none,representation specific,all three,0,1,3,TITAN,TITAN,0.0502003796667373,TRUE,TRUE,FALSE
+driver_mutation,UCEC,SIN3A,none,representation specific,all three,0,1,3,TITAN,TITAN,0.0561738964992384,TRUE,TRUE,FALSE
+driver_mutation,UCEC,SMC1A,none,representation specific,exactly two,0,1,2,TITAN,TITAN,0.0475615517874953,TRUE,TRUE,FALSE
+driver_mutation,UCEC,SOS1,none,none,representation specific,0,0,1,ProvGigaPath,ProvGigaPath,0.0509563965446318,FALSE,TRUE,FALSE
+driver_mutation,UCEC,SOX17,none,exactly two,exactly two,0,2,2,TITAN,ProvGigaPath,0.0570815450643779,TRUE,FALSE,TRUE
+driver_mutation,UCEC,SPOP,none,none,none,0,0,0,TITAN,ProvGigaPath,0.0628923766816143,FALSE,FALSE,TRUE
+driver_mutation,UCEC,TAF1,none,representation specific,exactly two,0,1,2,TITAN,TITAN,0.0376231527093597,TRUE,TRUE,FALSE
+driver_mutation,UCEC,TP53,all three,all three,all three,3,3,3,TITAN,TITAN,0.0557450540882958,FALSE,FALSE,FALSE
+driver_mutation,UCEC,ZFHX3,none,none,representation specific,0,0,1,TITAN,TITAN,0.0362980769230771,FALSE,TRUE,FALSE
+driver_mutation,UCEC,ZMYM2,none,representation specific,representation specific,0,1,1,GigaSSL,GigaSSL,0.0512229705778091,TRUE,FALSE,FALSE
+driver_mutation,UCS,FBXW7,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0952380952380956,FALSE,FALSE,FALSE
+driver_mutation,UVM,GNA11,none,none,none,0,0,0,ProvGigaPath,GigaSSL,0.0513833992094857,FALSE,FALSE,TRUE
+driver_mutation,UVM,GNAQ,representation specific,none,representation specific,1,0,1,TITAN,TITAN,0.0520000000000001,TRUE,TRUE,FALSE
+fusion,BLCA,Any called fusion,representation specific,all three,all three,1,3,3,GigaSSL,TITAN,0.050739247311828,TRUE,FALSE,TRUE
+fusion,CESC,Any called fusion,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0194609039154182,FALSE,FALSE,FALSE
+fusion,COAD,Any called fusion,none,none,representation specific,0,0,1,TITAN,TITAN,0.0179449360865293,FALSE,TRUE,FALSE
+fusion,DLBC,Any called fusion,none,none,exactly two,0,0,2,GigaSSL,ProvGigaPath,0.049586776859504,FALSE,TRUE,TRUE
+fusion,ESCA,Any called fusion,none,none,none,0,0,0,TITAN,ProvGigaPath,0.0606183067286319,FALSE,FALSE,TRUE
+fusion,HNSC,Any called fusion,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0310959518000301,FALSE,FALSE,FALSE
+fusion,KIRC,Any called fusion,none,none,none,0,0,0,TITAN,TITAN,0.0305798923137533,FALSE,FALSE,FALSE
+fusion,KIRP,Any called fusion,none,exactly two,exactly two,0,2,2,TITAN,TITAN,0.0446527888129673,TRUE,FALSE,FALSE
+fusion,LGG,Any called fusion,all three,all three,all three,3,3,3,TITAN,TITAN,0.0256094266999795,FALSE,FALSE,FALSE
+fusion,LIHC,Any called fusion,none,none,all three,0,0,3,GigaSSL,ProvGigaPath,0.0276997189883579,FALSE,TRUE,TRUE
+fusion,LUAD,Any called fusion,none,representation specific,representation specific,0,1,1,TITAN,TITAN,0.065192185054206,TRUE,FALSE,FALSE
+fusion,LUSC,Any called fusion,none,none,none,0,0,0,ProvGigaPath,TITAN,0.040146489773355,FALSE,FALSE,TRUE
+fusion,MESO,Any called fusion,representation specific,none,exactly two,1,0,2,ProvGigaPath,GigaSSL,0.0192,TRUE,TRUE,TRUE
+fusion,PAAD,Any called fusion,representation specific,none,representation specific,1,0,1,TITAN,TITAN,0.0264857881136954,TRUE,TRUE,FALSE
+fusion,PCPG,Any called fusion,none,none,none,0,0,0,TITAN,ProvGigaPath,0.0698343146652061,FALSE,FALSE,TRUE
+fusion,PRAD,Any called fusion,none,none,representation specific,0,0,1,GigaSSL,ProvGigaPath,0.0921599169262717,FALSE,TRUE,TRUE
+fusion,PRAD,Fusion pair: TMPRSS2--ERG,representation specific,representation specific,all three,1,1,3,TITAN,TITAN,0.0393536695862277,FALSE,TRUE,FALSE
+fusion,READ,Any called fusion,none,none,representation specific,0,0,1,TITAN,TITAN,0.0495804729214336,FALSE,TRUE,FALSE
+fusion,SARC,Any called fusion,representation specific,representation specific,representation specific,1,1,1,TITAN,GigaSSL,0.131301440329218,FALSE,FALSE,TRUE
+fusion,SKCM,Any called fusion,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0354969574036512,FALSE,FALSE,FALSE
+fusion,STAD,Any called fusion,none,none,none,0,0,0,TITAN,TITAN,0.0434384164222874,FALSE,FALSE,FALSE
+fusion,TGCT,Any called fusion,none,none,none,0,0,0,GigaSSL,TITAN,0.0242937853107347,FALSE,FALSE,TRUE
+fusion,THCA,Any called fusion,exactly two,all three,all three,2,3,3,ProvGigaPath,ProvGigaPath,0.0470814920309129,TRUE,FALSE,FALSE
+fusion,THCA,Fusion pair: CCDC6--RET,representation specific,exactly two,exactly two,1,2,2,TITAN,TITAN,0.0247881355932208,TRUE,FALSE,FALSE
+fusion,THYM,Any called fusion,none,representation specific,representation specific,0,1,1,GigaSSL,GigaSSL,0.0751547303271441,TRUE,FALSE,FALSE
+fusion,UCEC,Any called fusion,all three,all three,all three,3,3,3,TITAN,TITAN,0.026041666666667,FALSE,FALSE,FALSE
+microsatellite_instability,COAD,MSI-H (MANTIS >0.4),all three,all three,all three,3,3,3,ProvGigaPath,TITAN,0.0331878484075886,FALSE,FALSE,TRUE
+microsatellite_instability,STAD,MSI-H (MANTIS >0.4),all three,all three,all three,3,3,3,TITAN,TITAN,0.0302352815926756,FALSE,FALSE,FALSE
+microsatellite_instability,UCEC,MSI-H (MANTIS >0.4),representation specific,exactly two,all three,1,2,3,TITAN,TITAN,0.042081668453367,TRUE,TRUE,FALSE
+microsatellite_instability_sensitivity,COAD,MSI-H strict (MANTIS >0.6),all three,all three,all three,3,3,3,TITAN,TITAN,0.0314894096439836,FALSE,FALSE,FALSE
+microsatellite_instability_sensitivity,STAD,MSI-H strict (MANTIS >0.6),all three,all three,all three,3,3,3,TITAN,TITAN,0.0633063306330631,FALSE,FALSE,FALSE
+microsatellite_instability_sensitivity,UCEC,MSI-H strict (MANTIS >0.6),exactly two,exactly two,exactly two,2,2,2,TITAN,TITAN,0.0200364817876072,FALSE,FALSE,FALSE
+oncogenic_pathway,BLCA,Cell Cycle,none,none,representation specific,0,0,1,TITAN,TITAN,0.0606317774634609,FALSE,TRUE,FALSE
+oncogenic_pathway,BLCA,HIPPO,none,none,none,0,0,0,GigaSSL,ProvGigaPath,0.0448229493500675,FALSE,FALSE,TRUE
+oncogenic_pathway,BLCA,MYC,none,exactly two,all three,0,2,3,GigaSSL,GigaSSL,0.087649985367281,TRUE,TRUE,FALSE
+oncogenic_pathway,BLCA,NOTCH,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.0525303344184671,FALSE,FALSE,FALSE
+oncogenic_pathway,BLCA,NRF2,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.00678152492668604,FALSE,FALSE,FALSE
+oncogenic_pathway,BLCA,PI3K,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.0229208924949287,FALSE,FALSE,FALSE
+oncogenic_pathway,BLCA,RTK RAS,none,none,representation specific,0,0,1,TITAN,TITAN,0.00997150997150986,FALSE,TRUE,FALSE
+oncogenic_pathway,BLCA,TGF-Beta,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0448028673835126,FALSE,FALSE,FALSE
+oncogenic_pathway,BLCA,TP53,exactly two,representation specific,all three,2,1,3,ProvGigaPath,TITAN,0.0483308877476153,TRUE,TRUE,TRUE
+oncogenic_pathway,BLCA,WNT,none,none,representation specific,0,0,1,TITAN,TITAN,0.0426818014027313,FALSE,TRUE,FALSE
+oncogenic_pathway,CESC,Cell Cycle,none,none,none,0,0,0,ProvGigaPath,TITAN,0.0440533701403262,FALSE,FALSE,TRUE
+oncogenic_pathway,CESC,HIPPO,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0411082052958481,FALSE,FALSE,FALSE
+oncogenic_pathway,CESC,NOTCH,none,none,representation specific,0,0,1,TITAN,TITAN,0.0383162863886704,FALSE,TRUE,FALSE
+oncogenic_pathway,CESC,NRF2,none,none,none,0,0,0,GigaSSL,ProvGigaPath,0.0486175115207371,FALSE,FALSE,TRUE
+oncogenic_pathway,CESC,PI3K,none,none,none,0,0,0,TITAN,TITAN,0.048394160583942,FALSE,FALSE,FALSE
+oncogenic_pathway,CESC,RTK RAS,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0526998169615618,FALSE,FALSE,FALSE
+oncogenic_pathway,CESC,TGF-Beta,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0386473429951689,FALSE,FALSE,FALSE
+oncogenic_pathway,CESC,TP53,none,none,none,0,0,0,TITAN,TITAN,0.0109922756981576,FALSE,FALSE,FALSE
+oncogenic_pathway,CESC,WNT,none,none,none,0,0,0,ProvGigaPath,TITAN,0.0928353658536587,FALSE,FALSE,TRUE
+oncogenic_pathway,COAD,Cell Cycle,none,none,representation specific,0,0,1,TITAN,TITAN,0.0413297394429473,FALSE,TRUE,FALSE
+oncogenic_pathway,COAD,HIPPO,representation specific,none,all three,1,0,3,ProvGigaPath,TITAN,0.0178266178266182,TRUE,TRUE,TRUE
+oncogenic_pathway,COAD,MYC,none,none,representation specific,0,0,1,TITAN,TITAN,0.0163934426229504,FALSE,TRUE,FALSE
+oncogenic_pathway,COAD,NOTCH,none,representation specific,all three,0,1,3,TITAN,TITAN,0.0472914503288339,TRUE,TRUE,FALSE
+oncogenic_pathway,COAD,PI3K,none,representation specific,all three,0,1,3,GigaSSL,TITAN,0.0278378378378376,TRUE,TRUE,TRUE
+oncogenic_pathway,COAD,RTK RAS,representation specific,all three,all three,1,3,3,ProvGigaPath,TITAN,0.0167329864299557,TRUE,FALSE,TRUE
+oncogenic_pathway,COAD,TGF-Beta,representation specific,exactly two,exactly two,1,2,2,TITAN,ProvGigaPath,0.0295964125560542,TRUE,FALSE,TRUE
+oncogenic_pathway,COAD,TP53,all three,all three,all three,3,3,3,TITAN,TITAN,0.0173494983277592,FALSE,FALSE,FALSE
+oncogenic_pathway,COAD,WNT,none,representation specific,none,0,1,0,ProvGigaPath,TITAN,0.0889237199582023,TRUE,TRUE,TRUE
+oncogenic_pathway,ESCA,HIPPO,none,none,representation specific,0,0,1,GigaSSL,GigaSSL,0.0473684210526314,FALSE,TRUE,FALSE
+oncogenic_pathway,ESCA,MYC,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0081775700934581,FALSE,FALSE,FALSE
+oncogenic_pathway,ESCA,NOTCH,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.0334928229665072,FALSE,FALSE,FALSE
+oncogenic_pathway,ESCA,NRF2,exactly two,all three,all three,2,3,3,GigaSSL,GigaSSL,0.119269619269619,TRUE,FALSE,FALSE
+oncogenic_pathway,ESCA,PI3K,representation specific,none,representation specific,1,0,1,TITAN,TITAN,0.0383474576271191,TRUE,TRUE,FALSE
+oncogenic_pathway,ESCA,RTK RAS,none,none,none,0,0,0,TITAN,TITAN,0.0172995780590715,FALSE,FALSE,FALSE
+oncogenic_pathway,ESCA,TGF-Beta,none,none,representation specific,0,0,1,TITAN,TITAN,0.0677331518039487,FALSE,TRUE,FALSE
+oncogenic_pathway,ESCA,WNT,none,representation specific,representation specific,0,1,1,ProvGigaPath,GigaSSL,0.10971685971686,TRUE,FALSE,TRUE
+oncogenic_pathway,GBM,PI3K,none,none,none,0,0,0,TITAN,TITAN,0.0362903225806453,FALSE,FALSE,FALSE
+oncogenic_pathway,GBM,TP53,exactly two,exactly two,all three,2,2,3,TITAN,TITAN,0.0637958532695372,FALSE,TRUE,FALSE
+oncogenic_pathway,HNSC,Cell Cycle,none,none,representation specific,0,0,1,TITAN,TITAN,0.0384412650602415,FALSE,TRUE,FALSE
+oncogenic_pathway,HNSC,HIPPO,representation specific,none,exactly two,1,0,2,TITAN,TITAN,0.00801282051282071,TRUE,TRUE,FALSE
+oncogenic_pathway,HNSC,MYC,none,none,none,0,0,0,TITAN,TITAN,0.0105558114540149,FALSE,FALSE,FALSE
+oncogenic_pathway,HNSC,NOTCH,none,none,none,0,0,0,TITAN,TITAN,0.0143759586138772,FALSE,FALSE,FALSE
+oncogenic_pathway,HNSC,NRF2,none,exactly two,all three,0,2,3,GigaSSL,ProvGigaPath,0.12756906077348,TRUE,TRUE,TRUE
+oncogenic_pathway,HNSC,PI3K,representation specific,none,representation specific,1,0,1,TITAN,TITAN,0.0053719008264459,TRUE,TRUE,FALSE
+oncogenic_pathway,HNSC,RTK RAS,none,none,none,0,0,0,GigaSSL,TITAN,0.0207771571648691,FALSE,FALSE,TRUE
+oncogenic_pathway,HNSC,TGF-Beta,none,none,none,0,0,0,TITAN,TITAN,0.0402441547692947,FALSE,FALSE,FALSE
+oncogenic_pathway,HNSC,TP53,all three,representation specific,all three,3,1,3,GigaSSL,GigaSSL,0.0508653846153848,TRUE,TRUE,FALSE
+oncogenic_pathway,HNSC,WNT,none,none,none,0,0,0,TITAN,ProvGigaPath,0.0400053879310346,FALSE,FALSE,TRUE
+oncogenic_pathway,KICH,TP53,none,representation specific,representation specific,0,1,1,TITAN,TITAN,0.0303030303030306,TRUE,FALSE,FALSE
+oncogenic_pathway,KIRC,Cell Cycle,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0173716864072197,FALSE,FALSE,FALSE
+oncogenic_pathway,KIRC,NOTCH,none,none,none,0,0,0,TITAN,GigaSSL,0.102150537634408,FALSE,FALSE,TRUE
+oncogenic_pathway,KIRC,PI3K,none,exactly two,exactly two,0,2,2,GigaSSL,TITAN,0.150276963180188,TRUE,FALSE,TRUE
+oncogenic_pathway,KIRC,RTK RAS,none,none,representation specific,0,0,1,GigaSSL,GigaSSL,0.0229816887834532,FALSE,TRUE,FALSE
+oncogenic_pathway,KIRC,WNT,representation specific,none,none,1,0,0,ProvGigaPath,GigaSSL,0.080565268065268,TRUE,FALSE,TRUE
+oncogenic_pathway,KIRP,Cell Cycle,exactly two,all three,all three,2,3,3,TITAN,TITAN,0.113816189896531,TRUE,FALSE,FALSE
+oncogenic_pathway,KIRP,HIPPO,none,representation specific,exactly two,0,1,2,GigaSSL,TITAN,0.0550808666463228,TRUE,TRUE,TRUE
+oncogenic_pathway,KIRP,NOTCH,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.0452188940092167,FALSE,FALSE,FALSE
+oncogenic_pathway,KIRP,PI3K,none,none,none,0,0,0,TITAN,GigaSSL,0.0858770858770859,FALSE,FALSE,TRUE
+oncogenic_pathway,KIRP,RTK RAS,representation specific,representation specific,representation specific,1,1,1,ProvGigaPath,ProvGigaPath,0.0266040688575898,FALSE,FALSE,FALSE
+oncogenic_pathway,KIRP,WNT,none,representation specific,exactly two,0,1,2,ProvGigaPath,ProvGigaPath,0.112193362193362,TRUE,TRUE,FALSE
+oncogenic_pathway,LGG,Cell Cycle,representation specific,none,all three,1,0,3,GigaSSL,TITAN,0.0651154302399857,TRUE,TRUE,TRUE
+oncogenic_pathway,LGG,HIPPO,all three,all three,all three,3,3,3,TITAN,TITAN,0.0175125459154633,FALSE,FALSE,FALSE
+oncogenic_pathway,LGG,MYC,none,none,none,0,0,0,TITAN,GigaSSL,0.0507726269315678,FALSE,FALSE,TRUE
+oncogenic_pathway,LGG,NOTCH,none,none,none,0,0,0,TITAN,TITAN,0.0189519852262235,FALSE,FALSE,FALSE
+oncogenic_pathway,LGG,PI3K,none,none,none,0,0,0,TITAN,ProvGigaPath,0.0456906502500958,FALSE,FALSE,TRUE
+oncogenic_pathway,LGG,RTK RAS,all three,all three,all three,3,3,3,TITAN,TITAN,0.0317704988225216,FALSE,FALSE,FALSE
+oncogenic_pathway,LGG,TGF-Beta,representation specific,all three,all three,1,3,3,TITAN,TITAN,0.0559500328731095,TRUE,FALSE,FALSE
+oncogenic_pathway,LGG,TP53,all three,all three,all three,3,3,3,TITAN,TITAN,0.0234840094143705,FALSE,FALSE,FALSE
+oncogenic_pathway,LGG,WNT,all three,all three,all three,3,3,3,TITAN,TITAN,0.0720828789531076,FALSE,FALSE,FALSE
+oncogenic_pathway,LIHC,Cell Cycle,all three,exactly two,all three,3,2,3,TITAN,TITAN,0.0215401410816256,TRUE,TRUE,FALSE
+oncogenic_pathway,LIHC,HIPPO,none,none,none,0,0,0,TITAN,ProvGigaPath,0.0454691259021655,FALSE,FALSE,TRUE
+oncogenic_pathway,LIHC,MYC,none,none,representation specific,0,0,1,ProvGigaPath,ProvGigaPath,0.0274725274725273,FALSE,TRUE,FALSE
+oncogenic_pathway,LIHC,NOTCH,none,none,none,0,0,0,GigaSSL,ProvGigaPath,0.0433104227473871,FALSE,FALSE,TRUE
+oncogenic_pathway,LIHC,NRF2,none,none,none,0,0,0,TITAN,TITAN,0.0662393162393162,FALSE,FALSE,FALSE
+oncogenic_pathway,LIHC,PI3K,none,none,none,0,0,0,TITAN,TITAN,0.0600019124115507,FALSE,FALSE,FALSE
+oncogenic_pathway,LIHC,RTK RAS,none,none,representation specific,0,0,1,TITAN,TITAN,0.0560889074402592,FALSE,TRUE,FALSE
+oncogenic_pathway,LIHC,TGF-Beta,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.0527238403451991,FALSE,FALSE,FALSE
+oncogenic_pathway,LIHC,TP53,representation specific,all three,all three,1,3,3,GigaSSL,TITAN,0.0493443754313314,TRUE,FALSE,TRUE
+oncogenic_pathway,LIHC,WNT,representation specific,representation specific,representation specific,1,1,1,TITAN,TITAN,0.0307410124724867,FALSE,FALSE,FALSE
+oncogenic_pathway,LUAD,Cell Cycle,none,none,exactly two,0,0,2,GigaSSL,TITAN,0.0485084838533111,FALSE,TRUE,TRUE
+oncogenic_pathway,LUAD,HIPPO,none,none,none,0,0,0,TITAN,TITAN,0.00676096181046704,FALSE,FALSE,FALSE
+oncogenic_pathway,LUAD,MYC,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.0269780158464452,FALSE,FALSE,FALSE
+oncogenic_pathway,LUAD,NOTCH,none,none,none,0,0,0,ProvGigaPath,TITAN,0.0324421923233732,FALSE,FALSE,TRUE
+oncogenic_pathway,LUAD,NRF2,none,exactly two,exactly two,0,2,2,GigaSSL,GigaSSL,0.070324005891016,TRUE,FALSE,FALSE
+oncogenic_pathway,LUAD,PI3K,none,none,none,0,0,0,TITAN,TITAN,0.0468484169467615,FALSE,FALSE,FALSE
+oncogenic_pathway,LUAD,RTK RAS,none,none,representation specific,0,0,1,GigaSSL,GigaSSL,0.0426506781169812,FALSE,TRUE,FALSE
+oncogenic_pathway,LUAD,TGF-Beta,none,representation specific,representation specific,0,1,1,ProvGigaPath,TITAN,0.182594417077176,TRUE,FALSE,TRUE
+oncogenic_pathway,LUAD,TP53,all three,all three,all three,3,3,3,ProvGigaPath,TITAN,0.0181038393335803,FALSE,FALSE,TRUE
+oncogenic_pathway,LUAD,WNT,none,none,none,0,0,0,TITAN,ProvGigaPath,0.0291339676366418,FALSE,FALSE,TRUE
+oncogenic_pathway,LUSC,Cell Cycle,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0524566148298397,FALSE,FALSE,FALSE
+oncogenic_pathway,LUSC,HIPPO,none,none,none,0,0,0,GigaSSL,TITAN,0.0260426151884902,FALSE,FALSE,TRUE
+oncogenic_pathway,LUSC,MYC,none,none,none,0,0,0,ProvGigaPath,TITAN,0.0556822040064028,FALSE,FALSE,TRUE
+oncogenic_pathway,LUSC,NOTCH,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.00595907622352554,FALSE,FALSE,FALSE
+oncogenic_pathway,LUSC,NRF2,none,representation specific,all three,0,1,3,TITAN,TITAN,0.0351544204755219,TRUE,TRUE,FALSE
+oncogenic_pathway,LUSC,PI3K,none,none,representation specific,0,0,1,ProvGigaPath,TITAN,0.0309680507359099,FALSE,TRUE,TRUE
+oncogenic_pathway,LUSC,RTK RAS,none,none,none,0,0,0,TITAN,TITAN,0.0208912215704437,FALSE,FALSE,FALSE
+oncogenic_pathway,LUSC,TGF-Beta,none,none,none,0,0,0,ProvGigaPath,TITAN,0.071316994344196,FALSE,FALSE,TRUE
+oncogenic_pathway,LUSC,TP53,none,none,none,0,0,0,TITAN,ProvGigaPath,0.0513883653725342,FALSE,FALSE,TRUE
+oncogenic_pathway,LUSC,WNT,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.0460996545945758,FALSE,FALSE,FALSE
+oncogenic_pathway,MESO,Cell Cycle,none,none,exactly two,0,0,2,ProvGigaPath,ProvGigaPath,0.0555555555555555,FALSE,TRUE,FALSE
+oncogenic_pathway,MESO,HIPPO,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.0628768303186912,FALSE,FALSE,FALSE
+oncogenic_pathway,PAAD,Cell Cycle,none,none,none,0,0,0,TITAN,TITAN,0.0700529100529099,FALSE,FALSE,FALSE
+oncogenic_pathway,PAAD,MYC,none,none,none,0,0,0,ProvGigaPath,GigaSSL,0.11000369139904,FALSE,FALSE,TRUE
+oncogenic_pathway,PAAD,NOTCH,none,none,none,0,0,0,TITAN,GigaSSL,0.0328534514581022,FALSE,FALSE,TRUE
+oncogenic_pathway,PAAD,PI3K,none,none,none,0,0,0,TITAN,TITAN,0.0333723653395782,FALSE,FALSE,FALSE
+oncogenic_pathway,PAAD,RTK RAS,none,none,none,0,0,0,GigaSSL,ProvGigaPath,0.0789950789950792,FALSE,FALSE,TRUE
+oncogenic_pathway,PAAD,TGF-Beta,none,none,none,0,0,0,TITAN,ProvGigaPath,0.0489369501466279,FALSE,FALSE,TRUE
+oncogenic_pathway,PAAD,TP53,none,none,none,0,0,0,TITAN,TITAN,0.0396612270192108,FALSE,FALSE,FALSE
+oncogenic_pathway,PCPG,Cell Cycle,representation specific,exactly two,all three,1,2,3,ProvGigaPath,ProvGigaPath,0.0856389986824767,TRUE,TRUE,FALSE
+oncogenic_pathway,PCPG,RTK RAS,all three,all three,all three,3,3,3,ProvGigaPath,GigaSSL,0.107402031930333,FALSE,FALSE,TRUE
+oncogenic_pathway,PRAD,Cell Cycle,none,none,none,0,0,0,TITAN,TITAN,0.00760617760617799,FALSE,FALSE,FALSE
+oncogenic_pathway,PRAD,MYC,none,representation specific,representation specific,0,1,1,GigaSSL,TITAN,0.11616585529629,TRUE,FALSE,TRUE
+oncogenic_pathway,PRAD,NOTCH,none,representation specific,representation specific,0,1,1,GigaSSL,TITAN,0.112705727452271,TRUE,FALSE,TRUE
+oncogenic_pathway,PRAD,PI3K,representation specific,none,representation specific,1,0,1,TITAN,TITAN,0.0233002291825822,TRUE,TRUE,FALSE
+oncogenic_pathway,PRAD,RTK RAS,none,none,none,0,0,0,TITAN,TITAN,0.0329822251481242,FALSE,FALSE,FALSE
+oncogenic_pathway,PRAD,TGF-Beta,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0193215339233039,FALSE,FALSE,FALSE
+oncogenic_pathway,PRAD,TP53,none,representation specific,none,0,1,0,TITAN,ProvGigaPath,0.0430216802168019,TRUE,TRUE,TRUE
+oncogenic_pathway,PRAD,WNT,none,exactly two,exactly two,0,2,2,ProvGigaPath,TITAN,0.0472868217054264,TRUE,FALSE,TRUE
+oncogenic_pathway,READ,Cell Cycle,representation specific,none,exactly two,1,0,2,TITAN,GigaSSL,0.109335038363172,TRUE,TRUE,TRUE
+oncogenic_pathway,READ,NOTCH,all three,representation specific,all three,3,1,3,ProvGigaPath,TITAN,0.0325091575091573,TRUE,TRUE,TRUE
+oncogenic_pathway,READ,PI3K,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.0464197530864198,FALSE,FALSE,FALSE
+oncogenic_pathway,READ,RTK RAS,representation specific,representation specific,representation specific,1,1,1,GigaSSL,GigaSSL,0.0765591397849466,FALSE,FALSE,FALSE
+oncogenic_pathway,READ,TGF-Beta,none,none,all three,0,0,3,TITAN,ProvGigaPath,0.12751992498828,FALSE,TRUE,TRUE
+oncogenic_pathway,SARC,Cell Cycle,representation specific,representation specific,exactly two,1,1,2,TITAN,TITAN,0.084908195253023,FALSE,TRUE,FALSE
+oncogenic_pathway,SARC,HIPPO,none,exactly two,exactly two,0,2,2,TITAN,ProvGigaPath,0.0962436548223346,TRUE,FALSE,TRUE
+oncogenic_pathway,SARC,NOTCH,none,none,none,0,0,0,GigaSSL,TITAN,0.113625478927203,FALSE,FALSE,TRUE
+oncogenic_pathway,SARC,PI3K,none,none,none,0,0,0,GigaSSL,GigaSSL,0.0127016129032262,FALSE,FALSE,FALSE
+oncogenic_pathway,SARC,RTK RAS,exactly two,representation specific,all three,2,1,3,TITAN,TITAN,0.0144493844049249,TRUE,TRUE,FALSE
+oncogenic_pathway,SARC,TP53,representation specific,exactly two,exactly two,1,2,2,GigaSSL,GigaSSL,0.0717375630857965,TRUE,FALSE,FALSE
+oncogenic_pathway,SARC,WNT,none,none,none,0,0,0,TITAN,TITAN,0.0417763157894739,FALSE,FALSE,FALSE
+oncogenic_pathway,STAD,Cell Cycle,representation specific,representation specific,exactly two,1,1,2,GigaSSL,GigaSSL,0.0544850178244528,FALSE,TRUE,FALSE
+oncogenic_pathway,STAD,HIPPO,representation specific,all three,all three,1,3,3,GigaSSL,GigaSSL,0.0450386215092095,TRUE,FALSE,FALSE
+oncogenic_pathway,STAD,MYC,none,none,none,0,0,0,TITAN,ProvGigaPath,0.0875294770425855,FALSE,FALSE,TRUE
+oncogenic_pathway,STAD,NOTCH,all three,all three,all three,3,3,3,TITAN,TITAN,0.0257863184692456,FALSE,FALSE,FALSE
+oncogenic_pathway,STAD,PI3K,none,representation specific,exactly two,0,1,2,ProvGigaPath,TITAN,0.100926298832058,TRUE,TRUE,TRUE
+oncogenic_pathway,STAD,RTK RAS,none,representation specific,exactly two,0,1,2,ProvGigaPath,TITAN,0.0464967131633792,TRUE,TRUE,TRUE
+oncogenic_pathway,STAD,TGF-Beta,none,exactly two,all three,0,2,3,TITAN,TITAN,0.0695951181712515,TRUE,TRUE,FALSE
+oncogenic_pathway,STAD,TP53,representation specific,representation specific,all three,1,1,3,ProvGigaPath,ProvGigaPath,0.0154846335697405,FALSE,TRUE,FALSE
+oncogenic_pathway,STAD,WNT,representation specific,exactly two,all three,1,2,3,ProvGigaPath,TITAN,0.0653753026634385,TRUE,TRUE,TRUE
+oncogenic_pathway,TGCT,RTK RAS,all three,all three,all three,3,3,3,ProvGigaPath,TITAN,0.0289221806075736,FALSE,FALSE,TRUE
+oncogenic_pathway,THCA,Cell Cycle,none,none,none,0,0,0,TITAN,ProvGigaPath,0.0283375314861459,FALSE,FALSE,TRUE
+oncogenic_pathway,THCA,PI3K,none,none,none,0,0,0,TITAN,TITAN,0.0947054436987325,FALSE,FALSE,FALSE
+oncogenic_pathway,THCA,RTK RAS,all three,all three,all three,3,3,3,TITAN,ProvGigaPath,0.126437991021325,FALSE,FALSE,TRUE
+oncogenic_pathway,THCA,WNT,exactly two,all three,all three,2,3,3,TITAN,TITAN,0.0874591503267973,TRUE,FALSE,FALSE
+oncogenic_pathway,UCEC,Cell Cycle,representation specific,none,representation specific,1,0,1,GigaSSL,GigaSSL,0.0346759785609873,TRUE,TRUE,FALSE
+oncogenic_pathway,UCEC,HIPPO,none,exactly two,all three,0,2,3,ProvGigaPath,ProvGigaPath,0.0220036182722749,TRUE,TRUE,FALSE
+oncogenic_pathway,UCEC,MYC,none,none,none,0,0,0,TITAN,TITAN,0.0236418511066399,FALSE,FALSE,FALSE
+oncogenic_pathway,UCEC,NOTCH,none,representation specific,all three,0,1,3,TITAN,TITAN,0.0222286485444381,TRUE,TRUE,FALSE
+oncogenic_pathway,UCEC,NRF2,none,none,none,0,0,0,ProvGigaPath,ProvGigaPath,0.033932233180354,FALSE,FALSE,FALSE
+oncogenic_pathway,UCEC,PI3K,none,none,representation specific,0,0,1,TITAN,TITAN,0.0608168097070135,FALSE,TRUE,FALSE
+oncogenic_pathway,UCEC,RTK RAS,none,none,none,0,0,0,GigaSSL,TITAN,0.0299721364560586,FALSE,FALSE,TRUE
+oncogenic_pathway,UCEC,TGF-Beta,none,none,none,0,0,0,TITAN,GigaSSL,0.060623919534811,FALSE,FALSE,TRUE
+oncogenic_pathway,UCEC,TP53,all three,all three,all three,3,3,3,TITAN,TITAN,0.0158984562101617,FALSE,FALSE,FALSE
+oncogenic_pathway,UCEC,WNT,representation specific,none,exactly two,1,0,2,TITAN,TITAN,0.0317236064731574,TRUE,TRUE,FALSE
+oncogenic_pathway,UCS,NOTCH,representation specific,none,none,1,0,0,TITAN,GigaSSL,0.0773809523809521,TRUE,FALSE,TRUE
+oncogenic_pathway,UCS,RTK RAS,all three,exactly two,all three,3,2,3,ProvGigaPath,GigaSSL,0.0640625,TRUE,TRUE,TRUE

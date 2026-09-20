@@ -6,6 +6,7 @@ source("R/utils.R")
 cfg <- load_project_config()
 assert_files(cfg$paths[c("thorsson", "aneuploidy", "oncogenic", "fusion",
                          "msi_subset")])
+assert_files("data/processed/pathway_activity_targets.rds")
 cohort <- readRDS("data/processed/patient_cohort.rds")
 meta <- as.data.table(cohort$meta)[, .(patient, tumor_type)]
 
@@ -93,6 +94,22 @@ append_continuous(
     value
   },
   subfamily = "immune_inflammatory_and_genomic_context"
+)
+
+# RNA-derived pathway activities. These endpoints represent relative expression
+# of curated pathway-member genes and are not direct metabolite measurements.
+pathway_activity <- as.data.table(
+  readRDS("data/processed/pathway_activity_targets.rds")
+)
+continuous[[length(continuous) + 1L]] <- pathway_activity
+record_source_coverage(
+  unique(pathway_activity$source),
+  unique(pathway_activity[, .(patient)]),
+  unique(pathway_activity$patient),
+  paste(
+    "primary-tumour RNA aliquots averaged by patient; pathway score is the",
+    "mean within-cancer gene-wise z score"
+  )
 )
 
 # Taylor et al. aneuploidy endpoints.

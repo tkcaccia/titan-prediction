@@ -1,0 +1,5 @@
+deprecated_r1_r4_class,tasks,tasks_with_sparse_grouped_folds,percent_with_sparse_grouped_folds
+R1,200,46,23
+R2,39,7,17.948717948718
+R3,343,67,19.533527696793
+R4,389,217,55.7840616966581

@@ -1,0 +1,7 @@
+foundation_model,outcome_type,tasks,median_delta,q1_delta,q3_delta,spearman_primary_exact,primary_screening_positive,exact_screening_positive,lost_threshold,gained_threshold,maximum_absolute_delta
+GigaSSL,binary,426,0,0,0,0.999677602742782,166,167,0,1,0.024143432986227
+GigaSSL,continuous,2963,0,0,0,0.993771386823185,362,364,1,3,0.497981062917721
+ProvGigaPath,binary,426,0,0,0,0.99913929090454,176,176,0,0,0.036006415396953
+ProvGigaPath,continuous,2963,0,0,0,0.999612778516005,441,444,0,3,0.143796971858115
+TITAN,binary,426,0,0,0,0.999254776489215,230,231,0,1,0.0295311923218899
+TITAN,continuous,2963,0,0,0,0.997056156196392,643,648,0,5,0.872198413286277

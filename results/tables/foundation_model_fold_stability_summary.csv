@@ -1,0 +1,7 @@
+foundation_model,outcome_type,selected_tasks,mean_crossing_proportion,stable_crossing_tasks,never_crossing_tasks,variable_crossing_tasks,median_primary_repeat_agreement
+GigaSSL,binary,356,0.470224719101124,96,120,140,1
+ProvGigaPath,binary,356,0.504494382022472,120,115,121,1
+TITAN,binary,356,0.638202247191011,169,80,107,1
+GigaSSL,continuous,978,0.361554192229039,265,519,194,1
+ProvGigaPath,continuous,978,0.455828220858896,330,421,227,1
+TITAN,continuous,978,0.66278118609407,517,199,262,1

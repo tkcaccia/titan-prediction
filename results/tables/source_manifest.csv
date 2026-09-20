@@ -1,6 +1,8 @@
 source_key,label,doi,source_filename,exists,bytes,sha256
 titan_features,Ding et al. 2025 TITAN TCGA embeddings,10.1038/s41591-025-03982-3,TCGA_TITAN_features_in_.csv,TRUE,103062652,d3d91fb0f83a6de440eda5ff437a63e3ca13f50095e6841fb8efcc40e58763f0
 slide_reports,Ding et al. 2025 TCGA slide reports,10.1038/s41591-025-03982-3,TCGA-Slide-Reports.csv,TRUE,39835884,e97048c3fe8a3ce5ea72dee227a3a3f5fe0557ffb5a56572a56a66647477df06
+gigassl_features,Giga-SSL released TCGA embeddings,,GigaSSL_TCGA_features.csv.gz,TRUE,31550733,0c7ff510cc99c1135a8eb5c3fa2fcb53676ac4881972ea6bd152814ae7830324
+provgigapath_features,Davis Prov-GigaPath released TCGA embeddings,10.1038/s41586-024-07441-w,ProvGigaPath_TCGA_final_layer_features.csv.gz,TRUE,36677272,665889378927a5a4e7862f41aff59bd0a7b614e619308c4814b13a7495346bda
 thorsson,Thorsson et al. 2018 PanImmune_MS,10.1016/j.immuni.2018.03.023,immunology_paper.xlsx,TRUE,6482786,ff2648d3bb089cae83545428efe93f9922f61f9b78f4018625005f8ce6170b64
 tcga_cdr,Liu et al. 2018 TCGA Clinical Data Resource,10.1016/j.cell.2018.02.052,TCGA-CDR-SupplementalTableS1.xlsx,TRUE,2945129,ea594c0fbb6731477c7ac511fab449ca9c38b0d42d269591ed9f5c4090e75a5a
 bailey,Bailey et al. 2018 Table S1,10.1016/j.cell.2018.02.060,mmc1.xlsx,TRUE,197611,579069391438b8dd920df971df4b012c8e1a163310ee668cc1fec908603b34ca
@@ -8,3 +10,5 @@ aneuploidy,Taylor et al. 2018 Table S2,10.1016/j.ccell.2018.03.007,mmc2 (1).xlsx
 oncogenic,Sanchez-Vega et al. 2018 Table S4,10.1016/j.cell.2018.03.035,mmc4 (3).xlsx,TRUE,16042589,40b88e2d1300f1e7e300298f987503c426b58a26572ba87181664e7f4528d7d7
 fusion,Gao et al. 2018 Table S1,10.1016/j.celrep.2018.03.050,1-s2.0-S2211124718303954-mmc2.xlsx,TRUE,2198553,1c0398cc4ca96001514ee628500f67fd6df965eec3d08622a273bc5da860e45a
 msi_subset,Bonneville et al. 2017 ACC/CESC/MESO subset,10.1200/PO.17.00073,ds_po.17.00073-5.xlsx,TRUE,36680,73c21a3cb6760a4c599248529265539b867de17f560a7fcc1fce32abfb3eccd2
+pathway_rnaseq,UCSC Xena TCGA Pan-Cancer normalized RNA-seq,,EB++AdjustPANCAN_IlluminaHiSeq_RNASeqV2.geneExp.xena.gz,TRUE,331000731,a00532ec86af8c07630c618f10f6277f09c484d0a9c17db5901edf95c7714b38
+pathway_gene_sets,MSigDB 2026.1.Hs Hallmarks and focused metabolic pathways,10.1016/j.cels.2015.12.004,pathway_gene_sets_msigdbr_2026.1.Hs.rds,TRUE,39656,bf264b06aa0bd1b7acdf1b89305745538d0e3984ae4571170a6e2a76aab37b65

@@ -1,0 +1,870 @@
+outcome_type,family,tumor_type,endpoint,n,positive,negative,standard_evidence,evidence_maturity
+continuous,aneuploidy,UCEC,Aneuploidy score,477,,,TRUE,standard_evidence
+continuous,aneuploidy,UCEC,Deleted arm count,477,,,TRUE,standard_evidence
+continuous,aneuploidy,COAD,Aneuploidy score,408,,,TRUE,standard_evidence
+continuous,aneuploidy,BRCA,Aneuploidy score,998,,,TRUE,standard_evidence
+continuous,aneuploidy,BRCA,Deleted arm count,998,,,TRUE,standard_evidence
+continuous,aneuploidy,COAD,Deleted arm count,408,,,TRUE,standard_evidence
+continuous,aneuploidy,UVM,Deleted arm count,80,,,FALSE,limited_evidence
+continuous,aneuploidy,THYM,Aneuploidy score,103,,,TRUE,standard_evidence
+continuous,aneuploidy,STAD,Aneuploidy score,360,,,TRUE,standard_evidence
+continuous,fusion,UCEC,Fusion burden,153,,,TRUE,standard_evidence
+continuous,fusion,BRCA,Fusion burden,1051,,,TRUE,standard_evidence
+continuous,fusion,LGG,Fusion burden,487,,,TRUE,standard_evidence
+continuous,microsatellite_instability,COAD,MANTIS score,391,,,TRUE,standard_evidence
+continuous,microsatellite_instability,TGCT,MSIsensor score,148,,,TRUE,standard_evidence
+continuous,microsatellite_instability,COAD,MSIsensor score,411,,,TRUE,standard_evidence
+continuous,microsatellite_instability,STAD,MANTIS score,371,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_GLYCOLYSIS,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_NOTCH_SIGNALING,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_HYPOXIA,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_ESTROGEN_RESPONSE_LATE,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_ANGIOGENESIS,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_ESTROGEN_RESPONSE_EARLY,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_APICAL_JUNCTION,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_CHOLESTEROL_HOMEOSTASIS,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_MYOGENESIS,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_ALLOGRAFT_REJECTION,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_INTERFERON_GAMMA_RESPONSE,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_WNT_BETA_CATENIN_SIGNALING,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_E2F_TARGETS,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_G2M_CHECKPOINT,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_PANCREAS_BETA_CELLS,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_BILE_ACID_METABOLISM,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_MTORC1_SIGNALING,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_NOTCH_SIGNALING,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_COMPLEMENT,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_APOPTOSIS,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_HEDGEHOG_SIGNALING,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_E2F_TARGETS,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_APICAL_SURFACE,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_IL6_JAK_STAT3_SIGNALING,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_IL6_JAK_STAT3_SIGNALING,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_INFLAMMATORY_RESPONSE,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_MTORC1_SIGNALING,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_TGF_BETA_SIGNALING,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_INFLAMMATORY_RESPONSE,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_ADIPOGENESIS,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_G2M_CHECKPOINT,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_COAGULATION,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_INTERFERON_ALPHA_RESPONSE,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,CESC,HALLMARK_P53_PATHWAY,267,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_KRAS_SIGNALING_DN,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_IL2_STAT5_SIGNALING,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_XENOBIOTIC_METABOLISM,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_MYC_TARGETS_V1,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_G2M_CHECKPOINT,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_MYC_TARGETS_V2,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_UV_RESPONSE_UP,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_COMPLEMENT,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_ADIPOGENESIS,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_ESTROGEN_RESPONSE_EARLY,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_ESTROGEN_RESPONSE_LATE,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_XENOBIOTIC_METABOLISM,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_APOPTOSIS,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_INTERFERON_GAMMA_RESPONSE,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_E2F_TARGETS,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_ALLOGRAFT_REJECTION,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_ALLOGRAFT_REJECTION,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_UV_RESPONSE_DN,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,OV,HALLMARK_CHOLESTEROL_HOMEOSTASIS,69,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_P53_PATHWAY,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_APICAL_JUNCTION,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,STAD,HALLMARK_G2M_CHECKPOINT,354,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_IL2_STAT5_SIGNALING,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_COAGULATION,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_ESTROGEN_RESPONSE_EARLY,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_MYC_TARGETS_V2,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_FATTY_ACID_METABOLISM,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_FATTY_ACID_METABOLISM,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,STAD,HALLMARK_E2F_TARGETS,354,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_MYC_TARGETS_V1,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_NOTCH_SIGNALING,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_G2M_CHECKPOINT,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_KRAS_SIGNALING_UP,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,GBM,HALLMARK_COAGULATION,96,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_ALLOGRAFT_REJECTION,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_TNFA_SIGNALING_VIA_NFKB,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,OV,HALLMARK_ESTROGEN_RESPONSE_LATE,69,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_E2F_TARGETS,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,ACC,HALLMARK_INFLAMMATORY_RESPONSE,55,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_COMPLEMENT,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_IL6_JAK_STAT3_SIGNALING,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_INFLAMMATORY_RESPONSE,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_IL6_JAK_STAT3_SIGNALING,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,STAD,HALLMARK_MTORC1_SIGNALING,354,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_OXIDATIVE_PHOSPHORYLATION,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_MTORC1_SIGNALING,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,ACC,HALLMARK_BILE_ACID_METABOLISM,55,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,UVM,HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY,80,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_ALLOGRAFT_REJECTION,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_INFLAMMATORY_RESPONSE,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,HNSC,HALLMARK_SPERMATOGENESIS,442,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_INFLAMMATORY_RESPONSE,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,ACC,HALLMARK_G2M_CHECKPOINT,55,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_E2F_TARGETS,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_ESTROGEN_RESPONSE_LATE,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_ALLOGRAFT_REJECTION,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_ANGIOGENESIS,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_INTERFERON_GAMMA_RESPONSE,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,GBM,HALLMARK_IL2_STAT5_SIGNALING,96,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,GBM,HALLMARK_COMPLEMENT,96,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_APICAL_JUNCTION,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,REACTOME_GLUTATHIONE_SYNTHESIS_AND_RECYCLING,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_E2F_TARGETS,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_COMPLEMENT,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,STAD,HALLMARK_MYOGENESIS,354,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_IL6_JAK_STAT3_SIGNALING,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_PEROXISOME,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_APOPTOSIS,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_APOPTOSIS,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_XENOBIOTIC_METABOLISM,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_INTERFERON_GAMMA_RESPONSE,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,OV,HALLMARK_MTORC1_SIGNALING,69,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,GBM,HALLMARK_INFLAMMATORY_RESPONSE,96,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_TNFA_SIGNALING_VIA_NFKB,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KICH,HALLMARK_E2F_TARGETS,65,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_ALLOGRAFT_REJECTION,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_INTERFERON_GAMMA_RESPONSE,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUSC,HALLMARK_E2F_TARGETS,475,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_P53_PATHWAY,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,ACC,HALLMARK_TNFA_SIGNALING_VIA_NFKB,55,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,GBM,HALLMARK_APOPTOSIS,96,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_P53_PATHWAY,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_P53_PATHWAY,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,ACC,HALLMARK_ADIPOGENESIS,55,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_TNFA_SIGNALING_VIA_NFKB,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,GBM,HALLMARK_XENOBIOTIC_METABOLISM,96,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_INTERFERON_GAMMA_RESPONSE,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_E2F_TARGETS,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UVM,HALLMARK_IL6_JAK_STAT3_SIGNALING,80,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_ALLOGRAFT_REJECTION,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_ADIPOGENESIS,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_INFLAMMATORY_RESPONSE,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_COAGULATION,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_INTERFERON_GAMMA_RESPONSE,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_MTORC1_SIGNALING,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_IL2_STAT5_SIGNALING,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,OV,HALLMARK_ADIPOGENESIS,69,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_APICAL_SURFACE,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_IL2_STAT5_SIGNALING,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_OXIDATIVE_PHOSPHORYLATION,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_ALLOGRAFT_REJECTION,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_OXIDATIVE_PHOSPHORYLATION,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,ACC,HALLMARK_ALLOGRAFT_REJECTION,55,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_IL2_STAT5_SIGNALING,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_SPERMATOGENESIS,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_G2M_CHECKPOINT,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,GBM,HALLMARK_IL6_JAK_STAT3_SIGNALING,96,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_APICAL_JUNCTION,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_ANGIOGENESIS,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,OV,HALLMARK_ESTROGEN_RESPONSE_EARLY,69,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_PI3K_AKT_MTOR_SIGNALING,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_IL6_JAK_STAT3_SIGNALING,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_COMPLEMENT,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,ACC,HALLMARK_APOPTOSIS,55,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_APOPTOSIS,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_ANGIOGENESIS,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,ACC,HALLMARK_IL6_JAK_STAT3_SIGNALING,55,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_MYC_TARGETS_V2,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,GBM,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,96,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_COMPLEMENT,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_ADIPOGENESIS,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,ACC,HALLMARK_CHOLESTEROL_HOMEOSTASIS,55,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_COAGULATION,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_GLYCOLYSIS,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_INTERFERON_ALPHA_RESPONSE,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_TGF_BETA_SIGNALING,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,STAD,HALLMARK_MYC_TARGETS_V2,354,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_ANGIOGENESIS,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_GLYCOLYSIS,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PCPG,HALLMARK_NOTCH_SIGNALING,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_BILE_ACID_METABOLISM,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_PEROXISOME,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_IL2_STAT5_SIGNALING,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_NOTCH_SIGNALING,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_KRAS_SIGNALING_UP,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_APICAL_SURFACE,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_HYPOXIA,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_IL6_JAK_STAT3_SIGNALING,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,GBM,HALLMARK_ALLOGRAFT_REJECTION,96,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_BILE_ACID_METABOLISM,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_APOPTOSIS,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_PEROXISOME,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_IL6_JAK_STAT3_SIGNALING,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_MYC_TARGETS_V1,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,CESC,HALLMARK_INTERFERON_GAMMA_RESPONSE,267,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_MTORC1_SIGNALING,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_FATTY_ACID_METABOLISM,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_MYC_TARGETS_V1,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PCPG,HALLMARK_HYPOXIA,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_WNT_BETA_CATENIN_SIGNALING,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_OXIDATIVE_PHOSPHORYLATION,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_IL6_JAK_STAT3_SIGNALING,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_ESTROGEN_RESPONSE_EARLY,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_APICAL_JUNCTION,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_INFLAMMATORY_RESPONSE,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,STAD,HALLMARK_MYC_TARGETS_V1,354,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,SARC,GOBP_VITAMIN_B6_METABOLIC_PROCESS,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UVM,HALLMARK_GLYCOLYSIS,80,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_INTERFERON_ALPHA_RESPONSE,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_E2F_TARGETS,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_KRAS_SIGNALING_UP,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_ANDROGEN_RESPONSE,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KICH,HALLMARK_G2M_CHECKPOINT,65,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,LUSC,HALLMARK_G2M_CHECKPOINT,475,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_MYC_TARGETS_V1,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_ESTROGEN_RESPONSE_EARLY,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_G2M_CHECKPOINT,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,ACC,HALLMARK_COAGULATION,55,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_FATTY_ACID_METABOLISM,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_INTERFERON_ALPHA_RESPONSE,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_MYC_TARGETS_V2,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,CESC,HALLMARK_ALLOGRAFT_REJECTION,267,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_IL2_STAT5_SIGNALING,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_G2M_CHECKPOINT,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_MTORC1_SIGNALING,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_G2M_CHECKPOINT,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PRAD,HALLMARK_G2M_CHECKPOINT,400,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UCEC,HALLMARK_MYC_TARGETS_V2,492,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_APICAL_JUNCTION,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_MYC_TARGETS_V1,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PRAD,HALLMARK_E2F_TARGETS,400,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_TGF_BETA_SIGNALING,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,GBM,HALLMARK_ANGIOGENESIS,96,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_TNFA_SIGNALING_VIA_NFKB,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UCS,HALLMARK_ESTROGEN_RESPONSE_LATE,53,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,MESO,HALLMARK_MTORC1_SIGNALING,75,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_PI3K_AKT_MTOR_SIGNALING,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_INFLAMMATORY_RESPONSE,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_TNFA_SIGNALING_VIA_NFKB,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,OV,HALLMARK_FATTY_ACID_METABOLISM,69,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_E2F_TARGETS,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_APOPTOSIS,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,STAD,HALLMARK_UV_RESPONSE_DN,354,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_DNA_REPAIR,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,ESCA,HALLMARK_P53_PATHWAY,155,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_NOTCH_SIGNALING,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_IL2_STAT5_SIGNALING,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_COMPLEMENT,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_INTERFERON_GAMMA_RESPONSE,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,GOBP_VITAMIN_B6_METABOLIC_PROCESS,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_COMPLEMENT,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PCPG,HALLMARK_WNT_BETA_CATENIN_SIGNALING,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_OXIDATIVE_PHOSPHORYLATION,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_MYOGENESIS,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_MITOTIC_SPINDLE,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_INTERFERON_ALPHA_RESPONSE,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,MESO,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,75,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_MYC_TARGETS_V2,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_ANGIOGENESIS,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,ACC,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,55,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_IL2_STAT5_SIGNALING,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_INFLAMMATORY_RESPONSE,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,OV,HALLMARK_UV_RESPONSE_UP,69,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_E2F_TARGETS,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_APICAL_JUNCTION,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_HYPOXIA,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUSC,HALLMARK_MYC_TARGETS_V1,475,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UCEC,HALLMARK_MYC_TARGETS_V1,492,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_IL6_JAK_STAT3_SIGNALING,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,CESC,HALLMARK_IL6_JAK_STAT3_SIGNALING,267,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_HYPOXIA,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UCEC,HALLMARK_E2F_TARGETS,492,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_KRAS_SIGNALING_UP,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,OV,HALLMARK_INFLAMMATORY_RESPONSE,69,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_KRAS_SIGNALING_UP,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_COMPLEMENT,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_INTERFERON_ALPHA_RESPONSE,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_P53_PATHWAY,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PCPG,HALLMARK_ANGIOGENESIS,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,GOBP_VITAMIN_B6_METABOLIC_PROCESS,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_MYC_TARGETS_V1,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_MYOGENESIS,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,CESC,HALLMARK_TNFA_SIGNALING_VIA_NFKB,267,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_APICAL_SURFACE,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,CESC,HALLMARK_INTERFERON_ALPHA_RESPONSE,267,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_TNFA_SIGNALING_VIA_NFKB,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_E2F_TARGETS,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,GOBP_VITAMIN_B6_METABOLIC_PROCESS,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_G2M_CHECKPOINT,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_APOPTOSIS,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_KRAS_SIGNALING_UP,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,REACTOME_GLUTATHIONE_SYNTHESIS_AND_RECYCLING,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_HEME_METABOLISM,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_ANGIOGENESIS,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_UV_RESPONSE_DN,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_ESTROGEN_RESPONSE_EARLY,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UCEC,HALLMARK_G2M_CHECKPOINT,492,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_MYC_TARGETS_V2,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_COAGULATION,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_KRAS_SIGNALING_UP,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,HNSC,HALLMARK_INTERFERON_ALPHA_RESPONSE,442,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,ACC,HALLMARK_FATTY_ACID_METABOLISM,55,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_MTORC1_SIGNALING,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_ESTROGEN_RESPONSE_LATE,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UCEC,HALLMARK_ALLOGRAFT_REJECTION,492,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_P53_PATHWAY,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_PI3K_AKT_MTOR_SIGNALING,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_DNA_REPAIR,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,HNSC,HALLMARK_INTERFERON_GAMMA_RESPONSE,442,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,GOBP_VITAMIN_B6_METABOLIC_PROCESS,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UCS,HALLMARK_P53_PATHWAY,53,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_G2M_CHECKPOINT,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_CHOLESTEROL_HOMEOSTASIS,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_NOTCH_SIGNALING,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_KRAS_SIGNALING_UP,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_MYOGENESIS,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,CESC,HALLMARK_INFLAMMATORY_RESPONSE,267,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_PI3K_AKT_MTOR_SIGNALING,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_NOTCH_SIGNALING,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_INTERFERON_GAMMA_RESPONSE,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUSC,HALLMARK_P53_PATHWAY,475,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_MITOTIC_SPINDLE,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_APOPTOSIS,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PCPG,HALLMARK_IL2_STAT5_SIGNALING,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,OV,HALLMARK_COAGULATION,69,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_PANCREAS_BETA_CELLS,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_UV_RESPONSE_UP,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_XENOBIOTIC_METABOLISM,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUSC,HALLMARK_SPERMATOGENESIS,475,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_ESTROGEN_RESPONSE_LATE,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_TNFA_SIGNALING_VIA_NFKB,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_PI3K_AKT_MTOR_SIGNALING,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UCS,HALLMARK_MYOGENESIS,53,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,GBM,HALLMARK_TNFA_SIGNALING_VIA_NFKB,96,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,ACC,HALLMARK_IL2_STAT5_SIGNALING,55,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_CHOLESTEROL_HOMEOSTASIS,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_BILE_ACID_METABOLISM,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,MESO,HALLMARK_IL6_JAK_STAT3_SIGNALING,75,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_INTERFERON_ALPHA_RESPONSE,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,HNSC,HALLMARK_E2F_TARGETS,442,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_HEDGEHOG_SIGNALING,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,STAD,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,354,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,OV,HALLMARK_ANDROGEN_RESPONSE,69,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_ESTROGEN_RESPONSE_LATE,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,GOBP_VITAMIN_B6_METABOLIC_PROCESS,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_COAGULATION,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_NOTCH_SIGNALING,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_MTORC1_SIGNALING,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,OV,HALLMARK_HYPOXIA,69,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_TNFA_SIGNALING_VIA_NFKB,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_KRAS_SIGNALING_DN,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUSC,HALLMARK_ALLOGRAFT_REJECTION,475,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_UV_RESPONSE_UP,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,ACC,HALLMARK_MYC_TARGETS_V2,55,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,STAD,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,354,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_APICAL_JUNCTION,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,GBM,HALLMARK_KRAS_SIGNALING_UP,96,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,STAD,HALLMARK_DNA_REPAIR,354,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_G2M_CHECKPOINT,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_MYC_TARGETS_V2,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_INTERFERON_GAMMA_RESPONSE,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,REACTOME_GLUTATHIONE_SYNTHESIS_AND_RECYCLING,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUSC,HALLMARK_IL6_JAK_STAT3_SIGNALING,475,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,TGCT,HALLMARK_SPERMATOGENESIS,149,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_MTORC1_SIGNALING,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_UV_RESPONSE_UP,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_COAGULATION,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PCPG,HALLMARK_IL6_JAK_STAT3_SIGNALING,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_ANGIOGENESIS,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_UV_RESPONSE_UP,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,REACTOME_GLUTATHIONE_SYNTHESIS_AND_RECYCLING,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_IL6_JAK_STAT3_SIGNALING,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_BILE_ACID_METABOLISM,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_INFLAMMATORY_RESPONSE,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,CESC,HALLMARK_APOPTOSIS,267,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,COAD,HALLMARK_INTERFERON_GAMMA_RESPONSE,424,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_COAGULATION,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,STAD,HALLMARK_GLYCOLYSIS,354,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_PANCREAS_BETA_CELLS,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_APOPTOSIS,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_ANGIOGENESIS,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,OV,HALLMARK_IL2_STAT5_SIGNALING,69,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_IL2_STAT5_SIGNALING,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_MYC_TARGETS_V1,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,ACC,HALLMARK_E2F_TARGETS,55,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_TNFA_SIGNALING_VIA_NFKB,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,GBM,HALLMARK_PEROXISOME,96,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_GLYCOLYSIS,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_INFLAMMATORY_RESPONSE,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,GBM,HALLMARK_INTERFERON_GAMMA_RESPONSE,96,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_ANGIOGENESIS,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_P53_PATHWAY,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_HYPOXIA,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UVM,HALLMARK_TNFA_SIGNALING_VIA_NFKB,80,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_P53_PATHWAY,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UVM,GOBP_VITAMIN_B6_METABOLIC_PROCESS,80,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_KRAS_SIGNALING_UP,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PCPG,HALLMARK_COAGULATION,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,STAD,HALLMARK_ALLOGRAFT_REJECTION,354,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_COMPLEMENT,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_UV_RESPONSE_DN,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,ACC,HALLMARK_OXIDATIVE_PHOSPHORYLATION,55,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_ESTROGEN_RESPONSE_LATE,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_MYC_TARGETS_V2,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_P53_PATHWAY,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_COMPLEMENT,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UVM,HALLMARK_UV_RESPONSE_UP,80,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,HNSC,HALLMARK_MYOGENESIS,442,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UVM,HALLMARK_XENOBIOTIC_METABOLISM,80,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_GLYCOLYSIS,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,OV,HALLMARK_TNFA_SIGNALING_VIA_NFKB,69,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_HEME_METABOLISM,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_UV_RESPONSE_DN,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_TGF_BETA_SIGNALING,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUAD,HALLMARK_NOTCH_SIGNALING,462,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_WNT_BETA_CATENIN_SIGNALING,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UCS,HALLMARK_KRAS_SIGNALING_UP,53,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_INTERFERON_GAMMA_RESPONSE,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUSC,HALLMARK_TNFA_SIGNALING_VIA_NFKB,475,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,COAD,HALLMARK_ALLOGRAFT_REJECTION,424,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_COAGULATION,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,HNSC,HALLMARK_ALLOGRAFT_REJECTION,442,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_SPERMATOGENESIS,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUSC,HALLMARK_ANGIOGENESIS,475,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,ACC,HALLMARK_PI3K_AKT_MTOR_SIGNALING,55,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_KRAS_SIGNALING_DN,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,STAD,HALLMARK_INTERFERON_GAMMA_RESPONSE,354,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,HNSC,HALLMARK_GLYCOLYSIS,442,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_KRAS_SIGNALING_DN,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_APICAL_SURFACE,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_TNFA_SIGNALING_VIA_NFKB,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_APICAL_JUNCTION,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUSC,HALLMARK_COAGULATION,475,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_INTERFERON_GAMMA_RESPONSE,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,MESO,HALLMARK_IL2_STAT5_SIGNALING,75,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_COAGULATION,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_MYOGENESIS,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_COAGULATION,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,OV,HALLMARK_ALLOGRAFT_REJECTION,69,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_HEDGEHOG_SIGNALING,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,STAD,HALLMARK_APICAL_JUNCTION,354,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,HNSC,HALLMARK_DNA_REPAIR,442,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_MTORC1_SIGNALING,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_HYPOXIA,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_PEROXISOME,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_ESTROGEN_RESPONSE_EARLY,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,GOBP_VITAMIN_B6_METABOLIC_PROCESS,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,ACC,HALLMARK_PEROXISOME,55,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,ESCA,HALLMARK_PANCREAS_BETA_CELLS,155,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_WNT_BETA_CATENIN_SIGNALING,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UCEC,HALLMARK_ESTROGEN_RESPONSE_EARLY,492,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_SPERMATOGENESIS,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,CESC,HALLMARK_COMPLEMENT,267,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_KRAS_SIGNALING_UP,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,CESC,HALLMARK_PI3K_AKT_MTOR_SIGNALING,267,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_TGF_BETA_SIGNALING,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_UV_RESPONSE_UP,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_G2M_CHECKPOINT,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,COAD,HALLMARK_MYOGENESIS,424,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,SARC,HALLMARK_NOTCH_SIGNALING,252,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PRAD,HALLMARK_ALLOGRAFT_REJECTION,400,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PRAD,HALLMARK_KRAS_SIGNALING_UP,400,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_ESTROGEN_RESPONSE_LATE,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUSC,HALLMARK_DNA_REPAIR,475,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUSC,HALLMARK_MYC_TARGETS_V2,475,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PRAD,HALLMARK_COMPLEMENT,400,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UVM,HALLMARK_INTERFERON_GAMMA_RESPONSE,80,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,OV,HALLMARK_IL6_JAK_STAT3_SIGNALING,69,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,OV,HALLMARK_P53_PATHWAY,69,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_OXIDATIVE_PHOSPHORYLATION,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_ALLOGRAFT_REJECTION,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,STAD,HALLMARK_KRAS_SIGNALING_DN,354,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUSC,HALLMARK_APICAL_JUNCTION,475,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_GLYCOLYSIS,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,COAD,HALLMARK_INTERFERON_ALPHA_RESPONSE,424,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PRAD,HALLMARK_UV_RESPONSE_DN,400,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_XENOBIOTIC_METABOLISM,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_CHOLESTEROL_HOMEOSTASIS,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_APICAL_SURFACE,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UCEC,HALLMARK_DNA_REPAIR,492,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,ACC,HALLMARK_MYC_TARGETS_V1,55,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,UCEC,HALLMARK_IL6_JAK_STAT3_SIGNALING,492,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UCEC,HALLMARK_XENOBIOTIC_METABOLISM,492,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_P53_PATHWAY,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UCEC,HALLMARK_MTORC1_SIGNALING,492,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PRAD,HALLMARK_IL2_STAT5_SIGNALING,400,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_APICAL_SURFACE,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PRAD,HALLMARK_INTERFERON_GAMMA_RESPONSE,400,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UCS,HALLMARK_ESTROGEN_RESPONSE_EARLY,53,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_UV_RESPONSE_DN,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KICH,HALLMARK_CHOLESTEROL_HOMEOSTASIS,65,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,STAD,HALLMARK_KRAS_SIGNALING_UP,354,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PCPG,HALLMARK_MYOGENESIS,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LUSC,HALLMARK_MTORC1_SIGNALING,475,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UCS,HALLMARK_APICAL_SURFACE,53,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,CESC,HALLMARK_PANCREAS_BETA_CELLS,267,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KICH,HALLMARK_SPERMATOGENESIS,65,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,UVM,HALLMARK_COMPLEMENT,80,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_ADIPOGENESIS,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PRAD,HALLMARK_INFLAMMATORY_RESPONSE,400,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KICH,HALLMARK_MITOTIC_SPINDLE,65,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_HYPOXIA,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_MYC_TARGETS_V1,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PRAD,HALLMARK_APOPTOSIS,400,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BLCA,HALLMARK_MYC_TARGETS_V2,382,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_IL2_STAT5_SIGNALING,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LIHC,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,358,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,THCA,HALLMARK_TGF_BETA_SIGNALING,503,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,STAD,HALLMARK_CHOLESTEROL_HOMEOSTASIS,354,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,COAD,HALLMARK_IL6_JAK_STAT3_SIGNALING,424,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,HNSC,HALLMARK_G2M_CHECKPOINT,442,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_P53_PATHWAY,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,BRCA,HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY,1052,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_GLYCOLYSIS,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,UCEC,HALLMARK_WNT_BETA_CATENIN_SIGNALING,492,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PAAD,HALLMARK_ALLOGRAFT_REJECTION,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,STAD,HALLMARK_HEDGEHOG_SIGNALING,354,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_INTERFERON_ALPHA_RESPONSE,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,MESO,HALLMARK_INTERFERON_GAMMA_RESPONSE,75,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_PEROXISOME,117,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,LGG,HALLMARK_FATTY_ACID_METABOLISM,490,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRC,HALLMARK_WNT_BETA_CATENIN_SIGNALING,510,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,KIRP,HALLMARK_PI3K_AKT_MTOR_SIGNALING,272,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,PCPG,HALLMARK_APOPTOSIS,176,,,TRUE,standard_evidence
+continuous,rna_pathway_activity,MESO,HALLMARK_APOPTOSIS,75,,,FALSE,limited_evidence
+continuous,rna_pathway_activity,THYM,HALLMARK_INTERFERON_ALPHA_RESPONSE,117,,,TRUE,standard_evidence
+continuous,thorsson,TGCT,TGF-beta Response,148,,,TRUE,standard_evidence
+continuous,thorsson,THYM,Th17 Cells,117,,,TRUE,standard_evidence
+continuous,thorsson,THCA,Lymphocyte Infiltration Signature Score,498,,,TRUE,standard_evidence
+continuous,thorsson,BRCA,Wound Healing,1039,,,TRUE,standard_evidence
+continuous,thorsson,THCA,TGF-beta Response,498,,,TRUE,standard_evidence
+continuous,thorsson,LUAD,Proliferation,410,,,TRUE,standard_evidence
+continuous,thorsson,SARC,Macrophage Regulation,218,,,TRUE,standard_evidence
+continuous,thorsson,THCA,Th1 Cells,498,,,TRUE,standard_evidence
+continuous,thorsson,BRCA,Proliferation,1039,,,TRUE,standard_evidence
+continuous,thorsson,TGCT,Macrophages M2,148,,,TRUE,standard_evidence
+continuous,thorsson,THCA,Macrophage Regulation,498,,,TRUE,standard_evidence
+continuous,thorsson,SARC,Leukocyte Fraction,250,,,TRUE,standard_evidence
+continuous,thorsson,TGCT,Macrophage Regulation,148,,,TRUE,standard_evidence
+continuous,thorsson,STAD,Proliferation,334,,,TRUE,standard_evidence
+continuous,thorsson,SARC,Lymphocyte Infiltration Signature Score,218,,,TRUE,standard_evidence
+continuous,thorsson,KIRP,Proliferation,261,,,TRUE,standard_evidence
+continuous,thorsson,THCA,TCR Shannon,458,,,TRUE,standard_evidence
+continuous,thorsson,UCEC,Number of Segments,484,,,TRUE,standard_evidence
+continuous,thorsson,THYM,Lymphocyte Infiltration Signature Score,117,,,TRUE,standard_evidence
+continuous,thorsson,THYM,TCR Shannon,117,,,TRUE,standard_evidence
+continuous,thorsson,LGG,TGF-beta Response,488,,,TRUE,standard_evidence
+continuous,thorsson,BRCA,Lymphocyte Infiltration Signature Score,1039,,,TRUE,standard_evidence
+continuous,thorsson,LIHC,Leukocyte Fraction,363,,,TRUE,standard_evidence
+continuous,thorsson,LIHC,Proliferation,352,,,TRUE,standard_evidence
+continuous,thorsson,UCEC,TIL Regional Fraction,446,,,TRUE,standard_evidence
+continuous,thorsson,BLCA,TIL Regional Fraction,297,,,TRUE,standard_evidence
+continuous,thorsson,SKCM,Lymphocyte Infiltration Signature Score,291,,,TRUE,standard_evidence
+continuous,thorsson,BLCA,Macrophage Regulation,373,,,TRUE,standard_evidence
+continuous,thorsson,GBM,Macrophage Regulation,96,,,FALSE,limited_evidence
+continuous,thorsson,UCEC,Homologous Recombination Defects,477,,,TRUE,standard_evidence
+continuous,thorsson,TGCT,Stromal Fraction,148,,,TRUE,standard_evidence
+continuous,thorsson,THYM,Proliferation,117,,,TRUE,standard_evidence
+continuous,thorsson,TGCT,Wound Healing,148,,,TRUE,standard_evidence
+continuous,thorsson,TGCT,Lymphocyte Infiltration Signature Score,148,,,TRUE,standard_evidence
+continuous,thorsson,TGCT,Leukocyte Fraction,132,,,TRUE,standard_evidence
+continuous,thorsson,BRCA,Leukocyte Fraction,1026,,,TRUE,standard_evidence
+continuous,thorsson,PRAD,TIL Regional Fraction,332,,,TRUE,standard_evidence
+continuous,thorsson,TGCT,B Cells Naive,148,,,TRUE,standard_evidence
+continuous,thorsson,SKCM,TCR Shannon,276,,,TRUE,standard_evidence
+continuous,thorsson,COAD,TIL Regional Fraction,414,,,TRUE,standard_evidence
+continuous,thorsson,LUSC,TIL Regional Fraction,384,,,TRUE,standard_evidence
+continuous,thorsson,BRCA,TIL Regional Fraction,942,,,TRUE,standard_evidence
+continuous,thorsson,THYM,TGF-beta Response,117,,,TRUE,standard_evidence
+continuous,thorsson,LUAD,TIL Regional Fraction,460,,,TRUE,standard_evidence
+continuous,thorsson,THCA,Leukocyte Fraction,501,,,TRUE,standard_evidence
+continuous,thorsson,STAD,Number of Segments,371,,,TRUE,standard_evidence
+continuous,thorsson,STAD,TIL Regional Fraction,335,,,TRUE,standard_evidence
+continuous,thorsson,LIHC,Macrophage Regulation,352,,,TRUE,standard_evidence
+continuous,thorsson,LGG,Macrophage Regulation,488,,,TRUE,standard_evidence
+continuous,thorsson,BLCA,Leukocyte Fraction,386,,,TRUE,standard_evidence
+continuous,thorsson,LUAD,Th2 Cells,410,,,TRUE,standard_evidence
+continuous,thorsson,CESC,TIL Regional Fraction,229,,,TRUE,standard_evidence
+continuous,thorsson,LUAD,Wound Healing,410,,,TRUE,standard_evidence
+continuous,thorsson,LUAD,Leukocyte Fraction,460,,,TRUE,standard_evidence
+continuous,thorsson,TGCT,Proliferation,148,,,TRUE,standard_evidence
+continuous,thorsson,KIRP,Th2 Cells,261,,,TRUE,standard_evidence
+continuous,thorsson,LIHC,TGF-beta Response,352,,,TRUE,standard_evidence
+continuous,thorsson,UCEC,Fraction Altered,484,,,TRUE,standard_evidence
+continuous,thorsson,LIHC,Wound Healing,352,,,TRUE,standard_evidence
+continuous,thorsson,BLCA,Wound Healing,373,,,TRUE,standard_evidence
+continuous,thorsson,SARC,Wound Healing,218,,,TRUE,standard_evidence
+continuous,thorsson,SARC,TGF-beta Response,218,,,TRUE,standard_evidence
+continuous,thorsson,GBM,Leukocyte Fraction,245,,,TRUE,standard_evidence
+continuous,thorsson,GBM,TGF-beta Response,96,,,FALSE,limited_evidence
+continuous,thorsson,SKCM,Macrophage Regulation,291,,,TRUE,standard_evidence
+continuous,thorsson,KIRC,TGF-beta Response,492,,,TRUE,standard_evidence
+continuous,thorsson,BLCA,Th1 Cells,373,,,TRUE,standard_evidence
+continuous,thorsson,BLCA,Lymphocyte Infiltration Signature Score,373,,,TRUE,standard_evidence
+continuous,thorsson,STAD,Wound Healing,334,,,TRUE,standard_evidence
+continuous,thorsson,UVM,Dendritic Cells Activated,80,,,FALSE,limited_evidence
+continuous,thorsson,BLCA,Stromal Fraction,376,,,TRUE,standard_evidence
+continuous,thorsson,THCA,IFN-gamma Response,498,,,TRUE,standard_evidence
+continuous,thorsson,LIHC,Lymphocyte Infiltration Signature Score,352,,,TRUE,standard_evidence
+continuous,thorsson,SARC,Number of Segments,246,,,TRUE,standard_evidence
+continuous,thorsson,PRAD,Proliferation,325,,,TRUE,standard_evidence
+continuous,thorsson,BRCA,Number of Segments,1025,,,TRUE,standard_evidence
+continuous,thorsson,THYM,SNV Neoantigens,113,,,TRUE,standard_evidence
+continuous,thorsson,BRCA,Homologous Recombination Defects,998,,,TRUE,standard_evidence
+continuous,thorsson,KIRC,Lymphocyte Infiltration Signature Score,492,,,TRUE,standard_evidence
+continuous,thorsson,THCA,Proliferation,498,,,TRUE,standard_evidence
+continuous,thorsson,BRCA,Macrophage Regulation,1039,,,TRUE,standard_evidence
+continuous,thorsson,KIRP,Leukocyte Fraction,268,,,TRUE,standard_evidence
+continuous,thorsson,UCEC,Lymphocyte Infiltration Signature Score,489,,,TRUE,standard_evidence
+continuous,thorsson,SKCM,TCR Richness,291,,,TRUE,standard_evidence
+continuous,thorsson,KIRP,Stromal Fraction,254,,,TRUE,standard_evidence
+continuous,thorsson,UCEC,Aneuploidy Score,477,,,TRUE,standard_evidence
+continuous,thorsson,STAD,Fraction Altered,371,,,TRUE,standard_evidence
+continuous,thorsson,BLCA,TGF-beta Response,373,,,TRUE,standard_evidence
+continuous,thorsson,KIRC,Leukocyte Fraction,493,,,TRUE,standard_evidence
+continuous,thorsson,SARC,Homologous Recombination Defects,238,,,TRUE,standard_evidence
+continuous,thorsson,GBM,Stromal Fraction,229,,,TRUE,standard_evidence
+continuous,thorsson,LUSC,Proliferation,462,,,TRUE,standard_evidence
+continuous,thorsson,LUAD,Macrophage Regulation,410,,,TRUE,standard_evidence
+continuous,thorsson,KIRP,Homologous Recombination Defects,264,,,TRUE,standard_evidence
+continuous,thorsson,SKCM,Leukocyte Fraction,292,,,TRUE,standard_evidence
+continuous,thorsson,SARC,TCR Shannon,188,,,TRUE,standard_evidence
+continuous,thorsson,MESO,Lymphocyte Infiltration Signature Score,72,,,FALSE,limited_evidence
+continuous,thorsson,SARC,Th1 Cells,218,,,TRUE,standard_evidence
+continuous,thorsson,LGG,Wound Healing,488,,,TRUE,standard_evidence
+continuous,thorsson,THCA,BCR Shannon,239,,,TRUE,standard_evidence
+continuous,thorsson,BRCA,TGF-beta Response,1039,,,TRUE,standard_evidence
+continuous,thorsson,THYM,Th2 Cells,117,,,TRUE,standard_evidence
+continuous,thorsson,BLCA,Proliferation,373,,,TRUE,standard_evidence
+continuous,thorsson,LUAD,Lymphocyte Infiltration Signature Score,410,,,TRUE,standard_evidence
+continuous,thorsson,KIRP,Macrophages M1,261,,,TRUE,standard_evidence
+continuous,thorsson,THYM,TCR Richness,117,,,TRUE,standard_evidence
+continuous,thorsson,KICH,Fraction Altered,65,,,FALSE,limited_evidence
+continuous,thorsson,KIRC,Proliferation,492,,,TRUE,standard_evidence
+continuous,thorsson,UCEC,Leukocyte Fraction,492,,,TRUE,standard_evidence
+continuous,thorsson,KICH,Proliferation,65,,,FALSE,limited_evidence
+continuous,thorsson,BRCA,Stromal Fraction,980,,,TRUE,standard_evidence
+continuous,thorsson,KIRC,Macrophage Regulation,492,,,TRUE,standard_evidence
+continuous,thorsson,THCA,TCR Richness,498,,,TRUE,standard_evidence
+continuous,thorsson,CESC,Macrophage Regulation,263,,,TRUE,standard_evidence
+continuous,thorsson,PCPG,TGF-beta Response,175,,,TRUE,standard_evidence
+continuous,thorsson,LGG,Leukocyte Fraction,488,,,TRUE,standard_evidence
+continuous,thorsson,HNSC,Leukocyte Fraction,446,,,TRUE,standard_evidence
+continuous,thorsson,SKCM,Th1 Cells,291,,,TRUE,standard_evidence
+continuous,thorsson,BRCA,Fraction Altered,1025,,,TRUE,standard_evidence
+continuous,thorsson,UCEC,Proliferation,489,,,TRUE,standard_evidence
+continuous,thorsson,COAD,Lymphocyte Infiltration Signature Score,417,,,TRUE,standard_evidence
+continuous,thorsson,LGG,Proliferation,488,,,TRUE,standard_evidence
+continuous,thorsson,KIRP,Lymphocyte Infiltration Signature Score,261,,,TRUE,standard_evidence
+continuous,thorsson,SKCM,Stromal Fraction,287,,,TRUE,standard_evidence
+continuous,thorsson,PCPG,Macrophage Regulation,175,,,TRUE,standard_evidence
+continuous,thorsson,SARC,Stromal Fraction,238,,,TRUE,standard_evidence
+continuous,thorsson,STAD,Silent Mutation Rate,372,,,TRUE,standard_evidence
+continuous,thorsson,LUSC,Lymphocyte Infiltration Signature Score,462,,,TRUE,standard_evidence
+continuous,thorsson,TGCT,TCR Richness,148,,,TRUE,standard_evidence
+continuous,thorsson,UCEC,Wound Healing,489,,,TRUE,standard_evidence
+continuous,thorsson,SARC,Proliferation,218,,,TRUE,standard_evidence
+continuous,thorsson,HNSC,Lymphocyte Infiltration Signature Score,437,,,TRUE,standard_evidence
+continuous,thorsson,LUAD,Homologous Recombination Defects,449,,,TRUE,standard_evidence
+continuous,thorsson,LGG,Lymphocyte Infiltration Signature Score,488,,,TRUE,standard_evidence
+continuous,thorsson,BRCA,TCR Shannon,999,,,TRUE,standard_evidence
+continuous,thorsson,COAD,Nonsilent Mutation Rate,345,,,TRUE,standard_evidence
+continuous,thorsson,PCPG,Stromal Fraction,157,,,TRUE,standard_evidence
+continuous,thorsson,STAD,Lymphocyte Infiltration Signature Score,334,,,TRUE,standard_evidence
+continuous,thorsson,KIRP,Macrophages M2,261,,,TRUE,standard_evidence
+continuous,thorsson,LUAD,Number of Segments,459,,,TRUE,standard_evidence
+continuous,thorsson,STAD,Nonsilent Mutation Rate,372,,,TRUE,standard_evidence
+continuous,thorsson,THCA,Macrophages M1,498,,,TRUE,standard_evidence
+continuous,thorsson,SKCM,TIL Regional Fraction,251,,,TRUE,standard_evidence
+continuous,thorsson,HNSC,IFN-gamma Response,437,,,TRUE,standard_evidence
+continuous,thorsson,THYM,Homologous Recombination Defects,104,,,TRUE,standard_evidence
+continuous,thorsson,BLCA,Th2 Cells,373,,,TRUE,standard_evidence
+continuous,thorsson,CESC,Lymphocyte Infiltration Signature Score,263,,,TRUE,standard_evidence
+continuous,thorsson,PCPG,Leukocyte Fraction,175,,,TRUE,standard_evidence
+continuous,thorsson,THYM,Wound Healing,117,,,TRUE,standard_evidence
+continuous,thorsson,KIRC,Th1 Cells,492,,,TRUE,standard_evidence
+continuous,thorsson,KIRC,TCR Shannon,480,,,TRUE,standard_evidence
+continuous,thorsson,KIRC,CTA Score,490,,,TRUE,standard_evidence
+continuous,thorsson,STAD,Macrophage Regulation,334,,,TRUE,standard_evidence
+continuous,thorsson,COAD,Silent Mutation Rate,345,,,TRUE,standard_evidence
+continuous,thorsson,THYM,T Cells Regulatory Tregs,117,,,TRUE,standard_evidence
+continuous,thorsson,STAD,Homologous Recombination Defects,363,,,TRUE,standard_evidence
+continuous,thorsson,THYM,T Cells CD4 Naive,117,,,TRUE,standard_evidence
+continuous,thorsson,THYM,Nonsilent Mutation Rate,120,,,TRUE,standard_evidence
+continuous,thorsson,LIHC,Stromal Fraction,348,,,TRUE,standard_evidence
+continuous,thorsson,LUSC,Stromal Fraction,446,,,TRUE,standard_evidence
+continuous,thorsson,THYM,T Cells Follicular Helper,117,,,TRUE,standard_evidence
+continuous,thorsson,UVM,Th1 Cells,80,,,FALSE,limited_evidence
+continuous,thorsson,KIRC,Wound Healing,492,,,TRUE,standard_evidence
+continuous,thorsson,PRAD,Homologous Recombination Defects,382,,,TRUE,standard_evidence
+continuous,thorsson,LUAD,SNV Neoantigens,450,,,TRUE,standard_evidence
+continuous,thorsson,THYM,Stromal Fraction,104,,,TRUE,standard_evidence
+continuous,thorsson,COAD,SNV Neoantigens,350,,,TRUE,standard_evidence
+continuous,thorsson,GBM,Th2 Cells,96,,,FALSE,limited_evidence
+continuous,thorsson,LUAD,TCR Shannon,408,,,TRUE,standard_evidence
+continuous,thorsson,STAD,Aneuploidy Score,360,,,TRUE,standard_evidence
+continuous,thorsson,KIRP,Macrophage Regulation,261,,,TRUE,standard_evidence
+continuous,thorsson,UVM,Th2 Cells,80,,,FALSE,limited_evidence
+continuous,thorsson,LIHC,Th2 Cells,352,,,TRUE,standard_evidence
+continuous,thorsson,LIHC,Th17 Cells,352,,,TRUE,standard_evidence
+continuous,thorsson,TGCT,TCR Shannon,144,,,TRUE,standard_evidence
+continuous,thorsson,THYM,T Cells CD4 Memory Resting,117,,,TRUE,standard_evidence
+continuous,thorsson,MESO,Leukocyte Fraction,75,,,FALSE,limited_evidence
+continuous,thorsson,THYM,Mast Cells Resting,117,,,TRUE,standard_evidence
+continuous,thorsson,SARC,Th2 Cells,218,,,TRUE,standard_evidence
+continuous,thorsson,COAD,Indel Neoantigens,322,,,TRUE,standard_evidence
+continuous,thorsson,BLCA,IFN-gamma Response,373,,,TRUE,standard_evidence
+continuous,thorsson,BLCA,Homologous Recombination Defects,377,,,TRUE,standard_evidence
+continuous,thorsson,LUAD,Fraction Altered,459,,,TRUE,standard_evidence
+continuous,thorsson,LUAD,Nonsilent Mutation Rate,460,,,TRUE,standard_evidence
+continuous,thorsson,STAD,T Cells CD4 Memory Activated,334,,,TRUE,standard_evidence
+continuous,thorsson,ACC,Number of Segments,54,,,FALSE,limited_evidence
+continuous,thorsson,THCA,Plasma Cells,498,,,TRUE,standard_evidence
+continuous,thorsson,LUSC,Leukocyte Fraction,464,,,TRUE,standard_evidence
+continuous,thorsson,TGCT,Th17 Cells,148,,,TRUE,standard_evidence
+continuous,thorsson,COAD,Macrophage Regulation,417,,,TRUE,standard_evidence
+continuous,thorsson,LUSC,TGF-beta Response,462,,,TRUE,standard_evidence
+continuous,thorsson,OV,Stromal Fraction,65,,,FALSE,limited_evidence
+continuous,thorsson,LUAD,TGF-beta Response,410,,,TRUE,standard_evidence
+continuous,thorsson,UCEC,Macrophage Regulation,489,,,TRUE,standard_evidence
+continuous,thorsson,KICH,Wound Healing,65,,,FALSE,limited_evidence
+continuous,thorsson,COAD,Aneuploidy Score,408,,,TRUE,standard_evidence
+continuous,thorsson,CESC,Leukocyte Fraction,268,,,TRUE,standard_evidence
+continuous,thorsson,LIHC,Homologous Recombination Defects,350,,,TRUE,standard_evidence
+continuous,thorsson,HNSC,T Cells CD8,437,,,TRUE,standard_evidence
+continuous,thorsson,GBM,Lymphocyte Infiltration Signature Score,96,,,FALSE,limited_evidence
+continuous,thorsson,LUSC,Th1 Cells,462,,,TRUE,standard_evidence
+continuous,thorsson,BRCA,Aneuploidy Score,998,,,TRUE,standard_evidence
+continuous,thorsson,LUSC,Th2 Cells,462,,,TRUE,standard_evidence
+continuous,thorsson,LUSC,T Cells CD8,462,,,TRUE,standard_evidence
+continuous,thorsson,LIHC,TCR Shannon,299,,,TRUE,standard_evidence
+continuous,thorsson,LUAD,Stromal Fraction,442,,,TRUE,standard_evidence
+continuous,thorsson,LUSC,Wound Healing,462,,,TRUE,standard_evidence
+continuous,thorsson,BRCA,BCR Shannon,757,,,TRUE,standard_evidence
+continuous,thorsson,STAD,Mast Cells Resting,334,,,TRUE,standard_evidence
+continuous,thorsson,COAD,Leukocyte Fraction,419,,,TRUE,standard_evidence
+continuous,thorsson,CESC,IFN-gamma Response,263,,,TRUE,standard_evidence
+continuous,thorsson,KIRC,IFN-gamma Response,492,,,TRUE,standard_evidence
+continuous,thorsson,THYM,Aneuploidy Score,103,,,TRUE,standard_evidence
+continuous,thorsson,MESO,Macrophage Regulation,72,,,FALSE,limited_evidence
+continuous,thorsson,THCA,BCR Richness,239,,,TRUE,standard_evidence
+continuous,thorsson,HNSC,Number of Segments,440,,,TRUE,standard_evidence
+continuous,thorsson,PRAD,Macrophage Regulation,325,,,TRUE,standard_evidence
+continuous,thorsson,KIRC,Stromal Fraction,316,,,TRUE,standard_evidence
+continuous,thorsson,UCEC,Nonsilent Mutation Rate,488,,,TRUE,standard_evidence
+continuous,thorsson,HNSC,Stromal Fraction,419,,,TRUE,standard_evidence
+continuous,thorsson,LUAD,Silent Mutation Rate,460,,,TRUE,standard_evidence
+binary,aneuploidy,UCEC,Genome doubling,477,97,380,TRUE,standard_evidence
+binary,aneuploidy,BRCA,Genome doubling,998,438,560,TRUE,standard_evidence
+binary,aneuploidy,BLCA,Genome doubling,376,228,148,TRUE,standard_evidence
+binary,aneuploidy,STAD,Genome doubling,360,154,206,TRUE,standard_evidence
+binary,aneuploidy,OV,Genome doubling,96,66,30,FALSE,limited_evidence
+binary,aneuploidy,COAD,Genome doubling,408,165,243,TRUE,standard_evidence
+binary,aneuploidy,LUAD,Genome doubling,449,264,185,TRUE,standard_evidence
+binary,aneuploidy,SARC,Genome doubling,238,112,126,TRUE,standard_evidence
+binary,aneuploidy,LUSC,Genome doubling,459,249,210,TRUE,standard_evidence
+binary,aneuploidy,CESC,Genome doubling,259,85,174,TRUE,standard_evidence
+binary,aneuploidy,PCPG,Genome doubling,157,24,133,FALSE,limited_evidence
+binary,aneuploidy,HNSC,Genome doubling,435,176,259,TRUE,standard_evidence
+binary,driver_mutation,THYM,GTF2I,120,59,61,TRUE,standard_evidence
+binary,driver_mutation,READ,APC,135,65,70,TRUE,standard_evidence
+binary,driver_mutation,LGG,TP53,485,232,253,TRUE,standard_evidence
+binary,driver_mutation,THCA,BRAF,490,289,201,TRUE,standard_evidence
+binary,driver_mutation,READ,TP53,135,66,69,TRUE,standard_evidence
+binary,driver_mutation,LGG,CIC,485,105,380,TRUE,standard_evidence
+binary,driver_mutation,LGG,IDH1,485,375,110,TRUE,standard_evidence
+binary,driver_mutation,COAD,APC,382,196,186,TRUE,standard_evidence
+binary,driver_mutation,LGG,ATRX,485,181,304,TRUE,standard_evidence
+binary,driver_mutation,COAD,TP53,382,161,221,TRUE,standard_evidence
+binary,driver_mutation,UCEC,TP53,487,155,332,TRUE,standard_evidence
+binary,driver_mutation,UCEC,PTEN,487,261,226,TRUE,standard_evidence
+binary,driver_mutation,BRCA,TP53,981,259,722,TRUE,standard_evidence
+binary,driver_mutation,THCA,NRAS,490,39,451,FALSE,limited_evidence
+binary,driver_mutation,BRCA,CDH1,981,96,885,TRUE,standard_evidence
+binary,driver_mutation,LUAD,TP53,463,234,229,TRUE,standard_evidence
+binary,driver_mutation,BLCA,FGFR3,384,54,330,TRUE,standard_evidence
+binary,driver_mutation,STAD,TP53,371,179,192,TRUE,standard_evidence
+binary,driver_mutation,COAD,KRAS,382,126,256,TRUE,standard_evidence
+binary,driver_mutation,OV,TP53,72,22,50,FALSE,limited_evidence
+binary,driver_mutation,HNSC,TP53,431,320,111,TRUE,standard_evidence
+binary,driver_mutation,LGG,EGFR,485,34,451,FALSE,limited_evidence
+binary,driver_mutation,HNSC,NSD1,431,51,380,TRUE,standard_evidence
+binary,driver_mutation,LIHC,CTNNB1,350,93,257,TRUE,standard_evidence
+binary,driver_mutation,BRCA,PIK3CA,981,266,715,TRUE,standard_evidence
+binary,driver_mutation,UCEC,ARID1A,487,176,311,TRUE,standard_evidence
+binary,driver_mutation,LGG,FUBP1,485,44,441,FALSE,limited_evidence
+binary,driver_mutation,SKCM,BRAF,98,52,46,FALSE,limited_evidence
+binary,driver_mutation,UVM,GNA11,80,36,44,FALSE,limited_evidence
+binary,driver_mutation,LGG,PTEN,485,23,462,FALSE,limited_evidence
+binary,driver_mutation,CESC,TP53,252,21,231,FALSE,limited_evidence
+binary,driver_mutation,KIRC,SETD2,353,47,306,FALSE,limited_evidence
+binary,driver_mutation,BLCA,TP53,384,185,199,TRUE,standard_evidence
+binary,driver_mutation,LIHC,TP53,350,107,243,TRUE,standard_evidence
+binary,driver_mutation,STAD,PIK3CA,371,58,313,TRUE,standard_evidence
+binary,driver_mutation,PAAD,TP53,175,106,69,TRUE,standard_evidence
+binary,driver_mutation,UCEC,CTNNB1,487,97,390,TRUE,standard_evidence
+binary,driver_mutation,LIHC,BAP1,350,20,330,FALSE,limited_evidence
+binary,driver_mutation,UCEC,ATM,487,74,413,TRUE,standard_evidence
+binary,driver_mutation,STAD,ARID1A,371,91,280,TRUE,standard_evidence
+binary,driver_mutation,BRCA,FOXA1,981,28,953,FALSE,limited_evidence
+binary,driver_mutation,KIRC,VHL,353,161,192,TRUE,standard_evidence
+binary,fusion,UCEC,Any called fusion,153,80,73,TRUE,standard_evidence
+binary,fusion,LGG,Any called fusion,487,236,251,TRUE,standard_evidence
+binary,fusion,THCA,Fusion pair: CCDC6--RET,502,21,481,FALSE,limited_evidence
+binary,fusion,THCA,Any called fusion,502,138,364,TRUE,standard_evidence
+binary,fusion,SARC,Any called fusion,252,216,36,FALSE,limited_evidence
+binary,fusion,PRAD,Fusion pair: TMPRSS2--ERG,400,159,241,TRUE,standard_evidence
+binary,microsatellite_instability,COAD,MSI-H (MANTIS >0.4),391,74,317,TRUE,standard_evidence
+binary,microsatellite_instability,STAD,MSI-H (MANTIS >0.4),371,63,308,TRUE,standard_evidence
+binary,microsatellite_instability,UCEC,MSI-H (MANTIS >0.4),487,155,332,TRUE,standard_evidence
+binary,microsatellite_instability_sensitivity,COAD,MSI-H strict (MANTIS >0.6),374,57,317,TRUE,standard_evidence
+binary,microsatellite_instability_sensitivity,STAD,MSI-H strict (MANTIS >0.6),364,56,308,TRUE,standard_evidence
+binary,microsatellite_instability_sensitivity,UCEC,MSI-H strict (MANTIS >0.6),438,106,332,TRUE,standard_evidence
+binary,oncogenic_pathway,LGG,HIPPO,481,379,102,TRUE,standard_evidence
+binary,oncogenic_pathway,LGG,TP53,481,248,233,TRUE,standard_evidence
+binary,oncogenic_pathway,UCEC,TP53,468,218,250,TRUE,standard_evidence
+binary,oncogenic_pathway,BRCA,TP53,942,437,505,TRUE,standard_evidence
+binary,oncogenic_pathway,THCA,RTK RAS,478,403,75,TRUE,standard_evidence
+binary,oncogenic_pathway,GBM,TP53,71,38,33,FALSE,limited_evidence
+binary,oncogenic_pathway,TGCT,RTK RAS,143,54,89,TRUE,standard_evidence
+binary,oncogenic_pathway,PCPG,Cell Cycle,155,23,132,FALSE,limited_evidence
+binary,oncogenic_pathway,LGG,RTK RAS,481,135,346,TRUE,standard_evidence
+binary,oncogenic_pathway,PCPG,RTK RAS,158,52,106,TRUE,standard_evidence
+binary,oncogenic_pathway,THCA,WNT,478,62,416,TRUE,standard_evidence
+binary,oncogenic_pathway,COAD,TP53,323,208,115,TRUE,standard_evidence
+binary,oncogenic_pathway,LGG,WNT,481,131,350,TRUE,standard_evidence
+binary,oncogenic_pathway,KIRP,Cell Cycle,243,31,212,FALSE,limited_evidence
+binary,oncogenic_pathway,LUAD,TP53,451,274,177,TRUE,standard_evidence
+binary,oncogenic_pathway,STAD,NOTCH,327,125,202,TRUE,standard_evidence
+binary,oncogenic_pathway,HNSC,TP53,412,312,100,TRUE,standard_evidence
+binary,oncogenic_pathway,SARC,TP53,222,146,76,TRUE,standard_evidence
+binary,oncogenic_pathway,STAD,TP53,327,184,143,TRUE,standard_evidence
+binary,oncogenic_pathway,ACC,WNT,53,20,33,FALSE,limited_evidence
+binary,oncogenic_pathway,LIHC,Cell Cycle,337,232,105,TRUE,standard_evidence
+binary,oncogenic_pathway,LGG,TGF-Beta,481,130,351,TRUE,standard_evidence
+binary,oncogenic_pathway,LIHC,WNT,337,147,190,TRUE,standard_evidence
+binary,oncogenic_pathway,BLCA,TP53,373,232,141,TRUE,standard_evidence
+binary,oncogenic_pathway,UCEC,WNT,468,230,238,TRUE,standard_evidence
+binary,oncogenic_pathway,SARC,RTK RAS,222,86,136,TRUE,standard_evidence
+binary,oncogenic_pathway,LIHC,TP53,337,127,210,TRUE,standard_evidence
+binary,oncogenic_pathway,LGG,Cell Cycle,476,195,281,TRUE,standard_evidence
+binary,oncogenic_pathway,LUSC,NRF2,443,109,334,TRUE,standard_evidence
+binary,oncogenic_pathway,STAD,PI3K,327,133,194,TRUE,standard_evidence
+binary,oncogenic_pathway,COAD,MYC,323,79,244,TRUE,standard_evidence
+binary,oncogenic_pathway,STAD,HIPPO,327,70,257,TRUE,standard_evidence
+binary,oncogenic_pathway,STAD,RTK RAS,327,192,135,TRUE,standard_evidence

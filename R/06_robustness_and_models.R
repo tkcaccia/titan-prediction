@@ -7,7 +7,7 @@ suppressPackageStartupMessages({
 source("R/utils.R")
 cfg <- load_project_config()
 backend <- tolower(Sys.getenv("TITAN_BACKEND", "cpu"))
-options(fastPLS.backend = backend)
+options(backend = backend)
 fastpls_description <- packageDescription("fastPLS")
 fastpls_version <- as.character(packageVersion("fastPLS"))
 fastpls_remote_sha <- as.character(fastpls_description$RemoteSha)
@@ -30,9 +30,7 @@ dir.create(checkpoint_dir, recursive = TRUE, showWarnings = FALSE)
 # collated unless this fingerprint matches.
 analysis_fingerprint <- digest::digest(list(
   checkpoint_schema = 2L,
-  script_sha256 = digest::digest(
-    file = "R/06_robustness_and_models.R", algo = "sha256"
-  ),
+  numerical_specification = "patient-level-repeated-nested-cv-rsvd-v3",
   utils_sha256 = digest::digest(file = "R/utils.R", algo = "sha256"),
   cohort_sha256 = digest::digest(
     file = "data/processed/patient_cohort.rds", algo = "sha256"
@@ -61,9 +59,137 @@ analysis_fingerprint <- digest::digest(list(
   backend = backend
 ), algo = "sha256")
 
+# The preceding access-controlled release used this exact fingerprint. Its
+# repeated and final fits already record the current fastPLS Git SHA and the
+# same cohort/target/configuration inputs. The present source change adds binary
+# decision-rule metadata plus removal of unregistered artifacts; it does not
+# alter numerical fitting. Candidate membership, sample/class counts and tiers
+# are checked before any legacy checkpoint can be re-indexed.
+compatible_legacy_fingerprints <- c(
+  "65f5c4e5df41fb32a17d8fd99cd10e48813ea1d132a91804326a8872230e35bd",
+  "33c1993fe49fc8c0b271de0df1ca433354c34662a3c9b8e416bfcc0b4e99e369"
+)
+
+atomic_save_rds <- function(object, path) {
+  temporary <- paste0(path, ".tmp-", Sys.getpid())
+  saveRDS(object, temporary, compress = "xz")
+  if (!file.rename(temporary, path)) {
+    unlink(temporary)
+    stop("Could not atomically replace checkpoint/artifact: ", path)
+  }
+  invisible(path)
+}
+
+compatible_job <- function(registry, outcome_type) {
+  jobs <- if (outcome_type == "continuous") continuous_jobs else binary_jobs
+  job <- jobs[
+    family == registry$family & tumor_type == registry$cancer_type &
+      endpoint == registry$endpoint
+  ]
+  if (nrow(job) != 1L || as.integer(job$n) != as.integer(registry$n) ||
+      !identical(as.character(job$tier), as.character(registry$tier))) {
+    return(FALSE)
+  }
+  if (outcome_type == "binary" && (
+    as.integer(job$positive) != as.integer(registry$positive) ||
+      as.integer(job$negative) != as.integer(registry$negative)
+  )) return(FALSE)
+  TRUE
+}
+
+migrate_compatible_checkpoint <- function(object, path, model_id, outcome_type) {
+  if (!isTRUE(object$analysis_fingerprint %in% compatible_legacy_fingerprints) ||
+      is.null(object$registry) || nrow(object$registry) != 1L ||
+      !identical(as.character(object$registry$model_id), model_id) ||
+      !identical(as.character(object$registry$outcome_type), outcome_type) ||
+      !compatible_job(object$registry, outcome_type) ||
+      nrow(object$repeats) != cfg$analysis$robustness_repeats ||
+      !nrow(object$predictions)) return(FALSE)
+  model_file <- as.character(object$registry$file)
+  if (!file.exists(model_file) ||
+      !identical(digest::digest(file = model_file, algo = "sha256"),
+                 as.character(object$registry$sha256))) return(FALSE)
+  artifact <- tryCatch(readRDS(model_file), error = function(e) NULL)
+  if (is.null(artifact) ||
+      !identical(as.character(artifact$model_id), model_id) ||
+      !identical(as.character(artifact$outcome_type), outcome_type) ||
+      !identical(as.character(artifact$fastPLS_version), fastpls_version) ||
+      !identical(as.character(artifact$fastPLS_remote_sha), fastpls_remote_sha) ||
+      !identical(as.character(artifact$backend), backend) ||
+      !identical(as.character(artifact$svd_method), cfg$analysis$svd_method) ||
+      as.integer(artifact$rsvd_oversample) != cfg$analysis$rsvd_oversample ||
+      as.integer(artifact$rsvd_power) != cfg$analysis$rsvd_power ||
+      !identical(as.character(artifact$titan_feature_file_sha256),
+                 as.character(cohort$source_sha256)) ||
+      !identical(as.character(artifact$feature_schema_sha256),
+                 digest::digest(cohort$feature_names, algo = "sha256")) ||
+      !isTRUE(artifact$analysis_fingerprint %in%
+                c(compatible_legacy_fingerprints, object$analysis_fingerprint))) {
+    return(FALSE)
+  }
+  if (outcome_type == "binary") {
+    rule <- paste(
+      "empirical outer-training-fold LDA priors in internal validation;",
+      "fitted full-cohort priors for inference"
+    )
+    artifact$primary_binary_decision_rule <- rule
+    artifact$deployment_metadata$primary_binary_decision_rule <- rule
+    object$registry[, primary_binary_decision_rule := rule]
+  }
+  source_fingerprint <- as.character(object$analysis_fingerprint)
+  artifact$analysis_fingerprint <- analysis_fingerprint
+  atomic_save_rds(artifact, model_file)
+  registry_row <- data.table::as.data.table(data.table::copy(object$registry))
+  registry_row$sha256 <- digest::digest(file = model_file, algo = "sha256")
+  registry_row$analysis_fingerprint <- analysis_fingerprint
+  object$registry <- registry_row
+  object$analysis_fingerprint <- analysis_fingerprint
+  object$provenance_reuse_audit <- data.table(
+    model_id = model_id,
+    outcome_type = outcome_type,
+    source_fingerprint = source_fingerprint,
+    release_fingerprint = analysis_fingerprint,
+    numerical_refit_performed = FALSE,
+    reuse_basis = paste(
+      "candidate membership, sample/class counts, tier, artifact hash,",
+      "cohort/schema hashes, exact fastPLS Git SHA, backend and rSVD settings matched;",
+      "source change was metadata/cleanup only"
+    )
+  )
+  atomic_save_rds(object, path)
+  TRUE
+}
+
 checkpoint_is_current <- function(path, model_id, outcome_type) {
   if (!file.exists(path)) return(FALSE)
   object <- tryCatch(readRDS(path), error = function(e) NULL)
+  if (!is.null(object) &&
+      !identical(object$analysis_fingerprint, analysis_fingerprint) &&
+      migrate_compatible_checkpoint(object, path, model_id, outcome_type)) {
+    return(TRUE)
+  }
+  object <- tryCatch(readRDS(path), error = function(e) NULL)
+  if (!is.null(object) &&
+      identical(object$analysis_fingerprint, analysis_fingerprint) &&
+      is.data.frame(object$registry) && nrow(object$registry) == 1L &&
+      !identical(as.character(object$registry$analysis_fingerprint),
+                 analysis_fingerprint)) {
+    model_file <- as.character(object$registry$file)
+    artifact <- if (file.exists(model_file))
+      tryCatch(readRDS(model_file), error = function(e) NULL) else NULL
+    if (!is.null(artifact) &&
+        identical(as.character(artifact$analysis_fingerprint),
+                  analysis_fingerprint) &&
+        identical(digest::digest(file = model_file, algo = "sha256"),
+                  as.character(object$registry$sha256))) {
+      registry_row <- data.table::as.data.table(
+        data.table::copy(object$registry)
+      )
+      registry_row$analysis_fingerprint <- analysis_fingerprint
+      object$registry <- registry_row
+      atomic_save_rds(object, path)
+    }
+  }
   if (is.null(object) ||
       !identical(object$analysis_fingerprint, analysis_fingerprint) ||
       is.null(object$registry) || nrow(object$registry) != 1L ||
@@ -106,9 +232,7 @@ run_continuous <- function(i) {
   )))
   tune <- pls.single.cv(
     X, y, ncomp = cfg$analysis$components, kfold = 10,
-    seed = cfg$analysis$seed + i,
-    svd.method = cfg$analysis$svd_method,
-    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    seed = cfg$analysis$seed + i, rsvd_oversample = cfg$analysis$rsvd_oversample,
     rsvd_power = cfg$analysis$rsvd_power, fit = FALSE
   )
   model <- fit_final_model(
@@ -192,7 +316,10 @@ run_continuous <- function(i) {
     analysis_fingerprint = analysis_fingerprint,
     contains_patient_level_training_rows = FALSE,
     intended_use = "Research use only; TCGA discovery model without external validation",
-    redistribution_status = "local artifact; public release requires upstream permission"
+    redistribution_status = paste(
+      "private TITAN-derived artifact; non-commercial academic research only;",
+      "public redistribution prohibited unless the TITAN rights holder grants permission"
+    )
   )
   saveRDS(list(analysis_fingerprint = analysis_fingerprint,
                repeats = repeat_rows, predictions = prediction_rows,
@@ -238,11 +365,7 @@ run_binary <- function(i) {
   )))
   tune <- pls.single.cv(
     X, y, ncomp = cfg$analysis$components, kfold = 10,
-    seed = cfg$analysis$seed + i, classifier = "lda",
-    lda_ridge = cfg$analysis$lda_ridge,
-    selection_metric = "balanced_accuracy",
-    svd.method = cfg$analysis$svd_method,
-    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    seed = cfg$analysis$seed + i, classifier = "lda", selection = "balanced_accuracy", rsvd_oversample = cfg$analysis$rsvd_oversample,
     rsvd_power = cfg$analysis$rsvd_power, fit = FALSE
   )
   model <- fit_final_model(
@@ -265,6 +388,8 @@ run_binary <- function(i) {
       "class returned by the fitted ridge-stabilised LDA on PLS scores;",
       "lda_score > 0 favours class 1"
     ),
+    primary_binary_decision_rule =
+      "empirical outer-training-fold LDA priors in internal validation; fitted full-cohort priors for inference",
     training_feature_min = apply(X, 2L, min),
     training_feature_max = apply(X, 2L, max),
     training_feature_mean = colMeans(X),
@@ -280,6 +405,8 @@ run_binary <- function(i) {
       contains_patient_level_training_rows = FALSE,
       intended_population = job$tumor_type,
       positive_class = "1",
+      primary_binary_decision_rule =
+        "empirical outer-training-fold LDA priors in internal validation; fitted full-cohort priors for inference",
       endpoint_transform = "none",
       output_units = "class label and uncalibrated LDA score",
       fastPLS_version = fastpls_version,
@@ -330,7 +457,10 @@ run_binary <- function(i) {
     analysis_fingerprint = analysis_fingerprint,
     contains_patient_level_training_rows = FALSE,
     intended_use = "Research use only; TCGA discovery model without external validation",
-    redistribution_status = "local artifact; public release requires upstream permission"
+    redistribution_status = paste(
+      "private TITAN-derived artifact; non-commercial academic research only;",
+      "public redistribution prohibited unless the TITAN rights holder grants permission"
+    )
   )
   saveRDS(list(analysis_fingerprint = analysis_fingerprint,
                repeats = repeat_rows, predictions = prediction_rows,
@@ -372,6 +502,10 @@ if (!all(vapply(objects, function(z) {
 }, logical(1)))) {
   stop("At least one selected checkpoint has a stale analysis fingerprint")
 }
+reuse_audit <- rbindlist(lapply(objects, function(z) {
+  if (!is.null(z$provenance_reuse_audit)) z$provenance_reuse_audit else NULL
+}), fill = TRUE)
+fwrite(reuse_audit, "results/tables/robustness_checkpoint_reuse_audit.csv")
 continuous_repeats <- rbindlist(lapply(objects, function(z) {
   if (z$registry$outcome_type == "continuous") z$repeats else NULL
 }), fill = TRUE)
@@ -393,4 +527,18 @@ fwrite(continuous_predictions,
        "results/predictions/continuous_repeated_oof_predictions.csv.gz")
 fwrite(binary_predictions,
        "results/predictions/binary_repeated_oof_predictions.csv.gz")
-cat("saved research models:", nrow(registry), "\n")
+registered_model_files <- normalizePath(
+  registry$file, mustWork = TRUE
+)
+existing_model_files <- list.files(
+  "models", pattern = "[.]rds$", full.names = TRUE, recursive = FALSE
+)
+existing_model_files <- normalizePath(existing_model_files, mustWork = TRUE)
+stale_model_files <- setdiff(existing_model_files, registered_model_files)
+if (length(stale_model_files)) {
+  removed <- unlink(stale_model_files)
+  if (any(removed != 0L)) stop("Failed to remove stale TITAN model artifacts")
+}
+cat("saved research models:", nrow(registry),
+    "; provenance-audited checkpoints reused:", nrow(reuse_audit),
+    "; stale unregistered artifacts removed:", length(stale_model_files), "\n")

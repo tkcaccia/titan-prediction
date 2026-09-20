@@ -2,7 +2,7 @@ analysis_config <- list(
   seed = 20260815L,
   feature_pattern = "^titan_[0-9]{3}$",
   expected_features = 768L,
-  components = 1:10,
+  components = 1:20,
   outer_folds = 5L,
   inner_folds = 5L,
   robustness_repeats = 5L,
@@ -14,8 +14,8 @@ analysis_config <- list(
   initial_permutations = 99L,
   extended_permutations = 999L,
   fdr_alpha = 0.05,
-  lda_ridge = 1e-8,
   svd_method = "rsvd",
-  rsvd_oversample = 10L,
-  rsvd_power = 2L
+  # Current fastPLS 0.3 defaults for the ordinary-shape rSVD profile.
+  rsvd_oversample = 32L,
+  rsvd_power = 5L
 )

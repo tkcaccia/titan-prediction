@@ -16,7 +16,12 @@ registry <- fread("models/model_registry.csv")
 
 continuous_summary <- continuous_repeats[, .(
   repeated_q2_mean = mean(q2), repeated_q2_sd = sd(q2),
+  repeated_q2_median = median(q2),
+  repeated_q2_q1 = quantile(q2, 0.25),
+  repeated_q2_q3 = quantile(q2, 0.75),
   repeated_q2_min = min(q2), repeated_q2_max = max(q2),
+  repeated_q2_crossing_count = sum(q2 >= 0.20),
+  repeated_q2_crossing_proportion = mean(q2 >= 0.20),
   repeated_rmse_mean = mean(rmse), repeated_rmse_sd = sd(rmse),
   repeated_spearman_mean = mean(spearman), repeated_spearman_sd = sd(spearman),
   nested_partitions = .N
@@ -41,8 +46,15 @@ binary_summary <- binary_repeats[, .(
   repeated_specificity_sd = sd(specificity),
   repeated_balanced_accuracy_mean = mean(balanced_accuracy),
   repeated_balanced_accuracy_sd = sd(balanced_accuracy),
+  repeated_balanced_accuracy_median = median(balanced_accuracy),
+  repeated_balanced_accuracy_q1 = quantile(balanced_accuracy, 0.25),
+  repeated_balanced_accuracy_q3 = quantile(balanced_accuracy, 0.75),
   repeated_balanced_accuracy_min = min(balanced_accuracy),
   repeated_balanced_accuracy_max = max(balanced_accuracy),
+  repeated_balanced_accuracy_crossing_count =
+    sum(balanced_accuracy >= 0.60),
+  repeated_balanced_accuracy_crossing_proportion =
+    mean(balanced_accuracy >= 0.60),
   repeated_auc_mean = mean(auc), repeated_auc_sd = sd(auc),
   nested_partitions = .N
 ), by = .(family, tumor_type, endpoint)]
@@ -99,8 +111,8 @@ summary_common <- merge(
   by = c("family", "tumor_type", "endpoint"), all.x = TRUE
 )
 summary_common[, evidence_label := fifelse(
-  tier == "A", "within-cancer screen-positive, prespecified screening tier A",
-  "within-cancer screen-positive, prespecified screening tier B"
+  tier == "A", "within-cancer screen-positive, documented screening tier A",
+  "within-cancer screen-positive, documented screening tier B"
 )]
 setorder(summary_common, outcome_type, family, tumor_type, endpoint)
 fwrite(summary_common,
@@ -219,6 +231,48 @@ binary_ci[, outcome_type := "binary"]
 
 highlighted <- rbindlist(list(continuous_ci, binary_ci),
                          use.names = TRUE, fill = TRUE)
+
+# Keep the finite set of five repeat-specific metrics visible beside the
+# patient-resampling interval. These distributions quantify sensitivity to the
+# five fitted partitions; they are not confidence intervals and do not repeat
+# screening, partition generation, tuning or model fitting.
+highlighted_repeat_distribution <- rbindlist(list(
+  continuous_repeats[, .(
+    outcome_type = "continuous",
+    repeat_metric = "Q2",
+    repeat_metric_mean = mean(q2),
+    repeat_metric_median = median(q2),
+    repeat_metric_q1 = quantile(q2, 0.25),
+    repeat_metric_q3 = quantile(q2, 0.75),
+    repeat_metric_min = min(q2),
+    repeat_metric_max = max(q2),
+    repeat_metric_sd = sd(q2),
+    repeat_crossing_threshold = 0.20,
+    repeat_crossing_count = sum(q2 >= 0.20),
+    repeat_crossing_proportion = mean(q2 >= 0.20),
+    repeat_partitions = .N
+  ), by = .(family, tumor_type, endpoint)],
+  binary_repeats[, .(
+    outcome_type = "binary",
+    repeat_metric = "balanced accuracy",
+    repeat_metric_mean = mean(balanced_accuracy),
+    repeat_metric_median = median(balanced_accuracy),
+    repeat_metric_q1 = quantile(balanced_accuracy, 0.25),
+    repeat_metric_q3 = quantile(balanced_accuracy, 0.75),
+    repeat_metric_min = min(balanced_accuracy),
+    repeat_metric_max = max(balanced_accuracy),
+    repeat_metric_sd = sd(balanced_accuracy),
+    repeat_crossing_threshold = 0.60,
+    repeat_crossing_count = sum(balanced_accuracy >= 0.60),
+    repeat_crossing_proportion = mean(balanced_accuracy >= 0.60),
+    repeat_partitions = .N
+  ), by = .(family, tumor_type, endpoint)]
+), use.names = TRUE)
+highlighted <- merge(
+  highlighted, highlighted_repeat_distribution,
+  by = c("outcome_type", "family", "tumor_type", "endpoint"),
+  all.x = TRUE
+)
 highlighted <- merge(
   highlighted,
   registry[, .(family, tumor_type = cancer_type, endpoint, model_id, ncomp,

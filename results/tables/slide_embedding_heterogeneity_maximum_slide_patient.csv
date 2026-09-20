@@ -1,0 +1,4 @@
+patient,foundation_model,n_slides,mean_pairwise_cosine_distance,maximum_pairwise_cosine_distance,mean_slide_to_centroid_cosine_distance,maximum_slide_to_centroid_cosine_distance,mean_vs_median_centroid_cosine_distance,maximum_leave_one_slide_out_centroid_cosine_distance,tumor_type,slide_count_band
+TCGA-DX-AB2L,TITAN,30,0.280870499756243,0.778372283778557,0.147024234040416,0.513606225034426,0.00884491749382765,0.000419194493829989,SARC,>5
+TCGA-DX-AB2L,GigaSSL,30,0.262383214262776,0.649160370728698,0.136077033017807,0.330869276708535,0.0114531160360409,0.000432874031502939,SARC,>5
+TCGA-DX-AB2L,ProvGigaPath,30,0.0838614396846056,0.226081776286977,0.0413895777543579,0.0887434750076974,0.00163881205346827,0.000109347220430989,SARC,>5

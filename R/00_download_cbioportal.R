@@ -1,6 +1,7 @@
 suppressPackageStartupMessages(library(data.table))
 source("R/utils.R")
 cfg <- load_project_config()
+dir.create("results/tables", recursive = TRUE, showWarnings = FALSE)
 
 studies <- c(
   "acc", "blca", "brca", "cesc", "chol", "coadread", "dlbc", "esca",
@@ -30,4 +31,3 @@ for (i in seq_along(studies)) {
   )
 }
 fwrite(rbindlist(manifest), "results/tables/cbioportal_download_manifest.csv")
-

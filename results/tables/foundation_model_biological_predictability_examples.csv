@@ -1,0 +1,19 @@
+outcome_type,tumor_type,family,endpoint,display_label,n,effect_TITAN,effect_GigaSSL,effect_ProvGigaPath,tss_retention_class
+binary,THYM,driver_mutation,GTF2I,THYM: GTF2I mutation,116,0.903657448706512,0.88373476063039,0.893250074338388,complete retention
+binary,COAD,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),COAD: MSI-H strict (MANTIS >0.6),373,0.940232086525462,0.850777377196936,0.857311852185669,complete retention
+binary,LGG,oncogenic_pathway,TP53,LGG: TP53,481,0.889779177627025,0.836044579814482,0.860739997231067,complete retention
+binary,STAD,microsatellite_instability,MSI-H (MANTIS >0.4),STAD: MSI-H (MANTIS >0.4),365,0.887788778877888,0.78867241562866,0.809219631640583,complete retention
+binary,COAD,aneuploidy,Genome doubling,COAD: Genome doubling,407,0.745679939894816,0.763461056849487,0.76481342349111,complete retention
+binary,THCA,fusion,Any called fusion,THCA: Any called fusion,492,0.662889815066915,0.666429304458919,0.691017236685027,complete retention
+binary,LGG,driver_mutation,TP53,LGG: TP53 mutation,485,0.911561264822134,0.86597042387897,0.871882240697833,complete retention
+binary,THCA,driver_mutation,BRAF,THCA: BRAF mutation,480,0.885714800663254,0.861743926176916,0.856589287001658,complete retention
+binary,LGG,driver_mutation,CIC,LGG: CIC mutation,485,0.887644110275689,0.809022556390977,0.86406015037594,complete retention
+continuous,TGCT,rna_pathway_activity,HALLMARK_ANGIOGENESIS,TGCT: Angiogenesis,149,0.721836408052679,0.644968218445681,0.623691485861132,complete retention
+continuous,TGCT,thorsson,TGF-beta Response,TGCT: TGF-beta Response,148,0.661787923693647,0.646897642945961,0.601040516868845,complete retention
+continuous,TGCT,thorsson,Stromal Fraction,TGCT: Stromal Fraction,148,0.473373700953869,0.427490295573499,0.436860814719022,complete retention
+continuous,THYM,thorsson,TCR Shannon,THYM: TCR Shannon,113,0.478222584851464,0.455335577504067,0.377498809786314,complete retention
+continuous,KIRP,thorsson,Leukocyte Fraction,KIRP: Leukocyte Fraction,268,0.36827500690793,0.401014023271326,0.406976211228264,complete retention
+continuous,TGCT,rna_pathway_activity,HALLMARK_GLYCOLYSIS,TGCT: Glycolysis,149,0.72279893745324,0.622765731006394,0.666934648791333,complete retention
+continuous,TGCT,rna_pathway_activity,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,TGCT: Epithelial-mesenchymal transition,149,0.601312408522298,0.612025272404057,0.58298010681573,complete retention
+continuous,TGCT,rna_pathway_activity,HALLMARK_HYPOXIA,TGCT: Hypoxia,149,0.65616172788265,0.581516679956338,0.586341441195594,complete retention
+continuous,TGCT,rna_pathway_activity,HALLMARK_NOTCH_SIGNALING,TGCT: Notch Signaling,149,0.672895467015053,0.571266976135073,0.546654293816901,complete retention
