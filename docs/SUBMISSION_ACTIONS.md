@@ -1,13 +1,13 @@
 # Author actions required before submission
 
-The generated manuscript deliberately does not invent the following information.
+The authors confirmed that no competing interests and no grant funding apply.
+The manuscript now includes a complete CRediT contribution statement.
 
-1. Confirm the competing-interests declaration.
-2. Supply the complete funding statement, including grant numbers.
-3. Approve a CRediT contribution statement for every author.
-4. Create a versioned source release from the synchronized commits and archive
+The remaining archival actions are:
+
+1. Create a versioned source release from the synchronized commits and archive
    it with Zenodo or an equivalent repository.
-5. Insert the resulting source-release tag, immutable commits and DOI in the
+2. Insert the resulting source-release tag, immutable commits and DOI in the
    manuscript and data-availability statement.
 
 The current working tree is not an archival release and must not be cited as one.
@@ -36,10 +36,9 @@ The existing `models-v1` release contains an older fitted-object snapshot and
 does not match the checksums pinned by the current package. It must not be
 presented as the model release for version 0.3.0.
 
-## Remaining author-dependent actions
+## Deferred archival action
 
-The competing-interests, funding and CRediT statements still require factual
-author confirmation. A versioned source-code release and persistent DOI must
-then be created from the final synchronized commits and inserted into the
-submission documents. The `models-v2` asset release is not a substitute for
-that source-code archive.
+At the corresponding author's request, no DOI is being created at this stage.
+A versioned source-code release and persistent DOI should be created from the
+final synchronized commits before final submission or acceptance. The
+`models-v2` asset release is not a substitute for that source-code archive.
