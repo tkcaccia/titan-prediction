@@ -1,0 +1,718 @@
+foundation_model,outcome_type,family,endpoint,source,eligible_cancers,retained_cancers,retained_cancer_percent,retained_cancer_codes
+GigaSSL,binary,aneuploidy,Genome doubling,Taylor2018_TableS2,21,16,76.1904761904762,ACC;BLCA;CESC;COAD;HNSC;KIRC;LIHC;LUAD;LUSC;OV;PAAD;PRAD;READ;SARC;STAD;UCEC
+ProvGigaPath,binary,aneuploidy,Genome doubling,Taylor2018_TableS2,21,17,80.952380952381,ACC;BLCA;CESC;COAD;GBM;HNSC;KIRC;LIHC;LUAD;LUSC;OV;PAAD;READ;SARC;SKCM;STAD;UCEC
+TITAN,binary,aneuploidy,Genome doubling,Taylor2018_TableS2,21,17,80.952380952381,BLCA;CESC;COAD;GBM;HNSC;KIRC;LIHC;LUAD;LUSC;OV;PAAD;PCPG;PRAD;SARC;SKCM;STAD;UCEC
+GigaSSL,binary,driver_mutation,ACVR1,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,ACVR1,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,ACVR1,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,ACVR2A,TCGA_MC3_Bailey2018,1,1,100,COAD
+ProvGigaPath,binary,driver_mutation,ACVR2A,TCGA_MC3_Bailey2018,1,1,100,COAD
+TITAN,binary,driver_mutation,ACVR2A,TCGA_MC3_Bailey2018,1,1,100,COAD
+GigaSSL,binary,driver_mutation,AJUBA,TCGA_MC3_Bailey2018,1,1,100,HNSC
+ProvGigaPath,binary,driver_mutation,AJUBA,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,AJUBA,TCGA_MC3_Bailey2018,1,1,100,HNSC
+GigaSSL,binary,driver_mutation,ALB,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,ALB,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,ALB,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,AMER1,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,AMER1,TCGA_MC3_Bailey2018,1,1,100,COAD
+TITAN,binary,driver_mutation,AMER1,TCGA_MC3_Bailey2018,1,1,100,COAD
+GigaSSL,binary,driver_mutation,APC,TCGA_MC3_Bailey2018,3,2,66.6666666666667,COAD;READ
+ProvGigaPath,binary,driver_mutation,APC,TCGA_MC3_Bailey2018,3,2,66.6666666666667,COAD;READ
+TITAN,binary,driver_mutation,APC,TCGA_MC3_Bailey2018,3,3,100,COAD;READ;STAD
+GigaSSL,binary,driver_mutation,APOB,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,APOB,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,APOB,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,ARHGAP35,TCGA_MC3_Bailey2018,2,1,50,UCEC
+ProvGigaPath,binary,driver_mutation,ARHGAP35,TCGA_MC3_Bailey2018,2,1,50,LUSC
+TITAN,binary,driver_mutation,ARHGAP35,TCGA_MC3_Bailey2018,2,1,50,LUSC
+GigaSSL,binary,driver_mutation,ARID1A,TCGA_MC3_Bailey2018,7,3,42.8571428571429,LIHC;STAD;UCEC
+ProvGigaPath,binary,driver_mutation,ARID1A,TCGA_MC3_Bailey2018,7,3,42.8571428571429,COAD;STAD;UCEC
+TITAN,binary,driver_mutation,ARID1A,TCGA_MC3_Bailey2018,7,3,42.8571428571429,COAD;STAD;UCEC
+GigaSSL,binary,driver_mutation,ARID2,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,ARID2,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,ARID2,TCGA_MC3_Bailey2018,1,1,100,STAD
+GigaSSL,binary,driver_mutation,ARID5B,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,ARID5B,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,ARID5B,TCGA_MC3_Bailey2018,1,1,100,UCEC
+GigaSSL,binary,driver_mutation,ASXL2,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,ASXL2,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,ASXL2,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,ATF7IP,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,ATF7IP,TCGA_MC3_Bailey2018,1,1,100,UCEC
+TITAN,binary,driver_mutation,ATF7IP,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,ATM,TCGA_MC3_Bailey2018,3,1,33.3333333333333,UCEC
+ProvGigaPath,binary,driver_mutation,ATM,TCGA_MC3_Bailey2018,3,1,33.3333333333333,UCEC
+TITAN,binary,driver_mutation,ATM,TCGA_MC3_Bailey2018,3,2,66.6666666666667,BLCA;UCEC
+GigaSSL,binary,driver_mutation,ATR,TCGA_MC3_Bailey2018,1,1,100,UCEC
+ProvGigaPath,binary,driver_mutation,ATR,TCGA_MC3_Bailey2018,1,1,100,UCEC
+TITAN,binary,driver_mutation,ATR,TCGA_MC3_Bailey2018,1,1,100,UCEC
+GigaSSL,binary,driver_mutation,ATRX,TCGA_MC3_Bailey2018,2,1,50,LGG
+ProvGigaPath,binary,driver_mutation,ATRX,TCGA_MC3_Bailey2018,2,1,50,LGG
+TITAN,binary,driver_mutation,ATRX,TCGA_MC3_Bailey2018,2,2,100,LGG;SARC
+GigaSSL,binary,driver_mutation,AXIN1,TCGA_MC3_Bailey2018,1,1,100,LIHC
+ProvGigaPath,binary,driver_mutation,AXIN1,TCGA_MC3_Bailey2018,1,1,100,LIHC
+TITAN,binary,driver_mutation,AXIN1,TCGA_MC3_Bailey2018,1,1,100,LIHC
+GigaSSL,binary,driver_mutation,BAP1,TCGA_MC3_Bailey2018,2,2,100,KIRC;LIHC
+ProvGigaPath,binary,driver_mutation,BAP1,TCGA_MC3_Bailey2018,2,1,50,LIHC
+TITAN,binary,driver_mutation,BAP1,TCGA_MC3_Bailey2018,2,2,100,KIRC;LIHC
+GigaSSL,binary,driver_mutation,BCOR,TCGA_MC3_Bailey2018,2,0,0,""
+ProvGigaPath,binary,driver_mutation,BCOR,TCGA_MC3_Bailey2018,2,1,50,STAD
+TITAN,binary,driver_mutation,BCOR,TCGA_MC3_Bailey2018,2,2,100,STAD;UCEC
+GigaSSL,binary,driver_mutation,BRAF,TCGA_MC3_Bailey2018,4,3,75,COAD;SKCM;THCA
+ProvGigaPath,binary,driver_mutation,BRAF,TCGA_MC3_Bailey2018,4,2,50,COAD;THCA
+TITAN,binary,driver_mutation,BRAF,TCGA_MC3_Bailey2018,4,3,75,COAD;SKCM;THCA
+GigaSSL,binary,driver_mutation,CASP8,TCGA_MC3_Bailey2018,1,1,100,HNSC
+ProvGigaPath,binary,driver_mutation,CASP8,TCGA_MC3_Bailey2018,1,1,100,HNSC
+TITAN,binary,driver_mutation,CASP8,TCGA_MC3_Bailey2018,1,1,100,HNSC
+GigaSSL,binary,driver_mutation,CCND1,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,CCND1,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,CCND1,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,CDH1,TCGA_MC3_Bailey2018,1,1,100,STAD
+ProvGigaPath,binary,driver_mutation,CDH1,TCGA_MC3_Bailey2018,1,1,100,STAD
+TITAN,binary,driver_mutation,CDH1,TCGA_MC3_Bailey2018,1,1,100,STAD
+GigaSSL,binary,driver_mutation,CDKN1A,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,CDKN1A,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,CDKN1A,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,CDKN2A,TCGA_MC3_Bailey2018,4,0,0,""
+ProvGigaPath,binary,driver_mutation,CDKN2A,TCGA_MC3_Bailey2018,4,0,0,""
+TITAN,binary,driver_mutation,CDKN2A,TCGA_MC3_Bailey2018,4,1,25,BLCA
+GigaSSL,binary,driver_mutation,CHD3,TCGA_MC3_Bailey2018,1,1,100,UCEC
+ProvGigaPath,binary,driver_mutation,CHD3,TCGA_MC3_Bailey2018,1,1,100,UCEC
+TITAN,binary,driver_mutation,CHD3,TCGA_MC3_Bailey2018,1,1,100,UCEC
+GigaSSL,binary,driver_mutation,CHD4,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,CHD4,TCGA_MC3_Bailey2018,1,1,100,UCEC
+TITAN,binary,driver_mutation,CHD4,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,CIC,TCGA_MC3_Bailey2018,1,1,100,LGG
+ProvGigaPath,binary,driver_mutation,CIC,TCGA_MC3_Bailey2018,1,1,100,LGG
+TITAN,binary,driver_mutation,CIC,TCGA_MC3_Bailey2018,1,1,100,LGG
+GigaSSL,binary,driver_mutation,CREBBP,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,CREBBP,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,CREBBP,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,CTCF,TCGA_MC3_Bailey2018,1,1,100,UCEC
+ProvGigaPath,binary,driver_mutation,CTCF,TCGA_MC3_Bailey2018,1,1,100,UCEC
+TITAN,binary,driver_mutation,CTCF,TCGA_MC3_Bailey2018,1,1,100,UCEC
+GigaSSL,binary,driver_mutation,CTNNB1,TCGA_MC3_Bailey2018,4,3,75,COAD;STAD;UCEC
+ProvGigaPath,binary,driver_mutation,CTNNB1,TCGA_MC3_Bailey2018,4,2,50,LIHC;STAD
+TITAN,binary,driver_mutation,CTNNB1,TCGA_MC3_Bailey2018,4,4,100,COAD;LIHC;STAD;UCEC
+GigaSSL,binary,driver_mutation,CTNND1,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,CTNND1,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,CTNND1,TCGA_MC3_Bailey2018,1,1,100,UCEC
+GigaSSL,binary,driver_mutation,CUL3,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,CUL3,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,CUL3,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,DICER1,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,DICER1,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,DICER1,TCGA_MC3_Bailey2018,1,1,100,UCEC
+GigaSSL,binary,driver_mutation,DMD,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,DMD,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,DMD,TCGA_MC3_Bailey2018,1,1,100,STAD
+GigaSSL,binary,driver_mutation,EGFR,TCGA_MC3_Bailey2018,3,2,66.6666666666667,LGG;LUAD
+ProvGigaPath,binary,driver_mutation,EGFR,TCGA_MC3_Bailey2018,3,2,66.6666666666667,LGG;LUAD
+TITAN,binary,driver_mutation,EGFR,TCGA_MC3_Bailey2018,3,2,66.6666666666667,LGG;LUAD
+GigaSSL,binary,driver_mutation,ELF3,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,ELF3,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,ELF3,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,EP300,TCGA_MC3_Bailey2018,4,1,25,CESC
+ProvGigaPath,binary,driver_mutation,EP300,TCGA_MC3_Bailey2018,4,0,0,""
+TITAN,binary,driver_mutation,EP300,TCGA_MC3_Bailey2018,4,2,50,CESC;UCEC
+GigaSSL,binary,driver_mutation,EPHA2,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,EPHA2,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,EPHA2,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,ERBB2,TCGA_MC3_Bailey2018,2,0,0,""
+ProvGigaPath,binary,driver_mutation,ERBB2,TCGA_MC3_Bailey2018,2,1,50,BLCA
+TITAN,binary,driver_mutation,ERBB2,TCGA_MC3_Bailey2018,2,0,0,""
+GigaSSL,binary,driver_mutation,ERBB3,TCGA_MC3_Bailey2018,2,0,0,""
+ProvGigaPath,binary,driver_mutation,ERBB3,TCGA_MC3_Bailey2018,2,0,0,""
+TITAN,binary,driver_mutation,ERBB3,TCGA_MC3_Bailey2018,2,1,50,UCEC
+GigaSSL,binary,driver_mutation,ERBB4,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,ERBB4,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,ERBB4,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,ERCC2,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,ERCC2,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,ERCC2,TCGA_MC3_Bailey2018,1,1,100,BLCA
+GigaSSL,binary,driver_mutation,FAT1,TCGA_MC3_Bailey2018,4,1,25,UCEC
+ProvGigaPath,binary,driver_mutation,FAT1,TCGA_MC3_Bailey2018,4,0,0,""
+TITAN,binary,driver_mutation,FAT1,TCGA_MC3_Bailey2018,4,0,0,""
+GigaSSL,binary,driver_mutation,FBXW7,TCGA_MC3_Bailey2018,8,4,50,COAD;LUSC;STAD;UCEC
+ProvGigaPath,binary,driver_mutation,FBXW7,TCGA_MC3_Bailey2018,8,2,25,STAD;UCEC
+TITAN,binary,driver_mutation,FBXW7,TCGA_MC3_Bailey2018,8,2,25,COAD;STAD
+GigaSSL,binary,driver_mutation,FGFR2,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,FGFR2,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,FGFR2,TCGA_MC3_Bailey2018,1,1,100,UCEC
+GigaSSL,binary,driver_mutation,FGFR3,TCGA_MC3_Bailey2018,1,1,100,BLCA
+ProvGigaPath,binary,driver_mutation,FGFR3,TCGA_MC3_Bailey2018,1,1,100,BLCA
+TITAN,binary,driver_mutation,FGFR3,TCGA_MC3_Bailey2018,1,1,100,BLCA
+GigaSSL,binary,driver_mutation,FOXA1,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,FOXA1,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,FOXA1,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,FOXA2,TCGA_MC3_Bailey2018,1,1,100,UCEC
+ProvGigaPath,binary,driver_mutation,FOXA2,TCGA_MC3_Bailey2018,1,1,100,UCEC
+TITAN,binary,driver_mutation,FOXA2,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,FUBP1,TCGA_MC3_Bailey2018,1,1,100,LGG
+ProvGigaPath,binary,driver_mutation,FUBP1,TCGA_MC3_Bailey2018,1,1,100,LGG
+TITAN,binary,driver_mutation,FUBP1,TCGA_MC3_Bailey2018,1,1,100,LGG
+GigaSSL,binary,driver_mutation,GNA11,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,GNA11,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,GNA11,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,GNAQ,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,GNAQ,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,GNAQ,TCGA_MC3_Bailey2018,1,1,100,UVM
+GigaSSL,binary,driver_mutation,GTF2I,TCGA_MC3_Bailey2018,1,1,100,THYM
+ProvGigaPath,binary,driver_mutation,GTF2I,TCGA_MC3_Bailey2018,1,1,100,THYM
+TITAN,binary,driver_mutation,GTF2I,TCGA_MC3_Bailey2018,1,1,100,THYM
+GigaSSL,binary,driver_mutation,HLA-B,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,HLA-B,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,HLA-B,TCGA_MC3_Bailey2018,1,1,100,HNSC
+GigaSSL,binary,driver_mutation,HRAS,TCGA_MC3_Bailey2018,1,1,100,HNSC
+ProvGigaPath,binary,driver_mutation,HRAS,TCGA_MC3_Bailey2018,1,1,100,HNSC
+TITAN,binary,driver_mutation,HRAS,TCGA_MC3_Bailey2018,1,1,100,HNSC
+GigaSSL,binary,driver_mutation,HUWE1,TCGA_MC3_Bailey2018,1,1,100,HNSC
+ProvGigaPath,binary,driver_mutation,HUWE1,TCGA_MC3_Bailey2018,1,1,100,HNSC
+TITAN,binary,driver_mutation,HUWE1,TCGA_MC3_Bailey2018,1,1,100,HNSC
+GigaSSL,binary,driver_mutation,IDH1,TCGA_MC3_Bailey2018,1,1,100,LGG
+ProvGigaPath,binary,driver_mutation,IDH1,TCGA_MC3_Bailey2018,1,1,100,LGG
+TITAN,binary,driver_mutation,IDH1,TCGA_MC3_Bailey2018,1,1,100,LGG
+GigaSSL,binary,driver_mutation,IDH2,TCGA_MC3_Bailey2018,1,1,100,LGG
+ProvGigaPath,binary,driver_mutation,IDH2,TCGA_MC3_Bailey2018,1,1,100,LGG
+TITAN,binary,driver_mutation,IDH2,TCGA_MC3_Bailey2018,1,1,100,LGG
+GigaSSL,binary,driver_mutation,INPPL1,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,INPPL1,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,INPPL1,TCGA_MC3_Bailey2018,1,1,100,UCEC
+GigaSSL,binary,driver_mutation,KANSL1,TCGA_MC3_Bailey2018,2,1,50,UCEC
+ProvGigaPath,binary,driver_mutation,KANSL1,TCGA_MC3_Bailey2018,2,1,50,UCEC
+TITAN,binary,driver_mutation,KANSL1,TCGA_MC3_Bailey2018,2,1,50,UCEC
+GigaSSL,binary,driver_mutation,KDM6A,TCGA_MC3_Bailey2018,2,0,0,""
+ProvGigaPath,binary,driver_mutation,KDM6A,TCGA_MC3_Bailey2018,2,0,0,""
+TITAN,binary,driver_mutation,KDM6A,TCGA_MC3_Bailey2018,2,0,0,""
+GigaSSL,binary,driver_mutation,KEAP1,TCGA_MC3_Bailey2018,3,2,66.6666666666667,HNSC;LUSC
+ProvGigaPath,binary,driver_mutation,KEAP1,TCGA_MC3_Bailey2018,3,1,33.3333333333333,LUAD
+TITAN,binary,driver_mutation,KEAP1,TCGA_MC3_Bailey2018,3,3,100,HNSC;LUAD;LUSC
+GigaSSL,binary,driver_mutation,KIT,TCGA_MC3_Bailey2018,1,1,100,TGCT
+ProvGigaPath,binary,driver_mutation,KIT,TCGA_MC3_Bailey2018,1,1,100,TGCT
+TITAN,binary,driver_mutation,KIT,TCGA_MC3_Bailey2018,1,1,100,TGCT
+GigaSSL,binary,driver_mutation,KLF5,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,KLF5,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,KLF5,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,KMT2B,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,KMT2B,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,KMT2B,TCGA_MC3_Bailey2018,1,1,100,UCEC
+GigaSSL,binary,driver_mutation,KMT2C,TCGA_MC3_Bailey2018,3,0,0,""
+ProvGigaPath,binary,driver_mutation,KMT2C,TCGA_MC3_Bailey2018,3,0,0,""
+TITAN,binary,driver_mutation,KMT2C,TCGA_MC3_Bailey2018,3,1,33.3333333333333,UCEC
+GigaSSL,binary,driver_mutation,KMT2D,TCGA_MC3_Bailey2018,4,0,0,""
+ProvGigaPath,binary,driver_mutation,KMT2D,TCGA_MC3_Bailey2018,4,0,0,""
+TITAN,binary,driver_mutation,KMT2D,TCGA_MC3_Bailey2018,4,2,50,CESC;HNSC
+GigaSSL,binary,driver_mutation,KRAS,TCGA_MC3_Bailey2018,6,2,33.3333333333333,COAD;STAD
+ProvGigaPath,binary,driver_mutation,KRAS,TCGA_MC3_Bailey2018,6,5,83.3333333333333,COAD;PAAD;READ;STAD;UCEC
+TITAN,binary,driver_mutation,KRAS,TCGA_MC3_Bailey2018,6,3,50,COAD;STAD;UCEC
+GigaSSL,binary,driver_mutation,MAP3K1,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,MAP3K1,TCGA_MC3_Bailey2018,1,1,100,UCEC
+TITAN,binary,driver_mutation,MAP3K1,TCGA_MC3_Bailey2018,1,1,100,UCEC
+GigaSSL,binary,driver_mutation,MGA,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,MGA,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,MGA,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,MSH6,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,MSH6,TCGA_MC3_Bailey2018,1,1,100,UCEC
+TITAN,binary,driver_mutation,MSH6,TCGA_MC3_Bailey2018,1,1,100,UCEC
+GigaSSL,binary,driver_mutation,MTOR,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,MTOR,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,MTOR,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,MUC6,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,MUC6,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,MUC6,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,NF1,TCGA_MC3_Bailey2018,3,0,0,""
+ProvGigaPath,binary,driver_mutation,NF1,TCGA_MC3_Bailey2018,3,0,0,""
+TITAN,binary,driver_mutation,NF1,TCGA_MC3_Bailey2018,3,2,66.6666666666667,LGG;LUAD
+GigaSSL,binary,driver_mutation,NFE2L2,TCGA_MC3_Bailey2018,4,0,0,""
+ProvGigaPath,binary,driver_mutation,NFE2L2,TCGA_MC3_Bailey2018,4,0,0,""
+TITAN,binary,driver_mutation,NFE2L2,TCGA_MC3_Bailey2018,4,2,50,BLCA;LUSC
+GigaSSL,binary,driver_mutation,NOTCH1,TCGA_MC3_Bailey2018,3,0,0,""
+ProvGigaPath,binary,driver_mutation,NOTCH1,TCGA_MC3_Bailey2018,3,1,33.3333333333333,LGG
+TITAN,binary,driver_mutation,NOTCH1,TCGA_MC3_Bailey2018,3,1,33.3333333333333,LGG
+GigaSSL,binary,driver_mutation,NRAS,TCGA_MC3_Bailey2018,1,1,100,THCA
+ProvGigaPath,binary,driver_mutation,NRAS,TCGA_MC3_Bailey2018,1,1,100,THCA
+TITAN,binary,driver_mutation,NRAS,TCGA_MC3_Bailey2018,1,1,100,THCA
+GigaSSL,binary,driver_mutation,NSD1,TCGA_MC3_Bailey2018,1,1,100,HNSC
+ProvGigaPath,binary,driver_mutation,NSD1,TCGA_MC3_Bailey2018,1,1,100,HNSC
+TITAN,binary,driver_mutation,NSD1,TCGA_MC3_Bailey2018,1,1,100,HNSC
+GigaSSL,binary,driver_mutation,PBRM1,TCGA_MC3_Bailey2018,2,1,50,KIRC
+ProvGigaPath,binary,driver_mutation,PBRM1,TCGA_MC3_Bailey2018,2,2,100,KIRC;UCEC
+TITAN,binary,driver_mutation,PBRM1,TCGA_MC3_Bailey2018,2,2,100,KIRC;UCEC
+GigaSSL,binary,driver_mutation,PDS5B,TCGA_MC3_Bailey2018,1,1,100,UCEC
+ProvGigaPath,binary,driver_mutation,PDS5B,TCGA_MC3_Bailey2018,1,1,100,UCEC
+TITAN,binary,driver_mutation,PDS5B,TCGA_MC3_Bailey2018,1,1,100,UCEC
+GigaSSL,binary,driver_mutation,PIK3CA,TCGA_MC3_Bailey2018,10,2,20,COAD;STAD
+ProvGigaPath,binary,driver_mutation,PIK3CA,TCGA_MC3_Bailey2018,10,3,30,COAD;LGG;STAD
+TITAN,binary,driver_mutation,PIK3CA,TCGA_MC3_Bailey2018,10,3,30,BLCA;LUAD;STAD
+GigaSSL,binary,driver_mutation,PIK3R1,TCGA_MC3_Bailey2018,2,0,0,""
+ProvGigaPath,binary,driver_mutation,PIK3R1,TCGA_MC3_Bailey2018,2,0,0,""
+TITAN,binary,driver_mutation,PIK3R1,TCGA_MC3_Bailey2018,2,0,0,""
+GigaSSL,binary,driver_mutation,PPP2R1A,TCGA_MC3_Bailey2018,1,1,100,UCEC
+ProvGigaPath,binary,driver_mutation,PPP2R1A,TCGA_MC3_Bailey2018,1,1,100,UCEC
+TITAN,binary,driver_mutation,PPP2R1A,TCGA_MC3_Bailey2018,1,1,100,UCEC
+GigaSSL,binary,driver_mutation,PTEN,TCGA_MC3_Bailey2018,5,3,60,LGG;STAD;UCEC
+ProvGigaPath,binary,driver_mutation,PTEN,TCGA_MC3_Bailey2018,5,2,40,LGG;UCEC
+TITAN,binary,driver_mutation,PTEN,TCGA_MC3_Bailey2018,5,3,60,GBM;LGG;UCEC
+GigaSSL,binary,driver_mutation,RASA1,TCGA_MC3_Bailey2018,2,0,0,""
+ProvGigaPath,binary,driver_mutation,RASA1,TCGA_MC3_Bailey2018,2,0,0,""
+TITAN,binary,driver_mutation,RASA1,TCGA_MC3_Bailey2018,2,2,100,LUSC;STAD
+GigaSSL,binary,driver_mutation,RB1,TCGA_MC3_Bailey2018,5,2,40,BLCA;SARC
+ProvGigaPath,binary,driver_mutation,RB1,TCGA_MC3_Bailey2018,5,2,40,BLCA;SARC
+TITAN,binary,driver_mutation,RB1,TCGA_MC3_Bailey2018,5,3,60,BLCA;SARC;UCEC
+GigaSSL,binary,driver_mutation,RBM10,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,RBM10,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,RBM10,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,RHOA,TCGA_MC3_Bailey2018,1,1,100,STAD
+ProvGigaPath,binary,driver_mutation,RHOA,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,RHOA,TCGA_MC3_Bailey2018,1,1,100,STAD
+GigaSSL,binary,driver_mutation,RHOB,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,RHOB,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,RHOB,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,RNF43,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,RNF43,TCGA_MC3_Bailey2018,1,1,100,STAD
+TITAN,binary,driver_mutation,RNF43,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,RPL22,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,RPL22,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,RPL22,TCGA_MC3_Bailey2018,1,1,100,UCEC
+GigaSSL,binary,driver_mutation,RXRA,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,RXRA,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,RXRA,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,SCAF4,TCGA_MC3_Bailey2018,1,1,100,UCEC
+ProvGigaPath,binary,driver_mutation,SCAF4,TCGA_MC3_Bailey2018,1,1,100,UCEC
+TITAN,binary,driver_mutation,SCAF4,TCGA_MC3_Bailey2018,1,1,100,UCEC
+GigaSSL,binary,driver_mutation,SETD2,TCGA_MC3_Bailey2018,2,0,0,""
+ProvGigaPath,binary,driver_mutation,SETD2,TCGA_MC3_Bailey2018,2,1,50,KIRC
+TITAN,binary,driver_mutation,SETD2,TCGA_MC3_Bailey2018,2,1,50,KIRC
+GigaSSL,binary,driver_mutation,SF3B1,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,SF3B1,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,SF3B1,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,SIN3A,TCGA_MC3_Bailey2018,1,1,100,UCEC
+ProvGigaPath,binary,driver_mutation,SIN3A,TCGA_MC3_Bailey2018,1,1,100,UCEC
+TITAN,binary,driver_mutation,SIN3A,TCGA_MC3_Bailey2018,1,1,100,UCEC
+GigaSSL,binary,driver_mutation,SMAD4,TCGA_MC3_Bailey2018,3,1,33.3333333333333,COAD
+ProvGigaPath,binary,driver_mutation,SMAD4,TCGA_MC3_Bailey2018,3,1,33.3333333333333,COAD
+TITAN,binary,driver_mutation,SMAD4,TCGA_MC3_Bailey2018,3,1,33.3333333333333,COAD
+GigaSSL,binary,driver_mutation,SMARCA4,TCGA_MC3_Bailey2018,2,1,50,LUAD
+ProvGigaPath,binary,driver_mutation,SMARCA4,TCGA_MC3_Bailey2018,2,0,0,""
+TITAN,binary,driver_mutation,SMARCA4,TCGA_MC3_Bailey2018,2,1,50,LUAD
+GigaSSL,binary,driver_mutation,SMC1A,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,SMC1A,TCGA_MC3_Bailey2018,1,1,100,UCEC
+TITAN,binary,driver_mutation,SMC1A,TCGA_MC3_Bailey2018,1,1,100,UCEC
+GigaSSL,binary,driver_mutation,SOS1,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,SOS1,TCGA_MC3_Bailey2018,1,1,100,UCEC
+TITAN,binary,driver_mutation,SOS1,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,SOX17,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,SOX17,TCGA_MC3_Bailey2018,1,1,100,UCEC
+TITAN,binary,driver_mutation,SOX17,TCGA_MC3_Bailey2018,1,1,100,UCEC
+GigaSSL,binary,driver_mutation,SOX9,TCGA_MC3_Bailey2018,1,1,100,COAD
+ProvGigaPath,binary,driver_mutation,SOX9,TCGA_MC3_Bailey2018,1,1,100,COAD
+TITAN,binary,driver_mutation,SOX9,TCGA_MC3_Bailey2018,1,1,100,COAD
+GigaSSL,binary,driver_mutation,SPOP,TCGA_MC3_Bailey2018,2,0,0,""
+ProvGigaPath,binary,driver_mutation,SPOP,TCGA_MC3_Bailey2018,2,0,0,""
+TITAN,binary,driver_mutation,SPOP,TCGA_MC3_Bailey2018,2,1,50,PRAD
+GigaSSL,binary,driver_mutation,SPTAN1,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,SPTAN1,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,SPTAN1,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,STAG2,TCGA_MC3_Bailey2018,1,1,100,BLCA
+ProvGigaPath,binary,driver_mutation,STAG2,TCGA_MC3_Bailey2018,1,1,100,BLCA
+TITAN,binary,driver_mutation,STAG2,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,STK11,TCGA_MC3_Bailey2018,1,1,100,LUAD
+ProvGigaPath,binary,driver_mutation,STK11,TCGA_MC3_Bailey2018,1,1,100,LUAD
+TITAN,binary,driver_mutation,STK11,TCGA_MC3_Bailey2018,1,1,100,LUAD
+GigaSSL,binary,driver_mutation,TAF1,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,TAF1,TCGA_MC3_Bailey2018,1,1,100,UCEC
+TITAN,binary,driver_mutation,TAF1,TCGA_MC3_Bailey2018,1,1,100,UCEC
+GigaSSL,binary,driver_mutation,TCF7L2,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,TCF7L2,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,TCF7L2,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,TGFBR2,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,TGFBR2,TCGA_MC3_Bailey2018,1,1,100,HNSC
+TITAN,binary,driver_mutation,TGFBR2,TCGA_MC3_Bailey2018,1,1,100,HNSC
+GigaSSL,binary,driver_mutation,TP53,TCGA_MC3_Bailey2018,17,13,76.4705882352941,BLCA;COAD;GBM;HNSC;LGG;LIHC;LUAD;OV;PRAD;READ;SARC;STAD;UCEC
+ProvGigaPath,binary,driver_mutation,TP53,TCGA_MC3_Bailey2018,17,13,76.4705882352941,BLCA;COAD;GBM;HNSC;LGG;LIHC;LUAD;OV;PAAD;READ;SARC;STAD;UCEC
+TITAN,binary,driver_mutation,TP53,TCGA_MC3_Bailey2018,17,16,94.1176470588235,BLCA;CESC;COAD;GBM;HNSC;KICH;LGG;LIHC;LUAD;OV;PAAD;PRAD;READ;SARC;STAD;UCEC
+GigaSSL,binary,driver_mutation,TSC1,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,TSC1,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,TSC1,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,VHL,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,VHL,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,VHL,TCGA_MC3_Bailey2018,1,1,100,KIRC
+GigaSSL,binary,driver_mutation,ZFHX3,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,ZFHX3,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,ZFHX3,TCGA_MC3_Bailey2018,1,1,100,UCEC
+GigaSSL,binary,driver_mutation,ZFP36L1,TCGA_MC3_Bailey2018,1,0,0,""
+ProvGigaPath,binary,driver_mutation,ZFP36L1,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,ZFP36L1,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,driver_mutation,ZMYM2,TCGA_MC3_Bailey2018,1,1,100,UCEC
+ProvGigaPath,binary,driver_mutation,ZMYM2,TCGA_MC3_Bailey2018,1,0,0,""
+TITAN,binary,driver_mutation,ZMYM2,TCGA_MC3_Bailey2018,1,0,0,""
+GigaSSL,binary,fusion,Any called fusion,Gao2018_TableS1,24,9,37.5,BLCA;DLBC;LGG;LIHC;MESO;SARC;THCA;THYM;UCEC
+ProvGigaPath,binary,fusion,Any called fusion,Gao2018_TableS1,24,9,37.5,BLCA;DLBC;KIRP;LGG;LIHC;MESO;PRAD;THCA;UCEC
+TITAN,binary,fusion,Any called fusion,Gao2018_TableS1,24,10,41.6666666666667,BLCA;COAD;KIRP;LGG;LIHC;LUAD;PAAD;READ;THCA;UCEC
+GigaSSL,binary,fusion,Fusion pair: CCDC6--RET,Gao2018_TableS1,1,1,100,THCA
+ProvGigaPath,binary,fusion,Fusion pair: CCDC6--RET,Gao2018_TableS1,1,0,0,""
+TITAN,binary,fusion,Fusion pair: CCDC6--RET,Gao2018_TableS1,1,1,100,THCA
+GigaSSL,binary,fusion,Fusion pair: TMPRSS2--ERG,Gao2018_TableS1,1,1,100,PRAD
+ProvGigaPath,binary,fusion,Fusion pair: TMPRSS2--ERG,Gao2018_TableS1,1,1,100,PRAD
+TITAN,binary,fusion,Fusion pair: TMPRSS2--ERG,Gao2018_TableS1,1,1,100,PRAD
+GigaSSL,binary,microsatellite_instability,MSI-H (MANTIS >0.4),Bonneville2017_cBioPortal,3,3,100,COAD;STAD;UCEC
+ProvGigaPath,binary,microsatellite_instability,MSI-H (MANTIS >0.4),Bonneville2017_cBioPortal,3,3,100,COAD;STAD;UCEC
+TITAN,binary,microsatellite_instability,MSI-H (MANTIS >0.4),Bonneville2017_cBioPortal,3,3,100,COAD;STAD;UCEC
+GigaSSL,binary,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),cBioPortal_threshold_documentation,3,2,66.6666666666667,COAD;STAD
+ProvGigaPath,binary,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),cBioPortal_threshold_documentation,3,3,100,COAD;STAD;UCEC
+TITAN,binary,microsatellite_instability_sensitivity,MSI-H strict (MANTIS >0.6),cBioPortal_threshold_documentation,3,3,100,COAD;STAD;UCEC
+GigaSSL,binary,oncogenic_pathway,Cell Cycle,SanchezVega2018_TableS4,19,9,47.3684210526316,KIRP;LGG;LIHC;LUAD;MESO;PCPG;READ;STAD;UCEC
+ProvGigaPath,binary,oncogenic_pathway,Cell Cycle,SanchezVega2018_TableS4,19,8,42.1052631578947,KIRP;LGG;LIHC;MESO;PCPG;READ;SARC;STAD
+TITAN,binary,oncogenic_pathway,Cell Cycle,SanchezVega2018_TableS4,19,9,47.3684210526316,BLCA;COAD;HNSC;KIRP;LGG;LIHC;LUAD;PCPG;SARC
+GigaSSL,binary,oncogenic_pathway,HIPPO,SanchezVega2018_TableS4,14,5,35.7142857142857,COAD;ESCA;LGG;STAD;UCEC
+ProvGigaPath,binary,oncogenic_pathway,HIPPO,SanchezVega2018_TableS4,14,7,50,COAD;HNSC;KIRP;LGG;SARC;STAD;UCEC
+TITAN,binary,oncogenic_pathway,HIPPO,SanchezVega2018_TableS4,14,7,50,COAD;HNSC;KIRP;LGG;SARC;STAD;UCEC
+GigaSSL,binary,oncogenic_pathway,MYC,SanchezVega2018_TableS4,12,1,8.33333333333333,BLCA
+ProvGigaPath,binary,oncogenic_pathway,MYC,SanchezVega2018_TableS4,12,2,16.6666666666667,BLCA;LIHC
+TITAN,binary,oncogenic_pathway,MYC,SanchezVega2018_TableS4,12,3,25,BLCA;COAD;PRAD
+GigaSSL,binary,oncogenic_pathway,NOTCH,SanchezVega2018_TableS4,18,4,22.2222222222222,COAD;READ;STAD;UCEC
+ProvGigaPath,binary,oncogenic_pathway,NOTCH,SanchezVega2018_TableS4,18,4,22.2222222222222,COAD;READ;STAD;UCEC
+TITAN,binary,oncogenic_pathway,NOTCH,SanchezVega2018_TableS4,18,6,33.3333333333333,CESC;COAD;PRAD;READ;STAD;UCEC
+GigaSSL,binary,oncogenic_pathway,NRF2,SanchezVega2018_TableS4,8,4,50,ESCA;HNSC;LUAD;LUSC
+ProvGigaPath,binary,oncogenic_pathway,NRF2,SanchezVega2018_TableS4,8,4,50,ESCA;HNSC;LUAD;LUSC
+TITAN,binary,oncogenic_pathway,NRF2,SanchezVega2018_TableS4,8,3,37.5,ESCA;HNSC;LUSC
+GigaSSL,binary,oncogenic_pathway,PI3K,SanchezVega2018_TableS4,19,2,10.5263157894737,COAD;KIRC
+ProvGigaPath,binary,oncogenic_pathway,PI3K,SanchezVega2018_TableS4,19,2,10.5263157894737,COAD;STAD
+TITAN,binary,oncogenic_pathway,PI3K,SanchezVega2018_TableS4,19,8,42.1052631578947,COAD;ESCA;HNSC;KIRC;LUSC;PRAD;STAD;UCEC
+GigaSSL,binary,oncogenic_pathway,RTK RAS,SanchezVega2018_TableS4,21,10,47.6190476190476,COAD;KIRC;LGG;LUAD;PCPG;READ;SARC;TGCT;THCA;UCS
+ProvGigaPath,binary,oncogenic_pathway,RTK RAS,SanchezVega2018_TableS4,21,9,42.8571428571429,COAD;KIRP;LGG;PCPG;SARC;STAD;TGCT;THCA;UCS
+TITAN,binary,oncogenic_pathway,RTK RAS,SanchezVega2018_TableS4,21,10,47.6190476190476,BLCA;COAD;LGG;LIHC;PCPG;SARC;STAD;TGCT;THCA;UCS
+GigaSSL,binary,oncogenic_pathway,TGF-Beta,SanchezVega2018_TableS4,14,3,21.4285714285714,LGG;READ;STAD
+ProvGigaPath,binary,oncogenic_pathway,TGF-Beta,SanchezVega2018_TableS4,14,4,28.5714285714286,COAD;LGG;READ;STAD
+TITAN,binary,oncogenic_pathway,TGF-Beta,SanchezVega2018_TableS4,14,6,42.8571428571429,COAD;ESCA;LGG;LUAD;READ;STAD
+GigaSSL,binary,oncogenic_pathway,TP53,SanchezVega2018_TableS4,15,10,66.6666666666667,BLCA;COAD;GBM;HNSC;LGG;LIHC;LUAD;SARC;STAD;UCEC
+ProvGigaPath,binary,oncogenic_pathway,TP53,SanchezVega2018_TableS4,15,9,60,BLCA;COAD;GBM;HNSC;LGG;LIHC;LUAD;STAD;UCEC
+TITAN,binary,oncogenic_pathway,TP53,SanchezVega2018_TableS4,15,11,73.3333333333333,BLCA;COAD;GBM;HNSC;KICH;LGG;LIHC;LUAD;SARC;STAD;UCEC
+GigaSSL,binary,oncogenic_pathway,WNT,SanchezVega2018_TableS4,16,5,31.25,ESCA;KIRP;LGG;STAD;THCA
+ProvGigaPath,binary,oncogenic_pathway,WNT,SanchezVega2018_TableS4,16,6,37.5,KIRP;LGG;PRAD;STAD;THCA;UCEC
+TITAN,binary,oncogenic_pathway,WNT,SanchezVega2018_TableS4,16,7,43.75,BLCA;LGG;LIHC;PRAD;STAD;THCA;UCEC
+GigaSSL,continuous,aneuploidy,Amplified arm count,Taylor2018_TableS2,28,1,3.57142857142857,THYM
+ProvGigaPath,continuous,aneuploidy,Amplified arm count,Taylor2018_TableS2,28,1,3.57142857142857,KIRP
+TITAN,continuous,aneuploidy,Amplified arm count,Taylor2018_TableS2,28,0,0,""
+GigaSSL,continuous,aneuploidy,Aneuploidy score,Taylor2018_TableS2,28,1,3.57142857142857,COAD
+ProvGigaPath,continuous,aneuploidy,Aneuploidy score,Taylor2018_TableS2,28,3,10.7142857142857,COAD;STAD;UCEC
+TITAN,continuous,aneuploidy,Aneuploidy score,Taylor2018_TableS2,28,5,17.8571428571429,COAD;LGG;LUAD;STAD;UCEC
+GigaSSL,continuous,aneuploidy,Deleted arm count,Taylor2018_TableS2,28,1,3.57142857142857,COAD
+ProvGigaPath,continuous,aneuploidy,Deleted arm count,Taylor2018_TableS2,28,1,3.57142857142857,COAD
+TITAN,continuous,aneuploidy,Deleted arm count,Taylor2018_TableS2,28,1,3.57142857142857,UCEC
+GigaSSL,continuous,fusion,Fusion burden,Gao2018_TableS1,28,0,0,""
+ProvGigaPath,continuous,fusion,Fusion burden,Gao2018_TableS1,28,0,0,""
+TITAN,continuous,fusion,Fusion burden,Gao2018_TableS1,28,2,7.14285714285714,LGG;UCEC
+GigaSSL,continuous,microsatellite_instability,MANTIS score,cBioPortal_TCGA_PanCancer,28,1,3.57142857142857,COAD
+ProvGigaPath,continuous,microsatellite_instability,MANTIS score,cBioPortal_TCGA_PanCancer,28,1,3.57142857142857,COAD
+TITAN,continuous,microsatellite_instability,MANTIS score,cBioPortal_TCGA_PanCancer,28,1,3.57142857142857,COAD
+GigaSSL,continuous,microsatellite_instability,MSIsensor score,cBioPortal_TCGA_PanCancer,28,0,0,""
+ProvGigaPath,continuous,microsatellite_instability,MSIsensor score,cBioPortal_TCGA_PanCancer,28,2,7.14285714285714,COAD;STAD
+TITAN,continuous,microsatellite_instability,MSIsensor score,cBioPortal_TCGA_PanCancer,28,1,3.57142857142857,COAD
+GigaSSL,continuous,rna_pathway_activity,GOBP_VITAMIN_B6_METABOLIC_PROCESS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,3,10.7142857142857,KIRP;LGG;THCA
+ProvGigaPath,continuous,rna_pathway_activity,GOBP_VITAMIN_B6_METABOLIC_PROCESS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,3,10.7142857142857,KIRP;SARC;THCA
+TITAN,continuous,rna_pathway_activity,GOBP_VITAMIN_B6_METABOLIC_PROCESS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,6,21.4285714285714,KIRP;LGG;LIHC;SARC;TGCT;THCA
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_ADIPOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,KIRP;LIHC;TGCT;THCA
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_ADIPOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,5,17.8571428571429,KIRP;LIHC;OV;TGCT;THCA
+TITAN,continuous,rna_pathway_activity,HALLMARK_ADIPOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,8,28.5714285714286,ACC;KIRP;LGG;LIHC;OV;SARC;TGCT;THCA
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,11,39.2857142857143,BLCA;COAD;KIRC;KIRP;LGG;LIHC;LUAD;LUSC;SARC;TGCT;THCA
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,11,39.2857142857143,BLCA;COAD;KIRC;KIRP;LGG;LIHC;LUAD;LUSC;SARC;TGCT;THCA
+TITAN,continuous,rna_pathway_activity,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,20,71.4285714285714,ACC;BLCA;CESC;COAD;GBM;HNSC;KIRC;KIRP;LGG;LIHC;LUAD;LUSC;PAAD;PCPG;PRAD;SARC;STAD;TGCT;THCA;UCEC
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_ANDROGEN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,1,3.57142857142857,TGCT
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_ANDROGEN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,1,3.57142857142857,PAAD
+TITAN,continuous,rna_pathway_activity,HALLMARK_ANDROGEN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,2,7.14285714285714,OV;PAAD
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,7,25,BLCA;KIRC;LGG;LIHC;SARC;TGCT;THYM
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,10,35.7142857142857,BLCA;KIRC;LGG;LIHC;LUAD;LUSC;MESO;SARC;TGCT;THYM
+TITAN,continuous,rna_pathway_activity,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,12,42.8571428571429,BLCA;GBM;KIRC;LGG;LIHC;LUSC;PAAD;PCPG;SARC;TGCT;THCA;THYM
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_APICAL_JUNCTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,9,32.1428571428572,BLCA;LIHC;LUAD;LUSC;OV;PAAD;TGCT;THCA;UCS
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_APICAL_JUNCTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,11,39.2857142857143,BLCA;KIRC;LIHC;LUAD;LUSC;PAAD;STAD;TGCT;THCA;THYM;UCS
+TITAN,continuous,rna_pathway_activity,HALLMARK_APICAL_JUNCTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,12,42.8571428571429,BLCA;KIRC;LIHC;LUAD;LUSC;OV;PAAD;PCPG;STAD;TGCT;THCA;THYM
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_APICAL_SURFACE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,5,17.8571428571429,BLCA;LIHC;PAAD;TGCT;UCS
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_APICAL_SURFACE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,6,21.4285714285714,BLCA;LIHC;PAAD;TGCT;THYM;UCS
+TITAN,continuous,rna_pathway_activity,HALLMARK_APICAL_SURFACE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,6,21.4285714285714,BLCA;ESCA;LIHC;PAAD;TGCT;THCA
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,10,35.7142857142857,ACC;BLCA;LGG;LIHC;LUAD;MESO;OV;PAAD;TGCT;THCA
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,11,39.2857142857143,ACC;BLCA;KIRC;KIRP;LGG;LIHC;LUAD;OV;SARC;TGCT;THCA
+TITAN,continuous,rna_pathway_activity,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,13,46.4285714285714,ACC;BLCA;CESC;GBM;KIRC;LGG;LIHC;LUAD;PAAD;SARC;TGCT;THCA;THYM
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_BILE_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,KIRP;LGG;LIHC;TGCT
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_BILE_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,KIRP;LGG;LIHC;TGCT
+TITAN,continuous,rna_pathway_activity,HALLMARK_BILE_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,5,17.8571428571429,ACC;KIRP;LGG;LIHC;TGCT
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_CHOLESTEROL_HOMEOSTASIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,1,3.57142857142857,TGCT
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_CHOLESTEROL_HOMEOSTASIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,2,7.14285714285714,OV;TGCT
+TITAN,continuous,rna_pathway_activity,HALLMARK_CHOLESTEROL_HOMEOSTASIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,5,17.8571428571429,MESO;OV;STAD;TGCT;THYM
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_COAGULATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,6,21.4285714285714,BLCA;LGG;LUSC;SARC;TGCT;THCA
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_COAGULATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,8,28.5714285714286,KIRC;LGG;LIHC;LUAD;LUSC;SARC;TGCT;THCA
+TITAN,continuous,rna_pathway_activity,HALLMARK_COAGULATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,13,46.4285714285714,BLCA;GBM;KIRC;KIRP;LGG;LIHC;LUAD;LUSC;PAAD;PCPG;SARC;TGCT;THCA
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,11,39.2857142857143,BLCA;COAD;KIRC;KIRP;LGG;LIHC;LUAD;PAAD;SARC;TGCT;THCA
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,13,46.4285714285714,BLCA;COAD;KIRC;KIRP;LGG;LIHC;LUAD;LUSC;PAAD;PCPG;SARC;TGCT;THCA
+TITAN,continuous,rna_pathway_activity,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,13,46.4285714285714,ACC;BLCA;CESC;GBM;KIRC;KIRP;LGG;LIHC;LUAD;PAAD;SARC;TGCT;THCA
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_DNA_REPAIR,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,1,3.57142857142857,STAD
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_DNA_REPAIR,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,1,3.57142857142857,THYM
+TITAN,continuous,rna_pathway_activity,HALLMARK_DNA_REPAIR,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,5,17.8571428571429,LIHC;LUSC;STAD;TGCT;UCEC
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,8,28.5714285714286,BLCA;KICH;LIHC;LUAD;LUSC;PRAD;STAD;THYM
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,9,32.1428571428572,BLCA;HNSC;KIRP;LGG;LIHC;LUAD;PRAD;STAD;THYM
+TITAN,continuous,rna_pathway_activity,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,17,60.7142857142857,BLCA;HNSC;KICH;KIRC;KIRP;LGG;LIHC;LUAD;LUSC;PAAD;PRAD;SARC;STAD;TGCT;THCA;THYM;UCEC
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,10,35.7142857142857,BLCA;KIRC;LGG;LIHC;PAAD;SARC;STAD;TGCT;THCA;THYM
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,15,53.5714285714286,BLCA;KIRC;LGG;LIHC;LUAD;LUSC;MESO;PAAD;PCPG;READ;SARC;STAD;TGCT;THCA;THYM
+TITAN,continuous,rna_pathway_activity,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,11,39.2857142857143,BLCA;GBM;KIRC;LGG;LIHC;PAAD;SARC;STAD;TGCT;THCA;THYM
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_ESTROGEN_RESPONSE_EARLY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,5,17.8571428571429,BLCA;PAAD;TGCT;THCA;THYM
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_ESTROGEN_RESPONSE_EARLY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,7,25,BLCA;LIHC;PAAD;TGCT;THCA;THYM;UCS
+TITAN,continuous,rna_pathway_activity,HALLMARK_ESTROGEN_RESPONSE_EARLY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,9,32.1428571428572,BLCA;LIHC;OV;PAAD;PRAD;TGCT;THCA;THYM;UCS
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_ESTROGEN_RESPONSE_LATE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,7,25,BLCA;LGG;OV;TGCT;THCA;THYM;UCS
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_ESTROGEN_RESPONSE_LATE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,6,21.4285714285714,LIHC;PAAD;TGCT;THCA;THYM;UCS
+TITAN,continuous,rna_pathway_activity,HALLMARK_ESTROGEN_RESPONSE_LATE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,8,28.5714285714286,BLCA;LGG;OV;PAAD;TGCT;THCA;THYM;UCS
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_FATTY_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,KIRP;LIHC;TGCT;THCA
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_FATTY_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,KIRP;LIHC;TGCT;THCA
+TITAN,continuous,rna_pathway_activity,HALLMARK_FATTY_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,7,25,ACC;GBM;KIRC;KIRP;LIHC;TGCT;THCA
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,7,25,KICH;KIRP;LIHC;LUAD;PRAD;STAD;THYM
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,7,25,BLCA;KIRP;LIHC;LUAD;PRAD;STAD;THYM
+TITAN,continuous,rna_pathway_activity,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,17,60.7142857142857,BLCA;HNSC;KICH;KIRC;KIRP;LGG;LIHC;LUAD;LUSC;PAAD;PRAD;SARC;STAD;TGCT;THCA;THYM;UCEC
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_GLYCOLYSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,2,7.14285714285714,LGG;TGCT
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_GLYCOLYSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,2,7.14285714285714,KIRC;TGCT
+TITAN,continuous,rna_pathway_activity,HALLMARK_GLYCOLYSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,10,35.7142857142857,GBM;HNSC;KIRC;KIRP;LGG;LUAD;PAAD;PCPG;STAD;TGCT
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_HEDGEHOG_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,3,10.7142857142857,KIRC;LIHC;TGCT
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_HEDGEHOG_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,KIRC;STAD;TGCT;THYM
+TITAN,continuous,rna_pathway_activity,HALLMARK_HEDGEHOG_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,3,10.7142857142857,STAD;TGCT;THYM
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_HEME_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,1,3.57142857142857,TGCT
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_HEME_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,1,3.57142857142857,TGCT
+TITAN,continuous,rna_pathway_activity,HALLMARK_HEME_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,1,3.57142857142857,KIRP
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_HYPOXIA,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,LGG;PCPG;TGCT;THYM
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_HYPOXIA,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,KIRC;PAAD;PCPG;TGCT
+TITAN,continuous,rna_pathway_activity,HALLMARK_HYPOXIA,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,7,25,KIRC;LGG;PAAD;PCPG;TGCT;THCA;THYM
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_IL2_STAT5_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,11,39.2857142857143,BLCA;COAD;KIRC;LGG;LIHC;LUAD;MESO;PAAD;SARC;TGCT;THCA
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_IL2_STAT5_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,11,39.2857142857143,BLCA;KIRC;LGG;LIHC;LUAD;MESO;PAAD;PCPG;SARC;TGCT;THCA
+TITAN,continuous,rna_pathway_activity,HALLMARK_IL2_STAT5_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,12,42.8571428571429,BLCA;GBM;KIRC;LGG;LIHC;LUAD;PAAD;PCPG;PRAD;SARC;TGCT;THCA
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_IL6_JAK_STAT3_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,11,39.2857142857143,BLCA;COAD;KIRC;KIRP;LGG;LIHC;LUAD;LUSC;SARC;TGCT;THCA
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_IL6_JAK_STAT3_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,11,39.2857142857143,BLCA;COAD;KIRC;KIRP;LGG;LIHC;LUAD;LUSC;SARC;TGCT;THCA
+TITAN,continuous,rna_pathway_activity,HALLMARK_IL6_JAK_STAT3_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,15,53.5714285714286,ACC;BLCA;CESC;COAD;GBM;KIRC;KIRP;LGG;LIHC;LUAD;MESO;PAAD;SARC;TGCT;THCA
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,11,39.2857142857143,BLCA;COAD;KIRP;LGG;LIHC;LUAD;LUSC;PAAD;SARC;TGCT;THCA
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,11,39.2857142857143,BLCA;COAD;KIRC;KIRP;LIHC;LUAD;LUSC;PAAD;SARC;TGCT;THCA
+TITAN,continuous,rna_pathway_activity,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,13,46.4285714285714,ACC;BLCA;CESC;GBM;KIRC;KIRP;LGG;LIHC;LUAD;PAAD;SARC;TGCT;THCA
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_INTERFERON_ALPHA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,7,25,BLCA;HNSC;KICH;LGG;PAAD;TGCT;THCA
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_INTERFERON_ALPHA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,9,32.1428571428572,BLCA;COAD;HNSC;KIRC;LUAD;PAAD;SARC;TGCT;THCA
+TITAN,continuous,rna_pathway_activity,HALLMARK_INTERFERON_ALPHA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,11,39.2857142857143,BLCA;CESC;COAD;HNSC;KIRC;LGG;LUAD;PAAD;SARC;TGCT;THCA
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,11,39.2857142857143,BLCA;COAD;KIRC;KIRP;LGG;LUAD;PAAD;PCPG;SARC;TGCT;THCA
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,11,39.2857142857143,BLCA;COAD;KIRC;KIRP;LUAD;LUSC;PAAD;PCPG;SARC;TGCT;THCA
+TITAN,continuous,rna_pathway_activity,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,15,53.5714285714286,BLCA;CESC;COAD;GBM;HNSC;KIRC;KIRP;LGG;LIHC;LUAD;LUSC;PAAD;SARC;TGCT;THCA
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_KRAS_SIGNALING_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,1,3.57142857142857,TGCT
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_KRAS_SIGNALING_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,1,3.57142857142857,TGCT
+TITAN,continuous,rna_pathway_activity,HALLMARK_KRAS_SIGNALING_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,5,17.8571428571429,STAD;TGCT;THCA;THYM;UCS
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_KRAS_SIGNALING_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,6,21.4285714285714,BLCA;LGG;LUAD;SARC;TGCT;THCA
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_KRAS_SIGNALING_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,7,25,BLCA;KIRC;LUAD;PAAD;SARC;TGCT;THCA
+TITAN,continuous,rna_pathway_activity,HALLMARK_KRAS_SIGNALING_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,11,39.2857142857143,BLCA;GBM;KIRC;LGG;LIHC;LUAD;PAAD;PRAD;SARC;TGCT;THCA
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_MITOTIC_SPINDLE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,0,0,""
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_MITOTIC_SPINDLE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,1,3.57142857142857,LIHC
+TITAN,continuous,rna_pathway_activity,HALLMARK_MITOTIC_SPINDLE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,KICH;KIRP;LIHC;PAAD
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_MTORC1_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,KIRP;LUAD;STAD;TGCT
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_MTORC1_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,7,25,ACC;BLCA;KIRP;LUAD;STAD;TGCT;THCA
+TITAN,continuous,rna_pathway_activity,HALLMARK_MTORC1_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,14,50,BLCA;KIRP;LGG;LIHC;LUAD;LUSC;MESO;OV;PAAD;SARC;STAD;TGCT;THCA;THYM
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_MYC_TARGETS_V1,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,LIHC;LUAD;STAD;THYM
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_MYC_TARGETS_V1,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,6,21.4285714285714,BLCA;LIHC;LUAD;STAD;TGCT;THYM
+TITAN,continuous,rna_pathway_activity,HALLMARK_MYC_TARGETS_V1,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,10,35.7142857142857,BLCA;LIHC;LUAD;LUSC;PRAD;SARC;STAD;TGCT;THYM;UCEC
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_MYC_TARGETS_V2,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,5,17.8571428571429,LUAD;SARC;STAD;TGCT;THYM
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_MYC_TARGETS_V2,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,7,25,KIRP;LUAD;SARC;STAD;TGCT;THYM;UCEC
+TITAN,continuous,rna_pathway_activity,HALLMARK_MYC_TARGETS_V2,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,10,35.7142857142857,KIRP;LGG;LIHC;LUAD;LUSC;SARC;STAD;TGCT;THYM;UCEC
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_MYOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,LIHC;STAD;TGCT;THYM
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_MYOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,7,25,BLCA;LIHC;LUAD;READ;STAD;TGCT;THYM
+TITAN,continuous,rna_pathway_activity,HALLMARK_MYOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,8,28.5714285714286,BLCA;COAD;HNSC;LGG;LIHC;STAD;TGCT;THYM
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_NOTCH_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,8,28.5714285714286,KIRC;LGG;LIHC;PAAD;PCPG;TGCT;THCA;THYM
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_NOTCH_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,9,32.1428571428572,KIRC;LGG;LIHC;LUAD;PAAD;PCPG;TGCT;THCA;THYM
+TITAN,continuous,rna_pathway_activity,HALLMARK_NOTCH_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,9,32.1428571428572,KIRC;LGG;LIHC;LUAD;PAAD;PCPG;TGCT;THCA;THYM
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_OXIDATIVE_PHOSPHORYLATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,KIRC;KIRP;TGCT;THCA
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_OXIDATIVE_PHOSPHORYLATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,KIRC;KIRP;TGCT;THCA
+TITAN,continuous,rna_pathway_activity,HALLMARK_OXIDATIVE_PHOSPHORYLATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,6,21.4285714285714,KIRC;KIRP;LIHC;TGCT;THCA;THYM
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,6,21.4285714285714,CESC;LIHC;PAAD;TGCT;THCA;THYM
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,9,32.1428571428572,CESC;LIHC;LUAD;LUSC;PAAD;PCPG;TGCT;THCA;THYM
+TITAN,continuous,rna_pathway_activity,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,15,53.5714285714286,BLCA;CESC;ESCA;GBM;KIRC;LGG;LIHC;LUAD;LUSC;PAAD;PCPG;SARC;TGCT;THCA;THYM
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_PANCREAS_BETA_CELLS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,1,3.57142857142857,TGCT
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_PANCREAS_BETA_CELLS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,1,3.57142857142857,TGCT
+TITAN,continuous,rna_pathway_activity,HALLMARK_PANCREAS_BETA_CELLS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,CESC;ESCA;TGCT;THCA
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_PEROXISOME,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,3,10.7142857142857,KIRP;TGCT;UCS
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_PEROXISOME,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,3,10.7142857142857,KIRP;LIHC;TGCT
+TITAN,continuous,rna_pathway_activity,HALLMARK_PEROXISOME,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,7,25,ACC;GBM;KIRP;LGG;LIHC;OV;TGCT
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_PI3K_AKT_MTOR_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,LGG;LIHC;LUAD;TGCT
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_PI3K_AKT_MTOR_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,3,10.7142857142857,LGG;LUAD;TGCT
+TITAN,continuous,rna_pathway_activity,HALLMARK_PI3K_AKT_MTOR_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,8,28.5714285714286,ACC;LGG;LIHC;LUAD;PAAD;SARC;TGCT;THYM
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_PROTEIN_SECRETION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,0,0,""
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_PROTEIN_SECRETION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,0,0,""
+TITAN,continuous,rna_pathway_activity,HALLMARK_PROTEIN_SECRETION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,0,0,""
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,2,7.14285714285714,KIRP;TGCT
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,3,10.7142857142857,KIRP;LIHC;SARC
+TITAN,continuous,rna_pathway_activity,HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,5,17.8571428571429,KIRP;LGG;LIHC;SARC;TGCT
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_SPERMATOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,2,7.14285714285714,BLCA;HNSC
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_SPERMATOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,BLCA;HNSC;LUAD;SKCM
+TITAN,continuous,rna_pathway_activity,HALLMARK_SPERMATOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,5,17.8571428571429,BLCA;HNSC;LIHC;LUAD;LUSC
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_TGF_BETA_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,1,3.57142857142857,TGCT
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_TGF_BETA_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,KIRC;PAAD;TGCT;THYM
+TITAN,continuous,rna_pathway_activity,HALLMARK_TGF_BETA_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,5,17.8571428571429,KIRC;LGG;PAAD;TGCT;THYM
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_TNFA_SIGNALING_VIA_NFKB,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,6,21.4285714285714,BLCA;LUAD;LUSC;MESO;TGCT;THCA
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_TNFA_SIGNALING_VIA_NFKB,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,9,32.1428571428572,BLCA;KIRC;LUAD;LUSC;MESO;PAAD;SARC;TGCT;THCA
+TITAN,continuous,rna_pathway_activity,HALLMARK_TNFA_SIGNALING_VIA_NFKB,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,13,46.4285714285714,ACC;BLCA;CESC;KIRC;LGG;LIHC;LUAD;LUSC;PAAD;SARC;TGCT;THCA;THYM
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,2,7.14285714285714,KIRP;STAD
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,5,17.8571428571429,BLCA;KIRP;LUAD;SARC;TGCT
+TITAN,continuous,rna_pathway_activity,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,8,28.5714285714286,BLCA;KIRP;LGG;LIHC;LUAD;SARC;STAD;TGCT
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_UV_RESPONSE_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,2,7.14285714285714,STAD;TGCT
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_UV_RESPONSE_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,BLCA;STAD;TGCT;THYM
+TITAN,continuous,rna_pathway_activity,HALLMARK_UV_RESPONSE_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,5,17.8571428571429,PAAD;PRAD;STAD;TGCT;THYM
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_UV_RESPONSE_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,2,7.14285714285714,BLCA;TGCT
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_UV_RESPONSE_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,3,10.7142857142857,BLCA;OV;TGCT
+TITAN,continuous,rna_pathway_activity,HALLMARK_UV_RESPONSE_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,5,17.8571428571429,BLCA;KIRP;TGCT;THYM;UCEC
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_WNT_BETA_CATENIN_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,2,7.14285714285714,TGCT;THYM
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_WNT_BETA_CATENIN_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,3,10.7142857142857,KIRC;TGCT;THYM
+TITAN,continuous,rna_pathway_activity,HALLMARK_WNT_BETA_CATENIN_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,5,17.8571428571429,KIRC;PCPG;SARC;TGCT;THYM
+GigaSSL,continuous,rna_pathway_activity,HALLMARK_XENOBIOTIC_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,KIRP;LGG;LIHC;TGCT
+ProvGigaPath,continuous,rna_pathway_activity,HALLMARK_XENOBIOTIC_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,KIRP;LIHC;OV;TGCT
+TITAN,continuous,rna_pathway_activity,HALLMARK_XENOBIOTIC_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,5,17.8571428571429,GBM;KIRP;LGG;LIHC;TGCT
+GigaSSL,continuous,rna_pathway_activity,REACTOME_GLUTATHIONE_SYNTHESIS_AND_RECYCLING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,1,3.57142857142857,TGCT
+ProvGigaPath,continuous,rna_pathway_activity,REACTOME_GLUTATHIONE_SYNTHESIS_AND_RECYCLING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,3,10.7142857142857,KICH;TGCT;THYM
+TITAN,continuous,rna_pathway_activity,REACTOME_GLUTATHIONE_SYNTHESIS_AND_RECYCLING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,28,4,14.2857142857143,KIRP;PAAD;TGCT;THYM
+GigaSSL,continuous,thorsson,Aneuploidy Score,Thorsson2018_PanImmune_MS,28,1,3.57142857142857,COAD
+ProvGigaPath,continuous,thorsson,Aneuploidy Score,Thorsson2018_PanImmune_MS,28,2,7.14285714285714,COAD;STAD
+TITAN,continuous,thorsson,Aneuploidy Score,Thorsson2018_PanImmune_MS,28,4,14.2857142857143,COAD;LUAD;STAD;UCEC
+GigaSSL,continuous,thorsson,B Cells Memory,Thorsson2018_PanImmune_MS,28,0,0,""
+ProvGigaPath,continuous,thorsson,B Cells Memory,Thorsson2018_PanImmune_MS,28,0,0,""
+TITAN,continuous,thorsson,B Cells Memory,Thorsson2018_PanImmune_MS,28,0,0,""
+GigaSSL,continuous,thorsson,B Cells Naive,Thorsson2018_PanImmune_MS,28,1,3.57142857142857,TGCT
+ProvGigaPath,continuous,thorsson,B Cells Naive,Thorsson2018_PanImmune_MS,28,1,3.57142857142857,TGCT
+TITAN,continuous,thorsson,B Cells Naive,Thorsson2018_PanImmune_MS,28,1,3.57142857142857,TGCT
+GigaSSL,continuous,thorsson,BCR Evenness,Thorsson2018_PanImmune_MS,20,0,0,""
+ProvGigaPath,continuous,thorsson,BCR Evenness,Thorsson2018_PanImmune_MS,20,0,0,""
+TITAN,continuous,thorsson,BCR Evenness,Thorsson2018_PanImmune_MS,20,0,0,""
+GigaSSL,continuous,thorsson,BCR Richness,Thorsson2018_PanImmune_MS,21,0,0,""
+ProvGigaPath,continuous,thorsson,BCR Richness,Thorsson2018_PanImmune_MS,21,1,4.76190476190476,THCA
+TITAN,continuous,thorsson,BCR Richness,Thorsson2018_PanImmune_MS,21,1,4.76190476190476,THCA
+GigaSSL,continuous,thorsson,BCR Shannon,Thorsson2018_PanImmune_MS,21,0,0,""
+ProvGigaPath,continuous,thorsson,BCR Shannon,Thorsson2018_PanImmune_MS,21,0,0,""
+TITAN,continuous,thorsson,BCR Shannon,Thorsson2018_PanImmune_MS,21,1,4.76190476190476,THCA
+GigaSSL,continuous,thorsson,CTA Score,Thorsson2018_PanImmune_MS,27,0,0,""
+ProvGigaPath,continuous,thorsson,CTA Score,Thorsson2018_PanImmune_MS,27,1,3.7037037037037,KIRC
+TITAN,continuous,thorsson,CTA Score,Thorsson2018_PanImmune_MS,27,1,3.7037037037037,KIRC
+GigaSSL,continuous,thorsson,Dendritic Cells Activated,Thorsson2018_PanImmune_MS,28,0,0,""
+ProvGigaPath,continuous,thorsson,Dendritic Cells Activated,Thorsson2018_PanImmune_MS,28,0,0,""
+TITAN,continuous,thorsson,Dendritic Cells Activated,Thorsson2018_PanImmune_MS,28,0,0,""
+GigaSSL,continuous,thorsson,Dendritic Cells Resting,Thorsson2018_PanImmune_MS,28,0,0,""
+ProvGigaPath,continuous,thorsson,Dendritic Cells Resting,Thorsson2018_PanImmune_MS,28,0,0,""
+TITAN,continuous,thorsson,Dendritic Cells Resting,Thorsson2018_PanImmune_MS,28,0,0,""
+GigaSSL,continuous,thorsson,Eosinophils,Thorsson2018_PanImmune_MS,28,0,0,""
+ProvGigaPath,continuous,thorsson,Eosinophils,Thorsson2018_PanImmune_MS,28,0,0,""
+TITAN,continuous,thorsson,Eosinophils,Thorsson2018_PanImmune_MS,28,0,0,""
+GigaSSL,continuous,thorsson,Fraction Altered,Thorsson2018_PanImmune_MS,28,2,7.14285714285714,KICH;STAD
+ProvGigaPath,continuous,thorsson,Fraction Altered,Thorsson2018_PanImmune_MS,28,4,14.2857142857143,KICH;LUAD;STAD;UCEC
+TITAN,continuous,thorsson,Fraction Altered,Thorsson2018_PanImmune_MS,28,6,21.4285714285714,LUAD;PAAD;PRAD;SARC;STAD;UCEC
+GigaSSL,continuous,thorsson,Homologous Recombination Defects,Thorsson2018_PanImmune_MS,28,1,3.57142857142857,THYM
+ProvGigaPath,continuous,thorsson,Homologous Recombination Defects,Thorsson2018_PanImmune_MS,28,2,7.14285714285714,LUAD;UCEC
+TITAN,continuous,thorsson,Homologous Recombination Defects,Thorsson2018_PanImmune_MS,28,8,28.5714285714286,COAD;KIRP;LIHC;LUAD;SARC;STAD;THYM;UCEC
+GigaSSL,continuous,thorsson,IFN-gamma Response,Thorsson2018_PanImmune_MS,28,2,7.14285714285714,HNSC;THCA
+ProvGigaPath,continuous,thorsson,IFN-gamma Response,Thorsson2018_PanImmune_MS,28,2,7.14285714285714,HNSC;THCA
+TITAN,continuous,thorsson,IFN-gamma Response,Thorsson2018_PanImmune_MS,28,5,17.8571428571429,HNSC;KIRC;LUAD;SKCM;THCA
+GigaSSL,continuous,thorsson,Indel Neoantigens,Thorsson2018_PanImmune_MS,22,0,0,""
+ProvGigaPath,continuous,thorsson,Indel Neoantigens,Thorsson2018_PanImmune_MS,22,0,0,""
+TITAN,continuous,thorsson,Indel Neoantigens,Thorsson2018_PanImmune_MS,22,0,0,""
+GigaSSL,continuous,thorsson,Intratumor Heterogeneity,Thorsson2018_PanImmune_MS,27,0,0,""
+ProvGigaPath,continuous,thorsson,Intratumor Heterogeneity,Thorsson2018_PanImmune_MS,27,0,0,""
+TITAN,continuous,thorsson,Intratumor Heterogeneity,Thorsson2018_PanImmune_MS,27,1,3.7037037037037,THYM
+GigaSSL,continuous,thorsson,Leukocyte Fraction,Thorsson2018_PanImmune_MS,27,10,37.037037037037,BLCA;COAD;KIRC;KIRP;LIHC;LUAD;SARC;SKCM;TGCT;THCA
+ProvGigaPath,continuous,thorsson,Leukocyte Fraction,Thorsson2018_PanImmune_MS,27,11,40.7407407407407,BLCA;CESC;COAD;KIRC;KIRP;LIHC;LUAD;SARC;SKCM;TGCT;THCA
+TITAN,continuous,thorsson,Leukocyte Fraction,Thorsson2018_PanImmune_MS,27,14,51.8518518518519,BLCA;GBM;HNSC;KIRC;KIRP;LGG;LIHC;LUAD;LUSC;SARC;SKCM;TGCT;THCA;UCEC
+GigaSSL,continuous,thorsson,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,28,11,39.2857142857143,BLCA;COAD;KIRC;KIRP;LIHC;LUAD;SARC;SKCM;TGCT;THCA;THYM
+ProvGigaPath,continuous,thorsson,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,28,12,42.8571428571429,BLCA;COAD;KIRC;KIRP;LIHC;LUAD;LUSC;SARC;SKCM;TGCT;THCA;THYM
+TITAN,continuous,thorsson,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,28,17,60.7142857142857,BLCA;CESC;COAD;HNSC;KIRC;LGG;LIHC;LUAD;LUSC;MESO;SARC;SKCM;STAD;TGCT;THCA;THYM;UCEC
+GigaSSL,continuous,thorsson,Macrophage Regulation,Thorsson2018_PanImmune_MS,28,9,32.1428571428572,BLCA;COAD;KIRP;LGG;LIHC;SARC;SKCM;TGCT;THCA
+ProvGigaPath,continuous,thorsson,Macrophage Regulation,Thorsson2018_PanImmune_MS,28,12,42.8571428571429,BLCA;COAD;KIRC;KIRP;LGG;LIHC;LUAD;LUSC;SARC;SKCM;TGCT;THCA
+TITAN,continuous,thorsson,Macrophage Regulation,Thorsson2018_PanImmune_MS,28,16,57.1428571428572,BLCA;CESC;COAD;GBM;KIRC;KIRP;LGG;LIHC;LUAD;PRAD;SARC;SKCM;STAD;TGCT;THCA;UCEC
+GigaSSL,continuous,thorsson,Macrophages M0,Thorsson2018_PanImmune_MS,28,0,0,""
+ProvGigaPath,continuous,thorsson,Macrophages M0,Thorsson2018_PanImmune_MS,28,0,0,""
+TITAN,continuous,thorsson,Macrophages M0,Thorsson2018_PanImmune_MS,28,1,3.57142857142857,SARC
+GigaSSL,continuous,thorsson,Macrophages M1,Thorsson2018_PanImmune_MS,28,1,3.57142857142857,THYM
+ProvGigaPath,continuous,thorsson,Macrophages M1,Thorsson2018_PanImmune_MS,28,1,3.57142857142857,KIRP
+TITAN,continuous,thorsson,Macrophages M1,Thorsson2018_PanImmune_MS,28,3,10.7142857142857,KIRP;THCA;THYM
+GigaSSL,continuous,thorsson,Macrophages M2,Thorsson2018_PanImmune_MS,28,1,3.57142857142857,TGCT
+ProvGigaPath,continuous,thorsson,Macrophages M2,Thorsson2018_PanImmune_MS,28,1,3.57142857142857,TGCT
+TITAN,continuous,thorsson,Macrophages M2,Thorsson2018_PanImmune_MS,28,2,7.14285714285714,KIRP;TGCT
+GigaSSL,continuous,thorsson,Mast Cells Activated,Thorsson2018_PanImmune_MS,28,0,0,""
+ProvGigaPath,continuous,thorsson,Mast Cells Activated,Thorsson2018_PanImmune_MS,28,0,0,""
+TITAN,continuous,thorsson,Mast Cells Activated,Thorsson2018_PanImmune_MS,28,0,0,""
+GigaSSL,continuous,thorsson,Mast Cells Resting,Thorsson2018_PanImmune_MS,28,0,0,""
+ProvGigaPath,continuous,thorsson,Mast Cells Resting,Thorsson2018_PanImmune_MS,28,0,0,""
+TITAN,continuous,thorsson,Mast Cells Resting,Thorsson2018_PanImmune_MS,28,0,0,""
+GigaSSL,continuous,thorsson,Monocytes,Thorsson2018_PanImmune_MS,28,0,0,""
+ProvGigaPath,continuous,thorsson,Monocytes,Thorsson2018_PanImmune_MS,28,0,0,""
+TITAN,continuous,thorsson,Monocytes,Thorsson2018_PanImmune_MS,28,0,0,""
+GigaSSL,continuous,thorsson,NK Cells Activated,Thorsson2018_PanImmune_MS,28,0,0,""
+ProvGigaPath,continuous,thorsson,NK Cells Activated,Thorsson2018_PanImmune_MS,28,0,0,""
+TITAN,continuous,thorsson,NK Cells Activated,Thorsson2018_PanImmune_MS,28,0,0,""
+GigaSSL,continuous,thorsson,NK Cells Resting,Thorsson2018_PanImmune_MS,28,0,0,""
+ProvGigaPath,continuous,thorsson,NK Cells Resting,Thorsson2018_PanImmune_MS,28,0,0,""
+TITAN,continuous,thorsson,NK Cells Resting,Thorsson2018_PanImmune_MS,28,0,0,""
+GigaSSL,continuous,thorsson,Neutrophils,Thorsson2018_PanImmune_MS,28,0,0,""
+ProvGigaPath,continuous,thorsson,Neutrophils,Thorsson2018_PanImmune_MS,28,0,0,""
+TITAN,continuous,thorsson,Neutrophils,Thorsson2018_PanImmune_MS,28,0,0,""
+GigaSSL,continuous,thorsson,Nonsilent Mutation Rate,Thorsson2018_PanImmune_MS,28,0,0,""
+ProvGigaPath,continuous,thorsson,Nonsilent Mutation Rate,Thorsson2018_PanImmune_MS,28,3,10.7142857142857,LUAD;STAD;THYM
+TITAN,continuous,thorsson,Nonsilent Mutation Rate,Thorsson2018_PanImmune_MS,28,4,14.2857142857143,COAD;LUAD;STAD;THYM
+GigaSSL,continuous,thorsson,Number of Segments,Thorsson2018_PanImmune_MS,28,2,7.14285714285714,SARC;STAD
+ProvGigaPath,continuous,thorsson,Number of Segments,Thorsson2018_PanImmune_MS,28,3,10.7142857142857,LUAD;STAD;UCEC
+TITAN,continuous,thorsson,Number of Segments,Thorsson2018_PanImmune_MS,28,4,14.2857142857143,LUAD;SARC;STAD;UCEC
+GigaSSL,continuous,thorsson,Plasma Cells,Thorsson2018_PanImmune_MS,28,0,0,""
+ProvGigaPath,continuous,thorsson,Plasma Cells,Thorsson2018_PanImmune_MS,28,0,0,""
+TITAN,continuous,thorsson,Plasma Cells,Thorsson2018_PanImmune_MS,28,1,3.57142857142857,THCA
+GigaSSL,continuous,thorsson,Proliferation,Thorsson2018_PanImmune_MS,28,9,32.1428571428572,KICH;KIRC;KIRP;LIHC;LUAD;PRAD;STAD;THCA;THYM
+ProvGigaPath,continuous,thorsson,Proliferation,Thorsson2018_PanImmune_MS,28,10,35.7142857142857,ACC;KICH;KIRC;KIRP;LIHC;LUAD;PRAD;STAD;THCA;THYM
+TITAN,continuous,thorsson,Proliferation,Thorsson2018_PanImmune_MS,28,15,53.5714285714286,BLCA;KICH;KIRC;KIRP;LGG;LIHC;LUAD;LUSC;PRAD;SARC;STAD;TGCT;THCA;THYM;UCEC
+GigaSSL,continuous,thorsson,SNV Neoantigens,Thorsson2018_PanImmune_MS,27,2,7.40740740740741,COAD;THYM
+ProvGigaPath,continuous,thorsson,SNV Neoantigens,Thorsson2018_PanImmune_MS,27,2,7.40740740740741,COAD;LUAD
+TITAN,continuous,thorsson,SNV Neoantigens,Thorsson2018_PanImmune_MS,27,2,7.40740740740741,COAD;THYM
+GigaSSL,continuous,thorsson,Silent Mutation Rate,Thorsson2018_PanImmune_MS,28,0,0,""
+ProvGigaPath,continuous,thorsson,Silent Mutation Rate,Thorsson2018_PanImmune_MS,28,2,7.14285714285714,LUAD;STAD
+TITAN,continuous,thorsson,Silent Mutation Rate,Thorsson2018_PanImmune_MS,28,4,14.2857142857143,COAD;LUAD;STAD;UCEC
+GigaSSL,continuous,thorsson,Stromal Fraction,Thorsson2018_PanImmune_MS,27,8,29.6296296296296,BLCA;KIRP;LIHC;LUAD;LUSC;SKCM;TGCT;THYM
+ProvGigaPath,continuous,thorsson,Stromal Fraction,Thorsson2018_PanImmune_MS,27,8,29.6296296296296,BLCA;KIRP;LIHC;LUAD;LUSC;SKCM;TGCT;THYM
+TITAN,continuous,thorsson,Stromal Fraction,Thorsson2018_PanImmune_MS,27,11,40.7407407407407,BLCA;GBM;HNSC;KIRP;LIHC;LUAD;LUSC;SARC;SKCM;TGCT;THYM
+GigaSSL,continuous,thorsson,T Cells CD4 Memory Activated,Thorsson2018_PanImmune_MS,28,0,0,""
+ProvGigaPath,continuous,thorsson,T Cells CD4 Memory Activated,Thorsson2018_PanImmune_MS,28,1,3.57142857142857,THYM
+TITAN,continuous,thorsson,T Cells CD4 Memory Activated,Thorsson2018_PanImmune_MS,28,1,3.57142857142857,STAD
+GigaSSL,continuous,thorsson,T Cells CD4 Memory Resting,Thorsson2018_PanImmune_MS,28,0,0,""
+ProvGigaPath,continuous,thorsson,T Cells CD4 Memory Resting,Thorsson2018_PanImmune_MS,28,0,0,""
+TITAN,continuous,thorsson,T Cells CD4 Memory Resting,Thorsson2018_PanImmune_MS,28,0,0,""
+GigaSSL,continuous,thorsson,T Cells CD4 Naive,Thorsson2018_PanImmune_MS,26,1,3.84615384615385,THYM
+ProvGigaPath,continuous,thorsson,T Cells CD4 Naive,Thorsson2018_PanImmune_MS,26,1,3.84615384615385,THYM
+TITAN,continuous,thorsson,T Cells CD4 Naive,Thorsson2018_PanImmune_MS,26,1,3.84615384615385,THYM
+GigaSSL,continuous,thorsson,T Cells CD8,Thorsson2018_PanImmune_MS,28,1,3.57142857142857,UCS
+ProvGigaPath,continuous,thorsson,T Cells CD8,Thorsson2018_PanImmune_MS,28,0,0,""
+TITAN,continuous,thorsson,T Cells CD8,Thorsson2018_PanImmune_MS,28,1,3.57142857142857,LUSC
+GigaSSL,continuous,thorsson,T Cells Follicular Helper,Thorsson2018_PanImmune_MS,28,1,3.57142857142857,THYM
+ProvGigaPath,continuous,thorsson,T Cells Follicular Helper,Thorsson2018_PanImmune_MS,28,1,3.57142857142857,THYM
+TITAN,continuous,thorsson,T Cells Follicular Helper,Thorsson2018_PanImmune_MS,28,1,3.57142857142857,THYM
+GigaSSL,continuous,thorsson,T Cells Regulatory Tregs,Thorsson2018_PanImmune_MS,28,0,0,""
+ProvGigaPath,continuous,thorsson,T Cells Regulatory Tregs,Thorsson2018_PanImmune_MS,28,1,3.57142857142857,THYM
+TITAN,continuous,thorsson,T Cells Regulatory Tregs,Thorsson2018_PanImmune_MS,28,1,3.57142857142857,THYM
+GigaSSL,continuous,thorsson,T Cells gamma delta,Thorsson2018_PanImmune_MS,25,0,0,""
+ProvGigaPath,continuous,thorsson,T Cells gamma delta,Thorsson2018_PanImmune_MS,25,0,0,""
+TITAN,continuous,thorsson,T Cells gamma delta,Thorsson2018_PanImmune_MS,25,0,0,""
+GigaSSL,continuous,thorsson,TCR Evenness,Thorsson2018_PanImmune_MS,25,0,0,""
+ProvGigaPath,continuous,thorsson,TCR Evenness,Thorsson2018_PanImmune_MS,25,0,0,""
+TITAN,continuous,thorsson,TCR Evenness,Thorsson2018_PanImmune_MS,25,0,0,""
+GigaSSL,continuous,thorsson,TCR Richness,Thorsson2018_PanImmune_MS,28,4,14.2857142857143,SKCM;TGCT;THCA;THYM
+ProvGigaPath,continuous,thorsson,TCR Richness,Thorsson2018_PanImmune_MS,28,4,14.2857142857143,SKCM;TGCT;THCA;THYM
+TITAN,continuous,thorsson,TCR Richness,Thorsson2018_PanImmune_MS,28,5,17.8571428571429,ACC;SKCM;TGCT;THCA;THYM
+GigaSSL,continuous,thorsson,TCR Shannon,Thorsson2018_PanImmune_MS,25,4,16,SKCM;TGCT;THCA;THYM
+ProvGigaPath,continuous,thorsson,TCR Shannon,Thorsson2018_PanImmune_MS,25,4,16,SKCM;TGCT;THCA;THYM
+TITAN,continuous,thorsson,TCR Shannon,Thorsson2018_PanImmune_MS,25,6,24,KIRC;LUAD;SARC;SKCM;THCA;THYM
+GigaSSL,continuous,thorsson,TGF-beta Response,Thorsson2018_PanImmune_MS,28,9,32.1428571428572,BLCA;KIRC;LGG;LIHC;MESO;OV;TGCT;THCA;THYM
+ProvGigaPath,continuous,thorsson,TGF-beta Response,Thorsson2018_PanImmune_MS,28,12,42.8571428571429,BLCA;KIRC;LGG;LIHC;LUSC;OV;PCPG;READ;SARC;TGCT;THCA;THYM
+TITAN,continuous,thorsson,TGF-beta Response,Thorsson2018_PanImmune_MS,28,10,35.7142857142857,BLCA;GBM;KIRC;LGG;LIHC;LUAD;SARC;TGCT;THCA;THYM
+GigaSSL,continuous,thorsson,TIL Regional Fraction,Thorsson2018_PanImmune_MS,11,11,100,BLCA;CESC;COAD;LUAD;LUSC;PAAD;PRAD;READ;SKCM;STAD;UCEC
+ProvGigaPath,continuous,thorsson,TIL Regional Fraction,Thorsson2018_PanImmune_MS,11,11,100,BLCA;CESC;COAD;LUAD;LUSC;PAAD;PRAD;READ;SKCM;STAD;UCEC
+TITAN,continuous,thorsson,TIL Regional Fraction,Thorsson2018_PanImmune_MS,11,10,90.9090909090909,BLCA;CESC;COAD;LUAD;LUSC;PRAD;READ;SKCM;STAD;UCEC
+GigaSSL,continuous,thorsson,Th1 Cells,Thorsson2018_PanImmune_MS,28,5,17.8571428571429,BLCA;KIRC;SARC;SKCM;THCA
+ProvGigaPath,continuous,thorsson,Th1 Cells,Thorsson2018_PanImmune_MS,28,4,14.2857142857143,BLCA;KIRC;SKCM;THCA
+TITAN,continuous,thorsson,Th1 Cells,Thorsson2018_PanImmune_MS,28,6,21.4285714285714,BLCA;KIRC;OV;SARC;SKCM;THCA
+GigaSSL,continuous,thorsson,Th17 Cells,Thorsson2018_PanImmune_MS,28,2,7.14285714285714,TGCT;THYM
+ProvGigaPath,continuous,thorsson,Th17 Cells,Thorsson2018_PanImmune_MS,28,2,7.14285714285714,TGCT;THYM
+TITAN,continuous,thorsson,Th17 Cells,Thorsson2018_PanImmune_MS,28,4,14.2857142857143,ESCA;LIHC;TGCT;THYM
+GigaSSL,continuous,thorsson,Th2 Cells,Thorsson2018_PanImmune_MS,28,3,10.7142857142857,KICH;KIRP;LUAD
+ProvGigaPath,continuous,thorsson,Th2 Cells,Thorsson2018_PanImmune_MS,28,3,10.7142857142857,KIRP;LUAD;THYM
+TITAN,continuous,thorsson,Th2 Cells,Thorsson2018_PanImmune_MS,28,6,21.4285714285714,BLCA;KIRP;LIHC;LUAD;LUSC;THYM
+GigaSSL,continuous,thorsson,Wound Healing,Thorsson2018_PanImmune_MS,28,8,28.5714285714286,BLCA;KICH;LIHC;LUAD;SARC;STAD;TGCT;THYM
+ProvGigaPath,continuous,thorsson,Wound Healing,Thorsson2018_PanImmune_MS,28,6,21.4285714285714,BLCA;LIHC;LUAD;STAD;TGCT;THYM
+TITAN,continuous,thorsson,Wound Healing,Thorsson2018_PanImmune_MS,28,12,42.8571428571429,BLCA;KICH;KIRC;LGG;LIHC;LUAD;LUSC;SARC;STAD;TGCT;THYM;UCEC

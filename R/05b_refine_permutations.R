@@ -7,7 +7,7 @@ suppressPackageStartupMessages({
 source("R/utils.R")
 cfg <- load_project_config()
 backend <- tolower(Sys.getenv("TITAN_BACKEND", "cpu"))
-options(fastPLS.backend = backend)
+options(backend = backend)
 cohort <- readRDS("data/processed/patient_cohort.rds")
 workers <- as.integer(Sys.getenv("TITAN_WORKERS", "6"))
 future::plan(future::multicore, workers = workers)
@@ -20,6 +20,16 @@ monte_carlo_interval <- function(exceedances, permutations, conf.level = 0.95) {
     lower = if (b == 0L) 0 else qbeta(alpha / 2, b, B - b + 1L),
     upper = if (b == B) 1 else qbeta(1 - alpha / 2, b + 1L, B - b)
   )
+}
+
+atomic_save_rds <- function(object, path) {
+  temporary <- paste0(path, ".tmp-", Sys.getpid())
+  saveRDS(object, temporary)
+  if (!file.rename(temporary, path)) {
+    unlink(temporary)
+    stop("Could not atomically replace permutation checkpoint: ", path)
+  }
+  invisible(path)
 }
 
 continuous_targets <- readRDS("data/processed/continuous_targets.rds")
@@ -56,9 +66,7 @@ permuted_continuous_metric <- function(X, y, job, permutation_index) {
   fit <- pls.double.cv(
     X[shuffled, , drop = FALSE], y,
     ncomp = cfg$analysis$components,
-    scaling = "centering",
-    svd.method = cfg$analysis$svd_method,
-    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    scaling = "centering", rsvd_oversample = cfg$analysis$rsvd_oversample,
     rsvd_power = cfg$analysis$rsvd_power,
     kfold_outer = cfg$analysis$outer_folds,
     kfold_inner = cfg$analysis$inner_folds,
@@ -75,10 +83,7 @@ permuted_binary_metric <- function(X, y, job, permutation_index) {
     Xdata = X[shuffled, , drop = FALSE], Ydata = y,
     ncomp = cfg$analysis$components,
     scaling = "centering",
-    classifier = "lda", lda_ridge = cfg$analysis$lda_ridge,
-    selection_metric = "balanced_accuracy",
-    svd.method = cfg$analysis$svd_method,
-    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    classifier = "lda", selection = "balanced_accuracy", rsvd_oversample = cfg$analysis$rsvd_oversample,
     rsvd_power = cfg$analysis$rsvd_power,
     kfold_outer = cfg$analysis$outer_folds,
     kfold_inner = cfg$analysis$inner_folds,
@@ -90,7 +95,9 @@ permuted_binary_metric <- function(X, y, job, permutation_index) {
 
 run_sequential_permutations <- function(metric_function, X, y, job, times,
                                         loss_metric, existing_exceedances = 0L,
-                                        start_index = 1L) {
+                                        start_index = 1L,
+                                        checkpoint = NULL,
+                                        checkpoint_every = 100L) {
   exceed <- as.integer(existing_exceedances)
   attempted <- 0L
   # Five exceedances make the minimum possible 99-permutation finite p-value
@@ -99,11 +106,29 @@ run_sequential_permutations <- function(metric_function, X, y, job, times,
   # endpoint capable of raw p<0.05 (and hence cannot discard an FDR result).
   stop_exceedances <- if (times == cfg$analysis$initial_permutations) 5L else 49L
   observed <- if (loss_metric) as.numeric(job$rmse) else as.numeric(job$balanced_accuracy)
+  if (exceed >= stop_exceedances) {
+    return(list(
+      exceedances = exceed, attempted = 0L, stopped_early = TRUE, p_value = 1
+    ))
+  }
+  if (start_index > times) {
+    return(list(
+      exceedances = exceed, attempted = 0L, stopped_early = FALSE,
+      p_value = (1 + exceed) / (times + 1)
+    ))
+  }
   for (i in seq.int(start_index, times)) {
     value <- metric_function(X, y, job, i)
     attempted <- attempted + 1L
     exceed <- exceed + if (loss_metric) value <= observed else value >= observed
+    if (!is.null(checkpoint) && attempted %% checkpoint_every == 0L) {
+      checkpoint(exceed, i)
+    }
     if (exceed >= stop_exceedances) break
+  }
+  if (!is.null(checkpoint) && attempted > 0L &&
+      attempted %% checkpoint_every != 0L) {
+    checkpoint(exceed, start_index + attempted - 1L)
   }
   stopped <- exceed >= stop_exceedances && (start_index + attempted - 1L) < times
   list(
@@ -128,15 +153,39 @@ refine_continuous <- function(path, times) {
   X <- cohort$X[idx[keep], , drop = FALSE]
   y <- d$value[keep]
   extending <- job$permutations == cfg$analysis$initial_permutations
+  persisted_attempted <- if (
+    "permutation_checkpoint_attempted" %in% names(job) &&
+      is.finite(job$permutation_checkpoint_attempted)
+  ) as.integer(job$permutation_checkpoint_attempted) else NA_integer_
   existing_attempted <- if (extending) {
     ifelse(is.na(job$permutation_attempted),
            cfg$analysis$initial_permutations,
            as.integer(job$permutation_attempted))
   } else 0L
+  if (is.finite(persisted_attempted)) {
+    existing_attempted <- max(existing_attempted, persisted_attempted)
+  }
+  existing_exceedances <- if (
+    is.finite(persisted_attempted) &&
+      "permutation_checkpoint_exceedances" %in% names(job) &&
+      is.finite(job$permutation_checkpoint_exceedances)
+  ) as.integer(job$permutation_checkpoint_exceedances) else if (extending) {
+    as.integer(job$permutation_exceedances)
+  } else 0L
+  checkpoint <- function(exceedances, last_index) {
+    partial <- copy(job)
+    partial[, `:=`(
+      permutation_checkpoint_attempted = as.integer(last_index),
+      permutation_checkpoint_exceedances = as.integer(exceedances)
+    )]
+    old$row <- partial
+    atomic_save_rds(old, path)
+  }
   perm <- run_sequential_permutations(
     permuted_continuous_metric, X, y, job, times, loss_metric = TRUE,
-    existing_exceedances = if (extending) job$permutation_exceedances else 0L,
-    start_index = if (extending) existing_attempted + 1L else 1L
+    existing_exceedances = existing_exceedances,
+    start_index = existing_attempted + 1L,
+    checkpoint = checkpoint
   )
   mc <- if (!perm$stopped_early) {
     monte_carlo_interval(perm$exceedances, times)
@@ -145,11 +194,7 @@ refine_continuous <- function(path, times) {
     p_permutation = perm$p_value,
     permutations = times,
     permutation_exceedances = perm$exceedances,
-    permutation_attempted = fifelse(
-      extending,
-      existing_attempted + perm$attempted,
-      perm$attempted
-    ),
+    permutation_attempted = existing_attempted + perm$attempted,
     permutation_stopped_early = perm$stopped_early,
     p_mc_lower_95 = mc[["lower"]],
     p_mc_upper_95 = mc[["upper"]],
@@ -162,8 +207,13 @@ refine_continuous <- function(path, times) {
     rsvd_oversample = cfg$analysis$rsvd_oversample,
     rsvd_power = cfg$analysis$rsvd_power
   )]
+  removable <- intersect(
+    c("permutation_checkpoint_attempted", "permutation_checkpoint_exceedances"),
+    names(job)
+  )
+  if (length(removable)) job[, (removable) := NULL]
   old$row <- job
-  saveRDS(old, path)
+  atomic_save_rds(old, path)
   NULL
 }
 
@@ -181,15 +231,39 @@ refine_binary <- function(path, times) {
   X <- cohort$X[idx[keep], , drop = FALSE]
   y <- factor(d$value[keep], levels = c(0L, 1L))
   extending <- job$permutations == cfg$analysis$initial_permutations
+  persisted_attempted <- if (
+    "permutation_checkpoint_attempted" %in% names(job) &&
+      is.finite(job$permutation_checkpoint_attempted)
+  ) as.integer(job$permutation_checkpoint_attempted) else NA_integer_
   existing_attempted <- if (extending) {
     ifelse(is.na(job$permutation_attempted),
            cfg$analysis$initial_permutations,
            as.integer(job$permutation_attempted))
   } else 0L
+  if (is.finite(persisted_attempted)) {
+    existing_attempted <- max(existing_attempted, persisted_attempted)
+  }
+  existing_exceedances <- if (
+    is.finite(persisted_attempted) &&
+      "permutation_checkpoint_exceedances" %in% names(job) &&
+      is.finite(job$permutation_checkpoint_exceedances)
+  ) as.integer(job$permutation_checkpoint_exceedances) else if (extending) {
+    as.integer(job$permutation_exceedances)
+  } else 0L
+  checkpoint <- function(exceedances, last_index) {
+    partial <- copy(job)
+    partial[, `:=`(
+      permutation_checkpoint_attempted = as.integer(last_index),
+      permutation_checkpoint_exceedances = as.integer(exceedances)
+    )]
+    old$row <- partial
+    atomic_save_rds(old, path)
+  }
   perm <- run_sequential_permutations(
     permuted_binary_metric, X, y, job, times, loss_metric = FALSE,
-    existing_exceedances = if (extending) job$permutation_exceedances else 0L,
-    start_index = if (extending) existing_attempted + 1L else 1L
+    existing_exceedances = existing_exceedances,
+    start_index = existing_attempted + 1L,
+    checkpoint = checkpoint
   )
   mc <- if (!perm$stopped_early) {
     monte_carlo_interval(perm$exceedances, times)
@@ -198,11 +272,7 @@ refine_binary <- function(path, times) {
     p_permutation = perm$p_value,
     permutations = times,
     permutation_exceedances = perm$exceedances,
-    permutation_attempted = fifelse(
-      extending,
-      existing_attempted + perm$attempted,
-      perm$attempted
-    ),
+    permutation_attempted = existing_attempted + perm$attempted,
     permutation_stopped_early = perm$stopped_early,
     p_mc_lower_95 = mc[["lower"]],
     p_mc_upper_95 = mc[["upper"]],
@@ -215,8 +285,13 @@ refine_binary <- function(path, times) {
     rsvd_oversample = cfg$analysis$rsvd_oversample,
     rsvd_power = cfg$analysis$rsvd_power
   )]
+  removable <- intersect(
+    c("permutation_checkpoint_attempted", "permutation_checkpoint_exceedances"),
+    names(job)
+  )
+  if (length(removable)) job[, (removable) := NULL]
   old$row <- job
-  saveRDS(old, path)
+  atomic_save_rds(old, path)
   NULL
 }
 
@@ -345,10 +420,10 @@ collate <- function(directory, kind) {
   )]
   results[!effect_ok, `:=`(
     p_mc_lower_95 = NA_real_, p_mc_upper_95 = NA_real_,
-    p_mc_status = "not permutation-tested: below the prespecified effect gate"
+    p_mc_status = "not permutation-tested: below the documented effect gate"
   )]
   # The primary scientific claim is a separate target screen within each
-  # disease. Control FDR within cancer and prespecified endpoint family, while
+  # disease. Control FDR within cancer and documented endpoint family, while
   # retaining the more stringent across-cancer family q value as sensitivity.
   results[, q_value := p.adjust(p_permutation, method = "BH"),
           by = .(family, tumor_type)]

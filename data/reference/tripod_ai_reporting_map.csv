@@ -14,16 +14,16 @@ item,topic,reported_location,status
 8a,Outcome definitions and assessment,Methods - Predictors and outcomes; target catalogues,Reported
 8b,Subjective outcome assessors,Methods - Predictors and outcomes,Not applicable; curated molecular and computational outcomes
 8c,Blinding of outcome assessment,Methods - Study design,Outcomes constructed independently before predictor joining
-9a,Choice of initial predictors,Methods - Predictors and outcomes,All 768 fixed pretrained TITAN dimensions prespecified
+9a,Choice of initial predictors,Methods - Predictors and outcomes,All fixed pretrained representation dimensions were used; this rule is documented in the initial repository snapshot
 9b,Predictor definitions and measurement,Methods - Predictors and outcomes; provenance/SOURCES.md,Reported
 9c,Subjective predictor assessors,Methods - Predictors and outcomes,Not applicable; fixed numeric embeddings
-10,Sample size,Methods - eligibility paragraph,All available eligible data used; prespecified minimum denominators reported; no formal power calculation
+10,Sample size,Methods - eligibility paragraph,All available eligible data used; minimum denominators are documented analysis rules in the initial repository snapshot; no formal power calculation
 11,Missing data,Methods - Predictors and outcomes; Supplementary Tables S3-S4,Reported
 12a,Data partitioning and leakage prevention,Methods - PLS1 regression and PLS-LDA classification,Reported
 12b,Predictor handling and standardisation,Methods - PLS1 regression and PLS-LDA classification,Reported
 12c,Model building tuning and internal evaluation,Methods - PLS1 regression and PLS-LDA classification,Reported
 12d,Clustering and heterogeneity,Methods - Robustness; Results - Site and multiple-slide sensitivity,Reported through tissue-source-site grouped evaluation
-12e,Performance measures and plots,Methods - Robustness; Table 2; Figure 4; Supplementary Table S5,Reported; calibration not applicable because no probability output
+12e,Performance measures and plots,Methods - Robustness; Figures 3-5 and 7; Supplementary Tables S6a and S8,Reported; binary scores are explicitly uncalibrated and not probabilities
 12f,Model updating,Methods - Software transparency and validation status,Not applicable; no external model updating
 12g,Calculation of evaluated model predictions,Repository inference example and model registry,Reported
 13,Class imbalance,Methods - PLS1 regression and PLS-LDA classification,No resampling used; balanced accuracy and observed LDA priors reported
@@ -33,7 +33,7 @@ item,topic,reported_location,status
 17,Ethical approval and consent,Declarations,Pending final institutional wording
 18a,Funding,Declarations,Pending author confirmation
 18b,Conflicts of interest,Declarations,Pending author confirmation
-18c,Protocol,Repository docs/ANALYSIS_PLAN.md,Locked analysis plan reported; not prospectively registered
+18c,Protocol,Methods; Table 1; Supplementary Table S1a; Repository docs/ANALYSIS_PLAN.md; data/reference/analysis_chronology.csv,"Plan first documented in initial repository snapshot bb0ccb8 (15 August 2026), which also contains completed results; not evidence of prospective pre-result locking and not prospectively registered"
 18d,Registration,Declarations,Study not registered
 18e,Data sharing,Declarations - Availability; provenance/SOURCES.md,Reported with source conditions
 18f,Code sharing,Methods - Software transparency; public repository,Reported with versions and licence
@@ -43,7 +43,7 @@ item,topic,reported_location,status
 20c,Evaluation-versus-development distributions,Discussion - Limitations,Not applicable; no independent evaluation cohort
 21,Participants and events per analysis,Primary screen tables; Supplementary Tables S5-S9,Reported
 22,Full model specification and access restrictions,Model registry; models/README.md; inference example,Reported subject to TITAN redistribution terms
-23a,Performance with confidence intervals and plots,Table 2; Figure 4; Supplementary Table S5,Reported for highlighted models
+23a,Performance with confidence intervals and plots,Figure 5; Supplementary Table S6a,Reported for highlighted models with selection-conditioned intervals
 23b,Heterogeneity across clusters,Figure 6; site-grouped sensitivity tables,Reported
 24,Model updating results,Discussion - Limitations,Not applicable; no model updating
 25,Interpretation and fairness,Discussion,Reported

@@ -1,14 +1,14 @@
 package,installed,version,installed_remote_sha,configured_source
 R,TRUE,4.6.0,,aarch64-apple-darwin23
-data.table,TRUE,1.18.4,1.18.4,
+data.table,TRUE,1.18.6.1,,
 digest,TRUE,0.6.39,0.6.39,
-fastPLS,TRUE,0.99.20,dcf45cccee8a1cb1a3ae8b3353a410ab0902162f,tkcaccia/fastPLS@dcf45cccee8a1cb1a3ae8b3353a410ab0902162f
+fastPLS,TRUE,0.3,b518f75285c387632c2443a0c0989d75c9dcda48,tkcaccia/fastPLS@b518f75285c387632c2443a0c0989d75c9dcda48
 future.apply,TRUE,1.20.2,,
 ggplot2,TRUE,4.0.3,,
 glmnet,TRUE,5.0,,
 jsonlite,TRUE,2.0.0,,
 maftools,TRUE,2.28.0,,
-pROC,TRUE,1.19.0.1,,
+pROC,TRUE,1.19.1,,
 readxl,TRUE,1.5.0,,
 TCGAmutations,TRUE,0.4.0,,PoisonAlien/TCGAmutations@3474e3412cfa1490db4a84db57e4a732480990a9
 testthat,TRUE,3.3.2,,

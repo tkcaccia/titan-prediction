@@ -1,0 +1,7 @@
+patient,n_slides,exact_report_matched_slides,narrative_no_residual_tumour_slides,narrative_artefact_mention_slides,project_id,anatomical_site,within_patient_slide_weight,narrative_flag_status,used_for_primary_exclusion_or_weighting
+TCGA-B6-A0IA,1,1,1,0,TCGA-BRCA,"Breast, NOS",1,non-adjudicated generated-text flag,FALSE
+TCGA-B6-A0WV,1,1,1,0,TCGA-BRCA,"Breast, NOS",1,non-adjudicated generated-text flag,FALSE
+TCGA-55-8203,1,1,1,0,TCGA-LUAD,"Lower lobe, lung",1,non-adjudicated generated-text flag,FALSE
+TCGA-55-8507,1,1,1,0,TCGA-LUAD,"Upper lobe, lung",1,non-adjudicated generated-text flag,FALSE
+TCGA-22-4596,1,1,1,0,TCGA-LUSC,"Upper lobe, lung",1,non-adjudicated generated-text flag,FALSE
+TCGA-DX-AB2L,30,30,30,0,TCGA-SARC,"Connective, subcutaneous and other soft tissues of lower limb and hip",0.0333333333333333,non-adjudicated generated-text flag,FALSE

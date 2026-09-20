@@ -1,0 +1,3 @@
+outcome_type,eligible_tests,below_checkpoint_assigned_p1,early_stopped_assigned_p1,completed_permutation_tests,completed_tests_with_999_permutations,outcome_wide_bh_denominator,atlas_wide_bh_denominator,every_row_in_all_applicable_bh_denominators
+continuous,3174,2400,0,774,774,3174,3633,TRUE
+binary,459,359,0,100,100,459,3633,TRUE

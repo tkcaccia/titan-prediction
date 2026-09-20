@@ -8,7 +8,7 @@ source("R/utils.R")
 
 cfg <- load_project_config()
 backend <- tolower(Sys.getenv("TITAN_BACKEND", "cpu"))
-options(fastPLS.backend = backend)
+options(backend = backend)
 fastpls_description <- packageDescription("fastPLS")
 fastpls_remote_sha <- as.character(fastpls_description$RemoteSha)
 if (!length(fastpls_remote_sha) || is.na(fastpls_remote_sha)) {
@@ -44,6 +44,8 @@ binary_screen <- fread("results/tables/binary_screen.csv")
 
 checkpoint_dir <- "data/processed/checkpoints/targeted_permutation_refinement"
 dir.create(checkpoint_dir, recursive = TRUE, showWarnings = FALSE)
+binary_checkpoint_dir <- paste0(checkpoint_dir, "_binary_current_fastpls")
+dir.create(binary_checkpoint_dir, recursive = TRUE, showWarnings = FALSE)
 
 monte_carlo_interval <- function(exceedances, permutations, conf.level = 0.95) {
   b <- as.integer(exceedances)
@@ -55,15 +57,23 @@ monte_carlo_interval <- function(exceedances, permutations, conf.level = 0.95) {
   )
 }
 
+atomic_save_rds <- function(object, path) {
+  temporary <- paste0(path, ".tmp-", Sys.getpid())
+  saveRDS(object, temporary)
+  if (!file.rename(temporary, path)) {
+    unlink(temporary)
+    stop("Could not atomically replace targeted permutation checkpoint: ", path)
+  }
+  invisible(path)
+}
+
 permuted_continuous_metric <- function(X, y, job, permutation_index) {
   set.seed(as.integer(job$seed) + 500000L + permutation_index)
   shuffled <- sample.int(nrow(X))
   fit <- pls.double.cv(
     X[shuffled, , drop = FALSE], y,
     ncomp = cfg$analysis$components,
-    scaling = "centering",
-    svd.method = cfg$analysis$svd_method,
-    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    scaling = "centering", rsvd_oversample = cfg$analysis$rsvd_oversample,
     rsvd_power = cfg$analysis$rsvd_power,
     kfold_outer = cfg$analysis$outer_folds,
     kfold_inner = cfg$analysis$inner_folds,
@@ -80,10 +90,7 @@ permuted_binary_metric <- function(X, y, job, permutation_index) {
     Xdata = X[shuffled, , drop = FALSE], Ydata = y,
     ncomp = cfg$analysis$components,
     scaling = "centering",
-    classifier = "lda", lda_ridge = cfg$analysis$lda_ridge,
-    selection_metric = "balanced_accuracy",
-    svd.method = cfg$analysis$svd_method,
-    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    classifier = "lda", selection = "balanced_accuracy", rsvd_oversample = cfg$analysis$rsvd_oversample,
     rsvd_power = cfg$analysis$rsvd_power,
     kfold_outer = cfg$analysis$outer_folds,
     kfold_inner = cfg$analysis$inner_folds,
@@ -143,8 +150,22 @@ refine_one <- function(i) {
     metric_function <- permuted_binary_metric
   }
 
+  state_fingerprint <- digest::digest(list(
+    schema = 2L, outcome_type = target$outcome_type, family = target$family,
+    tumor_type = target$tumor_type, endpoint = target$endpoint,
+    observed = observed, seed = as.integer(job$seed),
+    primary_permutations = as.integer(job$permutations),
+    primary_attempted = as.integer(job$permutation_attempted),
+    primary_exceedances = as.integer(job$permutation_exceedances),
+    fastPLS_version = as.character(packageVersion("fastPLS")),
+    fastPLS_remote_sha = fastpls_remote_sha,
+    analysis = cfg$analysis
+  ), algo = "sha256")
+  target_checkpoint_dir <- if (target$outcome_type == "binary") {
+    binary_checkpoint_dir
+  } else checkpoint_dir
   checkpoint_file <- file.path(
-    checkpoint_dir,
+    target_checkpoint_dir,
     paste0(safe_id(paste(target[, ..key], collapse = "__")), ".rds")
   )
   if (file.exists(checkpoint_file)) {
@@ -152,6 +173,9 @@ refine_one <- function(i) {
     if (state$target_permutations != target_B ||
         state$primary_permutations != job$permutations) {
       stop("Incompatible targeted-refinement checkpoint: ", checkpoint_file)
+    }
+    if (!identical(state$analysis_fingerprint, state_fingerprint)) {
+      stop("Stale current-fastPLS targeted refinement checkpoint: ", checkpoint_file)
     }
   } else {
     state <- list(
@@ -164,12 +188,13 @@ refine_one <- function(i) {
       attempted = as.integer(job$permutation_attempted),
       exceedances = as.integer(job$permutation_exceedances),
       next_index = as.integer(job$permutation_attempted) + 1L,
+      analysis_fingerprint = state_fingerprint,
       backend = backend,
       svd_method = cfg$analysis$svd_method,
       rsvd_oversample = cfg$analysis$rsvd_oversample,
       rsvd_power = cfg$analysis$rsvd_power
     )
-    saveRDS(state, checkpoint_file)
+    atomic_save_rds(state, checkpoint_file)
   }
 
   if (state$next_index <= target_B) {
@@ -183,7 +208,7 @@ refine_one <- function(i) {
       }
       state$next_index <- permutation_index + 1L
       if (permutation_index %% 50L == 0L || permutation_index == target_B) {
-        saveRDS(state, checkpoint_file)
+        atomic_save_rds(state, checkpoint_file)
       }
       if (permutation_index %% 1000L == 0L) {
         message(target$tumor_type, "--", target$endpoint, ": ",
@@ -220,7 +245,7 @@ refine_one <- function(i) {
     outer_predictions_regenerated = TRUE,
     refinement_use = paste0(
       "targeted Monte Carlo precision sensitivity only; not substituted into ",
-      "the prespecified 999-permutation FDR screen"
+      "the documented 999-permutation FDR screen"
     ),
     backend = backend,
     parallel_workers = workers,
@@ -237,7 +262,7 @@ refine_one <- function(i) {
   )
 }
 
-message("Refining ", nrow(targets), " prespecified leading models from 999 to ",
+message("Refining ", nrow(targets), " separately locked leading models from 999 to ",
         target_B, " permutations")
 refined <- rbindlist(future_lapply(
   seq_len(nrow(targets)), refine_one,

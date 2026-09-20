@@ -1,0 +1,8 @@
+"region","TITAN","Giga_SSL","Prov_GigaPath","patients","percent_of_union"
+"TITAN only",1,0,0,1,0.011
+"Giga-SSL only",0,1,0,7,0.074
+"Prov-GigaPath only",0,0,1,0,0
+"TITAN and Giga-SSL only",1,1,0,1070,11.298
+"TITAN and Prov-GigaPath only",1,0,1,92,0.971
+"Giga-SSL and Prov-GigaPath only",0,1,1,60,0.634
+"All three",1,1,1,8241,87.013

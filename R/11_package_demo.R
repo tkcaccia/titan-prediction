@@ -3,7 +3,7 @@ suppressPackageStartupMessages({
   library(data.table)
   library(ggplot2)
   library(patchwork)
-  library(TITANPred)
+  library(PathoFMPred)
 })
 source("R/utils.R")
 cfg <- load_project_config()
@@ -22,7 +22,7 @@ coad_predictions <- suppressWarnings(predict_titan(
 ))
 saveRDS(coad_predictions, "results/predictions/coad_package_predictions.rds")
 
-# Select a post hoc illustrative pair for a supplementary software-interface
+# Select a post hoc illustrative pair for a main-figure software-interface
 # demonstration. Eligibility requires a non-empty TITAN slide report describing a male
 # patient with sigmoid-colon, moderately differentiated, pT3 adenocarcinoma and
 # clear resection margins. Each case must have at most two of ten continuous
@@ -82,7 +82,7 @@ pair_candidates <- rbindlist(lapply(
     )
   }
 ))
-if (!nrow(pair_candidates)) stop("No COAD pair met the prespecified illustration filters.")
+if (!nrow(pair_candidates)) stop("No COAD pair met the documented illustration filters.")
 setorder(pair_candidates, -distance, id1, id2)
 selected_ids <- unlist(pair_candidates[1L, .(id1, id2)], use.names = FALSE)
 
@@ -129,7 +129,7 @@ example_map[, `:=`(
 )]
 
 clinical_context <- data.table(
-  patient_id = c("TCGA-AA-A01F", "TCGA-AA-3972"),
+  patient_id = c("TCGA-AA-A01F", "TCGA-A6-A56B"),
   pathology = c(
     paste(
       "The sigmoid resection contained an ulcerated grade-2 adenocarcinoma",
@@ -138,10 +138,10 @@ clinical_context <- data.table(
       "and 2 of 30 regional nodes contained metastasis (pN1)."
     ),
     paste(
-      "The sigmoid colectomy contained an ulcerated grade-2 colorectal",
-      "adenocarcinoma extending through the bowel wall into adjacent mesocolic",
-      "fat (pT3). The proximal and distal resection margins were uninvolved;",
-      "the supplied slide summary did not state a nodal category."
+      "The sigmoid-colon slide contained a moderately differentiated",
+      "adenocarcinoma extending through the muscularis propria without",
+      "reaching the serosal surface (pT3). The excision margins were negative,",
+      "and carcinoma was present in three of 25 regional lymph nodes."
     )
   ),
   source = paste(
@@ -181,70 +181,24 @@ coral <- "#F05D5E"
 muted <- "#64748B"
 sample_palette <- c("COAD example A" = teal, "COAD example B" = coral)
 
-continuous_display <- selected[outcome_type == "continuous"]
-continuous_display[, endpoint_label := fcase(
-  endpoint == "Lymphocyte Infiltration Signature Score", "Lymphocyte signature",
-  endpoint == "TIL Regional Fraction", "TIL regional fraction",
-  endpoint == "Nonsilent Mutation Rate", "Nonsilent mutation rate",
-  endpoint == "Silent Mutation Rate", "Silent mutation rate",
-  endpoint == "SNV Neoantigens", "SNV neoantigens",
-  endpoint == "Aneuploidy Score", "Aneuploidy (immune atlas)",
-  endpoint == "Aneuploidy score", "Aneuploidy (Taylor)",
-  endpoint == "Deleted arm count", "Deleted arm count",
-  default = endpoint
-)]
-continuous_display[, endpoint_label := factor(
-  endpoint_label,
-  levels = rev(unique(endpoint_label[order(reference_percentile)]))
-)]
-continuous_wide <- dcast(
-  continuous_display,
-  endpoint_label ~ example,
-  value.var = c("reference_percentile", "prediction")
-)
-setnames(
-  continuous_wide,
-  c("reference_percentile_COAD example A", "reference_percentile_COAD example B",
-    "prediction_COAD example A", "prediction_COAD example B"),
-  c("rank_a", "rank_b", "prediction_a", "prediction_b")
-)
-continuous_wide[, value_label := sprintf("A %.3g  |  B %.3g", prediction_a, prediction_b)]
-continuous_wide[, separation := abs(rank_a - rank_b)]
-continuous_wide <- continuous_wide[order(-separation)][seq_len(min(8L, .N))]
-continuous_wide[, endpoint_label := factor(
-  endpoint_label, levels = rev(as.character(endpoint_label[order(rank_a)]))
-)]
-p_continuous <- ggplot(continuous_wide, aes(y = endpoint_label)) +
-  geom_segment(aes(x = rank_a, xend = rank_b, yend = endpoint_label),
-               color = "#D7DEE8", linewidth = 1.1) +
-  geom_point(aes(x = rank_a, color = "COAD example A"), size = 3.7) +
-  geom_point(aes(x = rank_b, color = "COAD example B"), size = 3.7) +
-  geom_text(aes(x = 104, label = value_label), hjust = 0, size = 3.3,
-            color = navy, family = "Arial") +
-  scale_color_manual(values = sample_palette) +
-  scale_x_continuous(limits = c(0, 126), breaks = seq(0, 100, 25),
-                     labels = function(x) paste0(x, "%")) +
-  coord_cartesian(clip = "off") +
+radar_a <- as.data.frame(selected[
+  example == "COAD example A" & outcome_type == "continuous"
+])
+radar_b <- as.data.frame(selected[
+  example == "COAD example B" & outcome_type == "continuous"
+])
+p_radar_a <- plot_titan_radar(radar_a) +
   labs(
-    title = "A  Continuous estimates compared on one common reference-rank scale",
-    subtitle = "Right column gives original predictions (A | B); reference rank is not probability",
-    x = "TCGA out-of-fold prediction rank (not probability)", y = NULL,
-    color = NULL
-  ) +
-  theme_minimal(base_size = 12.8, base_family = "Arial") +
-  theme(
-    panel.grid.major.y = element_blank(), panel.grid.minor = element_blank(),
-    axis.text.y = element_text(size = 11.5),
-    plot.title = element_text(face = "bold", size = 15, color = navy),
-    plot.subtitle = element_text(size = 11, color = muted),
-    legend.position = "bottom", plot.margin = margin(8, 18, 8, 8)
+    title = paste0("A  Example A - ", unique(radar_a$patient_id)),
+    subtitle = paste(nrow(radar_a), "predictable continuous endpoints; exact values at corners")
+  )
+p_radar_b <- plot_titan_radar(radar_b) +
+  labs(
+    title = paste0("B  Example B - ", unique(radar_b$patient_id)),
+    subtitle = paste(nrow(radar_b), "predictable continuous endpoints; exact values at corners")
   )
 
 binary <- selected[outcome_type == "binary"]
-binary[, endpoint_key := paste(family, endpoint, sep = "::")]
-binary[, separation := max(reference_rank) - min(reference_rank), by = endpoint_key]
-selected_binary_keys <- unique(binary[order(-separation), endpoint_key])[seq_len(min(6L, uniqueN(binary$endpoint_key)))]
-binary <- binary[endpoint_key %chin% selected_binary_keys]
 binary[, endpoint_label := fcase(
   endpoint == "MSI-H strict (MANTIS >0.6)", "MSI-H strict (>0.6)",
   endpoint == "MSI-H (MANTIS >0.4)", "MSI-H (>0.4)",
@@ -273,9 +227,9 @@ p_binary <- ggplot(binary, aes(reference_rank, endpoint_label, color = example))
   scale_x_continuous(limits = c(0, 100), breaks = seq(0, 100, 25),
                      labels = function(x) paste0(x, "%")) +
   labs(
-    title = "B  Binary calls for the two illustrative cases",
-    subtitle = "Score rank (not probability); flagged models attenuated when grouped by TCGA tissue-source-site code",
-    x = "TCGA out-of-fold score rank (not probability)", y = NULL,
+    title = "C  Binary calls for the two illustrative cases",
+    subtitle = "Reference rank, not probability; flagged models attenuated when grouped by TCGA tissue-source-site code",
+    x = "Reference rank, not probability", y = NULL,
     color = NULL, shape = NULL
   ) +
   theme_minimal(base_size = 12.5, base_family = "Arial") +
@@ -288,10 +242,9 @@ p_binary <- ggplot(binary, aes(reference_rank, endpoint_label, color = example))
     legend.text = element_text(size = 9.5)
   )
 
-figure <- (p_continuous / p_binary +
-             plot_layout(heights = c(1.05, 1))) +
+figure <- (p_radar_a | p_radar_b) +
   plot_annotation(
-    title = "TITANPred research-software visualization: internally derived COAD estimates",
+    title = "PathoFMPred research-software visualization: internally derived COAD estimates",
     subtitle = paste(
       "Post hoc COAD cases selected after limiting profile saturation and maximising",
       "profile separation; the comparison is illustrative, not validation evidence."
@@ -299,20 +252,20 @@ figure <- (p_continuous / p_binary +
     caption = paste0(
       "A: ", example_map[example == "COAD example A", patient_id],
       "; B: ", example_map[example == "COAD example B", patient_id],
-      ". Continuous and binary TCGA OOF ranks are not probabilities. ",
-      "Post hoc visualization; no external validation."
+      ". Exact original prediction values are shown at every radar corner. ",
+      "Post hoc research-software visualization; no external validation."
     ),
     theme = theme(
-      plot.title = element_text(face = "bold", size = 18, color = navy),
-      plot.subtitle = element_text(size = 11, color = muted),
-      plot.caption = element_text(size = 9.2, color = muted, hjust = 0)
+      plot.title = element_text(face = "bold", size = 17, color = navy),
+      plot.subtitle = element_text(size = 10, color = muted),
+      plot.caption = element_text(size = 8.3, color = muted, hjust = 0)
     )
   )
 
-ggsave("figures/Figure7_COAD_TITANPred_examples.png", figure,
-       width = 12.4, height = 10.2, dpi = 320, bg = "white")
-ggsave("figures/Figure7_COAD_TITANPred_examples.pdf", figure,
-       width = 12.4, height = 10.2, device = cairo_pdf, bg = "white")
+ggsave("figures/Figure8_COAD_PathoFMPred_examples.png", figure,
+       width = 13.2, height = 6.4, dpi = 320, bg = "white")
+ggsave("figures/Figure8_COAD_PathoFMPred_examples.pdf", figure,
+       width = 13.2, height = 6.4, device = cairo_pdf, bg = "white")
 
 cat("Selected:", paste(example_map$patient_id, collapse = " and "), "\n")
 cat("Reports:", paste(list.files("results/reports", pattern = "COAD_example", full.names = TRUE), collapse = "\n"), "\n")

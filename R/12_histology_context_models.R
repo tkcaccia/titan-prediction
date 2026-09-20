@@ -7,7 +7,7 @@ suppressPackageStartupMessages({
 })
 source("R/utils.R")
 cfg <- load_project_config()
-options(fastPLS.backend = tolower(Sys.getenv("TITAN_BACKEND", "cpu")))
+options(backend = tolower(Sys.getenv("TITAN_BACKEND", "cpu")))
 
 dir.create("results/predictions", recursive = TRUE, showWarnings = FALSE)
 dir.create("results/tables", recursive = TRUE, showWarnings = FALSE)
@@ -33,10 +33,7 @@ y_cancer <- droplevels(factor(cohort$meta$tumor_type[keep]))
 cancer_fit <- pls.double.cv(
   X_cancer, y_cancer,
   ncomp = cfg$analysis$components,
-  classifier = "lda", lda_ridge = cfg$analysis$lda_ridge,
-  selection_metric = "balanced_accuracy",
-  svd.method = cfg$analysis$svd_method,
-  rsvd_oversample = cfg$analysis$rsvd_oversample,
+  classifier = "lda", selection = "balanced_accuracy", rsvd_oversample = cfg$analysis$rsvd_oversample,
   rsvd_power = cfg$analysis$rsvd_power,
   kfold_outer = cfg$analysis$outer_folds,
   kfold_inner = cfg$analysis$inner_folds,
@@ -81,9 +78,8 @@ saveRDS(data.table(
 dir.create("models/histology_context", recursive = TRUE, showWarnings = FALSE)
 cancer_final <- fastPLS::pls(
   X_cancer, y_cancer, ncomp = as.integer(cancer_fit$bcomp),
-  classifier = "lda", lda_ridge = cfg$analysis$lda_ridge, fit = TRUE,
-  return_loadings = TRUE, svd.method = cfg$analysis$svd_method,
-  rsvd_oversample = cfg$analysis$rsvd_oversample,
+  classifier = "lda", fit = TRUE,
+  return_loadings = TRUE, rsvd_oversample = cfg$analysis$rsvd_oversample,
   rsvd_power = cfg$analysis$rsvd_power,
   seed = cfg$analysis$seed + 1250L
 )
@@ -154,9 +150,7 @@ run_purity <- function(i) {
   idx <- match(d$patient, rownames(cohort$X))
   fit <- pls.double.cv(
     cohort$X[idx, , drop = FALSE], d$cpe,
-    ncomp = cfg$analysis$components,
-    svd.method = cfg$analysis$svd_method,
-    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    ncomp = cfg$analysis$components, rsvd_oversample = cfg$analysis$rsvd_oversample,
     rsvd_power = cfg$analysis$rsvd_power,
     kfold_outer = cfg$analysis$outer_folds,
     kfold_inner = cfg$analysis$inner_folds,
@@ -217,8 +211,7 @@ purity_models <- lapply(seq_len(nrow(purity_summary)), function(i) {
   fit <- fastPLS::pls(
     cohort$X[idx, , drop = FALSE], d$cpe,
     ncomp = as.integer(row$selected_components), fit = TRUE,
-    return_loadings = TRUE, svd.method = cfg$analysis$svd_method,
-    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    return_loadings = TRUE, rsvd_oversample = cfg$analysis$rsvd_oversample,
     rsvd_power = cfg$analysis$rsvd_power,
     seed = as.integer(row$seed) + 50L
   )
@@ -298,10 +291,7 @@ for (outer_i in seq_along(normal_patients)) {
       inner_train <- train & groups != validation_group
       fit <- fastPLS::pls(
         X_pair[inner_train, , drop = FALSE], y_pair[inner_train],
-        ncomp = component, classifier = "lda",
-        lda_ridge = cfg$analysis$lda_ridge, fit = TRUE,
-        svd.method = cfg$analysis$svd_method,
-        rsvd_oversample = cfg$analysis$rsvd_oversample,
+        ncomp = component, classifier = "lda", fit = TRUE, rsvd_oversample = cfg$analysis$rsvd_oversample,
         rsvd_power = cfg$analysis$rsvd_power,
         seed = cfg$analysis$seed + 1400L + outer_i * 100L + inner_i
       )
@@ -314,9 +304,7 @@ for (outer_i in seq_along(normal_patients)) {
   pair_ncomp[outer_i] <- cfg$analysis$components[which.max(inner_ba)]
   fit <- fastPLS::pls(
     X_pair[train, , drop = FALSE], y_pair[train], ncomp = pair_ncomp[outer_i],
-    classifier = "lda", lda_ridge = cfg$analysis$lda_ridge, fit = TRUE,
-    svd.method = cfg$analysis$svd_method,
-    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    classifier = "lda", fit = TRUE, rsvd_oversample = cfg$analysis$rsvd_oversample,
     rsvd_power = cfg$analysis$rsvd_power,
     seed = cfg$analysis$seed + 1500L + outer_i
   )

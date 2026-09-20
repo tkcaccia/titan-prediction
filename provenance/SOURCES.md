@@ -8,14 +8,17 @@ references are written to `results/tables/software_manifest.csv`.
 | Family | Source | Role |
 |---|---|---|
 | Histology features | Ding et al., *Nature Medicine* (2025); gated `MahmoodLab/TITAN/TCGA_TITAN_features.pkl` | Fixed pretrained 768-dimensional slide representations |
+| Histology features | Lazard et al.; `trislaz/gigassl` released TCGA embeddings | Fixed pretrained 512-dimensional slide representations |
+| Histology features | Xu et al.; `seandavis/tcga_provgigapath_embeddings` | Fixed pretrained 768-dimensional slide representations |
 | Immune/inflammatory and genomic context | Thorsson et al., *Immunity* (2018) | RNA signatures, CIBERSORT fractions, methylation-derived leukocyte fraction, H&E-derived TIL regional fraction, immune-repertoire and genomic-context targets |
+| RNA-derived pathway activity | UCSC Xena TCGA Pan-Cancer RNA-seq; MSigDB 2026.1.Hs | Fifty Hallmark scores, Reactome glutathione synthesis and recycling, and Gene Ontology vitamin B6 metabolism; scores are within-cancer relative expression phenotypes, not direct biochemical measurements |
 | Driver mutations | Bailey et al., *Cell* (2018); TCGA MC3 | Cancer-specific binary targets |
 | Oncogenic pathways | Sanchez-Vega et al., *Cell* (2018), Table S4 | Ten binary pathway-alteration targets |
 | Aneuploidy | Taylor et al., *Cancer Cell* (2018), Table S2 | Aneuploidy score, arm burdens, genome doubling |
 | Gene fusions | Gao et al., *Cell Reports* (2018), Table S1 | Fusion burden and recurrent fusion targets |
 | MSI | Bonneville et al., *JCO Precision Oncology* (2017); cBioPortal Datahub | MANTIS and MSIsensor scores/status |
 | Participant characteristics | Liu et al., *Cell* (2018), TCGA Clinical Data Resource | Descriptive age, recorded gender, race and broad stage summaries |
-| PLS software | fastPLS 0.99.20, Git commit `dcf45cc` | Nested PLS/PLS-LDA modelling |
+| PLS software | fastPLS 0.3, Git commit `b518f75` | Nested PLS/PLS-LDA modelling |
 
 The curated prior-histology mutation claims used for the discussion crosswalk
 are stored in `data/reference/prior_mutation_claims.csv`. Each row records the
@@ -76,6 +79,10 @@ Primary publication links:
 
 - TITAN: https://doi.org/10.1038/s41591-025-03982-3
 - PanCancer immune landscape: https://doi.org/10.1016/j.immuni.2018.03.023
+- UCSC Xena: https://xena.ucsc.edu/
+- MSigDB Hallmarks: https://doi.org/10.1016/j.cels.2015.12.004
+- Reactome glutathione synthesis and recycling: https://reactome.org/content/detail/R-HSA-174403
+- Reactome vitamin B6 activation: https://reactome.org/content/detail/R-HSA-964975
 - CIBERSORT immune-cell deconvolution: https://doi.org/10.1038/nmeth.3337
 - H&E-derived spatial TIL maps: https://doi.org/10.1016/j.celrep.2018.03.086
 - MC3 mutation calls: https://doi.org/10.1016/j.cels.2018.03.002
@@ -99,6 +106,17 @@ derivatives, and prohibits redistribution of a model copy without permission.
 Accordingly, this repository releases fitting and inference code, registry
 metadata and hashes, but not the local fitted `.rds` objects unless written
 permission or compatible terms are obtained.
+
+The Giga-SSL repository and its released TCGA embeddings use the MIT licence.
+The Prov-GigaPath repository uses Apache-2.0, while the specific seandavis TCGA
+Prov-GigaPath embedding dataset used here is CC-BY-4.0. These upstream terms do
+not become GPL merely because the analysis or package source is GPL. The 917
+fitted coefficient objects are therefore treated as a separate, currently
+access-controlled layer: 323 TITAN, 297 Giga-SSL and 297 Prov-GigaPath objects.
+No fitted object is presently claimed as publicly redistributable. Any future
+release will be reviewed separately for the applicable representation,
+provenance and institutional requirements. This is a project access-policy
+statement, not a legal determination.
 
 The supplied Bonneville spreadsheets `ds_po.17.00073-4/5.xlsx` contain only
 the ACC/CESC/MESO secondary analysis (480 and 480 rows), not the complete

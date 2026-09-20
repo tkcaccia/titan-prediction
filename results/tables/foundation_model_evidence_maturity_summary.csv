@@ -1,0 +1,7 @@
+foundation_model,outcome_type,inclusive_eligible_tasks,inclusive_crossings,inclusive_crossing_percent,standard_evidence_eligible_tasks,standard_evidence_crossings,standard_evidence_crossing_percent_of_standard_eligible,standard_evidence_percent_of_inclusive_crossings,limited_evidence_eligible_tasks,limited_evidence_crossings
+GigaSSL,binary,426,166,38.9671361502347,223,106,47.5336322869955,63.855421686747,203,60
+GigaSSL,continuous,2963,362,12.217347283159,2277,340,14.9319279754062,93.9226519337017,686,22
+ProvGigaPath,binary,426,176,41.3145539906103,223,115,51.5695067264574,65.3409090909091,203,61
+ProvGigaPath,continuous,2963,441,14.8835639554506,2277,420,18.4453227931489,95.2380952380952,686,21
+TITAN,binary,426,230,53.9906103286385,223,144,64.5739910313901,62.6086956521739,203,86
+TITAN,continuous,2963,643,21.7009787377658,2277,592,25.9991216512956,92.0684292379471,686,51

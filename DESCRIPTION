@@ -1,6 +1,6 @@
-Package: titanprediction
+Package: pathofmpredanalysis
 Type: Project
-Title: Patient-Level Molecular Prediction from TITAN Embeddings
+Title: Patient-Level Molecular Prediction from Pathology Foundation Models
 Version: 0.1.0
 Authors@R: c(
     person("Aamilah", "Ismail", role = "aut",
@@ -14,12 +14,19 @@ Authors@R: c(
     person("Dupe", "Ojo", role = "aut",
       email = "dupe.ojo@icgeb.org"),
     person("Ekene Emmanuel", "Nweke", role = "aut"),
+    person("Silvano", "Piazza", role = "aut"),
+    person("Dinesh", "Gupta", role = "aut"),
+    person("Alessia", "Vignoli", role = "aut",
+      email = "vignoli@cerm.unifi.it"),
+    person("Leonardo", "Tenori", role = "aut",
+      email = "tenori@cerm.unifi.it"),
     person("Stefano", "Cacciatore", role = c("aut", "cre"),
-      email = "stefano.cacciatore@icgeb.org")
+      email = "tkcaccia@gmail.com")
   )
 Description: Reproducible analysis pipeline for cancer-specific prediction of
     molecular, immune, genomic instability and fusion endpoints from fixed pretrained
-    TITAN whole-slide embeddings using PLS regression and PLS-LDA.
+    TITAN, Giga-SSL and Prov-GigaPath whole-slide representations using PLS regression
+    and PLS-LDA, with a matched downstream-probe comparison.
 License: GPL-3
 Encoding: UTF-8
 Depends: R (>= 4.6.0)
@@ -34,10 +41,10 @@ Imports:
     pROC,
     readxl,
     TCGAmutations,
-    TITANPred
+    PathoFMPred
 Remotes:
-    tkcaccia/TITANPred,
-    tkcaccia/fastPLS@dcf45cccee8a1cb1a3ae8b3353a410ab0902162f
+    tkcaccia/PathoFMPred,
+    tkcaccia/fastPLS@b518f75285c387632c2443a0c0989d75c9dcda48
 Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

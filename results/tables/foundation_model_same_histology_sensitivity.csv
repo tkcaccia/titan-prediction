@@ -1,0 +1,4 @@
+foundation_model,full_titan_universe_same_histology_tasks,matched_same_histology_tasks,all_continuous_tasks,all_continuous_crossings,all_continuous_crossing_percent,same_histology_crossings,cross_modal_continuous_tasks,cross_modal_continuous_crossings,cross_modal_continuous_crossing_percent,all_matched_tasks,all_matched_crossings,matched_tasks_excluding_same_histology,matched_crossings_excluding_same_histology
+GigaSSL,13,11,2963,362,12.217347283159,11,2952,351,11.890243902439,3389,528,3378,517
+ProvGigaPath,13,11,2963,441,14.8835639554506,11,2952,430,14.5663956639566,3389,617,3378,606
+TITAN,13,11,2963,643,21.7009787377658,10,2952,633,21.4430894308943,3389,873,3378,863

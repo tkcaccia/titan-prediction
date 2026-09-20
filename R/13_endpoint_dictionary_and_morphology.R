@@ -71,6 +71,42 @@ definition_for <- function(outcome_type, family, endpoint) {
     "None; source value used as supplied"
   }
 
+  if (family == "rna_pathway_activity") return(list(
+    definition_group = if (startsWith(endpoint, "HALLMARK_"))
+      "MSigDB Hallmark activity" else "Focused metabolic-pathway activity",
+    measurement_class = "transcriptomic pathway score",
+    source_modality = "Bulk tumour RNA sequencing",
+    direct_vs_inferred = "Computationally derived expression score",
+    derivation_algorithm = paste(
+      "Primary-tumour RNA aliquots were averaged by patient. Within each cancer,",
+      "each pathway-member gene was standardized across patients and the available",
+      "member-gene z scores were averaged. Gene sets follow MSigDB 2026.1.Hs."
+    ),
+    original_scale = "Continuous within-cancer relative pathway-expression score",
+    transformation = "None after pathway scoring",
+    expected_measurement_error = paste(
+      "Affected by RNA quality, tumour purity, cellular composition, sampling,",
+      "gene-set membership and transcript abundance; it is not a metabolite or",
+      "biochemical flux measurement"
+    ),
+    biological_interpretation = if (grepl("GLUTATHIONE", endpoint)) {
+      "Relative expression of genes involved in glutathione synthesis and recycling"
+    } else if (grepl("VITAMIN_B6", endpoint)) {
+      "Relative expression of genes involved in vitamin B6 metabolism"
+    } else {
+      paste("Relative expression activity for", gsub("_", " ", endpoint))
+    },
+    equivalence_caveat = paste(
+      "Agreement with an RNA-derived pathway phenotype, not direct recovery of",
+      "pathway flux, metabolite abundance or a clinically certified assay"
+    ),
+    source_reference = paste(
+      "UCSC Xena TCGA Pan-Cancer RNA-seq; MSigDB 2026.1.Hs;",
+      "Liberzon et al. 2015 (10.1016/j.cels.2015.12.004)"
+    ),
+    same_histology_modality = FALSE
+  ))
+
   if (family == "driver_mutation") return(list(
     definition_group = "Gene-specific somatic mutation",
     measurement_class = "directly observed genomic alteration",
@@ -557,7 +593,7 @@ extract_report_terms <- function(text) {
     logical(1)
   )]
   if (length(hits)) paste(hits, collapse = "; ") else
-    "none of the prespecified report terms"
+    "none of the fixed report terms"
 }
 
 cosine_similarity <- function(a, b) {

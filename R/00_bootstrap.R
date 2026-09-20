@@ -11,24 +11,25 @@ if (length(missing)) install.packages(missing)
 dir.create(".Rlib", showWarnings = FALSE)
 .libPaths(c(normalizePath(".Rlib"), .libPaths()))
 
-expected_fastpls_sha <- "dcf45cccee8a1cb1a3ae8b3353a410ab0902162f"
+expected_fastpls_sha <- "b518f75285c387632c2443a0c0989d75c9dcda48"
 installed_fastpls_sha <- if (requireNamespace("fastPLS", quietly = TRUE)) {
   packageDescription("fastPLS")$RemoteSha
 } else {
   NULL
 }
 need_fastpls <- !requireNamespace("fastPLS", quietly = TRUE) ||
-  packageVersion("fastPLS") != "0.99.20" ||
+  packageVersion("fastPLS") != "0.3" ||
   is.null(installed_fastpls_sha) ||
   !identical(as.character(installed_fastpls_sha), expected_fastpls_sha)
 if (need_fastpls) {
-  remotes::install_github("tkcaccia/fastPLS@dcf45cc", lib = ".Rlib",
+  remotes::install_github(
+    paste0("tkcaccia/fastPLS@", expected_fastpls_sha), lib = ".Rlib",
                           upgrade = "never", dependencies = TRUE, force = TRUE)
 }
 
-if (!requireNamespace("TITANPred", quietly = TRUE)) {
+if (!requireNamespace("PathoFMPred", quietly = TRUE)) {
   remotes::install_github(
-    "tkcaccia/TITANPred",
+    "tkcaccia/PathoFMPred",
     lib = ".Rlib", upgrade = "never", dependencies = TRUE
   )
 }

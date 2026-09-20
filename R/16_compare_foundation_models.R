@@ -6,11 +6,24 @@ suppressPackageStartupMessages({
 })
 source("R/utils.R")
 cfg <- load_project_config()
-options(fastPLS.backend = tolower(Sys.getenv("TITAN_BACKEND", "cpu")))
+component_max <- as.integer(Sys.getenv("FMPRED_MAX_COMPONENTS", "0"))
+if (is.finite(component_max) && component_max > 0L) {
+  cfg$analysis$components <- seq_len(component_max)
+}
+options(backend = tolower(Sys.getenv("TITAN_BACKEND", "cpu")))
 
 model_names <- c("TITAN", "GigaSSL", "ProvGigaPath")
+cohort_mode <- tolower(Sys.getenv("FMPRED_COHORT_MODE", "common_patient"))
+if (!cohort_mode %in% c("common_patient", "exact_common_slide")) {
+  stop("FMPRED_COHORT_MODE must be common_patient or exact_common_slide")
+}
+cohort_prefix <- if (cohort_mode == "exact_common_slide") {
+  "patient_cohort_exact_slides_"
+} else {
+  "patient_cohort_"
+}
 cohorts <- setNames(lapply(model_names, function(model) {
-  readRDS(file.path("data/processed", paste0("patient_cohort_", model, ".rds")))
+  readRDS(file.path("data/processed", paste0(cohort_prefix, model, ".rds")))
 }), model_names)
 common_patients <- Reduce(intersect, lapply(cohorts, function(x) rownames(x$X)))
 
@@ -38,24 +51,40 @@ setorder(jobs, outcome_type, family, tumor_type, endpoint)
 jobs[, job_id := .I]
 
 all_jobs <- copy(jobs)
+job_file <- Sys.getenv("FMPRED_JOB_FILE", "")
+job_label <- ""
+if (nzchar(job_file)) {
+  selected_jobs <- fread(job_file)[, .(outcome_type, family, tumor_type, endpoint)]
+  jobs <- jobs[selected_jobs, on=.(outcome_type, family, tumor_type, endpoint), nomatch=0L]
+  job_label <- paste0("_", tools::file_path_sans_ext(basename(job_file)))
+  setorder(jobs, outcome_type, family, tumor_type, endpoint)
+  jobs[, job_id := .I]
+}
 start <- as.integer(Sys.getenv("FMPRED_JOB_START", "1"))
 limit <- as.integer(Sys.getenv("FMPRED_JOB_LIMIT", "0"))
 if (!is.finite(start) || start < 1L) start <- 1L
 if (is.finite(limit) && limit > 0L) {
   jobs <- jobs[seq.int(start, min(start + limit - 1L, .N))]
 }
-checkpoint_dir <- "data/processed/checkpoints/foundation_model_comparison"
+checkpoint_dir <- file.path("data/processed/checkpoints",
+                            paste0("foundation_model_comparison_", cohort_mode,
+                                   job_label,
+                                   if (max(cfg$analysis$components) == 10L) "" else
+                                     paste0("_components_", max(cfg$analysis$components))))
 dir.create(checkpoint_dir, recursive = TRUE, showWarnings = FALSE)
+fastpls_description <- packageDescription("fastPLS")
 
 fingerprint <- digest::digest(list(
-  schema = 2L,
+  schema = 3L,
   utils = digest::digest(file = "R/utils.R", algo = "sha256"),
   cohorts = vapply(cohorts, `[[`, character(1), "source_sha256"),
   continuous = digest::digest(file = "data/processed/continuous_targets.rds", algo = "sha256"),
   binary_nonmutation = digest::digest(file = "data/processed/binary_targets_nonmutation.rds", algo = "sha256"),
   binary_mutation = digest::digest(file = "data/processed/binary_targets_mutation.rds", algo = "sha256"),
   analysis = cfg$analysis,
-  estimand = "same outcome-labelled patients present in all three foundation-model cohorts"
+  estimand = cohort_mode,
+  fastPLS_version = as.character(packageVersion("fastPLS")),
+  fastPLS_remote_sha = as.character(fastpls_description$RemoteSha)
 ), algo = "sha256")
 
 average_precision <- function(truth, score) {
@@ -99,12 +128,23 @@ run_job <- function(i) {
     stopifnot(!anyNA(idx))
     X <- cohort$X[idx, , drop = FALSE]
     if (job$outcome_type == "continuous") {
-      fit <- fit_continuous_nested_once(X, y, cfg$analysis, seed)
+      fit <- tryCatch(
+        fit_continuous_nested_once(X, y, cfg$analysis, seed),
+        error = function(e) stop(
+          "Foundation benchmark failed for job ", job$job_id,
+          ", representation ", model, ", ", job$tumor_type, "--",
+          job$endpoint, ": ", conditionMessage(e), call. = FALSE
+        )
+      )
       rows[[model]] <- data.table(
         foundation_model = model, q2 = fit$q2, rmse = fit$rmse,
         spearman = fit$correlation, balanced_accuracy = NA_real_, auc = NA_real_,
         pr_auc = NA_real_, selected_components_median = median(fit$ncomp),
-        selected_components_min = min(fit$ncomp), selected_components_max = max(fit$ncomp)
+        selected_components_min = min(fit$ncomp), selected_components_max = max(fit$ncomp),
+        selected_components_at_ceiling = sum(fit$ncomp == max(cfg$analysis$components)),
+        selected_components_outer_fits = length(fit$ncomp),
+        selected_components_ceiling_fraction = mean(fit$ncomp == max(cfg$analysis$components)),
+        numerical_failure_or_fallback = FALSE
       )
       predictions[[model]] <- data.table(
         foundation_model = model, patient = d$patient,
@@ -112,14 +152,30 @@ run_job <- function(i) {
         predicted_class = NA_integer_, score = NA_real_, outer_fold = fit$fold
       )
     } else {
-      fit <- fit_binary_nested_once(X, y, cfg$analysis, seed)
+      fit <- tryCatch(
+        fit_binary_nested_auroc_once(X, y, cfg$analysis, seed),
+        error = function(e) stop(
+          "Foundation benchmark failed for job ", job$job_id,
+          ", representation ", model, ", ", job$tumor_type, "--",
+          job$endpoint, ": ", conditionMessage(e), call. = FALSE
+        )
+      )
       metrics <- binary_classification_metrics(y, fit$prediction, fit$score)
       rows[[model]] <- data.table(
         foundation_model = model, q2 = NA_real_, rmse = NA_real_, spearman = NA_real_,
         balanced_accuracy = metrics$balanced_accuracy, auc = metrics$auc,
         pr_auc = average_precision(y, fit$score),
+        sensitivity = metrics$sensitivity, specificity = metrics$specificity,
+        ppv = metrics$ppv, npv = metrics$npv,
+        prevalence = metrics$prevalence,
+        no_skill_pr_auc = metrics$no_skill_pr_auc,
+        operating_threshold_median = median(fit$threshold),
         selected_components_median = median(fit$ncomp),
-        selected_components_min = min(fit$ncomp), selected_components_max = max(fit$ncomp)
+        selected_components_min = min(fit$ncomp), selected_components_max = max(fit$ncomp),
+        selected_components_at_ceiling = sum(fit$ncomp == max(cfg$analysis$components)),
+        selected_components_outer_fits = length(fit$ncomp),
+        selected_components_ceiling_fraction = mean(fit$ncomp == max(cfg$analysis$components)),
+        numerical_failure_or_fallback = FALSE
       )
       predictions[[model]] <- data.table(
         foundation_model = model, patient = d$patient,
@@ -136,7 +192,9 @@ run_job <- function(i) {
     endpoint = job$endpoint, source = job$source, n = nrow(d),
     positive = if (job$outcome_type == "binary") sum(y == "1") else NA_integer_,
     negative = if (job$outcome_type == "binary") sum(y == "0") else NA_integer_,
-    seed = seed, common_cohort = TRUE
+    seed = seed, common_cohort = TRUE,
+    fastPLS_version = as.character(packageVersion("fastPLS")),
+    fastPLS_remote_sha = as.character(fastpls_description$RemoteSha)
   )]
   saveRDS(list(fingerprint = fingerprint, result = result,
                predictions = rbindlist(predictions)), path, compress = "xz")
@@ -175,18 +233,24 @@ predictions <- rbindlist(Map(function(object, i) {
 setcolorder(results, c("foundation_model", "outcome_type", "family", "subfamily",
                       "tumor_type", "endpoint", "source", "n", "positive", "negative"))
 setorder(results, outcome_type, family, tumor_type, endpoint, foundation_model)
-fwrite(results, "results/tables/foundation_model_matched_screen.csv")
-saveRDS(predictions, "results/predictions/foundation_model_matched_oof.rds", compress = "xz")
+output_suffix <- paste0(
+  if (cohort_mode == "exact_common_slide") "_exact_common_slide" else "",
+  job_label,
+  if (max(cfg$analysis$components) == 10L) "" else
+    paste0("_components_", max(cfg$analysis$components))
+)
+fwrite(results, paste0("results/tables/foundation_model_matched_screen", output_suffix, ".csv"))
+saveRDS(predictions, paste0("results/predictions/foundation_model_matched_oof", output_suffix, ".rds"), compress = "xz")
 
 summary <- results[, .(
   eligible_targets = .N,
   screen_statistic_ge_tier_B = if (outcome_type[1L] == "continuous")
-    sum(q2 >= 0.20, na.rm = TRUE) else sum(balanced_accuracy >= 0.60, na.rm = TRUE),
+    sum(q2 >= 0.20, na.rm = TRUE) else sum(auc >= 0.60, na.rm = TRUE),
   screen_statistic_ge_tier_A = if (outcome_type[1L] == "continuous")
-    sum(q2 >= 0.40, na.rm = TRUE) else sum(balanced_accuracy >= 0.70, na.rm = TRUE),
+    sum(q2 >= 0.40, na.rm = TRUE) else sum(auc >= 0.70, na.rm = TRUE),
   median_q2 = median(q2, na.rm = TRUE), median_auc = median(auc, na.rm = TRUE),
   median_balanced_accuracy = median(balanced_accuracy, na.rm = TRUE),
   median_pr_auc = median(pr_auc, na.rm = TRUE)
 ), by = .(foundation_model, outcome_type)]
-fwrite(summary, "results/tables/foundation_model_matched_summary.csv")
+fwrite(summary, paste0("results/tables/foundation_model_matched_summary", output_suffix, ".csv"))
 print(summary)

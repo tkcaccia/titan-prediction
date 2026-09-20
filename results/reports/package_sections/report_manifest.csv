@@ -1,0 +1,7 @@
+patient_id,example,foundation_model,report_pdf
+TCGA-AA-A01F,COAD_example_A,TITAN,/Users/stefano/Documents/Titan/titan-prediction/results/reports/package_sections/COAD_example_A_TITAN.pdf
+TCGA-AA-A01F,COAD_example_A,GigaSSL,/Users/stefano/Documents/Titan/titan-prediction/results/reports/package_sections/COAD_example_A_GigaSSL.pdf
+TCGA-AA-A01F,COAD_example_A,ProvGigaPath,/Users/stefano/Documents/Titan/titan-prediction/results/reports/package_sections/COAD_example_A_ProvGigaPath.pdf
+TCGA-A6-A56B,COAD_example_B,TITAN,/Users/stefano/Documents/Titan/titan-prediction/results/reports/package_sections/COAD_example_B_TITAN.pdf
+TCGA-A6-A56B,COAD_example_B,GigaSSL,/Users/stefano/Documents/Titan/titan-prediction/results/reports/package_sections/COAD_example_B_GigaSSL.pdf
+TCGA-A6-A56B,COAD_example_B,ProvGigaPath,/Users/stefano/Documents/Titan/titan-prediction/results/reports/package_sections/COAD_example_B_ProvGigaPath.pdf

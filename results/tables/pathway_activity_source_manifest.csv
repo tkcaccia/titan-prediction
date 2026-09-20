@@ -1,0 +1,2 @@
+expression_source,expression_file,expression_sha256,gene_set_source,gene_set_version,pathways,hallmark_pathways,primary_rna_samples,matched_patients,aggregation,scoring
+UCSC Xena TCGA Pan-Cancer RNA-seq,EB++AdjustPANCAN_IlluminaHiSeq_RNASeqV2.geneExp.xena.gz,a00532ec86af8c07630c618f10f6277f09c484d0a9c17db5901edf95c7714b38,MSigDB,2026.1.Hs,52,50,8731,8731,mean across primary-tumour RNA aliquots before scoring,mean of within-cancer gene-wise z scores; higher values indicate greater relative expression of pathway-member genes

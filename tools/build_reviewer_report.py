@@ -295,7 +295,7 @@ add_body(doc,
     "I would support major revision only if the authors can resolve the TITAN-derived fitted-model "
     "redistribution/licensing question and materially strengthen transportability evidence, "
     "preferably through locked external validation. The current private, access-controlled status "
-    "of TITANPred avoids an unsupported public-redistribution claim but does not itself constitute "
+    "of PathoFMPred avoids an unsupported public-redistribution claim but does not itself constitute "
     "definitive licensing clearance. Without those changes, I would recommend rejection with "
     "encouragement to transfer the work to a computational pathology, bioinformatics or "
     "research-resource venue."
@@ -534,7 +534,7 @@ add_body(doc,
     "At the authors' request, the two COAD participants and radar comparison remain in main Figure 7 solely to show the software output. The Results and caption state the full post hoc construction: clinical-text and profile-saturation restrictions followed by selection of the pair with maximum Euclidean separation across continuous TCGA OOF prediction percentiles. This makes clear that the visual contrast was designed after inspecting model outputs and is not representative sampling or performance evidence."
 )
 add_body(doc,
-    "The case language is now appropriately limited. TCGA-AA-A01F is reported as pN1, whereas the available slide summary for TCGA-AA-3972 contains no nodal category; no claim of clinical comparability remains. Treatment, response, recurrence, follow-up and survival narratives have been removed because these variables were neither model inputs nor validation outcomes. The package tutorial separately uses a synthetic non-patient vector for routine smoke testing."
+    "The case language is now appropriately limited. Both TCGA-AA-A01F and TCGA-A6-A56B had node-positive pT3 sigmoid-colon adenocarcinoma in the available slide summaries; no claim of clinical comparability remains. Treatment, response, recurrence, follow-up and survival narratives have been removed because these variables were neither model inputs nor validation outcomes. The package tutorial separately uses a synthetic non-patient vector for routine smoke testing."
 )
 add_body(doc,
     "The package report makes the principal limitations visually prominent: its banner states 'UNVALIDATED RESEARCH OUTPUT', 'TCGA OOF score rank (not probability)', 'No independent external validation' and 'Not for diagnosis, treatment selection, or clinical risk estimation'. Binary plots and tables place '(not probability)' directly beside every score-rank label, and machine-readable inference rows expose an explicit false probability flag and uncalibrated status. No further case-based clinical interpretation is justified.",
@@ -544,7 +544,7 @@ add_body(doc,
 add_heading(doc, "11. Reproducibility and model redistribution", 2)
 add_body(doc,
     "The reproducibility resource is split between the public analysis repository and a "
-    "separate GPL-3 TITANPred R package. The package contains all 323 fitted research models, with 306 in default inference "
+    "separate GPL-3 PathoFMPred R package. The package contains all 323 fitted research models, with 306 in default inference "
     "and 17 limited-evidence binary models requiring explicit opt-in, "
     "their SHA-256 registry, repeated out-of-fold reference distributions, cancer-vector "
     "inference interface and HTML/PDF research-software template. The package repository is "

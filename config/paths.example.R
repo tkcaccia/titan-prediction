@@ -9,6 +9,14 @@ paths <- list(
   bailey = Sys.getenv("TITAN_BAILEY", "data/raw/mmc1.xlsx"),
   aneuploidy = Sys.getenv("TITAN_ANEUPLOIDY", "data/raw/aneuploidy_mmc2.xlsx"),
   oncogenic = Sys.getenv("TITAN_ONCOGENIC", "data/raw/oncogenic_mmc4.xlsx"),
+  pathway_rnaseq = Sys.getenv(
+    "PATHOFMPRED_PATHWAY_RNASEQ",
+    "data/external/xena/EB++AdjustPANCAN_IlluminaHiSeq_RNASeqV2.geneExp.xena.gz"
+  ),
+  pathway_gene_sets = Sys.getenv(
+    "PATHOFMPRED_PATHWAY_GENE_SETS",
+    "data/reference/pathway_gene_sets_msigdbr_2026.1.Hs.rds"
+  ),
   fusion = Sys.getenv("TITAN_FUSION", "data/raw/fusion_mmc2.xlsx"),
   msi_subset = Sys.getenv("TITAN_MSI_SUBSET", "data/raw/msi_subset.xlsx")
 )

@@ -131,6 +131,39 @@ Thorsson2018_PanImmune_MS,THYM,121,121,0,121,0,1,one participant-level row; endp
 Thorsson2018_PanImmune_MS,UCEC,505,492,13,492,0,1,one participant-level row; endpoint-specific missing values retained
 Thorsson2018_PanImmune_MS,UCS,53,53,0,53,0,1,one participant-level row; endpoint-specific missing values retained
 Thorsson2018_PanImmune_MS,UVM,80,80,0,80,0,1,one participant-level row; endpoint-specific missing values retained
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,,9,0,9,0,0,0,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ACC,56,55,1,55,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,BLCA,386,382,4,382,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,BRCA,1054,1052,2,1052,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,CESC,269,267,2,267,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,CHOL,39,36,3,36,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,COAD,433,424,9,424,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,DLBC,44,44,0,44,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ESCA,156,155,1,155,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GBM,384,96,288,96,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,HNSC,450,442,8,442,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,KICH,108,65,43,65,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,KIRC,513,510,3,510,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,KIRP,273,272,1,272,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,LGG,490,490,0,490,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,LIHC,364,358,6,358,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,LUAD,468,462,6,462,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,LUSC,477,475,2,475,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,MESO,75,75,0,75,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,OV,106,69,37,69,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,PAAD,183,176,7,176,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,PCPG,176,176,0,176,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,PRAD,402,400,2,400,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,READ,156,147,9,147,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,SARC,254,252,2,252,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,SKCM,292,97,195,97,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,STAD,374,354,20,354,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TGCT,149,149,0,149,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,THCA,505,503,2,503,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,THYM,121,117,4,117,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,UCEC,505,492,13,492,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,UCS,53,53,0,53,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
+UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,UVM,80,80,0,80,0,1,primary-tumour RNA aliquots averaged by patient; pathway score is the mean within-cancer gene-wise z score
 cBioPortal_TCGA_PanCancer,,9,0,9,0,0,0,mean of finite primary-aliquot scores; patient is missing when all primary-aliquot scores are missing
 cBioPortal_TCGA_PanCancer,ACC,56,55,1,55,0,1,mean of finite primary-aliquot scores; patient is missing when all primary-aliquot scores are missing
 cBioPortal_TCGA_PanCancer,BLCA,386,385,1,385,0,1,mean of finite primary-aliquot scores; patient is missing when all primary-aliquot scores are missing

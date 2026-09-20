@@ -19,6 +19,7 @@ green <- "#5A9B62"
 
 family_labels <- c(
   thorsson = "Immune / genomic context",
+  rna_pathway_activity = "RNA pathway activity",
   aneuploidy = "Aneuploidy",
   fusion = "Fusion",
   microsatellite_instability = "MSI",
@@ -28,6 +29,7 @@ family_labels <- c(
 )
 family_palette <- c(
   "Immune / genomic context" = teal,
+  "RNA pathway activity" = "#2A9D8F",
   "Aneuploidy" = gold,
   "Fusion" = purple,
   "MSI" = blue,
@@ -59,7 +61,11 @@ binary_reliability <- fread("results/tables/binary_class_reliability_summary.csv
 binary[binary_reliability,
        on = .(family, tumor_type, endpoint),
        `:=`(model_evidence_tier = i.model_evidence_tier,
-            default_inference = i.default_inference)]
+            default_inference = i.default_inference,
+            repeated_balanced_accuracy = i.repeated_balanced_accuracy_mean,
+            repeated_auc = i.repeated_auc_mean,
+            repeated_pr_auc = i.repeated_pr_auc_mean,
+            observed_prevalence = i.observed_tcga_prevalence)]
 continuous[, family_label := family_labels[family]]
 binary[, family_label := family_labels[family]]
 continuous[, evidence_band := factor(
@@ -97,7 +103,7 @@ grid.text("From diagnostic slides to a patient-level TCGA benchmark",
           x = unit(0.04, "npc"), y = unit(0.94, "npc"), just = "left",
           gp = gpar(fontfamily = "Arial", fontsize = 24, fontface = "bold",
                     col = navy))
-grid.text("Fixed pretrained TITAN representations; cancer-specific downstream models; no external cohort",
+grid.text("Three fixed pretrained slide representations; cancer-specific downstream models; no external cohort",
           x = unit(0.04, "npc"), y = unit(0.895, "npc"), just = "left",
           gp = gpar(fontfamily = "Arial", fontsize = 12, col = muted))
 
@@ -130,7 +136,7 @@ connector <- function(x0, y0, x1, y1) {
 
 card(0.16, 0.68, 0.25, 0.27, "1",
      paste(format(n_slides, big.mark = ","), "eligible slides"),
-     "Primary-tumour diagnostic WSIs\n768 TITAN dimensions per slide\nExact slide-report provenance audited",
+     "Primary-tumour diagnostic WSIs\nTITAN: 768 | Giga-SSL: 512 | Prov-GigaPath: 768\nRepresentation-specific slide provenance audited",
      "#F4F8FC", blue)
 card(0.50, 0.68, 0.25, 0.27, "2",
      paste(format(n_patients, big.mark = ","), "patients"),
@@ -145,7 +151,7 @@ connector(0.295, 0.68, 0.365, 0.68)
 connector(0.635, 0.68, 0.705, 0.68)
 
 card(0.29, 0.31, 0.37, 0.25, "4A", "Continuous endpoints",
-     "PLS1 regression\nHeld-out Q2, RMSE and Spearman correlation\nImmune, genomic and instability endpoints",
+     "PLS regression\nHeld-out Q2, RMSE and Spearman correlation\nImmune, genomic and instability endpoints",
      "#F4F1FB", purple)
 card(0.71, 0.31, 0.37, 0.25, "4B", "Binary endpoints",
      "PLS latent scores with LDA\nSensitivity, specificity, balanced accuracy and AUROC\nMutations, pathways, MSI, fusions and aneuploidy",
@@ -167,7 +173,7 @@ dev.off()
 # Figure 2: concise continuous landscape.
 cs <- continuous[tier %chin% c("A", "B")][order(-q2)]
 cp <- head(cs, 12L)
-cp[, display := paste0(tumor_type, "  ·  ", endpoint)]
+cp[, display := paste0(tumor_type, "  |  ", endpoint)]
 cp[, display := factor(display, levels = rev(unique(as.character(display))))]
 p2 <- ggplot(cp, aes(q2, display)) +
   geom_segment(aes(x = 0, xend = q2, yend = display),
@@ -176,7 +182,7 @@ p2 <- ggplot(cp, aes(q2, display)) +
              color = "#94A3B8") +
   geom_point(color = teal, size = 4.0) +
   labs(
-    title = "Continuous signals are strong in selected cancer–endpoint pairs",
+    title = "Continuous signals are strong in selected cancer-endpoint pairs",
     subtitle = sprintf(
       "Top 12 candidates; %d pairs pass the across-cancer family correction",
       continuous[tier %chin% c("A", "B") & q_value_global < 0.05, .N]
@@ -189,14 +195,17 @@ ggsave("figures/Figure2_continuous_atlas.png", p2, width = 10.8, height = 6.8,
        dpi = 320, bg = "white")
 
 # Figure 3: standard-evidence binary landscape. The 17 smaller-class models are
-# separated into Supplementary Figure S3 and excluded from default inference.
+# separated into Supplementary Figure S1 and excluded from default inference.
 bs <- binary[
   tier %chin% c("A", "B") & model_evidence_tier == "standard_internal_evidence"
 ][order(-balanced_accuracy)]
 bp <- head(bs, 12L)
 bp[, display := paste0(
-  tumor_type, "  ·  ", endpoint,
-  fifelse(family == "oncogenic_pathway", " (pathway)", "")
+  tumor_type, "  |  ", endpoint,
+  fifelse(family == "oncogenic_pathway", " (pathway)", ""),
+  sprintf("\nBA %.2f  AUROC %.2f  PR-AUC %.2f  prevalence %.2f",
+          repeated_balanced_accuracy, repeated_auc, repeated_pr_auc,
+          observed_prevalence)
 )]
 bp[, display := factor(display, levels = rev(unique(as.character(display))))]
 p3 <- ggplot(bp, aes(balanced_accuracy, display, color = family_label)) +
@@ -210,24 +219,22 @@ p3 <- ggplot(bp, aes(balanced_accuracy, display, color = family_label)) +
                                 "Within-cancer only" = 21), drop = FALSE) +
   labs(
     title = "Binary discrimination is endpoint- and cancer-specific",
-    subtitle = "Top 12 models with ≥50 patients per class; limited-evidence models: Figure S3",
+    subtitle = "Top 12 models with at least 50 patients per class; prevalence is the no-skill PR-AUC reference",
     x = "Patient-level outer-fold balanced accuracy", y = NULL,
-    color = "Endpoint family", shape = "Multiplicity sensitivity",
-    caption = "Complete BA, AUROC and PR-AUC results: Supplementary Tables S6a, S7 and S10g."
+    color = "Endpoint family", shape = "Multiplicity sensitivity"
   ) + theme_titan(12.8) +
   guides(color = guide_legend(nrow = 2, byrow = TRUE),
          shape = guide_legend(nrow = 1)) +
   theme(legend.box = "vertical", legend.text = element_text(size = 10.5),
         axis.text.y = element_text(size = 11.8))
-ggsave("figures/Figure3_binary_atlas.png", p3, width = 10.8, height = 7.1,
+ggsave("figures/Figure3_binary_atlas.png", p3, width = 10.8, height = 7.5,
        dpi = 320, bg = "white")
 
-# Figure 4: observed-versus-predicted examples. Panel A deliberately shows the
-# strongest primary patient-level nested-CV continuous result; panel B uses the
-# strongest mean repeated-CV binary classifier.
+# Figure 4: observed-versus-predicted examples. Both panels use the largest
+# five-repeat mean outcome-specific primary metric within their eligible sets.
 performance <- fread("results/tables/screen_positive_performance_summary.csv")
 bin_pred <- fread("results/predictions/binary_repeated_oof_predictions.csv.gz")
-cont_job <- continuous[tier %chin% c("A", "B")][order(-q2)][1L]
+cont_job <- performance[outcome_type == "continuous"][order(-repeated_q2_mean)][1L]
 bin_job <- performance[outcome_type == "binary"][order(-repeated_balanced_accuracy_mean)][1L]
 cont_checkpoint <- file.path(
   "data/processed/checkpoints/continuous",
@@ -273,18 +280,19 @@ p4b <- ggplot(bd, aes(observed_label, lda_score_z, fill = observed_label)) +
   geom_jitter(position = position_jitter(width = 0.11, height = 0,
                                          seed = 20250815),
               alpha = 0.34, size = 1.2, color = ink) +
-  geom_hline(yintercept = 0, linetype = 2, color = muted) +
   scale_fill_manual(values = c("Observed negative" = "#AFC9E3",
                                "Observed positive" = coral)) +
   labs(
     title = paste0("B  ", bin_job$tumor_type, ": ", bin_job$endpoint,
                    " [", family_labels[bin_job$family], "]"),
-    subtitle = sprintf("Repeated nested CV: sensitivity %.2f; specificity %.2f\nbalanced accuracy %.2f; AUROC %.2f",
+    subtitle = sprintf("Repeated nested CV: sensitivity %.2f; specificity %.2f\nbalanced accuracy %.2f; AUROC %.2f; PR-AUC %.2f (no-skill %.2f)",
                        bin_job$repeated_sensitivity_mean,
                        bin_job$repeated_specificity_mean,
                        bin_job$repeated_balanced_accuracy_mean,
-                       bin_job$repeated_auc_mean),
-    x = NULL, y = "Mean within-repeat standardized held-out LDA score"
+                       bin_job$repeated_auc_mean,
+                       bin_job$binary_pr_auc,
+                       bin_job$binary_observed_tcga_prevalence),
+    x = NULL, y = "Mean within-repeat standardized held-out LDA score\n(no common classification threshold on this scale)"
   ) + theme_titan(10) + theme(legend.position = "none")
 
 png("figures/Figure4_prediction_examples.png", width = 3000, height = 1450,
@@ -295,48 +303,40 @@ print(p4a, vp = viewport(layout.pos.row = 1, layout.pos.col = 1))
 print(p4b, vp = viewport(layout.pos.row = 1, layout.pos.col = 2))
 dev.off()
 
-# Figure 5: breadth of screen-positive candidates.
-counts_observed <- rbindlist(list(
-  continuous[tier %chin% c("A", "B"),
-             .N, by = .(tumor_type, family_label)][
-               , outcome_type := "Continuous"],
-  binary[tier %chin% c("A", "B"),
-         .N, by = .(tumor_type, family_label)][
-           , outcome_type := "Binary"]
-), fill = TRUE)
-all_cancers <- sort(unique(c(continuous$tumor_type, binary$tumor_type)))
-counts_frame <- rbindlist(list(
-  CJ(tumor_type = all_cancers,
-     family_label = sort(unique(na.omit(continuous$family_label))))[
-       , outcome_type := "Continuous"],
-  CJ(tumor_type = all_cancers,
-     family_label = sort(unique(na.omit(binary$family_label))))[
-       , outcome_type := "Binary"]
-))
-counts <- merge(
-  counts_frame, counts_observed,
-  by = c("tumor_type", "family_label", "outcome_type"), all.x = TRUE
-)
-counts[is.na(N), N := 0L]
-totals <- counts[, .(total = sum(N)), by = tumor_type][order(-total)]
-shown_cancers <- totals[total > 0][seq_len(min(15L, .N)), tumor_type]
-counts <- counts[tumor_type %chin% shown_cancers]
-ordering <- rev(unique(as.character(shown_cancers)))
-counts[, tumor_type := factor(tumor_type, levels = ordering)]
-p5 <- ggplot(counts, aes(N, tumor_type, fill = family_label)) +
-  geom_col(width = 0.72) +
+# Figure 7: catalogue-normalised crossing rates by cancer and representation.
+# Rates, rather than raw counts, avoid allowing endpoint-rich cancer/family
+# blocks to dominate the visual comparison.
+cancer_rates <- fread("results/tables/foundation_model_cancer_summary.csv")
+cancer_rates[, outcome_type := factor(outcome_type,
+                                      levels = c("continuous", "binary"),
+                                      labels = c("Continuous", "Binary"))]
+cancer_rates[, foundation_model := factor(
+  foundation_model,
+  levels = c("TITAN", "GigaSSL", "ProvGigaPath"),
+  labels = c("TITAN", "Giga-SSL", "Prov-GigaPath")
+)]
+cancer_rates[, tumor_type := factor(tumor_type,
+                                    levels = rev(sort(unique(tumor_type))))]
+p5 <- ggplot(cancer_rates,
+             aes(crossing_percent, tumor_type, colour = foundation_model,
+                 group = tumor_type)) +
+  geom_line(linewidth = 0.65, colour = "#CBD5E1") +
+  geom_point(size = 1.9) +
   facet_wrap(~outcome_type, scales = "free_x", nrow = 1) +
-  scale_fill_manual(values = family_palette, drop = FALSE) +
+  scale_colour_manual(values = c("TITAN" = blue, "Giga-SSL" = gold,
+                                 "Prov-GigaPath" = teal)) +
+  scale_x_continuous(labels = function(z) paste0(z, "%")) +
   labs(
-    title = "Predictability is heterogeneous across cancers",
-    subtitle = "Counts use within-cancer screen criteria; absence can reflect ineligibility or a screen-negative result",
-    x = "Screen-positive cancer–endpoint pairs", y = NULL,
-    fill = "Endpoint family",
-    caption = "Fifteen cancers with the largest number of screen-positive pairs are shown; complete cancer-level counts are in Table S1."
-  ) + theme_titan(12.5) +
-  theme(axis.text.y = element_text(size = 11.8), legend.text = element_text(size = 10.5))
-ggsave("figures/Figure5_supported_counts.png", p5, width = 11.0, height = 7.0,
-       dpi = 320, bg = "white")
+    title = "Crossing rates vary by cancer and released representation",
+    subtitle = "Each rate uses all eligible cancer-endpoint pairs in that cancer; raw counts are not used for visual ranking",
+    x = "Effect-threshold crossing rate", y = NULL,
+    colour = NULL,
+    caption = "Q2 >= 0.20 for continuous pairs; balanced accuracy >= 0.60 for binary pairs. Rates describe this correlated endpoint catalogue, not independent discoveries."
+  ) + theme_titan(11.5) +
+  theme(axis.text.y = element_text(size = 8.8),
+        legend.position = "top", legend.text = element_text(size = 10.5))
+ggsave("figures/Figure7_normalized_cancer_rates.png", p5,
+       width = 11.2, height = 8.0, dpi = 320, bg = "white")
 
 # Figure 6: sensitivity to grouping by TCGA tissue-source-site code.
 site_c <- fread("results/tables/continuous_site_grouped_sensitivity.csv")
@@ -363,6 +363,9 @@ site[, `:=`(
   label = paste0(tumor_type, "–", endpoint)
 )]
 labelled <- site[label %chin% c("READ–APC", "COAD–APC")]
+site_below <- sum(!site$retained)
+site_total <- nrow(site)
+site_below_percent <- 100 * site_below / site_total
 p6a <- ggplot(site, aes(random, grouped, color = robustness)) +
   geom_abline(slope = 1, intercept = 0, color = muted, linetype = 2) +
   geom_point(alpha = 0.72, size = 1.9) +
@@ -375,7 +378,10 @@ p6a <- ggplot(site, aes(random, grouped, color = robustness)) +
                                 "Below screening threshold" = coral)) +
   labs(
     title = "A  One quarter of models fall below their original screening threshold",
-    subtitle = "83/323 (25.7%); highlighted APC models approach chance",
+    subtitle = sprintf(
+      "%d/%d (%.1f%%); highlighted APC models approach chance",
+      site_below, site_total, site_below_percent
+    ),
     x = "Random-fold performance", y = "Performance grouped by TCGA tissue-source-site code",
     color = NULL
   ) + theme_titan(12) +
@@ -444,7 +450,7 @@ p6 <- (p6a | p6b) / p6c +
 ggsave("figures/Figure6_site_grouped_sensitivity.png", p6,
        width = 12.2, height = 9.6, dpi = 320, bg = "white")
 
-# Supplementary PLS1-versus-PLS2 comparison.
+# Supplementary single-outcome versus multi-outcome PLS comparison.
 pc <- fread("results/tables/pls1_vs_pls2_inflammation.csv")
 pcancer <- fread("results/tables/pls1_vs_pls2_inflammation_by_cancer.csv")
 block_labels <- c(
@@ -458,7 +464,8 @@ p_s1 <- ggplot(pc, aes(pls1, pls2, color = block_label)) +
   geom_abline(slope = 1, intercept = 0, linetype = 2, color = muted) +
   geom_point(alpha = 0.35, size = 1.2) + coord_equal() +
   labs(title = "Matched response-level performance",
-       x = expression("PLS1 " * Q^2), y = expression("PLS2 " * Q^2),
+       x = expression("Single-outcome PLS " * Q^2),
+       y = expression("Multi-outcome PLS " * Q^2),
        color = NULL) + theme_titan(9)
 p_s2 <- ggplot(pcancer,
                aes(mean_delta, reorder(tumor_type, mean_delta),
@@ -466,7 +473,7 @@ p_s2 <- ggplot(pcancer,
   geom_vline(xintercept = 0, linetype = 2, color = muted) +
   geom_point(size = 2) +
   labs(title = "Mean change within cancer",
-       x = expression(Delta * Q^2 * " (PLS2 - PLS1)"), y = NULL,
+       x = expression(Delta * Q^2 * " (multi-outcome minus single-outcome PLS)"), y = NULL,
        color = NULL) + theme_titan(9)
 ggsave("figures/Figure6a_pls1_vs_pls2_targets.png", p_s1,
        width = 6.2, height = 5.5, dpi = 320, bg = "white")
@@ -531,7 +538,7 @@ p_s3b <- ggplot(limited_components,
                color = teal, linewidth = 0.55) +
   geom_jitter(height = 0.12, width = 0.08, color = navy,
               size = 0.75, alpha = 0.5) +
-  scale_x_continuous(breaks = 1:10, limits = c(0.5, 10.5)) +
+  scale_x_continuous(breaks = seq(1, 20, by = 2), limits = c(0.5, 20.5)) +
   labs(
     title = "B  Latent-component selection varies across 25 outer fits per model",
     subtitle = "Five outer folds in each of five independently seeded nested validations",
@@ -564,7 +571,7 @@ p_s3 <- p_s3a / p_s3b / p_s3c +
     title = "Binary class-size sensitivity, model complexity and prediction stability",
     caption = paste(
       "Models with fewer than 50 TCGA participants in either class remain in the complete atlas",
-      "but are excluded from default TITANPred inference and require explicit opt-in."
+      "but are excluded from default PathoFMPred inference and require explicit opt-in."
     ),
     theme = theme(
       plot.title = element_text(face = "bold", size = 15, color = navy),

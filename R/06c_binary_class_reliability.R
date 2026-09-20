@@ -6,7 +6,7 @@ suppressPackageStartupMessages({
 })
 source("R/utils.R")
 cfg <- load_project_config()
-options(fastPLS.backend = tolower(Sys.getenv("TITAN_BACKEND", "cpu")))
+options(backend = tolower(Sys.getenv("TITAN_BACKEND", "cpu")))
 
 key <- c("family", "tumor_type", "endpoint")
 screen <- fread("results/tables/binary_screen.csv")
@@ -153,11 +153,7 @@ component_job <- function(i) {
       tune <- fastPLS::pls.single.cv(
         X[train, , drop = FALSE], y[train],
         ncomp = cfg$analysis$components, kfold = inner_k,
-        seed = seed + fold, classifier = "lda",
-        lda_ridge = cfg$analysis$lda_ridge,
-        selection_metric = "balanced_accuracy",
-        svd.method = cfg$analysis$svd_method,
-        rsvd_oversample = cfg$analysis$rsvd_oversample,
+        seed = seed + fold, classifier = "lda", selection = "balanced_accuracy", rsvd_oversample = cfg$analysis$rsvd_oversample,
         rsvd_power = cfg$analysis$rsvd_power, fit = FALSE
       )
       data.table(
@@ -321,7 +317,7 @@ sensitivity[, `:=`(
   screen_positive_retention_percent =
     100 * screen_positive_binary_models / screen_positive_binary_models[1L],
   interpretation = c(
-    "Prespecified atlas eligibility; models below 50 per class are exploratory",
+    "Documented atlas eligibility; models below 50 per class are exploratory",
     "Sensitivity threshold and default inference-package eligibility"
   )
 )]
@@ -384,19 +380,13 @@ learning_job <- function(i) {
         tune <- fastPLS::pls.single.cv(
           X[train, , drop = FALSE], y[train],
           ncomp = cfg$analysis$components, kfold = inner_k,
-          seed = seed + fold, classifier = "lda",
-          lda_ridge = cfg$analysis$lda_ridge,
-          selection_metric = "balanced_accuracy",
-          svd.method = cfg$analysis$svd_method,
-          rsvd_oversample = cfg$analysis$rsvd_oversample,
+          seed = seed + fold, classifier = "lda", selection = "balanced_accuracy", rsvd_oversample = cfg$analysis$rsvd_oversample,
           rsvd_power = cfg$analysis$rsvd_power, fit = FALSE
         )
         fit <- fastPLS::pls(
           X[train, , drop = FALSE], y[train],
-          ncomp = tune$best_ncomp, classifier = "lda",
-          lda_ridge = cfg$analysis$lda_ridge, fit = TRUE,
-          return_loadings = TRUE, svd.method = cfg$analysis$svd_method,
-          rsvd_oversample = cfg$analysis$rsvd_oversample,
+          ncomp = tune$best_ncomp, classifier = "lda", fit = TRUE,
+          return_loadings = TRUE, rsvd_oversample = cfg$analysis$rsvd_oversample,
           rsvd_power = cfg$analysis$rsvd_power,
           seed = seed + 100L + fold
         )
@@ -474,7 +464,7 @@ fwrite(learning_summary,
        "results/tables/binary_limited_evidence_learning_curve_summary.csv")
 
 # Add reliability and default-selection fields without changing fitted-model
-# artifacts or the prespecified A/B effect categories.
+# artifacts or the documented A/B prioritisation tiers.
 registry <- fread("models/model_registry.csv")
 setnames(registry, "cancer_type", "tumor_type")
 old_fields <- intersect(names(registry), c(

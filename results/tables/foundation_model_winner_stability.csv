@@ -1,0 +1,1335 @@
+outcome_type,family,subfamily,tumor_type,endpoint,source,primary_best_foundation_model,alternative_partitions,primary_winner_repeat_count,primary_winner_repeat_proportion,modal_repeat_winner,modal_repeat_winner_count,modal_repeat_winner_proportion,modal_repeat_winner_tied
+binary,aneuploidy,aneuploidy,ACC,Genome doubling,Taylor2018_TableS2,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+binary,aneuploidy,aneuploidy,BLCA,Genome doubling,Taylor2018_TableS2,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+binary,aneuploidy,aneuploidy,CESC,Genome doubling,Taylor2018_TableS2,GigaSSL,5,2,0.4,TITAN,3,0.6,FALSE
+binary,aneuploidy,aneuploidy,COAD,Genome doubling,Taylor2018_TableS2,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+binary,aneuploidy,aneuploidy,ESCA,Genome doubling,Taylor2018_TableS2,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+binary,aneuploidy,aneuploidy,GBM,Genome doubling,Taylor2018_TableS2,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,aneuploidy,aneuploidy,HNSC,Genome doubling,Taylor2018_TableS2,GigaSSL,5,0,0,TITAN,5,1,FALSE
+binary,aneuploidy,aneuploidy,KIRC,Genome doubling,Taylor2018_TableS2,TITAN,5,1,0.2,GigaSSL,3,0.6,FALSE
+binary,aneuploidy,aneuploidy,LGG,Genome doubling,Taylor2018_TableS2,TITAN,5,1,0.2,ProvGigaPath,3,0.6,FALSE
+binary,aneuploidy,aneuploidy,LIHC,Genome doubling,Taylor2018_TableS2,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+binary,aneuploidy,aneuploidy,LUAD,Genome doubling,Taylor2018_TableS2,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,aneuploidy,aneuploidy,LUSC,Genome doubling,Taylor2018_TableS2,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,aneuploidy,aneuploidy,OV,Genome doubling,Taylor2018_TableS2,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,aneuploidy,aneuploidy,PAAD,Genome doubling,Taylor2018_TableS2,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+binary,aneuploidy,aneuploidy,PCPG,Genome doubling,Taylor2018_TableS2,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,aneuploidy,aneuploidy,PRAD,Genome doubling,Taylor2018_TableS2,GigaSSL,5,0,0,TITAN,4,0.8,FALSE
+binary,aneuploidy,aneuploidy,READ,Genome doubling,Taylor2018_TableS2,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+binary,aneuploidy,aneuploidy,SARC,Genome doubling,Taylor2018_TableS2,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+binary,aneuploidy,aneuploidy,SKCM,Genome doubling,Taylor2018_TableS2,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,aneuploidy,aneuploidy,STAD,Genome doubling,Taylor2018_TableS2,ProvGigaPath,5,1,0.2,TITAN,4,0.8,FALSE
+binary,aneuploidy,aneuploidy,UCEC,Genome doubling,Taylor2018_TableS2,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,BLCA,ARID1A,TCGA_MC3_Bailey2018,GigaSSL,5,1,0.2,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,BLCA,ATM,TCGA_MC3_Bailey2018,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,BLCA,CDKN2A,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,BLCA,CREBBP,TCGA_MC3_Bailey2018,ProvGigaPath,5,0,0,GigaSSL,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,BLCA,ERBB2,TCGA_MC3_Bailey2018,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,BLCA,ERBB3,TCGA_MC3_Bailey2018,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,BLCA,ERCC2,TCGA_MC3_Bailey2018,TITAN,5,2,0.4,GigaSSL,2,0.4,TRUE
+binary,driver_mutation,Bailey_tissue_specific_driver,BLCA,FAT1,TCGA_MC3_Bailey2018,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,BLCA,FBXW7,TCGA_MC3_Bailey2018,TITAN,5,1,0.2,GigaSSL,2,0.4,TRUE
+binary,driver_mutation,Bailey_tissue_specific_driver,BLCA,FGFR3,TCGA_MC3_Bailey2018,GigaSSL,5,1,0.2,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,BLCA,KANSL1,TCGA_MC3_Bailey2018,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,BLCA,NFE2L2,TCGA_MC3_Bailey2018,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,BLCA,PIK3CA,TCGA_MC3_Bailey2018,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,BLCA,RB1,TCGA_MC3_Bailey2018,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,BLCA,RHOB,TCGA_MC3_Bailey2018,GigaSSL,5,2,0.4,GigaSSL,2,0.4,TRUE
+binary,driver_mutation,Bailey_tissue_specific_driver,BLCA,RXRA,TCGA_MC3_Bailey2018,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,BLCA,SF3B1,TCGA_MC3_Bailey2018,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,BLCA,SPTAN1,TCGA_MC3_Bailey2018,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,BLCA,STAG2,TCGA_MC3_Bailey2018,ProvGigaPath,5,1,0.2,GigaSSL,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,BLCA,TP53,TCGA_MC3_Bailey2018,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,BLCA,ZFP36L1,TCGA_MC3_Bailey2018,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,CESC,EP300,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,CESC,KMT2C,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,CESC,KMT2D,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,CESC,PIK3CA,TCGA_MC3_Bailey2018,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,CESC,TP53,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,COAD,ACVR2A,TCGA_MC3_Bailey2018,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,COAD,AMER1,TCGA_MC3_Bailey2018,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,COAD,APC,TCGA_MC3_Bailey2018,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,COAD,ARID1A,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,COAD,BRAF,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,COAD,CTNNB1,TCGA_MC3_Bailey2018,TITAN,5,2,0.4,GigaSSL,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,COAD,FBXW7,TCGA_MC3_Bailey2018,TITAN,5,2,0.4,GigaSSL,2,0.4,TRUE
+binary,driver_mutation,Bailey_tissue_specific_driver,COAD,KRAS,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,COAD,PIK3CA,TCGA_MC3_Bailey2018,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,COAD,SMAD4,TCGA_MC3_Bailey2018,ProvGigaPath,5,2,0.4,GigaSSL,2,0.4,TRUE
+binary,driver_mutation,Bailey_tissue_specific_driver,COAD,SOX9,TCGA_MC3_Bailey2018,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,COAD,TCF7L2,TCGA_MC3_Bailey2018,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,COAD,TP53,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,GBM,EGFR,TCGA_MC3_Bailey2018,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,GBM,PIK3CA,TCGA_MC3_Bailey2018,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,GBM,PTEN,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,GBM,TP53,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,HNSC,AJUBA,TCGA_MC3_Bailey2018,TITAN,5,0,0,GigaSSL,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,HNSC,CASP8,TCGA_MC3_Bailey2018,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,HNSC,CDKN2A,TCGA_MC3_Bailey2018,TITAN,5,0,0,GigaSSL,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,HNSC,EP300,TCGA_MC3_Bailey2018,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,HNSC,FAT1,TCGA_MC3_Bailey2018,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,HNSC,FBXW7,TCGA_MC3_Bailey2018,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,HNSC,HLA-B,TCGA_MC3_Bailey2018,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,HNSC,HRAS,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,HNSC,HUWE1,TCGA_MC3_Bailey2018,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,HNSC,KEAP1,TCGA_MC3_Bailey2018,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,HNSC,KMT2D,TCGA_MC3_Bailey2018,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,HNSC,NSD1,TCGA_MC3_Bailey2018,GigaSSL,5,2,0.4,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,HNSC,PIK3CA,TCGA_MC3_Bailey2018,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,HNSC,TGFBR2,TCGA_MC3_Bailey2018,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,HNSC,TP53,TCGA_MC3_Bailey2018,GigaSSL,5,2,0.4,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,KICH,TP53,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,KIRC,BAP1,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,KIRC,PBRM1,TCGA_MC3_Bailey2018,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,KIRC,SETD2,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,KIRC,VHL,TCGA_MC3_Bailey2018,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LGG,ATRX,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LGG,CIC,TCGA_MC3_Bailey2018,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LGG,EGFR,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LGG,FUBP1,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LGG,IDH1,TCGA_MC3_Bailey2018,ProvGigaPath,5,0,0,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LGG,IDH2,TCGA_MC3_Bailey2018,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LGG,NF1,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LGG,NOTCH1,TCGA_MC3_Bailey2018,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LGG,PIK3CA,TCGA_MC3_Bailey2018,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LGG,PTEN,TCGA_MC3_Bailey2018,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LGG,TP53,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LIHC,ARID1A,TCGA_MC3_Bailey2018,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LIHC,AXIN1,TCGA_MC3_Bailey2018,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LIHC,BAP1,TCGA_MC3_Bailey2018,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LIHC,CTNNB1,TCGA_MC3_Bailey2018,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LIHC,TP53,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUAD,ATM,TCGA_MC3_Bailey2018,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUAD,EGFR,TCGA_MC3_Bailey2018,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUAD,KEAP1,TCGA_MC3_Bailey2018,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUAD,KRAS,TCGA_MC3_Bailey2018,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUAD,NF1,TCGA_MC3_Bailey2018,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUAD,PIK3CA,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUAD,RB1,TCGA_MC3_Bailey2018,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUAD,SETD2,TCGA_MC3_Bailey2018,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUAD,SMARCA4,TCGA_MC3_Bailey2018,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUAD,STK11,TCGA_MC3_Bailey2018,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUAD,TP53,TCGA_MC3_Bailey2018,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUSC,ARHGAP35,TCGA_MC3_Bailey2018,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUSC,ARID1A,TCGA_MC3_Bailey2018,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUSC,CDKN2A,TCGA_MC3_Bailey2018,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUSC,FBXW7,TCGA_MC3_Bailey2018,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUSC,KDM6A,TCGA_MC3_Bailey2018,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUSC,KEAP1,TCGA_MC3_Bailey2018,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUSC,KMT2D,TCGA_MC3_Bailey2018,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUSC,NF1,TCGA_MC3_Bailey2018,ProvGigaPath,5,1,0.2,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUSC,NFE2L2,TCGA_MC3_Bailey2018,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUSC,PTEN,TCGA_MC3_Bailey2018,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUSC,RASA1,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUSC,RB1,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,LUSC,TP53,TCGA_MC3_Bailey2018,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,OV,TP53,TCGA_MC3_Bailey2018,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,PAAD,CDKN2A,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,PAAD,KRAS,TCGA_MC3_Bailey2018,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,PAAD,TP53,TCGA_MC3_Bailey2018,ProvGigaPath,5,0,0,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,PRAD,FOXA1,TCGA_MC3_Bailey2018,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,PRAD,SPOP,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,PRAD,TP53,TCGA_MC3_Bailey2018,GigaSSL,5,1,0.2,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,READ,APC,TCGA_MC3_Bailey2018,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,READ,KRAS,TCGA_MC3_Bailey2018,ProvGigaPath,5,2,0.4,ProvGigaPath,2,0.4,TRUE
+binary,driver_mutation,Bailey_tissue_specific_driver,READ,TP53,TCGA_MC3_Bailey2018,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,SARC,ATRX,TCGA_MC3_Bailey2018,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,SARC,RB1,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,SARC,TP53,TCGA_MC3_Bailey2018,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,SKCM,BRAF,TCGA_MC3_Bailey2018,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,STAD,APC,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,STAD,ARID1A,TCGA_MC3_Bailey2018,TITAN,5,2,0.4,GigaSSL,2,0.4,TRUE
+binary,driver_mutation,Bailey_tissue_specific_driver,STAD,ARID2,TCGA_MC3_Bailey2018,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,STAD,BCOR,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,STAD,CDH1,TCGA_MC3_Bailey2018,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,STAD,CTNNB1,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,STAD,DMD,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,STAD,FBXW7,TCGA_MC3_Bailey2018,GigaSSL,5,2,0.4,GigaSSL,2,0.4,TRUE
+binary,driver_mutation,Bailey_tissue_specific_driver,STAD,KRAS,TCGA_MC3_Bailey2018,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,STAD,PIK3CA,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,STAD,PTEN,TCGA_MC3_Bailey2018,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,STAD,RASA1,TCGA_MC3_Bailey2018,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,STAD,RHOA,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,STAD,RNF43,TCGA_MC3_Bailey2018,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,STAD,SMAD4,TCGA_MC3_Bailey2018,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,STAD,TP53,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,TGCT,KIT,TCGA_MC3_Bailey2018,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,THCA,BRAF,TCGA_MC3_Bailey2018,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,THCA,NRAS,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,THYM,GTF2I,TCGA_MC3_Bailey2018,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,ACVR1,TCGA_MC3_Bailey2018,GigaSSL,5,2,0.4,GigaSSL,2,0.4,TRUE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,ARHGAP35,TCGA_MC3_Bailey2018,GigaSSL,5,2,0.4,GigaSSL,2,0.4,TRUE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,ARID1A,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,ARID5B,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,ATF7IP,TCGA_MC3_Bailey2018,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,ATM,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,ATR,TCGA_MC3_Bailey2018,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,BCOR,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,CHD3,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,CHD4,TCGA_MC3_Bailey2018,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,CTCF,TCGA_MC3_Bailey2018,GigaSSL,5,0,0,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,CTNNB1,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,CTNND1,TCGA_MC3_Bailey2018,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,DICER1,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,EP300,TCGA_MC3_Bailey2018,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,ERBB2,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,ERBB3,TCGA_MC3_Bailey2018,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,FAT1,TCGA_MC3_Bailey2018,GigaSSL,5,2,0.4,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,FBXW7,TCGA_MC3_Bailey2018,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,FGFR2,TCGA_MC3_Bailey2018,TITAN,5,2,0.4,ProvGigaPath,2,0.4,TRUE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,FOXA2,TCGA_MC3_Bailey2018,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,INPPL1,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,KANSL1,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,KMT2B,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,KMT2C,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,KRAS,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,MAP3K1,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,MSH6,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,PBRM1,TCGA_MC3_Bailey2018,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,PDS5B,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,PIK3R1,TCGA_MC3_Bailey2018,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,PPP2R1A,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,PTEN,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,RB1,TCGA_MC3_Bailey2018,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,RPL22,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,SCAF4,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,SIN3A,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,SMC1A,TCGA_MC3_Bailey2018,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,SOS1,TCGA_MC3_Bailey2018,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,SOX17,TCGA_MC3_Bailey2018,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,TAF1,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,TP53,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,ZFHX3,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UCEC,ZMYM2,TCGA_MC3_Bailey2018,GigaSSL,5,0,0,TITAN,3,0.6,FALSE
+binary,driver_mutation,Bailey_tissue_specific_driver,UVM,GNA11,TCGA_MC3_Bailey2018,GigaSSL,5,2,0.4,GigaSSL,2,0.4,TRUE
+binary,driver_mutation,Bailey_tissue_specific_driver,UVM,GNAQ,TCGA_MC3_Bailey2018,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,fusion,fusion,BLCA,Any called fusion,Gao2018_TableS1,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,fusion,fusion,COAD,Any called fusion,Gao2018_TableS1,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,fusion,fusion,DLBC,Any called fusion,Gao2018_TableS1,ProvGigaPath,5,1,0.2,GigaSSL,3,0.6,FALSE
+binary,fusion,fusion,KIRC,Any called fusion,Gao2018_TableS1,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,fusion,fusion,KIRP,Any called fusion,Gao2018_TableS1,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,fusion,fusion,LGG,Any called fusion,Gao2018_TableS1,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,fusion,fusion,LIHC,Any called fusion,Gao2018_TableS1,ProvGigaPath,5,1,0.2,TITAN,4,0.8,FALSE
+binary,fusion,fusion,LUAD,Any called fusion,Gao2018_TableS1,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,fusion,fusion,LUSC,Any called fusion,Gao2018_TableS1,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+binary,fusion,fusion,MESO,Any called fusion,Gao2018_TableS1,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+binary,fusion,fusion,PAAD,Any called fusion,Gao2018_TableS1,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,fusion,fusion,PCPG,Any called fusion,Gao2018_TableS1,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+binary,fusion,fusion,PRAD,Any called fusion,Gao2018_TableS1,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+binary,fusion,fusion,READ,Any called fusion,Gao2018_TableS1,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,fusion,fusion,SARC,Any called fusion,Gao2018_TableS1,GigaSSL,5,2,0.4,TITAN,3,0.6,FALSE
+binary,fusion,fusion,TGCT,Any called fusion,Gao2018_TableS1,TITAN,5,2,0.4,GigaSSL,3,0.6,FALSE
+binary,fusion,fusion,THCA,Any called fusion,Gao2018_TableS1,ProvGigaPath,5,1,0.2,GigaSSL,2,0.4,TRUE
+binary,fusion,fusion,THYM,Any called fusion,Gao2018_TableS1,GigaSSL,5,1,0.2,TITAN,3,0.6,FALSE
+binary,fusion,fusion,UCEC,Any called fusion,Gao2018_TableS1,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,fusion,recurrent_fusion_pair,PRAD,Fusion pair: TMPRSS2--ERG,Gao2018_TableS1,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,fusion,recurrent_fusion_pair,THCA,Fusion pair: CCDC6--RET,Gao2018_TableS1,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,microsatellite_instability,microsatellite_instability,COAD,MSI-H (MANTIS >0.4),Bonneville2017_cBioPortal,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,microsatellite_instability,microsatellite_instability,STAD,MSI-H (MANTIS >0.4),Bonneville2017_cBioPortal,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,microsatellite_instability,microsatellite_instability,UCEC,MSI-H (MANTIS >0.4),Bonneville2017_cBioPortal,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,COAD,MSI-H strict (MANTIS >0.6),cBioPortal_threshold_documentation,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,STAD,MSI-H strict (MANTIS >0.6),cBioPortal_threshold_documentation,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,microsatellite_instability_sensitivity,microsatellite_instability_sensitivity,UCEC,MSI-H strict (MANTIS >0.6),cBioPortal_threshold_documentation,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,BLCA,Cell Cycle,SanchezVega2018_TableS4,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,BLCA,HIPPO,SanchezVega2018_TableS4,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,BLCA,MYC,SanchezVega2018_TableS4,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,BLCA,NOTCH,SanchezVega2018_TableS4,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,BLCA,NRF2,SanchezVega2018_TableS4,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,BLCA,RTK RAS,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,BLCA,TP53,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,BLCA,WNT,SanchezVega2018_TableS4,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,CESC,Cell Cycle,SanchezVega2018_TableS4,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,CESC,HIPPO,SanchezVega2018_TableS4,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,CESC,NOTCH,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,CESC,RTK RAS,SanchezVega2018_TableS4,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,CESC,TGF-Beta,SanchezVega2018_TableS4,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,CESC,TP53,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,CESC,WNT,SanchezVega2018_TableS4,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,COAD,Cell Cycle,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,COAD,HIPPO,SanchezVega2018_TableS4,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,COAD,MYC,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,COAD,NOTCH,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,COAD,PI3K,SanchezVega2018_TableS4,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,COAD,RTK RAS,SanchezVega2018_TableS4,TITAN,5,1,0.2,ProvGigaPath,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,COAD,TGF-Beta,SanchezVega2018_TableS4,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,COAD,TP53,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,COAD,WNT,SanchezVega2018_TableS4,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,ESCA,HIPPO,SanchezVega2018_TableS4,GigaSSL,5,1,0.2,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,ESCA,MYC,SanchezVega2018_TableS4,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,ESCA,NOTCH,SanchezVega2018_TableS4,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,ESCA,NRF2,SanchezVega2018_TableS4,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,ESCA,PI3K,SanchezVega2018_TableS4,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,ESCA,TGF-Beta,SanchezVega2018_TableS4,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,ESCA,WNT,SanchezVega2018_TableS4,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,GBM,PI3K,SanchezVega2018_TableS4,TITAN,5,1,0.2,ProvGigaPath,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,GBM,TP53,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,HNSC,Cell Cycle,SanchezVega2018_TableS4,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,HNSC,HIPPO,SanchezVega2018_TableS4,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,HNSC,NRF2,SanchezVega2018_TableS4,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,HNSC,PI3K,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,HNSC,TP53,SanchezVega2018_TableS4,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,KICH,TP53,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,KIRC,PI3K,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,KIRC,RTK RAS,SanchezVega2018_TableS4,GigaSSL,5,1,0.2,ProvGigaPath,2,0.4,TRUE
+binary,oncogenic_pathway,oncogenic_pathway,KIRC,WNT,SanchezVega2018_TableS4,GigaSSL,5,1,0.2,ProvGigaPath,2,0.4,TRUE
+binary,oncogenic_pathway,oncogenic_pathway,KIRP,Cell Cycle,SanchezVega2018_TableS4,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,KIRP,HIPPO,SanchezVega2018_TableS4,TITAN,5,1,0.2,GigaSSL,2,0.4,TRUE
+binary,oncogenic_pathway,oncogenic_pathway,KIRP,RTK RAS,SanchezVega2018_TableS4,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,KIRP,WNT,SanchezVega2018_TableS4,ProvGigaPath,5,1,0.2,GigaSSL,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LGG,Cell Cycle,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LGG,HIPPO,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LGG,MYC,SanchezVega2018_TableS4,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LGG,NOTCH,SanchezVega2018_TableS4,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LGG,PI3K,SanchezVega2018_TableS4,ProvGigaPath,5,1,0.2,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LGG,RTK RAS,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LGG,TGF-Beta,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LGG,TP53,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LGG,WNT,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LIHC,Cell Cycle,SanchezVega2018_TableS4,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LIHC,MYC,SanchezVega2018_TableS4,ProvGigaPath,5,1,0.2,GigaSSL,2,0.4,TRUE
+binary,oncogenic_pathway,oncogenic_pathway,LIHC,RTK RAS,SanchezVega2018_TableS4,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LIHC,TGF-Beta,SanchezVega2018_TableS4,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LIHC,TP53,SanchezVega2018_TableS4,TITAN,5,1,0.2,ProvGigaPath,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LIHC,WNT,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LUAD,Cell Cycle,SanchezVega2018_TableS4,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LUAD,HIPPO,SanchezVega2018_TableS4,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LUAD,MYC,SanchezVega2018_TableS4,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LUAD,NOTCH,SanchezVega2018_TableS4,TITAN,5,1,0.2,ProvGigaPath,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LUAD,NRF2,SanchezVega2018_TableS4,GigaSSL,5,1,0.2,ProvGigaPath,2,0.4,TRUE
+binary,oncogenic_pathway,oncogenic_pathway,LUAD,RTK RAS,SanchezVega2018_TableS4,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LUAD,TGF-Beta,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LUAD,TP53,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LUAD,WNT,SanchezVega2018_TableS4,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LUSC,Cell Cycle,SanchezVega2018_TableS4,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LUSC,MYC,SanchezVega2018_TableS4,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LUSC,NRF2,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LUSC,PI3K,SanchezVega2018_TableS4,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LUSC,RTK RAS,SanchezVega2018_TableS4,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LUSC,TGF-Beta,SanchezVega2018_TableS4,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LUSC,TP53,SanchezVega2018_TableS4,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,LUSC,WNT,SanchezVega2018_TableS4,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,MESO,Cell Cycle,SanchezVega2018_TableS4,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,PAAD,MYC,SanchezVega2018_TableS4,GigaSSL,5,1,0.2,ProvGigaPath,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,PAAD,RTK RAS,SanchezVega2018_TableS4,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,PAAD,TP53,SanchezVega2018_TableS4,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,PCPG,Cell Cycle,SanchezVega2018_TableS4,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,PCPG,RTK RAS,SanchezVega2018_TableS4,GigaSSL,5,1,0.2,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,PRAD,MYC,SanchezVega2018_TableS4,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,PRAD,NOTCH,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,PRAD,PI3K,SanchezVega2018_TableS4,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,PRAD,RTK RAS,SanchezVega2018_TableS4,TITAN,5,1,0.2,GigaSSL,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,PRAD,TP53,SanchezVega2018_TableS4,ProvGigaPath,5,0,0,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,PRAD,WNT,SanchezVega2018_TableS4,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,READ,Cell Cycle,SanchezVega2018_TableS4,GigaSSL,5,1,0.2,ProvGigaPath,2,0.4,TRUE
+binary,oncogenic_pathway,oncogenic_pathway,READ,NOTCH,SanchezVega2018_TableS4,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,READ,PI3K,SanchezVega2018_TableS4,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,READ,RTK RAS,SanchezVega2018_TableS4,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,READ,TGF-Beta,SanchezVega2018_TableS4,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,SARC,Cell Cycle,SanchezVega2018_TableS4,TITAN,5,2,0.4,ProvGigaPath,2,0.4,TRUE
+binary,oncogenic_pathway,oncogenic_pathway,SARC,HIPPO,SanchezVega2018_TableS4,ProvGigaPath,5,0,0,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,SARC,RTK RAS,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,SARC,TP53,SanchezVega2018_TableS4,GigaSSL,5,0,0,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,STAD,Cell Cycle,SanchezVega2018_TableS4,GigaSSL,5,2,0.4,GigaSSL,2,0.4,TRUE
+binary,oncogenic_pathway,oncogenic_pathway,STAD,HIPPO,SanchezVega2018_TableS4,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,STAD,MYC,SanchezVega2018_TableS4,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,STAD,NOTCH,SanchezVega2018_TableS4,TITAN,5,1,0.2,ProvGigaPath,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,STAD,PI3K,SanchezVega2018_TableS4,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,STAD,RTK RAS,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,STAD,TGF-Beta,SanchezVega2018_TableS4,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,STAD,TP53,SanchezVega2018_TableS4,ProvGigaPath,5,1,0.2,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,STAD,WNT,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,TGCT,RTK RAS,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,THCA,Cell Cycle,SanchezVega2018_TableS4,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,THCA,PI3K,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,THCA,RTK RAS,SanchezVega2018_TableS4,ProvGigaPath,5,1,0.2,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,THCA,WNT,SanchezVega2018_TableS4,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,UCEC,Cell Cycle,SanchezVega2018_TableS4,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,UCEC,HIPPO,SanchezVega2018_TableS4,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,UCEC,MYC,SanchezVega2018_TableS4,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,UCEC,NOTCH,SanchezVega2018_TableS4,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,UCEC,NRF2,SanchezVega2018_TableS4,ProvGigaPath,5,2,0.4,ProvGigaPath,2,0.4,TRUE
+binary,oncogenic_pathway,oncogenic_pathway,UCEC,PI3K,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,UCEC,RTK RAS,SanchezVega2018_TableS4,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,UCEC,TGF-Beta,SanchezVega2018_TableS4,GigaSSL,5,0,0,TITAN,4,0.8,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,UCEC,TP53,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,UCEC,WNT,SanchezVega2018_TableS4,TITAN,5,5,1,TITAN,5,1,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,UCS,NOTCH,SanchezVega2018_TableS4,GigaSSL,5,0,0,TITAN,3,0.6,FALSE
+binary,oncogenic_pathway,oncogenic_pathway,UCS,RTK RAS,SanchezVega2018_TableS4,GigaSSL,5,1,0.2,TITAN,3,0.6,FALSE
+continuous,aneuploidy,aneuploidy,COAD,Aneuploidy score,Taylor2018_TableS2,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,aneuploidy,aneuploidy,COAD,Deleted arm count,Taylor2018_TableS2,GigaSSL,5,1,0.2,ProvGigaPath,3,0.6,FALSE
+continuous,aneuploidy,aneuploidy,KIRP,Amplified arm count,Taylor2018_TableS2,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,aneuploidy,aneuploidy,KIRP,Deleted arm count,Taylor2018_TableS2,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,aneuploidy,aneuploidy,LGG,Aneuploidy score,Taylor2018_TableS2,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,aneuploidy,aneuploidy,LUAD,Aneuploidy score,Taylor2018_TableS2,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,aneuploidy,aneuploidy,LUAD,Deleted arm count,Taylor2018_TableS2,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,aneuploidy,aneuploidy,OV,Amplified arm count,Taylor2018_TableS2,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,aneuploidy,aneuploidy,SARC,Deleted arm count,Taylor2018_TableS2,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,aneuploidy,aneuploidy,STAD,Aneuploidy score,Taylor2018_TableS2,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,aneuploidy,aneuploidy,STAD,Deleted arm count,Taylor2018_TableS2,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,aneuploidy,aneuploidy,THYM,Amplified arm count,Taylor2018_TableS2,GigaSSL,5,0,0,TITAN,3,0.6,FALSE
+continuous,aneuploidy,aneuploidy,UCEC,Aneuploidy score,Taylor2018_TableS2,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,aneuploidy,aneuploidy,UCEC,Deleted arm count,Taylor2018_TableS2,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,fusion,fusion,KICH,Fusion burden,Gao2018_TableS1,TITAN,5,2,0.4,ProvGigaPath,2,0.4,TRUE
+continuous,fusion,fusion,LGG,Fusion burden,Gao2018_TableS1,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,fusion,fusion,SARC,Fusion burden,Gao2018_TableS1,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,fusion,fusion,UCEC,Fusion burden,Gao2018_TableS1,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,microsatellite_instability,microsatellite_instability,COAD,MANTIS score,cBioPortal_TCGA_PanCancer,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,microsatellite_instability,microsatellite_instability,COAD,MSIsensor score,cBioPortal_TCGA_PanCancer,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,microsatellite_instability,microsatellite_instability,STAD,MANTIS score,cBioPortal_TCGA_PanCancer,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+continuous,microsatellite_instability,microsatellite_instability,STAD,MSIsensor score,cBioPortal_TCGA_PanCancer,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+continuous,microsatellite_instability,microsatellite_instability,TGCT,MSIsensor score,cBioPortal_TCGA_PanCancer,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_ADIPOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_BILE_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_COAGULATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_FATTY_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,2,0.4,GigaSSL,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_HEDGEHOG_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,1,0.2,GigaSSL,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_IL2_STAT5_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_IL6_JAK_STAT3_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,1,0.2,ProvGigaPath,2,0.4,TRUE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_MTORC1_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_NOTCH_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_OXIDATIVE_PHOSPHORYLATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,1,0.2,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_PANCREAS_BETA_CELLS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,0,0,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_PEROXISOME,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_PI3K_AKT_MTOR_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ACC,HALLMARK_TNFA_SIGNALING_VIA_NFKB,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_ANDROGEN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_APICAL_JUNCTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,1,0.2,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_APICAL_SURFACE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_COAGULATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,2,0.4,ProvGigaPath,2,0.4,TRUE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_ESTROGEN_RESPONSE_EARLY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_ESTROGEN_RESPONSE_LATE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_GLYCOLYSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_HYPOXIA,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,1,0.2,GigaSSL,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_IL2_STAT5_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,1,0.2,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_IL6_JAK_STAT3_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_INTERFERON_ALPHA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_KRAS_SIGNALING_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_MTORC1_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_MYC_TARGETS_V1,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_MYC_TARGETS_V2,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_MYOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,1,0.2,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_PI3K_AKT_MTOR_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_SPERMATOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_TNFA_SIGNALING_VIA_NFKB,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,0,0,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_UV_RESPONSE_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,0,0,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,BLCA,HALLMARK_UV_RESPONSE_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,CESC,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,CESC,HALLMARK_APICAL_JUNCTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,1,0.2,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,CESC,HALLMARK_APICAL_SURFACE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,CESC,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,CESC,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,CESC,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,CESC,HALLMARK_ESTROGEN_RESPONSE_EARLY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,CESC,HALLMARK_ESTROGEN_RESPONSE_LATE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,CESC,HALLMARK_HYPOXIA,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,1,0.2,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,CESC,HALLMARK_IL6_JAK_STAT3_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,CESC,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,CESC,HALLMARK_INTERFERON_ALPHA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,CESC,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,CESC,HALLMARK_MYC_TARGETS_V2,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,CESC,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,CESC,HALLMARK_PANCREAS_BETA_CELLS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,CESC,HALLMARK_TNFA_SIGNALING_VIA_NFKB,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,COAD,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,COAD,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,COAD,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,COAD,HALLMARK_COAGULATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,1,0.2,GigaSSL,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,COAD,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,COAD,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,COAD,HALLMARK_IL2_STAT5_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,COAD,HALLMARK_IL6_JAK_STAT3_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,COAD,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,COAD,HALLMARK_INTERFERON_ALPHA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,COAD,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,2,0.4,GigaSSL,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,COAD,HALLMARK_MYOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,2,0.4,GigaSSL,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ESCA,HALLMARK_APICAL_SURFACE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ESCA,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ESCA,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ESCA,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ESCA,HALLMARK_HYPOXIA,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ESCA,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ESCA,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ESCA,HALLMARK_PANCREAS_BETA_CELLS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ESCA,HALLMARK_WNT_BETA_CATENIN_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,ESCA,HALLMARK_XENOBIOTIC_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,GBM,HALLMARK_ADIPOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,GBM,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,GBM,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,GBM,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,GBM,HALLMARK_COAGULATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,GBM,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,GBM,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,GBM,HALLMARK_FATTY_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,GBM,HALLMARK_GLYCOLYSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,GBM,HALLMARK_HYPOXIA,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,GBM,HALLMARK_IL2_STAT5_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,GBM,HALLMARK_IL6_JAK_STAT3_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,GBM,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,GBM,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,GBM,HALLMARK_KRAS_SIGNALING_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,GBM,HALLMARK_MYOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,2,0.4,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,GBM,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,GBM,HALLMARK_PEROXISOME,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,GBM,HALLMARK_TNFA_SIGNALING_VIA_NFKB,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,GBM,HALLMARK_XENOBIOTIC_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,HNSC,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,HNSC,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,HNSC,HALLMARK_DNA_REPAIR,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,HNSC,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,HNSC,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,HNSC,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,HNSC,HALLMARK_GLYCOLYSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,HNSC,HALLMARK_INTERFERON_ALPHA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,HNSC,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,HNSC,HALLMARK_KRAS_SIGNALING_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,HNSC,HALLMARK_MYOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,HNSC,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,HNSC,HALLMARK_SPERMATOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KICH,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KICH,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KICH,HALLMARK_INTERFERON_ALPHA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KICH,HALLMARK_MITOTIC_SPINDLE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KICH,HALLMARK_SPERMATOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_ADIPOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_APICAL_JUNCTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,0,0,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_COAGULATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_DNA_REPAIR,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_FATTY_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_GLYCOLYSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_HEDGEHOG_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_HYPOXIA,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_IL2_STAT5_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_IL6_JAK_STAT3_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_INTERFERON_ALPHA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_KRAS_SIGNALING_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_MTORC1_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_MYC_TARGETS_V2,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_NOTCH_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_OXIDATIVE_PHOSPHORYLATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_TGF_BETA_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_TNFA_SIGNALING_VIA_NFKB,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_UV_RESPONSE_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRC,HALLMARK_WNT_BETA_CATENIN_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_ADIPOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_BILE_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_COAGULATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,2,0.4,ProvGigaPath,2,0.4,TRUE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_FATTY_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_GLYCOLYSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_HEME_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_HYPOXIA,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_IL2_STAT5_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,0,0,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_IL6_JAK_STAT3_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,2,0.4,GigaSSL,2,0.4,TRUE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_INTERFERON_ALPHA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,1,0.2,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_KRAS_SIGNALING_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_MITOTIC_SPINDLE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_MTORC1_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_MYC_TARGETS_V1,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_MYC_TARGETS_V2,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_NOTCH_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_OXIDATIVE_PHOSPHORYLATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_PEROXISOME,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_PI3K_AKT_MTOR_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_SPERMATOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_TGF_BETA_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,0,0,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_UV_RESPONSE_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_UV_RESPONSE_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_WNT_BETA_CATENIN_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,KIRP,HALLMARK_XENOBIOTIC_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_ADIPOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,2,0.4,ProvGigaPath,2,0.4,TRUE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_APICAL_JUNCTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,1,0.2,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_BILE_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_CHOLESTEROL_HOMEOSTASIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_COAGULATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_DNA_REPAIR,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_ESTROGEN_RESPONSE_LATE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_FATTY_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_GLYCOLYSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_HEME_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_HYPOXIA,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_IL2_STAT5_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_IL6_JAK_STAT3_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_INTERFERON_ALPHA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_KRAS_SIGNALING_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_MTORC1_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_MYC_TARGETS_V1,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_MYC_TARGETS_V2,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_MYOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_NOTCH_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_PEROXISOME,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_PI3K_AKT_MTOR_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_TGF_BETA_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_TNFA_SIGNALING_VIA_NFKB,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LGG,HALLMARK_XENOBIOTIC_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_ADIPOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,1,0.2,GigaSSL,2,0.4,TRUE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_APICAL_JUNCTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_APICAL_SURFACE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_BILE_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_COAGULATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_DNA_REPAIR,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,1,0.2,GigaSSL,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_ESTROGEN_RESPONSE_EARLY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_ESTROGEN_RESPONSE_LATE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_FATTY_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_GLYCOLYSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_HEDGEHOG_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_HYPOXIA,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_IL2_STAT5_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_IL6_JAK_STAT3_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_INTERFERON_ALPHA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_KRAS_SIGNALING_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_KRAS_SIGNALING_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_MITOTIC_SPINDLE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_MTORC1_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_MYC_TARGETS_V1,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_MYC_TARGETS_V2,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_MYOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_NOTCH_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,0,0,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_OXIDATIVE_PHOSPHORYLATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_PEROXISOME,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_PI3K_AKT_MTOR_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_SPERMATOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_TGF_BETA_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,0,0,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_TNFA_SIGNALING_VIA_NFKB,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_UV_RESPONSE_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_UV_RESPONSE_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,1,0.2,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_WNT_BETA_CATENIN_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LIHC,HALLMARK_XENOBIOTIC_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_APICAL_JUNCTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_APICAL_SURFACE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_BILE_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_COAGULATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,0,0,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_DNA_REPAIR,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_ESTROGEN_RESPONSE_EARLY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_GLYCOLYSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_HEME_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_IL2_STAT5_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_IL6_JAK_STAT3_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_INTERFERON_ALPHA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_KRAS_SIGNALING_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_MITOTIC_SPINDLE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,2,0.4,ProvGigaPath,2,0.4,TRUE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_MTORC1_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_MYC_TARGETS_V1,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_MYC_TARGETS_V2,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_MYOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_NOTCH_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_PI3K_AKT_MTOR_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_SPERMATOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_TNFA_SIGNALING_VIA_NFKB,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUAD,HALLMARK_UV_RESPONSE_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_ADIPOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_APICAL_JUNCTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_COAGULATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_DNA_REPAIR,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_ESTROGEN_RESPONSE_EARLY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_ESTROGEN_RESPONSE_LATE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_HYPOXIA,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_IL2_STAT5_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_IL6_JAK_STAT3_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,0,0,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,2,0.4,GigaSSL,2,0.4,TRUE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_INTERFERON_ALPHA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,1,0.2,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_KRAS_SIGNALING_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_MTORC1_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_MYC_TARGETS_V1,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_MYC_TARGETS_V2,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_SPERMATOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_TGF_BETA_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_TNFA_SIGNALING_VIA_NFKB,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,LUSC,HALLMARK_UV_RESPONSE_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,1,0.2,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,MESO,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,0,0,GigaSSL,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,MESO,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,0,0,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,MESO,HALLMARK_CHOLESTEROL_HOMEOSTASIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,MESO,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,MESO,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,2,0.4,GigaSSL,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,MESO,HALLMARK_ESTROGEN_RESPONSE_EARLY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,2,0.4,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,MESO,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,MESO,HALLMARK_IL2_STAT5_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,1,0.2,ProvGigaPath,2,0.4,TRUE
+continuous,rna_pathway_activity,MSigDB Hallmark,MESO,HALLMARK_IL6_JAK_STAT3_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,MESO,HALLMARK_MTORC1_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,MESO,HALLMARK_TNFA_SIGNALING_VIA_NFKB,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,OV,HALLMARK_ADIPOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,OV,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,2,0.4,GigaSSL,2,0.4,TRUE
+continuous,rna_pathway_activity,MSigDB Hallmark,OV,HALLMARK_ANDROGEN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,OV,HALLMARK_APICAL_JUNCTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,0,0,GigaSSL,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,OV,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,1,0.2,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,OV,HALLMARK_CHOLESTEROL_HOMEOSTASIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,OV,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,OV,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,2,0.4,ProvGigaPath,2,0.4,TRUE
+continuous,rna_pathway_activity,MSigDB Hallmark,OV,HALLMARK_ESTROGEN_RESPONSE_EARLY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,OV,HALLMARK_ESTROGEN_RESPONSE_LATE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,OV,HALLMARK_FATTY_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,OV,HALLMARK_IL2_STAT5_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,OV,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,OV,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,1,0.2,GigaSSL,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,OV,HALLMARK_KRAS_SIGNALING_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,OV,HALLMARK_MTORC1_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,OV,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,0,0,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,OV,HALLMARK_PEROXISOME,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,OV,HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,1,0.2,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,OV,HALLMARK_UV_RESPONSE_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,OV,HALLMARK_XENOBIOTIC_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_ANDROGEN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,1,0.2,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_APICAL_JUNCTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_APICAL_SURFACE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_COAGULATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_ESTROGEN_RESPONSE_EARLY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_ESTROGEN_RESPONSE_LATE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_GLYCOLYSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_HYPOXIA,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_IL2_STAT5_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_IL6_JAK_STAT3_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,0,0,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_INTERFERON_ALPHA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_KRAS_SIGNALING_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_MITOTIC_SPINDLE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_MTORC1_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_NOTCH_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_PI3K_AKT_MTOR_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_TGF_BETA_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_TNFA_SIGNALING_VIA_NFKB,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PAAD,HALLMARK_UV_RESPONSE_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PCPG,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,2,0.4,ProvGigaPath,2,0.4,TRUE
+continuous,rna_pathway_activity,MSigDB Hallmark,PCPG,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PCPG,HALLMARK_APICAL_JUNCTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PCPG,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PCPG,HALLMARK_COAGULATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PCPG,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,1,0.2,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PCPG,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PCPG,HALLMARK_GLYCOLYSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PCPG,HALLMARK_HYPOXIA,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PCPG,HALLMARK_IL2_STAT5_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PCPG,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PCPG,HALLMARK_INTERFERON_ALPHA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PCPG,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,0,0,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PCPG,HALLMARK_KRAS_SIGNALING_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PCPG,HALLMARK_MYOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PCPG,HALLMARK_NOTCH_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,1,0.2,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PCPG,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PCPG,HALLMARK_TGF_BETA_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PCPG,HALLMARK_UV_RESPONSE_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PCPG,HALLMARK_WNT_BETA_CATENIN_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PRAD,HALLMARK_ADIPOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PRAD,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PRAD,HALLMARK_APICAL_SURFACE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PRAD,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PRAD,HALLMARK_BILE_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,2,0.4,GigaSSL,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PRAD,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PRAD,HALLMARK_DNA_REPAIR,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PRAD,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PRAD,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PRAD,HALLMARK_ESTROGEN_RESPONSE_EARLY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PRAD,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PRAD,HALLMARK_IL2_STAT5_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PRAD,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PRAD,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PRAD,HALLMARK_KRAS_SIGNALING_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PRAD,HALLMARK_MYC_TARGETS_V1,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PRAD,HALLMARK_MYC_TARGETS_V2,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PRAD,HALLMARK_MYOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,PRAD,HALLMARK_UV_RESPONSE_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,READ,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,READ,HALLMARK_APICAL_JUNCTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,READ,HALLMARK_COAGULATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,READ,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,READ,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,READ,HALLMARK_HYPOXIA,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,READ,HALLMARK_MYOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,READ,HALLMARK_UV_RESPONSE_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,2,0.4,GigaSSL,2,0.4,TRUE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_ADIPOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_COAGULATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_GLYCOLYSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_HEDGEHOG_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_IL2_STAT5_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_IL6_JAK_STAT3_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_INTERFERON_ALPHA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_KRAS_SIGNALING_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_MTORC1_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_MYC_TARGETS_V1,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_MYC_TARGETS_V2,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_MYOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_NOTCH_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_PI3K_AKT_MTOR_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_TNFA_SIGNALING_VIA_NFKB,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_UV_RESPONSE_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SARC,HALLMARK_WNT_BETA_CATENIN_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SKCM,HALLMARK_ANDROGEN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SKCM,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,1,0.2,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SKCM,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SKCM,HALLMARK_PROTEIN_SECRETION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,SKCM,HALLMARK_SPERMATOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_APICAL_JUNCTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,0,0,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_CHOLESTEROL_HOMEOSTASIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_COAGULATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_DNA_REPAIR,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,2,0.4,GigaSSL,2,0.4,TRUE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_ESTROGEN_RESPONSE_EARLY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_ESTROGEN_RESPONSE_LATE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_GLYCOLYSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_HEDGEHOG_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_INTERFERON_ALPHA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_KRAS_SIGNALING_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_KRAS_SIGNALING_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_MTORC1_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_MYC_TARGETS_V1,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_MYC_TARGETS_V2,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_MYOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_PANCREAS_BETA_CELLS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_PROTEIN_SECRETION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,STAD,HALLMARK_UV_RESPONSE_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_ADIPOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_ANDROGEN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_APICAL_JUNCTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_APICAL_SURFACE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,2,0.4,ProvGigaPath,2,0.4,TRUE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_BILE_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_CHOLESTEROL_HOMEOSTASIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_COAGULATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,0,0,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_DNA_REPAIR,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_ESTROGEN_RESPONSE_EARLY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_ESTROGEN_RESPONSE_LATE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_FATTY_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_GLYCOLYSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_HEDGEHOG_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_HEME_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,2,0.4,GigaSSL,2,0.4,TRUE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_HYPOXIA,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_IL2_STAT5_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_IL6_JAK_STAT3_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_INTERFERON_ALPHA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,0,0,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_KRAS_SIGNALING_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_KRAS_SIGNALING_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_MTORC1_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_MYC_TARGETS_V1,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_MYC_TARGETS_V2,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_MYOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_NOTCH_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_OXIDATIVE_PHOSPHORYLATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,0,0,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_PANCREAS_BETA_CELLS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_PEROXISOME,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,0,0,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_PI3K_AKT_MTOR_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,0,0,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_TGF_BETA_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_TNFA_SIGNALING_VIA_NFKB,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_UNFOLDED_PROTEIN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_UV_RESPONSE_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_UV_RESPONSE_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_WNT_BETA_CATENIN_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,1,0.2,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,TGCT,HALLMARK_XENOBIOTIC_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_ADIPOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_ANDROGEN_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,1,0.2,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_APICAL_JUNCTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_APICAL_SURFACE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_BILE_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_COAGULATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_ESTROGEN_RESPONSE_EARLY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_ESTROGEN_RESPONSE_LATE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_FATTY_ACID_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_HEDGEHOG_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_HYPOXIA,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_IL2_STAT5_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_IL6_JAK_STAT3_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_INTERFERON_ALPHA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_KRAS_SIGNALING_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_KRAS_SIGNALING_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_MTORC1_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_NOTCH_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_OXIDATIVE_PHOSPHORYLATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_PANCREAS_BETA_CELLS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_PI3K_AKT_MTOR_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_TGF_BETA_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_TNFA_SIGNALING_VIA_NFKB,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THCA,HALLMARK_WNT_BETA_CATENIN_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,2,0.4,ProvGigaPath,2,0.4,TRUE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,1,0.2,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_APICAL_JUNCTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_APICAL_SURFACE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_APOPTOSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_CHOLESTEROL_HOMEOSTASIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_COAGULATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,1,0.2,GigaSSL,2,0.4,TRUE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_DNA_REPAIR,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_ESTROGEN_RESPONSE_EARLY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_ESTROGEN_RESPONSE_LATE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_GLYCOLYSIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_HEDGEHOG_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_HYPOXIA,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_IL6_JAK_STAT3_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_INTERFERON_ALPHA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_KRAS_SIGNALING_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_MTORC1_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_MYC_TARGETS_V1,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,0,0,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_MYC_TARGETS_V2,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_MYOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_NOTCH_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_OXIDATIVE_PHOSPHORYLATION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_PANCREAS_BETA_CELLS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_PI3K_AKT_MTOR_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_TGF_BETA_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_TNFA_SIGNALING_VIA_NFKB,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_UV_RESPONSE_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_UV_RESPONSE_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_WNT_BETA_CATENIN_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,THYM,HALLMARK_XENOBIOTIC_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,2,0.4,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCEC,HALLMARK_ALLOGRAFT_REJECTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCEC,HALLMARK_ANGIOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCEC,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCEC,HALLMARK_DNA_REPAIR,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCEC,HALLMARK_E2F_TARGETS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCEC,HALLMARK_ESTROGEN_RESPONSE_EARLY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCEC,HALLMARK_G2M_CHECKPOINT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCEC,HALLMARK_IL6_JAK_STAT3_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCEC,HALLMARK_INFLAMMATORY_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCEC,HALLMARK_INTERFERON_GAMMA_RESPONSE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCEC,HALLMARK_MTORC1_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCEC,HALLMARK_MYC_TARGETS_V1,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCEC,HALLMARK_MYC_TARGETS_V2,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCEC,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCEC,HALLMARK_UV_RESPONSE_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCEC,HALLMARK_WNT_BETA_CATENIN_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCEC,HALLMARK_XENOBIOTIC_METABOLISM,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCS,HALLMARK_APICAL_JUNCTION,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCS,HALLMARK_APICAL_SURFACE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCS,HALLMARK_COMPLEMENT,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCS,HALLMARK_ESTROGEN_RESPONSE_EARLY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCS,HALLMARK_ESTROGEN_RESPONSE_LATE,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,0,0,GigaSSL,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCS,HALLMARK_HEDGEHOG_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCS,HALLMARK_KRAS_SIGNALING_DN,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCS,HALLMARK_KRAS_SIGNALING_UP,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCS,HALLMARK_MYOGENESIS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCS,HALLMARK_NOTCH_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCS,HALLMARK_P53_PATHWAY,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCS,HALLMARK_PEROXISOME,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+continuous,rna_pathway_activity,MSigDB Hallmark,UCS,HALLMARK_TGF_BETA_SIGNALING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,rna_pathway_activity,glutathione synthesis and recycling,KICH,REACTOME_GLUTATHIONE_SYNTHESIS_AND_RECYCLING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,rna_pathway_activity,glutathione synthesis and recycling,KIRP,REACTOME_GLUTATHIONE_SYNTHESIS_AND_RECYCLING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,glutathione synthesis and recycling,LGG,REACTOME_GLUTATHIONE_SYNTHESIS_AND_RECYCLING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,glutathione synthesis and recycling,PAAD,REACTOME_GLUTATHIONE_SYNTHESIS_AND_RECYCLING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,rna_pathway_activity,glutathione synthesis and recycling,SARC,REACTOME_GLUTATHIONE_SYNTHESIS_AND_RECYCLING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,glutathione synthesis and recycling,TGCT,REACTOME_GLUTATHIONE_SYNTHESIS_AND_RECYCLING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,2,0.4,GigaSSL,3,0.6,FALSE
+continuous,rna_pathway_activity,glutathione synthesis and recycling,THYM,REACTOME_GLUTATHIONE_SYNTHESIS_AND_RECYCLING,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,vitamin B6 metabolism,KIRP,GOBP_VITAMIN_B6_METABOLIC_PROCESS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,vitamin B6 metabolism,LGG,GOBP_VITAMIN_B6_METABOLIC_PROCESS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,vitamin B6 metabolism,LIHC,GOBP_VITAMIN_B6_METABOLIC_PROCESS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,vitamin B6 metabolism,SARC,GOBP_VITAMIN_B6_METABOLIC_PROCESS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,vitamin B6 metabolism,TGCT,GOBP_VITAMIN_B6_METABOLIC_PROCESS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,rna_pathway_activity,vitamin B6 metabolism,THCA,GOBP_VITAMIN_B6_METABOLIC_PROCESS,UCSC_Xena_TCGA_PanCancer_RNAseq_MSigDB_2026.1.Hs,TITAN,5,1,0.2,ProvGigaPath,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,ACC,Proliferation,Thorsson2018_PanImmune_MS,ProvGigaPath,5,1,0.2,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,ACC,TCR Richness,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,ACC,TGF-beta Response,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,ACC,Wound Healing,Thorsson2018_PanImmune_MS,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,BLCA,Aneuploidy Score,Thorsson2018_PanImmune_MS,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,BLCA,Homologous Recombination Defects,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,BLCA,IFN-gamma Response,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,BLCA,Intratumor Heterogeneity,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,BLCA,Leukocyte Fraction,Thorsson2018_PanImmune_MS,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,BLCA,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,BLCA,Macrophage Regulation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,BLCA,Proliferation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,BLCA,Stromal Fraction,Thorsson2018_PanImmune_MS,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,BLCA,TCR Shannon,Thorsson2018_PanImmune_MS,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,BLCA,TGF-beta Response,Thorsson2018_PanImmune_MS,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,BLCA,TIL Regional Fraction,Thorsson2018_PanImmune_MS,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,BLCA,Th1 Cells,Thorsson2018_PanImmune_MS,GigaSSL,5,2,0.4,GigaSSL,2,0.4,TRUE
+continuous,thorsson,immune_inflammatory_and_genomic_context,BLCA,Th2 Cells,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,BLCA,Wound Healing,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,CESC,IFN-gamma Response,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,CESC,Leukocyte Fraction,Thorsson2018_PanImmune_MS,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,CESC,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,CESC,Macrophage Regulation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,CESC,TGF-beta Response,Thorsson2018_PanImmune_MS,TITAN,5,1,0.2,ProvGigaPath,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,CESC,TIL Regional Fraction,Thorsson2018_PanImmune_MS,ProvGigaPath,5,2,0.4,GigaSSL,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,CESC,Th17 Cells,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,COAD,Aneuploidy Score,Thorsson2018_PanImmune_MS,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,COAD,Fraction Altered,Thorsson2018_PanImmune_MS,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,COAD,Homologous Recombination Defects,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,COAD,IFN-gamma Response,Thorsson2018_PanImmune_MS,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,COAD,Indel Neoantigens,Thorsson2018_PanImmune_MS,TITAN,5,2,0.4,ProvGigaPath,2,0.4,TRUE
+continuous,thorsson,immune_inflammatory_and_genomic_context,COAD,Leukocyte Fraction,Thorsson2018_PanImmune_MS,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,COAD,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,COAD,Macrophage Regulation,Thorsson2018_PanImmune_MS,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,COAD,Nonsilent Mutation Rate,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,COAD,Number of Segments,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,COAD,SNV Neoantigens,Thorsson2018_PanImmune_MS,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,COAD,Silent Mutation Rate,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,COAD,Stromal Fraction,Thorsson2018_PanImmune_MS,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,COAD,TGF-beta Response,Thorsson2018_PanImmune_MS,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,COAD,TIL Regional Fraction,Thorsson2018_PanImmune_MS,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,COAD,Th1 Cells,Thorsson2018_PanImmune_MS,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,ESCA,Th17 Cells,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,GBM,Intratumor Heterogeneity,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,GBM,Leukocyte Fraction,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,GBM,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,GBM,Macrophage Regulation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,GBM,Stromal Fraction,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,GBM,TGF-beta Response,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,HNSC,Fraction Altered,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,HNSC,IFN-gamma Response,Thorsson2018_PanImmune_MS,TITAN,5,1,0.2,ProvGigaPath,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,HNSC,Leukocyte Fraction,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,HNSC,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,HNSC,Macrophage Regulation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,HNSC,Number of Segments,Thorsson2018_PanImmune_MS,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,HNSC,Proliferation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,HNSC,Stromal Fraction,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,HNSC,T Cells CD8,Thorsson2018_PanImmune_MS,GigaSSL,5,1,0.2,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,HNSC,TGF-beta Response,Thorsson2018_PanImmune_MS,GigaSSL,5,1,0.2,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KICH,Fraction Altered,Thorsson2018_PanImmune_MS,GigaSSL,5,2,0.4,GigaSSL,2,0.4,TRUE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KICH,Homologous Recombination Defects,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KICH,IFN-gamma Response,Thorsson2018_PanImmune_MS,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KICH,Number of Segments,Thorsson2018_PanImmune_MS,ProvGigaPath,5,0,0,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KICH,Proliferation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KICH,Th2 Cells,Thorsson2018_PanImmune_MS,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KICH,Wound Healing,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRC,CTA Score,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRC,Fraction Altered,Thorsson2018_PanImmune_MS,ProvGigaPath,5,2,0.4,ProvGigaPath,2,0.4,TRUE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRC,IFN-gamma Response,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRC,Leukocyte Fraction,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRC,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRC,Macrophage Regulation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRC,Proliferation,Thorsson2018_PanImmune_MS,ProvGigaPath,5,1,0.2,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRC,Stromal Fraction,Thorsson2018_PanImmune_MS,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRC,TCR Shannon,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRC,TGF-beta Response,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRC,Th1 Cells,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRC,Th17 Cells,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRC,Wound Healing,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRP,Homologous Recombination Defects,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRP,Leukocyte Fraction,Thorsson2018_PanImmune_MS,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRP,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRP,Macrophage Regulation,Thorsson2018_PanImmune_MS,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRP,Macrophages M1,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRP,Macrophages M2,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRP,Proliferation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRP,Stromal Fraction,Thorsson2018_PanImmune_MS,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,KIRP,Th2 Cells,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LGG,Aneuploidy Score,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LGG,Homologous Recombination Defects,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LGG,Leukocyte Fraction,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LGG,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LGG,Macrophage Regulation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LGG,Number of Segments,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LGG,Proliferation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LGG,T Cells CD4 Naive,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LGG,TGF-beta Response,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LGG,Wound Healing,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LIHC,Homologous Recombination Defects,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LIHC,Leukocyte Fraction,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LIHC,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LIHC,Macrophage Regulation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LIHC,Proliferation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LIHC,Stromal Fraction,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LIHC,TCR Richness,Thorsson2018_PanImmune_MS,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LIHC,TCR Shannon,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LIHC,TGF-beta Response,Thorsson2018_PanImmune_MS,TITAN,5,1,0.2,GigaSSL,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LIHC,Th17 Cells,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LIHC,Th2 Cells,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LIHC,Wound Healing,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUAD,Aneuploidy Score,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUAD,Fraction Altered,Thorsson2018_PanImmune_MS,ProvGigaPath,5,0,0,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUAD,Homologous Recombination Defects,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUAD,IFN-gamma Response,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUAD,Leukocyte Fraction,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUAD,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUAD,Macrophage Regulation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUAD,Nonsilent Mutation Rate,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUAD,Number of Segments,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUAD,Proliferation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUAD,SNV Neoantigens,Thorsson2018_PanImmune_MS,ProvGigaPath,5,1,0.2,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUAD,Silent Mutation Rate,Thorsson2018_PanImmune_MS,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUAD,Stromal Fraction,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUAD,T Cells CD8,Thorsson2018_PanImmune_MS,TITAN,5,2,0.4,ProvGigaPath,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUAD,TCR Shannon,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUAD,TGF-beta Response,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUAD,TIL Regional Fraction,Thorsson2018_PanImmune_MS,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUAD,Th1 Cells,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUAD,Th2 Cells,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUAD,Wound Healing,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUSC,Leukocyte Fraction,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUSC,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUSC,Macrophage Regulation,Thorsson2018_PanImmune_MS,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUSC,Proliferation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUSC,Stromal Fraction,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUSC,T Cells CD8,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUSC,TCR Richness,Thorsson2018_PanImmune_MS,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUSC,TGF-beta Response,Thorsson2018_PanImmune_MS,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUSC,TIL Regional Fraction,Thorsson2018_PanImmune_MS,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUSC,Th1 Cells,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUSC,Th17 Cells,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUSC,Th2 Cells,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,LUSC,Wound Healing,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,MESO,Homologous Recombination Defects,Thorsson2018_PanImmune_MS,TITAN,5,2,0.4,ProvGigaPath,2,0.4,TRUE
+continuous,thorsson,immune_inflammatory_and_genomic_context,MESO,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,MESO,Macrophage Regulation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,MESO,TGF-beta Response,Thorsson2018_PanImmune_MS,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,MESO,Wound Healing,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,OV,Homologous Recombination Defects,Thorsson2018_PanImmune_MS,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,OV,Stromal Fraction,Thorsson2018_PanImmune_MS,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,OV,TGF-beta Response,Thorsson2018_PanImmune_MS,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,OV,Th1 Cells,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,PAAD,Fraction Altered,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,PAAD,TIL Regional Fraction,Thorsson2018_PanImmune_MS,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,PCPG,Macrophage Regulation,Thorsson2018_PanImmune_MS,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,PCPG,TGF-beta Response,Thorsson2018_PanImmune_MS,ProvGigaPath,5,3,0.6,ProvGigaPath,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,PRAD,Fraction Altered,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,PRAD,Homologous Recombination Defects,Thorsson2018_PanImmune_MS,GigaSSL,5,0,0,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,PRAD,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,PRAD,Macrophage Regulation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,PRAD,Proliferation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,PRAD,TIL Regional Fraction,Thorsson2018_PanImmune_MS,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,READ,TGF-beta Response,Thorsson2018_PanImmune_MS,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,READ,TIL Regional Fraction,Thorsson2018_PanImmune_MS,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SARC,CTA Score,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SARC,Fraction Altered,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SARC,Homologous Recombination Defects,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SARC,IFN-gamma Response,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SARC,Intratumor Heterogeneity,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SARC,Leukocyte Fraction,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SARC,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SARC,Macrophage Regulation,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SARC,Macrophages M0,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SARC,Macrophages M2,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SARC,Mast Cells Resting,Thorsson2018_PanImmune_MS,ProvGigaPath,5,1,0.2,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SARC,Number of Segments,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SARC,Proliferation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SARC,Stromal Fraction,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SARC,TCR Shannon,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SARC,TGF-beta Response,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SARC,Th1 Cells,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SARC,Th2 Cells,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SARC,Wound Healing,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SKCM,BCR Richness,Thorsson2018_PanImmune_MS,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SKCM,IFN-gamma Response,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SKCM,Leukocyte Fraction,Thorsson2018_PanImmune_MS,ProvGigaPath,5,1,0.2,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SKCM,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SKCM,Macrophage Regulation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SKCM,Proliferation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SKCM,Stromal Fraction,Thorsson2018_PanImmune_MS,GigaSSL,5,2,0.4,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SKCM,T Cells CD8,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SKCM,TCR Richness,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SKCM,TCR Shannon,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SKCM,TIL Regional Fraction,Thorsson2018_PanImmune_MS,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SKCM,Th1 Cells,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,SKCM,Wound Healing,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,STAD,Aneuploidy Score,Thorsson2018_PanImmune_MS,ProvGigaPath,5,2,0.4,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,STAD,CTA Score,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,STAD,Fraction Altered,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,STAD,Homologous Recombination Defects,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,STAD,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,STAD,Macrophage Regulation,Thorsson2018_PanImmune_MS,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,STAD,Mast Cells Resting,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,STAD,Nonsilent Mutation Rate,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,STAD,Number of Segments,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,STAD,Proliferation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,STAD,Silent Mutation Rate,Thorsson2018_PanImmune_MS,ProvGigaPath,5,1,0.2,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,STAD,T Cells CD4 Memory Activated,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,STAD,T Cells CD8,Thorsson2018_PanImmune_MS,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,STAD,TIL Regional Fraction,Thorsson2018_PanImmune_MS,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,STAD,Th2 Cells,Thorsson2018_PanImmune_MS,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,STAD,Wound Healing,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,TGCT,B Cells Naive,Thorsson2018_PanImmune_MS,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,TGCT,Fraction Altered,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,TGCT,IFN-gamma Response,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,TGCT,Leukocyte Fraction,Thorsson2018_PanImmune_MS,TITAN,5,2,0.4,ProvGigaPath,2,0.4,TRUE
+continuous,thorsson,immune_inflammatory_and_genomic_context,TGCT,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,TGCT,Macrophage Regulation,Thorsson2018_PanImmune_MS,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,TGCT,Macrophages M2,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,TGCT,Proliferation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,TGCT,Stromal Fraction,Thorsson2018_PanImmune_MS,TITAN,5,2,0.4,GigaSSL,2,0.4,TRUE
+continuous,thorsson,immune_inflammatory_and_genomic_context,TGCT,TCR Richness,Thorsson2018_PanImmune_MS,GigaSSL,5,3,0.6,GigaSSL,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,TGCT,TCR Shannon,Thorsson2018_PanImmune_MS,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,TGCT,TGF-beta Response,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,TGCT,Th1 Cells,Thorsson2018_PanImmune_MS,GigaSSL,5,5,1,GigaSSL,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,TGCT,Th17 Cells,Thorsson2018_PanImmune_MS,ProvGigaPath,5,2,0.4,GigaSSL,2,0.4,TRUE
+continuous,thorsson,immune_inflammatory_and_genomic_context,TGCT,Th2 Cells,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,TGCT,Wound Healing,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THCA,B Cells Naive,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THCA,BCR Richness,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THCA,BCR Shannon,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THCA,IFN-gamma Response,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THCA,Leukocyte Fraction,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THCA,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THCA,Macrophage Regulation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THCA,Macrophages M1,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THCA,Macrophages M2,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THCA,Plasma Cells,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THCA,Proliferation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THCA,T Cells CD8,Thorsson2018_PanImmune_MS,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THCA,T Cells Follicular Helper,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THCA,TCR Richness,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THCA,TCR Shannon,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THCA,TGF-beta Response,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THCA,Th1 Cells,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,Aneuploidy Score,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,Dendritic Cells Resting,Thorsson2018_PanImmune_MS,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,Homologous Recombination Defects,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,IFN-gamma Response,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,Indel Neoantigens,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,Intratumor Heterogeneity,Thorsson2018_PanImmune_MS,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,GigaSSL,5,0,0,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,Macrophages M1,Thorsson2018_PanImmune_MS,TITAN,5,2,0.4,GigaSSL,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,Macrophages M2,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,Mast Cells Resting,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,Nonsilent Mutation Rate,Thorsson2018_PanImmune_MS,TITAN,5,1,0.2,GigaSSL,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,Proliferation,Thorsson2018_PanImmune_MS,GigaSSL,5,0,0,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,SNV Neoantigens,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,Stromal Fraction,Thorsson2018_PanImmune_MS,TITAN,5,2,0.4,GigaSSL,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,T Cells CD4 Memory Activated,Thorsson2018_PanImmune_MS,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,T Cells CD4 Memory Resting,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,T Cells CD4 Naive,Thorsson2018_PanImmune_MS,GigaSSL,5,1,0.2,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,T Cells Follicular Helper,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,T Cells Regulatory Tregs,Thorsson2018_PanImmune_MS,TITAN,5,2,0.4,GigaSSL,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,TCR Richness,Thorsson2018_PanImmune_MS,TITAN,5,1,0.2,GigaSSL,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,TCR Shannon,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,TGF-beta Response,Thorsson2018_PanImmune_MS,TITAN,5,3,0.6,TITAN,3,0.6,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,Th17 Cells,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,Th2 Cells,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,THYM,Wound Healing,Thorsson2018_PanImmune_MS,TITAN,5,4,0.8,TITAN,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,UCEC,Aneuploidy Score,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,UCEC,Fraction Altered,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,UCEC,Homologous Recombination Defects,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,UCEC,Intratumor Heterogeneity,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,UCEC,Leukocyte Fraction,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,UCEC,Lymphocyte Infiltration Signature Score,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,UCEC,Macrophage Regulation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,UCEC,Nonsilent Mutation Rate,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,UCEC,Number of Segments,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,UCEC,Proliferation,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,UCEC,SNV Neoantigens,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,UCEC,Silent Mutation Rate,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,UCEC,Stromal Fraction,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,UCEC,TGF-beta Response,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,UCEC,TIL Regional Fraction,Thorsson2018_PanImmune_MS,ProvGigaPath,5,4,0.8,ProvGigaPath,4,0.8,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,UCEC,Th2 Cells,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,UCEC,Wound Healing,Thorsson2018_PanImmune_MS,TITAN,5,5,1,TITAN,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,UCS,Macrophages M1,Thorsson2018_PanImmune_MS,ProvGigaPath,5,5,1,ProvGigaPath,5,1,FALSE
+continuous,thorsson,immune_inflammatory_and_genomic_context,UCS,T Cells CD8,Thorsson2018_PanImmune_MS,GigaSSL,5,4,0.8,GigaSSL,4,0.8,FALSE

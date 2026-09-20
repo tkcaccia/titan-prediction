@@ -7,7 +7,7 @@ suppressPackageStartupMessages({
 source("R/utils.R")
 cfg <- load_project_config()
 backend <- tolower(Sys.getenv("TITAN_BACKEND", "cpu"))
-options(fastPLS.backend = backend)
+options(backend = backend)
 cohort <- readRDS("data/processed/patient_cohort.rds")
 targets <- readRDS("data/processed/continuous_targets.rds")
 catalog <- fread("results/tables/continuous_target_catalog.csv")
@@ -68,9 +68,7 @@ run_job <- function(i) {
   y <- d$value[keep]
   seed <- cfg$analysis$seed + i
   fit <- pls.double.cv(
-    X, y, ncomp = cfg$analysis$components,
-    svd.method = cfg$analysis$svd_method,
-    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    X, y, ncomp = cfg$analysis$components, rsvd_oversample = cfg$analysis$rsvd_oversample,
     rsvd_power = cfg$analysis$rsvd_power,
     kfold_outer = cfg$analysis$outer_folds,
     kfold_inner = cfg$analysis$inner_folds,
@@ -78,7 +76,7 @@ run_job <- function(i) {
   )
   q2 <- as.numeric(fit$Q2Y)
   # Performance is checkpointed for the complete atlas first. Only models able
-  # to meet the prespecified screening threshold receive 99/999 permutations in R/05b.
+  # to meet the documented screening threshold receive 99/999 permutations in R/05b.
   p <- 1; nperm <- 0L; exceed <- NA_integer_
   row <- data.table(
     family = job$family, subfamily = job$subfamily,

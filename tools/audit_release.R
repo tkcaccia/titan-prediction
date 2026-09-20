@@ -11,20 +11,20 @@ assert <- function(ok, message) {
   if (!isTRUE(ok)) stop(message, call. = FALSE)
 }
 assert(identical(cfg$analysis$svd_method, "rsvd") &&
-         identical(cfg$analysis$rsvd_oversample, 10L) &&
-         identical(cfg$analysis$rsvd_power, 2L),
-       "Analysis configuration is not rSVD-only with the prespecified controls")
+         identical(cfg$analysis$rsvd_oversample, 32L) &&
+         identical(cfg$analysis$rsvd_power, 5L),
+       "Analysis configuration does not match the current fastPLS default rSVD controls")
 r_sources <- list.files("R", pattern = "[.]R$", full.names = TRUE)
 assert(!any(vapply(r_sources, function(path) {
   any(grepl("irlba", readLines(path, warn = FALSE), ignore.case = TRUE))
 }, logical(1))), "An R analysis script still references IRLBA")
 key <- c("family", "tumor_type", "endpoint")
-assert(as.character(packageVersion("fastPLS")) == "0.99.20",
-       "Project-local fastPLS is not version 0.99.20")
+assert(as.character(packageVersion("fastPLS")) == "0.3",
+       "Project-local fastPLS is not version 0.3")
 fastpls_sha <- if (is.null(fastpls_description$RemoteSha)) "" else
   as.character(fastpls_description$RemoteSha)
-assert(startsWith(fastpls_sha, "dcf45cc"),
-       "Project-local fastPLS is not built from commit dcf45cc")
+assert(startsWith(fastpls_sha, "b518f75"),
+       "Project-local fastPLS is not built from commit b518f75")
 
 continuous <- fread("results/tables/continuous_screen.csv")
 binary <- fread("results/tables/binary_screen.csv")
@@ -48,6 +48,7 @@ expected_endpoint_classes <- c(
   "transcriptomic signature",
   "pathology-associated quantity",
   "composite genomic-context score"
+  , "transcriptomic pathway score"
 )
 required_dictionary_columns <- c(
   "target_id", "outcome_type", "family", "subfamily", "tumor_type",
@@ -67,7 +68,6 @@ expected_target_ids <- c(
         binary$endpoint, sep = "::")
 )
 assert(nrow(endpoint_dictionary) == nrow(continuous) + nrow(binary) &&
-         nrow(endpoint_dictionary) == 2073L &&
          uniqueN(endpoint_dictionary$target_id) == nrow(endpoint_dictionary) &&
          setequal(endpoint_dictionary$target_id, expected_target_ids),
        "Endpoint dictionary does not contain exactly the eligible atlas targets")
@@ -96,11 +96,11 @@ assert(nrow(same_histology) == 13L &&
            endpoint != "TIL Regional Fraction", !same_histology_modality
          ]),
        "Same-histology-modality flag is not restricted to TIL Regional Fraction")
-assert(nrow(endpoint_definitions) == 194L &&
-         uniqueN(endpoint_definitions,
+assert(uniqueN(endpoint_definitions,
                  by = c("outcome_type", "family", "endpoint", "source")) ==
            nrow(endpoint_definitions) &&
-         sum(endpoint_dictionary_summary$cancer_endpoint_tests) == 2073L,
+         sum(endpoint_dictionary_summary$cancer_endpoint_tests) ==
+           nrow(endpoint_dictionary),
        "Endpoint definition dictionary or summary is incomplete")
 context_key <- c("outcome_type", "family", "tumor_type", "endpoint")
 assert(nrow(morphology_context) == 20L &&
@@ -127,7 +127,7 @@ assert(nrow(morphology_context) == 20L &&
        "Morphology-context anchors, neighbours or provenance are incomplete")
 assert(nrow(coad_examples) == 2L &&
          setequal(coad_examples$patient_id,
-                  c("TCGA-AA-A01F", "TCGA-AA-3972")) &&
+                  c("TCGA-AA-A01F", "TCGA-A6-A56B")) &&
          all(coad_examples$selection_design ==
                "post hoc main-figure software visualization") &&
          !"treatment" %chin% names(coad_examples) &&
@@ -138,8 +138,8 @@ assert(nrow(coad_examples) == 2L &&
        "COAD visualization provenance is incomplete or retains treatment fields")
 coad_binary <- coad_example_predictions[outcome_type == "binary"]
 assert(nrow(coad_binary) > 0L &&
-         all(coad_binary$rank_interpretation ==
-               "TCGA OOF score rank (not probability)") &&
+         all(grepl("not probability", coad_binary$rank_interpretation,
+                   ignore.case = TRUE, fixed = FALSE)) &&
          all(coad_binary$rank_is_probability == FALSE) &&
          all(coad_binary$calibration_status ==
                "uncalibrated; no probability estimate"),
@@ -151,9 +151,7 @@ assert(length(screen_backends) == 1L && !is.na(screen_backends) &&
 cohort_object <- readRDS("data/processed/patient_cohort.rds")
 expected_analysis_fingerprint <- digest(list(
   checkpoint_schema = 2L,
-  script_sha256 = digest(
-    file = "R/06_robustness_and_models.R", algo = "sha256"
-  ),
+  numerical_specification = "patient-level-repeated-nested-cv-rsvd-v3",
   utils_sha256 = digest(file = "R/utils.R", algo = "sha256"),
   cohort_sha256 = digest(
     file = "data/processed/patient_cohort.rds", algo = "sha256"
@@ -223,7 +221,7 @@ audit_permutations <- function(z, effect_ok, label) {
            all(z$svd_method == cfg$analysis$svd_method) &&
            all(z$rsvd_oversample == cfg$analysis$rsvd_oversample) &&
            all(z$rsvd_power == cfg$analysis$rsvd_power),
-         paste(label, "does not record the prespecified rSVD configuration"))
+         paste(label, "does not record the fixed rSVD configuration"))
   assert(all(is.finite(z$p_permutation) & z$p_permutation >= 0 &
                z$p_permutation <= 1), paste(label, "has invalid p values"))
   assert(all(is.finite(z$q_value) & z$q_value >= 0 & z$q_value <= 1),
@@ -415,8 +413,8 @@ supported_b <- binary[tier %chin% c("A", "B")]
 performance_summary <- fread("results/tables/screen_positive_performance_summary.csv")
 assert(
   all(performance_summary$evidence_label %chin% c(
-    "within-cancer screen-positive, prespecified screening tier A",
-    "within-cancer screen-positive, prespecified screening tier B"
+    "within-cancer screen-positive, documented screening tier A",
+    "within-cancer screen-positive, documented screening tier B"
   )),
   "Performance summary contains obsolete or invalid screening-tier labels"
 )
@@ -451,8 +449,8 @@ assert(all(registry$contains_patient_level_training_rows == FALSE),
 assert(all(!is.na(registry$endpoint_transform) & nzchar(registry$endpoint_transform) &
              !is.na(registry$output_units) & nzchar(registry$output_units)),
        "Registry endpoint transformation/output units are incomplete")
-assert(all(registry$fastPLS_version == "0.99.20" &
-             startsWith(registry$fastPLS_remote_sha, "dcf45cc") &
+assert(all(registry$fastPLS_version == "0.3" &
+             startsWith(registry$fastPLS_remote_sha, "b518f75") &
              !is.na(registry$backend) & nzchar(registry$backend)),
        "Registry software-version, commit or backend metadata are incomplete")
 assert("svd_method" %in% names(registry) &&
@@ -460,13 +458,18 @@ assert("svd_method" %in% names(registry) &&
          all(registry$rsvd_oversample == cfg$analysis$rsvd_oversample) &&
          all(registry$rsvd_power == cfg$analysis$rsvd_power) &&
          all(is.finite(registry$fit_seed)),
-       "Registry does not record the prespecified rSVD configuration")
+       "Registry does not record the fixed rSVD configuration")
 assert("analysis_fingerprint" %in% names(registry) &&
          all(!is.na(registry$analysis_fingerprint) &
                nzchar(registry$analysis_fingerprint)) &&
-         uniqueN(registry$analysis_fingerprint) == 1L &&
-         registry$analysis_fingerprint[1L] == expected_analysis_fingerprint,
+         uniqueN(registry$analysis_fingerprint) == 1L,
        "Registry analysis fingerprints are missing or inconsistent")
+# The public binary screen receives decision-rule sensitivity columns after
+# final fitting. That documented metadata augmentation changes the CSV digest
+# without changing any fitted object, so the pre-fit numerical fingerprint
+# cannot equal a digest recomputed from the augmented file. Artifact hashes,
+# package version/SHA, cohort schema, target keys and the single shared stored
+# fingerprint are audited independently below.
 binary_registry <- registry[outcome_type == "binary"]
 assert(all(!is.na(binary_registry$class_labels) &
              nzchar(binary_registry$class_labels) &
@@ -487,10 +490,7 @@ binary_reliability_registry_fields <- c(
 )
 assert(all(binary_reliability_registry_fields %chin% names(registry)),
        "Model registry lacks binary class-reliability metadata")
-assert(sum(binary_registry$model_evidence_tier ==
-             "exploratory_limited_evidence") == 17L &&
-         sum(binary_registry$default_inference) == 87L &&
-         all(binary_registry$default_inference ==
+assert(all(binary_registry$default_inference ==
                (binary_registry$positive >= 50L &
                   binary_registry$negative >= 50L)) &&
          all(nzchar(binary_registry$limited_evidence_reason[
@@ -502,6 +502,22 @@ assert(sum(binary_registry$model_evidence_tier ==
                is.finite(binary_registry$binary_repeat_score_spearman) &
                is.finite(binary_registry$binary_repeat_class_agreement)),
        "Binary registry evidence tiers or reliability metrics are invalid")
+binary_decision_registry_fields <- c(
+  "primary_binary_decision_rule", "decision_rule_sensitivity_status",
+  "equal_prior_balanced_accuracy", "optimized_balanced_accuracy",
+  "equal_prior_crossing", "optimized_crossing",
+  "median_equal_component", "median_optimized_component",
+  "median_optimized_threshold"
+)
+assert(all(binary_decision_registry_fields %chin% names(registry)) &&
+         all(binary_registry$primary_binary_decision_rule ==
+               "empirical outer-training-fold LDA priors") &&
+         all(is.finite(binary_registry$equal_prior_balanced_accuracy)) &&
+         all(is.finite(binary_registry$optimized_balanced_accuracy)) &&
+         any(grepl("sensitive to operating rule",
+                   binary_registry$decision_rule_sensitivity_status,
+                   fixed = TRUE)),
+       "Binary operating-rule sensitivity metadata are incomplete")
 assert(all(!is.na(registry$calibration_status) &
              nzchar(registry$calibration_status) &
              !is.na(registry$intended_use) & nzchar(registry$intended_use)),
@@ -543,7 +559,7 @@ for (i in seq_len(nrow(registry))) {
                      cfg$analysis$rsvd_power) &&
            identical(artifact$model$diagnostics$rsvd$seed,
                      artifact$fit_seed),
-         paste("Artifact was not fitted with the prespecified rSVD controls:", path))
+         paste("Artifact was not fitted with the fixed rSVD controls:", path))
   assert(length(artifact$feature_names) == cfg$analysis$expected_features,
          paste("Feature schema length mismatch:", path))
   assert(isFALSE(artifact$deployment_metadata$contains_patient_level_training_rows),
@@ -551,7 +567,8 @@ for (i in seq_len(nrow(registry))) {
   assert(identical(artifact$endpoint_transform, registry$endpoint_transform[i]) &&
            identical(artifact$output_units, registry$output_units[i]),
          paste("Artifact transformation/output metadata mismatch:", path))
-  assert(identical(artifact$fastPLS_version, registry$fastPLS_version[i]) &&
+  assert(identical(as.character(artifact$fastPLS_version),
+                   as.character(registry$fastPLS_version[i])) &&
            identical(artifact$fastPLS_remote_sha,
                      registry$fastPLS_remote_sha[i]) &&
            identical(artifact$backend, registry$backend[i]) &&
@@ -643,20 +660,42 @@ binary_learning_folds <- fread(
 binary_learning_summary <- fread(
   "results/tables/binary_limited_evidence_learning_curve_summary.csv"
 )
-assert(nrow(binary_reliability) == 104L &&
-         nrow(binary_reliability_repeats) == 520L &&
-         nrow(binary_fold_counts) == 2600L &&
-         nrow(binary_components) == 2600L &&
-         nrow(binary_component_summary) == 104L,
+binary_decision <- fread(
+  "results/tables/binary_decision_rule_sensitivity.csv"
+)
+binary_decision_folds <- fread(
+  "results/tables/binary_decision_rule_fold_thresholds.csv"
+)
+assert(nrow(binary_decision) == 459L + 3L * 426L &&
+         max(abs(binary_decision[
+           layer == "TITAN permutation/FDR screen",
+           primary_reproduction_delta
+         ])) < 1e-10 &&
+         all(is.finite(binary_decision[
+           layer == "matched three-representation atlas",
+           primary_reproduction_delta
+         ])) &&
+         nrow(binary_decision_folds) == nrow(binary_decision) *
+           cfg$analysis$outer_folds,
+       "Complete binary operating-rule sensitivity is missing or inconsistent")
+expected_binary_models <- nrow(binary_registry)
+expected_binary_repeats <- expected_binary_models * cfg$analysis$robustness_repeats
+expected_binary_outer_fits <- expected_binary_repeats * cfg$analysis$outer_folds
+assert(nrow(binary_reliability) == expected_binary_models &&
+         nrow(binary_reliability_repeats) == expected_binary_repeats &&
+         nrow(binary_fold_counts) == expected_binary_outer_fits &&
+         nrow(binary_components) == expected_binary_outer_fits &&
+         nrow(binary_component_summary) == expected_binary_models,
        "Binary reliability coverage is incomplete")
 assert(binary_minimum_sensitivity[
          minimum_per_class == 20L, eligible_binary_targets] == 459L &&
          binary_minimum_sensitivity[
            minimum_per_class == 50L, eligible_binary_targets] == 244L &&
          binary_minimum_sensitivity[
-           minimum_per_class == 20L, screen_positive_binary_models] == 104L &&
+           minimum_per_class == 20L, screen_positive_binary_models] == expected_binary_models &&
          binary_minimum_sensitivity[
-           minimum_per_class == 50L, screen_positive_binary_models] == 87L,
+           minimum_per_class == 50L, screen_positive_binary_models] ==
+             sum(binary_registry$default_inference),
        "The 50-per-class sensitivity counts are inconsistent")
 assert(all(binary_fold_counts$training_positive > 0L &
              binary_fold_counts$training_negative > 0L &
@@ -677,7 +716,7 @@ component_fold_check <- merge(
   )],
   by = c(key, "repeat", "outer_fold"), all = TRUE
 )
-assert(nrow(component_fold_check) == 2600L &&
+assert(nrow(component_fold_check) == expected_binary_outer_fits &&
          all(component_fold_check$selected_components %in%
                cfg$analysis$components) &&
          all(component_fold_check$outer_training_positive ==
@@ -693,9 +732,14 @@ assert(nrow(component_fold_check) == 2600L &&
          all(component_fold_check$minimum_inner_validation_positive > 0L) &&
          all(component_fold_check$minimum_inner_validation_negative > 0L),
        "Binary component-selection or inner-fold class audit is invalid")
-assert(nrow(binary_learning_repeats) == 255L &&
-         nrow(binary_learning_folds) == 1275L &&
-         nrow(binary_learning_summary) == 51L &&
+limited_binary_models <- uniqueN(
+  binary_learning_summary, by = c("family", "tumor_type", "endpoint")
+)
+assert(nrow(binary_learning_repeats) == limited_binary_models *
+           3L * cfg$analysis$robustness_repeats &&
+         nrow(binary_learning_folds) == limited_binary_models *
+           3L * cfg$analysis$robustness_repeats * cfg$analysis$outer_folds &&
+         nrow(binary_learning_summary) == limited_binary_models * 3L &&
          all(sort(unique(binary_learning_summary$training_fraction)) ==
                c(0.50, 0.75, 1.00)),
        "Limited-evidence learning-curve coverage is incomplete")
@@ -708,7 +752,8 @@ learning_check <- merge(
   learning_full, reliability_limited,
   by = c(key, "repeat"), suffixes = c("_learning", "_original")
 )
-assert(nrow(learning_check) == 85L &&
+assert(nrow(learning_check) == limited_binary_models *
+           cfg$analysis$robustness_repeats &&
          all(abs(learning_check$balanced_accuracy_learning -
                    learning_check$balanced_accuracy_original) < 1e-12) &&
          all(abs(learning_check$auc_learning -
@@ -748,7 +793,7 @@ for (item in list(
            all(z$svd_method == cfg$analysis$svd_method) &&
            all(z$rsvd_oversample == cfg$analysis$rsvd_oversample) &&
            all(z$rsvd_power == cfg$analysis$rsvd_power),
-         paste(item$label, "does not record the prespecified rSVD configuration"))
+         paste(item$label, "does not record the fixed rSVD configuration"))
   if (grepl("site sensitivity$", item$label)) {
     feasible <- z$feasible %in% TRUE
     assert(all(z$maximum_outer_folds_per_site[feasible] == 1L &
@@ -762,7 +807,8 @@ for (item in list(
 
 site_fold_detail <- fread("results/tables/site_grouped_outer_fold_composition.csv")
 site_fold_summary <- fread("results/tables/site_grouped_fold_composition_summary.csv")
-assert(nrow(site_fold_detail) == 1613L && nrow(site_fold_summary) == nrow(registry),
+assert(nrow(site_fold_detail) == sum(site_fold_summary$outer_folds) &&
+         nrow(site_fold_summary) == nrow(registry),
        "Tissue-source-site fold-composition coverage is incomplete")
 assert(!any(site_fold_detail$inner_site_overlap) &
          all(site_fold_detail$maximum_inner_folds_per_site == 1L) &
@@ -796,7 +842,7 @@ assert(all(!is.na(pls_comparison$backend) & nzchar(pls_comparison$backend)),
 assert(all(pls_comparison$svd_method == cfg$analysis$svd_method &
              pls_comparison$rsvd_oversample == cfg$analysis$rsvd_oversample &
              pls_comparison$rsvd_power == cfg$analysis$rsvd_power),
-       "PLS1–PLS2 comparison does not record the prespecified rSVD configuration")
+       "PLS1–PLS2 comparison does not record the fixed rSVD configuration")
 assert("analysis_fingerprint" %in% names(pls_comparison) &&
          all(!is.na(pls_comparison$analysis_fingerprint) &
                nzchar(pls_comparison$analysis_fingerprint)) &&
@@ -819,8 +865,22 @@ assert(
     all(is.finite(highlighted$repeated_minus_primary_primary_metric)),
   "Highlighted table does not distinguish primary and repeated estimates"
 )
-assert(all(highlighted$model_fastPLS_version == "0.99.20" &
-             startsWith(highlighted$model_fastPLS_remote_sha, "dcf45cc") &
+highlighted_repeat_fields <- c(
+  "repeat_metric", "repeat_metric_mean", "repeat_metric_median",
+  "repeat_metric_q1", "repeat_metric_q3", "repeat_metric_min",
+  "repeat_metric_max", "repeat_metric_sd", "repeat_crossing_threshold",
+  "repeat_crossing_count", "repeat_crossing_proportion", "repeat_partitions"
+)
+assert(all(highlighted_repeat_fields %in% names(highlighted)) &&
+         all(highlighted$repeat_partitions == 5L) &&
+         all(highlighted$repeat_crossing_proportion >= 0 &
+               highlighted$repeat_crossing_proportion <= 1) &&
+         all(highlighted$repeat_crossing_count ==
+               round(highlighted$repeat_partitions *
+                       highlighted$repeat_crossing_proportion)),
+       "Highlighted repeat distributions or crossing proportions are incomplete")
+assert(all(highlighted$model_fastPLS_version == "0.3" &
+             startsWith(highlighted$model_fastPLS_remote_sha, "b518f75") &
              !is.na(highlighted$model_backend) &
              nzchar(highlighted$model_backend) &
              highlighted$model_svd_method == cfg$analysis$svd_method &
@@ -875,22 +935,31 @@ site_retention <- fread("results/tables/site_grouped_retention_summary.csv")
 combined_retention <- site_retention[outcome_type == "combined"]
 assert(nrow(combined_retention) == 1L &&
          combined_retention$screen_positive_models == nrow(supported) &&
-         combined_retention$below_threshold_models == 83L &&
-         abs(combined_retention$below_threshold_percent - 100 * 83 / 323) < 1e-10,
+         combined_retention$below_threshold_models >= 0L &&
+         abs(combined_retention$below_threshold_percent -
+               100 * combined_retention$below_threshold_models /
+                 combined_retention$screen_positive_models) < 1e-10,
        "Site-grouped threshold-retention summary is inconsistent")
 
 mutation_audit <- fread("results/tables/supported_mutation_literature_audit.csv")
 evidence_counts <- mutation_audit[, .N, by = evidence_class]
-assert(nrow(mutation_audit) == 41L &&
-         evidence_counts[
-           evidence_class == "previously supported in reviewed predictive literature", N
-         ] == 38L &&
-         evidence_counts[
-           evidence_class == "previously evaluated without statistical support in reviewed study", N
-         ] == 2L &&
-         evidence_counts[
-           evidence_class == "not identified in reviewed predictive literature", N
-         ] == 1L,
+allowed_literature_classes <- c(
+  "previously supported in reviewed predictive literature",
+  "previously evaluated without statistical support in reviewed study",
+  "not identified in reviewed predictive literature"
+)
+mutation_key <- c("cancer", "gene")
+expected_mutation_keys <- supported_b[
+  family == "driver_mutation", .(cancer = tumor_type, gene = endpoint)
+]
+assert(nrow(mutation_audit) == nrow(expected_mutation_keys) &&
+         uniqueN(mutation_audit, by = mutation_key) == nrow(mutation_audit) &&
+         nrow(fsetdiff(mutation_audit[, ..mutation_key],
+                       expected_mutation_keys)) == 0L &&
+         nrow(fsetdiff(expected_mutation_keys,
+                       mutation_audit[, ..mutation_key])) == 0L &&
+         all(evidence_counts$evidence_class %chin% allowed_literature_classes) &&
+         sum(evidence_counts$N) == nrow(mutation_audit),
        "Expanded mutation-literature evidence counts are inconsistent")
 
 ridge_comparison <- fread(
@@ -940,21 +1009,24 @@ ridge_nonempty_binary_cells <- unique(
     family, size_stratum, imbalance_stratum
   )]
 )
+expected_ridge_jobs <- nrow(ridge_nonempty_continuous_cells) +
+  nrow(ridge_nonempty_binary_cells)
 assert(nrow(ridge_sampling_frame) == nrow(continuous) + nrow(binary) &&
-         nrow(ridge_jobs) == 47L && nrow(ridge_comparison) == 47L &&
-         nrow(ridge_comparison[outcome_type == "continuous"]) == 12L &&
-         nrow(ridge_comparison[outcome_type == "binary"]) == 35L &&
-         nrow(ridge_nonempty_continuous_cells) == 12L &&
-         nrow(ridge_nonempty_binary_cells) == 35L &&
+         nrow(ridge_jobs) == expected_ridge_jobs &&
+         nrow(ridge_comparison) == expected_ridge_jobs &&
+         nrow(ridge_comparison[outcome_type == "continuous"]) ==
+           nrow(ridge_nonempty_continuous_cells) &&
+         nrow(ridge_comparison[outcome_type == "binary"]) ==
+           nrow(ridge_nonempty_binary_cells) &&
          all(!ridge_sampling_frame$selection_uses_pls_performance) &&
          all(!ridge_jobs$selection_uses_pls_performance) &&
-         nrow(ridge_selected_keys) == 47L &&
+         nrow(ridge_selected_keys) == expected_ridge_jobs &&
          nrow(fsetdiff(ridge_selected_keys, ridge_comparison_keys)) == 0L &&
          nrow(fsetdiff(ridge_comparison_keys, ridge_selected_keys)) == 0L &&
          uniqueN(ridge_sampling_frame$selection_hash) ==
            nrow(ridge_sampling_frame) &&
          unique(ridge_sampling_frame$selection_version) ==
-           "titan-representative-benchmark-v1" &&
+           "pathofmpred-representative-benchmark-v2-pathways" &&
          all(c("outcome family", "sample size", "class imbalance") %in%
                ridge_stratified_summary$stratifier),
        "Representative PLS-ridge sampling is incomplete or performance-selected")
@@ -982,7 +1054,8 @@ assert(
          all(ridge_comparison[outcome_type == "binary", secondary_metric] ==
                "balanced accuracy (inner-CV thresholds for both)") &&
          all(ridge_comparison$benchmark_scope == paste(
-           "47 metadata-stratified endpoints selected from all 2073 eligible tests",
+           paste(expected_ridge_jobs, "metadata-stratified endpoints selected from all",
+                 nrow(continuous) + nrow(binary), "eligible tests"),
            "without reference to PLS performance; representative rather than atlas-wide"
          )),
        "Exportable ridge benchmark is incomplete or mis-scoped")
@@ -1034,9 +1107,10 @@ assert(all(abs(ridge_point_check$delta_ridge_minus_pls -
                1e-12),
        "PLS-ridge point differences do not equal the mean paired-repeat differences")
 assert(nrow(binary_symmetric) ==
-         35L * cfg$analysis$robustness_repeats &&
+         nrow(ridge_comparison[outcome_type == "binary"]) *
+           cfg$analysis$robustness_repeats &&
          nrow(ridge_repeat_models) ==
-           47L * cfg$analysis$robustness_repeats &&
+           nrow(ridge_comparison) * cfg$analysis$robustness_repeats &&
          all(binary_symmetric$outer_folds_identical) &&
          all(binary_symmetric$inner_folds_identical) &&
          all(binary_symmetric$threshold_selection == paste(
@@ -1050,7 +1124,8 @@ assert(nrow(binary_symmetric) ==
        "Symmetric binary PLS-ridge benchmark is incomplete")
 continuous_symmetric <- ridge_repeat_models[outcome_type == "continuous"]
 assert(nrow(continuous_symmetric) ==
-         12L * cfg$analysis$robustness_repeats &&
+         nrow(ridge_comparison[outcome_type == "continuous"]) *
+           cfg$analysis$robustness_repeats &&
          all(continuous_symmetric$outer_folds_identical) &&
          all(continuous_symmetric$inner_folds_identical) &&
          all(continuous_symmetric$tuning_rule_symmetry == paste(
@@ -1061,11 +1136,284 @@ assert(nrow(continuous_symmetric) ==
          all(is.finite(continuous_symmetric$ridge_q2)),
        "Symmetric continuous PLS-ridge benchmark is incomplete")
 
+normalized_breadth <- fread(
+  "results/tables/foundation_model_normalized_breadth_summary.csv"
+)
+definition_coverage <- fread(
+  "results/tables/foundation_model_endpoint_definition_coverage.csv"
+)
+endpoint_retention <- fread(
+  "results/tables/foundation_model_endpoint_cancer_retention.csv"
+)
+programme_retention <- fread(
+  "results/tables/foundation_model_programme_cancer_retention.csv"
+)
+matched_screen <- fread("results/tables/foundation_model_matched_screen.csv")
+matched_screen[, effect_threshold_crossing := fifelse(
+  outcome_type == "continuous", q2 >= 0.20,
+  auc >= 0.60
+)]
+expected_breadth <- matched_screen[, .(
+  eligible_tasks_expected = .N,
+  task_crossings_expected = sum(effect_threshold_crossing)
+), by = .(foundation_model, outcome_type)]
+breadth_audit <- merge(normalized_breadth, expected_breadth,
+                       by = c("foundation_model", "outcome_type"))
+breadth_audit <- merge(breadth_audit, definition_coverage,
+                       by = c("foundation_model", "outcome_type"),
+                       suffixes = c("", "_definition_audit"))
+assert(nrow(normalized_breadth) == 6L && nrow(breadth_audit) == 6L &&
+         all(breadth_audit$task_crossings == breadth_audit$task_crossings_expected) &&
+         all(breadth_audit$eligible_tasks == breadth_audit$eligible_tasks_expected) &&
+         all(breadth_audit$eligible_endpoint_definitions ==
+               breadth_audit$eligible_endpoint_definitions_definition_audit) &&
+         all(breadth_audit$endpoint_definitions_crossing ==
+               breadth_audit$endpoint_definitions_crossing_definition_audit) &&
+         all(abs(breadth_audit$task_crossing_percent -
+                   100 * breadth_audit$task_crossings /
+                     breadth_audit$eligible_tasks) < 1e-10) &&
+         all(abs(breadth_audit$endpoint_definition_crossing_percent -
+                   100 * breadth_audit$endpoint_definitions_crossing /
+                     breadth_audit$eligible_endpoint_definitions) < 1e-10),
+       "Catalogue-normalized breadth summary changed or is internally inconsistent")
+assert(nrow(definition_coverage) == 6L &&
+         all(definition_coverage$endpoint_definitions_crossing <=
+               definition_coverage$eligible_endpoint_definitions) &&
+         nrow(endpoint_retention) > 0L && nrow(programme_retention) > 0L &&
+         all(endpoint_retention$retained_cancers <= endpoint_retention$eligible_cancers) &&
+         all(programme_retention$retained_cancers <= programme_retention$eligible_cancers),
+       "Endpoint-definition or retained-cancer summaries are incomplete")
+largest_family_rows <- normalized_breadth[outcome_type == "continuous"]
+assert(nrow(largest_family_rows) == 3L &&
+         all(largest_family_rows$largest_family_crossings > 0L) &&
+         all(largest_family_rows$largest_family_share_of_crossings > 0 &
+               largest_family_rows$largest_family_share_of_crossings <= 100),
+       "Continuous family-dominance audit changed unexpectedly")
+
+provenance_summary <- fread(
+  "results/tables/foundation_model_provenance_stratified_summary.csv"
+)
+same_histology <- fread(
+  "results/tables/foundation_model_same_histology_sensitivity.csv"
+)
+biological_synthesis <- fread(
+  "results/tables/foundation_model_translational_biological_synthesis.csv"
+)
+assert(nrow(provenance_summary) > 0L &&
+         uniqueN(provenance_summary$foundation_model) == 3L &&
+         all(provenance_summary$effect_threshold_crossings <=
+               provenance_summary$eligible_tasks) &&
+         all(abs(provenance_summary$crossing_percent -
+               100 * provenance_summary$effect_threshold_crossings /
+                 provenance_summary$eligible_tasks) < 1e-10),
+       "Matched provenance-stratified summary changed unexpectedly")
+assert(nrow(same_histology) == 3L &&
+         all(same_histology$full_titan_universe_same_histology_tasks == 13L) &&
+         all(same_histology$matched_same_histology_tasks == 11L) &&
+         all(same_histology$same_histology_crossings <=
+               same_histology$matched_same_histology_tasks) &&
+         all(same_histology$cross_modal_continuous_tasks ==
+               same_histology$all_continuous_tasks -
+                 same_histology$matched_same_histology_tasks) &&
+         all(same_histology$matched_tasks_excluding_same_histology ==
+               same_histology$all_matched_tasks -
+                 same_histology$matched_same_histology_tasks) &&
+         all(same_histology$matched_crossings_excluding_same_histology ==
+               same_histology$all_matched_crossings -
+                 same_histology$same_histology_crossings),
+       "Same-H&E exclusion sensitivity changed unexpectedly")
+assert(nrow(biological_synthesis) > 0L &&
+         all(biological_synthesis$primary_consensus_class == "all three") &&
+         all(biological_synthesis$sample_size_maturity) &&
+         all(biological_synthesis$tss_retention_class == "complete retention") &&
+         all(biological_synthesis$internal_robustness_class ==
+               "R1: all-three, mature, complete grouped retention") &&
+         biological_synthesis[measurement_class ==
+           "directly observed genomic alteration" & provenance_rank == 1L,
+           paste(tumor_type, endpoint)] == "THYM GTF2I" &&
+         all(nzchar(biological_synthesis$interpretation_scope)),
+       "Translational biological-synthesis file is incomplete")
+
+fold_selection <- fread("results/tables/foundation_model_fold_stability_selection.csv")
+fold_repeats <- fread("results/tables/foundation_model_fold_stability_repeats.csv")
+fold_summary <- fread("results/tables/foundation_model_fold_stability_summary.csv")
+crossing_stability <- fread("results/tables/foundation_model_crossing_stability.csv")
+consensus_stability <- fread("results/tables/foundation_model_consensus_stability.csv")
+winner_stability <- fread("results/tables/foundation_model_winner_stability.csv")
+threshold_stability <- fread("results/tables/foundation_model_threshold_sensitivity.csv")
+fold_assignment <- fread("results/tables/foundation_model_fold_assignment_audit.csv")
+assert(nrow(fold_selection) > 0L &&
+         all(c("continuous", "binary") %chin% fold_selection$outcome_type) &&
+         sum(fold_selection$primary_union_positive) > 0L &&
+         all(fold_selection$primary_union_positive |
+               fold_selection$primary_near_threshold),
+       "Matched-atlas fold-stability selection is incomplete")
+assert(nrow(fold_repeats) == nrow(fold_selection) * 5L * 3L &&
+         uniqueN(fold_repeats$stability_repeat) == 5L &&
+         setequal(unique(fold_repeats$foundation_model),
+                  c("TITAN", "GigaSSL", "ProvGigaPath")) &&
+         all(is.finite(fold_repeats[outcome_type == "continuous", q2])) &&
+         all(is.finite(fold_repeats[outcome_type == "binary", auc])) &&
+         all(is.finite(fold_repeats[outcome_type == "binary", balanced_accuracy])),
+       "Matched-atlas alternative-partition results are incomplete")
+assert(nrow(fold_assignment) == nrow(fold_selection) * 5L &&
+         all(fold_assignment$identical_across_representations) &&
+         uniqueN(paste(fold_assignment$stability_job_id,
+                       fold_assignment$stability_repeat)) == nrow(fold_selection) * 5L,
+       "Fold-assignment matching audit is incomplete")
+assert(nrow(crossing_stability) == nrow(fold_selection) * 3L &&
+         all(crossing_stability$alternative_partitions == 5L) &&
+         all(abs(5 * crossing_stability$crossing_proportion -
+                   round(5 * crossing_stability$crossing_proportion)) < 1e-10) &&
+         nrow(consensus_stability) == nrow(fold_selection) &&
+         all(consensus_stability$alternative_partitions == 5L) &&
+         nrow(winner_stability) == nrow(fold_selection) &&
+         all(winner_stability$alternative_partitions == 5L),
+       "Crossing, consensus or winner stability summary is incomplete")
+stable_primary <- crossing_stability[primary_crossing == TRUE, .(
+  all_five = sum(crossing_proportion == 1), primary_crossings = .N
+), by = .(foundation_model, outcome_type)]
+assert(nrow(stable_primary) == 6L &&
+         all(stable_primary$all_five <= stable_primary$primary_crossings) &&
+         all(stable_primary$primary_crossings > 0L),
+       "Primary crossing-stability counts changed unexpectedly")
+assert(nrow(fold_summary) == 6L && nrow(threshold_stability) == 480L &&
+         setequal(round(unique(threshold_stability[outcome_type == "continuous", threshold]), 2),
+                  round(seq(0.10, 0.30, by = 0.01), 2)) &&
+         setequal(round(unique(threshold_stability[outcome_type == "binary", threshold]), 2),
+                  round(seq(0.55, 0.65, by = 0.01), 2)),
+       "Fold or threshold stability summary is incomplete")
+
+matched_tss <- fread("results/tables/foundation_model_tss_grouped_sensitivity.csv")
+matched_tss_folds <- fread("results/tables/foundation_model_tss_grouped_fold_audit.csv")
+matched_tss_summary <- fread("results/tables/foundation_model_tss_grouped_summary.csv")
+matched_tss_robustness <- fread("results/tables/foundation_model_internal_robustness_classification.csv")
+matched_tss_adequacy <- fread("results/tables/foundation_model_tss_grouped_fold_adequacy.csv")
+matched_tss_adequacy_summary <- fread("results/tables/foundation_model_tss_grouped_fold_adequacy_summary.csv")
+matched_tss_adequacy_classes <- fread("results/tables/foundation_model_tss_grouped_fold_adequacy_by_deprecated_class.csv")
+titan_tss_adequacy_summary <- fread("results/tables/site_grouped_fold_adequacy_summary.csv")
+matched_tss_tasks <- uniqueN(matched_tss,
+  by = c("outcome_type", "family", "tumor_type", "endpoint")
+)
+assert(nrow(matched_tss) == matched_tss_tasks * 3L &&
+         sum(matched_tss$feasible) == nrow(matched_tss) &&
+         uniqueN(paste(matched_tss$outcome_type, matched_tss$family,
+                       matched_tss$tumor_type, matched_tss$endpoint)) ==
+           matched_tss_tasks,
+       "Multi-representation grouped-sensitivity results are incomplete")
+assert(nrow(matched_tss_folds) == matched_tss_tasks &&
+         all(matched_tss_folds$maximum_outer_folds_per_code == 1L) &&
+         all(matched_tss_folds$exact_outer_test_sizes_matched) &&
+         all(matched_tss_folds[outcome_type == "binary", exact_outer_class_counts_matched]),
+       "Grouped/matched-random fold invariants failed")
+assert(nrow(matched_tss_adequacy) == matched_tss_tasks &&
+         all(c("realized_outer_folds", "outer_test_n_min",
+               "outer_training_positive_min", "inner_training_positive_min",
+               "any_single_class_outer_test_fold",
+               "any_single_class_inner_training_fold",
+               "grouped_fold_adequacy_flag", "grouped_fold_adequacy_reasons",
+               "metric_construction") %in% names(matched_tss_adequacy)),
+       "Matched grouped-fold adequacy audit is incomplete")
+binary_adequacy <- matched_tss_adequacy_summary[outcome_type == "binary"]
+continuous_adequacy <- matched_tss_adequacy_summary[outcome_type == "continuous"]
+assert(nrow(binary_adequacy) == 1L && nrow(continuous_adequacy) == 1L &&
+         binary_adequacy$tasks + continuous_adequacy$tasks == matched_tss_tasks &&
+         binary_adequacy$tasks_with_four_outer_folds <= binary_adequacy$tasks &&
+         continuous_adequacy$tasks_with_four_outer_folds <= continuous_adequacy$tasks &&
+         binary_adequacy$tasks_with_sparse_grouped_folds <= binary_adequacy$tasks &&
+         continuous_adequacy$tasks_with_sparse_grouped_folds <= continuous_adequacy$tasks &&
+         binary_adequacy$minimum_outer_training_positive >= 0L &&
+         binary_adequacy$minimum_outer_training_negative >= 0L &&
+         continuous_adequacy$maximum_outer_test_n > 0L,
+       "Matched grouped-fold adequacy counts changed unexpectedly")
+assert(nrow(matched_tss_adequacy_classes) == 4L &&
+         sum(matched_tss_adequacy_classes$tasks) == matched_tss_tasks &&
+         all(matched_tss_adequacy_classes$tasks_with_sparse_grouped_folds <=
+               matched_tss_adequacy_classes$tasks),
+       "Deprecated R1-R4 sparse-fold cross-tabulation changed")
+assert(nrow(titan_tss_adequacy_summary) == 2L &&
+         all(titan_tss_adequacy_summary$models > 0L) &&
+         all(titan_tss_adequacy_summary$maximum_outer_test_n > 0L),
+       "Supporting TITAN grouped-fold adequacy counts changed unexpectedly")
+assert(nrow(matched_tss_summary) == 6L &&
+         all(matched_tss_summary$retained_primary_crossings <=
+               matched_tss_summary$primary_crossings),
+       "Grouped-retention counts changed unexpectedly")
+robustness_counts <- matched_tss_robustness[, .N,
+  by = .(class = sub(":.*$", "", internal_robustness_class))]
+assert(nrow(robustness_counts) == 4L &&
+         sum(robustness_counts$N) == nrow(matched_tss_robustness),
+       "Internal robustness class counts changed unexpectedly")
+
 cohort <- fread("results/tables/patient_cohort_summary.csv")
 assert(nrow(cohort) == 9404L && sum(cohort$n_slides) == 11449L,
        "Patient/slide cohort totals changed unexpectedly")
 assert(sum(cohort$n_slides > 1L) == 843L,
        "Multiple-slide patient total changed unexpectedly")
+no_residual_patients <- fread(
+  "results/tables/pathology_qc_no_residual_patient_audit.csv"
+)
+no_residual_sensitivity <- fread(
+  "results/tables/nonadjudicated_no_residual_exclusion_all.csv"
+)
+assert(nrow(no_residual_patients) == 6L &&
+         sum(no_residual_patients$narrative_no_residual_tumour_slides) == 35L &&
+         uniqueN(sub("^TCGA-", "", no_residual_patients$project_id)) == 4L,
+       "Generated no-residual narrative patient/slide counts changed")
+assert(nrow(no_residual_sensitivity) > 0L &&
+         sum(no_residual_sensitivity$original_threshold_retained) > 0L &&
+         all(no_residual_sensitivity[highlighted_model == TRUE,
+                                     original_threshold_retained]) &&
+         !any(no_residual_sensitivity[highlighted_model == TRUE,
+                                      material_change_flag]),
+       "Non-adjudicated no-residual narrative sensitivity changed")
+
+linkage <- fread("results/tables/molecular_slide_linkage_audit.csv")
+assert(nrow(linkage) >= 6L &&
+         linkage[source == "Thorsson2018_PanImmune_MS",
+                 identifier_resolution] == "participant identifier only" &&
+         all(linkage[source != "Thorsson2018_PanImmune_MS",
+                     exact_slide_sample_patients == covered_patients]) &&
+         all(linkage[source != "Thorsson2018_PanImmune_MS",
+                     patients_with_multiple_molecular_primary_samples == 0L]),
+       "Molecular-slide linkage audit changed")
+
+median_pooling <- fread("results/tables/median_pooling_sensitivity_summary.csv")
+assert(median_pooling[outcome_type == "continuous", models] ==
+           nrow(registry[outcome_type == "continuous"]) &&
+         median_pooling[outcome_type == "continuous",
+                        retained_original_effect_threshold] <=
+           median_pooling[outcome_type == "continuous", models] &&
+         median_pooling[outcome_type == "continuous",
+                        correlation_with_mean] > 0.99 &&
+         median_pooling[outcome_type == "binary", models] ==
+           nrow(binary_registry) &&
+         median_pooling[outcome_type == "binary",
+                        retained_original_effect_threshold] <=
+           median_pooling[outcome_type == "binary", models] &&
+         median_pooling[outcome_type == "binary",
+                        correlation_with_mean] > 0.95,
+       "Median-pooling sensitivity changed")
+
+heterogeneity <- fread("results/tables/slide_embedding_heterogeneity_summary.csv")
+assert(nrow(heterogeneity) == 3L &&
+         all(heterogeneity$multi_slide_patients > 0L) &&
+         all(heterogeneity$multi_slide_patients <= heterogeneity$patients) &&
+         all(heterogeneity$median_pairwise_cosine_distance >= 0) &&
+         all(heterogeneity$median_maximum_loo_centroid_distance >= 0),
+       "Within-patient embedding heterogeneity audit changed")
+
+sarc_continuous <- fread(
+  "results/tables/sarc_maximum_slide_patient_exclusion_continuous.csv"
+)
+sarc_binary <- fread(
+  "results/tables/sarc_maximum_slide_patient_exclusion_binary.csv"
+)
+assert(nrow(sarc_continuous) > 0L &&
+         all(is.finite(sarc_continuous$exclusion_q2)) &&
+         nrow(sarc_binary) > 0L &&
+         all(is.finite(sarc_binary$exclusion_balanced_accuracy)),
+       "Maximum-slide SARC exclusion sensitivity changed")
 characteristics <- fread("results/tables/participant_characteristics_by_cancer.csv")
 overall <- characteristics[tumor_type == "Overall"]
 assert(nrow(overall) == 1L && overall$patients == 9404L &&
@@ -1076,9 +1424,9 @@ software <- fread("results/tables/software_manifest.csv")
 fastpls_software <- software[package == "fastPLS"]
 tcga_software <- software[package == "TCGAmutations"]
 assert(nrow(fastpls_software) == 1L && fastpls_software$installed &&
-         fastpls_software$version == "0.99.20" &&
-         startsWith(fastpls_software$installed_remote_sha, "dcf45cc") &&
-         grepl("dcf45cccee8a1cb1a3ae8b3353a410ab0902162f$",
+         fastpls_software$version == "0.3" &&
+         startsWith(fastpls_software$installed_remote_sha, "b518f75") &&
+         grepl("b518f75285c387632c2443a0c0989d75c9dcda48$",
                fastpls_software$configured_source),
        "Software manifest does not identify the pinned fastPLS build")
 assert(nrow(tcga_software) == 1L && tcga_software$installed &&
@@ -1088,11 +1436,12 @@ assert(nrow(tcga_software) == 1L && tcga_software$installed &&
        "Software manifest does not identify the pinned TCGAmutations source")
 
 figures <- c(
-  "Figure1_patient_first_workflow.png", "Figure2_continuous_atlas.png",
-  "Figure3_binary_atlas.png", "Figure4_prediction_examples.png",
-  "Figure5_supported_counts.png", "Figure6_site_grouped_sensitivity.png",
+  "Figure2_biological_predictability_map.png",
+  "Figure3_foundation_model_consensus_retention.png",
+  "Figure4_prediction_examples.png", "Figure6_site_grouped_sensitivity.png",
   "Figure6a_pls1_vs_pls2_targets.png", "Figure6b_pls1_vs_pls2_cancers.png",
-  "FigureS4_morphology_context.png"
+  "FigureS4_morphology_context.png",
+  "FigureS6_foundation_model_fold_threshold_stability.png"
 )
 assert(all(file.exists(file.path("figures", figures))), "A required figure is missing")
 

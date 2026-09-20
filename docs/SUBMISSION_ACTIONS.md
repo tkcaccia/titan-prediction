@@ -1,19 +1,31 @@
-# Author actions before submission
+# Author actions required before submission
 
-The computational and manuscript outputs intentionally leave the following
-items for author confirmation rather than inventing administrative details:
+The generated manuscript deliberately does not invent the following information.
 
-1. Supply email addresses for Martin Ocharo and Ekene Emmanuel Nweke.
-2. Supply the ethics/waiver wording and committee reference appropriate for
-   the institution's secondary use of public, de-identified TCGA data.
-3. Confirm funding, competing interests, author contributions and any people
-   named in acknowledgements.
-4. Archive the published repository
-   (`https://github.com/tkcaccia/titan-prediction`) with a persistent DOI
-   (for example through Zenodo) before submission.
-5. Obtain written permission or a compatible licence before publicly releasing
-   fitted TITAN-derived `.rds` model objects. The code, registry and fitting
-   workflow can be public immediately.
-6. Identify an independent cohort with compatible TITAN embeddings and the
-   required endpoints if external validation is to be claimed. The present
-   manuscript correctly describes all estimates as internal TCGA validation.
+1. Confirm the competing-interests declaration.
+2. Supply the complete funding statement, including grant numbers.
+3. Approve a CRediT contribution statement for every author.
+4. Commit the synchronized analysis, tables, figures, manuscript and package-source snapshot.
+5. Create a versioned GitHub release from that exact commit and archive it with Zenodo or an equivalent repository.
+6. Insert the resulting release tag, immutable commit and DOI in the manuscript and data-availability statement.
+
+The current working tree is not an archival release and must not be cited as one.
+
+## Current release gates
+
+The synchronized changes are staged in three green, mergeable pull requests:
+
+1. `tkcaccia/titan-prediction` pull request 1.
+2. `tkcaccia/PathoFMPred` pull request 1.
+3. `tkcaccia/PathoFMPred-private` pull request 1.
+
+They must be merged only after author approval. The public package is licensed
+under MIT for contributor-authored source code and documentation. The fitted
+objects are excluded from that grant. A `models-v2` release must be created
+from the audited Giga-SSL and Prov-GigaPath collections before the public
+download function can work. The TITAN collection must remain private unless
+written redistribution permission is obtained from the upstream rights holder.
+
+The existing `models-v1` release contains an older fitted-object snapshot and
+does not match the checksums pinned by the current package. It must not be
+presented as the model release for version 0.3.0.

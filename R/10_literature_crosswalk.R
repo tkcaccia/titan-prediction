@@ -60,7 +60,7 @@ setorder(pair_summary, current_status, current_cancer, gene)
 fwrite(pair_summary, "results/tables/prior_mutation_literature_pair_summary.csv")
 
 # Report-level accuracy crosswalk. Prior studies predominantly reported AUROC,
-# whereas the current prespecified classification metric is balanced accuracy;
+# whereas the current documented classification metric is balanced accuracy;
 # both values are retained side-by-side but must not be subtracted or treated as
 # estimates of the same performance quantity.
 accuracy_comparison <- out[current_status %in% c(

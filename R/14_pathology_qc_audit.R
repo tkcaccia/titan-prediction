@@ -94,10 +94,39 @@ patient_audit[, within_patient_slide_weight := 1 / n_slides]
 setorder(patient_audit, -n_slides, patient)
 fwrite(patient_audit, "results/tables/pathology_qc_patient_multiplicity_audit.csv")
 
+# Keep the patient denominator visible alongside the slide denominator.  These
+# rows are same-image generated-text flags, not pathology-adjudicated labels.
+no_residual_patients <- patient_audit[narrative_no_residual_tumour_slides > 0]
+no_residual_patients[, `:=`(
+  narrative_flag_status = "non-adjudicated generated-text flag",
+  used_for_primary_exclusion_or_weighting = FALSE
+)]
+setorder(no_residual_patients, project_id, patient)
+fwrite(
+  no_residual_patients,
+  "results/tables/pathology_qc_no_residual_patient_audit.csv"
+)
+
+patient_mention_summary <- data.table(
+  flagged_patients = nrow(no_residual_patients),
+  flagged_slides = sum(no_residual_patients$narrative_no_residual_tumour_slides),
+  affected_cancers = uniqueN(no_residual_patients$project_id),
+  patient_ids = paste(no_residual_patients$patient, collapse = ";"),
+  cancer_codes = paste(sort(unique(no_residual_patients$project_id)), collapse = ";"),
+  narrative_source = "TITAN-generated TCGA-Slide-Reports text",
+  pathology_adjudicated = FALSE,
+  used_for_primary_exclusion_or_weighting = FALSE
+)
+fwrite(
+  patient_mention_summary,
+  "results/tables/pathology_qc_no_residual_patient_summary.csv"
+)
+
 max_patient <- patient_audit[1]
 stopifnot(max_patient$n_slides == 30L)
 fwrite(max_patient, "results/tables/pathology_qc_maximum_slide_patient.csv")
 
 cat("Pathology-QC fields audited; narrative mentions are not adjudicated labels.\n")
 print(mention_summary)
+print(patient_mention_summary)
 print(max_patient)

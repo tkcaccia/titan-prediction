@@ -1,0 +1,67 @@
+foundation_model,outcome_type,family,definition_group,eligible_cancers,retained_cancers,retained_cancer_percent,retained_cancer_codes
+GigaSSL,binary,aneuploidy,Genome-doubling call,21,16,76.1904761904762,ACC;BLCA;CESC;COAD;HNSC;KIRC;LIHC;LUAD;LUSC;OV;PAAD;PRAD;READ;SARC;STAD;UCEC
+ProvGigaPath,binary,aneuploidy,Genome-doubling call,21,17,80.952380952381,ACC;BLCA;CESC;COAD;GBM;HNSC;KIRC;LIHC;LUAD;LUSC;OV;PAAD;READ;SARC;SKCM;STAD;UCEC
+TITAN,binary,aneuploidy,Genome-doubling call,21,17,80.952380952381,BLCA;CESC;COAD;GBM;HNSC;KIRC;LIHC;LUAD;LUSC;OV;PAAD;PCPG;PRAD;SARC;SKCM;STAD;UCEC
+GigaSSL,binary,driver_mutation,Gene-specific somatic mutation,24,20,83.3333333333333,BLCA;CESC;COAD;GBM;HNSC;KIRC;LGG;LIHC;LUAD;LUSC;OV;PRAD;READ;SARC;SKCM;STAD;TGCT;THCA;THYM;UCEC
+ProvGigaPath,binary,driver_mutation,Gene-specific somatic mutation,24,18,75,BLCA;COAD;GBM;HNSC;KIRC;LGG;LIHC;LUAD;LUSC;OV;PAAD;READ;SARC;STAD;TGCT;THCA;THYM;UCEC
+TITAN,binary,driver_mutation,Gene-specific somatic mutation,24,23,95.8333333333333,BLCA;CESC;COAD;GBM;HNSC;KICH;KIRC;LGG;LIHC;LUAD;LUSC;OV;PAAD;PRAD;READ;SARC;SKCM;STAD;TGCT;THCA;THYM;UCEC;UVM
+GigaSSL,binary,fusion,Any fusion call,24,9,37.5,BLCA;DLBC;LGG;LIHC;MESO;SARC;THCA;THYM;UCEC
+ProvGigaPath,binary,fusion,Any fusion call,24,9,37.5,BLCA;DLBC;KIRP;LGG;LIHC;MESO;PRAD;THCA;UCEC
+TITAN,binary,fusion,Any fusion call,24,10,41.6666666666667,BLCA;COAD;KIRP;LGG;LIHC;LUAD;PAAD;READ;THCA;UCEC
+GigaSSL,binary,fusion,Recurrent fusion-pair call,2,2,100,PRAD;THCA
+ProvGigaPath,binary,fusion,Recurrent fusion-pair call,2,1,50,PRAD
+TITAN,binary,fusion,Recurrent fusion-pair call,2,2,100,PRAD;THCA
+GigaSSL,binary,microsatellite_instability,MSI threshold status,3,3,100,COAD;STAD;UCEC
+ProvGigaPath,binary,microsatellite_instability,MSI threshold status,3,3,100,COAD;STAD;UCEC
+TITAN,binary,microsatellite_instability,MSI threshold status,3,3,100,COAD;STAD;UCEC
+GigaSSL,binary,microsatellite_instability_sensitivity,MSI threshold status,3,2,66.6666666666667,COAD;STAD
+ProvGigaPath,binary,microsatellite_instability_sensitivity,MSI threshold status,3,3,100,COAD;STAD;UCEC
+TITAN,binary,microsatellite_instability_sensitivity,MSI threshold status,3,3,100,COAD;STAD;UCEC
+GigaSSL,binary,oncogenic_pathway,Oncogenic-pathway alteration,24,20,83.3333333333333,BLCA;COAD;ESCA;GBM;HNSC;KIRC;KIRP;LGG;LIHC;LUAD;LUSC;MESO;PCPG;READ;SARC;STAD;TGCT;THCA;UCEC;UCS
+ProvGigaPath,binary,oncogenic_pathway,Oncogenic-pathway alteration,24,20,83.3333333333333,BLCA;COAD;ESCA;GBM;HNSC;KIRP;LGG;LIHC;LUAD;LUSC;MESO;PCPG;PRAD;READ;SARC;STAD;TGCT;THCA;UCEC;UCS
+TITAN,binary,oncogenic_pathway,Oncogenic-pathway alteration,24,22,91.6666666666667,BLCA;CESC;COAD;ESCA;GBM;HNSC;KICH;KIRC;KIRP;LGG;LIHC;LUAD;LUSC;PCPG;PRAD;READ;SARC;STAD;TGCT;THCA;UCEC;UCS
+GigaSSL,continuous,aneuploidy,Arm-level aneuploidy burden,28,2,7.14285714285714,COAD;THYM
+ProvGigaPath,continuous,aneuploidy,Arm-level aneuploidy burden,28,4,14.2857142857143,COAD;KIRP;STAD;UCEC
+TITAN,continuous,aneuploidy,Arm-level aneuploidy burden,28,5,17.8571428571429,COAD;LGG;LUAD;STAD;UCEC
+GigaSSL,continuous,fusion,Fusion burden,28,0,0,""
+ProvGigaPath,continuous,fusion,Fusion burden,28,0,0,""
+TITAN,continuous,fusion,Fusion burden,28,2,7.14285714285714,LGG;UCEC
+GigaSSL,continuous,microsatellite_instability,MSI score,28,1,3.57142857142857,COAD
+ProvGigaPath,continuous,microsatellite_instability,MSI score,28,2,7.14285714285714,COAD;STAD
+TITAN,continuous,microsatellite_instability,MSI score,28,1,3.57142857142857,COAD
+GigaSSL,continuous,rna_pathway_activity,Focused metabolic-pathway activity,28,4,14.2857142857143,KIRP;LGG;TGCT;THCA
+ProvGigaPath,continuous,rna_pathway_activity,Focused metabolic-pathway activity,28,6,21.4285714285714,KICH;KIRP;SARC;TGCT;THCA;THYM
+TITAN,continuous,rna_pathway_activity,Focused metabolic-pathway activity,28,8,28.5714285714286,KIRP;LGG;LIHC;PAAD;SARC;TGCT;THCA;THYM
+GigaSSL,continuous,rna_pathway_activity,MSigDB Hallmark activity,28,23,82.1428571428571,ACC;BLCA;CESC;COAD;HNSC;KICH;KIRC;KIRP;LGG;LIHC;LUAD;LUSC;MESO;OV;PAAD;PCPG;PRAD;SARC;STAD;TGCT;THCA;THYM;UCS
+ProvGigaPath,continuous,rna_pathway_activity,MSigDB Hallmark activity,28,25,89.2857142857143,ACC;BLCA;CESC;COAD;HNSC;KIRC;KIRP;LGG;LIHC;LUAD;LUSC;MESO;OV;PAAD;PCPG;PRAD;READ;SARC;SKCM;STAD;TGCT;THCA;THYM;UCEC;UCS
+TITAN,continuous,rna_pathway_activity,MSigDB Hallmark activity,28,26,92.8571428571429,ACC;BLCA;CESC;COAD;ESCA;GBM;HNSC;KICH;KIRC;KIRP;LGG;LIHC;LUAD;LUSC;MESO;OV;PAAD;PCPG;PRAD;SARC;STAD;TGCT;THCA;THYM;UCEC;UCS
+GigaSSL,continuous,thorsson,CIBERSORT immune-cell fraction,28,3,10.7142857142857,TGCT;THYM;UCS
+ProvGigaPath,continuous,thorsson,CIBERSORT immune-cell fraction,28,3,10.7142857142857,KIRP;TGCT;THYM
+TITAN,continuous,thorsson,CIBERSORT immune-cell fraction,28,7,25,KIRP;LUSC;SARC;STAD;TGCT;THCA;THYM
+GigaSSL,continuous,thorsson,Genomic-context score,28,5,17.8571428571429,COAD;KICH;SARC;STAD;THYM
+ProvGigaPath,continuous,thorsson,Genomic-context score,28,5,17.8571428571429,COAD;KICH;LUAD;STAD;UCEC
+TITAN,continuous,thorsson,Genomic-context score,28,10,35.7142857142857,COAD;KIRP;LIHC;LUAD;PAAD;PRAD;SARC;STAD;THYM;UCEC
+GigaSSL,continuous,thorsson,H&E-derived TIL regional fraction,11,11,100,BLCA;CESC;COAD;LUAD;LUSC;PAAD;PRAD;READ;SKCM;STAD;UCEC
+ProvGigaPath,continuous,thorsson,H&E-derived TIL regional fraction,11,11,100,BLCA;CESC;COAD;LUAD;LUSC;PAAD;PRAD;READ;SKCM;STAD;UCEC
+TITAN,continuous,thorsson,H&E-derived TIL regional fraction,11,10,90.9090909090909,BLCA;CESC;COAD;LUAD;LUSC;PRAD;READ;SKCM;STAD;UCEC
+GigaSSL,continuous,thorsson,Immune-repertoire diversity,28,4,14.2857142857143,SKCM;TGCT;THCA;THYM
+ProvGigaPath,continuous,thorsson,Immune-repertoire diversity,28,4,14.2857142857143,SKCM;TGCT;THCA;THYM
+TITAN,continuous,thorsson,Immune-repertoire diversity,28,8,28.5714285714286,ACC;KIRC;LUAD;SARC;SKCM;TGCT;THCA;THYM
+GigaSSL,continuous,thorsson,Intratumour-heterogeneity score,27,0,0,""
+ProvGigaPath,continuous,thorsson,Intratumour-heterogeneity score,27,0,0,""
+TITAN,continuous,thorsson,Intratumour-heterogeneity score,27,1,3.7037037037037,THYM
+GigaSSL,continuous,thorsson,Methylation-derived leukocyte fraction,27,10,37.037037037037,BLCA;COAD;KIRC;KIRP;LIHC;LUAD;SARC;SKCM;TGCT;THCA
+ProvGigaPath,continuous,thorsson,Methylation-derived leukocyte fraction,27,11,40.7407407407407,BLCA;CESC;COAD;KIRC;KIRP;LIHC;LUAD;SARC;SKCM;TGCT;THCA
+TITAN,continuous,thorsson,Methylation-derived leukocyte fraction,27,14,51.8518518518519,BLCA;GBM;HNSC;KIRC;KIRP;LGG;LIHC;LUAD;LUSC;SARC;SKCM;TGCT;THCA;UCEC
+GigaSSL,continuous,thorsson,Predicted neoantigen burden,27,2,7.40740740740741,COAD;THYM
+ProvGigaPath,continuous,thorsson,Predicted neoantigen burden,27,2,7.40740740740741,COAD;LUAD
+TITAN,continuous,thorsson,Predicted neoantigen burden,27,2,7.40740740740741,COAD;THYM
+GigaSSL,continuous,thorsson,Purity-derived stromal fraction,27,8,29.6296296296296,BLCA;KIRP;LIHC;LUAD;LUSC;SKCM;TGCT;THYM
+ProvGigaPath,continuous,thorsson,Purity-derived stromal fraction,27,8,29.6296296296296,BLCA;KIRP;LIHC;LUAD;LUSC;SKCM;TGCT;THYM
+TITAN,continuous,thorsson,Purity-derived stromal fraction,27,11,40.7407407407407,BLCA;GBM;HNSC;KIRP;LIHC;LUAD;LUSC;SARC;SKCM;TGCT;THYM
+GigaSSL,continuous,thorsson,RNA-expression signature,28,18,64.2857142857143,BLCA;COAD;HNSC;KICH;KIRC;KIRP;LGG;LIHC;LUAD;MESO;OV;PRAD;SARC;SKCM;STAD;TGCT;THCA;THYM
+ProvGigaPath,continuous,thorsson,RNA-expression signature,28,21,75,ACC;BLCA;COAD;HNSC;KICH;KIRC;KIRP;LGG;LIHC;LUAD;LUSC;OV;PCPG;PRAD;READ;SARC;SKCM;STAD;TGCT;THCA;THYM
+TITAN,continuous,thorsson,RNA-expression signature,28,23,82.1428571428571,BLCA;CESC;COAD;ESCA;GBM;HNSC;KICH;KIRC;KIRP;LGG;LIHC;LUAD;LUSC;MESO;OV;PRAD;SARC;SKCM;STAD;TGCT;THCA;THYM;UCEC
+GigaSSL,continuous,thorsson,Somatic mutation rate,28,0,0,""
+ProvGigaPath,continuous,thorsson,Somatic mutation rate,28,3,10.7142857142857,LUAD;STAD;THYM
+TITAN,continuous,thorsson,Somatic mutation rate,28,5,17.8571428571429,COAD;LUAD;STAD;THYM;UCEC

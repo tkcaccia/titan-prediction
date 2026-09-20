@@ -7,10 +7,10 @@ suppressPackageStartupMessages({
 source("R/utils.R")
 cfg <- load_project_config()
 backend <- tolower(Sys.getenv("TITAN_BACKEND", "cpu"))
-options(fastPLS.backend = backend)
+options(backend = backend)
 cohort <- readRDS("data/processed/patient_cohort.rds")
 
-# Sensitivity analysis only. Mean pooling is the prespecified primary input.
+# Sensitivity analysis only. Mean pooling is the documented primary input.
 # Here the lexicographically first eligible diagnostic slide is substituted,
 # while preserving patient order, endpoints, seeds and all nested-CV settings.
 slides <- fread(cfg$paths$titan_features)
@@ -44,9 +44,7 @@ run_continuous <- function(i) {
   keep <- !is.na(idx) & is.finite(d$value)
   fit <- pls.double.cv(
     X_first[idx[keep], , drop = FALSE], d$value[keep],
-    ncomp = cfg$analysis$components,
-    svd.method = cfg$analysis$svd_method,
-    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    ncomp = cfg$analysis$components, rsvd_oversample = cfg$analysis$rsvd_oversample,
     rsvd_power = cfg$analysis$rsvd_power,
     kfold_outer = cfg$analysis$outer_folds,
     kfold_inner = cfg$analysis$inner_folds,
@@ -76,10 +74,7 @@ run_binary <- function(i) {
   fit <- pls.double.cv(
     X_first[idx[keep], , drop = FALSE], y,
     ncomp = cfg$analysis$components,
-    classifier = "lda", lda_ridge = cfg$analysis$lda_ridge,
-    selection_metric = "balanced_accuracy",
-    svd.method = cfg$analysis$svd_method,
-    rsvd_oversample = cfg$analysis$rsvd_oversample,
+    classifier = "lda", selection = "balanced_accuracy", rsvd_oversample = cfg$analysis$rsvd_oversample,
     rsvd_power = cfg$analysis$rsvd_power,
     kfold_outer = cfg$analysis$outer_folds,
     kfold_inner = cfg$analysis$inner_folds,

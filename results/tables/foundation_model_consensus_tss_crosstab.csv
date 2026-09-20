@@ -1,0 +1,32 @@
+outcome_type,primary_consensus_class,sample_size_maturity,tss_retention_class,internal_robustness_class,tasks
+binary,all three,FALSE,complete retention,R4: limited or cohort-structure-sensitive internal evidence,10
+binary,all three,FALSE,no retention,R4: limited or cohort-structure-sensitive internal evidence,2
+binary,all three,FALSE,partial retention,R4: limited or cohort-structure-sensitive internal evidence,20
+binary,all three,TRUE,complete retention,"R1: all-three, mature, complete grouped retention",52
+binary,all three,TRUE,no retention,R4: limited or cohort-structure-sensitive internal evidence,2
+binary,all three,TRUE,partial retention,R3: mature with partial or single-representation retention,36
+binary,exactly two,FALSE,complete retention,R4: limited or cohort-structure-sensitive internal evidence,9
+binary,exactly two,FALSE,no retention,R4: limited or cohort-structure-sensitive internal evidence,9
+binary,exactly two,FALSE,partial retention,R4: limited or cohort-structure-sensitive internal evidence,15
+binary,exactly two,TRUE,complete retention,"R2: multi-representation, mature, complete grouped retention",11
+binary,exactly two,TRUE,no retention,R4: limited or cohort-structure-sensitive internal evidence,4
+binary,exactly two,TRUE,partial retention,R3: mature with partial or single-representation retention,12
+binary,representation specific,FALSE,complete retention,R4: limited or cohort-structure-sensitive internal evidence,24
+binary,representation specific,FALSE,no retention,R4: limited or cohort-structure-sensitive internal evidence,21
+binary,representation specific,TRUE,complete retention,R3: mature with partial or single-representation retention,16
+binary,representation specific,TRUE,no retention,R4: limited or cohort-structure-sensitive internal evidence,25
+continuous,all three,FALSE,no retention,R4: limited or cohort-structure-sensitive internal evidence,1
+continuous,all three,FALSE,partial retention,R4: limited or cohort-structure-sensitive internal evidence,2
+continuous,all three,TRUE,complete retention,"R1: all-three, mature, complete grouped retention",148
+continuous,all three,TRUE,no retention,R4: limited or cohort-structure-sensitive internal evidence,25
+continuous,all three,TRUE,partial retention,R3: mature with partial or single-representation retention,128
+continuous,exactly two,FALSE,complete retention,R4: limited or cohort-structure-sensitive internal evidence,1
+continuous,exactly two,FALSE,no retention,R4: limited or cohort-structure-sensitive internal evidence,7
+continuous,exactly two,FALSE,partial retention,R4: limited or cohort-structure-sensitive internal evidence,7
+continuous,exactly two,TRUE,complete retention,"R2: multi-representation, mature, complete grouped retention",28
+continuous,exactly two,TRUE,no retention,R4: limited or cohort-structure-sensitive internal evidence,39
+continuous,exactly two,TRUE,partial retention,R3: mature with partial or single-representation retention,53
+continuous,representation specific,FALSE,complete retention,R4: limited or cohort-structure-sensitive internal evidence,26
+continuous,representation specific,FALSE,no retention,R4: limited or cohort-structure-sensitive internal evidence,29
+continuous,representation specific,TRUE,complete retention,R3: mature with partial or single-representation retention,98
+continuous,representation specific,TRUE,no retention,R4: limited or cohort-structure-sensitive internal evidence,111

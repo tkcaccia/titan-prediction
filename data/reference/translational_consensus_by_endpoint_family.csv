@@ -1,0 +1,12 @@
+outcome_type,family,retained_all_three,retained_two,unique_TITAN,unique_GigaSSL,unique_ProvGigaPath,no_crossing
+binary,aneuploidy,13,5,1,0,0,2
+binary,driver_mutation,59,33,37,6,8,74
+binary,fusion,6,4,4,2,1,9
+binary,microsatellite_instability,3,0,0,0,0,0
+binary,microsatellite_instability_sensitivity,2,1,0,0,0,0
+binary,oncogenic_pathway,39,17,19,6,2,73
+continuous,aneuploidy,1,3,3,1,1,75
+continuous,fusion,0,0,2,0,0,26
+continuous,microsatellite_instability,1,1,0,0,1,53
+continuous,rna_pathway_activity,209,97,153,6,21,970
+continuous,thorsson,93,34,65,3,8,1136
